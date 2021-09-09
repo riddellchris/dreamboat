@@ -1,0 +1,9 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+
+echo "<a class='dulled_nav about_us nav-links wide-nav";
+	if($_SESSION['user_alerts_upgrades'] == 'on'){echo " alert ";}
+	echo "' style='";	
+	if(check_url('/upgrades/') == 1 OR $_SESSION['primary_folder'] == 'upgrades'){echo "color:#00ff00;";}
+	echo "' title=''  href='/upgrades/'";
+echo ">upgrades</a>";

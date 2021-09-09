@@ -1,0 +1,1 @@
+[01-Mar-2021 19:55:28 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/components/controls/defaults_to_apply_for_every_user.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/account/registration/database_initialisation_processes.php on line 20

@@ -1,0 +1,110 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+
+if(	$_SESSION['secondary_folder'] != 'dreams' AND
+	$_SESSION['secondary_folder'] != 'goals' AND
+	$_SESSION['secondary_folder'] != 'milestones' AND
+	$_SESSION['secondary_folder'] != 'tasks'
+	){
+
+	echo "	<div class='item_collapsible'>Wheelhouse</div>
+		<div class='item_content'>";
+	}
+
+
+		if($_SESSION['secondary_folder'] != 'dreams'){			$show_this_type = 'dreams';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}	
+		if($_SESSION['secondary_folder'] != 'goals'){			$show_this_type = 'goals';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}				
+		if($_SESSION['secondary_folder'] != 'milestones'){		$show_this_type = 'milestones';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}				
+		if($_SESSION['secondary_folder'] != 'tasks'){			$show_this_type = 'tasks';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}	
+if(	$_SESSION['secondary_folder'] != 'dreams' AND
+	$_SESSION['secondary_folder'] != 'goals' AND
+	$_SESSION['secondary_folder'] != 'milestones' AND
+	$_SESSION['secondary_folder'] != 'tasks'
+	){	
+
+
+echo "</div>
+
+
+
+<script>
+var coll = document.getElementsByClassName('item_collapsible');
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener('click', function() {
+    this.classList.toggle('active');
+    var item_content = this.nextElementSibling;
+    if (item_content.style.display === 'block') {
+      item_content.style.display = 'none';
+    } else {
+      item_content.style.display = 'block';
+    }
+  });
+}
+</script>
+
+<style>
+/* Style the div that is used to open and close the item_collapsible item_content */
+.item_collapsible {
+    background-color:transparent;
+ // color: red;
+  cursor: pointer;
+  padding: 18px;
+  padding-left:0px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  text-decoration:underline;
+  padding-top:40px;
+}
+
+.item_content {
+  padding: 40px 18px;
+  display: none;
+  overflow: hidden;
+}
+
+.item_collapsible:before {
+    content: ' +';
+    color: red;
+    font-weight: bold;
+    //float: left;
+   // margin-left: 5px;
+}
+.item_collapsible.active:before {
+    content: ' -';
+    color: red;
+    font-weight: bold;
+   // float: left;
+    //margin-left: 5px;
+}
+
+/* Make sure that padding behaves as expected */
+* {box-sizing:border-box}
+
+/* item_container for skill bars */
+.item_container {
+  width: 100%; /* Full width */
+  background-color: #d1f1ff; /* Grey background */
+}
+
+.skills {
+  text-align: right; /* Right-align text */
+  padding: 10px; /* Add some padding */
+  color: white; /* White text color */
+}";	
+	
+	
+		
+}
+	
+	if($_SESSION['secondary_folder'] != 'issues'){			$show_this_type = 'issues';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
+	if($_SESSION['secondary_folder'] != 'homework'){		$show_this_type = 'homework';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
+	if($_SESSION['secondary_folder'] != 'progress'){		$show_this_type = 'progress';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
+	
+if($_SESSION['dreamboat_crew'] == 'yes'){
+	if($_SESSION['secondary_folder'] != 'future_questions'){	$show_this_type = 'future_questions';	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
+}
+

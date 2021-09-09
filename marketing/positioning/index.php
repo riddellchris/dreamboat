@@ -1,0 +1,13 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/start_of_page_top_of_centering_divs.php";
+echo "	passions<br>
+	obsessions<br>
+	strengths<br>
+	idols<br>
+	rivals you don't like because
+	
+	</span>";
+//this should be for reports and learnings when we meet people// out clients meet people
+require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";

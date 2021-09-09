@@ -1,0 +1,18 @@
+[18-Jun-2021 13:01:36 UTC] PHP Parse error:  syntax error, unexpected '*', expecting end of file in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/components/menu/implementation_plan/1.1.php on line 14
+[21-Jun-2021 01:22:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function point_detailed_end() in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/market_penetration/index.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/market_penetration/index.php on line 8
+[21-Jun-2021 01:22:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function point_end() in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/market_penetration/index.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/market_penetration/index.php on line 8
+[21-Jun-2021 07:17:48 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/market_penetration/overarching_strategy.php on line 8
+[21-Jun-2021 07:20:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed() in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/market_penetration/overarching_strategy.php:12
+Stack trace:
+#0 /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/market_penetration/index.php(4): require()
+#1 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/market_penetration/overarching_strategy.php on line 12
+[21-Jun-2021 08:06:36 UTC] PHP Fatal error:  Cannot redeclare connect_to_database() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/connect_to_database.php:6) in /home/customer/www/dreamboat.com.au/public_html/components/functions/connect_to_database.php on line 6
+[05-Jul-2021 02:00:18 UTC] PHP Parse error:  syntax error, unexpected 'hear' (T_STRING) in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/market_penetration/overarching_strategy.php on line 13
+[05-Jul-2021 02:00:55 UTC] PHP Fatal error:  Cannot redeclare connect_to_database() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/connect_to_database.php:6) in /home/customer/www/dreamboat.com.au/public_html/components/functions/connect_to_database.php on line 6

@@ -1,0 +1,160 @@
+[07-Sep-2020 20:37:58 CST6CDT] PHP Parse error:  syntax error, unexpected '.', expecting end of file in /home/staff808/public_html/knowledgebase/all/display.php on line 146
+[07-Sep-2020 20:38:07 CST6CDT] PHP Parse error:  syntax error, unexpected '.', expecting end of file in /home/staff808/public_html/knowledgebase/all/display.php on line 146
+[07-Sep-2020 21:45:16 CST6CDT] PHP Fatal error:  require(): Failed opening required '/components/navigation/non_mobile.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/components/layouts/standard_page/start.php on line 121
+[08-Sep-2020 00:41:15 CST6CDT] PHP Parse error:  syntax error, unexpected '" style='width:80%; margin-lef' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/staff808/public_html/knowledgebase/all/problem_and_solution/economic_background/display.php on line 19
+[08-Sep-2020 19:35:09 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function require_file() in /home/staff808/public_html/knowledgebase/all/display.php:5
+Stack trace:
+#0 /home/staff808/public_html/knowledgebase/all/index.php(3): require()
+#1 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/display.php on line 5
+[08-Sep-2020 19:35:54 CST6CDT] PHP Parse error:  syntax error, unexpected ')' in /home/staff808/public_html/knowledgebase/all/display.php on line 5
+[08-Sep-2020 20:01:34 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/welcome/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(298): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/welcome/display.php on line 4
+[08-Sep-2020 20:03:07 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title_close() in /home/staff808/public_html/knowledgebase/all/welcome/display.php:19
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(298): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/welcome/display.php on line 19
+[08-Sep-2020 20:03:50 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/instructions/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(299): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/instructions/display.php on line 4
+[08-Sep-2020 20:10:20 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_title_open() in /home/staff808/public_html/knowledgebase/all/problem_and_solution/a_simple_solution/index.php:3
+Stack trace:
+#0 /home/staff808/public_html/knowledgebase/all/problem_and_solution/display.php(6): require()
+#1 /home/staff808/public_html/components/functions/require_functions.php(11): require('/home/staff808/...')
+#2 /home/staff808/public_html/knowledgebase/all/display.php(303): require_file('/knowledgebase/...')
+#3 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#4 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/problem_and_solution/a_simple_solution/index.php on line 3
+[08-Sep-2020 20:11:52 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function close_title_details() in /home/staff808/public_html/knowledgebase/all/welcome/display.php:18
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(298): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/welcome/display.php on line 18
+[08-Sep-2020 20:12:35 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function close_title_details() in /home/staff808/public_html/knowledgebase/all/instructions/display.php:23
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(299): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/instructions/display.php on line 23
+[08-Sep-2020 20:13:11 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_title() in /home/staff808/public_html/knowledgebase/all/problem_and_solution/economic_background/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/knowledgebase/all/problem_and_solution/display.php(4): require()
+#1 /home/staff808/public_html/components/functions/require_functions.php(11): require('/home/staff808/...')
+#2 /home/staff808/public_html/knowledgebase/all/display.php(303): require_file('/knowledgebase/...')
+#3 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#4 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/problem_and_solution/economic_background/display.php on line 4
+[08-Sep-2020 20:14:57 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_title() in /home/staff808/public_html/knowledgebase/all/problem_and_solution/economic_background/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/knowledgebase/all/problem_and_solution/display.php(4): require()
+#1 /home/staff808/public_html/components/functions/require_functions.php(11): require('/home/staff808/...')
+#2 /home/staff808/public_html/knowledgebase/all/display.php(303): require_file('/knowledgebase/...')
+#3 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#4 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/problem_and_solution/economic_background/display.php on line 4
+[08-Sep-2020 20:16:38 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/our_model_of_productivity/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(304): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/our_model_of_productivity/display.php on line 4
+[08-Sep-2020 20:17:40 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/our_model_of_productivity/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(304): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/our_model_of_productivity/display.php on line 4
+[08-Sep-2020 20:18:11 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/causes_of_productivity_imperfections/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(305): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/causes_of_productivity_imperfections/display.php on line 4
+[08-Sep-2020 20:19:52 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/our_model_of_productivity_improvement/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(306): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/our_model_of_productivity_improvement/display.php on line 4
+[08-Sep-2020 20:21:03 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/our_model_of_productivity_improvement/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(306): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/our_model_of_productivity_improvement/display.php on line 4
+[08-Sep-2020 20:21:31 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/current_product_disclosure/display.php:5
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(307): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/current_product_disclosure/display.php on line 5
+[08-Sep-2020 20:22:51 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/future_product_intentions/display.php:5
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(308): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/future_product_intentions/display.php on line 5
+[08-Sep-2020 20:24:08 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/your_options/display.php:8
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(309): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/your_options/display.php on line 8
+[08-Sep-2020 20:24:59 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title() in /home/staff808/public_html/knowledgebase/all/contact_us/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(310): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/contact_us/display.php on line 4
+[09-Sep-2020 01:22:40 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function copy_big_title_open() in /home/staff808/public_html/knowledgebase/all/welcome/display.php:4
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(11): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(175): require_file('/knowledgebase/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/welcome/display.php on line 4
+[09-Sep-2020 18:25:16 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problem_and_solution/economic_background/include_all_scripts.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 101
+[09-Sep-2020 18:31:03 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/home/staff808/public_html/knowledgebase/all/welcome/display.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/components/functions/require_functions.php on line 11
+[09-Sep-2020 18:35:17 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/components/functions/welcome/display.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/components/functions/require_functions.php on line 9
+[09-Sep-2020 18:36:08 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problem_and_solution/display.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/components/functions/require_functions.php on line 9
+[09-Sep-2020 18:36:55 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problem_and_solution/economic_background/display.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/knowledgebase/all/problems_and_solutions/display.php on line 4
+[09-Sep-2020 18:37:45 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problem_and_solution/economic_background/interest_rate_chart/div.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/knowledgebase/all/problems_and_solutions/economic_background/display.php on line 8
+[10-Sep-2020 03:50:05 CST6CDT] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/staff808/public_html/components/layouts/standard_page/start.php on line 53
+[10-Sep-2020 17:36:04 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problems_and_solutions/economic/display.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/knowledgebase/all/problems_and_solutions/display.php on line 5
+[10-Sep-2020 17:44:32 CST6CDT] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/staff808/public_html/knowledgebase/all/problems_and_solutions/economic/display.php on line 4
+[10-Sep-2020 17:44:46 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problems_and_solutions/economic_background/display.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/knowledgebase/all/problems_and_solutions/economic/display.php on line 4
+[10-Sep-2020 17:44:56 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problems_and_solutions/economic_background/interest_rate_chart/div.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/knowledgebase/all/problems_and_solutions/economic/economic_background/display.php on line 8
+[10-Sep-2020 17:45:23 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problems_and_solutions/economic_background/interest_rate_chart/div.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/knowledgebase/all/problems_and_solutions/economic/economic_background/display.php on line 8
+[10-Sep-2020 17:46:16 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problems_and_solutions/productivity/display.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/knowledgebase/all/problems_and_solutions/display.php on line 9
+[10-Sep-2020 17:46:43 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/knowledgebase/all/problems_and_solutions/a_comprehensive_solution/display.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/knowledgebase/all/problems_and_solutions/display.php on line 28
+[12-Sep-2020 17:48:15 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function pargraph() in /home/staff808/public_html/knowledgebase/all/instructions/display.php:35
+Stack trace:
+#0 /home/staff808/public_html/components/functions/require_functions.php(9): require()
+#1 /home/staff808/public_html/knowledgebase/all/display.php(182): require_file_from_this_directory('/home/staff808/...')
+#2 /home/staff808/public_html/knowledgebase/all/index.php(3): require('/home/staff808/...')
+#3 {main}
+  thrown in /home/staff808/public_html/knowledgebase/all/instructions/display.php on line 35

@@ -1,0 +1,2 @@
+	<div style ='height:90vh;display: table; width:100%;     box-sizing: border-box; text-align:center;overflow: hidden;'>
+		<div style ='display: table-cell; vertical-align: middle;padding-bottom:20vh;'>

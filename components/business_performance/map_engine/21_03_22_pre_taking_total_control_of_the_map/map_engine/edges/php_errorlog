@@ -1,0 +1,3 @@
+[01-Mar-2021 20:29:10 CST6CDT] PHP Parse error:  syntax error, unexpected '$_GET' (T_VARIABLE) in /home/staff808/public_html/components/map_engine/edges/change_edges.php on line 5
+[01-Mar-2021 20:32:32 CST6CDT] PHP Parse error:  syntax error, unexpected '$_GET' (T_VARIABLE) in /home/staff808/public_html/components/map_engine/edges/change_edges.php on line 5
+[01-Mar-2021 22:16:05 CST6CDT] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/staff808/public_html/components/map_engine/edges/change_edges.php on line 17

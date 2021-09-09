@@ -1,0 +1,21 @@
+[17-Jun-2021 06:13:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed() in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php on line 5
+[17-Jun-2021 06:13:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed() in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php on line 5
+[21-Jun-2021 02:14:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed() in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php on line 5
+[21-Jun-2021 02:15:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed_start() in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php on line 5
+[21-Jun-2021 02:15:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed() in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php on line 5
+[21-Jun-2021 02:16:18 UTC] PHP Fatal error:  require(): Failed opening required '/knowledgebase/components/layout/pre_content.php' (include_path='.:/usr/local/php74/pear') in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/current_service/behind_the_scenes/index.php on line 3

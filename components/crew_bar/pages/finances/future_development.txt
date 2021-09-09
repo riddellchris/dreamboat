@@ -1,0 +1,2 @@
+CR 20.08.14
+While originally a separate admin element - let's leave just as a management / results component somehow

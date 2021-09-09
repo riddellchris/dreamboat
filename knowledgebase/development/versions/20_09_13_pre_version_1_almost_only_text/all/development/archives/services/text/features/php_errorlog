@@ -1,0 +1,3 @@
+[14-May-2020 22:56:35 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/text/arrows.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/content/services/text/features/index.php on line 42
+[14-May-2020 22:56:49 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/text/arrows.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/content/services/text/features/index.php on line 42
+[14-May-2020 22:56:54 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/text/arrows.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/content/services/text/features/index.php on line 42

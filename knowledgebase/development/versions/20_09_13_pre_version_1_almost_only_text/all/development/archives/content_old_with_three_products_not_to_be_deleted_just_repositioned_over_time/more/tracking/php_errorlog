@@ -1,0 +1,3 @@
+[17-May-2020 20:56:18 CST6CDT] PHP Fatal error:  Cannot redeclare sub_menu_width() (previously declared in /home/staff808/public_html/components/sub_menus/display.php:4) in /home/staff808/public_html/components/sub_menus/display.php on line 4
+[17-May-2020 20:57:36 CST6CDT] PHP Fatal error:  Cannot redeclare sub_sub_menu_width() (previously declared in /home/staff808/public_html/components/sub_menus/sub_sub_menu/display.php:7) in /home/staff808/public_html/components/sub_menus/sub_sub_menu/display.php on line 7
+[17-May-2020 21:36:07 CST6CDT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/staff808/public_html/content/more/tracking/index.php on line 7

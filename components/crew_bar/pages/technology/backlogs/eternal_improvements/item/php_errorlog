@@ -1,0 +1,3 @@
+[02-Jul-2020 06:20:35 CST6CDT] PHP Parse error:  syntax error, unexpected ';' in /home/staff808/public_html/components/layouts/items_with_sidebars/central_column.php on line 265
+[02-Jul-2020 06:21:14 CST6CDT] PHP Parse error:  syntax error, unexpected ';' in /home/staff808/public_html/components/layouts/items_with_sidebars/central_column.php on line 265
+[02-Jul-2020 06:26:37 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/admin/display_files/index.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/components/layouts/standard_page/end.php on line 8

@@ -1,0 +1,160 @@
+<script name='/components/activites/charts/' type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+           [	<?php	if($_GET['primary_folder'] == 'activities'){	echo "'Value zone', ";}        
+          		if($_GET['primary_folder'] == 'issues'){	echo "'Urgency zone', ";}  
+          		if($_GET['primary_folder'] == 'improvements'){	echo "'Difficulty zone', ";} ?>
+           	'link', 
+            <?php
+            	if($_GET['primary_folder'] == 'activities'){	echo "'Hours a week', ";}        
+          	if($_GET['primary_folder'] == 'issues'){	echo "'% Negative productivity impact', ";}  
+          	if($_GET['primary_folder'] == 'improvements'){	echo "'% improvement on productivity', ";}  
+		?>  	
+           	{type:'string', role:'tooltip', 'p': {'html': true}},
+           	{'type': 'string', 'role': 'style'}
+           ],       
+<?php
+require $_SERVER['DOCUMENT_ROOT']."/components/lists/main_sql_query.php";
+
+
+
+
+$count = 0;
+$total_time_worked = 0;
+while($row = mysqli_fetch_array($result_for_display, MYSQLI_ASSOC)){
+
+$url_string = "/".$_GET['primary_folder']."/".$row['category']."/item/display.php?primary_folder=".$_GET['primary_folder']."&secondary_folder=".$row['category']."&tertiary_folder=".$_GET['tertiary_folder']."&item_id=";
+
+	if($_GET['primary_folder'] == 'activities'){	$descriptor = "value producing activities";}        
+	if($_GET['primary_folder'] == 'issues'){	$descriptor = "urgent issues";} 
+	if($_GET['primary_folder'] == 'improvements'){	$descriptor = "difficult improvements issues";}  
+
+     //.  and then redirect as appropriate to taht Item id adjusting what is needed
+     if($row['numerical_zone'] == 'top_10_percent'){$zone_number = 95;	$zone_description = 'Top 10% of '.$descriptor;}     
+     if($row['numerical_zone'] == 'top_20_percent'){$zone_number = 85;	$zone_description = 'Top 20% of '.$descriptor;}  
+     if($row['numerical_zone'] == 'top_30_percent'){$zone_number = 75;  $zone_description = 'Top 30% of '.$descriptor;}     
+     if($row['numerical_zone'] == 'top_40_percent'){$zone_number = 65;  $zone_description = 'Top 40% of '.$descriptor;}  
+     if($row['numerical_zone'] == 'top_50_percent'){$zone_number = 55;  $zone_description = 'Top 50% of '.$descriptor;}   
+     if($row['numerical_zone'] == 'top_60_percent'){$zone_number = 45;  $zone_description = 'Top 60% of '.$descriptor;}     
+     if($row['numerical_zone'] == 'top_70_percent'){$zone_number = 35;  $zone_description = 'Top 70% of '.$descriptor;}      
+     if($row['numerical_zone'] == 'top_80_percent'){$zone_number = 25;	$zone_description = 'Top 80% of '.$descriptor;}  
+     if($row['numerical_zone'] == 'top_90_percent'){$zone_number = 15;	$zone_description = 'Top 90% of '.$descriptor;}      
+     if($row['numerical_zone'] == 'top_100_percent'){$zone_number = 5;	$zone_description = 'Bottom 10% of '.$descriptor;}       
+     
+  
+ 
+ 
+ 
+ 
+ 
+//CR 20.08.18 
+//ultimately I would much much much prefer that all this changed to really show the ones that matter with some sort of color arrangement by
+//#customizing-individual-points 
+//https://developers.google.com/chart/interactive/docs/points#customizing-individual-points 
+ 
+ 
+ 
+ 
+ 
+     $title = safely_remove_apostrophies($row['title']);
+     echo "[	".$zone_number.", 
+     		'".$url_string.$row['item_id']."', 
+     		".$row['numerical_datapoint'].", 
+     		createCustomHTMLContent('".$title."','".$zone_description."',".$row['numerical_datapoint']."),";
+//  echo "   		'point { size: 8;"; if($row['homework'] == 'yes'){echo " shape-type: star;  ";}	echo " }'";
+     echo "'point { size: 18; shape-type: star; fill-color: #a52714; }',";		
+     echo "]"; //remove this 
+
+$count ++;  
+if($count < ($number_of_results_to_display)){echo ",";}      
+$total_time_worked += $row['numerical_datapoint'];
+   
+     
+   
+?>        
+
+
+          
+<?php          
+
+}        
+?>              
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([2, 0,3]);
+
+        var options = {
+          title: '',
+          legend: 'none',
+          tooltip: { isHtml: true },
+     
+ 
+
+          
+hAxis: {
+
+          <?php
+            	if($_GET['primary_folder'] == 'activities'){	echo "title: 'Time worked per week',";}        
+          	if($_GET['primary_folder'] == 'issues'){	echo "title: 'Negative productivity impact',";}  
+          	if($_GET['primary_folder'] == 'improvements'){	echo "title: 'Potential productivity improvement',";}  
+		?>
+
+      	
+        textStyle:{color: '#281e96', fontName: 'Comfortaa'},
+        titleTextStyle: { color: '#281e96' },
+        baselineColor: '#a1a1a1',
+        gridlines: {color: '#FFFFFF'}
+    },
+vAxis: {
+
+
+          <?php
+            	if($_GET['primary_folder'] == 'activities'){	echo "title: 'Value creation zone',";}        
+          	if($_GET['primary_folder'] == 'issues'){	echo "title: 'Issue urgency zone',";}  
+          	if($_GET['primary_folder'] == 'improvements'){	echo "title: 'Difficulty of implementation zone',";}  
+		?>
+
+           textStyle:{color: '#281e96', fontName: 'Comfortaa'},
+                 titleTextStyle: { color: '#281e96' },
+           gridlines: {color: '#FFFFFF'},
+            baselineColor: '#cecece',
+      viewWindow:{
+          max:100,
+          min:0
+      }
+    }
+        };
+
+        var chart = new google.visualization.ScatterChart( 
+          document.getElementById('chart_div'));
+        chart.draw(view, options);
+
+        var selectHandler = function(e) {
+         window.location = data.getValue(chart.getSelection()[0]['row'], 1 );
+        }
+
+        // Add our selection handler.
+        google.visualization.events.addListener(chart, 'select', selectHandler);
+      }
+      
+        $(window).resize(function(){
+		drawChart();
+	});
+	
+//https://developers.google.com/chart/interactive/docs/customizing_tooltip_content	
+//this should also include a total share of workload
+function createCustomHTMLContent(title, zone, hours) {
+  return '<div style="padding:5px 5px 5px 5px;">' +
+      '<table class="medals_layout" style="font-family:Comfortaa;color:#4332ff;">' + 
+      	'<tr>' + '<td style="font-weight:900;color:281e96;">' + title +'</td>' + '</tr>' + 
+      	'<tr>' + '<td><b>' + zone + '</b></td>' + '</tr>' + 
+      	'<tr>' + '<td><b>' + hours + ' hours a week</b></td>' + '</tr>' + 
+      	'<tr>' + '<td style="color: #cecece;"><b>click to edit</b></td>' + '</tr>' +      	
+      	'</table>' + '</div>';
+}
+
+	
+    </script>

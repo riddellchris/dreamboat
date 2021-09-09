@@ -1,0 +1,9 @@
+<?php
+require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/all/problem_and_solution/economic_background/include_all_scripts.php";
+?>
+
+<div id='economic_background_household_debt_to_gdp' class= 'not_for_print google_chart_divs' style='height:600px;'>
+
+<script>
+drawChart_household_debt_to_gdp_script();
+</script>

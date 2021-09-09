@@ -1,0 +1,2 @@
+the place to start is definitely using time per activities and productivity but obviously broadening out majorly from there.
+Right now with just me there are pretty significant limits to what I can actually achieve though

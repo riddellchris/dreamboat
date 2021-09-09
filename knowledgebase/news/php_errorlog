@@ -1,0 +1,2 @@
+[06-Jul-2021 05:39:42 UTC] PHP Parse error:  syntax error, unexpected 'new' (T_NEW) in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/news/index.php on line 13
+[06-Jul-2021 05:40:51 UTC] PHP Fatal error:  Cannot redeclare connect_to_database() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/connect_to_database.php:6) in /home/customer/www/dreamboat.com.au/public_html/components/functions/connect_to_database.php on line 6

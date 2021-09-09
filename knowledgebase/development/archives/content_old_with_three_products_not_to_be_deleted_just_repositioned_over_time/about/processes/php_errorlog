@@ -1,0 +1,2 @@
+[15-May-2020 00:35:45 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/content/styling/hero_style.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/content/about/processes/index.php on line 4
+[15-May-2020 00:36:05 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/content/styling/hero_style.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/content/about/processes/index.php on line 4

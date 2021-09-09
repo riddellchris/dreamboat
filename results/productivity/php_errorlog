@@ -1,0 +1,2 @@
+[01-Mar-2021 21:24:56 CST6CDT] PHP Fatal error:  require_once(): Failed opening required '/home/staff808/public_html/components/tracking/input_table/styling.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/results/productivity/chart.php on line 5
+[01-Mar-2021 21:25:45 CST6CDT] PHP Fatal error:  require_once(): Failed opening required '/home/staff808/public_html/components/tracking/input_table/styling.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/results/productivity/chart.php on line 5

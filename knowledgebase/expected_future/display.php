@@ -1,0 +1,96 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+
+//	Sell, network, market and manage<br>your business all in one place.
+//	The best productivity improvement platform on the planet.
+
+
+copy_big_title_open('Future&nbsp;Product&nbsp;Development','future_product_intentions', 'not_open');
+
+	echo "<div class='content'>";
+	//build the facebook of productivity improvement NOT productivity management and provide sufficient services to enable and 
+	
+	paragraph_detailed('no',8,10,10,"To continously achieve our productivity improvement objective 2.5% p.a. economy wide continous investment and development of our technology foundations are required to faciliate increased use, improved reliability and a more comphrensive product suite.");
+	
+	paragraph_detailed('no',8,10,10,"We picture this situation as the diagram below describes.");
+	
+		
+	echo "<img src='/knowledgebase/components/sections/future_product_intentions/diagrams/technology_foundations.svg' style='width: 80%; margin-left: 10%;'>";
+	echo "<br><br><br><br>";
+	
+	$copy = "Imagine the impact on the world if Facebook was built to actually improve productivity rather than 'socialness'";
+	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/endpoints/thought_experiment.php";
+	echo "<br><br>";
+	$copy = "This thought experiment is our intention with every dollar spend on technology development";
+	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/endpoints/shameless_self_promotion.php";
+	
+	paragraph_detailed('no',8,10,10,"In more specific terms, this means we need the following elements to our development plans:");
+		
+	copy_title_close();
+
+	
+	copy_title_open('Reinvestment plans', 		'reinvestment_plans','not_open');
+		paragraph("As much as fiscally responsible we continue to further invest in:");
+		list_start();
+			point("Statistical reliability");
+			point("User support and reliability systems");
+			point("Pilot support and reliability systems");
+			point("Products and services that serve unmet needs in unique ways");		
+		list_end();
+		paragraph("To:");
+		list_start();
+			point("Further refine the reliability of our services");
+			point("Provide ever increasing reliability and performance of everyone who engages with Dreamboat");
+			point("Ensure we provide a complete solution to productivity improvement, not just productivity management");
+		list_end();	
+	copy_title_close();	
+		
+		
+		
+	copy_title_open('Statistical reliability objectives', 	'statistical_reliability_objectives','not_open');
+		paragraph("As the user base grows the capacity for predictive analysis improves allowing better identification and prioritisation of productivity issues and improvements. As such we continue to:");
+		list_start();	
+			point("Integrate key client systems such as accounting platforms and CRMs to build a complete picture of productivity across the economy.");
+			point("Understand and integrate links between companies, industries and economic trends.");
+			point("Build a new, granular economic model as accurate as Facebook's social data must be.");		
+		list_end();
+	copy_title_close();
+		
+		
+	copy_title_open('User support systems', 		'user_support_systems','not_open');
+		paragraph("Given the obvious link between productivity at work and workplace mental health our objective is to provide an integrated solution to optimise workplace mental health & productivity concurrently. This includes investment and refinement of our:");
+		list_start();	
+			point("'Autocoach' support systems to prompt and guide people to return to productivity ASAP.");
+			point("Ongoing integrated risk assessments and predictive issues alerts.");
+			point("Continuous platform improvement to increase engagement that improves productivity and reliability.");		
+		list_end();		
+	copy_title_close();	
+		
+		
+		
+	copy_title_open('Pilot support systems', 		'pilot_support_systems','not_open');
+		paragraph("Our pilots guide each and every one of our users with a combination of our bespoke platform, data & insights as well as their own skills, knowledge and intuition. As with any pilot of any form, the more robust the technology they manage the better they can perform their role. In order to best support our pilots our focus is on:");
+		list_start();	
+			point("Integrated knowledgebase development and optimisation to identify and resolve issues ASAP. <br> (A.K.A. Have the intel they need on hand when they need it.)");
+			point("Pilot to pilot communication systems to ensure optimal support and continous improvement.");	
+			point("Appropriate user segmentations to ensure optimal focus on a specific set of problems of an industry, role or business size.");		
+		list_end();	
+		paragraph("All while obviously optimising and improving their productivity and workplace mental health at the same time too.");		
+	copy_title_close();
+		
+		
+		
+	copy_title_open('Unique products and services', 		'unique_products_and_services','not_open');
+		paragraph("As we bring together all these technologies in fundamentally new ways, new opportunities to future improve the productivity of our clients and users will undoubtedly appear and we intend to deliver on these to add yet more strings the bow of productivity improvment reliability that we provide for our clients. In order to ensure we can deliver these products our focus will be on:");	
+		list_start();		 
+			point("Building all that we can internally to support build a rich ecosystem of tools ready for user deployment as and when appropriate.");
+			point("Ensuring that we work towards productivity improvement systems not just productivity management systems.");
+			point("Building modular tools, such as a logistics engine for transport companies as well as mobile tradies, as opposed to rigid, industry specific solutions."); 
+			point("Continously and clearly defining & measuring investment into new technology.");
+		list_end();
+	copy_title_close();
+
+
+end_of_title_div();
+	
+copy_big_title_close();

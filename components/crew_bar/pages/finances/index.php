@@ -1,0 +1,16 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
+
+
+
+
+
+require $_SERVER['DOCUMENT_ROOT']."/admin/finances/display/home.php";
+
+
+
+
+
+
+require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";

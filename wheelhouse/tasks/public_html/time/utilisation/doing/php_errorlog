@@ -1,0 +1,3 @@
+[15-Jun-2020 06:02:24 CST6CDT] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/staff808/public_html/components/business_management/resource_requirements/display.php on line 51
+[02-Jul-2020 03:00:41 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/components/lists/display_lists.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/admin/sub_menus/display.php on line 128
+[02-Jul-2020 09:14:08 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/admin/components/sub_menus/display.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/admin/knowledge/accordians/index.php on line 5

@@ -1,0 +1,1 @@
+[30-May-2021 08:19:49 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/components/layout/post_content.php on line 30

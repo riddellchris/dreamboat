@@ -1,0 +1,10 @@
+<?php
+include $_SERVER['DOCUMENT_ROOT']."TEST.PHP";
+?>
+hello
+hello
+hello
+interior content baby
+hello
+hello
+hello

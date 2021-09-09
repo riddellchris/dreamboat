@@ -1,0 +1,2 @@
+[28-Jun-2021 01:28:55 UTC] PHP Parse error:  syntax error, unexpected '"'>"' (T_CONSTANT_ENCAPSED_STRING), expecting ';' or ',' in /home/customer/www/dreamboat.com.au/public_html/components/layouts/slideshow/menu/div.php on line 59
+[07-Jul-2021 05:25:19 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/customer/www/dreamboat.com.au/public_html/components/navigation/mobile_menu_javascript.php on line 63

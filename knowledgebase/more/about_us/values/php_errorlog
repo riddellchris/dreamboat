@@ -1,0 +1,6 @@
+[03-Mar-2021 20:37:40 CST6CDT] PHP Parse error:  syntax error, unexpected '*' in /home/staff808/public_html/knowledgebase/components/layout/pre_content.php on line 270
+[04-Mar-2021 04:06:54 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function start_style_tag() in /home/staff808/public_html/knowledgebase/components/layout/pre_content.php:24
+Stack trace:
+#0 /home/staff808/public_html/knowledgebase/about_us/values/index.php(3): require()
+#1 {main}
+  thrown in /home/staff808/public_html/knowledgebase/components/layout/pre_content.php on line 24

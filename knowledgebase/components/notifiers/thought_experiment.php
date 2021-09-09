@@ -1,0 +1,9 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+
+echo "
+	<div class='highlights'>
+		<span style='color: #3eb835'>
+			<i class='fas fa-vials'></i> Thought experiment:</span> ".$copy;
+echo "	</div>";
+unset($copy);

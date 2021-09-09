@@ -1,0 +1,5 @@
+[30-Jun-2021 09:04:04 UTC] PHP Parse error:  syntax error, unexpected 'require' (T_REQUIRE) in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/staffing/analysts/index.php on line 7
+[30-Jun-2021 09:04:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function point_detailed() in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/staffing/analysts/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/implementation_plan/staffing/analysts/index.php on line 5

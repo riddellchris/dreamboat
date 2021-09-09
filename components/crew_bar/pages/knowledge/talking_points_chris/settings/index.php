@@ -1,0 +1,12 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
+
+//owner // director
+
+//staff member
+
+//freelancer/contractor
+
+
+require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";

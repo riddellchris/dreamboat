@@ -1,0 +1,1 @@
+[06-Sep-2020 11:35:00 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/results/charts/bounding_chart_displayed_in_content/index.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/content/processes/summary/index.php on line 21

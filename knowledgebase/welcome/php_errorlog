@@ -1,0 +1,4 @@
+[20-Feb-2021 09:08:00 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 09:43:45 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[06-Jul-2021 05:36:19 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/components/menu/structure/1.3.php on line 26
+[06-Jul-2021 05:36:28 UTC] PHP Fatal error:  require(): Failed opening required '/home/u950-eoqfmi5ypf8q/www/dreamboat.com.au/public_html/knowledgebase/components/menu/news.php' (include_path='.:/usr/local/php74/pear') in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/components/menu/structure/1.3.php on line 34

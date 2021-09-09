@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^development\.dreamboat\.com\.au$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.development\.dreamboat\.com\.au$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "https\:\/\/dreamboatdevelopment\.com\.au" [R=301,L]

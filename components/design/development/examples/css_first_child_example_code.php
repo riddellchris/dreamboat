@@ -1,0 +1,1 @@
+.about_us > a:first-child {padding-top:4vh;}

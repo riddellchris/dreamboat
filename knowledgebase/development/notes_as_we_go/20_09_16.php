@@ -1,0 +1,1 @@
+it seems that most other diagrams and charts are actually done right now

@@ -1,0 +1,20 @@
+[20-Feb-2021 05:53:09 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 05:57:26 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 06:40:10 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 06:57:09 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 07:00:15 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 07:07:40 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 07:58:15 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 08:43:06 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 12:24:06 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 15:47:47 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 16:00:08 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 16:00:15 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 16:00:21 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 16:00:28 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 16:34:27 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 17:12:56 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 18:24:13 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[20-Feb-2021 18:25:11 CST6CDT] PHP Parse error:  syntax error, unexpected '/' in /home/staff808/public_html/components/layouts/standard_page/head/index.php on line 9
+[25-Feb-2021 22:37:13 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/components/artifical_intelligence/calculations_and_warnings.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/components/layouts/standard_page/start.php on line 21
+[01-Mar-2021 23:04:10 CST6CDT] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/staff808/public_html/home/script_for_background/home_page_only.php on line 7

@@ -1,0 +1,9 @@
+Where there is just a single business owner we can model this as a predictive model for how everyone is spending their time and work backwards from there
+Building the model is going to be an ever improving challenge
+
+
+
+20.08.14
+this folder is all about the "data" tab that would go under discussion
+//this can be found at:
+/components/discussion/pieces/reminders_reviews_and_charts_extra_buttons.php

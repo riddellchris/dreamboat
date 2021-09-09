@@ -1,0 +1,8 @@
+[25-Feb-2021 22:36:52 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/components/artifical_intelligence/calculations_and_warnings.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/components/layouts/standard_page/start.php on line 21
+[09-Aug-2021 07:37:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function sessionstart() in /home/customer/www/dreamboat.com.au/public_html/components/map_engine/menu/components/issue_inclusion.php:2
+Stack trace:
+#0 /home/customer/www/dreamboat.com.au/public_html/components/map_engine/menu/display.php(41): require()
+#1 /home/customer/www/dreamboat.com.au/public_html/components/map_engine/display.php(65): require('/home/customer/...')
+#2 /home/customer/www/dreamboat.com.au/public_html/map/economy/index.php(6): require('/home/customer/...')
+#3 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/components/map_engine/menu/components/issue_inclusion.php on line 2

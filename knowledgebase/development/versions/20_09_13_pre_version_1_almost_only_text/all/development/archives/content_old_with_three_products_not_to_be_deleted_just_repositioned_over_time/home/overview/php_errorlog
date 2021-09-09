@@ -1,0 +1,1 @@
+[31-May-2020 18:30:50 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/staff808/public_html/back_of_house/database/connection.php' (include_path='.:/usr/local/php73/pear') in /home/staff808/public_html/components/artifical_intelligence/calculations_and_warnings.php on line 3

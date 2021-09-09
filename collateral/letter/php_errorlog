@@ -1,0 +1,29 @@
+[29-Jul-2021 08:42:59 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/customer/www/dreamboat.com.au/public_html/collateral/letter/index.php on line 6
+[29-Jul-2021 08:43:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed_start() in /home/customer/www/dreamboat.com.au/public_html/collateral/letter/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/collateral/letter/index.php on line 5
+[29-Jul-2021 08:57:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed_start() in /home/customer/www/dreamboat.com.au/public_html/collateral/letter/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/collateral/letter/index.php on line 5
+[29-Jul-2021 10:15:38 UTC] PHP Fatal error:  Cannot redeclare menu_option() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:4) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 4
+[29-Jul-2021 10:19:14 UTC] PHP Fatal error:  Cannot redeclare major_menu_option() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:22) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 22
+[29-Jul-2021 10:19:37 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 60
+[29-Jul-2021 10:19:56 UTC] PHP Fatal error:  Cannot redeclare copy_big_title_open() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:74) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 74
+[29-Jul-2021 10:20:22 UTC] PHP Fatal error:  Cannot redeclare copy_big_title_open() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:74) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 74
+[29-Jul-2021 10:20:49 UTC] PHP Fatal error:  Cannot redeclare copy_big_title_close() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:87) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 87
+[29-Jul-2021 10:22:49 UTC] PHP Fatal error:  Cannot redeclare copy_title_open() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:94) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 94
+[29-Jul-2021 10:23:29 UTC] PHP Fatal error:  Cannot redeclare copy_title_close() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:117) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 117
+[29-Jul-2021 10:23:45 UTC] PHP Fatal error:  Cannot redeclare copy_sub_title() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:125) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 125
+[29-Jul-2021 10:24:05 UTC] PHP Fatal error:  Cannot redeclare paragraph() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:150) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 150
+[29-Jul-2021 10:25:01 UTC] PHP Fatal error:  Cannot redeclare font_accuracy() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:204) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 204
+[29-Jul-2021 10:25:48 UTC] PHP Fatal error:  Cannot redeclare mid_image_commentary() (previously declared in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php:231) in /home/customer/www/dreamboat.com.au/public_html/components/functions/copy_functions.php on line 231
+[29-Jul-2021 10:31:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed_start() in /home/customer/www/dreamboat.com.au/public_html/collateral/letter/index.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/collateral/letter/index.php on line 8
+[29-Jul-2021 10:33:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function paragraph_detailed_start() in /home/customer/www/dreamboat.com.au/public_html/collateral/letter/index.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/dreamboat.com.au/public_html/collateral/letter/index.php on line 8

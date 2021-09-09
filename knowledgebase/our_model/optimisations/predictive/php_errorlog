@@ -1,0 +1,1 @@
+[07-Jul-2021 05:54:20 UTC] PHP Fatal error:  require(): Failed opening required '/home/u950-eoqfmi5ypf8q/www/dreamboat.com.au/public_html/knowledgebase/components/layouts/pre_content.php' (include_path='.:/usr/local/php74/pear') in /home/customer/www/dreamboat.com.au/public_html/knowledgebase/our_model/optimisations/predictive/index.php on line 4
