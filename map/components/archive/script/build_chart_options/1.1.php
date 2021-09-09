@@ -1,6 +1,6 @@
  <?php
 if(!isset($_SESSION)){session_start();}
-//the colour sets will vary and change as required here but really all 
+//the color sets will vary and change as required here but really all 
 //this will need to vary dependent on the number or results
 //ideally for all we take the thickness to be a proportion of the total hours displayed on the chart
 
@@ -26,7 +26,7 @@ if(!isset($_SESSION)){session_start();}
 //for each of the relationships to display then we must:
 	//find the related links edges
 	//then set the appropriate color and thickness
-	//really only edges with value should be given a colour to show what is needed and not needed to be added and updated
+	//really only edges with value should be given a color to show what is needed and not needed to be added and updated
 
 //so first things first let's pull out the required dad 
 

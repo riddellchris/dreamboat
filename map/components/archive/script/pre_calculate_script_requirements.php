@@ -11,7 +11,7 @@ if(!isset($_SESSION)){session_start();}
         //how many series are required in the options: lineDashStyle
 
 //this will grow and expand over time as we build up the entire system
-    //to start with the simple objective is to just nail the ability to have multiple line colours
+    //to start with the simple objective is to just nail the ability to have multiple line colors
 
     //the first simple check here will be to see just how many relationships there are to display
     //this comes pretty simply from 
@@ -27,7 +27,7 @@ if(!isset($_SESSION)){session_start();}
 		//this avoids any further complications
 		//this also avoids any what goes where shit
 
-		//to do this we would have to use rgb colours
+		//to do this we would have to use rgb colors
 
 		//that's it
 		//then as we go more complexity can keep going and applying here more and more

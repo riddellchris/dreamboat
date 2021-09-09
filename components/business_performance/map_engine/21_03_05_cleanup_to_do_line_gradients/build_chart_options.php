@@ -10,7 +10,7 @@
 <?php
 /*
 
-//the colour sets will vary and change as required here but really all 
+//the color sets will vary and change as required here but really all 
 //this will need to vary dependent on the number or results
 //ideally for all we take the thickness to be a proportion of the total hours displayed on the chart
 

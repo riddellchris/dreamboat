@@ -8,7 +8,7 @@ if($_SESSION['dreamboat_crew'] == 'yes' && $_SESSION['show_as_dreamboat_crew'] =
 			@media screen and (min-width: 1320px) and (min-height: 1150px){.pilot_sides {display:block;} 	.anti_pilot_sides{width:60%;float:left;}}
 	</style>";
 
-//this is when technology comes back in becaue the colours are correct
+//this is when technology comes back in becaue the colors are correct
 //	echo "<div class='pilot_sides' style='width:20%;float: left;background-image: linear-gradient(to bottom, #34e349 0% ,#bb8aff 60%,#9a8aff 100%);height:120vh;font-family:Monda;color:white;box-shadow: -10px 0px 10px -5px #5e5e5e;'>";
 	echo "<div class='pilot_sides' style='width:20%;float: left;background-image: linear-gradient(to bottom, #34e349 0% ,#00a113 100%);height:120vh;font-family:Monda;color:white;box-shadow: -10px 0px 10px -5px #5e5e5e;'>";
 		require $_SERVER['DOCUMENT_ROOT']."/components/performance/display.php";

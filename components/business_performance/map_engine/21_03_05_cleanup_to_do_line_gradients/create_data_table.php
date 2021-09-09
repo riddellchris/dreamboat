@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 
-//This is probably going to require the most work to put each relationship into the most appropriate string to therefore connect with the right colour and thickness.
+//This is probably going to require the most work to put each relationship into the most appropriate string to therefore connect with the right color and thickness.
 //this section of the code will probably be determined by the relationships and the points arrays
 	//we need to add to the relationships array in order to be able to quickly match up where they go in the series and what series to show
 	//but with this data in the system we can then easily use the relationships array to control the options at the end of the page

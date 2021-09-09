@@ -219,7 +219,7 @@ echo "
 			if($_GET['primary_folder'] == 'slideshow' OR 
 			$_GET['secondary_folder'] == 'letter' ){
 				echo ".big-div{
-							//	background-image: url('/components/design/images/Dreamboat_Pattern_Colour.png');
+							//	background-image: url('/components/design/images/Dreamboat_Pattern_color.png');
 							//	opacity: 0.2;
 								}";
 			}

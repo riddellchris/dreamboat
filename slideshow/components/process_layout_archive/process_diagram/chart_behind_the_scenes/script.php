@@ -6,7 +6,7 @@ require dirname(__FILE__)."/".basename(__FILE__, ".php")."/".$current_version.".
 /*
 
 1.3
-multi coloured triangles
+multi colored triangles
 
 1.2
 triangle lines attempt 1

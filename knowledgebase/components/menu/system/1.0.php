@@ -45,7 +45,7 @@ primary_knowledgebase_menu_item('system','yes');
 		//gui updates
 		//probably a clickable/expandable gantt chart
 		//far far far from impossible to make it's just a matter of time really
-		//use the colours to state the phase
+		//use the colors to state the phase
 			//forecast
 			//planned
 			//alpha

@@ -8,7 +8,7 @@ require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/layout/pre_content.
 		include_knowledgebase_image('/knowledgebase/productivity/network_productivity/symbology/diagrams/initial_node_design.svg', 'default', '65vh');
 
 
-		paragraph_detailed('no',10,10,10,"In our productivity network analysis we denote the overall function of a link as a colour spectrum from gold to grey and the thickness of the link by the overall value of that link, where gold is a well functioning link.");
+		paragraph_detailed('no',10,10,10,"In our productivity network analysis we denote the overall function of a link as a color spectrum from gold to grey and the thickness of the link by the overall value of that link, where gold is a well functioning link.");
 echo "<br><br>";
 		//productivity/network_productivity/symbology
 		include_knowledgebase_image('/knowledgebase/productivity/network_productivity/symbology/diagrams/complex_node_design.svg', 'default', '65vh');

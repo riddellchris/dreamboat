@@ -191,7 +191,7 @@ for($i = 1; $i <= 6; $i++){
 
 
 
-//ultimately the colours of these and even sizes should represent their certainty // rank/ predicted importance//
+//ultimately the colors of these and even sizes should represent their certainty // rank/ predicted importance//
 //"tag cloud like" etc
 //like the rest of all this --- more visual languages need to be built here
 

@@ -92,24 +92,24 @@ if($_POST['issues_control'] == 'issues_only'){	        $_SESSION['current_issues
 if($_POST['map_display'] == 'relationship_centric'){	$_SESSION['current_map_display'] = $_POST['map_display'];}
 if($_POST['map_display'] == 'central_issues'){		    $_SESSION['current_map_display'] = $_POST['map_display'];}
 
-//echo $_POST['map_edge_colour'];
+//echo $_POST['map_edge_color'];
 //exit();
 
 
-if($_POST['map_edge_colour'] == 'non_descript'){		    $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'productivity'){		    $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'productivity_improvement_potential'){		    $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'financial'){		        $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'users_time'){		        $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'trust'){		        $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'quality'){		      $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'communication'){		    $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'kpi_1'){			        $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'kpi_2'){			        $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'kpi_3'){			        $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
-if($_POST['map_edge_colour'] == 'kpi_4'){			        $_SESSION['map_edge_colour']  = $_POST['map_edge_colour'];}
+if($_POST['map_edge_color'] == 'non_descript'){		    $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'productivity'){		    $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'productivity_improvement_potential'){		    $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'financial'){		        $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'users_time'){		        $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'trust'){		        $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'quality'){		      $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'communication'){		    $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'kpi_1'){			        $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'kpi_2'){			        $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'kpi_3'){			        $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
+if($_POST['map_edge_color'] == 'kpi_4'){			        $_SESSION['map_edge_color']  = $_POST['map_edge_color'];}
 
-//echo $_POST['map_edge_colour'];
+//echo $_POST['map_edge_color'];
 //exit();
 
 if($_POST['map_edge_thickness'] == 'non_descript'){		    $_SESSION['map_edge_thickness']  = $_POST['map_edge_thickness'];}

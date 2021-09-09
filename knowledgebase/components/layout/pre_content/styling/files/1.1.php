@@ -6,7 +6,7 @@ start_style_tag();
 	.knowlegebase_image_div{	width:		100%;
 					text-align:	center;}
 
-	//old colour theme
+	//old color theme
 	//.left{	background-color: #C9DAF8;	}	
 	.left{	background-color: #C9DAF8;
 					font-family: Helvetica;		}

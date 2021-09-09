@@ -26,7 +26,7 @@ echo "
 //2.0 shadow color
 //	$shadow_color = "#9eb3ff";
 
-//2.1 shadow colour
+//2.1 shadow color
 $shadow_color = "rgb(0 0 0 / 13%)";
 
 	echo " 

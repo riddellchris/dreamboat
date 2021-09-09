@@ -6,7 +6,7 @@
 ///components/numerical_planning/charts/script.php
 
 
-//for now let's just have simple straight lines of the same colour
+//for now let's just have simple straight lines of the same color
 //the next step will to be pretty much drawing our own chart which given the complexity of this isn't actually too hard....
 
 
