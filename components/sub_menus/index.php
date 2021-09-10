@@ -244,7 +244,11 @@ if(check_primary_folder('users')){
 	$top_sub_menu_options = add_top_sub_menu_option('gap_filling'			,$top_sub_menu_options);	
 //	$top_sub_menu_options = add_top_sub_menu_option('owners'				,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('regular_users'			,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('details'				,$top_sub_menu_options);				
+//	$top_sub_menu_options = add_top_sub_menu_option('details'				,$top_sub_menu_options);
+	if($_SESSION['user_id'] == '1'){
+		$top_sub_menu_options = add_top_sub_menu_option('finances'				,$top_sub_menu_options);
+		$top_sub_menu_options = add_top_sub_menu_option('savings'				,$top_sub_menu_options);
+	}
 }
 if(check_primary_folder('notifications')){
 	$top_sub_menu_options = add_top_sub_menu_option('alerts'		,$top_sub_menu_options);	

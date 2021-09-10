@@ -1,1 +1,0 @@
-build hours etc to encorporate thickness and edges data
