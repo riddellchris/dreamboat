@@ -1,1 +1,0 @@
-So to start with we need to set the stable release
