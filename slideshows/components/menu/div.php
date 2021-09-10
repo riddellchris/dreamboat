@@ -24,30 +24,26 @@ if($_GET['tertiary_folder'] != 'one' &&
                             text-align: center;
                             font-family: Helvetica;
                             font-weight: 600;
-
                             float: left;
-                            color: white;";
-
-
-                        echo "
+                            color: white;
                             text-decoration: none;
-        }
+    }
 
 
 
-  @media only screen and (min-width: 800px) {
-    .slideshow_menu_inner{ 
+    @media only screen and (min-width: 800px) {
+        .slideshow_menu_inner{ 
             font-size: 25px;
             padding-top: 9px;
         }
     }
 
-  @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 800px) {
         .slideshow_menu_inner{ 
-                font-size: 20px;
-                padding-top: 3px;
-            }
-      }
+            font-size: 20px;
+            padding-top: 3px;
+        }
+    }
 
 
         
@@ -96,7 +92,7 @@ echo "<div id='slideshow_menu' class='slideshow_menu_container' style='display:b
 
     echo "<a class ='slideshow_menu_inner slideshow_menu_left' ";
         if(check_tertiary_folder('one') == 0){
-        echo "href='/components/slideshows/move.php?direction=backwards&show=".$_GET['secondary_folder']."&from=".$_GET['tertiary_folder']."'";
+        echo "href='/slideshows/components/menu/move.php?direction=backwards&show=".$_GET['secondary_folder']."&from=".$_GET['tertiary_folder']."'";
 		}
 
 		echo ">";
@@ -106,7 +102,7 @@ echo "<div id='slideshow_menu' class='slideshow_menu_container' style='display:b
     echo "</a>";
     echo "<a class ='slideshow_menu_inner slideshow_menu_right' ";
         if(check_tertiary_folder('ten') == 0){    
-        echo "href='/components/slideshows/move.php?direction=forwards&show=".$_GET['secondary_folder']."&from=".$_GET['tertiary_folder']."'";
+        echo "href='/slideshows/components/menu/move.php?direction=forwards&show=".$_GET['secondary_folder']."&from=".$_GET['tertiary_folder']."'";
 		}
         else{
             echo "href='/knowledgebase/'";

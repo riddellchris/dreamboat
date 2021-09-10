@@ -29,7 +29,7 @@ if(check_url('/slideshows/') == 1){
 
 	echo "<div style='height: 80px;width:100%;'></div>";
 
-	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/slideshows/menu/div.php";
+	require $_SERVER['DOCUMENT_ROOT']."/slideshows/components/menu/div.php";
 }
 
 
