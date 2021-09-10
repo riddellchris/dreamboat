@@ -18,7 +18,7 @@ if(!isset($_SESSION)){session_start();}
 			}
 			*/
 
-if($_GET['primary_folder'] == 'slideshow' OR $_GET['secondary_folder'] == 'letter' 
+if($_GET['primary_folder'] == 'slideshows' OR $_GET['secondary_folder'] == 'letter' 
 
 ){
 	echo " class='mobile_scrolling_for_slideshow'";
@@ -28,7 +28,7 @@ if($_GET['primary_folder'] == 'slideshow' OR $_GET['secondary_folder'] == 'lette
 	>
 <?php
 /*
-if($_GET['primary_folder'] == 'slideshow'){
+if($_GET['primary_folder'] == 'slideshows'){
 echo "
 <style>
 html {

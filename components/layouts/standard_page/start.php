@@ -87,7 +87,7 @@ if($_GET['primary_folder'] == 'map'){
 }
 echo "
 <body id='body' name='top ";
-		if(	$_GET['primary_folder'] == 'slideshow' OR 
+		if(	$_GET['primary_folder'] == 'slideshows' OR 
 			$_GET['secondary_folder'] == 'letter' 
 
 				){ echo " mobile_scrolling_for_slideshow ";}	
@@ -102,7 +102,7 @@ echo "	>";
 
 //we want scroll to be on for the slideshow when under a certain number of pixels wide.
 //therefore we create a new style class - which shouldn't really affect the scrolling stuff above as it's not really a problem right now
-if($_GET['primary_folder'] == 'slideshow' OR 
+if($_GET['primary_folder'] == 'slideshows' OR 
 			$_GET['secondary_folder'] == 'letter' ){
 	echo "
 		<style>";
@@ -202,7 +202,7 @@ else{
 
 echo "
 	<div class='big-div";
-		if($_GET['primary_folder'] == 'slideshow' OR 
+		if($_GET['primary_folder'] == 'slideshows' OR 
 			$_GET['secondary_folder'] == 'letter' ){ echo " mobile_scrolling_for_slideshow ";}			
 	echo "'>";	
 
@@ -216,7 +216,7 @@ echo "
 			<?php
 			if(!isset($_SESSION)){session_start();}
 
-			if($_GET['primary_folder'] == 'slideshow' OR 
+			if($_GET['primary_folder'] == 'slideshows' OR 
 			$_GET['secondary_folder'] == 'letter' ){
 				echo ".big-div{
 							//	background-image: url('/components/design/images/Dreamboat_Pattern_color.png');
@@ -249,7 +249,7 @@ echo "
 
 
 	<?php	
-	if($_GET['primary_folder'] != 'slideshow' AND 
+	if($_GET['primary_folder'] != 'slideshows' AND 
 			$_GET['secondary_folder'] != 'letter' ){	
 
 
@@ -282,7 +282,7 @@ echo "
 				//}
 				//this is the file that holds the mobile icon - don't delete so can always easily find it to be honest					
 				//if($_SESSION['logged_in'] == 'yes' OR $_GET['primary_folder'] == 'knowledgebase'){	
-				if($_GET['primary_folder'] != 'home' && $_GET['primary_folder'] != 'slideshow'  && $_GET['secondary_folder'] != 'letter' 
+				if($_GET['primary_folder'] != 'home' && $_GET['primary_folder'] != 'slideshows'  && $_GET['secondary_folder'] != 'letter' 
 				
 				){
 				require $_SERVER['DOCUMENT_ROOT']."/components/navigation/mobile_hamburger_icon.php"; 
@@ -296,7 +296,7 @@ echo "
 		//it has the #mobile_menu_icon
 		if($_GET['primary_folder'] != 'knowledgebase'){require $_SERVER['DOCUMENT_ROOT']."/components/navigation/mobile/display.php";}
 
-	if($_GET['primary_folder'] != 'slideshow' AND 
+	if($_GET['primary_folder'] != 'slideshows' AND 
 			$_GET['secondary_folder'] != 'letter' ){	
 		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/adjustable_top_spacer.php"; //this enusres that the 'page' starts below the nav bar
 	}

@@ -5,7 +5,7 @@ echo "<a class='nav-links long' href='/knowledgebase/' title='Yes we believe it 
 if(check_url('knowledgebase') == 1){echo "style='color:#63f263;margin-top: 18px;'";}
 echo ">knowledgebase</a>";
 
-if($_GET['primary_folder'] != 'slideshow' AND $_GET['secondary_folder'] != 'letter'){	
+if($_GET['primary_folder'] != 'slideshows' AND $_GET['secondary_folder'] != 'letter'){	
 	echo "<a class='nav-links short' href='/knowledgebase/'";
 	if(check_url('knowledgebase') == 1){echo "style='color:#63f263;margin-top: 18px;'";}
 	echo ">k'base</a>";	

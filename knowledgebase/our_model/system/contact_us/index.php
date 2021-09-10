@@ -30,7 +30,7 @@ require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/layout/pre_content.
 		echo "
 		<table style='color:#281e96;padding: 0px;margin-top: 25px;'>";
 		
-		if(check_folders_two_deep('knowledgebase','slideshow')){	$detail_level = ucfirst($_GET['secondary_folder']);}
+		if(check_folders_two_deep('knowledgebase','slideshows')){	$detail_level = ucfirst($_GET['secondary_folder']);}
 		if(check_folders_two_deep('knowledgebase','standard')){		$detail_level = ucfirst($_GET['secondary_folder']);}		
 		if(check_folders_two_deep('knowledgebase','the_works')){	$detail_level = "The Works";}		
 		

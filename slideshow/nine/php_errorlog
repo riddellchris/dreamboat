@@ -1,6 +1,0 @@
-[28-Jun-2021 02:34:16 UTC] PHP Parse error:  syntax error, unexpected 'require' (T_REQUIRE) in /home/customer/www/dreamboat.com.au/public_html/slideshow/five/index.php on line 12
-[18-Jul-2021 01:15:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function include_knowledgebase_image() in /home/customer/www/dreamboat.com.au/public_html/slideshow/components/process_diagram_3/display.php:44
-Stack trace:
-#0 /home/customer/www/dreamboat.com.au/public_html/slideshow/seven/index.php(19): require()
-#1 {main}
-  thrown in /home/customer/www/dreamboat.com.au/public_html/slideshow/components/process_diagram_3/display.php on line 44

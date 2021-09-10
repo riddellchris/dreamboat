@@ -5,7 +5,7 @@ require dirname(__FILE__)."/".basename(__FILE__, ".php")."/".$current_version.".
 
 /*
 1.3
-No abstract after /slideshow/ implemented
+No abstract after /slideshows/ implemented
 
 1.1 
 includes abstract

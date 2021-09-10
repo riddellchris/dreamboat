@@ -38,7 +38,7 @@ echo "
   }
 
 <?php
-if($_GET['primary_folder'] != 'slideshow'){  
+if($_GET['primary_folder'] != 'slideshows'){  
 
         echo "
         //remove the shadow from the top nav bar and replace when required
@@ -65,7 +65,7 @@ echo "
 
 
 //obviously this is critical and applicable only when slideshow is on
-if($_GET['primary_folder'] == 'slideshow'){  
+if($_GET['primary_folder'] == 'slideshows'){  
     echo "
     var a = document.getElementById('slideshow_menu');  
     if (a.style.display === 'block') { a.style.display = 'none';}

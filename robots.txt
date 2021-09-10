@@ -19,7 +19,7 @@ Disallow: /problem/
 Disallow: /profile/
 Disallow: /results/
 Disallow: /sales/
-Disallow: /slideshows/
+
 Disallow: /solutions/
 Disallow: /support/
 Disallow: /upgrades/

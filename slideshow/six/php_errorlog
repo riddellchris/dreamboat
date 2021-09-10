@@ -1,4 +1,0 @@
-[18-Jul-2021 04:15:54 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ';' or ',' in /home/customer/www/dreamboat.com.au/public_html/slideshow/components/styling/index.php on line 55
-[18-Jul-2021 07:42:37 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in /home/customer/www/dreamboat.com.au/public_html/slideshow/six/index.php on line 63
-[19-Jul-2021 04:12:25 UTC] PHP Parse error:  syntax error, unexpected 'list_end' (T_STRING) in /home/customer/www/dreamboat.com.au/public_html/slideshow/six/index.php on line 68
-[19-Jul-2021 04:18:54 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ';' or ',' in /home/customer/www/dreamboat.com.au/public_html/slideshow/six/index.php on line 67

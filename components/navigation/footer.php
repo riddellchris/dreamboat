@@ -1,12 +1,12 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if($_GET['primary_folder'] == 'slideshow' OR
+if($_GET['primary_folder'] == 'slideshows' OR
 	$_GET['secondary_folder'] == 'letter' 
 	){require $_SERVER['DOCUMENT_ROOT']."/components/layouts/pieces/dreamboat_logo/display.php";}
 
 
-if($_GET['primary_folder'] != 'slideshow' AND $_GET['secondary_folder'] != 'letter' 
+if($_GET['primary_folder'] != 'slideshows' AND $_GET['secondary_folder'] != 'letter' 
 ){
 	echo "<style>
 		@media only screen and (max-width: 768px) {.short{display: inline;}	.long{display:none;}}
@@ -57,7 +57,7 @@ if(check_url('/legal/prospectus/') == 1){
 
 
 
-if($_GET['primary_folder'] != 'slideshow' AND $_GET['secondary_folder'] != 'letter' ){
+if($_GET['primary_folder'] != 'slideshows' AND $_GET['secondary_folder'] != 'letter' ){
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/legal.php";
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/contact.php";
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/support.php";
@@ -105,7 +105,7 @@ if(	check_url('/legal/') == 1 OR
 }
 
 
-if($_GET['primary_folder'] == 'slideshow' OR $_GET['secondary_folder'] == 'letter'){				require $_SERVER['DOCUMENT_ROOT']."/components/navigation/mobile_hamburger_icon.php"; }
+if($_GET['primary_folder'] == 'slideshows' OR $_GET['secondary_folder'] == 'letter'){				require $_SERVER['DOCUMENT_ROOT']."/components/navigation/mobile_hamburger_icon.php"; }
 
 
 ?>

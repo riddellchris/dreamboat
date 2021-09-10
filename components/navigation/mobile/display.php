@@ -16,7 +16,7 @@ echo "	<style>
 		
 		#mobile_menu{ ";
 
-if($_GET['primary_folder'] != 'slideshow' AND $_GET['secondary_folder'] != 'letter' ){echo "padding-top:73px;";}
+if($_GET['primary_folder'] != 'slideshows' AND $_GET['secondary_folder'] != 'letter' ){echo "padding-top:73px;";}
 
 echo "		
 			
@@ -115,7 +115,7 @@ if(	//$_SESSION['logged_in'] 		!= 'yes' OR
 	check_url('/problem/') 		== 1 	OR
 	check_url('/solution/') 	== 1	OR
 	check_url('/processes/') 	== 1 	OR
-	check_url('/slideshow/') 	== 1 	OR
+	check_url('/slideshows/') 	== 1 	OR
 	check_url('/letter/') 	== 1 	
 	//check_url('/contact_us/') 	== 1
 	){

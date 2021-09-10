@@ -9,7 +9,7 @@ else{
 	if($_GET['to'] == 'login'){header("Location: /account/security/"); exit();}
 	else{
 		$_SESSION['reset_sub_menu_defaults'] = 'yes';
-		header ("Location: /slideshow/");exit();}
+		header ("Location: /slideshows/");exit();}
 }
 
 ?>

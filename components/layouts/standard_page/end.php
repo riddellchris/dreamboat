@@ -24,12 +24,12 @@ if(isset($_SESSION['dreamboat_crew'])){
 }
 
 //if($_GET['primary_folder'] == 'map'){echo "<div name='map_spacer' style='height:200px;'></div>";}
-if(check_url('/slideshow/') == 1){
+if(check_url('/slideshows/') == 1){
 
 
 	echo "<div style='height: 80px;width:100%;'></div>";
 
-	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/slideshow/menu/div.php";
+	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/slideshows/menu/div.php";
 }
 
 

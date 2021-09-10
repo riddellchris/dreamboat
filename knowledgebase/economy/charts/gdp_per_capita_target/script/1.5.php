@@ -174,7 +174,7 @@
             1: { color: 'red', 
 <?php
 if(!isset($_SESSION)){session_start();}
-if($_GET['primary_folder'] == 'slideshow'){echo "lineWidth:13";}
+if($_GET['primary_folder'] == 'slideshows'){echo "lineWidth:13";}
 else{ echo "lineWidth:10";}
 ?>            
             

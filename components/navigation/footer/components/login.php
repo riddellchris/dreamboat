@@ -4,7 +4,7 @@ if(!isset($_SESSION)){session_start();}
 if(	check_url('knowledgebase') == 1 OR
 	check_url('/account/security/') == 1  OR
 	check_url('/legal/') == 1  OR
-	check_url('/slideshow/') == 1  OR
+	check_url('/slideshows/') == 1  OR
 	check_url('/letter/') == 1  OR
 	  (check_primary_folder('support') && $_SESSION['logged_in'] != 'yes') OR
 	  check_primary_folder('problem') OR
@@ -16,12 +16,12 @@ if(	check_url('knowledgebase') == 1 OR
 	  check_primary_folder('home') 
 	  ){
 		echo "<a class='nav-links ";
-		if($_GET['primary_folder'] == 'slideshow' OR $_GET['secondary_folder'] == 'letter' ){echo " long ";}
+		if($_GET['primary_folder'] == 'slideshows' OR $_GET['secondary_folder'] == 'letter' ){echo " long ";}
 		 //we mark as long so that in short... we don't show it
 		//if(final_file_name() != ''){echo " blink_me ";} CR 20.10.30 Not exactly sure why this exists here
 				echo "' style='";
 
-            if($_GET['primary_folder'] == 'slideshow' OR $_GET['secondary_folder'] == 'letter' ){
+            if($_GET['primary_folder'] == 'slideshows' OR $_GET['secondary_folder'] == 'letter' ){
                 echo " margin-right: 15px; ";
             }
 

@@ -26,5 +26,5 @@ if($_GET['direction'] == 'backwards'){
     if($_GET['from'] == 'ten'){     $next = 'nine';}   
 }
 
-header("Location: /slideshow/".$next);
+header("Location: /slideshows/".$_GET['show']."/".$next);
 exit();

@@ -10,7 +10,7 @@ echo "
 			  z-index:101;
 			}";
 
-if($_GET['primary_folder'] != 'slideshow' AND $_GET['secondary_folder'] != 'letter'){
+if($_GET['primary_folder'] != 'slideshows' AND $_GET['secondary_folder'] != 'letter'){
 	echo "			
 			@media screen and (max-width: 480px){#mobile_menu_icon{padding-top:4px;}}
 			@media screen and (min-width: 480px){#mobile_menu_icon{padding-top:9px;}}

@@ -1,7 +1,11 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if($_GET['primary_folder'] != 'slideshow'){
+
+
+
+if($_GET['primary_folder'] != 'slideshows'){
+
 echo "
 <style>
 @media only screen and (min-width: 800px) {
@@ -13,7 +17,7 @@ echo "
 </style>
 ";
 }
-else{
+else{   // echo $_GET['primary_folder'];exit();
 echo "
 <style>
 @media only screen and (min-width: 1710px) {
@@ -28,7 +32,7 @@ echo "
 
 echo "<div class='gdp_per_capita_target_div'>";
 
-if($_GET['primary_folder'] == 'slideshow'){  	gcharts_div_display('economic_background_gdp_per_capita_percentage_change_target','100%','70vh');}
+if($_GET['primary_folder'] == 'slideshows'){  	gcharts_div_display('economic_background_gdp_per_capita_percentage_change_target','100%','70vh');}
 else{                               			gcharts_div_display('economic_background_gdp_per_capita_percentage_change_target','100%','600px');}
 
 echo "</div>";
