@@ -11,7 +11,7 @@ $response = mysqli_real_escape_string($conn, $_GET['value']);
 $value = mysqli_real_escape_string($conn, $_GET['value']);
 
 if($_GET['value'] < 1){
-	$sql = "UPDATE user_account_details SET low_progress_plus = 'on' WHERE user_id = '".$_SESSION['user_id']."'";
+	$sql = "UPDATE user_account_details SET low_progress_plus = 'on' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 	$result = mysqli_query($conn, $sql);
 }
 
@@ -23,7 +23,7 @@ if($_GET['value'] < 1){
 
 
 //see if it has been less than an hour since they finished work and send them to the progress plus email system
-$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".$_SESSION['user_id']."'";
+$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 echo "Users current time";	
@@ -41,7 +41,7 @@ if(	$_SESSION['next_prompt_id'] == 35 	OR
 	if($_SESSION['next_prompt_id'] == 191){$related_to = 'end_of_month';}
 
 	$sql = "INSERT INTO progress_plus_core (user_id, productivity, local_timestamp_on_entry, related_to)
-	        	VALUES('".$_SESSION['user_id']."', '".$value."', '".$users_local_timestamp."', '".$related_to."')";
+	        	VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '".$value."', '".$users_local_timestamp."', '".$related_to."')";
 	$result = mysqli_query($conn, $sql);
 	$_SESSION['progress_plus_insert_id'] = mysqli_insert_id($conn);
 }
@@ -84,7 +84,7 @@ else{
 				
 echo	$sql  = "UPDATE progress_plus_core SET ";
 	$sql .= $column_to_update." = '".$value."'"; 
-	$sql .=	"WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql .=	"WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);
 
 }

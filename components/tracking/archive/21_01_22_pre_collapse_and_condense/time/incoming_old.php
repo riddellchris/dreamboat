@@ -7,7 +7,7 @@ if(	!isset($_SESSION['user_id']) AND
  	 				  $_SESSION['logged_in'] = 'yes';
  	 				  $security_key 	= $_GET['security_key'];
  	 				  
- 	$sql = "SELECT * FROM user_account_details WHERE user_id = '".$_SESSION['user_id']."'";
+ 	$sql = "SELECT * FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);	 				  
  	 				  
@@ -23,7 +23,7 @@ else{if(!isset($_SESSION['user_id'])){header("Location: /");exit();}}
 
 if($_SESSION['logged_in'] == 'yes'){
 	//get the unused security key
-	$sql = "SELECT * FROM productivity_tracker_security WHERE user_id = '".$_SESSION['user_id']."' ORDER BY key_id DESC LIMIT 1";
+	$sql = "SELECT * FROM productivity_tracker_security WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY key_id DESC LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$security_key = $row['security_key'];
@@ -31,7 +31,7 @@ if($_SESSION['logged_in'] == 'yes'){
 
 $sql = "UPDATE user_alert_system
 	SET top_nav_productivity_tracker = 'off' 
-	WHERE user_id = '".$_SESSION['user_id']."'";
+	WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 $result = mysqli_query($conn, $sql);
 						
 
@@ -47,8 +47,8 @@ else{
 
 	$sql = "UPDATE productivity_tracker_security
 		SET key_has_been_used = 'yes' 
-		WHERE user_id = '".$_SESSION['user_id']."' AND
-		      security_key = '".$_GET['security_key']."' ";
+		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND
+		      security_key = '".mysqli_real_escape_string($conn, $_GET['security_key'])."' ";
 	$result = mysqli_query($conn, $sql);
 
 	if($row['end_of_what'] == 'day'		){$_SESSION['next_prompt_id'] = 214;}

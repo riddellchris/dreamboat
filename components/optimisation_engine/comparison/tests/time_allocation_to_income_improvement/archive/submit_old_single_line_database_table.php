@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/functions/sql/library.php";
 
-$sql = "UPDATE tests_time_allocation_to_income_improvement SET latest_version_of_data_for_this_user = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+$sql = "UPDATE tests_time_allocation_to_income_improvement SET latest_version_of_data_for_this_user = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 
 
 

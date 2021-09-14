@@ -8,14 +8,14 @@ if($_GET['direction'] == 'up' OR
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $item_id = mysqli_real_escape_string($conn, $_GET['item_id']);
 
-$sql = "SELECT * FROM homework WHERE user_id ='".$_SESSION['viewing_client_id']."' AND item_id = '".$item_id."'";
+$sql = "SELECT * FROM homework WHERE user_id ='".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' AND item_id = '".$item_id."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 if($_GET['direction'] == 'up'){
 $old_rank = $row['rank'];
 $new_rank = $row['rank'] - 1;
- $sql = "SELECT * FROM homework WHERE  user_id ='".$_SESSION['viewing_client_id']."' AND rank = '".$new_rank."'";
+ $sql = "SELECT * FROM homework WHERE  user_id ='".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' AND rank = '".$new_rank."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -30,7 +30,7 @@ $result = mysqli_query($conn, $sql);
 if($_GET['direction'] == 'down'){
 $old_rank = $row['rank'];
 $new_rank = $row['rank'] + 1;
- $sql = "SELECT * FROM homework WHERE  user_id ='".$_SESSION['viewing_client_id']."' AND rank = '".$new_rank."'";
+ $sql = "SELECT * FROM homework WHERE  user_id ='".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' AND rank = '".$new_rank."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

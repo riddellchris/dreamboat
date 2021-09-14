@@ -29,13 +29,13 @@ if(
 $_SESSION['results_page'] == 'productivity' OR
 $_SESSION['results_page'] == 'commission' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='commission'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='commission'";
 	
 	
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'commission', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'commission', 
 		'".$commission_0."',
 		'".$commission_1."',
 		'".$commission_2."',
@@ -51,11 +51,11 @@ $_SESSION['results_page'] == 'commission' OR
 		'".$commission_12."')";
 	mysqli_query($conn, $sql);
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='commission_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='commission_target'";
 	mysqli_query($conn, $sql);		
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'commission_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'commission_target', 
 	'".$commission_target_6."',
 	'".$commission_target_7."',
 	'".$commission_target_8."',
@@ -69,13 +69,13 @@ mysqli_query($conn, $sql);
 if($_SESSION['results_page'] == 'productivity' OR	
 	$_SESSION['results_page'] == 'sales' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='sales'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='sales'";
 	
 	
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'sales', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'sales', 
 		'".$sales_0."',
 		'".$sales_1."',
 		'".$sales_2."',
@@ -91,11 +91,11 @@ if($_SESSION['results_page'] == 'productivity' OR
 		'".$sales_12."')";
 	mysqli_query($conn, $sql);
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='sales_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='sales_target'";
 	mysqli_query($conn, $sql);		
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'sales_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'sales_target', 
 	'".$sales_target_6."',
 	'".$sales_target_7."',
 	'".$sales_target_8."',
@@ -108,13 +108,13 @@ mysqli_query($conn, $sql);
 
 if(		$_SESSION['results_page'] == 'finances' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='expenses'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='expenses'";
 	
 	
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'expenses', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'expenses', 
 		'".$expenses_0."',
 		'".$expenses_1."',
 		'".$expenses_2."',
@@ -130,11 +130,11 @@ if(		$_SESSION['results_page'] == 'finances' OR
 		'".$expenses_12."')";
 	mysqli_query($conn, $sql);
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='expenses_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='expenses_target'";
 	mysqli_query($conn, $sql);		
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'expenses_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'expenses_target', 
 	'".$expenses_target_6."',
 	'".$expenses_target_7."',
 	'".$expenses_target_8."',
@@ -152,13 +152,13 @@ if(	$_SESSION['results_page'] == 'productivity' OR
 	$_SESSION['results_page'] == 'finances' OR
 		$_SESSION['results_page'] == 'inputs'	
 	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='revenue'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='revenue'";
 	
 	
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'revenue', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'revenue', 
 		'".$revenue_0."',
 		'".$revenue_1."',
 		'".$revenue_2."',
@@ -175,11 +175,11 @@ if(	$_SESSION['results_page'] == 'productivity' OR
 	mysqli_query($conn, $sql);
 	
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='revenue_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='revenue_target'";
 	mysqli_query($conn, $sql);		
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'revenue_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'revenue_target', 
 	'".$revenue_target_6."',
 	'".$revenue_target_7."',
 	'".$revenue_target_8."',
@@ -196,11 +196,11 @@ if(
 $_SESSION['results_page'] == 'productivity' OR
 $_SESSION['results_page'] == 'finances' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='profit'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='profit'";
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'profit', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'profit', 
 		'".$profit_0."',
 		'".$profit_1."',
 		'".$profit_2."',
@@ -216,11 +216,11 @@ $_SESSION['results_page'] == 'finances' OR
 		'".$profit_12."')";
 	mysqli_query($conn, $sql);
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='profit_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='profit_target'";
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'profit_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'profit_target', 
 	'".$profit_target_6."',
 	'".$profit_target_7."',
 	'".$profit_target_8."',
@@ -241,11 +241,11 @@ $_SESSION['results_page'] == 'productivity' OR
 $_SESSION['results_page'] == 'revenue_and_income'
 	OR $_SESSION['results_page'] == 'work' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='income'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='income'";
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'income', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'income', 
 		'".$income_0."',
 		'".$income_1."',
 		'".$income_2."',
@@ -262,11 +262,11 @@ $_SESSION['results_page'] == 'revenue_and_income'
 	mysqli_query($conn, $sql);
 	
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='income_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='income_target'";
 	mysqli_query($conn, $sql);		
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'income_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'income_target', 
 	'".$income_target_6."',
 	'".$income_target_7."',
 	'".$income_target_8."',
@@ -287,11 +287,11 @@ $_SESSION['results_page'] == 'work' OR
 	$_SESSION['results_page'] == 'productivity' OR
 	
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='hours'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='hours'";
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'hours', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'hours', 
 		'".$hours_0."',
 		'".$hours_1."',
 		'".$hours_2."',
@@ -308,12 +308,12 @@ $_SESSION['results_page'] == 'work' OR
 	mysqli_query($conn, $sql);
 	
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='hours_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='hours_target'";
 	mysqli_query($conn, $sql);	
 	
 $sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'hours_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'hours_target', 
 	'".$hours_target_6."',
 	'".$hours_target_7."',
 	'".$hours_target_8."',
@@ -328,11 +328,11 @@ mysqli_query($conn, $sql);
 
 if($_SESSION['results_page'] == 'productivity'	OR $_SESSION['results_page'] == 'work' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='productivity'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='productivity'";
 	mysqli_query($conn, $sql);
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'productivity', 												
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'productivity', 												
 		'".$productivity_0."',
 		'".$productivity_1."',
 		'".$productivity_2."',
@@ -352,13 +352,13 @@ if($_SESSION['results_page'] == 'productivity'	OR $_SESSION['results_page'] == '
 		
 	mysqli_query($conn, $sql);
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='productivity_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='productivity_target'";
 
 
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'productivity_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'productivity_target', 
 	'".$productivity_target_6."',
 	'".$productivity_target_7."',
 	'".$productivity_target_8."',
@@ -380,11 +380,11 @@ if(
 $_SESSION['results_page'] == 'productivity' OR
 $_SESSION['results_page'] == 'kpis' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='kpi_1'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='kpi_1'";
 	mysqli_query($conn, $sql);
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'kpi_1', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'kpi_1', 
 		'".$kpi_1_0."',
 		'".$kpi_1_1."',
 		'".$kpi_1_2."',
@@ -400,13 +400,13 @@ $_SESSION['results_page'] == 'kpis' OR
 		'".$kpi_1_12."')";
 	mysqli_query($conn, $sql);
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='kpi_1_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='kpi_1_target'";
 
 
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'kpi_1_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'kpi_1_target', 
 	'".$kpi_1_target_6."',
 	'".$kpi_1_target_7."',
 	'".$kpi_1_target_8."',
@@ -424,11 +424,11 @@ if(
 $_SESSION['results_page'] == 'productivity' OR
 $_SESSION['results_page'] == 'kpis' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='kpi_2'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='kpi_2'";
 	mysqli_query($conn, $sql);
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'kpi_2', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'kpi_2', 
 		'".$kpi_2_0."',
 		'".$kpi_2_1."',
 		'".$kpi_2_2."',
@@ -451,13 +451,13 @@ $_SESSION['results_page'] == 'kpis' OR
 //		exit();
 	mysqli_query($conn, $sql);
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='kpi_2_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='kpi_2_target'";
 
 
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'kpi_2_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'kpi_2_target', 
 	'".$kpi_2_target_6."',
 	'".$kpi_2_target_7."',
 	'".$kpi_2_target_8."',
@@ -472,11 +472,11 @@ if(
 $_SESSION['results_page'] == 'productivity' OR
 $_SESSION['results_page'] == 'kpis' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='kpi_3'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='kpi_3'";
 	mysqli_query($conn, $sql);
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',    'kpi_3', 
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'kpi_3', 
 		'".$kpi_3_0."',
 		'".$kpi_3_1."',
 		'".$kpi_3_2."',
@@ -492,13 +492,13 @@ $_SESSION['results_page'] == 'kpis' OR
 		'".$kpi_3_12."')";
 	mysqli_query($conn, $sql);
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='kpi_3_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='kpi_3_target'";
 
 
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'kpi_3_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'kpi_3_target', 
 		'".$kpi_3_target_6."',
 		'".$kpi_3_target_7."',
 		'".$kpi_3_target_8."',
@@ -513,11 +513,11 @@ if(
 $_SESSION['results_page'] == 'productivity' OR
 $_SESSION['results_page'] == 'kpis' OR
 		$_SESSION['results_page'] == 'inputs'	){
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='kpi_4'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='kpi_4'";
 	mysqli_query($conn, $sql);
 	$sql = "INSERT INTO tracking_inputs 
 		(			      user_id, 	data_type ".$all_the_dates.")
-	VALUES  ('".$_SESSION['viewing_client_id']."',     'kpi_4',  
+	VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',     'kpi_4',  
 		'".$kpi_4_0."',
 		'".$kpi_4_1."',
 		'".$kpi_4_2."',
@@ -533,13 +533,13 @@ $_SESSION['results_page'] == 'kpis' OR
 		'".$kpi_4_12."')";
 	mysqli_query($conn, $sql);
 	
-	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND data_type='kpi_4_target'";
+	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='kpi_4_target'";
 
 
 	mysqli_query($conn, $sql);	
 	$sql = "INSERT INTO tracking_inputs 
 	(			      user_id, 	data_type ".$second_six_date_combos_for_sql.")
-VALUES  ('".$_SESSION['viewing_client_id']."',    'kpi_4_target', 
+VALUES  ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    'kpi_4_target', 
 	'".$kpi_4_target_6."',
 	'".$kpi_4_target_7."',
 	'".$kpi_4_target_8."',
@@ -612,7 +612,7 @@ if($_SESSION['results_page'] == 'kpis' OR
 		 kpi_4_units, 
 		 kpi_4_max, 
 		 kpi_4_min)
-	VALUES  (	'".$_SESSION['viewing_client_id']."', 				
+	VALUES  (	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."', 				
 			'".$kpi_1_title."',
 			'".$kpi_1_units."',
 			'".$kpi_1_max."',
@@ -643,7 +643,7 @@ if($_SESSION['results_page'] == 'kpis' OR
 
 if(isset($_POST['what_is_productivity'])){
 	$_SESSION['viewing_client_what_is_productivity'] = $_POST['what_is_productivity'];
-	$sql = "UPDATE user_account_details SET what_is_productivity = '".mysqli_real_escape_string($conn,$_POST['what_is_productivity'])."' WHERE user_id = '".$_SESSION['viewing_client_id']."' ";
+	$sql = "UPDATE user_account_details SET what_is_productivity = '".mysqli_real_escape_string($conn,$_POST['what_is_productivity'])."' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' ";
 	mysqli_query($conn, $sql);
 //exit();
 

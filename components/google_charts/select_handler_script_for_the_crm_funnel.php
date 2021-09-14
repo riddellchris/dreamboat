@@ -2,8 +2,8 @@
           var selectedItem = chart.getSelection()[0];
           if (selectedItem) {
             var topping 		= data.getValue(selectedItem.row, 0);
-            var primary_folder 		= <?php echo "'".$_GET['primary_folder']."'"; ?>;
-            var secondary_folder 	= <?php echo "'".$_GET['secondary_folder']."'"; ?>;
+            var primary_folder 		= <?php echo "'".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'"; ?>;
+            var secondary_folder 	= <?php echo "'".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'"; ?>;
             
             
             var random_cache_buster = Math.random();

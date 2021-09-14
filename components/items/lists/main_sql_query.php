@@ -11,7 +11,7 @@ if($_GET['primary_folder'] == 'content'){
 }
 if($_GET['primary_folder'] == 'notifications'){
 		$database = 'notifications_and_alerts';
-		$sql_for_display = "SELECT * FROM ".$database." WHERE for_user_id = '".$_SESSION['viewing_client_id']."' ORDER BY notification_id DESC;";
+		$sql_for_display = "SELECT * FROM ".$database." WHERE for_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' ORDER BY notification_id DESC;";
 	 	$sql_done = 'yes';
 }
 if($sql_done == 'no'){
@@ -34,27 +34,27 @@ if($sql_done == 'no'){
 	if(	$_SESSION['list_view_'.$_GET['primary_folder'].'_'.$_GET['secondary_folder']] == 'homework'){ 	$sql_for_display .= "WHERE deleted = 'no' AND status = 'active' AND homework = 'yes'";}
 	
 		
-	if($_GET['primary_folder'] != 'admin'){		$sql_for_display .= " AND user_id = '".$_SESSION['viewing_client_id']."'";}
+	if($_GET['primary_folder'] != 'admin'){		$sql_for_display .= " AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";}
 
 	
 	
-	if($_GET['primary_folder'] == 'sales'){		$sql_for_display .= " AND category 		= '".$_GET['secondary_folder']."' ";}		 	
-	if($_GET['primary_folder'] == 'wheelhouse'){	$sql_for_display .= " AND category 	= '".$_GET['secondary_folder']."' ";}
-	if($_GET['primary_folder'] == 'activities'	&& $_GET['secondary_folder'] != 'all'){	$sql_for_display .= " AND category 	= '".$_GET['secondary_folder']."' ";}	 	
+	if($_GET['primary_folder'] == 'sales'){		$sql_for_display .= " AND category 		= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}		 	
+	if($_GET['primary_folder'] == 'wheelhouse'){	$sql_for_display .= " AND category 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}
+	if($_GET['primary_folder'] == 'activities'	&& $_GET['secondary_folder'] != 'all'){	$sql_for_display .= " AND category 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}	 	
 	if($_GET['primary_folder'] == 'issues'		&& $_GET['secondary_folder'] == 'other'){	$sql_for_display .= " AND category 	= 'other' ";}	
 	if($_GET['primary_folder'] == 'issues'		&& $_GET['secondary_folder'] == 'notable'){	$sql_for_display .= " AND category 	= 'notable' ";}
 	if($_GET['primary_folder'] == 'issues'		&& $_GET['secondary_folder'] == 'important'){	$sql_for_display .= " AND category 	= 'important' ";}	
 	if($_GET['primary_folder'] == 'issues'		&& $_GET['secondary_folder'] == 'critical'){	$sql_for_display .= " AND category 	= 'critical' ";}		
-	if($_GET['secondary_folder'] == 'technology'){	$sql_for_display .= " AND category 	= '".$_GET['secondary_folder']."' ";}	
-	if($_GET['primary_folder'] == 'upgrades'	&& $_GET['secondary_folder'] != 'all' && $_GET['secondary_folder'] != 'homework'){	$sql_for_display .= " AND category 	= '".$_GET['secondary_folder']."' ";}
+	if($_GET['secondary_folder'] == 'technology'){	$sql_for_display .= " AND category 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}	
+	if($_GET['primary_folder'] == 'upgrades'	&& $_GET['secondary_folder'] != 'all' && $_GET['secondary_folder'] != 'homework'){	$sql_for_display .= " AND category 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}
 	if($_GET['primary_folder'] == 'upgrades'	&& $_GET['secondary_folder'] == 'homework'){$sql_for_display .= " AND homework 	= 'yes' ";}
-	if($_GET['secondary_folder'] == 'clients'){	$sql_for_display .= " AND category 	= '".$_GET['secondary_folder']."' ";}		 	
-	if($_GET['secondary_folder'] == 'staff'){	$sql_for_display .= " AND category	= '".$_GET['secondary_folder']."' ";}	
+	if($_GET['secondary_folder'] == 'clients'){	$sql_for_display .= " AND category 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}		 	
+	if($_GET['secondary_folder'] == 'staff'){	$sql_for_display .= " AND category	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}	
 	if($_GET['secondary_folder'] == 'referrers'){	$sql_for_display .= " AND referrer 	= 'yes' ";}	 			 			
-	if($_GET['secondary_folder'] == 'products'){	$sql_for_display .= " AND category	= '".$_GET['secondary_folder']."' ";}	
-	if($_GET['secondary_folder'] == 'services'){	$sql_for_display .= " AND category	= '".$_GET['secondary_folder']."' ";}	
-	if($_GET['secondary_folder'] == 'businesses'){	$sql_for_display .= " AND category	= '".$_GET['secondary_folder']."' ";}	
-	if($_GET['secondary_folder'] == 'groups'){	$sql_for_display .= " AND category	= '".$_GET['secondary_folder']."' ";}	
+	if($_GET['secondary_folder'] == 'products'){	$sql_for_display .= " AND category	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}	
+	if($_GET['secondary_folder'] == 'services'){	$sql_for_display .= " AND category	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}	
+	if($_GET['secondary_folder'] == 'businesses'){	$sql_for_display .= " AND category	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}	
+	if($_GET['secondary_folder'] == 'groups'){	$sql_for_display .= " AND category	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}	
 	
 	if(	($_GET['secondary_folder'] == 'new_potentials' OR $_GET['secondary_folder'] == 'potential_upsells') AND
 		 isset($_SESSION['funnel_focus'][$_GET['secondary_folder']])){

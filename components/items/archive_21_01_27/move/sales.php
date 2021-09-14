@@ -32,8 +32,8 @@ mysqli_query($conn, $sql);
 //make the actual change in the SALES database
 $sql = "UPDATE sales 
 	SET category = '".$new_category."'
-	WHERE user_id = '".$_SESSION['viewing_client_id']."'
-	AND 	item_id = '".$_GET['item_id']."'";
+	WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
+	AND 	item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 mysqli_query($conn, $sql);
 
 

@@ -11,8 +11,8 @@ echo "	<select style='display:inline-block;'  onchange='this.form.submit()' name
 	//get out all nodes that have a link associated with them
 	$sql = "SELECT DISTINCT item_a_database, item_a_primary_folder, item_a_secondary_folder, item_a_id, item_a_title
 		FROM item_relationships 
-		WHERE item_a_user_id = '".$_SESSION['viewing_client_id']."' AND
-			item_b_user_id =  '".$_SESSION['viewing_client_id']."' AND 
+		WHERE item_a_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND
+			item_b_user_id =  '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' AND 
 			total_relationship_status = 'active'
 		ORDER BY
 		  CASE item_a_secondary_folder 	";
@@ -111,7 +111,7 @@ echo "	<select style='display:inline-block;'  onchange='this.form.submit()' name
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $sql = "SELECT DISTINCT item_a_database, item_a_id, item_a_primary_folder, item_a_secondary_folder, item_a_title
 					FROM item_relationships 
-					WHERE item_a_user_id = '".$_SESSION['viewing_client_id']."'
+					WHERE item_a_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 					AND item_a_current_status = 'active'
 					AND total_relationship_status = 'active'
 					";
@@ -122,7 +122,7 @@ if(mysqli_num_rows($result) == 0){
 	echo "	<div class='prompt-font' style='width:100%;text-align:center;height:65vh;bottom: 0;position: absolute;'>";
 
 	//see if it's a total lack of active items OR just relationships and then display the message
-	$sql = "SELECT * FROM items_all WHERE user_id = '".$_SESSION['viewing_client_id']."'
+	$sql = "SELECT * FROM items_all WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 					AND current_status = 'active'
 					AND deleted_or_not = 'no'";
 	$result = mysqli_query($conn, $sql);

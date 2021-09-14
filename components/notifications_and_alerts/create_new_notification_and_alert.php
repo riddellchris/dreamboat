@@ -143,7 +143,7 @@ else{
 		$sql .="	 
 			 '".$email_title."', 
 			 '".$url."', 			 
-			 '".$_SESSION['user_id']."', 
+			 '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', 
 			 '".$to_user_id."',
 			 '".$background_color."',
 			 '".$contrast_color."',
@@ -178,7 +178,7 @@ else{
 				 '".$email_title."', 
 				 '".$url."', 			 
 				 '".$to_user_id."',
-				 '".$_SESSION['user_id']."', 
+				 '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', 
 				 '".$background_color."',
 				 '".$contrast_color."',
 				 '".$text_color."',
@@ -207,7 +207,7 @@ else{
 			
 		//add to appropriate discussions feeds too
 		$sql = "INSERT INTO discussion (system_notification, comment, primary_folder, secondary_folder, related_id , to_user_id, user_id)
-			VALUES('yes','".$email_title."','".$_POST['primary_folder']."','".$_POST['secondary_folder']."','".$related_item_id."','".$to_user_id."','".$_SESSION['user_id']."')	";
+			VALUES('yes','".$email_title."','".$_POST['primary_folder']."','".$_POST['secondary_folder']."','".$related_item_id."','".$to_user_id."','".mysqli_real_escape_string($conn, $_SESSION['user_id'])."')	";
 			mysqli_query($conn, $sql);
 			
 		}					

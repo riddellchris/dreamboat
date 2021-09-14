@@ -8,7 +8,7 @@ require $_SERVER['DOCUMENT_ROOT']."/inputs/color_creation.php";
 if($_SESSION['next_prompt_id'] ==  247){
 	$title = mysqli_real_escape_string($conn, $_POST['standard_input']);
 	$sql = "INSERT INTO wheelhouse_list (user_id, item_category, item_type, item_group, item_title, background_color, contrast_color, text_color, degrees)
-				         VALUES('".$_SESSION['user_id']."', '".$_SESSION['menu_set_wheelhouse_category']."', '".substr($_SESSION['menu_set_wheelhouse_type'], 0, -1)."','".$group_category."', '$title', '$background_color', '$contrast_color', '$text_color', '$degrees')";
+				         VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '".$_SESSION['menu_set_wheelhouse_category']."', '".substr($_SESSION['menu_set_wheelhouse_type'], 0, -1)."','".$group_category."', '$title', '$background_color', '$contrast_color', '$text_color', '$degrees')";
 	$result = mysqli_query($conn, $sql);
 	$_SESSION['wheelhouse_insert_id'] = mysqli_insert_id($conn);
 	

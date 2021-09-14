@@ -65,8 +65,8 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 
 	 	$sql = "SELECT * 
 			FROM items_central_index 
-			WHERE primary_folder = '".$_GET['primary_folder']."'
-			AND secondary_folder = '".$_GET['secondary_folder']."'";
+			WHERE primary_folder = '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
+			AND secondary_folder = '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'";
 
 	//echo $sql;exit();
 	//	exit();

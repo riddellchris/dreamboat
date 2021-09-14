@@ -32,7 +32,7 @@ echo "
 
 //get out all existing data and go from there;
 $sql = "SELECT * FROM tests_time_allocation_to_income_improvement 
-	WHERE user_id = '".$_SESSION['viewing_client_id']."'
+	WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	AND latest_version_of_data_for_this_user = 'yes'";
 //echo $sql;	
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";

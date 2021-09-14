@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
-$sql = "SELECT * FROM activities WHERE item_id = '".$_GET['item_id']."'";
+$sql = "SELECT * FROM activities WHERE item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $selected = $row['category'];

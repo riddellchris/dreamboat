@@ -6,8 +6,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
 //then turn on anything that needs to be on
 $sql = "SELECT * FROM notifications_and_alerts WHERE ";
-if($_SESSION['dreamboat_crew'] == 'yes' && $_SESSION['show_as_dreamboat_crew'] == 'yes'){ $sql .= " from_user_id = '".$_SESSION['viewing_client_id']."' AND ";}
-$sql .= " for_user_id = ".$_SESSION['user_id']." ORDER BY notification_id DESC";
+if($_SESSION['dreamboat_crew'] == 'yes' && $_SESSION['show_as_dreamboat_crew'] == 'yes'){ $sql .= " from_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND ";}
+$sql .= " for_user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY notification_id DESC";
 
 //echo $sql;
 

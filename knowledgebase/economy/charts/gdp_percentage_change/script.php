@@ -5,6 +5,14 @@ if(!isset($_SESSION)){session_start();}
 $development_version    = "1.7";
 $current_version        = "1.7";
 
+
+//$test = "fail";
+//if(isset($_SESSION['dreamboat_developer'])){
+      
+        
+
+
+//old version // failing on development server as         
 if($_SESSION['dreamboat_developer'] == 'yes'){
 
         if($_SESSION['dreamboat_developer_view'] == 'live'){    $display_version = $current_version;}

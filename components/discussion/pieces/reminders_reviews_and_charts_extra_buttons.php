@@ -1,22 +1,22 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if(		$_GET['primary_folder'] 	== 'map' 		OR
-		$_GET['primary_folder'] 	== 'admin' 		OR
+if(		$_GET['primary_folder'] 	== 'map' 			OR
+		$_GET['primary_folder'] 	== 'admin' 			OR
 		$_GET['primary_folder'] 	== 'interrogation' 	OR
-		$_GET['primary_folder'] 	== 'notes' 		OR
+		$_GET['primary_folder'] 	== 'notes' 			OR
 		$_GET['primary_folder'] 	== 'results' 		OR
 		$_GET['primary_folder'] 	== 'wheelhouse' 	OR
 		$_GET['primary_folder'] 	== 'messages' 		OR
 		$_GET['primary_folder'] 	== 'activities' 	OR	
 		$_GET['primary_folder'] 	== 'issues' 		OR
-		$_GET['primary_folder'] 	== 'upgrades' 	OR
+		$_GET['primary_folder'] 	== 'upgrades' 		OR
 	(	$_GET['primary_folder'] 	== 'management' 	AND $_GET['secondary_folder'] != 'clients') 	OR
 	(	$_GET['primary_folder'] 	== 'management' 	AND $_GET['tertiary_folder'] == 'item') 		OR
 		$_GET['primary_folder'] 	== 'marketing' 		OR
-	(	$_GET['primary_folder'] 	== 'sales' 		AND $_GET['tertiary_folder'] == 'item') 		OR
+	(	$_GET['primary_folder'] 	== 'sales' 			AND $_GET['tertiary_folder'] == 'item') 		OR
 	(	$_GET['primary_folder'] 	== 'biz_dev' 		AND $_GET['tertiary_folder'] == 'item') 		OR
-	(	$_GET['primary_folder'] 	== 'network' 		AND $_GET['tertiary_folder'] == 'item')		OR
+	(	$_GET['primary_folder'] 	== 'network' 		AND $_GET['tertiary_folder'] == 'item')			OR
 		$_GET['primary_folder'] 	== 'business' 		OR
 	(	$_GET['primary_folder'] 	== 'profile' 		AND $_GET['secondary_folder'] != 'reviews')	
 		
@@ -34,24 +34,13 @@ $data_hidden = 'yes';
 }
 
 
-
-
-
-
-
-
-
-
 echo "
 <style>
 	.hidden{display:none;}
 	.unhidden{display:inline-block;width:calc(100% - 18px);}
-	
-	
 	.charts_and_more{
 		padding:10px 12px 14px;
 		margin-left:0px;
-
 		background-color: red;
 		//background-color:#00a300;
 		float: left;
@@ -62,11 +51,8 @@ echo "
 		//background-color:#016101;
 	}
 	.charts_and_more.nav-links:hover{color:#ffffff;}
-	
-
-
 	.settings{	
-	//float:left;
+		//float:left;
 		padding:10px 12px 14px;
 		margin-left:auto;
 		margin-right:auto;
@@ -79,12 +65,6 @@ echo "
 		background-color: #b0b0b0;
 	}
 	.settings.nav-links:hover{color:#ffffff;}
-
-
-
-
-
-
 	.reminders{	
 		padding:10px 12px 14px;
 		margin-left:0px;
@@ -99,12 +79,6 @@ echo"
 		background-color:#06610b;
 	}
 	.reminders.nav-links:hover{color:#ffffff;}
-	
-
-
-
-
-	
 	.review_now_div{	
 		padding:10px 12px 14px;
 		margin-left:0px;
@@ -117,10 +91,7 @@ echo"
 	.review_now_div:hover{
 		background-color:#ad0707;
 	}
-	.review_now_div.nav-links:hover{color:#ffffff;}	
-	
-	
-	
+	.review_now_div.nav-links:hover{color:#ffffff;}		
 </style>";
 
 
@@ -153,9 +124,9 @@ if($settings_off != 'yes'){
 
 
 
-$function_name 		 = 'show_hide_reminders';
-$hide_only_function_name = 'hide_reminders';
-$element_to_show_hide 	 = 'reminder_div';
+$function_name 		 		= 'show_hide_reminders';
+$hide_only_function_name 	= 'hide_reminders';
+$element_to_show_hide 	 	= 'reminder_div';
 require $_SERVER['DOCUMENT_ROOT']."/components/functions/javascript/show_hide_div.php";	
 	
 echo"
@@ -165,8 +136,6 @@ echo "<div id='top_of_discussion_tabs' style='max-width:1100px;margin:auto;displ
 
 //probably should put this into some sort of file...
 //require_once $_SERVER['DOCUMENT_ROOT']."";
-
-
 
 //reviews are now just for text///updates are for lists and data
 /*
@@ -182,39 +151,38 @@ if($_GET['tertiary_folder'] != 'item'){
 	if($primary == 'management' && $secondary == 'clients'){$show_review_now = 'yes';}
 }
 
-
-
 if($show_review_now == 'yes'){	*/
 
-
-
-
 //see if 
-
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM user_account_details WHERE user_id = '".$_SESSION['user_id']."'";
+$sql = "SELECT * FROM user_account_details 
+		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 if($row['client_or_crew'] == 'crew'){$crew = 'yes';}else{$crew = 'no';}
 
 //then turn on anything that needs to be on
-$sql = "SELECT * FROM notifications_and_alerts WHERE ";
-if($crew == 'yes'){ $sql .= " from_user_id = '".$_SESSION['viewing_client_id']."' AND ";}
-$sql .= " for_user_id = ".$_SESSION['user_id']." AND alert_on = 'on' AND reminder = 'yes'";
+$sql = "SELECT * FROM notifications_and_alerts 
+		WHERE ";
+if($crew == 'yes'){ $sql .= " from_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND ";}
+$sql .= " for_user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND alert_on = 'on' AND reminder = 'yes'";
 
 //echo $sql;
 //exit();
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-if(	$_GET['primary_folder'] 	== $row['primary_folder'] 	AND
-	$_GET['secondary_folder'] 	== $row['secondary_folder'] 	AND
-	$_GET['tertiary_folder'] 	== $row['tertiary_folder'] 	AND
-	$_SESSION['item_id_from_url'] 	== $row['related_id']){
-	
-	$active_reminder = 'yes';
-	}
 
+if(mysqli_num_rows($result)){
+	$test = 'true';
+		if($_GET['primary_folder'] 		!= 	$row['primary_folder']){	$test = 'false';}
+		if($_GET['secondary_folder'] 	!= 	$row['secondary_folder']){	$test = 'false';}
+	if(isset($_GET['tertiary_folder'])){
+		if($_GET['tertiary_folder'] 	!= 	$row['tertiary_folder']){	$test = 'false';}
+	}
+		if($_GET['item_id_from_url'] 	!= 	$row['related_id']){		$test = 'false';}
+	if(	$test == 'false'){	$active_reminder = 'yes';	}
+}
 
 
 

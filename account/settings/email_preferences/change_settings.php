@@ -23,7 +23,7 @@ if($_GET['type'] == 'system_updates'		){$email_setting_to_change = 'system_updat
 
 
 if($clean_get == 'yes'){
-	$sql 	= "SELECT ".$email_setting_to_change." FROM user_email_settings WHERE user_id ='".$_SESSION['viewing_client_id']."'";
+	$sql 	= "SELECT ".$email_setting_to_change." FROM user_email_settings WHERE user_id ='".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	$row 	= mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -32,7 +32,7 @@ if($clean_get == 'yes'){
 	if($current_setting == 'on'){$new_setting = 'off';}
 	if($current_setting == 'off'){$new_setting = 'on';}
 	
-	$sql = "UPDATE user_email_settings SET ".$email_setting_to_change."= '".$new_setting."' WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+	$sql = "UPDATE user_email_settings SET ".$email_setting_to_change."= '".$new_setting."' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 
 
 	mysqli_query($conn, $sql);

@@ -33,7 +33,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		pm_saturday 	= '".$_POST['pm_saturday']."',
 		am_sunday 	= '".$_POST['am_sunday']."',
 		pm_sunday 	= '".$_POST['pm_sunday']."'
-          WHERE user_id = '".$_SESSION['user_id']."'";
+          WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 
 $result = mysqli_query($conn, $sql);
 

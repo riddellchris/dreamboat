@@ -13,8 +13,6 @@ unset($_SESSION['prompt_8_string']);
 unset($_SESSION['prompt_9_string']);
 unset($_SESSION['prompt_10_string']);
 
-
-
 unset($_SESSION['prompt_bottom_string']);
 
 unset($_SESSION['prompt_top_id']);
@@ -30,30 +28,30 @@ unset($_SESSION['prompt_9_id']);
 unset($_SESSION['prompt_10_id']);
 unset($_SESSION['prompt_bottom_id']);
 
-  $sql = "SELECT * FROM all_prompts
-	WHERE 	primary_folder = 	'".$_GET['primary_folder']."'";
+$sql  = "	SELECT * FROM all_prompts ";
+$sql .= "	WHERE primary_folder = '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'	";
 	
 //What is below is what this was... but it ended up actually missing out on calculating the difference between tertiary_folder = 'item' and not...
 //therefore it's just here as a little warning/reminder for the future now.
 //CR 3.7.20	
-//	if($_GET['secondary_folder'] != ''){$sql 	.= "AND	secondary_folder = 	'".$_GET['secondary_folder']."'";}
-//	if($_GET['tertiary_folder']  != ''){$sql 	.= "AND	tertiary_folder = 	'".$_GET['tertiary_folder']."'";}
+//	if($_GET['secondary_folder'] != ''){$sql 	.= "AND	secondary_folder = 	'".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'";}
+//	if($_GET['tertiary_folder']  != ''){$sql 	.= "AND	tertiary_folder = 	'".mysqli_real_escape_string($conn, $_GET['tertiary_folder'])."'";}
 	
 		
-	$sql 	.= "AND	secondary_folder = 	'".$_GET['secondary_folder']."'";
+$sql .= "	AND	secondary_folder = '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'";
 
 
 
 //CR 5.8.20 some crude hacking here to make activieswork as three layers deep and messy for some reason i can't quite tell right now	
 if($_GET['secondary_folder'] == 'activities'){
-	$sql 	.= "AND	tertiary_folder = 	'".tertiary_folders_name()."'";
+	$sql 	.= "AND	tertiary_folder = 	'".mysqli_real_escape_string($conn, tertiary_folders_name())."'";
 
-	if($_GET['tertiary_folder'] == 'item'){	$sql 	.= "AND	quaternary_folder = 	'".quarternary_folders_name()."'";}
-	else{					$sql 	.= "AND	quaternary_folder <> 	'item'";}
+	if($_GET['tertiary_folder'] == 'item'){	$sql 	.= "AND	quaternary_folder = 	'".mysqli_real_escape_string($conn, quarternary_folders_name())."'";}
+	else{									$sql 	.= "AND	quaternary_folder <> 	'item'";}
 }
 else{
 	if(isset($_GET['tertiary_folder'])){
-		$sql 	.= "AND	tertiary_folder = 	'".$_GET['tertiary_folder']."'";
+		$sql 	.= "AND	tertiary_folder = 	'".mysqli_real_escape_string($conn, $_GET['tertiary_folder'])."'";
 	}
 }	
 	
@@ -110,26 +108,40 @@ for($j = 0; $j <= 4; $j++){
 //shuffle($prompt_ids_to_randomise);
 
 $sql = "SELECT * FROM all_prompts 
-	WHERE 	prompt_id = '".$prompt_ids_to_randomise[0]."' OR 
-		prompt_id = '".$prompt_ids_to_randomise[1]."' OR 
-		prompt_id = '".$prompt_ids_to_randomise[2]."' OR 
-		prompt_id = '".$prompt_ids_to_randomise[3]."' OR 
-		prompt_id = '".$prompt_ids_to_randomise[4]."' OR 
-		prompt_id = '".$prompt_ids_to_randomise[5]."' OR 
-		prompt_id = '".$prompt_ids_to_randomise[6]."' OR 
-		prompt_id = '".$prompt_ids_to_randomise[7]."' OR 
-		prompt_id = '".$prompt_ids_to_randomise[8]."' OR 
-		prompt_id = '".$prompt_ids_to_randomise[9]."'
-		";
+		WHERE ";
+
+
+for($count = 0; $count <= 9; $count ++){	
+	if(		isset($prompt_ids_to_randomise[$count])		){ $sql .= " prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[0])."'";
+		if(	isset($prompt_ids_to_randomise[$count + 1])	&& $count != 9){ $sql .= " OR ";}
+		}	
+}
+
+/* 	What's left of the old one
+		prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[0])."' OR 
+				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[1])."' OR 
+				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[2])."' OR 
+				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[3])."' OR 
+				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[4])."' OR 
+				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[5])."' OR 
+				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[6])."' OR 
+				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[7])."' OR 
+				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[8])."' OR 
+				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[9])."'";
+*/
+
 $result = mysqli_query($conn, $sql);
+$count = 0;
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
-	if($row['prompt_id'] == $prompt_ids_to_randomise[0]){
-		$z = 1;
+	if($row['prompt_id'] == $prompt_ids_to_randomise[$count]){
+		$z = $count + 1;
 		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
 		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	
 	}
+
+	$count ++;
+/*	AGAIN WHAT'S LEFT OF THE OLD ONE
 	if($row['prompt_id'] == $prompt_ids_to_randomise[1]){
 		$z = 2;
 		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
@@ -175,7 +187,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
 		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
 	}
-
+*/
 
 
 }

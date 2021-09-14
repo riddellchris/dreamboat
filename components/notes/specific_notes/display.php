@@ -11,8 +11,8 @@ echo "<div style='height:50vh;padding:15px;'>";
 		AND 	secondary_folder 	= '".$_SESSION['secondary_folder']."'
 		AND 	tertiary_folder 	= '".$_SESSION['tertiary_folder']."'		
 		AND 	item_id 		= '".$_SESSION['item_id_from_url']."'		
-		AND 	about_user_id 		= '".$_SESSION['viewing_client_id']."'		
-		AND 	last_edited_by 		= '".$_SESSION['user_id']."'		
+		AND 	about_user_id 		= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'		
+		AND 	last_edited_by 		= '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'		
 		ORDER BY note_id DESC LIMIT 1
 		";
 	

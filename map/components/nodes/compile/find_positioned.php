@@ -7,7 +7,7 @@ $sql = "SELECT * FROM map_positions_per_view
                 critical_nodes_3                = '".$_SESSION['critical_node_include_3']."'  AND
                 critical_nodes_4                = '".$_SESSION['critical_node_include_4']."'  AND
                 issues_on_or_off                = '".$_SESSION['current_issues_setting']."'   AND
-                user_id                         = '".$_SESSION['viewing_client_id']."'        AND
+                user_id                         = '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'        AND
                 latest_data_point_for_this_view = 'yes'
         ";
 //echo $sql;

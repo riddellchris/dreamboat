@@ -40,12 +40,7 @@ ul{	list-style: '◥';}
 	.importance_class_2{font-size: 1.2vmin;}
 	.importance_class_1{font-size: 1.1vmin;}
 	.importance_class_0{font-size: 1vmin;}
-}
-
-
-
-
-";
+}";
 
 //Barlow Semi Condensed only goes from 700-300 soo....
 echo "
@@ -80,28 +75,24 @@ echo "
 
 
 /* Style the button that is used to open and close the collapsible content */
-
-
 p{font-family: Barlow Semi Condensed;}
 
-.collapsible {	 
-			text-decoration: none;
-		 color: #444;
-		  cursor: pointer;
-		  padding: 10px 18px;
-		  border: none;
-		  text-align: left;
-		  outline: none;
-		 // height: 5vh;
-		 
+.collapsible {	text-decoration: none;
+		 		color: #444;
+		  		cursor: pointer;
+		  		padding: 10px 18px;
+		  		border: none;
+		  		text-align: left;
+		  		outline: none;
+		 		//height: 5vh;
 		}
 //.collapsible:hover{	 color: #281e96;}		
 		
 
 //.collapsible {  		background-color: #a8a1ff;}
-//.collapsible:hover{		background-color: #4332ff;
-//  				box-shadow: 	inset 0px 11px 8px -10px #0f004a,
-//        					inset 0px -11px 8px -10px #0f004a; 
+//.collapsible:hover{	background-color: #4332ff;
+//  					box-shadow: 	inset 0px 11px 8px -10px #0f004a,
+//        				inset 0px -11px 8px -10px #0f004a; 
 //		}
 
 
@@ -128,14 +119,18 @@ p{font-family: Barlow Semi Condensed;}
 
 .highlights{
 	font-family: Barlow Semi Condensed;
-	font-size: large; 
 	margin-left: 1vw;
 	margin-right: 2vw;
 	padding-top: 2vh;
 	padding-bottom: 2vh;
 	}
+
+@media only screen and (max-width: 768px) { .highlights(font-size: large; )}
+@media only screen and (min-width: 768px) { .highlights(font-size: 2vmin;)}
+
 	
 	
+
 	";
 
 

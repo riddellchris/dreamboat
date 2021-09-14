@@ -20,7 +20,7 @@ echo "<div style='height:55px;text-align:center;'>";
 echo "<a class='login-submit' href='".$_SESSION['last_page_used']."'>back</a>";
 echo "</div>";
 
-$sql = "SELECT * FROM $details_page  WHERE client_id = '".$_SESSION['viewing_client_id']."' ORDER BY update_id DESC";
+$sql = "SELECT * FROM $details_page  WHERE client_id = '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' ORDER BY update_id DESC";
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);

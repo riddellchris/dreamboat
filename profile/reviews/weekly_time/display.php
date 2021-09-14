@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
-$sql = "SELECT * FROM reviews_weekly_time WHERE user_id = '".$_SESSION['viewing_client_id']."' ORDER BY input_id DESC";
+$sql = "SELECT * FROM reviews_weekly_time WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' ORDER BY input_id DESC";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) == 0){
@@ -16,7 +16,7 @@ else{
 
 	echo "<div style='height:20px;'></div>";
 	
-	$sql = "SELECT * FROM reviews_weekly_time WHERE user_id = '".$_SESSION['viewing_client_id']."' ORDER BY input_id DESC";
+	$sql = "SELECT * FROM reviews_weekly_time WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' ORDER BY input_id DESC";
 	$result = mysqli_query($conn, $sql);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 	

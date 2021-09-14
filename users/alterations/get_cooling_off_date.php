@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-$sql = "SELECT cooling_off_date FROM user_account_details WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+$sql = "SELECT cooling_off_date FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 $result = mysqli_query($conn, $sql);
 
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

@@ -26,10 +26,10 @@ $current_date = date('Y-m-d H:i:s');
 		 business_age 		= '$business_age',
 	     	 other_notes 		= '$other_notes'
 	     	 
-	     WHERE client_id = '".$_SESSION['viewing_client_id']."'";
+	     WHERE client_id = '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'";
 	   
 // $sql = "INSERT INTO  profile_details (backstory, skills, obsessions, training, friends, family,  hobbies, other_notes, client_id, made_by_id)
-//	VALUES('$backstory', '$skills','$obsessions','$training','$friends','$family','$hobbies','$other_notes','".$_SESSION['viewing_client_id']."','".$_SESSION['user_id_to_edit']."')";
+//	VALUES('$backstory', '$skills','$obsessions','$training','$friends','$family','$hobbies','$other_notes','".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."','".$_SESSION['user_id_to_edit']."')";
     
 	     
      	 

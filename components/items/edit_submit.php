@@ -11,7 +11,7 @@ $_GET['secondary_folder']	= $_SESSION['editing_title_of_secondary_folder'];
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/folder_to_database_relationships.php";
 
-$sql = "UPDATE ".$database." SET title = '".$title."' WHERE user_id = '".$_SESSION['viewing_client_id']."' AND item_id ='".$_SESSION['editing_title_of_item_id']."'";
+$sql = "UPDATE ".$database." SET title = '".$title."' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND item_id ='".$_SESSION['editing_title_of_item_id']."'";
 $result = mysqli_query($conn, $sql);
 
 //21.01.21

@@ -30,8 +30,8 @@ $ordered_results_array[number_of_relationships_linked_to_this_array] = array();
 //require $_SERVER['DOCUMENT_ROOT']."/components/functions/safely_replacing_apostrophies_function.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $sql = "SELECT * FROM `item_relationships` 
-	WHERE 	item_a_user_id = '".$_SESSION['viewing_client_id']."' 
-	AND 	item_b_user_id = '".$_SESSION['viewing_client_id']."' 
+	WHERE 	item_a_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
+	AND 	item_b_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
 
 	AND 	item_a_current_status = 'active' 
 	AND 	item_b_current_status = 'active' 

@@ -20,7 +20,7 @@ $sql = "INSERT INTO labels (
 		'".mysqli_real_escape_string($conn, $_POST['quarternary_folder'])."',	
 		'".mysqli_real_escape_string($conn, $_POST['item_id'])."',	
 		'".mysqli_real_escape_string($conn, $_POST['standard_input'])."',	
-		'".$_SESSION['user_id']."'	
+		'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'	
 	)
 ";
 

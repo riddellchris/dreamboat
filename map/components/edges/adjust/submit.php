@@ -15,7 +15,7 @@ echo "<br>";
 //first unset any latest_data_for_this_edge items that are currently a yes
 $sql = "UPDATE edge_data 
 	SET latest_data_for_this_edge = 'no'
-	WHERE relationship_id = '".$_GET['item_id']."'";
+	WHERE relationship_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 	
 $result = mysqli_query($conn, $sql);
 
@@ -36,7 +36,7 @@ $sql = "INSERT INTO edge_data(
 		kpi_4)
 
 
-	VALUES	(	'".$_SESSION['viewing_client_id']."',
+	VALUES	(	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
 			'".mysqli_real_escape_string($conn, $_GET['item_id'])."',
 			'yes',
 			'".mysqli_real_escape_string($conn, $_POST['time'])."',

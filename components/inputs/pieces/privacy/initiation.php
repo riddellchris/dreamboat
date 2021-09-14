@@ -6,7 +6,7 @@ if(	!isset($_SESSION['flow_sub_privacy_friends']) 		OR
 	!isset($_SESSION['flow_sub_privacy_colleagues']) 	OR	
 	!isset($_SESSION['flow_sub_privacy_work_contacts'])	){
 	
- 	$sql = "SELECT * FROM user_privacy_settings WHERE user_id = '".$_SESSION['user_id']."'";
+ 	$sql = "SELECT * FROM user_privacy_settings WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 
 	require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
 	$result = mysqli_query($conn, $sql);

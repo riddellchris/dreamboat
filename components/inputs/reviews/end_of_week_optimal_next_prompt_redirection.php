@@ -15,7 +15,7 @@ if($_POST['submit_button'] != 'submit & add another'){
 		
 		
 			//beat test then skip ahead to next designated question and we are done
-			$sql = "SELECT * FROM events WHERE status = 'active' AND deleted = 'no' AND user_id = '".$_SESSION['viewing_client_id']."'";
+			$sql = "SELECT * FROM events WHERE status = 'active' AND deleted = 'no' AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 			$result = mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) != 0 ){$changed = 'yes';}
 			else{				   $changed = 'no';}
@@ -25,7 +25,7 @@ if($_POST['submit_button'] != 'submit & add another'){
 			$_SESSION['next_prompt_id'] = 351;
 		
 			//beat test then skip ahead to next designated question and we are done
-			$sql = "SELECT * FROM events WHERE status = 'active' AND deleted = 'no' AND user_id = '".$_SESSION['viewing_client_id']."'";
+			$sql = "SELECT * FROM events WHERE status = 'active' AND deleted = 'no' AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 			$result = mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) != 0 ){ $changed = 'yes';}
 			else{				    $changed = 'no';}

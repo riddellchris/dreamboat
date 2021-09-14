@@ -29,7 +29,7 @@ if(	check_url('knowledgebase') == 1 OR
 			if(isset($_SESSION['logged_in'])){
 				if($_SESSION['logged_in'] == 'yes'){
 				echo "color:red;' title='Back we go<<<' href='/'>go back";	
-				$logged_in == 'yes';
+				$logged_in = 'yes';
 				}
 			}
 

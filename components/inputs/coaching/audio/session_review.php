@@ -12,7 +12,7 @@ $prompt = $row['prompt'];
 
 if($_SESSION['next_prompt_id'] == 125){
 	$sql = "INSERT INTO coaching_audio_session_feedback (user_id, overall_5_star_rating)
-				     VALUES('".$_SESSION['user_id']."', '$prompt')";
+				     VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '$prompt')";
 	$result = mysqli_query($conn, $sql);
 	$_SESSION['session_review_id'] = mysqli_insert_id($conn);
 }

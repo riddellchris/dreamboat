@@ -16,7 +16,7 @@ if(!isset($_SESSION['current_edge_display'])){		$_SESSION['current_edge_display'
 	//so
 	
 $sql = "SELECT * FROM items_all 
-	WHERE user_id = '".$_SESSION['viewing_client_id']."'
+	WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	AND deleted_or_not = 'no'
 	AND current_status = 'active'";
 //now we add in some conditions
@@ -65,8 +65,8 @@ if(	$_SESSION['current_connection_control'] == 'connected_only' OR
 	//so first let's pull out all the relationships that currently exist that include in some way an element of the critical results array
 		//this will require a pretty long $sql query for the WHERE clause but that's fine.
 		$sql = "SELECT * FROM item_relationships 
-			WHERE 	item_a_user_id = '".$_SESSION['viewing_client_id']."' 
-			AND 	item_b_user_id = '".$_SESSION['viewing_client_id']."' 
+			WHERE 	item_a_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
+			AND 	item_b_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
 		
 			AND 	item_a_current_status = 'active' 
 			AND 	item_b_current_status = 'active' 

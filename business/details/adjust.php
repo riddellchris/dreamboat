@@ -18,7 +18,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 		business_size_group 		= '".mysqli_real_escape_string($conn, $_POST['business_size_group'])."',		
 		what_clients_are_called		= '".mysqli_real_escape_string($conn, $_POST['what_clients_are_called'])."'
 
-          WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+          WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 
 
 

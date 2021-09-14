@@ -13,7 +13,7 @@ if($_GET['period'] == 'this_year'  ){$_SESSION['menu_set_productivity_tracker_pe
 
 
 require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
-$sql = "SELECT * FROM productivity_tracker_inputs WHERE user_id = '".$_SESSION['user_id']."'"; // select column
+$sql = "SELECT * FROM productivity_tracker_inputs WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'"; // select column
 $result = mysqli_query($conn, $sql);
 	
 if(mysqli_num_rows($result) > 1){

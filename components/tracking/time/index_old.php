@@ -6,7 +6,7 @@ require $_SERVER['DOCUMENT_ROOT']."/design/layouts/start_of_page_not_centered_ve
 
 
 //require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
-//$sql = "SELECT * FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."'"; // select column
+//$sql = "SELECT * FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'"; // select column
 //$result = mysqli_query($conn, $sql);
        //  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){    
           //   echo    "[".strtotime($row["timestamp"]).", ".$row["mood"].", ".$row["achievement"].", ".$row["energy"].", ".$row["focus"].", ".$row["joy"].", ".$row["direction"].", ".$row["passion"].", ".$row["clarity"].", ".$row["productivity"].", ".$row["enthusiasm"]."],";
@@ -32,7 +32,7 @@ function drawChart(){
         <?php
         
         require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
-$sql = "SELECT * FROM productivity_tracker_inputs WHERE user_id = '".$_SESSION['user_id']."'"; // select column
+$sql = "SELECT * FROM productivity_tracker_inputs WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'"; // select column
 $result = mysqli_query($conn, $sql);
         
         

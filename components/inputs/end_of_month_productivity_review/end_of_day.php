@@ -9,7 +9,7 @@ if($_SESSION['next_prompt_id'] == 214){
 //exit();
 
 	//see if it has been less than an hour since they finished work and send them to the progress plus email system
-	$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".$_SESSION['user_id']."'";
+	$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	echo "Users current time";	
@@ -27,7 +27,7 @@ if($_SESSION['next_prompt_id'] == 214){
 
 	$value = mysqli_real_escape_string($conn, $_POST['standard_input']);
 echo	$sql = "INSERT INTO productivity_tracker_inputs (user_id, timestamp_in_unix, income, time_in_users_zone, time_in_users_zone_unix, date_whole, date_year, date_month, date_day, date_day_in_words, date_month_in_words, date_week_of_year)
-	        	VALUES('".$_SESSION['user_id']."', '".$_SERVER['REQUEST_TIME']."' ,'".$value."','".$users_current_datetime."','".$users_current_time."','".$users_current_date_whole."','".$users_current_date_year."','".$users_current_date_month."','".$users_current_date_day."','".$users_current_date_day_in_words."','".$users_current_date_month_in_words."','".$users_current_date_week_in_the_year."')";
+	        	VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '".$_SERVER['REQUEST_TIME']."' ,'".$value."','".$users_current_datetime."','".$users_current_time."','".$users_current_date_whole."','".$users_current_date_year."','".$users_current_date_month."','".$users_current_date_day."','".$users_current_date_day_in_words."','".$users_current_date_month_in_words."','".$users_current_date_week_in_the_year."')";
 	$result = mysqli_query($conn, $sql);
 echo "<br>";	
 echo	$_SESSION['productivity_tracker_insert_id'] = mysqli_insert_id($conn);

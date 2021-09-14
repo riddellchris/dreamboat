@@ -266,7 +266,7 @@ else{
 			 '".$related_item_id."', 
 			 '".$description."', 
 			 '".$url."', 			 
-			 '".$_SESSION['user_id']."', 
+			 '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', 
 			 '".$to_user_id."',
 			 '".$background_color."',
 			 '".$contrast_color."',
@@ -301,7 +301,7 @@ else{
 				 '".$description."', 
 				 '".$url."', 			 
 				 '".$to_user_id."',
-				 '".$_SESSION['user_id']."', 
+				 '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', 
 				 '".$background_color."',
 				 '".$contrast_color."',
 				 '".$text_color."',
@@ -330,7 +330,7 @@ else{
 			
 		//add to appropriate discussions feeds too
 		$sql = "INSERT INTO discussion (system_notification, comment, primary_folder, secondary_folder, related_id , to_user_id, user_id)
-			VALUES('yes','".$description."','".$_SESSION['primary_folder']."','".$_SESSION['secondary_folder']."','".$related_item_id."','".$to_user_id."','".$_SESSION['user_id']."')	";
+			VALUES('yes','".$description."','".$_SESSION['primary_folder']."','".$_SESSION['secondary_folder']."','".$related_item_id."','".$to_user_id."','".mysqli_real_escape_string($conn, $_SESSION['user_id'])."')	";
 			mysqli_query($conn, $sql);
 			
 		}					

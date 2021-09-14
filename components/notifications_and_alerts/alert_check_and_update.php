@@ -91,7 +91,7 @@ $_SESSION['user_alerts_call'] 						= 'off';
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM user_account_details WHERE user_id = '".$_SESSION['user_id']."'";
+$sql = "SELECT * FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 if($row['client_or_crew'] == 'crew'){$crew = 'yes';}else{$crew = 'no';}
@@ -101,8 +101,8 @@ if($row['client_or_crew'] == 'crew'){$crew = 'yes';}else{$crew = 'no';}
 
 //then turn on anything that needs to be on
 $sql = "SELECT * FROM notifications_and_alerts WHERE ";
-if($crew == 'yes'){ $sql .= " from_user_id = '".$_SESSION['viewing_client_id']."' AND ";}
-$sql .= " for_user_id = ".$_SESSION['user_id']." AND alert_on = 'on'";
+if($crew == 'yes'){ $sql .= " from_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND ";}
+$sql .= " for_user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND alert_on = 'on'";
 
 //echo $sql;
 //exit();

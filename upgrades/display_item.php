@@ -20,7 +20,7 @@ echo "	<div class='big-div' style ='display: table; width:100%;     box-sizing: 
 
 $_GET['item_type'];
 $cleaned_item_id = mysqli_real_escape_string($conn, $_GET['item_id']);
- $sql = "SELECT * FROM ".$primary_folders_name." WHERE user_id = '".$_SESSION['viewing_client_id']."' AND item_id = '".$cleaned_item_id."'";
+ $sql = "SELECT * FROM ".$primary_folders_name." WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND item_id = '".$cleaned_item_id."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

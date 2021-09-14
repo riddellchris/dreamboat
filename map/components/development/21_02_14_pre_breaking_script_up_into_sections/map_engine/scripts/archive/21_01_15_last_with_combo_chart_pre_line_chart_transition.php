@@ -44,7 +44,7 @@ if($nodes_count == 2){	$node[1][x] = 250 - sin(15); $node[1][y] = 250 + 250*cos(
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM `item_relationships` WHERE user_id = '".$_SESSION['viewing_client_id']."' AND status = 'active'";
+$sql = "SELECT * FROM `item_relationships` WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND status = 'active'";
 
 $select = mysqli_query($conn, $sql);
 

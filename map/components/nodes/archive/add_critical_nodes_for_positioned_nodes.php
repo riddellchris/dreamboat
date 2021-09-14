@@ -6,7 +6,7 @@ if(!isset($_SESSION)){session_start();}
 	//so
 	
 $sql = "SELECT * FROM items_all 
-		WHERE user_id = '".$_SESSION['viewing_client_id']."'
+		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 		AND deleted_or_not = 'no'
 		AND current_status = 'active'";
 //now we add in some conditions

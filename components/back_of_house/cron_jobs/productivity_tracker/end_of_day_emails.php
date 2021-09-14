@@ -34,7 +34,7 @@ echo "User id = ";
 echo	$_SESSION['user_id'] = $user_ids_to_check[$i];
 
 	//see if it has been less than an hour since they finished work and send them to the progress plus email system
-	$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".$_SESSION['user_id']."'";
+	$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 //	echo "Users current time";	
@@ -79,7 +79,7 @@ echo	$_SESSION['user_id'] = $user_ids_to_check[$i];
 //	echo "<br>";
 	 	$SecondsDifference/60;
 		if($SecondsDifference > -1800 AND $SecondsDifference < 1800){
-			$sql = "SELECT * FROM user_account_details WHERE user_id ='".$_SESSION['user_id']."'";
+			$sql = "SELECT * FROM user_account_details WHERE user_id ='".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 			$result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);	
 			
@@ -92,7 +92,7 @@ echo	$_SESSION['user_id'] = $user_ids_to_check[$i];
 			$security_key = md5(rand(999, 99999));
 			
 			require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
-			$sql = "INSERT INTO productivity_tracker_security (user_id, security_key) VALUES ('".$_SESSION['user_id']."','".$security_key."')";
+			$sql = "INSERT INTO productivity_tracker_security (user_id, security_key) VALUES ('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."','".$security_key."')";
 			
 			$result = mysqli_query($conn, $sql);			
 						
@@ -102,7 +102,7 @@ echo	$_SESSION['user_id'] = $user_ids_to_check[$i];
 			//set the icon to red
 			$sql = "UPDATE user_alert_system
 				SET top_nav_productivity_tracker = 'on' 
-				WHERE user_id = '".$_SESSION['user_id']."'";
+				WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 			$result = mysqli_query($conn, $sql);
 	
 		}

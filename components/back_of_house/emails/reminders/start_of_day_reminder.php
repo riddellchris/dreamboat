@@ -80,7 +80,7 @@ $sql = "INSERT INTO admin_emails_sent (
 					from_what_address
 					)
 	VALUES 			(
-					'".$_SESSION['viewing_client_id']."',
+					'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
 					'".$email_address_for_sending."',	
 					'".$first_name."',	
 					'".$last_name."',	

@@ -4,12 +4,12 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
 
 //this allows for business edges but there are plenty of 'security' / 'privacy' and 'control' issues to be navigated here for sure
-$sql = "SELECT * 
-	FROM item_relationships
-	WHERE   relationship_id = '".$_GET['item_id']."'";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+$sql = "SELECT * 
+		FROM item_relationships
+		WHERE   relationship_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 $result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$row 	= mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 
 

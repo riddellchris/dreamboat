@@ -31,8 +31,8 @@ mysqli_query($conn, $sql);
 
 $sql = "UPDATE products_and_services ".$query_element."
 	SET category = '".$new_mode."'
-	WHERE user_id = '".$_SESSION['viewing_client_id']."'
-	AND 	item_id = '".$_GET['item_id']."'";
+	WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
+	AND 	item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 //echo $sql;
 //exit();	
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";	

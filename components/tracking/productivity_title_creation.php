@@ -4,7 +4,7 @@ if(!isset($_SESSION)){session_start();}
 //Stolen from:
 ///components/optimisation_engine/tracking/what_is_productivity.php
 $sql = "SELECT * FROM tracking_kpi_settings 
-	WHERE client_id = '".$_SESSION['viewing_client_id']."' 
+	WHERE client_id = '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' 
 	ORDER BY entry_id DESC LIMIT 1"; // select column
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

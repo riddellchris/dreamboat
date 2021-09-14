@@ -9,7 +9,7 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
 	//admin/list/select_client.php
 	if(!isset($_SESSION['ai_business_age'])){
 		//then let's set the business age...
-		$sql = "SELECT business_age FROM user_account_details WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+		$sql = "SELECT business_age FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		$_SESSION['ai_business_age'] = $row['business_age'];

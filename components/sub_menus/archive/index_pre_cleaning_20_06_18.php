@@ -365,7 +365,7 @@ business owner
 staff member
 */
 /* This is for staff in time not owners
-	$sql="SELECT commission_yes_no FROM user_account_details WHERE user_id = '".$_SESSION['user_id']."'";
+	$sql="SELECT commission_yes_no FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -388,7 +388,7 @@ staff member
 sales person
 */
 /* This is for staff in time not owners
-	$sql="SELECT commission_yes_no FROM user_account_details WHERE user_id = '".$_SESSION['user_id']."'";
+	$sql="SELECT commission_yes_no FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);

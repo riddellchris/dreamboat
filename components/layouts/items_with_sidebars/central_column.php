@@ -10,7 +10,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/labels/find_c
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/folder_to_database_relationships.php";
 $cleaned_item_id = mysqli_real_escape_string($conn, $_GET['item_id']);
-$sql = "SELECT * FROM ".$database." WHERE user_id = '".$_SESSION['viewing_client_id']."' AND item_id = '".$cleaned_item_id."'";
+$sql = "SELECT * FROM ".$database." WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND item_id = '".$cleaned_item_id."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

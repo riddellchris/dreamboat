@@ -12,13 +12,13 @@ echo	$sql = "UPDATE progress_plus_core
 			".$_SESSION['progress_plus_how_why_category']."_reviewed_yet 	= 'yes', 
 			".$_SESSION['progress_plus_how_why_category']."_why 	= '".$response_why."', 
 			".$_SESSION['progress_plus_how_why_category']."_improvement = '".$response_how."' 
-		WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+		WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);
 
 
 
 //get out the last response
-$sql = "SELECT * FROM progress_plus_core WHERE input_id = '".$_SESSION['progress_plus_insert_id']."' AND user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1";
+$sql = "SELECT * FROM progress_plus_core WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."' AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

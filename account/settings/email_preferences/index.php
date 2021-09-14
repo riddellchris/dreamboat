@@ -4,7 +4,7 @@ require $_SERVER['DOCUMENT_ROOT']."/account/security/logged_in_check.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/start_of_page_top_of_centering_divs.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM user_email_settings WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+$sql = "SELECT * FROM user_email_settings WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

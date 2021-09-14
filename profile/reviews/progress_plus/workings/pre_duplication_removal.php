@@ -202,7 +202,7 @@ function show_control(input_number){
 <?php
 if(!isset($_SESSION)){session_start();}
 
-$sql = "SELECT * FROM progress_plus_end_of_day WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC";
+$sql = "SELECT * FROM progress_plus_end_of_day WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC";
 require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
 

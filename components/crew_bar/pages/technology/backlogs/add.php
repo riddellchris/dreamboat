@@ -30,7 +30,7 @@ $note = mysqli_real_escape_string($conn, $_POST['wisdom']);
 	//just for histories right now			
 	if($_SESSION['final_file_name']  == 'view_history'){$sql .= "'".$_SESSION['item_id_from_url']."',";}
 
-	$sql .= "'".$_SESSION['user_id']."',
+	$sql .= "'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
 		'".$category_to_store."',
 		'".$title."',
 		'".$note."'				

@@ -13,8 +13,9 @@ else{												$incoming_clients = 'no';}
 //NOT ENTIRELY COMPUTATIONALLY OPTIMISED BUT IT'S CERTAINLY IMPORTANT
 //very crude but get all alerts and notifcations out where to user id = pilots id.
 //then we can highlight each user from there
-$sql = "SELECT DISTINCT from_user_id FROM notifications_and_alerts WHERE for_user_id = '".$_SESSION['user_id']."' AND alert_on = 'on'";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+$sql = "SELECT DISTINCT from_user_id FROM notifications_and_alerts WHERE for_user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND alert_on = 'on'";
+
 $result = mysqli_query($conn, $sql);
 $i = 0;
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -51,7 +52,7 @@ if($incoming_clients == 'yes'){
 
 if($incoming_clients == 'yes'){$client_gained_sql = " AND client_gained = 'no'";}
 if($_GET['tertiary_folder'] == 'regular_users'){$client_gained_sql = " AND (client_gained = 'yes' OR contract_sent <> '0000-00-00') ";}
-$sql = "SELECT * FROM user_account_details WHERE pilots_id = '".$_SESSION['user_id']."' AND client_status = 'active' AND dead = 'no' ".$client_gained_sql." ORDER BY first_name, second_name";
+$sql = "SELECT * FROM user_account_details WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND client_status = 'active' AND dead = 'no' ".$client_gained_sql." ORDER BY first_name, second_name";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
 

@@ -58,7 +58,7 @@ function drawChart(){
         <?php
         
         require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
-	$sql = "SELECT * FROM productivity_tracker_inputs WHERE user_id = '".$_SESSION['user_id']."'"; // select column
+	$sql = "SELECT * FROM productivity_tracker_inputs WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'"; // select column
 	$result = mysqli_query($conn, $sql);
         
 

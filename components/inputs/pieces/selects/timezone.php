@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
-$sql = "SELECT timezone_id FROM user_work_schedules WHERE user_id = '".$_SESSION['user_id']."'";
+$sql = "SELECT timezone_id FROM user_work_schedules WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $selected_timezone = $row['timezone_id'];

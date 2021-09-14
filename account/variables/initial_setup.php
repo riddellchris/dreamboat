@@ -48,7 +48,7 @@ if(	$row['mental_health_platform'] 	== 'yes' &&
 	$row['audio_hour_full'] 	!= 'yes'){$_SESSION['viewing_client_mental_health_only'] = 'yes';
 	
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-	$sql = "UPDATE user_account_details SET home_page = 'profile' WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+	$sql = "UPDATE user_account_details SET home_page = 'profile' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 	mysqli_query($conn, $sql);
 	
 	$_SESSION['users_homepage'] = 'profile';

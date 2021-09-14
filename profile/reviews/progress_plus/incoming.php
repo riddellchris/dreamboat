@@ -14,7 +14,7 @@ else{if(!isset($_SESSION['user_id'])){header("Location: /");exit();}}
 /*
 if($_SESSION['logged_in'] == 'yes'){
 	//get the unused security key
-	$sql = "SELECT * FROM progress_plus_security WHERE user_id = '".$_SESSION['user_id']."' ORDER BY key_id DESC LIMIT 1";
+	$sql = "SELECT * FROM progress_plus_security WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY key_id DESC LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$security_key = $row['security_key'];
@@ -26,7 +26,7 @@ $sql = "UPDATE user_alert_system
 $result = mysqli_query($conn, $sql);
 						
 
- $sql = "SELECT * FROM progress_plus_security WHERE user_id = '".$_GET['user_id']."' AND security_key = '".$_GET['security_key']."' AND key_has_been_used = 'no'";
+ $sql = "SELECT * FROM progress_plus_security WHERE user_id = '".$_GET['user_id']."' AND security_key = '".mysqli_real_escape_string($conn, $_GET['security_key'])."' AND key_has_been_used = 'no'";
 
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -39,8 +39,8 @@ else{
 
 	$sql = "UPDATE progress_plus_security
 		SET key_has_been_used = 'yes' 
-		WHERE user_id = '".$_SESSION['user_id']."' AND
-		      security_key = '".$_GET['security_key']."' ";
+		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND
+		      security_key = '".mysqli_real_escape_string($conn, $_GET['security_key'])."' ";
 	$result = mysqli_query($conn, $sql);
 	
 	

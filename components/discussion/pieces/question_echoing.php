@@ -181,7 +181,7 @@ for($i = 1; $i <= 6; $i++){
 	$sql = "
 		UPDATE all_prompts 
 		SET views = views + 1
-		WHERE prompt_id = '".$_SESSION['prompt_'.$i.'_id']."'";
+		WHERE prompt_id = '".mysqli_real_escape_string($conn, $_SESSION['prompt_'.$i.'_id'])."'";
 	
 	mysqli_query($conn, $sql);
 
@@ -252,8 +252,8 @@ if(	$_GET['tertiary_folder'] 	== 'item' 	OR
 	//find the first prompt
 	$sql = "SELECT * FROM all_prompts 
 		WHERE estimates_questions = 'yes'
-		AND primary_folder 	= '".$_GET['primary_folder']."'
-		AND secondary_folder 	= '".$_GET['secondary_folder']."'";
+		AND primary_folder 	= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
+		AND secondary_folder 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'";
 	$result = mysqli_query($conn, $sql);
 	
 	$results = mysqli_num_rows($result);

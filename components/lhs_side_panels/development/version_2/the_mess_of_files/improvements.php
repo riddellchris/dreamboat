@@ -2,7 +2,7 @@
 
 
 $_SESSION['user_id_to_edit'] = $_SESSION['viewing_client_id'];
-$sql = "SELECT * FROM improvements_details WHERE client_id = '".$_SESSION['viewing_client_id']."' ORDER BY update_id DESC  LIMIT 1";
+$sql = "SELECT * FROM improvements_details WHERE client_id = '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' ORDER BY update_id DESC  LIMIT 1";
 
 
 

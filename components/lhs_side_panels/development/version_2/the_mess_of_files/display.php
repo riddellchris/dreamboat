@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION)){session_start();}
-$sql = "SELECT * FROM management_details WHERE client_id = '".$_SESSION['viewing_client_id']."' ORDER BY update_id DESC LIMIT 1";
+$sql = "SELECT * FROM management_details WHERE client_id = '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' ORDER BY update_id DESC LIMIT 1";
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);

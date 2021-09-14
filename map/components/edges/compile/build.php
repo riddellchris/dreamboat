@@ -5,8 +5,8 @@ require $_SERVER['DOCUMENT_ROOT']."/map/components/edges/set.php";
 
 //so to build the relationships array
 $sql = "SELECT * FROM `item_relationships` 
-	WHERE 	item_a_user_id = '".$_SESSION['viewing_client_id']."' 
-	AND 	item_b_user_id = '".$_SESSION['viewing_client_id']."' 
+	WHERE 	item_a_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
+	AND 	item_b_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
 
 	AND 	item_a_current_status = 'active' 
 	AND 	item_b_current_status = 'active' 
@@ -232,12 +232,12 @@ if($counter != 0){
 		for($i = 0; $i < count($edges['relationship_id']); $i++){
 			//check if there is somethiing there or not
 			$sql = "SELECT * FROM edge_data 
-					WHERE user_id = '".$_SESSION['viewing_client_id']."'
+					WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 					AND relationship_id = '".$edges['relationship_id'][$i]."'";
 			$result = mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) == 0){
 				$sql = "INSERT INTO edge_data (user_id, relationship_id )
-						VALUES ('".$_SESSION['viewing_client_id']."', '".$edges['relationship_id'][$i]."') ";
+						VALUES ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."', '".$edges['relationship_id'][$i]."') ";
 
 	echo $sql."<br>";
 
@@ -253,7 +253,7 @@ if($counter != 0){
 
 
 	$sql = "SELECT * FROM edge_data 
-			WHERE user_id = '".$_SESSION['viewing_client_id']."'
+			WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 			AND		latest_data_for_this_edge = 'yes'
 			AND ( ";
 	//then we can also put the title in
@@ -341,7 +341,7 @@ if(isset($edges_to_finally_display['item_a_database'])){
 		//just be lazy here and pull it out again using SQL 
 		//then run the calc adjust the links and done
 		$sql = "SELECT * FROM edge_data 
-				WHERE user_id = '".$_SESSION['user_id']."' 
+				WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' 
 				AND relationship_id = '".$edges['relationship_id'][$i]."'
 				AND latest_data_for_this_edge = 'yes'
 				LIMIT 1

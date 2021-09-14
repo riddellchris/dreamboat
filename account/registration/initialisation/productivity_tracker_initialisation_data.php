@@ -34,7 +34,7 @@ for($i = 0; $i <= 30; $i++){
 	   	) 
 						   	
 		VALUES (
-		'".$_SESSION['user_id']."',
+		'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
 		'".$time_in_users_zone[$i]."',
 		'".$time_in_users_zone_unix[$i]."',
 		'".$date_whole[$i]."',					

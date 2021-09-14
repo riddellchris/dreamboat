@@ -4,7 +4,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 
 $sql = "SELECT * FROM items_all 
 	WHERE current_status = 'active'
-	AND user_id = '".$_SESSION['viewing_client_id']."'";
+	AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 $result = mysqli_query($conn, $sql);
 $number_of_currently_active_items = mysqli_num_rows($result);
 
@@ -21,16 +21,16 @@ else{
 	$relationship_items['item_id'] = array();
 	
 	$sql = "SELECT * FROM item_relationships 
-		WHERE item_a_user_id = '".$_SESSION['viewing_client_id']."'
-		AND   item_b_user_id = '".$_SESSION['viewing_client_id']."'
+		WHERE item_a_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
+		AND   item_b_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 		AND total_relationship_status = 'active'
-		AND ( 	(	item_a_primary_folder 	= '".$_GET['primary_folder']."' 	AND
-				item_a_secondary_folder = '".$_GET['secondary_folder']."' 	AND
-				item_a_id 		= '".$_GET['item_id']."')
+		AND ( 	(	item_a_primary_folder 	= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."' 	AND
+				item_a_secondary_folder = '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' 	AND
+				item_a_id 		= '".mysqli_real_escape_string($conn, $_GET['item_id'])."')
 			OR
-		 	(	item_b_primary_folder 	= '".$_GET['primary_folder']."' 	AND
-				item_b_secondary_folder = '".$_GET['secondary_folder']."' 	AND
-				item_b_id 		= '".$_GET['item_id']."'))
+		 	(	item_b_primary_folder 	= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."' 	AND
+				item_b_secondary_folder = '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' 	AND
+				item_b_id 		= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'))
 		";
 	$result = mysqli_query($conn, $sql);
 	
@@ -42,8 +42,8 @@ else{
 	
 	$sql = "SELECT 	found_in_database 
 		FROM 	items_central_index 
-		WHERE	primary_folder = '".$_GET['primary_folder']."'
-		AND 	secondary_folder = '".$_GET['secondary_folder']."'";
+		WHERE	primary_folder = '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
+		AND 	secondary_folder = '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'";
 	$result = mysqli_query($conn, $sql);
 	$row 	= mysqli_fetch_array($result, MYSQLI_ASSOC);
 	
@@ -54,7 +54,7 @@ else{
 	
 	$sql = "SELECT DISTINCT *
 		FROM items_all 
-		WHERE user_id = '".$_SESSION['viewing_client_id']."'
+		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 		AND deleted_or_not = 'no'
 		AND current_status = 'active'
 		ORDER BY

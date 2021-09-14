@@ -8,7 +8,7 @@ else{$input_id = $row['input_id'];}
 
 //this means that there isn't an input and we are running from 
 if($row['input_id'] == ''){
-	$sql = "UPDATE network_posts SET privacy='public' WHERE user_id = '".$_SESSION['user_id']."' AND input_id='".$_GET['input_id']."'";
+	$sql = "UPDATE network_posts SET privacy='public' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND input_id='".mysqli_real_escape_string($conn, $_GET['input_id'])."'";
 	require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
 	$result = mysqli_query($conn, $sql);
 	mysqli_close($conn);

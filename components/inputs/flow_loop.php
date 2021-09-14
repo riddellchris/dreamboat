@@ -26,13 +26,13 @@ if($_SESSION['next_prompt_id'] == 54){$category = 'resolutions';}
 if($_SESSION['next_prompt_id'] == 33){$category = 'plans';}
 
 echo $sql = "INSERT INTO user_flow_responses (user_id, prompt,  category, response,    privacy, privacy_friends,   privacy_family,  privacy_colleagues,  privacy_work_contacts,    background_color,    contrast_color,    text_color,    degrees)
-			         VALUES('".$_SESSION['user_id']."', '$prompt', '$category', '$response', '".$_SESSION['flow_privacy']."', '".$_SESSION['flow_sub_privacy_friends']."', '".$_SESSION['flow_sub_privacy_family']."', '".$_SESSION['flow_sub_privacy_colleagues']."', '".$_SESSION['flow_sub_privacy_work_contacts']."', '$background_color', '$contrast_color', '$text_color', '$degrees')";
+			         VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '$prompt', '$category', '$response', '".mysqli_real_escape_string($conn, $_SESSION['flow_privacy'])."', '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_friends'])."', '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_family'])."', '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_colleagues'])."', '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_work_contacts'])."', '$background_color', '$contrast_color', '$text_color', '$degrees')";
 $result = mysqli_query($conn, $sql);
 echo "<BR>";
 
 
 echo $sql = "INSERT INTO posts (user_id, prompt,  category,  response,    privacy,  privacy_friends,   privacy_family,  privacy_colleagues,  privacy_work_contacts,     background_color,    contrast_color,    text_color,    degrees)
-			     VALUES('".$_SESSION['user_id']."', '$prompt', '$category','$response', '".$_SESSION['flow_privacy']."',  '".$_SESSION['flow_sub_privacy_friends']."', '".$_SESSION['flow_sub_privacy_family']."', '".$_SESSION['flow_sub_privacy_colleagues']."', '".$_SESSION['flow_sub_privacy_work_contacts']."','$background_color', '$contrast_color', '$text_color', '$degrees')";
+			     VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '$prompt', '$category','$response', '".mysqli_real_escape_string($conn, $_SESSION['flow_privacy'])."',  '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_friends'])."', '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_family'])."', '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_colleagues'])."', '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_work_contacts'])."','$background_color', '$contrast_color', '$text_color', '$degrees')";
 $result = mysqli_query($conn, $sql);
 
 //exit();

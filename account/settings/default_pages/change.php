@@ -11,7 +11,7 @@ function clean_variable_to_change_homepage_to($get_variable, $acceptable_name){
 	if($get_variable == $acceptable_name){
 		require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 		$_SESSION['users_homepage'] = $acceptable_name;	
- 	$sql = "UPDATE user_account_details SET home_page = '".$_SESSION['users_homepage']."' WHERE user_id = '".$_SESSION['user_id']."'";
+ 	$sql = "UPDATE user_account_details SET home_page = '".$_SESSION['users_homepage']."' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 		mysqli_query($conn, $sql);
 	}
 }

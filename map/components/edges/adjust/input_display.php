@@ -12,7 +12,7 @@ echo "</style>";
 //Stolen from:
 ///components/optimisation_engine/tracking/what_is_productivity.php
 $sql = "SELECT * FROM tracking_kpi_settings 
-	WHERE client_id = '".$_SESSION['viewing_client_id']."' 
+	WHERE client_id = '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' 
 	ORDER BY entry_id DESC LIMIT 1"; // select column
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -29,8 +29,8 @@ if($row['kpi_4_title'] != ''){$kpi_4_title = $row['kpi_4_title'];}else{$kpi_4_ti
 //pull out the latest data and update all the values along the way
 
 $sql = "SELECT * FROM edge_data 
-	WHERE user_id = '".$_SESSION['viewing_client_id']."'
-	AND relationship_id = '".$_GET['item_id']."'
+	WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
+	AND relationship_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'
 	AND latest_data_for_this_edge = 'yes'
 	ORDER BY entry_id DESC LIMIT 1";
 //	echo $sql; exit();

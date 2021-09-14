@@ -5,7 +5,7 @@ require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
 if($_SESSION['next_prompt_id'] == 133){
 
 	//see if it has been less than an hour since they finished work and send them to the progress plus email system
-	$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".$_SESSION['user_id']."'";
+	$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	echo "Users current time";	
@@ -16,7 +16,7 @@ if($_SESSION['next_prompt_id'] == 133){
 
 	$value = mysqli_real_escape_string($conn, $_GET['value']);
 	$sql = "INSERT INTO work_diary (user_id, rate_out_of_10, local_timestamp_on_entry, period_type )
-	        	VALUES('".$_SESSION['user_id']."', '".$value."','".$users_current_datetime."', 'day')";
+	        	VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '".$value."','".$users_current_datetime."', 'day')";
 	$result = mysqli_query($conn, $sql);
 echo	$_SESSION['progress_plus_insert_id'] = mysqli_insert_id($conn);
 //exit();
@@ -39,7 +39,7 @@ else{
 
 
 	$sql = "INSERT INTO posts (user_id, prompt, response, privacy, background_color, contrast_color, text_color, degrees)
-			             VALUES('".$_SESSION['user_id']."', '$prompt', '$response', '$privacy', '$background_color', '$contrast_color', '$text_color', '$degrees')";
+			             VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '$prompt', '$response', '$privacy', '$background_color', '$contrast_color', '$text_color', '$degrees')";
 						$result = mysqli_query($conn, $sql);
 
 	if($_SESSION['next_prompt_id'] == 134){$column_to_update = 'most_significant';}
@@ -57,7 +57,7 @@ else{
 
 
 
-echo	$sql = "UPDATE work_diary SET ".$column_to_update." = '".$response."' WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+echo	$sql = "UPDATE work_diary SET ".$column_to_update." = '".$response."' WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 		$result = mysqli_query($conn, $sql);
 		
 	//	exit();

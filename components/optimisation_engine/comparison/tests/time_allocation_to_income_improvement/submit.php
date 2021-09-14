@@ -14,7 +14,7 @@ time_in_business 			= '".mysqli_real_escape_string($conn, $_POST['time_in_busine
 time_in_business_last_saved_date 	= '".gmdate('Y/m/j H:i:s')."',
 time_in_business_group 			= '".mysqli_real_escape_string($conn, $_POST['time_in_business_group'])."',
 business_size_group 			= '".mysqli_real_escape_string($conn, $_POST['business_size_group'])."'
-WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 //echo $sql; 
 //exit();
 mysqli_query($conn, $sql);
@@ -24,7 +24,7 @@ require $_SERVER['DOCUMENT_ROOT']."/account/variables/run_critical_variable_upda
 
 
 
-$sql = "UPDATE tests_time_allocation_to_income_improvement SET latest_version_of_data_for_this_user = 'no' WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+$sql = "UPDATE tests_time_allocation_to_income_improvement SET latest_version_of_data_for_this_user = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 mysqli_query($conn, $sql);
 
 require $_SERVER['DOCUMENT_ROOT']."/admin/pages/comparison/tests/time_allocation_to_income_improvement/timeframe_array.php";
@@ -42,7 +42,7 @@ data_category,
 value";
 
 $_SESSION['base_values_list'] = "
-'".$_SESSION['viewing_client_id']."',	
+'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',	
 'yes',
 '".$_SESSION['viewing_client_primary_industry']."',
 '".$_SESSION['viewing_client_business_definition']."',

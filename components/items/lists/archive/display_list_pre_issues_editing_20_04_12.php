@@ -26,7 +26,7 @@ if($notifications == 'no'){
 	if(	$_SESSION['list_view_'.$_SESSION['primary_folder'].'_'.$_SESSION['secondary_folder']] == 'deleted' OR
 		$_SESSION['list_view_'.$_SESSION['primary_folder'].'_'.$_SESSION['secondary_folder']] == 'inactive'){
 			if(	$_SESSION['list_view_'.$_SESSION['primary_folder'].'_'.$_SESSION['secondary_folder']] == 'deleted'){
-		 	$sql_for_display = "SELECT * FROM ".$database." WHERE user_id = '".$_SESSION['viewing_client_id']."' AND deleted = 'yes'";
+		 	$sql_for_display = "SELECT * FROM ".$database." WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND deleted = 'yes'";
 		 	if($_SESSION['primary_folder'] == 'wheelhouse' && $_SESSION['secondary_folder'] != 'issues' ){$sql_for_display .= " AND category = '".$_SESSION['secondary_folder']."' ";}
 		 	if($_SESSION['primary_folder'] == 'improvements'){$sql_for_display .= " AND mode = '".$_SESSION['secondary_folder']."' ";}		 		
 		 	if($_SESSION['secondary_folder'] == 'clients'){$sql_for_display .= " AND client = 'yes' ";}		 	
@@ -39,7 +39,7 @@ if($notifications == 'no'){
 	 	
 			}
 			if(	$_SESSION['list_view_'.$_SESSION['primary_folder'].'_'.$_SESSION['secondary_folder']] == 'inactive'){	
-		 	$sql_for_display = "SELECT * FROM ".$database." WHERE user_id = '".$_SESSION['viewing_client_id']."' AND status = 'resolved'";
+		 	$sql_for_display = "SELECT * FROM ".$database." WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND status = 'resolved'";
 		 	if($_SESSION['primary_folder'] == 'wheelhouse' && $_SESSION['secondary_folder'] != 'issues' ){$sql_for_display .= " AND category = '".$_SESSION['secondary_folder']."' ";}
 		 	if($_SESSION['primary_folder'] == 'improvements'){$sql_for_display .= " AND mode = '".$_SESSION['secondary_folder']."' ";}
 		 	if($_SESSION['secondary_folder'] == 'clients'){$sql_for_display .= " AND client = 'yes' ";}		 	
@@ -52,7 +52,7 @@ if($notifications == 'no'){
 			}
 		}
 	else{
-		$sql_for_display = "SELECT * FROM ".$database." WHERE deleted = 'no' AND status = 'active' AND user_id = '".$_SESSION['viewing_client_id']."'";
+		$sql_for_display = "SELECT * FROM ".$database." WHERE deleted = 'no' AND status = 'active' AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 		if($_SESSION['primary_folder'] == 'wheelhouse' && $_SESSION['secondary_folder'] != 'issues' ){$sql_for_display .= " AND category = '".$_SESSION['secondary_folder']."' ";}
 	 	if($_SESSION['primary_folder'] == 'improvements'){$sql_for_display .= " AND mode = '".$_SESSION['secondary_folder']."' ";}			
 	 	if($_SESSION['secondary_folder'] == 'clients'){$sql_for_display .= " AND client = 'yes' ";}		 	
@@ -68,7 +68,7 @@ if($notifications == 'no'){
 else{
 
 $database = 'notifications_and_alerts';
-	$sql_for_display = "SELECT * FROM ".$database." WHERE for_user_id = '".$_SESSION['viewing_client_id']."' ORDER BY notification_id DESC;";
+	$sql_for_display = "SELECT * FROM ".$database." WHERE for_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' ORDER BY notification_id DESC;";
 
 }
 	

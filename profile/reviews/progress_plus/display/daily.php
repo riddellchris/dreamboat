@@ -350,9 +350,9 @@ function display_result_in_words($stored_number){
 }
 
 if(is_numeric(strpos($_SERVER['REQUEST_URI'],'/progress_plus/display/point_in_time_only.php')) == 1){
-	$sql = "SELECT * FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' AND related_to = 'point_in_time_only' ORDER BY input_id DESC";
+	$sql = "SELECT * FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND related_to = 'point_in_time_only' ORDER BY input_id DESC";
 	}
-else{	$sql = "SELECT * FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC";}
+else{	$sql = "SELECT * FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC";}
 
 require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
@@ -369,7 +369,7 @@ require $_SERVER['DOCUMENT_ROOT']."/design/layouts/start_of_page_not_centered_ve
 
 	echo "<div style='height:150px;'></div>";
 
-	$sql = "SELECT * FROM progress_plus_end_of_period WHERE user_id = '".$_SESSION['user_id']."' AND period_type = 'day' ORDER BY input_id DESC";
+	$sql = "SELECT * FROM progress_plus_end_of_period WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND period_type = 'day' ORDER BY input_id DESC";
 	require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
 	$result = mysqli_query($conn, $sql);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){

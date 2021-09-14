@@ -39,7 +39,7 @@ if($_GET['primary_folder'] == 'time' && $_GET['secondary_folder'] == 'tracking')
 		$timename = 'end_of_month_personal_productivity_reviews';
 		}
 		
-$sql = "SELECT * FROM user_review_cycles WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+$sql = "SELECT * FROM user_review_cycles WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);			

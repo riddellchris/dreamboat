@@ -3,7 +3,7 @@ if(!isset($_SESSION)){session_start();}
 /*
 require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
 
-$sql = "SELECT * FROM work_diary_security WHERE user_id = '".$_GET['user_id']."' AND security_key = '".$_GET['security_key']."' ";
+$sql = "SELECT * FROM work_diary_security WHERE user_id = '".$_GET['user_id']."' AND security_key = '".mysqli_real_escape_string($conn, $_GET['security_key'])."' ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -17,7 +17,7 @@ else{
 	$sql = "UPDATE work_diary_security
 		SET key_has_been_used = 'yes' 
 		WHERE user_id = '".$_GET['user_id']."' AND
-		      security_key = '".$_GET['security_key']."' ";
+		      security_key = '".mysqli_real_escape_string($conn, $_GET['security_key'])."' ";
 	$result = mysqli_query($conn, $sql);
 	
 	$sql = "SELECT * FROM user_account_details WHERE user_id = '".$_GET['user_id']."' AND client_status = 'active'";

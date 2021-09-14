@@ -33,7 +33,7 @@ echo "
 
 //get out all existing data and go from there;
 $sql = "SELECT * FROM tests_time_allocations_per_activity_group
-	WHERE user_id = '".$_SESSION['viewing_client_id']."'
+	WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	ORDER BY entry_id DESC LIMIT 1";
 //echo $sql;	
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";

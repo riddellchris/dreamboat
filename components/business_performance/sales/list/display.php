@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-$sql = "SELECT * FROM user_account_details WHERE pilots_id = '".$_SESSION['user_id']."' AND client_status = 'active' AND dead = 'no' ";
+$sql = "SELECT * FROM user_account_details WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND client_status = 'active' AND dead = 'no' ";
 
 //	if($_SESSION['performance_sales_sub_menu'] == 'call_1'){		$sql .= " AND call_1_made 		= 'no' ";}
 	if($_SESSION['performance_sales_sub_menu'] == 'initial_email'){		$sql .= " 					 AND initial_email_sent		= 'no' ";}

@@ -24,7 +24,7 @@ if(isset($_POST['privacy_slider'])){$privacy = 'public';}else{$privacy = 'privat
 
 
 //$sql = "INSERT INTO flow_responses_all (user_id, 		      prompt,    response,    privacy,    background_color,    contrast_color,    text_color,    degrees)
-//			         VALUES('".$_SESSION['user_id']."', '$prompt', '$response', '$privacy', '$background_color', '$contrast_color', '$text_color', '$degrees')";
+//			         VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '$prompt', '$response', '$privacy', '$background_color', '$contrast_color', '$text_color', '$degrees')";
 //$result = mysqli_query($conn, $sql);
 
 
@@ -40,7 +40,7 @@ if(	$_SESSION['next_prompt_id'] != 34 AND
 	$_SESSION['next_prompt_id'] != 40 AND
 	$_SESSION['next_prompt_id'] != 41){	
 	//$sql = "INSERT INTO network_inputs (user_id, prompt, response, privacy, background_color, contrast_color, text_color, degrees)
-	//		             VALUES('".$_SESSION['user_id']."', '$prompt', '$response', '$privacy', '$background_color', '$contrast_color', '$text_color', '$degrees')";
+	//		             VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '$prompt', '$response', '$privacy', '$background_color', '$contrast_color', '$text_color', '$degrees')";
 	//					$result = mysqli_query($conn, $sql);
 	}*/
 //else{
@@ -49,7 +49,7 @@ if(	$_SESSION['next_prompt_id'] != 34 AND
 
 
 	//see if it has been less than an hour since they finished work and send them to the progress plus email system
-	$sql = "SELECT * FROM progress_plus_time_data WHERE user_id = '".$_SESSION['user_id']."'";
+	$sql = "SELECT * FROM progress_plus_time_data WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	echo "Users current time";	
@@ -61,7 +61,7 @@ if(	$_SESSION['next_prompt_id'] != 34 AND
 	
 	if($_SESSION['next_prompt_id'] == 34){
 	$sql = "INSERT INTO progress_plus_core (user_id, mood, local_timestamp_on_entry)
-	        	VALUES('".$_SESSION['user_id']."', '".$value."', '".$users_local_timestamp."')";
+	        	VALUES('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '".$value."', '".$users_local_timestamp."')";
 	$result = mysqli_query($conn, $sql);
 	$_SESSION['progress_plus_insert_id'] = mysqli_insert_id($conn);
 	}
@@ -75,7 +75,7 @@ if(	$_SESSION['next_prompt_id'] != 34 AND
 		if($_SESSION['next_prompt_id'] == 41){$column_to_update = 'control';  		}
 	
 
-	echo	$sql = "UPDATE progress_plus_core SET ".$column_to_update." = '".$value."' WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	echo	$sql = "UPDATE progress_plus_core SET ".$column_to_update." = '".$value."' WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 		$result = mysqli_query($conn, $sql);
 	
 	}
@@ -94,7 +94,7 @@ if($_SESSION['next_prompt_id'] == 40 && $changed == 'no'){$changed = 'yes';$_SES
 if($_SESSION['next_prompt_id'] == 41 && $changed == 'no'){
 
 
-echo	$sql = "SELECT mood FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1;";
+echo	$sql = "SELECT mood FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1;";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if($row['mood'] == 3){	$_SESSION['next_prompt_id'] = 66;}
@@ -122,14 +122,14 @@ if(	($_SESSION['next_prompt_id'] == 66 OR
 	$response = mysqli_real_escape_string($conn, $_POST['why_that_rating']);
 	$response_how = mysqli_real_escape_string($conn, $_POST['how_to_improve']);
 		
-	$sql = "UPDATE progress_plus_core SET mood_why = '".$response."', mood_improvement = '".$response_how."'  WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql = "UPDATE progress_plus_core SET mood_why = '".$response."', mood_improvement = '".$response_how."'  WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);
 
 
 
 
 	 
-	$sql = "SELECT productivity FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1";
+	$sql = "SELECT productivity FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if($row['productivity'] == 3){	$_SESSION['next_prompt_id'] = 73;}
@@ -151,7 +151,7 @@ if(	($_SESSION['next_prompt_id'] == 73 OR
 	
 	$response = mysqli_real_escape_string($conn, $_POST['why_that_rating']);
 	$response_how = mysqli_real_escape_string($conn, $_POST['how_to_improve']);
-	$sql = "UPDATE progress_plus_core SET productivity_why = '".$response."', productivity_improvement = '".$response_how."'  WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql = "UPDATE progress_plus_core SET productivity_why = '".$response."', productivity_improvement = '".$response_how."'  WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	
 	
@@ -160,7 +160,7 @@ if(	($_SESSION['next_prompt_id'] == 73 OR
 	
 	
 	
-	$sql = "SELECT health FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1";
+	$sql = "SELECT health FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if($row['health'] == 3){	$_SESSION['next_prompt_id'] = 80;}
@@ -182,7 +182,7 @@ if(	($_SESSION['next_prompt_id'] == 80 OR
 	
 	$response = mysqli_real_escape_string($conn, $_POST['why_that_rating']);
 	$response_how = mysqli_real_escape_string($conn, $_POST['how_to_improve']);
-	$sql = "UPDATE progress_plus_core SET health_why = '".$response."', health_improvement = '".$response_how."'  WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql = "UPDATE progress_plus_core SET health_why = '".$response."', health_improvement = '".$response_how."'  WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	
 	
@@ -191,7 +191,7 @@ if(	($_SESSION['next_prompt_id'] == 80 OR
 	
 	
 	
-	$sql = "SELECT happiness FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1";
+	$sql = "SELECT happiness FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if($row['happiness'] == 3){	$_SESSION['next_prompt_id'] = 87;}
@@ -214,7 +214,7 @@ if(	($_SESSION['next_prompt_id'] == 87 OR
 	
 	$response = mysqli_real_escape_string($conn, $_POST['why_that_rating']);
 	$response_how = mysqli_real_escape_string($conn, $_POST['how_to_improve']);
-	$sql = "UPDATE progress_plus_core SET happiness_why = '".$response."', happiness_improvement = '".$response_how."'  WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql = "UPDATE progress_plus_core SET happiness_why = '".$response."', happiness_improvement = '".$response_how."'  WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	
 	
@@ -223,7 +223,7 @@ if(	($_SESSION['next_prompt_id'] == 87 OR
 	
 	
 	
-	$sql = "SELECT focus FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1";
+	$sql = "SELECT focus FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if($row['focus'] == 3){	$_SESSION['next_prompt_id'] = 94;}
@@ -245,7 +245,7 @@ if(	($_SESSION['next_prompt_id'] == 94 OR
 	
 	$response = mysqli_real_escape_string($conn, $_POST['why_that_rating']);
 	$response_how = mysqli_real_escape_string($conn, $_POST['how_to_improve']);
-	$sql = "UPDATE progress_plus_core SET focus_why = '".$response."', focus_improvement = '".$response_how."'  WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql = "UPDATE progress_plus_core SET focus_why = '".$response."', focus_improvement = '".$response_how."'  WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	
 	
@@ -254,7 +254,7 @@ if(	($_SESSION['next_prompt_id'] == 94 OR
 	
 	
 	
-	$sql = "SELECT stress FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1";
+	$sql = "SELECT stress FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if($row['stress'] == 3){	$_SESSION['next_prompt_id'] = 101;}
@@ -276,7 +276,7 @@ if(	($_SESSION['next_prompt_id'] == 101 OR
 	
 	$response = mysqli_real_escape_string($conn, $_POST['why_that_rating']);
 	$response_how = mysqli_real_escape_string($conn, $_POST['how_to_improve']);
-	$sql = "UPDATE progress_plus_core SET stress_why = '".$response."', stress_improvement = '".$response_how."'  WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql = "UPDATE progress_plus_core SET stress_why = '".$response."', stress_improvement = '".$response_how."'  WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);	
 	
 	
@@ -285,7 +285,7 @@ if(	($_SESSION['next_prompt_id'] == 101 OR
 	
 	
 	
-	$sql = "SELECT confidence FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1";
+	$sql = "SELECT confidence FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if($row['confidence'] == 3){	$_SESSION['next_prompt_id'] = 108;}
@@ -307,7 +307,7 @@ if(	($_SESSION['next_prompt_id'] == 108 OR
 	
 	$response = mysqli_real_escape_string($conn, $_POST['why_that_rating']);
 	$response_how = mysqli_real_escape_string($conn, $_POST['how_to_improve']);
-	$sql = "UPDATE progress_plus_core SET confidence_why = '".$response."', confidence_improvement = '".$response_how."'  WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql = "UPDATE progress_plus_core SET confidence_why = '".$response."', confidence_improvement = '".$response_how."'  WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);
 	
 	
@@ -316,7 +316,7 @@ if(	($_SESSION['next_prompt_id'] == 108 OR
 	
 	
 	
-	$sql = "SELECT control FROM progress_plus_core WHERE user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1";
+	$sql = "SELECT control FROM progress_plus_core WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if($row['control'] == 3){	$_SESSION['next_prompt_id'] = 115;}
@@ -338,7 +338,7 @@ if(	($_SESSION['next_prompt_id'] == 115 OR
 	
 	$response = mysqli_real_escape_string($conn, $_POST['why_that_rating']);
 	$response_how = mysqli_real_escape_string($conn, $_POST['how_to_improve']);
-	$sql = "UPDATE progress_plus_core SET control_why = '".$response."', control_improvement = '".$response_how."' WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql = "UPDATE progress_plus_core SET control_why = '".$response."', control_improvement = '".$response_how."' WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);	
 	
 	$_SESSION['next_prompt_id'] = 122;
@@ -367,7 +367,7 @@ if(($_SESSION['next_prompt_id'] == 24
 		if($_SESSION['next_prompt_id'] == 41){$column_to_update = 'focus_going_forward';  	}
 		if($_SESSION['next_prompt_id'] == 41){$column_to_update = 'reminder_email';  		}
 	$response = mysqli_real_escape_string($conn, $_POST['why_that_rating']);
-	$sql = "UPDATE progress_plus_core SET control_why = '".$response."' WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+	$sql = "UPDATE progress_plus_core SET control_why = '".$response."' WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 	$result = mysqli_query($conn, $sql);
 
 && $changed == 'no'){ 

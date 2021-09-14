@@ -22,7 +22,7 @@ for($i=0; $i<$number_to_end_at; $i++){
 	$_SESSION['user_id'] = $user_ids_to_check[$i];
 
 	//see if it has been less than an hour since they finished work and send them to the progress plus email system
-echo	$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".$_SESSION['user_id']."'";
+echo	$sql = "SELECT * FROM user_work_schedules WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 echo "<br>";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -71,15 +71,15 @@ echo "<br><br>";
 			//set the icon to red
 echo			$sql = "UPDATE user_alert_system
 				SET top_nav_progress_plus = 'on' 
-				WHERE user_id = '".$_SESSION['user_id']."'";
+				WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 			$result = mysqli_query($conn, $sql);
 
-			$sql = "SELECT * FROM user_email_settings WHERE user_id ='".$_SESSION['user_id']."'";
+			$sql = "SELECT * FROM user_email_settings WHERE user_id ='".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 			$result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 			if($row['progress_plus_end_of_day'] =='on'){
-				$sql = "SELECT * FROM user_account_details WHERE user_id ='".$_SESSION['user_id']."'";
+				$sql = "SELECT * FROM user_account_details WHERE user_id ='".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 				$result = mysqli_query($conn, $sql);
 				$row = mysqli_fetch_array($result, MYSQLI_ASSOC);	
 				
@@ -91,7 +91,7 @@ echo			$sql = "UPDATE user_alert_system
 				$security_key = md5(rand(999, 99999));
 				
 				require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
-				$sql = "INSERT INTO progress_plus_security (user_id, security_key) VALUES ('".$_SESSION['user_id']."','".$security_key."')";
+				$sql = "INSERT INTO progress_plus_security (user_id, security_key) VALUES ('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."','".$security_key."')";
 				
 				$result = mysqli_query($conn, $sql);			
 							

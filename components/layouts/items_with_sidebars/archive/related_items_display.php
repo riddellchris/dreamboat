@@ -44,11 +44,11 @@ if($show_this_type == 'issues'){$show_this_type = 'all';}
 //user_id just for a little bit of security right now
 //only do this one way now... no reverse needed as double entries are going in as at 21.01.21
  $sql = "SELECT * FROM item_relationships 
-	WHERE user_id = '".$_SESSION['viewing_client_id']."'
+	WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	AND status = 'active'
 	AND 	(		item_a_type = '".$show_this_type."'
 			AND	item_b_type = '".$current_items_acutal_type."'
-			AND 	item_b_id   = '".$_GET['item_id']."')";
+			AND 	item_b_id   = '".mysqli_real_escape_string($conn, $_GET['item_id'])."')";
 
 if($show_this_type == 'all'){$show_this_type = 'issues';}
 				
@@ -93,7 +93,7 @@ else{
 	//var_dump($related_item_ids);	
 	for($i = 0; $i < $related_items_count; $i++){		
 		$sql = "SELECT * FROM ".$database_to_extract_from."
-			WHERE user_id 	= '".$_SESSION['viewing_client_id']."'
+			WHERE user_id 	= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
 			AND status 	= 'active'	
 			AND item_id 	= '".$related_item_ids[$i]."'";
 			
@@ -210,7 +210,7 @@ echo "<form action='/components/items/connect.php?primary_folder=".$_GET['primar
 
 			
 		 $sql = "SELECT * FROM ".$database_to_extract_from." 
-			WHERE user_id = '".$_SESSION['viewing_client_id']."'
+			WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 			AND status = 'active'
 			AND deleted = 'no'";		
 		if(	$show_this_type == 'dreams'	OR
@@ -223,7 +223,7 @@ echo "<form action='/components/items/connect.php?primary_folder=".$_GET['primar
 			){
 				$sql .= " AND category = '".$show_this_type."'";}
 		$sql .= "
-			AND item_id <> '".$_GET['item_id']."'
+			AND item_id <> '".mysqli_real_escape_string($conn, $_GET['item_id'])."'
 			ORDER BY title ASC";
 		
 		

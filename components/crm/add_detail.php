@@ -18,7 +18,7 @@ if($_GET['detail'] == 'api_access_point'		){$_SESSION['updating_crm_field'] = 'a
 
 
 
-$sql = "SELECT * FROM ".$_SESSION['updating_crm_database']." WHERE item_id = '".$_GET['item_id']."' AND user_id = '".$_SESSION['viewing_client_id']."'";
+$sql = "SELECT * FROM ".$_SESSION['updating_crm_database']." WHERE item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."' AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 //echo $sql;exit();
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";

@@ -48,7 +48,7 @@ mysqli_query($conn, $sql);
 //NOTE in /admin/technology/ changes there is no USER ID associated
 $sql = "UPDATE wheelhouse 
 	SET mode = '".$new_mode."' 
-	WHERE item_id = '".$_GET['item_id']."'";
+	WHERE item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 mysqli_query($conn, $sql);
 
 

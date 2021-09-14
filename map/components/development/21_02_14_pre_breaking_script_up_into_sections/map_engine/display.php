@@ -118,7 +118,7 @@ echo "<span style='color: #4332ff;'>
 $display_chart = 'yes';
 if($number_of_active_relationships == 0){
 	$sql = "SELECT * FROM items_all 
-		WHERE user_id = '".$_SESSION['viewing_client_id']."'
+		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 		AND current_status = 'active'
 		AND deleted_or_not = 'no'";
 		

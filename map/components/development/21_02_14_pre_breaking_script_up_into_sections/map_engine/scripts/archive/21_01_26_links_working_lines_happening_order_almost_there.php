@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM `item_relationships` WHERE user_id = '".$_SESSION['viewing_client_id']."' AND status = 'active'";
+$sql = "SELECT * FROM `item_relationships` WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND status = 'active'";
 
 $select = mysqli_query($conn, $sql);
 
@@ -119,7 +119,7 @@ for($i = 0; $i <= (count($final_results['folder']) - 1); $i ++){
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";	
 	//for the current one being tested
 	$sql = "SELECT * FROM `item_relationships` 
-		WHERE user_id = '".$_SESSION['viewing_client_id']."' 
+		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
 		AND (		(item_a_type = '".$final_results['folder'][$i]."'	AND item_a_id	=  '".$final_results['item_number'][$i]." AND item_a_status = 'active')
 			OR	(item_b_type = '".$final_results['folder'][$i]."'	AND item_b_id	=  '".$final_results['item_number'][$i]." AND item_b_status = 'active''))
 		AND status = 'active'";

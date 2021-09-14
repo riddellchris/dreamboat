@@ -33,7 +33,7 @@ echo "<div class='under_box_div'>";
 
 	if(is_person_based_item()){	
 	
-		$sql = "SELECT * FROM people WHERE item_id = '".$_GET['item_id']."'";
+		$sql = "SELECT * FROM people WHERE item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);	
 	
@@ -49,7 +49,7 @@ echo "<div class='under_box_div'>";
 	}
 	
 	if(check_primary_folder('sales')){		
-		$sql = "SELECT * FROM sales WHERE item_id = '".$_GET['item_id']."'";
+		$sql = "SELECT * FROM sales WHERE item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);	
 	
@@ -80,7 +80,7 @@ echo "<div class='under_box_div'>";
 
 	/*
 	if(check_primary_folder('management') && check_secondary_folder('systems')){	
-		$sql = "SELECT * FROM systems WHERE item_id = '".$_GET['item_id']."'";
+		$sql = "SELECT * FROM systems WHERE item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);	
 	

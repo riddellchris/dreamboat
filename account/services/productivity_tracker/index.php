@@ -4,7 +4,7 @@ require $_SERVER['DOCUMENT_ROOT']."/design/layouts/start_of_page.php";
 
 $_SESSION['access_time_settings_from'] = 'productivity_tracker';
 
-$sql = "SELECT * FROM user_services_active_per_user WHERE user_id = '".$_SESSION['user_id']."'";
+$sql = "SELECT * FROM user_services_active_per_user WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

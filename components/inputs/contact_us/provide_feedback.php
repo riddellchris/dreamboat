@@ -11,7 +11,7 @@ if($_SESSION['next_prompt_id'] == 157){$_SESSION['contact_us_subject'] 		= $_POS
 
 	//if logged in we must get out their email and phone number
 	if($_SESSION['logged_in'] == 'yes'){
-		$sql = "SELECT * FROM user_account_details WHERE user_id = '".$_SESSION['user_id']."'";
+		$sql = "SELECT * FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 		require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";	
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -42,8 +42,8 @@ if($_SESSION['next_prompt_id'] == 157){$_SESSION['contact_us_subject'] 		= $_POS
 	
 	$sql = "INSERT INTO admin_contact_us_messages (type_of_contact, user_id, first_name, second_name, phone_number, email_address, subject, details)
 		VALUES('provide_feedback', 
-		'".$_SESSION['user_id']."', 
-		'".$_SESSION['contact_us_first_name']."', 
+		'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', 
+		'".mysqli_real_escape_string($conn, $_SESSION['contact_us_first_name'])."', 
 		'".$_SESSION['contact_us_second_name']."', 
 		'".$_SESSION['contact_us_phone_number']."', 
 		'".$_SESSION['contact_us_email_address']."', 

@@ -18,9 +18,9 @@ $sql .= "	WHERE ";
 
 if($_GET['primary_folder'] != 'admin' OR
 	($_GET['primary_folder'] == 'admin' && $_GET['secondary_folder'] == 'users')){
-	$sql .= "  user_id = '".$_SESSION['viewing_client_id']."' AND 	";
+	$sql .= "  user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND 	";
 }
-$sql .= "	item_id = '".$_GET['item_id']."'";
+$sql .= "	item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 //echo $sql;
 //exit();
 
@@ -34,19 +34,19 @@ $sql = "UPDATE items_all ";
 	if($notification_type == 'undeleted'){	$sql .= " SET deleted_or_not = 'no'";}
 	if($notification_type == 'resolved'){	$sql .= " SET current_status = 'active'";}
 	if($notification_type == 'active'){	$sql .= " SET current_status = 'inactive'";}	
-$sql .= " WHERE found_in_primary_folder 		= '".$_GET['primary_folder']."'
-	  AND  found_in_secondary_folder 		= '".$_GET['secondary_folder']."'
-	  AND  item_id 					= '".$_GET['item_id']."'
-	  AND  user_id 					= '".$_SESSION['viewing_client_id']."'";
+$sql .= " WHERE found_in_primary_folder 		= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
+	  AND  found_in_secondary_folder 		= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'
+	  AND  item_id 					= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'
+	  AND  user_id 					= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'";
 mysqli_query($conn, $sql);
 
 
 //get out database name from items_all for use in the next one
 $sql = "SELECT * FROM items_all 
-	WHERE found_in_primary_folder 		= '".$_GET['primary_folder']."'
-	  AND  found_in_secondary_folder 	= '".$_GET['secondary_folder']."'
-	  AND  item_id 				= '".$_GET['item_id']."'
-	  AND  user_id 				= '".$_SESSION['viewing_client_id']."'";
+	WHERE found_in_primary_folder 		= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
+	  AND  found_in_secondary_folder 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'
+	  AND  item_id 				= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'
+	  AND  user_id 				= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 
@@ -66,7 +66,7 @@ $sql = "SELECT * FROM item_relationships WHERE ";
 $sql = "UPDATE 	item_relationships 
 	SET 	item_a_current_status 	= '".$notification_type."' 
 	WHERE 	item_a_id 		= '".$_GET['primary folder']."'
-	AND 	item_a_current_status 	= '".$_GET['item_id']."'";
+	AND 	item_a_current_status 	= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 	
 	
 

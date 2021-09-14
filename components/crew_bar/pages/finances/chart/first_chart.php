@@ -15,7 +15,7 @@
    
         
         require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-        	$sql = "SELECT * FROM admin_finance_tracking WHERE pilot_id = '".$_SESSION['user_id']."'"; // select column
+        	$sql = "SELECT * FROM admin_finance_tracking WHERE pilot_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'"; // select column
 	$result = mysqli_query($conn, $sql);
 
 

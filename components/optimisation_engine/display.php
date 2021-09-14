@@ -54,7 +54,7 @@ echo "
 	echo "</div>";	
 
 
-   $sql = "SELECT * FROM tracking_inputs_weekly WHERE user_id = '".$_SESSION['viewing_client_id']."' ORDER BY entry_id DESC LIMIT 5";
+   $sql = "SELECT * FROM tracking_inputs_weekly WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' ORDER BY entry_id DESC LIMIT 5";
  require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
  $result = mysqli_query($conn, $sql);
 // $i = 0;

@@ -6,7 +6,7 @@ require $_SERVER['DOCUMENT_ROOT']."/inputs/color_creation.php";
 //store the two responses if they exist
 var_dump($_POST);
 	$response_how = mysqli_real_escape_string($conn, $_POST['textarea_input']);
-echo	$sql = "UPDATE progress_plus_core SET ".$_SESSION['progress_plus_how_category']."_improvement = '".$response_how."' WHERE input_id = '".$_SESSION['progress_plus_insert_id']."'";
+echo	$sql = "UPDATE progress_plus_core SET ".$_SESSION['progress_plus_how_category']."_improvement = '".$response_how."' WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."'";
 
 	$result = mysqli_query($conn, $sql);
 
@@ -22,14 +22,14 @@ echo	$sql = "INSERT INTO posts (user_id,
 					   contrast_color, 
 					   text_color,
 					   degrees) 
-				   VALUES ('".$_SESSION['user_id']."',
-				   	   '".$_SESSION['last_prompt']."',
+				   VALUES ('".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
+				   	   '".mysqli_real_escape_string($conn, $_SESSION['last_prompt'])."',
 				   	   '".$response_how."',
-				   	   '".$_SESSION['flow_privacy']."',
+				   	   '".mysqli_real_escape_string($conn, $_SESSION['flow_privacy'])."',
 				   	   '".$_SESSION['flow_sub_privacy_friends']	."',
-				   	   '".$_SESSION['flow_sub_privacy_family']."',
-				   	   '".$_SESSION['flow_sub_privacy_colleagues']."',
-				   	   '".$_SESSION['flow_sub_privacy_work_contacts']."',
+				   	   '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_family'])."',
+				   	   '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_colleagues'])."',
+				   	   '".mysqli_real_escape_string($conn, $_SESSION['flow_sub_privacy_work_contacts'])."',
 				   	   '".$background_color."',
 				   	   '".$contrast_color."',
 				   	   '".$text_color."',
@@ -54,7 +54,7 @@ if($changed == 'no' && $_SESSION['progress_plus_how_category'] == 'energy'	){hea
 
 
 //get out the last response
-$sql = "SELECT ".$_SESSION['progress_plus_how_category']." FROM progress_plus_core WHERE input_id = '".$_SESSION['progress_plus_insert_id']."' AND user_id = '".$_SESSION['user_id']."' ORDER BY input_id DESC LIMIT 1";
+$sql = "SELECT ".$_SESSION['progress_plus_how_category']." FROM progress_plus_core WHERE input_id = '".mysqli_real_escape_string($conn, $_SESSION['progress_plus_insert_id'])."' AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ORDER BY input_id DESC LIMIT 1";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

@@ -28,7 +28,7 @@ if($flow_row['privacy_section'] 	== 'on'){
 	require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/privacy/styling.php";
 	echo "<div id='inputs_box_privacy_div'>";
 		if(!isset($_SESSION['flow_privacy'])){
-		 	$sql 	= "SELECT * FROM user_privacy_settings WHERE user_id ='".$_SESSION['user_id']."'";
+		 	$sql 	= "SELECT * FROM user_privacy_settings WHERE user_id ='".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 			$result = mysqli_query($conn, $sql);
 			$flow_row 	= mysqli_fetch_array($result, MYSQLI_ASSOC); 
 			if($flow_row['default_flow_public'] == 'yes'){$_SESSION['flow_privacy'] = 'public';}

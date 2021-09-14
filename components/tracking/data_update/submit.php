@@ -36,7 +36,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/tracking/data_update/escaping.php
 function make_not_last_version_of_tracking_data($data_type, $target_or_not, $database_connection){
 	$sql = "UPDATE tracking_inputs 
 		SET latest_version_of_this_data_type = 'no' 
-		WHERE user_id = '".$_SESSION['viewing_client_id']."' 
+		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
 		AND data_type='".$data_type."'";		
 	if($target_or_not == 'yes'){$sql .= " AND target_yes_no = 'yes'";}	
 	mysqli_query($database_connection, $sql);
@@ -50,7 +50,7 @@ function start_of_input_query($data_type, $target_or_not, $month_combo){
 	if($target_or_not == 'yes'){	$sql .= dates_combo('yes', 	$month_combo);}
 	else{				$sql .= dates_combo('no', $month_combo, $escaped_variables);}
 	
-	$sql .= ") VALUES  	('".$_SESSION['viewing_client_id']."',    '".$data_type;
+	$sql .= ") VALUES  	('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    '".$data_type;
 	if($target_or_not == 'yes'){	$sql .= "_target";}	
 	$sql .= "', '".$target_or_not."',";
 	
@@ -206,7 +206,7 @@ if($_SESSION['results_page'] == 'kpis'){
 		 kpi_4_units, 
 		 kpi_4_max, 
 		 kpi_4_min)
-	VALUES  (	'".$_SESSION['viewing_client_id']."', 				
+	VALUES  (	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."', 				
 			'".$kpi_1_title."',
 			'".$kpi_1_units."',
 			'".$kpi_1_max."',
@@ -237,7 +237,7 @@ if($_SESSION['results_page'] == 'kpis'){
 
 if(isset($_POST['what_is_productivity'])){
 	$_SESSION['viewing_client_what_is_productivity'] = $_POST['what_is_productivity'];
-	$sql = "UPDATE user_account_details SET what_is_productivity = '".mysqli_real_escape_string($conn,$_POST['what_is_productivity'])."' WHERE user_id = '".$_SESSION['viewing_client_id']."' ";
+	$sql = "UPDATE user_account_details SET what_is_productivity = '".mysqli_real_escape_string($conn,$_POST['what_is_productivity'])."' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' ";
 	mysqli_query($conn, $sql);
 //exit();
 

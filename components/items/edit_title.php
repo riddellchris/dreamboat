@@ -19,7 +19,7 @@ if($_GET['item_id'] != 'components/items/edit_title.php'	      ){$_SESSION['edit
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/folder_to_database_relationships.php";
 	
-	 $sql = "SELECT * FROM ".$database." WHERE item_id = '".$_SESSION['editing_title_of_item_id'] ."' AND user_id = '".$_SESSION['viewing_client_id']."'";
+	 $sql = "SELECT * FROM ".$database." WHERE item_id = '".$_SESSION['editing_title_of_item_id'] ."' AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 //exit();
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);

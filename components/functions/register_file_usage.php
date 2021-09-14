@@ -13,7 +13,7 @@ function admin_file_usage($file, $conn){
 
 			$sql = "INSERT INTO admin_files_used
 					(this_file_name, user_id, page_load_number)
-				VALUES 	('".$file."','".$_SESSION['user_id']."', '".$_SESSION['page_load_number']."')"; //CR 18.07.20 Page load number is derived by each load of a standard page
+				VALUES 	('".$file."','".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '".mysqli_real_escape_string($conn, $_SESSION['page_load_number'])."')"; //CR 18.07.20 Page load number is derived by each load of a standard page
 			
 		//	echo $sql; exit();
 			mysqli_query($conn, $sql);

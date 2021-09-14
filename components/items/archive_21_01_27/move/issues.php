@@ -23,8 +23,8 @@ mysqli_query($conn, $sql);
 
 $sql = "UPDATE issues 
 	SET category = '".$new_category."'
-	WHERE user_id = '".$_SESSION['viewing_client_id']."'
-	AND 	item_id = '".$_GET['item_id']."'";
+	WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
+	AND 	item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 	
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";	
 mysqli_query($conn, $sql);
@@ -40,7 +40,7 @@ mysqli_query($conn, $sql);
 $sql = "SELECT * FROM item_relationships 
 	WHERE 	item_a_primary_folder 	= 'issues'
 	AND 	item_a_secondary_folder = '".$new_category."'
-	AND	item_a_id 		= '".$_GET['item_id']."'	";
+	AND	item_a_id 		= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'	";
 	
 //get
 	

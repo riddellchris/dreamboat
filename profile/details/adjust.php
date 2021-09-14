@@ -24,7 +24,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 		direction_involvement_yes_no		= '".mysqli_real_escape_string($conn, $_POST['direction_involvement_yes_no'])."',	
 		client_engagement_yes_no		= '".mysqli_real_escape_string($conn, $_POST['client_engagement_yes_no'])."',				
 		commission_yes_no			= '".mysqli_real_escape_string($conn, $_POST['commission_yes_no'])."'
-          WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+          WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
           
 	$_SESSION['viewing_client_first_name'] = $_POST['first_name'];
 	$_SESSION['viewing_client_last_name'] = $_POST['second_name'];	
@@ -33,7 +33,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 $result = mysqli_query($conn, $sql);
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM user_account_details WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+$sql = "SELECT * FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 						

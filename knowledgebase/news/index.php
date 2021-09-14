@@ -26,7 +26,11 @@ Happily add some commentary in time but now now<br><br>";
 
 echo "
 
-
+<a target='_blank' href='https://www.smh.com.au/politics/federal/australian-property-delivering-walkmans-in-a-smartphone-world-20210908-p58pxx.html'>
+https://www.smh.com.au/politics/federal/australian-property-delivering-walkmans-in-a-smartphone-world-20210908-p58pxx.html
+</a><br>
+<br>
+<br>
 
 
 <a target='_blank' href='https://www.rba.gov.au/media-releases/2021/mr-21-13.html'>

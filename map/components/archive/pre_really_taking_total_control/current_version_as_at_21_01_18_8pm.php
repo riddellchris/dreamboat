@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM `item_relationships` WHERE user_id = '".$_SESSION['viewing_client_id']."' AND status = 'active'";
+$sql = "SELECT * FROM `item_relationships` WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND status = 'active'";
 
 $select = mysqli_query($conn, $sql);
 

@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/back_of_house/database/connection.php";
-$sql= "SELECT * FROM wheelhouse_list WHERE user_id ='".$_SESSION['user_id']."' AND item_type='issue' AND item_status='active' AND item_deleted!='yes'";
+$sql= "SELECT * FROM wheelhouse_list WHERE user_id ='".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND item_type='issue' AND item_status='active' AND item_deleted!='yes'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) != 0){

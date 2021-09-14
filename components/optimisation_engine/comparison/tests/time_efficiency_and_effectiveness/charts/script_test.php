@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM tests_time_allocation_to_income_improvement WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+$sql = "SELECT * FROM tests_time_allocation_to_income_improvement WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 $result = mysqli_query($conn, $sql);
 $results_for_charts_user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

@@ -3,11 +3,11 @@ if(!isset($_SESSION)){session_start();}
 
 
 $sql = "SELECT * FROM labels 
-	WHERE 	primary_folder 		= '".$_GET['primary_folder']."'
-	AND 	secondary_folder 	= '".$_GET['secondary_folder']."'
-	AND 	tertiary_folder 	= '".$_GET['tertiary_folder']."'
-	AND 	quarternary_folder 	= '".$_GET['quarternary_folder']."'
-	AND 	item_id 		= '".$_GET['item_id']."'
+	WHERE 	primary_folder 		= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
+	AND 	secondary_folder 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'
+	AND 	tertiary_folder 	= '".mysqli_real_escape_string($conn, $_GET['tertiary_folder'])."'
+	AND 	quarternary_folder 	= '".mysqli_real_escape_string($conn, $_GET['quarternary_folder'])."'
+	AND 	item_id 		= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'
 	AND 	status			= 'active'";
 
 

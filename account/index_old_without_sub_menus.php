@@ -27,7 +27,7 @@ echo "<a class='blue-button wide-button' href='/account/review_cycles/'>review c
 echo "<a class='blue-button wide-button' href='/account/payments/'>payments</a>";
 
 
-$sql = "SELECT * FROM user_account_details WHERE user_id = '".$_SESSION['user_id']."'";
+$sql = "SELECT * FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

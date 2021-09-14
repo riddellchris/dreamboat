@@ -24,8 +24,8 @@ echo "	<select style='display:inline-block;'  onchange='this.form.submit()' name
 
 			$sql = "SELECT DISTINCT item_a_database, item_a_type, item_a_id, item_a_title
 				FROM item_relationships 
-				WHERE item_a_user_id = '".$_SESSION['viewing_client_id']."' AND
-					item_b_user_id =  '".$_SESSION['viewing_client_id']."'
+				WHERE item_a_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND
+					item_b_user_id =  '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
 				ORDER BY
 				  CASE item_a_type 	";
 				  	$order_number = 0;
@@ -120,7 +120,7 @@ echo "	<select style='display:inline-block;'  onchange='this.form.submit()' name
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $sql = "SELECT DISTINCT item_a_database, item_a_type, item_a_id, item_a_title
 					FROM item_relationships 
-					WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+					WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) == 0){
 	echo "	<div class='prompt-font' style='width:100%;text-align:center;height:65vh;bottom: 0;position: absolute;'>
@@ -152,7 +152,7 @@ else{
 				
 				//from the link_selected array
 				$sql = "	SELECT * FROM links_selected 
-						WHERE user_id = '".$_SESSION['viewing_client_id']."'
+						WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 						ORDER BY selection_id DESC LIMIT 1";
 				$result = mysqli_query($conn, $sql);
 				$row = mysqli_fetch_array($result, MYSQLI_ASSOC);	
