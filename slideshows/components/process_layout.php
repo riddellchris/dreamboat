@@ -108,7 +108,10 @@ echo "
                   
           if($_GET['tertiary_folder'] == 'ten' OR $_GET['tertiary_folder'] == 'four' ){echo "      <ul style='color: #cecece;'>";}     
           else{echo "<ul>";}  
-                        point_detailed_start('no',8,8,8,"Real time spent per task/activity/person information.");
+                        point_detailed_start('no',8,8,8,"&nbsp;&nbsp;Real time spent per task/activity/person information.");
+                        list_start();
+                            point_detailed_start('no',6,6,6,"Calendar data.");
+                        list_end();
                         point_detailed_start('no',8,8,8,"Productivity issue information.");
                         point_detailed_start('no',8,8,8,"Personal motivation information.");                       
                     list_end();
