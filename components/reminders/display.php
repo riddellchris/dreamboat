@@ -9,7 +9,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 
 	$sql = "SELECT * FROM reminders 
 		WHERE
-		for_user_id			= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' 	AND
+		for_user_id			= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 	AND
 		primary_folder 		= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."' 		AND
 		secondary_folder 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' 	AND		
 		tertiary_folder 	= '".mysqli_real_escape_string($conn, $_GET['tertiary_folder'])."' 		AND

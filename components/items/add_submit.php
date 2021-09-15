@@ -81,7 +81,7 @@ if($_POST['standard_input'] != ''){
 	// see and include /home/customer/www/dreamboat.com.au/public_html/components/layouts/box/item_title_display.php for more information/more of an idea
 	//clients, staff, organisations should be using name not title for utmost accuracy in databases. Especially the people where the title is something else all together 
 	 $sql = "INSERT INTO ".$db." (user_id, title, ".$sql_cols." rank, background_color, contrast_color,	text_color, degrees)
-			VALUES(	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."', 	'".$title."', ".$sql_vals." '1', '".$background_color."', '".$contrast_color."', '".$text_color."', '".$degrees."')";
+			VALUES(	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."', 	'".$title."', ".$sql_vals." '1', '".$background_color."', '".$contrast_color."', '".$text_color."', '".$degrees."')";
 		//	echo $sql;exit();
 	$result = mysqli_query($conn, $sql);
 	$last_insert_id = mysqli_insert_id($conn); 
@@ -103,7 +103,7 @@ if($_POST['standard_input'] != ''){
 	
 	$sql .= " VALUES(		'".$db."', 
 					'".$last_insert_id."', 
-					'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."', 
+					'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."', 
 					".$sql_vals."
 					'".$primary_folder."',
 					'".$secondary_folder."',	

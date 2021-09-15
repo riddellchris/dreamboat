@@ -1,7 +1,8 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if($_SESSION['current_issues_setting'] 	== 'issues_on'){
+if( $_SESSION['current_issues_setting'] 	== 'issues_on' && 
+    $map_triggers['issues_exist_to_merge'] == 'yes'){
 
    $nodes['items_all_id'] 	    = array_merge($nodes['items_all_id'], 	    $related_issues['items_all_id']);
    $nodes['database'] 		    = array_merge($nodes['database'], 	        $related_issues['database']);
@@ -22,4 +23,3 @@ if($_SESSION['current_issues_setting'] 	== 'issues_on'){
 
 //echo $_SESSION['current_issues_setting'] ;
 //exit();
-$diagnostics['all_nodes_to_display'] = $nodes;

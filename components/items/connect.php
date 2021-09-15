@@ -95,13 +95,13 @@ else{
 						item_b_secondary_folder,
 						item_b_title
 						)
-				VALUES	(	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
+				VALUES	(	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
 						'".$item_a_database."',
 						'".$item_a_id."',
 						'".$item_a_primary_folder."',
 						'".$item_a_secondary_folder."',						
 						'".$item_a_title."',
-						'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
+						'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
 						'".$item_b_database."',
 						'".$item_b_id."',
 						'".$item_b_primary_folder."',
@@ -129,13 +129,13 @@ else{
 						item_b_secondary_folder,
 						item_b_title
 						)
-				VALUES	(	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
+				VALUES	(	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
 						'".$item_b_database."',
 						'".$item_b_id."',
 						'".$item_b_primary_folder."',
 						'".$item_b_secondary_folder."',						
 						'".$item_b_title."',
-						'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
+						'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
 						'".$item_a_database."',
 						'".$item_a_id."',
 						'".$item_a_primary_folder."',

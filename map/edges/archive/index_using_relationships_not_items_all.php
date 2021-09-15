@@ -12,7 +12,7 @@ echo "	<select style='display:inline-block;'  onchange='this.form.submit()' name
 	$sql = "SELECT DISTINCT item_a_database, item_a_primary_folder, item_a_secondary_folder, item_a_id, item_a_title
 		FROM item_relationships 
 		WHERE item_a_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND
-			item_b_user_id =  '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' AND 
+			item_b_user_id =  '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND 
 			total_relationship_status = 'active'
 		ORDER BY
 		  CASE item_a_secondary_folder 	";

@@ -25,7 +25,7 @@ echo "	<select style='display:inline-block;'  onchange='this.form.submit()' name
 			$sql = "SELECT DISTINCT item_a_database, item_a_type, item_a_id, item_a_title
 				FROM item_relationships 
 				WHERE item_a_user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND
-					item_b_user_id =  '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
+					item_b_user_id =  '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 				ORDER BY
 				  CASE item_a_type 	";
 				  	$order_number = 0;

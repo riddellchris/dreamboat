@@ -237,7 +237,7 @@ if($counter != 0){
 			$result = mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) == 0){
 				$sql = "INSERT INTO edge_data (user_id, relationship_id )
-						VALUES ('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."', '".$edges['relationship_id'][$i]."') ";
+						VALUES ('".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."', '".$edges['relationship_id'][$i]."') ";
 
 	echo $sql."<br>";
 
@@ -278,7 +278,7 @@ if($counter != 0){
 
 		if($_SESSION['map_edge_color'] 	== 'users_time'	){$color_key 		= 'time';			$hits_the_issue = 'yes';}
 		if($_SESSION['map_edge_color'] 	== 'financial'	){$color_key 		= 'financial_flow';	$hits_the_issue = 'yes';}	
-		if($hits_the_issue == 'no'){	$color_key  = $_SESSION['map_edge_color'];}	else{	$hits_the_issue = 'no';}
+		if($hits_the_issue == 'no'){	$color_key  = $_SESSION['map_edge_color'];}	else{		$hits_the_issue = 'no';}
 
 
 	if(mysqli_num_rows($result) != 0){
@@ -341,12 +341,12 @@ if(isset($edges_to_finally_display['item_a_database'])){
 		//just be lazy here and pull it out again using SQL 
 		//then run the calc adjust the links and done
 		$sql = "SELECT * FROM edge_data 
-				WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' 
+				WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
 				AND relationship_id = '".$edges['relationship_id'][$i]."'
 				AND latest_data_for_this_edge = 'yes'
 				LIMIT 1
 				";
-				//echo $sql;// exit();
+				//echo $sql; exit();
 		$result = mysqli_query($conn, $sql);
 		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
@@ -399,17 +399,17 @@ if(isset($edges_to_finally_display['item_a_database'])){
 
 
 		if($_SESSION['map_edge_color'] == 'non_descript'){							$edge_color = "rgba(206,206,206,$opacity_of_this_edge)";	$hover_color = "rgba(166,166,166,$opacity_of_this_edge)";	}
-		if($_SESSION['map_edge_color'] == 'financial'){							$edge_color = "rgba(77,77,77,$opacity_of_this_edge)";		$hover_color = "rgba(26,26,26,$opacity_of_this_edge)";	}
+		if($_SESSION['map_edge_color'] == 'financial'){								$edge_color = "rgba(77,77,77,$opacity_of_this_edge)";		$hover_color = "rgba(26,26,26,$opacity_of_this_edge)";	}
 		if($_SESSION['map_edge_color'] == 'users_time'){							$edge_color = "rgba(255,192,203,$opacity_of_this_edge)";	$hover_color = "rgba(227,136,151,$opacity_of_this_edge)";	}
 		if($_SESSION['map_edge_color'] == 'productivity'){							$edge_color = "rgba(115,102,255,$opacity_of_this_edge)";	$hover_color = "rgba(59,47,194,$opacity_of_this_edge)";	}
 		if($_SESSION['map_edge_color'] == 'productivity_improvement_potential'){	$edge_color = "rgba(115,102,255,$opacity_of_this_edge)";	$hover_color = "rgba(59,47,194,$opacity_of_this_edge)";	}
-		if($_SESSION['map_edge_color'] == 'communication'){						$edge_color = "rgba(206,206,206,$opacity_of_this_edge)";	$hover_color = "rgba(166,166,166,$opacity_of_this_edge)";	}
-		if($_SESSION['map_edge_color'] == 'trust'){								$edge_color = "rgba(206,206,206,$opacity_of_this_edge)";	$hover_color = "rgba(166,166,166,$opacity_of_this_edge)";	}
+		if($_SESSION['map_edge_color'] == 'communication'){							$edge_color = "rgba(206,206,206,$opacity_of_this_edge)";	$hover_color = "rgba(166,166,166,$opacity_of_this_edge)";	}
+		if($_SESSION['map_edge_color'] == 'trust'){									$edge_color = "rgba(206,206,206,$opacity_of_this_edge)";	$hover_color = "rgba(166,166,166,$opacity_of_this_edge)";	}
 		if($_SESSION['map_edge_color'] == 'quality'){								$edge_color = "rgba(206,206,206,$opacity_of_this_edge)";	$hover_color = "rgba(166,166,166,$opacity_of_this_edge)";	}		
-		if($_SESSION['map_edge_color'] == 'kpi_1'){								$edge_color = "rgba(255,0,0,$opacity_of_this_edge)";		$hover_color = "rgba(173,0,0,$opacity_of_this_edge)";		}
-		if($_SESSION['map_edge_color'] == 'kpi_2'){								$edge_color = "rgba(0,0,255,$opacity_of_this_edge)";		$hover_color = "rgba(0,9,179,$opacity_of_this_edge)";		}
-		if($_SESSION['map_edge_color'] == 'kpi_3'){								$edge_color = "rgba(255,165,0,$opacity_of_this_edge)";	$hover_color = "rgba(222,144,0,$opacity_of_this_edge)";	}
-		if($_SESSION['map_edge_color'] == 'kpi_4'){								$edge_color = "rgba(0,255,0,$opacity_of_this_edge)";		$hover_color = "rgba(0,194,0,$opacity_of_this_edge)";		}
+		if($_SESSION['map_edge_color'] == 'kpi_1'){									$edge_color = "rgba(255,0,0,$opacity_of_this_edge)";		$hover_color = "rgba(173,0,0,$opacity_of_this_edge)";		}
+		if($_SESSION['map_edge_color'] == 'kpi_2'){									$edge_color = "rgba(0,0,255,$opacity_of_this_edge)";		$hover_color = "rgba(0,9,179,$opacity_of_this_edge)";		}
+		if($_SESSION['map_edge_color'] == 'kpi_3'){									$edge_color = "rgba(255,165,0,$opacity_of_this_edge)";		$hover_color = "rgba(222,144,0,$opacity_of_this_edge)";	}
+		if($_SESSION['map_edge_color'] == 'kpi_4'){									$edge_color = "rgba(0,255,0,$opacity_of_this_edge)";		$hover_color = "rgba(0,194,0,$opacity_of_this_edge)";		}
 
 
 		/* JUST FOR REVERENCE OF THE ORIGINAL HEX CODES

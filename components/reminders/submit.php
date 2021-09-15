@@ -6,7 +6,7 @@ if(!isset($_SESSION)){session_start();}
 $sql = "UPDATE reminders
 	SET latest_version = 'no'
 	WHERE
-		for_user_id		=	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'		AND
+		for_user_id		=	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'		AND
 		primary_folder		=	'".$_POST['primary_folder']."'		AND
 		secondary_folder	=	'".$_POST['secondary_folder']."'		AND
 		tertiary_folder		=	'".$_POST['tertiary_folder']."'		AND
@@ -32,7 +32,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 				)
 	VALUES(
-		'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
+		'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
 		'".$_POST['primary_folder']."',
 		'".$_POST['secondary_folder']."',		
 		'".$_POST['tertiary_folder']."',

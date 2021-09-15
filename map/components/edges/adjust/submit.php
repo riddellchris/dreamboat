@@ -36,7 +36,7 @@ $sql = "INSERT INTO edge_data(
 		kpi_4)
 
 
-	VALUES	(	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
+	VALUES	(	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
 			'".mysqli_real_escape_string($conn, $_GET['item_id'])."',
 			'yes',
 			'".mysqli_real_escape_string($conn, $_POST['time'])."',

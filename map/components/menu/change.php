@@ -5,16 +5,16 @@ if(!isset($_SESSION)){session_start();}
 /*
 for($count = 1; $count < 5; $count ++){
     $changed = '';
-    if($_POST['map_view_'.$count] == 'all'){		$_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
-    if($_POST['map_view_'.$count] == 'business'){	$_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
-    if($_POST['map_view_'.$count] == 'network'){	$_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
-    if($_POST['map_view_'.$count] == 'biz_dev'){	$_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
+    if($_POST['map_view_'.$count] == 'all'){		    $_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
+    if($_POST['map_view_'.$count] == 'business'){	  $_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
+    if($_POST['map_view_'.$count] == 'network'){	  $_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
+    if($_POST['map_view_'.$count] == 'biz_dev'){	  $_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
     if($_POST['map_view_'.$count] == 'marketing'){	$_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
     if($_POST['map_view_'.$count] == 'sales'){	    $_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
     if($_POST['map_view_'.$count] == 'management'){	$_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
     if($_POST['map_view_'.$count] == 'wheelhouse'){	$_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
     if($_POST['map_view_'.$count] == 'activities'){	$_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
-    if($_POST['map_view_'.$count] == 'upgrades'){	$_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
+    if($_POST['map_view_'.$count] == 'upgrades'){	  $_SESSION['critical_node_include_'.$count] = $_POST['map_view_'.$count]; $changed = $_POST['map_view_'.$count];}
 
   //  if($changed != ''){echo $_POST['map_view_'.$count];}   exit();
 		
@@ -60,37 +60,60 @@ echo $_SESSION['critical_node_include_3'];
 echo "<br>";
 echo $_SESSION['critical_node_include_4'];
 echo "<br>";
-exit();*/
+*/
+//exit();
 
 $last_needed_option = $menu_to_apply_to - 1;// exit();
   if($_SESSION['critical_node_include_1'] != 'all' && $last_needed_option < 4){
     //make the remaining ones the same as the last one selected
     for($i = $last_needed_option; $i < 5; $i ++){
-
-
       $_SESSION['critical_node_include_'.$i] = $_SESSION['critical_node_include_'.$last_needed_option];
-
-
     }
   }    
 
+if($_SESSION['critical_node_include_1'] == 'all'){
+  /*
+  echo $_SESSION['critical_node_include_1'];
+  echo "<br>";
+  echo $_SESSION['critical_node_include_1'];
+  echo "<br>";
+  echo $_SESSION['critical_node_include_1'];
+  echo "<br>";
+  echo $_SESSION['critical_node_include_1'];
+  echo "<br>";
+  echo $_SESSION['critical_node_include_1'];
+  echo "<br>";
+  */
+  // exit();
+  unset($_SESSION['critical_node_include_2']);
+  unset($_SESSION['critical_node_include_3']);
+  unset($_SESSION['critical_node_include_4']);
+}
 
+/*
+echo $_SESSION['critical_node_include_1'];
+echo "<br>";
+echo $_SESSION['critical_node_include_2'];
+echo "<br>";
+echo $_SESSION['critical_node_include_3'];
+echo "<br>";
+echo $_SESSION['critical_node_include_4'];
+echo "<br>";
+exit();
+*/
 
-
-
-
-if($_POST['connection_control'] == 'connected_only'){	$_SESSION['current_connection_control'] = $_POST['connection_control'];}
+if($_POST['connection_control'] == 'connected_only'){	  $_SESSION['current_connection_control'] = $_POST['connection_control'];}
 if($_POST['connection_control'] == 'unconnected_only'){	$_SESSION['current_connection_control'] = $_POST['connection_control'];}
-if($_POST['connection_control'] == 'show_all'){		    $_SESSION['current_connection_control'] = $_POST['connection_control'];}
+if($_POST['connection_control'] == 'show_all'){		      $_SESSION['current_connection_control'] = $_POST['connection_control'];}
 
 
-if($_POST['issues_control'] == 'issues_on'){	        $_SESSION['current_issues_setting'] = $_POST['issues_control'];}
-if($_POST['issues_control'] == 'issues_off'){	        $_SESSION['current_issues_setting'] = $_POST['issues_control'];}
+if($_POST['issues_control'] == 'issues_on'){	          $_SESSION['current_issues_setting'] = $_POST['issues_control'];}
+if($_POST['issues_control'] == 'issues_off'){	          $_SESSION['current_issues_setting'] = $_POST['issues_control'];}
 if($_POST['issues_control'] == 'issues_only'){	        $_SESSION['current_issues_setting'] = $_POST['issues_control'];}
 
 
-if($_POST['map_display'] == 'relationship_centric'){	$_SESSION['current_map_display'] = $_POST['map_display'];}
-if($_POST['map_display'] == 'central_issues'){		    $_SESSION['current_map_display'] = $_POST['map_display'];}
+if($_POST['map_display'] == 'relationship_centric'){	  $_SESSION['current_map_display'] = $_POST['map_display'];}
+if($_POST['map_display'] == 'central_issues'){		      $_SESSION['current_map_display'] = $_POST['map_display'];}
 
 //echo $_POST['map_edge_color'];
 //exit();

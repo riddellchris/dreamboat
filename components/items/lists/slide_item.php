@@ -11,14 +11,14 @@ if($_GET['direction'] == 'up' OR
 
 	$this_items_id = mysqli_real_escape_string($conn, $_GET['item_id']);
 	
-	$sql = "SELECT * FROM ".$database." WHERE user_id ='".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' AND item_id = '".$this_items_id."'";
+	$sql = "SELECT * FROM ".$database." WHERE user_id ='".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND item_id = '".$this_items_id."'";
 
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$this_current_rank = $row['rank'];
 
 	$sql = "						  	SELECT * FROM ".$database." 
-								  	WHERE  user_id ='".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'";
+								  	WHERE  user_id ='".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 	if($_GET['primary_folder'] == 'admin' ){	$sql .= " 	AND category 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}
 	if($_GET['primary_folder'] == 'wheelhouse'){	$sql .= " 	AND category 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}		 	
 	if($_GET['primary_folder'] == 'improvements'){	$sql .= " 	AND mode 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' ";}

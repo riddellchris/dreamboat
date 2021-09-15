@@ -11,7 +11,7 @@ $display_variable_name = strip_underscores($_SESSION['viewing_client_what_is_pro
 if(substr($display_variable_name, 0, 3) != 'kpi'){$display_variable_name = ucfirst($display_variable_name);}
 else{
 $sql = "SELECT ".$_SESSION['viewing_client_what_is_productivity']."_title FROM tracking_kpi_settings 
-	WHERE client_id = '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' 
+	WHERE client_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
 	
 	ORDER BY entry_id DESC LIMIT 1"; // select column
 

@@ -5,7 +5,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 
 //first find the mirrored relationship so we can change both at the same time
 $sql = "SELECT * FROM item_relationships
-	WHERE item_a_user_id 		= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
+	WHERE item_a_user_id 		= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	AND relationship_id 	= '".$_GET['relationship_id']."'";
 //echo $sql;//exit();
 $result = mysqli_query($conn, $sql);

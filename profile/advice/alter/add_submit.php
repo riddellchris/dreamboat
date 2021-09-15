@@ -11,7 +11,7 @@ $sql = "UPDATE progress SET rank = rank + 1 WHERE user_id = '".mysqli_real_escap
 $result = mysqli_query($conn, $sql);
 
 $sql = "INSERT INTO progress (user_id, 		title, rank, background_color, contrast_color, 	text_color, degrees)
-	 	   VALUES('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."', '$title', '1', '".$background_color."', '$contrast_color', '$text_color', '$degrees')";
+	 	   VALUES('".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."', '$title', '1', '".$background_color."', '$contrast_color', '$text_color', '$degrees')";
 $result = mysqli_query($conn, $sql);
 
 header("Location: /profile/");

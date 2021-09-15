@@ -37,7 +37,7 @@ $sql = "UPDATE items_all ";
 $sql .= " WHERE found_in_primary_folder 		= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
 	  AND  found_in_secondary_folder 		= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'
 	  AND  item_id 					= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'
-	  AND  user_id 					= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'";
+	  AND  user_id 					= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 mysqli_query($conn, $sql);
 
 
@@ -46,7 +46,7 @@ $sql = "SELECT * FROM items_all
 	WHERE found_in_primary_folder 		= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
 	  AND  found_in_secondary_folder 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'
 	  AND  item_id 				= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'
-	  AND  user_id 				= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'";
+	  AND  user_id 				= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 

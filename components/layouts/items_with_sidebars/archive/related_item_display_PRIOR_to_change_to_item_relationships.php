@@ -103,7 +103,7 @@ else{
 	//var_dump($related_item_ids);	
 	for($i = 0; $i < $related_items_count; $i++){		
 		$sql = "SELECT * FROM ".$database_to_extract_from."
-			WHERE user_id 	= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
+			WHERE user_id 	= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 			AND status 	= 'active'	
 			AND item_id 	= '".$related_item_ids[$i]."'";
 			

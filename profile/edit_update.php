@@ -25,7 +25,7 @@ $current_date = date('Y-m-d H:i:s');
 	     WHERE user_id = '".$_SESSION['user_id_to_edit']."'";*/
 	   
  $sql = "INSERT INTO  profile_details (backstory, skills, obsessions, training, friends, family,  hobbies, other_notes, client_id, made_by_id)
-	VALUES('$backstory', '$skills','$obsessions','$training','$friends','$family','$hobbies','$other_notes','".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."','".$_SESSION['user_id_to_edit']."')";
+	VALUES('$backstory', '$skills','$obsessions','$training','$friends','$family','$hobbies','$other_notes','".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."','".$_SESSION['user_id_to_edit']."')";
 
 
 

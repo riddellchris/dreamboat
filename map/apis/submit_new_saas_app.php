@@ -12,7 +12,7 @@ $sql = "INSERT INTO saas_application_connections (user_id,
                                                     platform_web_address
                                                     )
                                                     VALUES(
-                                                        '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
+                                                        '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
                                                         '".$_POST['platform_name']."',
                                                         '".$_POST['platform_web_address']."'
                                                         )

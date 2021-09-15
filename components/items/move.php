@@ -146,7 +146,7 @@ if($change_to == 'undeleted'){		$sql .= ",deleted = 'no'";}
 if($change_to == 'active'){			$sql .= ",status = 'yes'";}		
 if($change_to == 'resolved'){		$sql .= ",status = 'no'";}		
 $sql .="	
-	WHERE 	user_id 	= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
+	WHERE 	user_id 	= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	AND 	item_id 	= '".$item_id."'";
 //echo "hi";
 //echo $sql; exit();
@@ -239,7 +239,7 @@ mysqli_query($conn, $sql);
 $sql = "UPDATE notifications_and_alerts 
 	SET 	primary_folder		= '".$adjusted_primary_folder."' AND
 		secondary_folder 	= '".$adjusted_secondary_folder."' 
-	WHERE user_id 		= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
+	WHERE user_id 		= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	AND primary_folder 	= '".$original_primary_folder."'
 	AND secondary_folder 	= '".$original_secondary_folder."'
 	AND item_id 		= '".$item_id ."'";
@@ -251,7 +251,7 @@ mysqli_query($conn, $sql);
 $sql = "UPDATE reminders 
 	SET 	primary_folder	 = '".$adjusted_primary_folder."' AND
 		secondary_folder = '".$adjusted_secondary_folder."' 
-	WHERE for_user_id 	= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
+	WHERE for_user_id 	= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	AND primary_folder 	= '".$original_primary_folder."'
 	AND secondary_folder 	= '".$original_secondary_folder."'
 	AND item_id 		= '".$item_id ."'";
@@ -261,9 +261,9 @@ mysqli_query($conn, $sql);
  $sql = "UPDATE discussion 
  	SET 	primary_folder 		= '".$adjusted_primary_folder."',
   		secondary_folder 	= '".$adjusted_secondary_folder."'   		
-	WHERE (	user_id 		= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' 
+	WHERE (	user_id 		= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
 		OR
-		to_user_id 	=  '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."' )
+		to_user_id 	=  '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' )
 	AND primary_folder 	= '".$original_primary_folder."'
 	AND secondary_folder 	= '".$original_secondary_folder."'	
 	AND related_id 		= '".$item_id ."'";

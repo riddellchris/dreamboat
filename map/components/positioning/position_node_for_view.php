@@ -7,7 +7,7 @@ if(isset($_GET['method'])){
 
         $sql = "UPDATE map_positions_per_view
                 SET latest_data_point_for_this_view = 'no'
-                WHERE   user_id             = '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
+                WHERE   user_id             = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
                 AND     critical_nodes_1      = '".$_SESSION['critical_node_include_1']."'
                 AND     critical_nodes_2      = '".$_SESSION['critical_node_include_2']."'
                 AND     critical_nodes_3      = '".$_SESSION['critical_node_include_3']."'
@@ -39,7 +39,7 @@ if($_POST['x'] != '' AND $_POST['y'] != ''){
                 positioned_by    
                 )
             VALUES (
-                '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
+                '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
                 '".$_SESSION['critical_node_include_1']."',
                 '".$_SESSION['critical_node_include_2']."',
                 '".$_SESSION['critical_node_include_3']."',

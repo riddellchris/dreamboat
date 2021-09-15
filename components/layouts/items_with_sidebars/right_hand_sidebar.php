@@ -6,12 +6,12 @@ if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $sql = "SELECT * FROM item_relationships 
-	WHERE item_a_user_id 		=  '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'";
+	WHERE item_a_user_id 		=  '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
 //	AND   item_a_secondary_folder 	<> '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'
 //	AND   item_a_id 		<> '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
 
 $sql .= "
-	AND   item_b_user_id 		= '".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."'
+	AND   item_b_user_id 		= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	AND   item_b_secondary_folder 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'
 	AND   item_b_id 		= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'
 	

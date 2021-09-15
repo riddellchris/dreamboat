@@ -10,7 +10,7 @@ $sql = "INSERT INTO notes (	about_user_id,
 				tertiary_folder,
 				item_id,
 				note_details)
-	VALUES(	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',
+	VALUES(	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
 		'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
 		'".$_SESSION['primary_folder']."',
 		'".$_SESSION['secondary_folder']."',

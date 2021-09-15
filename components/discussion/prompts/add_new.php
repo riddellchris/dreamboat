@@ -30,7 +30,7 @@ $sql .= "					'".mysqli_real_escape_string($conn, safely_replace_apostrophies($_
 					'".$_POST['tertiary_folder']."', 	
 					'".$_POST['quarternary_folder']."', 										
 					'".$_POST['item_id']."', 					
-					'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."', 
+					'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."', 
 					'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' 		
 				)";
 //echo $sql;

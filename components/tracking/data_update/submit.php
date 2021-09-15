@@ -50,7 +50,7 @@ function start_of_input_query($data_type, $target_or_not, $month_combo){
 	if($target_or_not == 'yes'){	$sql .= dates_combo('yes', 	$month_combo);}
 	else{				$sql .= dates_combo('no', $month_combo, $escaped_variables);}
 	
-	$sql .= ") VALUES  	('".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',    '".$data_type;
+	$sql .= ") VALUES  	('".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',    '".$data_type;
 	if($target_or_not == 'yes'){	$sql .= "_target";}	
 	$sql .= "', '".$target_or_not."',";
 	
@@ -206,7 +206,7 @@ if($_SESSION['results_page'] == 'kpis'){
 		 kpi_4_units, 
 		 kpi_4_max, 
 		 kpi_4_min)
-	VALUES  (	'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."', 				
+	VALUES  (	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."', 				
 			'".$kpi_1_title."',
 			'".$kpi_1_units."',
 			'".$kpi_1_max."',

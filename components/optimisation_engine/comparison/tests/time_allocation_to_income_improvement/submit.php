@@ -42,7 +42,7 @@ data_category,
 value";
 
 $_SESSION['base_values_list'] = "
-'".mysqli_real_escape_string($conn, $_GET['viewing_client_id'])."',	
+'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',	
 'yes',
 '".$_SESSION['viewing_client_primary_industry']."',
 '".$_SESSION['viewing_client_business_definition']."',
