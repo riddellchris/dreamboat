@@ -38,17 +38,17 @@ th{text-align:left;}
                         Platform name                  
                     </th>
                     <th>
-                        Main web address
-</th>
+                        Main web address    
+                    </th>
                     <th>
                         <!-- save -->
-</th>
+                    </th>
                     <th>
                          <!-- delete -->                       
-</th>
+                    </th>
                     <th>
                         Connect
-</th>
+                    </th>
                 </tr>
 
 
@@ -73,9 +73,32 @@ th{text-align:left;}
 
                     if($row['active'] != 'yes'){echo "<td style='color:green;'> tick</td>";}else{echo "<td></td>";}
                     if($row['active'] == 'yes'){echo "<td ><a style='color:red;' href='/map/apis/delete.php?saas_connection=".$row['entry_id']."'>DELETE</a></td>";}else{echo "<td></td>";}
-echo "
-                    <td class='blink_me slower'>Available at completion of <a href='/knowledgebase/current_service/phases_of_engagement/' style='color:red;' >secondary mapping</a> </td>
-                </tr>";
+                    
+
+
+                     //                                  echo "<td>".stripos($row['platform_name'], 'xero')."</td>";
+
+                    if(stripos($row['platform_name'], 'xero') === 0){
+                        echo "
+                            <td>
+                                <a ";
+                                    $response_type  = "code";
+                                    $scope          = "openid profile email accounting.transactions"; //just based off something really simple// this will need to expand ove time
+                                    $client_id      = "01F3F4E33B49429EBEAC5BE52CE4C8A6";
+                                    $redirect_uri   = "https://dreamboat.com.au/maps/apis/";
+                                    $state          = "not_used"; //this is an optional string
+                                    echo "href='https://login.xero.com/identity/connect/authorize?response_type=code&client_id=".$client_id."&redirect_uri=".$redirect_uri."&scope=".$scope."&state=".$state."'
+                                    >Login to Xero
+                                </a>
+                            </td>";
+
+                     }
+                    else{
+                        echo "  <td class='blink_me slower'>
+                                    Available at completion of <a href='/knowledgebase/current_service/phases_of_engagement/' style='color:red;' >secondary mapping</a> 
+                                </td>";
+                    } 
+        echo "</tr>";
     }
 
 ?>
