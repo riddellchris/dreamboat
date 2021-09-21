@@ -21,6 +21,14 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
     require $_SERVER['DOCUMENT_ROOT']."/components/discussion/display.php";
 }
 */
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+$sql = "UPDATE  saas_application_xero_keys 
+        SET     used = 'yes' 
+        WHERE   user_id = '".$_SESSION['user_id']."' 
+        AND     timestamp >= NOW() - INTERVAL 1 DAY  ";
+//user_id is chosen NOT viewing_client_id such that it doesn't alter when/if a pilot is viewing
+
+
 ?>
 
 
@@ -83,12 +91,49 @@ th{text-align:left;}
                             <td>
                                 <a ";
                                     $response_type  = "code";
-                                    $scope          = "openid profile email accounting.transactions"; //just based off something really simple// this will need to expand ove time
-                                    $client_id      = "01F3F4E33B49429EBEAC5BE52CE4C8A6";
-                                    $redirect_uri   = "https://dreamboat.com.au/maps/apis/";
-                                    $state          = "not_used"; //this is an optional string
-                                    echo "href='https://login.xero.com/identity/connect/authorize?response_type=code&client_id=".$client_id."&redirect_uri=".$redirect_uri."&scope=".$scope."&state=".$state."'
-                                    >Login to Xero
+                                        //see the information on these scopes right here
+                                        $scope_string  = "offline_access ";
+                                        //request offline access to be able to refesh without further user login information
+                                        //https://developer.xero.com/documentation/guides/oauth2/auth-flow#2-users-are-redirected-back-to-you-with-a-code
+
+                                        
+                                        $scope_string .= "accounting.transactions.read "; //this ultimately includes products
+                                        $scope_string .= "accounting.reports.read ";
+                                        $scope_string .= "accounting.settings.read ";
+                                        $scope_string .= "accounting.contacts.read ";
+                                       // $scope_string .= "accounting.budgets.read "; // this is on the system but it's probably just not part of my scope
+                                        $scope          = "openid profile email ".$scope_string; //just based off something really simple// this will need to expand ove time
+                                        $client_id      = "01F3F4E33B49429EBEAC5BE52CE4C8A6";
+                                    if($_SERVER['SERVER_PORT'] != 8888){
+                                        $redirect_uri   = "https://dreamboat.com.au/maps/apis/xero/connect.php";
+                                    }
+                                    else{
+                                        $redirect_uri   = "http://localhost:8888/map/apis/xero/connect.php";
+                                    }
+
+                                    $unique_code = md5(rand(999, 99999));
+                                    $state          = "success_".$_SESSION['user_id']."_".$row['entry_id']."_".$unique_code; //this is an optional string
+
+                                        if($_SESSION['user_id'] == $_SESSION['viewing_client_id']){ // otherwise not actual end user
+                                            //TERRIBLE //HACK:: Really this should be a link that connects to another page:
+                                            //Let's call that page pre_connection for now
+                                            //Then we can simply insert this information as we are on the way to connecting rather than creating an insert EVERY time we load this page /map/apis/ which is clearly ridiculous
+                                            //not sure this is for me today though
+                                            //#IS_URGENT #SECURITY #UPGRADES
+                                            $sql = "INSERT INTO saas_application_xero_keys (user_id, string, application_entry_id)
+                                                    VALUES ('".$_SESSION['user_id']."','".$unique_code."', '".$row['entry_id']."')";    
+                                            mysqli_query($conn, $sql);
+
+                                            //probably could update the "used / yes" column here but not essentials
+                                            echo "href='https://login.xero.com/identity/connect/authorize?response_type=code&client_id=".$client_id."&redirect_uri=".$redirect_uri."&scope=".$scope."&state=".$state."'";
+
+                                        }
+                                    echo "
+                                    >Login to Xero";
+
+                                    //echo $sql; exit();
+                                    if($_SESSION['user_id'] != $_SESSION['viewing_client_id']){echo " -- not clickable for pilot";}
+                                    echo "
                                 </a>
                             </td>";
 
