@@ -86,7 +86,7 @@ th{text-align:left;}
 
                      //                                  echo "<td>".stripos($row['platform_name'], 'xero')."</td>";
 
-                    if(stripos($row['platform_name'], 'xero') === 0){
+                    if(stripos($row['platform_name'], 'xero') === 0 && $_SESSION['user_id'] == 1){
                         echo "
                             <td>
                                 <a ";
