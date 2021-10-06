@@ -23,7 +23,7 @@ echo "<div class='slideshow_descriptive_text' >";
 list_start();
     point_detailed_start('no', 10, 10, 10, "Over the last 25 years an alarming trend has appeared in Australia's per Capita GDP growth rate.");
     point_detailed_start('no', 10, 10, 10, "Given our aging population, declining productivity growth and other future risks....");
-    point_detailed_start('no', 10, 10, 10, "If nothing is done then our way of life & our bright futures are in jeopardy.");
+    point_detailed_start('no', 10, 10, 10, "... if nothing is done then our way of life & our bright futures are in jeopardy.");
 list_end();
 echo "</div>";
 
