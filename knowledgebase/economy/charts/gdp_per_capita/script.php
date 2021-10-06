@@ -4,6 +4,9 @@ $current_version = "1.5";
 require dirname(__FILE__)."/".basename(__FILE__, ".php")."/".$current_version.".php";
 
 /*
+1.6 
+no trendlines just to do "my homework"
+
 1.5 
 looking much better
 barlow semi condensed and better sizing everywhere

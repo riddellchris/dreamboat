@@ -9,7 +9,7 @@ echo "
 @media only screen and (max-width: 900px) {.slideshow_title_container{padding-left: 0px;}}
 @media only screen and (min-width: 900px) {.slideshow_title_container{padding-left: 18px;}}
 ";
-
+if($_GET['tertiary_folder'] == 'zero'){   $breakpoint = '1950';}
 if($_GET['tertiary_folder'] == 'one'){   $breakpoint = '1950';}
 if($_GET['tertiary_folder'] == 'two'){   $breakpoint = '1710';}
 if($_GET['tertiary_folder'] == 'three'){ $breakpoint = '1730';}

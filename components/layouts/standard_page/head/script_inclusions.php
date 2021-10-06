@@ -56,7 +56,7 @@ if(!isset($_SESSION)){session_start();}
 	if(check_folders_two_deep('knowledgebase','executive_summary')	){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/charts/include_all_scripts.php";}	
 	if(check_folders_two_deep('knowledgebase','economy')			){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/charts/include_all_scripts.php";}
 	
-	
+	if(check_primary_folder('slideshows') && check_secondary_folder('central_thesis') && check_tertiary_folder('zero')	){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/charts/gdp_per_capita_problem/script.php";}		
 	if(check_primary_folder('slideshows') && check_secondary_folder('central_thesis') && check_tertiary_folder('one')	){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/charts/gdp_per_capita/script.php";}	
 	if(check_primary_folder('slideshows') && check_secondary_folder('central_thesis') && check_tertiary_folder('two')	){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/charts/gdp_per_capita_target/script.php";}	
 

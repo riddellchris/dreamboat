@@ -9,7 +9,7 @@ echo "
 					            bottom: 50;
 					            position: fixed;
 					            height: 50px;    ";   
-if($_GET['tertiary_folder'] != 'one' &&
+if($_GET['tertiary_folder'] != 'zero' &&
     $_GET['tertiary_folder'] != 'ten'){
      echo $shadow_definition;
     }
@@ -48,7 +48,7 @@ if($_GET['tertiary_folder'] != 'one' &&
 
         
     .slideshow_menu_left{   ";
-	        if(check_tertiary_folder('one') == true){
+	        if(check_tertiary_folder('zero') == true){
 					echo	"background-color: transparent;";
                         }
 			else {
@@ -61,7 +61,7 @@ if($_GET['tertiary_folder'] != 'one' &&
 	echo "
 		}";
 	
-    if(check_tertiary_folder('one') == 0){	
+    if(check_tertiary_folder('zero') == 0){	
 		echo ".slideshow_menu_left:hover{background-color: red;}"; //
 	}
 
@@ -73,7 +73,7 @@ if($_GET['tertiary_folder'] != 'one' &&
 			else {
 					echo "background-color: #93e092;";
 			}
-	        if(check_tertiary_folder('one') == true){
+	        if(check_tertiary_folder('zero') == true){
                 echo $shadow_definition;
             }
     echo "}";
@@ -91,12 +91,12 @@ echo "
 echo "<div id='slideshow_menu' class='slideshow_menu_container' style='display:block;'>";
 
     echo "<a class ='slideshow_menu_inner slideshow_menu_left' ";
-        if(check_tertiary_folder('one') == 0){
+        if(check_tertiary_folder('zero') == 0){
         echo "href='/slideshows/components/menu/move.php?direction=backwards&show=".$_GET['secondary_folder']."&from=".$_GET['tertiary_folder']."'";
 		}
 
 		echo ">";
-        if(check_tertiary_folder('one') == 0){
+        if(check_tertiary_folder('zero') == 0){
         echo "BACK";
 		}
     echo "</a>";

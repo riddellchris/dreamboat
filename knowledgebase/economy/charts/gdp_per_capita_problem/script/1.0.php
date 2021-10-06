@@ -1,8 +1,8 @@
 <script type='text/javascript'>
         google.charts.load('current',   {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart_gdp_per_capita_percentage_change_script);
+      google.charts.setOnLoadCallback(drawChart_gdp_per_capita_problem_percentage_change_script);
 
-      function drawChart_gdp_per_capita_percentage_change_script() {
+      function drawChart_gdp_per_capita_problem_percentage_change_script() {
 
         var data = new google.visualization.DataTable();
         data.addColumn('date',   'Quarter');
@@ -162,22 +162,12 @@
                   fontSize: 20 // 12, 18 whatever you want (don't specify px)
               },
         backgroundColor: { fill:'transparent' },
-
+          subtitle: 'GDP per Capita Annual % Change (Source: ABS)',
                     titleFontSize: 15,
 		'chartArea': {'width': '89%', 'height': '90%'},
           legend: 'none', 
 
-          trendlines: { 0: {   color: 'red',
 
-<?php
-if(!isset($_SESSION)){session_start();}
-if($_GET['primary_folder'] == 'slideshows'){echo "lineWidth:13,";}
-else{ echo "lineWidth:10,";}
-?>
-
-                 
-                 		opacity: 1
-                 } },    // Draw a trendline for data series 0.,
           hAxis: {
             format: 'yy', 
             gridlines: {color: 'none'}, 
@@ -259,18 +249,18 @@ else{ echo "lineWidth:10,";}
           },
 
                     series: {          
-                       1: { color: '#b5b5b5', lineWidth: 3, lineDashStyle: [10, 2] }     ,                
-                      2: { color: '#b5b5b5', lineWidth: 3, lineDashStyle: [10, 2] }
+                       1: { color: '#ff5e00', lineWidth: 25 , lineDashStyle: [60, 20]}     ,                
+                      2: { color: '#ff5e00', lineWidth: 25 , lineDashStyle: [60, 20]}
                     
                     }
         };
         
-        var chart = new google.visualization.LineChart(document.getElementById('economic_background_gdp_per_capita_percentage_change'));
+        var chart = new google.visualization.LineChart(document.getElementById('economic_background_gdp_per_capita_problem_percentage_change'));
         chart.draw(data,  options);
 
-        var chart = new google.visualization.LineChart(document.getElementById('economic_background_gdp_per_capita_percentage_change_print'));
+        var chart = new google.visualization.LineChart(document.getElementById('economic_background_gdp_per_capita_problem_percentage_change_print'));
         chart.draw(data,  options);
       }
       
-     $(window).resize(function(){drawChart_gdp_per_capita_percentage_change_script();});	
+     $(window).resize(function(){drawChart_gdp_per_capita_problem_percentage_change_script();});	
       </script>

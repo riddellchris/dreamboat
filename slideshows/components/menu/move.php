@@ -3,6 +3,7 @@ if(!isset($_SESSION)){session_start();}
 
 if($_GET['show'] == 'central_thesis'){
     if($_GET['direction'] == 'forwards'){
+        if($_GET['from'] == 'zero'){    $next = 'one';}       
         if($_GET['from'] == 'one'){     $next = 'two';}
         if($_GET['from'] == 'two'){     $next = 'three';}
         if($_GET['from'] == 'three'){   $next = 'four';}
@@ -15,6 +16,7 @@ if($_GET['show'] == 'central_thesis'){
     }
 
     if($_GET['direction'] == 'backwards'){
+        if($_GET['from'] == 'one'){     $next = 'zero';}        
         if($_GET['from'] == 'two'){     $next = 'one';}
         if($_GET['from'] == 'three'){   $next = 'two';}
         if($_GET['from'] == 'four'){    $next = 'three';}
