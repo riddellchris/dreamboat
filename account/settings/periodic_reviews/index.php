@@ -33,7 +33,7 @@ echo "
 echo "			</div>";
 		
 		
-/*
+/*CODE OUT
 echo "			<div  style='display:table-row;'>
 				<div  style='display:table-cell;text-align:left;'>End of day Work Diaries	
 				</div>		
@@ -51,7 +51,7 @@ echo "			<div  style='display:table-row;'>
 		//			<a class='launch' href='launch_now.php?review=".$timename."'>launch now</a>
 		//		</div>";			
 		echo "	</div>";*/
-/*
+/*CODE OUT
 echo "			<div  style='display:table-row;'>
 				<div  style='display:table-cell;text-align:left;'>Weekly Time reviews	
 				</div>		
@@ -93,7 +93,7 @@ echo "				<div  style='display:table-row;'>
 	
 			
 			
-/*	
+/*CODE OUT
 			<div  style='display:table-row;'>
 				<div  style='display:table-cell;text-align:left;'>Semi-annual Workplace Mental Health Risk Assessments<br>
 										  March & September	
@@ -132,7 +132,8 @@ echo "				<div  style='display:table-row;'>
 		//not required for now but should be there in time	
 		//sends email to user to start the review process	
 		//send email button if a pilot and not looking at yourself
-/*		if(	$_SESSION['dreamboat_crew'] == 'yes' && 
+/*CODE OUT
+		if(	$_SESSION['dreamboat_crew'] == 'yes' && 
 			$_SESSION['viewing_client_id'] != $_SESSION['user_id']){
 		echo "		<div  style='display:table-cell;'>
 					<a class='launch email' href='launch_now_via_email.php?review=".$timename."'>email review link</a>

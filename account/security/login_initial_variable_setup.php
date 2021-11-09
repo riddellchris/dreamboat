@@ -45,7 +45,7 @@ if ($row['client_or_crew'] == 'client') {
 //this is true for all users for obvious reasons                                
 $_SESSION['display_map_fullscreen'] = 'no';
 
-/*
+/*CODE OUT
 if($_SESSION['user_id'] == 1){	$_SESSION['display_map_diagnostics'] = 'on';	}
 else{							$_SESSION['display_map_diagnostics'] = 'off';	}
 */

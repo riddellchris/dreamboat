@@ -20,7 +20,7 @@ echo "<br>";
 
 echo "<a class='green-button wide-button' href='/wheelhouse/display_list.php?view=deleted'>view deleted</a>";
 echo "<br>";
-/*
+/*CODE OUT
 echo "<a class='red-button wide-button' href='/progress_plus/'>review</a>";
 echo "<br>";
 */
