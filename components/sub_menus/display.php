@@ -92,6 +92,34 @@ if($number_of_top_sub_menu_options > 0){
 //	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'nodes'){	$for_pilots_only = 'yes';}
 
 
+//worksheets
+//N.B. in time these worksheets really must be turned on and or suggested as a result of API inputs and therefore our background testing
+//what I mean by that is that these should really be built up from some assessment of % of cross selling completed.
+//this - this means that, once grouped into client tiers, where we assume 100% of cross selling is possible for a given product set that we can actually get to 100%
+//so amongst other tests that this becomes critical.
+//in short if the cross selling test means that 40% of the potential cross selling is not completed we get a score of 40%
+//while this isn't quite perfect, and we will learn to do this better and better each and every time then that's all we need.
+
+//so coming back to this, the thing that we really need to test here is actually are there any worksheets active for this user
+//if not for pilots only will be yes
+//if there are some activated, then for that user there will be a secondary gap
+//that's just how it works
+//so to test that we will need to query the worksheets tab and go from there.
+
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+$sql  = "	SELECT * FROM user_worksheets 
+			WHERE 	user_id 		= '".$_SESSION['viewing_client_id']."' 
+			AND 	primary_folder 	= '".$_GET['primary_folder']."'
+			AND 	status 			= 'active'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) == 0){
+	if($_GET['primary_folder'] == 'sales' 		&& $display_option[$i] == 'worksheets'){		$for_pilots_only = 'yes';}
+
+}
+			//no secondary_folder here as really it isn't needed given that primary_folder is the one that holds the worksheets
+			// e.g. /sales/worksheets/
+
 
 
 if($top_sub_menu_options[$i] != 'display_no_menu'){	
