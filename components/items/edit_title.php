@@ -96,7 +96,9 @@ if($_SESSION['editing_title_of_primary_folder'] == 'admin'){
 
 
 
-/*	OLD STUFF I JUST HAVEN'T THROWN OUT YET
+/*CODE OUT
+
+OLD STUFF I JUST HAVEN'T THROWN OUT YET
 	if($_SESSION['editing_title_of_secondary_folder'] == 'sales'){		$_SESSION['editing_type_of_item_for_display'] = 'sales task';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'marketing'){	$_SESSION['editing_type_of_item_for_display'] = 'bd or marketing activity';}
 */

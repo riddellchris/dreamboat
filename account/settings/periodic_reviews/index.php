@@ -146,7 +146,7 @@ echo "				<div  style='display:table-row;'>
 //echo "			</div>";
 
 
-
+/*COMMENTARY
 //probably all of these are relevant
 //these can be added as user usage improves and we want better data from them to help make better decisions too
 //contact detail reviews.... go over what contact details are missing
@@ -154,8 +154,10 @@ echo "				<div  style='display:table-row;'>
 //lead source reviews
 //referrer reviews
 //staff clients etc - set period for review as required.... not today 20.5.20
-/*
+*/
 
+
+/*CODE OUT
 echo "
 			<div  style='display:table-row;'>
 				<div  style='display:table-cell;text-align:left;'>Active ".substr($_SESSION['viewing_client_what_clients_are_called'], 0, -1)." reviews		
@@ -173,9 +175,6 @@ echo "
 					<a class='launch' href='launch_now.php?review=".$timename."'>launch now</a>
 				</div>		";
 echo "			</div>		";
-
-
-
 
 echo "			
 			<div  style='display:table-row;'>
@@ -203,7 +202,7 @@ echo "
 
 
 			
-			
+/*COMMENTARY		
 //can be built down the track I suspect/ am pretty sure they are going to require more complex data and systems and questioning that utilisation of what already really exists
 
 //these reviews aren't required to begin with at all so just hide them for now
@@ -211,7 +210,10 @@ echo "
 //target market should look at who is ideal to target.
 //pricing should be about where there is more margin vs what is the customer lifetime value and maximising that
 //business results should be delayed a little and work with the clients/delay in calculating these things. typically 6 weeks or so... therefore update tracking data
-/*
+*/
+
+
+/*CODE OUT
 echo "								
 			<div  style='display:table-row;'>
 				<div  style='display:table-cell;text-align:left;'>Pricing reviews		
@@ -245,7 +247,7 @@ echo "
 				</div>	
 			</div>";
 */			
-/*	
+/*	CODE OUT
 	echo "		
 			<div  style='display:table-row;'>
 				<div  style='display:table-cell;text-align:left;'>Business results reviews		
@@ -282,19 +284,11 @@ echo "
 			</div>";
 
 
-/*
-	
-
-
-
-
-
-	
-	
+/*COMMENTARY	
 	///pretty much done in the end of the week review
 	//could potentially be segmented... not sure
-	
-		
+*/	
+/*CODE OUT		
 			<div  style='display:table-row;'>
 				<div  style='display:table-cell;text-align:left;'>Network reviews	
 				</div>		
@@ -345,7 +339,7 @@ echo "			</div>
 echo "			</div>";
 
 
-/*
+/* CODE OUT
 echo "
 			<div  style='display:table-row;'>
 				<div  style='display:table-cell;text-align:left;'>Upsell, resell reviews	
@@ -381,7 +375,7 @@ echo "
 	";
 
 
-/*
+/*CODE OUT COMMENTARY
 echo "
 	When would you like reminders sent to you? start/end of day +- x hours
 	Weekly - Friday/Wednesday etc<br>
