@@ -133,6 +133,12 @@ if(check_primary_folder('map')){
 
 if(check_primary_folder('notes')){
 	$top_sub_menu_options = add_top_sub_menu_option('pilot_notes'				,$top_sub_menu_options);
+	if(check_secondary_folder('pilot_notes')){
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('for_the_phone'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('for_sales_and_meetings'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('for_printing'	,$top_sub_sub_menu_options);
+
+	}	
 	$top_sub_menu_options = add_top_sub_menu_option('all_discussion_history'	,$top_sub_menu_options);
 }
 
