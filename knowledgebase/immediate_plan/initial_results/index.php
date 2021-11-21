@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/layout/pre_content.php";
 
-paragraph_detailed('yes',10,8,8,"While there are some issues with productivity measurements:");
+paragraph_detailed('yes',10,8,8,"While there are some issues with productivity measurements (mostly around the direct & perfect comparison of apples with apples):");
 	list_start();
 		point_detailed_start('no',8,8,8,"Individual productivity seems to be improving when measured by pre/post Dreamboat implementations by 5% within 6 months, based on very simple awareness improvement, waste reduction and value improvement calculations.<br>
 		<span style='color:grey;'>That said it isn't uncommon to see up to a 10% improvement within the first 6 months due to rapid cleanup/improvement processes.</span>");point_end_only();

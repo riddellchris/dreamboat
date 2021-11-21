@@ -4,7 +4,17 @@ if(!isset($_SESSION)){session_start();}
 $shadow_definition = "box-shadow: 4px 0px 8px 4px rgb(0 0 0 / 13%);";
 
 echo "
-<style>
+<style name='slideshow_menu_styling'>
+
+#slideshow_menu{display:block;}
+@media print {
+    #slideshow_menu{display:none;}
+    .gdp_per_capita_problem_div{width: 1000px;}
+    #economic_background_gdp_per_capita_problem_percentage_change{width:1000px;}
+}
+
+
+
     .slideshow_menu_container{  width:100%; 
 					            bottom: 50;
 					            position: fixed;
@@ -88,7 +98,7 @@ echo "
 ";
 
 
-echo "<div id='slideshow_menu' class='slideshow_menu_container' style='display:block;'>";
+echo "<div id='slideshow_menu' class='slideshow_menu_container' >";
 
     echo "<a class ='slideshow_menu_inner slideshow_menu_left' ";
         if(check_tertiary_folder('zero') == 0){
