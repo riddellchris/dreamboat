@@ -15,7 +15,7 @@ list_start();
 //     point_detailed_start('no', 10,8,8,"... we can use all our collective intelligence and data to drive a new, stable & prosperous future for Australia.");
 //     point_detailed_start('no', 10,6,6,"N.B. We collect data iteratively and on an as needed basis, with your permission, every time.");     
 
-    point_detailed_start('yes', 10,8,8,"By collecting this information & returning proven <a href='/knowledgebase/our_model/optimisations/' target='_blank'>optimisations</a> to the market...");
+    point_detailed_start('yes', 10,8,8,"By collecting this information & returning scientifically proven <a href='/knowledgebase/our_model/optimisations/' target='_blank'>optimisations</a> to the market...");
     point_detailed_start('no', 10,8,8,"... we can use all our collective intelligence and data to drive a new, stable & prosperous future for Australia.");
      point_detailed_start('no', 10,6,6,"N.B. We collect data iteratively and on an as needed basis, with your permission, every time.");  
 list_end();

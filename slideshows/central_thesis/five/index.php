@@ -186,7 +186,7 @@ echo "</div>";
 echo "<div class='slideshow_descriptive_text'>";
 list_start();
     point_detailed_start('yes', 10,8,8,"As we step through our <a href='' target='_blank'>phases of engagement</a> we collect increasing layers, volumes & sources of data.");
-    point_detailed_start('no', 10,8,8,"This allows us to provide ever increasing surity around our <a target='_blank' href='https://www.investopedia.com/terms/b/backtesting.asp'>backtested</a> <a target='_blank' href='/knowledgebase/our_model/optimisations/'>optimisations</a>.");
+    point_detailed_start('no', 10,8,8,"This allows us to provide ever increasing surety around our <a target='_blank' href='https://www.investopedia.com/terms/b/backtesting.asp'>backtested</a> <a target='_blank' href='/knowledgebase/our_model/optimisations/'>optimisations</a>.");
 //   point_detailed_start('no', 10,8,8,"... we can use all our collective intelligence and data to drive a new, stable & prosperous future for Australia.");
 list_end();
 echo "</div>";

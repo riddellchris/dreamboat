@@ -21,9 +21,8 @@ echo "</div>";
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/charts/gdp_per_capita/div.php";
 echo "<div class='slideshow_descriptive_text' >";
 list_start();
-    point_detailed_start('no', 10, 10, 10, "Australia's <a href='https://www.investopedia.com/terms/p/per-capita-gdp.asp' target='_blank'>GDP per capita</a> is collapsing and with it the chances of a stable economic future.");
-    point_detailed_start('no', 10, 10, 10, "This is backed up by the recent <a href='https://treasury.gov.au/sites/default/files/2021-06/p2021-182464.pdf' target='_blank'>intergenerational report</a> and other <a href='/knowledgebase/economy/fundamentals' target='_blank'>economic fundamentals</a>.");
-    point_detailed_start('no', 10, 10, 10, "Something new has to be done about it, because everyone else is already doing their best.");
+    point_detailed_start('no', 10, 10, 10, "If the peaks and troughs continue to decline year on year<br> then the point of no positive improvement will occur all too soon leading to great uncertainty.");
+    point_detailed_start('no', 10, 10, 10, "This problem and uncertainty are backed up by the federal government's<br> recent  <a href='https://treasury.gov.au/sites/default/files/2021-06/p2021-182464.pdf' target='_blank'>intergenerational report</a> and other <a href='/knowledgebase/economy/fundamentals' target='_blank'>economic fundamentals</a>.");
 list_end();
 echo "</div>";
 
