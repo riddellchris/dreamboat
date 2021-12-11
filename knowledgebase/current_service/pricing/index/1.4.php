@@ -14,6 +14,16 @@ paragraph_detailed('no', 8,8,8,"As per the input points and the feedback access 
 	list_start();
 		point_detailed_start('yes',8,8,8,"$0 to contribute your SaaS application data via APIs.");
 
+
+		point_detailed_start('yes',8,8,8,"&nbsp;&nbsp;$50 per user per month for insights and optimisations based on your business data.");
+            list_start();
+ 		        point_detailed_start('no',8,8,4,"Requires <a href='/knowledgebase/current_service/phases_of_engagement/'>Secondary API data implementations</a> to be underway prior to access.");           
+            list_end();
+
+
+
+
+
 		point_detailed_start('no',8,8,8,"&nbsp;&nbsp;$50 per user per month for optimisations via APIs to your applications.");
             list_start();
  		        point_detailed_start('no',8,8,4,"Requires <a href='/knowledgebase/current_service/phases_of_engagement/'>Secondary API data implementations</a> to be underway prior to access.");           
@@ -27,8 +37,11 @@ paragraph_detailed('no', 8,8,8,"As per the input points and the feedback access 
             list_start();
  		        point_detailed_start('no',8,8,4,"Typically not enabled until <a href='/knowledgebase/current_service/phases_of_engagement/'>connected mapping</a> underway.");           
             list_end();
-		point_detailed_start('no',8,8,8,"$70 per user per month + GST for monthly 30 minute phone consultations**.");		
-		point_detailed_start('yes',8,8,8,"$130 per user per month + GST for fortnightly 30 minute phone consultations**.");	point_end_only();	
+		point_detailed_start('no',8,8,8,"$70 per user per month + GST for monthly 30 minute phone consultations**.");	
+		
+		
+		//this is the first thing to add from a perspective of consulting
+		point_detailed_start('no',8,8,8,"$130 per user per month + GST for fortnightly 30 minute phone consultations**.");	point_end_only();	
 		    list_start();
  		        point_detailed_start('no',8,8,4,"Most common starting point for all users.");           
             list_end();
