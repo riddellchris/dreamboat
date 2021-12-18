@@ -2,6 +2,11 @@
 if(!isset($_SESSION)){session_start();}
 
 
+$debug = 'off';
+
+
+
+
 
 //explode the state and then check it's one we have sent previously
 //#SECURITY #RISK 
@@ -33,10 +38,7 @@ if(mysqli_num_rows($result) === 1){
 
     require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/apis/xero/application_details/client_id.php";
     require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/apis/xero/application_details/secret.php";
-
-    //this has to be the same as the original one from the first query frankly
-    if($_SERVER['SERVER_PORT'] != 8888){    $redirect_uri   = "https://dreamboat.com.au/maps/apis/log_success.php"; }
-    else{                                   $redirect_uri   = "http://localhost:8888/map/apis/log_success.php";     }
+    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/redirect_uri.php";
 
     $headers = array(   'Content-Type: application/x-www-form-urlencoded',
                         'Authorization: Basic '.base64_encode($client_id.":".$client_secret)        );
@@ -60,8 +62,10 @@ if(mysqli_num_rows($result) === 1){
     $return_token = json_decode($server_output, true);
 
     echo "RETURN TOKEN";
-    echo '<pre>' , var_dump($return_token) , '</pre>';
 
+    if($debug == 'on'){
+        echo '<pre>' , var_dump($return_token) , '</pre>';
+    }
     //first let's escape anything critical here
 
     require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
@@ -89,24 +93,25 @@ if(mysqli_num_rows($result) === 1){
     //THIS REALLY SHOULD BE STORED SOMEWHERE!!! //// SO THAT WE CAN KEEP THE REFRESH TOKEN // WITHOUT THIS WE HAVE TO KEEP ASKING FOR MORE HELP
     //THIS IS FAR FAR FAR FROM IDEAL!
 
-    echo "<br><br><br>";
 
-    echo $return_token['id_token'];
-
+    if($debug == 'on'){    
+        echo "<br><br><br>";
+        echo $return_token['id_token'];
+    }
    // $access_pieces = explode(".", $return_token['access_token']);
    // $header     = $access_pieces[0];
    // $payload    = $access_pieces[1];
    // $signature  = $access_pieces[2];
     list($header, $payload, $signature) = explode (".", $return_token['access_token']);
 
-
-    echo "<br><br><br>";
-    echo $header."<br><br>";
-    echo $payload."<br><br>";       
-    echo $signature."<br><br>";
-    echo "<br><br><br><br>";
-   // print_r(json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $return_token['access_token']))))));
-
+    if($debug == 'on'){    
+        echo "<br><br><br>";
+        echo $header."<br><br>";
+        echo $payload."<br><br>";       
+        echo $signature."<br><br>";
+        echo "<br><br><br><br>";
+    // print_r(json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $return_token['access_token']))))));
+    }
     //header decoded from every xero request 
     /*
     {
@@ -117,8 +122,11 @@ if(mysqli_num_rows($result) === 1){
       }
     */
     $access_token = json_decode(base64_decode($payload), true);
-    echo "ACCESS TOKEN";
-    echo '<pre>' , var_dump($access_token) , '</pre>';
+
+    if($debug == 'on'){    
+        echo "ACCESS TOKEN";
+        echo '<pre>' , var_dump($access_token) , '</pre>';
+    }
     $sql = "INSERT INTO api_xero_access_token (  user_id,
                                                 nbf,
                                                 exp,
@@ -146,8 +154,21 @@ if(mysqli_num_rows($result) === 1){
                                                 '".mysqli_real_escape_string($conn, $access_token['jti'])."',
                                                 '".mysqli_real_escape_string($conn, $access_token['authentication_event_id'])."'
                                                     )";
-    mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
+    if($result)
+    {
+        $sql = "    UPDATE saas_application_connections 
+                    SET connected_successfully = 'yes'
+                    WHERE user_id = '".$_SESSION['viewing_client_id']."'
+                    AND platform_name = 'xero'                    
+                    ";
+        mysqli_query($conn, $sql);
+        if($debug == 'on'){
+            echo $sql;
+                exit();
+        }
 
+    }
 
 
  //   echo $sql; exit();
@@ -180,7 +201,7 @@ if(mysqli_num_rows($result) === 1){
 
 
 
-
+    header("Location: /map/apis/");
 
 }
 else{
