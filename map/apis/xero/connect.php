@@ -61,9 +61,10 @@ if(mysqli_num_rows($result) === 1){
 
     $return_token = json_decode($server_output, true);
 
-    echo "RETURN TOKEN";
 
+    $debug = 'off';
     if($debug == 'on'){
+        echo "RETURN TOKEN";
         echo '<pre>' , var_dump($return_token) , '</pre>';
     }
     //first let's escape anything critical here
@@ -92,6 +93,10 @@ if(mysqli_num_rows($result) === 1){
 
     //THIS REALLY SHOULD BE STORED SOMEWHERE!!! //// SO THAT WE CAN KEEP THE REFRESH TOKEN // WITHOUT THIS WE HAVE TO KEEP ASKING FOR MORE HELP
     //THIS IS FAR FAR FAR FROM IDEAL!
+
+    $sql = "INSERT INTO api_xero_return_keys (  user_id, 
+
+
 
 
     if($debug == 'on'){    
@@ -194,10 +199,10 @@ if(mysqli_num_rows($result) === 1){
 
 
 
+    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/check_tenants.php";
+//    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/get_all_invoices.php";
 
-
-
-
+//exit();
 
 
 
