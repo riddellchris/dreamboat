@@ -21,6 +21,16 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
     require $_SERVER['DOCUMENT_ROOT']."/components/discussion/display.php";
 }
 */
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+
+
+$sql = "UPDATE  api_xero_oauth_keys 
+        SET     used = 'yes' 
+        WHERE   user_id = '".$_SESSION['user_id']."' 
+        AND     timestamp >= NOW() - INTERVAL 1 DAY  ";
+//user_id is chosen NOT viewing_client_id such that it doesn't alter when/if a pilot is viewing
+//because a pilot WILL NOT be able to validate via Xero etc etc
+
 ?>
 
 
@@ -38,22 +48,22 @@ th{text-align:left;}
                         Platform name                  
                     </th>
                     <th>
-                        Main web address
-</th>
+                        Main web address    
+                    </th>
                     <th>
                         <!-- save -->
-</th>
+                    </th>
                     <th>
                          <!-- delete -->                       
-</th>
+                    </th>
                     <th>
                         Connect
-</th>
+                    </th>
                 </tr>
 
 
 <?php
-    $sql = "SELECT * FROM saas_application_connections 
+    $sql = "SELECT * FROM api_connections 
     WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
     AND deleted <> 'yes'
     ";
@@ -66,16 +76,37 @@ th{text-align:left;}
 
 
                 <tr>
-                    <td>".$row['platform_name']."</td>
+                    <td>".ucfirst($row['platform_name'])."</td>
                     <td><a target='_blank' href='";http://".
                                                   if(substr($row['platform_web_address'], 0, 4) != 'http') {echo "http://";} 
                                                     echo $row['platform_web_address']."'>".$row['platform_web_address']."</td>";
 
                     if($row['active'] != 'yes'){echo "<td style='color:green;'> tick</td>";}else{echo "<td></td>";}
                     if($row['active'] == 'yes'){echo "<td ><a style='color:red;' href='/map/apis/delete.php?saas_connection=".$row['entry_id']."'>DELETE</a></td>";}else{echo "<td></td>";}
-echo "
-                    <td class='blink_me slower'>Available at completion of <a href='/knowledgebase/current_service/phases_of_engagement/' style='color:red;' >secondary mapping</a> </td>
-                </tr>";
+                    
+
+
+                     //                                  echo "<td>".stripos($row['platform_name'], 'xero')."</td>";
+
+                    if(stripos($row['platform_name'], 'xero') === 0){
+                            echo "<td>";
+                                if($row['connected_successfully'] == 'no'){
+                                    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/connection_button.php";
+                                }
+                                else{
+                                    echo "<span style='color: forestgreen;'>Currently connected</span>"; 
+                                        //this of course could have bucket loads more detail added to it
+                                        //disconnect not just delete etc etc etc but for now honeslty i'm not worrying about that at alll
+
+                                }
+                            echo "</td>";
+                     }
+                    else{
+                        echo "  <td class='blink_me slower'>
+                                    Available at completion of <a href='/knowledgebase/current_service/phases_of_engagement/' style='color:red;' >secondary mapping</a> 
+                                </td>";
+                    } 
+        echo "</tr>";
     }
 
 ?>

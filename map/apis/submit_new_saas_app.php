@@ -1,24 +1,23 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+
+$platform = strtolower($_POST['platform_name']);
 
 
 
-
-
-
-$sql = "INSERT INTO saas_application_connections (user_id,
+$sql = "INSERT INTO api_connections(   user_id,
                                                     platform_name,
                                                     platform_web_address
                                                     )
-                                                    VALUES(
-                                                        '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
-                                                        '".$_POST['platform_name']."',
-                                                        '".$_POST['platform_web_address']."'
-                                                        )
-    ";
+                                        VALUES  (
+                                                    '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
+                                                    '".mysqli_real_escape_string($conn, $platform)."',
+                                                    '".$_POST['platform_web_address']."'
+                                                    )";
+//echo $sql; exit();
 
-require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
 mysqli_query($conn, $sql);
 

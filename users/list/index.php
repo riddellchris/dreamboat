@@ -51,7 +51,7 @@ if($incoming_clients == 'yes'){
 }
 
 if($incoming_clients == 'yes'){$client_gained_sql = " AND client_gained = 'no'";}
-if($_GET['tertiary_folder'] == 'regular_users'){$client_gained_sql = " AND (client_gained = 'yes' OR contract_sent <> '0000-00-00') ";}
+if($_GET['secondary_folder'] == 'regular_users'){$client_gained_sql = " AND (client_gained = 'yes' OR contract_sent <> '0000-00-00') ";}
 $sql = "SELECT * FROM user_account_details WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND client_status = 'active' AND dead = 'no' ".$client_gained_sql." ORDER BY first_name, second_name";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
@@ -95,7 +95,7 @@ if($incoming_clients == 'yes'){
 	echo "<br><br>";
 
 }
-echo "<a class='login-submit' href='/users/alterations/add_new.php?page=".$_GET['tertiary_folder']."' style = 'margin-bottom:50px;'>Add new</a><br><br><br>";
+echo "<a class='login-submit' href='/users/alterations/add_new.php?page=".$_GET['secondary_folder']."' style = 'margin-bottom:50px;'>Add new</a><br><br><br>";
 
 
 

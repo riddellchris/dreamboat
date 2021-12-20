@@ -13,11 +13,11 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/st
 
 
 
-<input class='secure_input' name='first_name' placeholder = 'first name'></input><br>
-<input class='secure_input'  name='second_name' placeholder = 'second name'></input><br>
-<input class='secure_input'  name='phone_number' placeholder = 'phone number'></input><br>
-<input class='secure_input'  name='email' placeholder = 'email'></input><br>
-<input class='secure_input'  name='business_name' placeholder = 'business name'></input><br>
+<input class='secure_input'     name='first_name'       placeholder = 'first name'></input><br>
+<input class='secure_input'     name='second_name'      placeholder = 'second name'></input><br>
+<input class='secure_input'     name='phone_number'     placeholder = 'phone number'></input><br>
+<input class='secure_input'     name='email'            placeholder = 'email'></input><br>
+<input class='secure_input'     name='business_name'    placeholder = 'business name'></input><br>
 
 
 <?php
@@ -41,7 +41,7 @@ Lowercase hello<br>
 They can use this immediately and ideally reset it
 </span>
 
-<?
+<?php
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/end_of_page_bottom_of_centering_divs.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";
 ?>
