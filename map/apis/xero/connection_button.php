@@ -5,7 +5,7 @@ echo "
 <a ";
     $response_type  = "code";
         //see the information on these scopes right here
-        $scope_string  = "offline_access ";
+        $scope  = "offline_access ";
         //request offline access to be able to refesh without further user login information
         //https://developer.xero.com/documentation/guides/oauth2/auth-flow#2-users-are-redirected-back-to-you-with-a-code
 
@@ -14,18 +14,19 @@ echo "
         //https://developer.xero.com/documentation/guides/oauth2/scopes#workflowmax-scopes
 
         // $scope_string .= "accounting.budgets.read "; // this is on the system but it's probably just not part of my scope
-        $scope          = "openid profile email ".$scope_string; //just based off something really simple// this will need to expand ove time
+        $scope          = "openid profile email ".$scope; //just based off something really simple// this will need to expand ove time
         $client_id      = "01F3F4E33B49429EBEAC5BE52CE4C8A6";        
 
-        $scope_string .= "accounting.transactions.read "; //this ultimately includes products
-        $scope_string .= "accounting.reports.read ";
-        $scope_string .= "accounting.settings.read ";
-        $scope_string .= "accounting.contacts.read ";
-        $scope_string .= "assets.contacts.read ";     
+        
+        $scope .= "accounting.transactions.read "; //this ultimately includes products
+        $scope .= "accounting.reports.read ";
+        $scope .= "accounting.settings.read ";
+        $scope .= "accounting.contacts.read ";
+        $scope .= "assets.read ";     
         //projects would be great to add but they require additional certificaiton
-        $scope_string .= "finance.accountingactivity.read ";            
-        $scope_string .= "finance.cashvalidation.read ";             
-        $scope_string .= "finance.statements.read";     
+       // $scope .= "finance.accountingactivity.read ";            
+       // $scope .= "finance.cashvalidation.read ";             
+        //$scope .= "finance.statements.read";     
 
         // workflow max is a separate system honestly so that should be separated out honestly
 
@@ -44,7 +45,7 @@ echo "
             //Then we can simply insert this information as we are on the way to connecting rather than creating an insert EVERY time we load this page /map/apis/ which is clearly ridiculous
             //not sure this is for me today though
             //#IS_URGENT #SECURITY #UPGRADES
-            $sql = "INSERT INTO saas_application_xero_keys (user_id, string, application_entry_id)
+            $sql = "INSERT INTO api_xero_oauth_keys (user_id, string, application_entry_id)
                     VALUES ('".$_SESSION['user_id']."','".$unique_code."', '".$row['entry_id']."')";    
             mysqli_query($conn, $sql);
 

@@ -7,7 +7,7 @@ $platform = strtolower($_POST['platform_name']);
 
 
 
-$sql = "INSERT INTO saas_application_connections(   user_id,
+$sql = "INSERT INTO api_connections(   user_id,
                                                     platform_name,
                                                     platform_web_address
                                                     )

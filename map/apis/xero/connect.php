@@ -2,11 +2,9 @@
 if(!isset($_SESSION)){session_start();}
 
 
+//echo 'hi';
+//exit();
 $debug = 'off';
-
-
-
-
 
 //explode the state and then check it's one we have sent previously
 //#SECURITY #RISK 
@@ -16,15 +14,18 @@ $state_schrapnel = explode("_", $_GET['state']);
 //echo '<pre>' , var_dump($state_schrapnel) , '</pre>';
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM saas_application_xero_keys 
+$sql = "SELECT * FROM api_xero_oauth_keys 
         WHERE   user_id                 = '".mysqli_real_escape_string($conn, $state_schrapnel['1'])."'
         AND     application_entry_id    = '".mysqli_real_escape_string($conn, $state_schrapnel['2'])."'
         AND     string                  = '".mysqli_real_escape_string($conn, $state_schrapnel['3'])."'";
+//echo $sql;
+//exit();
+
 $result = mysqli_query($conn, $sql);
 
 //$_GET['state'] //check this against the database
 if(mysqli_num_rows($result) === 1){
-    $sql = "UPDATE saas_application_xero_keys 
+    $sql = "UPDATE api_xero_oauth_keys 
             SET used = 'yes'
             WHERE   user_id                 = '".mysqli_real_escape_string($conn, $state_schrapnel['1'])."'
             AND     application_entry_id    = '".mysqli_real_escape_string($conn, $state_schrapnel['2'])."'
@@ -58,46 +59,16 @@ if(mysqli_num_rows($result) === 1){
     $info = curl_getinfo($ch);
     curl_close ($ch);
 
-
     $return_token = json_decode($server_output, true);
-
 
     $debug = 'off';
     if($debug == 'on'){
         echo "RETURN TOKEN";
         echo '<pre>' , var_dump($return_token) , '</pre>';
+        exit();
     }
-    //first let's escape anything critical here
 
-    require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-    $sql = "INSERT INTO api_xero_return_keys (  user_id,
-                                                id_token,
-                                                access_token,
-                                                expires_in,
-                                                token_type,
-                                                refresh_token,
-                                                scope
-                                                )
-                                            VALUES (
-                                                '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
-                                                '".mysqli_real_escape_string($conn, $return_token['id_token'])."',
-                                                '".mysqli_real_escape_string($conn, $return_token['access_token'])."', 
-                                                '".mysqli_real_escape_string($conn, $return_token['expires_in'])."',                                                                   
-                                                '".mysqli_real_escape_string($conn, $return_token['token_type'])."',
-                                                '".mysqli_real_escape_string($conn, $return_token['refresh_token'])."',    
-                                                '".mysqli_real_escape_string($conn, $return_token['scope'])."'                                                   
-                                                    )";
-    
-
-                                                    mysqli_query($conn, $sql);
-
-    //THIS REALLY SHOULD BE STORED SOMEWHERE!!! //// SO THAT WE CAN KEEP THE REFRESH TOKEN // WITHOUT THIS WE HAVE TO KEEP ASKING FOR MORE HELP
-    //THIS IS FAR FAR FAR FROM IDEAL!
-
-    $sql = "INSERT INTO api_xero_return_keys (  user_id, 
-
-
-
+    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/input_return_token.php";
 
     if($debug == 'on'){    
         echo "<br><br><br>";
@@ -162,7 +133,7 @@ if(mysqli_num_rows($result) === 1){
     $result = mysqli_query($conn, $sql);
     if($result)
     {
-        $sql = "    UPDATE saas_application_connections 
+        $sql = "    UPDATE api_connections 
                     SET connected_successfully = 'yes'
                     WHERE user_id = '".$_SESSION['viewing_client_id']."'
                     AND platform_name = 'xero'                    
