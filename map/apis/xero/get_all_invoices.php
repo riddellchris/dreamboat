@@ -66,7 +66,7 @@ $number_of_invoices = count($response['Invoices']);
 //if duplicated invoice ID but the invoice is changed then we want to adjust for that - unquestionably 
 
 for($i = 0; $i < $number_of_invoices; $i ++){
-    $sql = "INSERT INTO "
+    $sql = "INSERT INTO ";
 
 
 
