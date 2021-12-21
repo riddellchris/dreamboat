@@ -3,26 +3,13 @@ if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $sql = "SELECT DISTINCT user_id FROM api_xero_tenant_details";
-$result_for_tenants = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
 
-$i = 0;
-$tenant_user_id_count = 0;
-while($row_for_tenants = mysqli_fetch_array($result_for_tenants, MYSQLI_ASSOC)){
-    //build array of tenants
-
-    $tenant_user_id[$i] = $row_for_tenants['user_id'];
-    $tenant_user_id_count ++;
-
-}
-
-
-//for each in that array
-for($j = 0; $j < $tenant_user_id_count; $j++){
-
+while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
 //echo 'hi';
 
-    $_SESSION['user_id'] = $tenant_user_id[$i];
+    $_SESSION['user_id'] = $row['user_id'];
 
     /*
     GET https://api.xero.com/api.xro/2.0/Invoices
@@ -52,7 +39,7 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
                         'Xero-tenant-id: '.$tenant_id       );
 
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,"https://api.xero.com/api.xro/2.0/Contacts");
+    curl_setopt($ch, CURLOPT_URL,"https://api.xero.com/api.xro/2.0/Invoices");
 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_TIMEOUT, 3);
@@ -101,84 +88,13 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
         //then build up and out from there honestly
 
 
-        $sql = " 
-        SELECT *
-            FROM api_xero_invoice_data
-            WHERE   user_id         = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
-
-            //AND     Id              = '".mysqli_real_escape_string($conn, $response['Id'])."'
-            $sql.= "
-            
-            AND     Status          = '".mysqli_real_escape_string($conn, $response['Status'])."'
-            AND     ProviderName    = '".mysqli_real_escape_string($conn, $response['ProviderName'])."'";
-          //  AND     DateTimeUTC     = '".mysqli_real_escape_string($conn, $response['DateTimeUTC'])."'
-
-        $sql .=    "
-            AND     Type            = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Type'])."'
-            AND     InvoiceID       = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['InvoiceID'])."'";
-       
-        if(isset($response['Invoices'][$i]['InvoiceNumber'])){
-            $sql .= "
-            AND     InvoiceNumber   = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['InvoiceNumber'])."'";
-        }
-        
-        if($response['Invoices'][$i]['Type'] == 'ACCREC'&&
-        isset($response['Invoices'][$i]['Reference'])){
-            $sql .= "
-            AND     Reference       = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Reference'])."' ";             
-        }    
-
-        //Payments      >> in array format
-        //CreditNotes   >> in array format
-        //Prepayments   >> in array format
-        //Overpayments  >> in array format
-    $sql .= "
-            
-            AND     AmountDue       = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['AmountDue'])."'
-            AND     AmountPaid      = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['AmountPaid'])."'
-            AND     AmountCredited  = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['AmountCredited'])."'";
-        if($response['Invoices'][$i]['Type'] == 'ACCREC'){
-            $sql .= " 
-            AND     CurrencyRate    = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['CurrencyRate'])."'";
-        }
-
-$sql .= "        
-            AND    IsDiscounted     = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['IsDiscounted'])."'
-            AND    HasAttachments   = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['HasAttachments'])."'
-            AND    HasErrors        = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['HasErrors'])."'";
-        //Contact      >> in array format
-        $sql .= "
-        AND    InvoiceStatus        = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Status'])."'"; //this is just because Status is used far earlier on (see row 2)
-        $sql .= "
-        AND    LineAmountTypes      = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['LineAmountTypes'])."'";
-        //LineItems       >> in array format
-      //  $sql .= "        AND    SubTotal             = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['SubTotal'])."' ";
-      //  $sql .= "        AND    TotalTax             = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['TotalTax'])."' ";
-
-
-      //  $sql .= "       AND    Total                = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Total'])."'";
-       // AND    UpdatedDateUTC       = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['UpdatedDateUTC'])."'
-
-        $sql .= "
-        AND    CurrencyCode         = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['CurrencyCode'])."'
-        ";
-
-        
-      //  echo $sql;// exit();
-      //  echo "<br>";
-   // mysqli_query($conn, $sql);
-    $result = mysqli_query($conn, $sql);
-      $number_of_results = mysqli_num_rows($result);
-    //echo "<br>";
-    if($number_of_results === 0){
-   
 
 
 
 
 
 
-        $sql = "INSERT  IGNORE INTO api_xero_invoice_data 
+        $sql = "INSERT INTO api_xero_invoice_data 
                 (
                 user_id,    
                 Id,
@@ -274,12 +190,10 @@ $sql .= "
                     )
         ";
 
- 
-       echo $sql."<br><br><br>";
+       // echo $sql."<br>";
 
        mysqli_query($conn, $sql);
-        }
-    }
+
 
 
 
@@ -298,5 +212,5 @@ $sql .= "
 
 
     }
-
+}
 
