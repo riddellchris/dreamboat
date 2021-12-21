@@ -1,19 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT DISTINCT user_id FROM api_xero_tenant_details";
-$result_for_tenants = mysqli_query($conn, $sql);
-
-$i = 0;
-$tenant_user_id_count = 0;
-while($row_for_tenants = mysqli_fetch_array($result_for_tenants, MYSQLI_ASSOC)){
-    //build array of tenants
-
-    $tenant_user_id[$i] = $row_for_tenants['user_id'];
-    $tenant_user_id_count ++;
-
-}
+$_SERVER['DOCUMENT_ROOT']."/map/apis/xero/get_tenant_user_ids_from_db.php";
 
 //for each in that array
 for($j = 0; $j < $tenant_user_id_count; $j++){
