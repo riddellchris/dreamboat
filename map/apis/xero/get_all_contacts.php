@@ -52,7 +52,7 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
                         'Xero-tenant-id: '.$tenant_id       );
 
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,"https://api.xero.com/api.xro/2.0/Invoices");
+    curl_setopt($ch, CURLOPT_URL,"https://api.xero.com/api.xro/2.0/Contacts");
 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_TIMEOUT, 3);
