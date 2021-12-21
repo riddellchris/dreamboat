@@ -25,7 +25,7 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
     $_SESSION['user_id'] = $tenant_user_id[$i];
 
     /*
-    GET https://api.xero.com/api.xro/2.0/Invoices
+    GET https://api.xero.com/api.xro/2.0/contacts
     Authorization: "Bearer " + access_token
     Accept: application/json
     Xero-tenant-id: 45e4708e-d862-4111-ab3a-dd8cd03913e1
@@ -75,18 +75,21 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
 
 
 
-    $debug = 'off';
+    $debug = 'on';
     if($debug == 'on'){
-        echo "NUMBER OF INVOICES<BR>";
-        echo $number_of_invoices = count($response['Invoices']);
+        echo "NUMBER OF CONTACTS<BR>";
+        echo $number_of_contacts = count($response['Contacts']);
         echo "<br>";
 
-        echo "ALL INVOICES AVAILABLE";
+        echo "ALL CONTACTS AVAILABLE";
         echo '<pre>' , var_dump($response) , '</pre>';
-    }
-    $number_of_invoices = count($response['Invoices']);
 
-    //now for all invoices we want to see if they are already stored or not and then store.
+exit();
+
+    }
+    $number_of_contacts = count($response['Contacts']);
+
+    //now for all contacts we want to see if they are already stored or not and then store.
     //if duplicated invoice ID but the invoice is changed then we want to adjust for that - unquestionably 
 
     //this just entails the first four entries in the array which are all the same honestly
@@ -95,7 +98,7 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
     $ProviderName   = $response['ProviderName'];
     $DateTimeUTC    = $response['DateTimeUTC'];
 
-    for($i = 0; $i < $number_of_invoices; $i ++){
+    for($i = 0; $i < $number_of_contacts; $i ++){
 
         //first things first just get out what we can that isn't an array
         //then build up and out from there honestly
@@ -114,18 +117,18 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
           //  AND     DateTimeUTC     = '".mysqli_real_escape_string($conn, $response['DateTimeUTC'])."'
 
         $sql .=    "
-            AND     Type            = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Type'])."'
-            AND     InvoiceID       = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['InvoiceID'])."'";
+            AND     ContactID       = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['ContactID'])."'
+            AND     ContactStatus   = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['ContactStatus'])."'";
        
-        if(isset($response['Invoices'][$i]['InvoiceNumber'])){
+
             $sql .= "
-            AND     InvoiceNumber   = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['InvoiceNumber'])."'";
-        }
+            AND     Name            = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['Name'])."'";
+
         
-        if($response['Invoices'][$i]['Type'] == 'ACCREC'&&
-        isset($response['Invoices'][$i]['Reference'])){
+        if($response['Contacts'][$i]['Type'] == 'ACCREC'&&
+        isset($response['Contacts'][$i]['Reference'])){
             $sql .= "
-            AND     Reference       = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Reference'])."' ";             
+            AND     Reference       = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['Reference'])."' ";             
         }    
 
         //Payments      >> in array format
@@ -134,33 +137,33 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
         //Overpayments  >> in array format
     $sql .= "
             
-            AND     AmountDue       = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['AmountDue'])."'
-            AND     AmountPaid      = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['AmountPaid'])."'
-            AND     AmountCredited  = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['AmountCredited'])."'";
-        if($response['Invoices'][$i]['Type'] == 'ACCREC'){
+            AND     AmountDue       = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['AmountDue'])."'
+            AND     AmountPaid      = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['AmountPaid'])."'
+            AND     AmountCredited  = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['AmountCredited'])."'";
+        if($response['Contacts'][$i]['Type'] == 'ACCREC'){
             $sql .= " 
-            AND     CurrencyRate    = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['CurrencyRate'])."'";
+            AND     CurrencyRate    = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['CurrencyRate'])."'";
         }
 
 $sql .= "        
-            AND    IsDiscounted     = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['IsDiscounted'])."'
-            AND    HasAttachments   = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['HasAttachments'])."'
-            AND    HasErrors        = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['HasErrors'])."'";
+            AND    IsDiscounted     = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['IsDiscounted'])."'
+            AND    HasAttachments   = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['HasAttachments'])."'
+            AND    HasErrors        = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['HasErrors'])."'";
         //Contact      >> in array format
         $sql .= "
-        AND    InvoiceStatus        = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Status'])."'"; //this is just because Status is used far earlier on (see row 2)
+        AND    contactstatus        = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['Status'])."'"; //this is just because Status is used far earlier on (see row 2)
         $sql .= "
-        AND    LineAmountTypes      = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['LineAmountTypes'])."'";
+        AND    LineAmountTypes      = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['LineAmountTypes'])."'";
         //LineItems       >> in array format
-      //  $sql .= "        AND    SubTotal             = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['SubTotal'])."' ";
-      //  $sql .= "        AND    TotalTax             = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['TotalTax'])."' ";
+      //  $sql .= "        AND    SubTotal             = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['SubTotal'])."' ";
+      //  $sql .= "        AND    TotalTax             = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['TotalTax'])."' ";
 
 
-      //  $sql .= "       AND    Total                = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Total'])."'";
-       // AND    UpdatedDateUTC       = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['UpdatedDateUTC'])."'
+      //  $sql .= "       AND    Total                = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['Total'])."'";
+       // AND    UpdatedDateUTC       = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['UpdatedDateUTC'])."'
 
         $sql .= "
-        AND    CurrencyCode         = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['CurrencyCode'])."'
+        AND    CurrencyCode         = '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['CurrencyCode'])."'
         ";
 
         
@@ -188,12 +191,12 @@ $sql .= "
                 Type,
                 InvoiceID,";
                 
-                if(isset($response['Invoices'][$i]['InvoiceNumber'])){
+                if(isset($response['Contacts'][$i]['InvoiceNumber'])){
                     $sql .= "InvoiceNumber, ";
                 }
                 
-                if($response['Invoices'][$i]['Type'] == 'ACCREC'&&
-                isset($response['Invoices'][$i]['Reference'])){
+                if($response['Contacts'][$i]['Type'] == 'ACCREC'&&
+                isset($response['Contacts'][$i]['Reference'])){
                     $sql .= "                Reference,            ";             
                 }    
 
@@ -205,7 +208,7 @@ $sql .= "
                 AmountDue,
                 AmountPaid,
                 AmountCredited,";
-                if($response['Invoices'][$i]['Type'] == 'ACCREC'){
+                if($response['Contacts'][$i]['Type'] == 'ACCREC'){
                     $sql .= " CurrencyRate, ";
                 }
 
@@ -215,7 +218,7 @@ $sql .= "
                 HasErrors,";
                 //Contact      >> in array format
                 $sql .= "
-                InvoiceStatus,"; //this is just because Status is used far earlier on (see row 2)
+                contactstatus,"; //this is just because Status is used far earlier on (see row 2)
                 $sql .= "
                 LineAmountTypes,";
                 //LineItems       >> in array format
@@ -234,43 +237,43 @@ $sql .= "
                     '".mysqli_real_escape_string($conn, $response['Status'])."',
                     '".mysqli_real_escape_string($conn, $response['ProviderName'])."',
                     '".mysqli_real_escape_string($conn, $response['DateTimeUTC'])."',
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Type'])."',
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['InvoiceID'])."', ";
-                    if(isset($response['Invoices'][$i]['InvoiceNumber'])){
-                        $sql .= "'".mysqli_real_escape_string($conn, $response['Invoices'][$i]['InvoiceNumber'])."',   ";
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['Type'])."',
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['InvoiceID'])."', ";
+                    if(isset($response['Contacts'][$i]['InvoiceNumber'])){
+                        $sql .= "'".mysqli_real_escape_string($conn, $response['Contacts'][$i]['InvoiceNumber'])."',   ";
                     }
 
 
 
-                    if( $response['Invoices'][$i]['Type'] == 'ACCREC' &&
-                        isset($response['Invoices'][$i]['Reference'])
+                    if( $response['Contacts'][$i]['Type'] == 'ACCREC' &&
+                        isset($response['Contacts'][$i]['Reference'])
                     
                     
                     ){$sql .= "    
-                        '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Reference'])."',       
+                        '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['Reference'])."',       
                         ";
                     }              
                     
 
             $sql .="
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['AmountDue'])."',                       
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['AmountPaid'])."',   
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['AmountCredited'])."',  ";
-                    if($response['Invoices'][$i]['Type'] == 'ACCREC'){
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['AmountDue'])."',                       
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['AmountPaid'])."',   
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['AmountCredited'])."',  ";
+                    if($response['Contacts'][$i]['Type'] == 'ACCREC'){
                         $sql .= "
-                            '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['CurrencyRate'])."',  ";
+                            '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['CurrencyRate'])."',  ";
                     } 
                     $sql .= "
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['IsDiscounted'])."',   
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['HasAttachments'])."',   
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['HasErrors'])."',   
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Status'])."',   
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['LineAmountTypes'])."',   
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['SubTotal'])."',                       
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['TotalTax'])."',                       
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Total'])."',   
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['UpdatedDateUTC'])."',   
-                    '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['CurrencyCode'])."'                                    
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['IsDiscounted'])."',   
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['HasAttachments'])."',   
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['HasErrors'])."',   
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['Status'])."',   
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['LineAmountTypes'])."',   
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['SubTotal'])."',                       
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['TotalTax'])."',                       
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['Total'])."',   
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['UpdatedDateUTC'])."',   
+                    '".mysqli_real_escape_string($conn, $response['Contacts'][$i]['CurrencyCode'])."'                                    
                     )
         ";
 
