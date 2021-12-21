@@ -15,7 +15,7 @@ echo "<a class='green-button wide-button' href='/about_us/our_products/index.php
 echo "<br>";
 
 
-/*
+/*CODE OUT
 echo "<a class='green-button wide-button' href='/account/payments/progress_plus/'>payments</a>";
 echo "<br>";
 */
@@ -23,7 +23,7 @@ echo "<br>";
 echo "<a class='green-button wide-button' href='/account/settings/time/'>time settings</a>";
 echo "<br>";
 
-/*
+/*CODE OUT
 echo "<a class='red-button wide-button' href='/progress_plus/'>review</a>";
 echo "<br>";
 */

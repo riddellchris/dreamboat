@@ -39,7 +39,7 @@ if($_SESSION['user_services_released_to_users_productivity_tracker'] == 'yes'){
 	else{echo "<a class='blue-button wide-button'>productivity tracker</a>";}
 	echo "<br>";
 }
-/*
+/*CODE OUT
 
 if($row['productivity_pilots'] == 'yes'){echo "<a class='green-button wide-button' href=''>productivity pilots</a>";}
 else{echo "<a class='blue-button wide-button'>text productivity pilot</a>";}
@@ -47,7 +47,8 @@ echo "<br>";
 
 if($row['productivity_pilots'] == 'yes'){echo "<a class='green-button wide-button' href=''>productivity pilots</a>";}
 else{echo "<a class='blue-button wide-button'>audio productivity pilot</a>";}
-echo "<br>";*/
+echo "<br>";
+*/
 
 
 

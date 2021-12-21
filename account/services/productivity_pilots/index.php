@@ -12,7 +12,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 echo "<a class='green-button wide-button' href='/about_us/our_products/index.php?primary_tab_to_open=productivity_pilots'>info</a>";
 echo "<br>";
 
-/*
+/*CODE OUT
 echo "<a class='green-button wide-button' href='/account/payments/progress_plus/'>payments</a>";
 echo "<br>";
 */
@@ -20,7 +20,7 @@ echo "<br>";
 echo "<a class='green-button wide-button' href='/account/settings/time/'>time settings</a>";
 echo "<br>";
 
-/*
+/*CODE OUT
 echo "<a class='red-button wide-button' href='/progress_plus/'>review</a>";
 echo "<br>";
 */

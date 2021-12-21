@@ -14,7 +14,7 @@ if($productivity_plus == 'yes'){echo "<a class='blue-button wide-button' href=''
 else{echo "<a class='fixed-grey-button wide-button'>progress plus</a>";}
 echo "<br>";
 
-/*
+/*CODE OUT
 if($auto_coach_released == 'yes'){echo "<a class='blue-button wide-button' href=''>auto coach</a>";}
 else{echo "<a class='fixed-grey-button wide-button'>you're not ready yet</a>";}
 echo "<br>";

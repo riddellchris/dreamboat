@@ -12,7 +12,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 
 
-/*
+/*CODE OUT
 echo "<br>";
 if($row['reviews'] == 'off'){echo "<span style='text-transform:uppercase;font-family:helvetica;'>No review emails - means reviews will not run</span>";}
 echo "<a class='";
@@ -29,7 +29,7 @@ echo " wide-button' href='change_settings.php?type=reminders'>reminders you set"
 if($row['reminders'] == 'on'){echo ' - on';}else{echo ' - off';}
 echo "</a>";
 
-/*
+/*CODE OUT
 echo "<br>";
 echo "<a class='";
 if($row['achievements'] == 'on'){echo 'green-button';}else{echo 'red-button';}

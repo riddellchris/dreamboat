@@ -241,7 +241,27 @@ Settings
 
 if(check_primary_folder('users')){
 	$top_sub_menu_options = add_top_sub_menu_option('initial_outreach'		, $top_sub_menu_options);
+		/* This really should expand out into multiple things 
+			Networks
+			Cold calls & poentially 
+			Then even advertising		
+		*/
+
+
+
 	$top_sub_menu_options = add_top_sub_menu_option('gap_filling'			,$top_sub_menu_options);	
+	/*
+		This should probably even be followed up by gap filling
+		this really isn't anything other than calls at this point in my head
+		perhaps there is something about email/gap filling
+		  .... some sort of network gap filling
+		  ..... Chris added you to his dreamboat so that he can improve his productivity
+		  .... help him, help yourself and help the country to do that too --- join.... that would be SICK and totally possible too
+
+	*/
+
+
+
 //	$top_sub_menu_options = add_top_sub_menu_option('owners'				,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('regular_users'			,$top_sub_menu_options);
 //	$top_sub_menu_options = add_top_sub_menu_option('details'				,$top_sub_menu_options);
