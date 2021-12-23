@@ -116,6 +116,7 @@ if(isset($_SESSION['logged_in'])){
 		//if($_SESSION['dreamboat_crew_navigation_option_on'] != 'yes'){
 		require_file('/components/navigation/non_mobile/components/profile.php');
 		//}
+		require_file('/components/navigation/non_mobile/components/insights.php');
 		require_file('/components/navigation/non_mobile/components/map.php');
 
 
@@ -130,7 +131,7 @@ if(isset($_SESSION['dreamboat_crew'])){
 
 		//}	
 
-		//require_file('/components/navigation/non_mobile/components/insights.php');
+		
 
 
 

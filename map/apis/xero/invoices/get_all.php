@@ -119,6 +119,7 @@ for($j = 0; $j < count($tenant_user_id); $j++){
         $sql = "INSERT INTO api_xero_invoice_data 
                 (
                 user_id,    
+                TenantID,
                 Id,
                 Status,
                 ProviderName,
@@ -170,6 +171,7 @@ for($j = 0; $j < count($tenant_user_id); $j++){
                 VALUES
                 (   
                     '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
+                    '".mysqli_real_escape_string($conn, $tenant_id)."',
                     '".mysqli_real_escape_string($conn, $response['Id'])."',
                     '".mysqli_real_escape_string($conn, $response['Status'])."',
                     '".mysqli_real_escape_string($conn, $response['ProviderName'])."',

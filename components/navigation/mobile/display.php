@@ -27,7 +27,7 @@ echo "
 		.about_us > a:first-child {padding-top:4vh;}
 		
 		.about_us.nav-links.wide-nav{padding-top:1.5vh;margin-left:0px;display:block;";
-		if($_SESSION['primary_folder'] == 'content'){echo "font-size:1.5em;";}
+		if($_GET['primary_folder'] == 'content'){echo "font-size:1.5em;";}
 		else{echo "font-size:1.2em;";}
 			echo"}		
 		@media screen and (min-width: 480px){.about_us.nav-links.wide-nav{padding-left:10px;}}
@@ -65,10 +65,9 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 		//This will require far more cash to completely put together and achieve
 		
 		}
-
-		require_file("/components/navigation/mobile/components/map.php");	
-
-		//require_file("/components/navigation/mobile/components/insights.php");	
+		
+		require_file("/components/navigation/mobile/components/map.php");			
+		require_file("/components/navigation/mobile/components/insights.php");
 		require_file("/components/navigation/mobile/components/profile.php");
 	
 		//if($_SESSION['viewing_client_mental_health_only'] != 'yes'){	
@@ -95,13 +94,13 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 
 		
 		echo "<a class='about_us nav-links wide-nav'";
-		if(check_url('/account/') == 1 OR $_SESSION['primary_folder'] == 'account'){echo "style='color:#00ff00;'";}
+		if(check_url('/account/') == 1 OR $_GET['primary_folder'] == 'account'){echo "style='color:#00ff00;'";}
 		else{echo "style='color: white;'";}
 		echo " title='All your account based fun.'  href='/account/'>account</a>";	
 	
 		if($_SESSION['dreamboat_crew'] != 'yes'){
 			echo "<a class='about_us nav-links wide-nav' style='";
-			if(check_url('/call/') == 1 OR $_SESSION['primary_folder'] == 'call'){echo "color:#00ff00;'";}
+			if(check_url('/call/') == 1 OR $_GET['primary_folder'] == 'call'){echo "color:#00ff00;'";}
 			else{echo "color: red;font-weight:900;'";}
 			echo " title='Go on, call as much as you need to.' href='/call/'>call ".$_SESSION['pilots_first_name']."</a>";		
 		}

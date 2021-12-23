@@ -58,7 +58,7 @@ if($debug == 'on'){
 
     //this one needs to store again into return keys
 
-    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/input_return_token.php";
+    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/oauth/input_return_token.php";
 
     $access_token = $return_token['access_token'];
 

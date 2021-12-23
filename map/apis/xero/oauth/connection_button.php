@@ -15,8 +15,8 @@ echo "
 
         // $scope_string .= "accounting.budgets.read "; // this is on the system but it's probably just not part of my scope
         $scope          = "openid profile email ".$scope; //just based off something really simple// this will need to expand ove time
-        $client_id      = "01F3F4E33B49429EBEAC5BE52CE4C8A6";        
-
+       // $client_id      = "01F3F4E33B49429EBEAC5BE52CE4C8A6";        
+        require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/apis/xero/application_details/client_id.php";
         
         $scope .= "accounting.transactions.read "; //this ultimately includes products
         $scope .= "accounting.reports.read ";
