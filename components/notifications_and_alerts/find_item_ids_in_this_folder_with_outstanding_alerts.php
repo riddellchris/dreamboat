@@ -13,7 +13,7 @@ AND secondary_folder = '".mysqli_real_escape_string($conn, $_GET['secondary_fold
 AND tertiary_folder = 'item'
 ";
 
-//echo $sql;
+//echo $sql_for_alerts;exit();
 $result_for_alerts = mysqli_query($conn, $sql_for_alerts);
 unset($item_ids_with_active_alerts);
 $i_for_alerts = 0;

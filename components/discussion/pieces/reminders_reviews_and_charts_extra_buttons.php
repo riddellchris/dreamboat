@@ -173,6 +173,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
+$active_reminder = 'no';
+
 if(mysqli_num_rows($result)){
 	$test = 'true';
 		if($_GET['primary_folder'] 		!= 	$row['primary_folder']){	$test = 'false';}

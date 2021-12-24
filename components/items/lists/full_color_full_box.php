@@ -102,7 +102,22 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 			echo "</form>";				
 		echo "</div>";	
 		echo "<div style='width:33.3%;float:left;'>";								
-			echo "<a class='login-submit' href='/components/items/add_new.php?primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."&tertiary_folder=".$_GET['tertiary_folder']."&adding_new=".$adding_new."'>";				
+			echo "<a class='login-submit' href='/components/items/add_new.php?";
+				$get_fields = 0;
+				if(isset($_GET['primary_folder'])){echo "primary_folder=".$_GET['primary_folder']; $get_fields ++;}
+				if(isset($_GET['secondary_folder'])){
+					if($get_fields > 0){ echo "&";}
+					echo "secondary_folder=".$_GET['secondary_folder']; $get_fields ++;
+				}				
+				if(isset($_GET['tertiary_folder'])){
+					if($get_fields > 0){ echo "&";}
+					echo "tertiary_folder=".$_GET['tertiary_folder']; $get_fields ++;
+				}
+				if(isset($adding_new)){
+					if($get_fields > 0){ echo "&";}
+					echo "adding_new=".$adding_new; $get_fields ++;
+				}
+				echo "'>";				
 			echo $button_copy."</a>";
 		echo "</div>";	
 		echo "<div style='width:33.3%; float:left;background-color: transparent;height:24px;'>";
@@ -123,8 +138,11 @@ while($row = mysqli_fetch_array($result_for_display, MYSQLI_ASSOC)){
 	$displaying_active_issue ++;
 		echo "<div class='standard_box'";
 			//echo $row['item_id'];
-			if(in_array($row['item_id'], $item_ids_with_active_alerts)){$color = 'orange'; $contrast_color = 'yellow';}
-			else{
+			$alert_on = 'no';
+			if(isset($item_ids_with_active_alerts)){
+				if(in_array($row['item_id'], $item_ids_with_active_alerts)){$color = 'orange'; $contrast_color = 'yellow'; $alert_on = 'yes';}
+			}
+			if($alert_on == 'no'){
 				if($row['deleted'] == 'yes'){$color = '#858181'; $contrast_color = '#c2c2c2';}
 				else{$color = $row['background_color']; $contrast_color = $row['contrast_color'];}
 			}

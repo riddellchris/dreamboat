@@ -48,6 +48,10 @@ if(isset($_SESSION['this_page'])){
 		$_SESSION['this_page'] = $_SERVER['REQUEST_URI'];
 		}
 }
+else{
+	$_SESSION['this_page'] = $_SERVER['REQUEST_URI'];
+
+}
 	
 
 

@@ -88,26 +88,23 @@ if ((($_GET['primary_folder'] == 'management' && $_GET['secondary_folder'] == 'c
 		$test = 'go';
 		if (isset($_GET['tertiary_folder']))
 
-			if (
-				$_GET['tertiary_folder'] 	!= 'item' and
-				$_GET['quarternary_folder'] != 'item'
-			) {
+			if ($is_item == 'no') {
 				$sql .= "  AND discussion.secondary_folder 	= 	'" . mysqli_real_escape_string($conn, $_GET['secondary_folder']) . "'";
 			}
 
+		if($_GET['primary_folder'] != 'notes'){
+			//cut this to avoid losing comments for improvemnts as they move from planned to active etc
+			if (
+				$_GET['primary_folder'] != 'improvements' &&
+				$_GET['primary_folder'] != 'wheelhouse'   &&
 
-		//cut this to avoid losing comments for improvemnts as they move from planned to active etc
-		if (
-			$_GET['primary_folder'] != 'improvements' &&
-			$_GET['primary_folder'] != 'wheelhouse'   &&
+				($is_item == 'yes')
 
-			($_GET['tertiary_folder'] == 'item' or
-				$_GET['quarternary_folder'] == 'item')
+			) {
 
-		) {
-
-			$sql .= "  	AND discussion.secondary_folder = 	'" . mysqli_real_escape_string($conn, $_GET['secondary_folder']) . "'
-							AND discussion.tertiary_folder 	= 	'" . mysqli_real_escape_string($conn, $_GET['tertiary_folder']) . "'";
+				$sql .= "  	AND discussion.secondary_folder = 	'" . mysqli_real_escape_string($conn, $_GET['secondary_folder']) . "'
+								AND discussion.tertiary_folder 	= 	'" . mysqli_real_escape_string($conn, $_GET['tertiary_folder']) . "'";
+			}
 		}
 	}
 	$and_required = 'yes';
@@ -136,8 +133,7 @@ $sql .= "   (
 		  
 		  ORDER BY discussion.comment_id DESC";
 
-//echo $sql;
-//exit();
+//echo $sql;exit();
 echo "<div style='display:block;padding-bottom:150px;'>";
 $result = mysqli_query($conn, $sql);
 
@@ -218,15 +214,55 @@ echo "
 
 
 
-
-
 $comment_number = 1;
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-	if (($_GET['quarternary_folder'] == 'item' 	&& $row['related_id'] == $_GET['item_id']) or
-		($_GET['tertiary_folder'] == 'item' 	&& $row['related_id'] == $_GET['item_id']) or
-		($_GET['tertiary_folder'] != 'item' 	&& $row['related_id'] == 0) or
-		($row['system_notification'] == 'yes')
-	) {
+
+	$test1 = 'fail';
+	$test2 = 'fail';
+	$test3 = 'fail';
+	$test4 = 'fail';
+
+	//test1
+	if(	isset($_GET['quarternary_folder']) &&
+		isset($row['related_id']) &&
+		isset($_GET['item_id'])){
+			if($_GET['quarternary_folder'] == 'item' 	&& $row['related_id'] == $_GET['item_id']){
+				$test1 = 'pass';
+			}
+		}
+	//test2
+	if(	isset($_GET['quarternary_folder']) &&
+		isset($row['related_id']) &&
+		isset($_GET['item_id'])){
+			if($_GET['tertiary_folder'] == 'item' 	&& $row['related_id'] == $_GET['item_id']){
+				$test2 = 'pass';
+			}
+		}
+	//test3
+	if(	isset($_GET['tertiary_folder']) &&
+		isset($row['related_id'])){
+			if($_GET['tertiary_folder'] != 'item' 	&& $row['related_id'] == 0){
+				$test3 = 'pass';
+			}
+		}
+	//test4
+	if(	isset($row['system_notification'])){
+		if($row['system_notification'] == 'yes'){
+			$test4 = 'pass';
+		}
+	} 
+
+
+
+
+	$show_now = 'yes';
+	if(	$test1 == 'pass' OR
+		$test2 == 'pass' OR
+		$test3 == 'pass' OR
+		$test4 == 'pass'){$show_now = 'no';}
+	
+
+	//if ($show_now == 'yes') {
 
 		echo "
 			<div class='discussion_container'";
@@ -251,7 +287,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			}
 			echo "</span>";
 
-			echo "<br><br><br><br>";
+			echo "<br><br>";
 		}
 
 		//remove your name and replace with "You"
@@ -329,7 +365,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		}
 		echo "</div>";
 		$comment_number++;
-	}
+	//}
 }
 
 echo "</div>";

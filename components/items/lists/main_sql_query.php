@@ -26,6 +26,9 @@ if($sql_done == 'no'){
 	$sql_for_display = "SELECT * FROM ".$database." ";//the space just so the whole thing works always
 	
 	//i.e. if just showing a normal list
+	if(!isset($_SESSION['list_view_'.$_GET['primary_folder'].'_'.$_GET['secondary_folder']] )){
+		$_SESSION['list_view_'.$_GET['primary_folder'].'_'.$_GET['secondary_folder']] = 'active';
+	}
 	if(	$_SESSION['list_view_'.$_GET['primary_folder'].'_'.$_GET['secondary_folder']] != 'deleted' AND
 		$_SESSION['list_view_'.$_GET['primary_folder'].'_'.$_GET['secondary_folder']] != 'inactive' AND
 		$_SESSION['list_view_'.$_GET['primary_folder'].'_'.$_GET['secondary_folder']] != 'homework'){	$sql_for_display .= "WHERE deleted = 'no' AND status = 'active'";}	
@@ -75,8 +78,7 @@ if($sql_done == 'no'){
 
 }
 
-//echo $sql_for_display;
-//exit();
+//echo $sql_for_display;exit();
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result_for_display = mysqli_query($conn, $sql_for_display);
 $number_of_results_to_display = mysqli_num_rows($result_for_display);

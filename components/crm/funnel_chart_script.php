@@ -18,59 +18,64 @@ $standard_colors[80]	= '#0BB542';
 $standard_colors[90]	= '#06B227';
 $standard_colors[100]	= '#00B00C';
 
-if(	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '10'	OR
-	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '20'	OR
-	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '30'	OR
-	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '40'	OR
-	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '50'	OR
-	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '60'	OR
-	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '70'	OR
-	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '80'	OR
-	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '90'	OR
-	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '100'){
-	$focus = 'on';
+$focus = 'off';
+
+if(isset($_SESSION['funnel_focus'])){
+	if(	$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '10'	OR
+		$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '20'	OR
+		$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '30'	OR
+		$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '40'	OR
+		$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '50'	OR
+		$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '60'	OR
+		$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '70'	OR
+		$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '80'	OR
+		$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '90'	OR
+		$_SESSION['funnel_focus'][$_GET['secondary_folder']] == '100'){
+		$focus = 'on';
 	}
-
-
-if($focus == 'on'){
-
-	$off_color = '#cecece';
-
-	$color[10] 	= $off_color;
-	$color[20] 	= $off_color;
-	$color[30] 	= $off_color;
-	$color[40] 	= $off_color;
-	$color[50] 	= $off_color;
-	$color[60] 	= $off_color;
-	$color[70] 	= $off_color;
-	$color[80] 	= $off_color;
-	$color[90] 	= $off_color;
-	$color[100] 	= $off_color;
-
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '10'){$color[10] = $standard_colors[10];}
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '20'){$color[20] = $standard_colors[20];}
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '30'){$color[30] = $standard_colors[30];}
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '40'){$color[40] = $standard_colors[40];}
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '50'){$color[50] = $standard_colors[50];}
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '60'){$color[60] = $standard_colors[60];}
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '70'){$color[70] = $standard_colors[70];}
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '80'){$color[80] = $standard_colors[80];}
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '90'){$color[90] = $standard_colors[90];}
-	if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '100'){$color[100] = $standard_colors[100];}
-
 }
-else{
-	$color[10] 	= $standard_colors[10];
-	$color[20] 	= $standard_colors[20];
-	$color[30] 	= $standard_colors[30];
-	$color[40] 	= $standard_colors[40];
-	$color[50] 	= $standard_colors[50];
-	$color[60] 	= $standard_colors[60];
-	$color[70] 	= $standard_colors[70];
-	$color[80] 	= $standard_colors[80];
-	$color[90] 	= $standard_colors[90];
-	$color[100] 	= $standard_colors[100];
-}
+
+	if($focus == 'on'){
+
+		$off_color = '#cecece';
+
+		$color[10] 	= $off_color;
+		$color[20] 	= $off_color;
+		$color[30] 	= $off_color;
+		$color[40] 	= $off_color;
+		$color[50] 	= $off_color;
+		$color[60] 	= $off_color;
+		$color[70] 	= $off_color;
+		$color[80] 	= $off_color;
+		$color[90] 	= $off_color;
+		$color[100] 	= $off_color;
+
+		if(isset($_SESSION['funnel_focus'])){
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '10'){$color[10] = $standard_colors[10];}
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '20'){$color[20] = $standard_colors[20];}
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '30'){$color[30] = $standard_colors[30];}
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '40'){$color[40] = $standard_colors[40];}
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '50'){$color[50] = $standard_colors[50];}
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '60'){$color[60] = $standard_colors[60];}
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '70'){$color[70] = $standard_colors[70];}
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '80'){$color[80] = $standard_colors[80];}
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '90'){$color[90] = $standard_colors[90];}
+			if($focus = 'on' && $_SESSION['funnel_focus'][$_GET['secondary_folder']] == '100'){$color[100] = $standard_colors[100];}
+		}
+	}
+	else{
+
+		$color[10] 	= $standard_colors[10];
+		$color[20] 	= $standard_colors[20];
+		$color[30] 	= $standard_colors[30];
+		$color[40] 	= $standard_colors[40];
+		$color[50] 	= $standard_colors[50];
+		$color[60] 	= $standard_colors[60];
+		$color[70] 	= $standard_colors[70];
+		$color[80] 	= $standard_colors[80];
+		$color[90] 	= $standard_colors[90];
+		$color[100] 	= $standard_colors[100];
+	}
 
 
 

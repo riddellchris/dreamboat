@@ -23,11 +23,11 @@ So please be aware that any changes made / that need to be made to this file, al
 */
 
 
-$primary 	= $_GET['primary_folder'];
-$secondary 	= $_GET['secondary_folder'];
-$tertiary 	= $_GET['tertiary_folder'];
-$quarternary 	= $_GET['quarternary_folder'];
-$item_id 	= $_GET['item_id'];
+if(isset($_GET['primary_folder'])){			$primary 		= $_GET['primary_folder'];		}
+if(isset($_GET['secondary_folder'])){		$secondary 		= $_GET['secondary_folder'];	}
+if(isset($_GET['tertiary_folder'])){		$tertiary 		= $_GET['tertiary_folder'];		}
+if(isset($_GET['quarternary_folder'])){		$quarternary 	= $_GET['quarternary_folder'];	}
+if(isset($_GET['item_id'])){				$item_id 		= $_GET['item_id'];				}
 
 if($primary == 'profile'){$database = $secondary;}
 

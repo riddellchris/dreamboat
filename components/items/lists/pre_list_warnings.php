@@ -1,13 +1,17 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-echo "<div style='width:100%; text-align:center;'>";		
-	if(	$_GET['tertiary_folder'] == 'future_questions' OR 
-		$_GET['tertiary_folder'] == 'general_notes'){
-			echo "<span class='pilots_eyes_only_font'>";
-				echo "THIS IS FOR THE CURRENT CLIENT ONLY <BR> AND NOT shared with clients";
-			echo "</span>";
+echo "<div style='width:100%; text-align:center;'>";	
+	if(isset($_GET['tertiary_folder'])){
+		if(	$_GET['tertiary_folder'] == 'future_questions' OR 
+			$_GET['tertiary_folder'] == 'general_notes'){
+				echo "<span class='pilots_eyes_only_font'>";
+					echo "THIS IS FOR THE CURRENT CLIENT ONLY <BR> AND NOT shared with clients";
+				echo "</span>";
+		}
 	}
+
+
 	if(	$_GET['secondary_folder'] == 'homework' && 
 		$_SESSION['dreamboat_crew'] == 'yes' ){
 			echo "<span class='pilots_eyes_only_font'>";

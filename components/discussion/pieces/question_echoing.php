@@ -1,15 +1,15 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-/*
-$sql = "SELECT * FROM auto_coach_string_response_and_folder_suggestions 
-	WHERE 	found_in_primary_folder 	= '".$_SESSION['primary_folder']."'
-	AND	found_in_secondary_folder 	= '".$_SESSION['secondary_folder']."'
-	AND	found_in_tertiary_folder 	= '".$_SESSION['tertiary_folder']."'
-	ORDER BY string_length DESC";*/
+
+$sql = "										SELECT * FROM auto_coach_string_response_and_folder_suggestions 
+												WHERE 	found_in_primary_folder 	= '".$_GET['primary_folder']."'
+												AND	found_in_secondary_folder 		= '".$_GET['secondary_folder']."' ";
+if(isset($_GET['tertiary_folder'])){$sql .= "	AND	found_in_tertiary_folder 		= '".$_GET['tertiary_folder']."' "; }
+$sql .= " ORDER BY string_length DESC";
 
 
-/*	
+	
 $sql = "SELECT * FROM auto_coach_string_response_and_folder_suggestions 
 	ORDER BY string_length DESC";	
 	
@@ -17,7 +17,7 @@ $sql = "SELECT * FROM auto_coach_string_response_and_folder_suggestions
 require_once $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
 
-
+/*
 $number_of_db_matches_with_this_input = 0;
 unset($array_of_prompt_ids_that_match);
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -141,7 +141,7 @@ if($number_of_db_matches_with_this_input == 6){
 	//$_SESSION['prompt_2_id'] = $_SESSION['prompt_1_id'];
 	//$_SESSION['prompt_1_id'] = $_SESSION['prompt_5_id'];
 }
-*/
+
 $result = mysqli_query($conn, $sql);
 $prompt_number = 1;
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -153,30 +153,30 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 	}
 }
 
-
+*/
 	require_once $_SERVER['DOCUMENT_ROOT']."/components/functions/safely_replacing_apostrophies_function.php";	
 	//echo "'>";
 		
 	//echo $_SESSION['prompt_1'];
-	
-	$_SESSION['prompt_1_string'] = safely_remove_apostrophies($_SESSION['prompt_1_string']);
+	$number_of_prompts_to_display = 0;
+	if(isset($_SESSION['prompt_1_string'])){$_SESSION['prompt_1_string'] = safely_remove_apostrophies($_SESSION['prompt_1_string']);	$number_of_prompts_to_display = 1;}
 	//echo $_SESSION['prompt_1'];
 	//exit();
-	$_SESSION['prompt_2_string'] = safely_remove_apostrophies($_SESSION['prompt_2_string']);
-	$_SESSION['prompt_3_string'] = safely_remove_apostrophies($_SESSION['prompt_3_string']);
-	$_SESSION['prompt_4_string'] = safely_remove_apostrophies($_SESSION['prompt_4_string']);
-	$_SESSION['prompt_5_string'] = safely_remove_apostrophies($_SESSION['prompt_5_string']);
-	$_SESSION['prompt_6_string'] = safely_remove_apostrophies($_SESSION['prompt_6_string']);
-	$_SESSION['prompt_7_string'] = safely_remove_apostrophies($_SESSION['prompt_7_string']);
-	$_SESSION['prompt_8_string'] = safely_remove_apostrophies($_SESSION['prompt_8_string']);
-	$_SESSION['prompt_9_string'] = safely_remove_apostrophies($_SESSION['prompt_9_string']);
-	$_SESSION['prompt_10_string'] = safely_remove_apostrophies($_SESSION['prompt_10_string']);
+	if(isset($_SESSION['prompt_2_string'])){$_SESSION['prompt_2_string'] = safely_remove_apostrophies($_SESSION['prompt_2_string']);	$number_of_prompts_to_display = 2;}
+	if(isset($_SESSION['prompt_3_string'])){$_SESSION['prompt_3_string'] = safely_remove_apostrophies($_SESSION['prompt_3_string']);	$number_of_prompts_to_display = 3;}
+	if(isset($_SESSION['prompt_4_string'])){$_SESSION['prompt_4_string'] = safely_remove_apostrophies($_SESSION['prompt_4_string']);	$number_of_prompts_to_display = 4;}
+	if(isset($_SESSION['prompt_5_string'])){$_SESSION['prompt_5_string'] = safely_remove_apostrophies($_SESSION['prompt_5_string']);	$number_of_prompts_to_display = 5;}
+	if(isset($_SESSION['prompt_6_string'])){$_SESSION['prompt_6_string'] = safely_remove_apostrophies($_SESSION['prompt_6_string']);	$number_of_prompts_to_display = 6;}
+	if(isset($_SESSION['prompt_7_string'])){$_SESSION['prompt_7_string'] = safely_remove_apostrophies($_SESSION['prompt_7_string']);	$number_of_prompts_to_display = 7;}
+	if(isset($_SESSION['prompt_8_string'])){$_SESSION['prompt_8_string'] = safely_remove_apostrophies($_SESSION['prompt_8_string']);	$number_of_prompts_to_display = 8;}
+	if(isset($_SESSION['prompt_9_string'])){$_SESSION['prompt_9_string'] = safely_remove_apostrophies($_SESSION['prompt_9_string']);	$number_of_prompts_to_display = 9;}
+	if(isset($_SESSION['prompt_10_string'])){$_SESSION['prompt_10_string'] = safely_remove_apostrophies($_SESSION['prompt_10_string']);	$number_of_prompts_to_display = 10;}
 
 echo "
 <div style='width:100%;text-align: left; padding:8px 2px;max-width: 1100px;margin-left:auto;margin-right:auto;margin-top: 15px;'>
 	<div style='display:inline-block;'>";
 
-for($i = 1; $i <= 6; $i++){
+for($i = 1; $i <= $number_of_prompts_to_display; $i++){
 
 	$sql = "
 		UPDATE all_prompts 
@@ -217,7 +217,7 @@ echo "</a>&nbsp;&nbsp;&nbsp; <a href='/components/discussion/ask_for_response.ph
 
 }
 
-	if($_SESSION['prompt_1_string'] != ''){
+	if(isset($_SESSION['prompt_1_string'])){if($_SESSION['prompt_1_string'] != ''){
 	
 		//this line here is a big different 
 		//echo "<span style='color:#281e96;font-family:helvetica;text-transform:uppercase;'>SELECT A QUESTION TO PROGRESS ASAP</span><br>";
@@ -226,27 +226,30 @@ echo "</a>&nbsp;&nbsp;&nbsp; <a href='/components/discussion/ask_for_response.ph
 		//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_1_id']);}
 		echo "</a><br>";
 		}
-	if($_SESSION['prompt_2_string'] != ''){	
+	}
+	if(isset($_SESSION['prompt_2_string'])){if($_SESSION['prompt_2_string'] != ''){	
 		echo "<a ".$classes." href='/components/discussion/prompts/select.php?prompt_id=".$_SESSION['prompt_2_id']."&".url_folder_get_string_creation()."' ".$title.">";
 		echo $_SESSION['prompt_2_string'];
 		//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_1_id']);}
 		echo "</a><br>";
 		}
-	if($_SESSION['prompt_3_string'] != ''){	
+	}
+	if(isset($_SESSION['prompt_3_string'])){if($_SESSION['prompt_3_string'] != ''){	
 		echo "<a ".$classes." href='/components/discussion/prompts/select.php?prompt_id=".$_SESSION['prompt_3_id']."&".url_folder_get_string_creation()."' ".$title.">";
 		echo $_SESSION['prompt_3_string'];
 		//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_1_id']);}
 		echo "</a><br>";
 		}
-	if($_SESSION['prompt_4_string'] != ''){	
+	}
+	if(isset($_SESSION['prompt_4_string'])){if($_SESSION['prompt_4_string'] != ''){	
 		echo "<a ".$classes." href='/components/discussion/prompts/select.php?prompt_id=".$_SESSION['prompt_4_id']."&".url_folder_get_string_creation()."' ".$title.">";
 		echo $_SESSION['prompt_4_string'];
 		//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_1_id']);}
 		echo "</a><br>";
 		}
+	}
 
-if(	$_GET['tertiary_folder'] 	== 'item' 	OR
-	$_GET['quarternary_folder'] == 'item'){
+if(	$is_item == 'yes'){
 	
 	
 	//find the first prompt
@@ -362,7 +365,7 @@ $classes = " class = 'smart_prompt_links' ";
 
 
 
-
+if(isset($_SESSION['prompt_5_string'])){
 	if($_SESSION['prompt_5_string'] != ''){	
 	
 	echo "<span class='pilots_eyes_only_font'>
@@ -376,6 +379,7 @@ $classes = " class = 'smart_prompt_links' ";
 		//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_5_id']);}
 		echo "</a><br>";
 		}
+}
 	
 	
 //CR 15.6.20
@@ -386,36 +390,41 @@ $classes = " class = 'smart_prompt_links' ";
 $title = "title = 'These prompts are not visible by the clients only Pilots and other Dreamboat Crew'";
 	
 
-if($_SESSION['prompt_6_string'] != ''){	
+if(isset($_SESSION['prompt_6_string'])){if($_SESSION['prompt_6_string'] != ''){	
 	echo "<a ".$classes." href='/components/discussion/prompts/select.php?prompt_id=".$_SESSION['prompt_6_id']."&".url_folder_get_string_creation()."' ".$title.">";
 	echo $_SESSION['prompt_6_string'];
 	//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_6_id']);}
 	echo "</a><br>";
 	}
-if($_SESSION['prompt_7_string'] != ''){	
+}
+if(isset($_SESSION['prompt_7_string'])){if($_SESSION['prompt_7_string'] != ''){	
 	echo "<a ".$classes." href='/components/discussion/prompts/select.php?prompt_id=".$_SESSION['prompt_7_id']."&".url_folder_get_string_creation()."' ".$title.">";
 	echo $_SESSION['prompt_7_string'];
 	//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_7_id']);}
 	echo "</a><br>";
 	}
-if($_SESSION['prompt_8_string'] != ''){	
+}
+if(isset($_SESSION['prompt_8_string'])){if($_SESSION['prompt_8_string'] != ''){	
 	echo "<a ".$classes." href='/components/discussion/prompts/select.php?prompt_id=".$_SESSION['prompt_8_id']."&".url_folder_get_string_creation()."' ".$title.">";
 	echo $_SESSION['prompt_8_string'];
 	//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_8_id']);}
 	echo "</a><br>";
 	}
-if($_SESSION['prompt_9_string'] != ''){	
+}
+if(isset($_SESSION['prompt_9_string'])){if($_SESSION['prompt_9_string'] != ''){	
 	echo "<a ".$classes." href='/components/discussion/prompts/select.php?prompt_id=".$_SESSION['prompt_9_id']."&".url_folder_get_string_creation()."' ".$title.">";
 	echo $_SESSION['prompt_9_string'];
 	//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_9_id']);}
 	echo "</a><br>";
 	}
-if($_SESSION['prompt_10_string'] != ''){	
+}
+if(isset($_SESSION['prompt_10_string'])){if($_SESSION['prompt_10_string'] != ''){	
 	echo "<a ".$classes." href='/components/discussion/prompts/select.php?prompt_id=".$_SESSION['prompt_10_id']."&".url_folder_get_string_creation()."' ".$title.">";
 	echo $_SESSION['prompt_10_string'];
 	//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_10_id']);}
 	echo "</a><br>";
 	}
+}
 }
 
 

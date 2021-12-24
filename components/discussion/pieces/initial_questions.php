@@ -71,126 +71,81 @@ else{
 //	$sql .= " AND quaternary_folder = '".$_SESSION['quaternary_folder']."' ";
 $sql .=	" ORDER BY selection_from_views_ratio DESC";
 	
-	
-//echo $sql;	
-//exit();
-	
+		
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
 $result = mysqli_query($conn, $sql);
-
-$i = 0;
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-	if($i <= 3){
-		$prompt_ids_to_randomise[$i] = $row['prompt_id'];
-	}
-
-	if($i > 3){
-		$not_top_three[$i] = $row['prompt_id'];
-	}	
-$i++;
-}
+$number_of_prompts = mysqli_num_rows($result);
 
 
+if($number_of_prompts > 0){
+	$i = 0;
+	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+		if($i <= 3){
+			$prompt_ids_to_randomise[$i] = $row['prompt_id'];
+		}
 
-
-//will randomise keys starting at 0 hence why the for loop below moves the way it does
-shuffle($not_top_three);
-
-for($j = 0; $j <= 4; $j++){
-	$prompt_ids_to_randomise[$j + 4] = $not_top_three[$j];
-}
-
-
-
-//then randomise pull out the actual prompts and align
-//now we have all the prompt_ids... we just need to go through the process of pulling out the right ones and storing appropriately
-//shuffle($prompt_ids_to_randomise);
-
-$sql = "SELECT * FROM all_prompts 
-		WHERE ";
-
-
-for($count = 0; $count <= 9; $count ++){	
-	if(		isset($prompt_ids_to_randomise[$count])		){ $sql .= " prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[0])."'";
-		if(	isset($prompt_ids_to_randomise[$count + 1])	&& $count != 9){ $sql .= " OR ";}
+		if($i > 3){
+			$not_top_three[$i] = $row['prompt_id'];
 		}	
+	$i++;
+	}
+
+
+
+	if($number_of_prompts > 3){
+
+		//will randomise keys starting at 0 hence why the for loop below moves the way it does
+		shuffle($not_top_three);
+
+		if(count($not_top_three) > 4){$max = 4;}
+		else{$max = count($not_top_three) - 1;}
+
+		for($j = 0; $j <= $max; $j++){
+			$prompt_ids_to_randomise[$j + 4] = $not_top_three[$j];
+		}
+
+	}
+
+	//then randomise pull out the actual prompts and align
+	//now we have all the prompt_ids... we just need to go through the process of pulling out the right ones and storing appropriately
+	//shuffle($prompt_ids_to_randomise);
+
+	$sql = "SELECT * FROM all_prompts 
+			WHERE ";
+
+
+	for($count = 0; $count <= 9; $count ++){	
+		if(		isset($prompt_ids_to_randomise[$count])		){ $sql .= " prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[$count])."'";
+			if(	isset($prompt_ids_to_randomise[$count + 1])	&& $count != 9){ $sql .= " OR ";}
+			}	
+	}
+
+	//echo $sql;exit();
+
+	$number_of_prompts = mysqli_num_rows($result);
+//	echo '<pre>' , var_dump($prompt_ids_to_randomise) , '</pre>';//exit();
+	//echo "<br>";
+
+	//there's something here to be fixed obviously
+	//then i'm cruising
+	//this should be a for 
+
+	$result = mysqli_query($conn, $sql);
+
+	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+
+		for($count = 0; $count < count($prompt_ids_to_randomise); $count++){
+			if($row['prompt_id'] == $prompt_ids_to_randomise[$count]){
+				$z = $count + 1;
+				$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
+				$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
+			}
+		}
+	}
+//	echo '<pre>' , var_dump($_SESSION) , '</pre>';exit();
 }
 
-/* 	What's left of the old one
-		prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[0])."' OR 
-				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[1])."' OR 
-				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[2])."' OR 
-				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[3])."' OR 
-				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[4])."' OR 
-				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[5])."' OR 
-				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[6])."' OR 
-				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[7])."' OR 
-				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[8])."' OR 
-				prompt_id = '".mysqli_real_escape_string($conn, $prompt_ids_to_randomise[9])."'";
-*/
-
-$result = mysqli_query($conn, $sql);
-$count = 0;
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-
-	if($row['prompt_id'] == $prompt_ids_to_randomise[$count]){
-		$z = $count + 1;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-
-	$count ++;
-/*	AGAIN WHAT'S LEFT OF THE OLD ONE
-	if($row['prompt_id'] == $prompt_ids_to_randomise[1]){
-		$z = 2;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-	if($row['prompt_id'] == $prompt_ids_to_randomise[2]){
-		$z = 3;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-	if($row['prompt_id'] == $prompt_ids_to_randomise[3]){
-		$z = 4;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-	if($row['prompt_id'] == $prompt_ids_to_randomise[4]){
-		$z = 5;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-	if($row['prompt_id'] == $prompt_ids_to_randomise[5]){
-		$z = 6;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-	if($row['prompt_id'] == $prompt_ids_to_randomise[6]){
-		$z = 7;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-	if($row['prompt_id'] == $prompt_ids_to_randomise[7]){
-		$z = 8;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-	if($row['prompt_id'] == $prompt_ids_to_randomise[8]){
-		$z = 9;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-	if($row['prompt_id'] == $prompt_ids_to_randomise[9]){
-		$z = 10;
-		$_SESSION['prompt_'.$z.'_string'] 	= $row['prompt'];
-		$_SESSION['prompt_'.$z.'_id'] 		= $row['prompt_id'];
-	}
-*/
-
-
-}
 
 
 
