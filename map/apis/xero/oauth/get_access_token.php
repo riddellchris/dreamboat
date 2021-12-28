@@ -53,7 +53,7 @@ if($debug == 'on'){
     $return_token = json_decode($server_output, true);
 
 
-    $debug = 'on';
+    $debug = 'off';
     if($debug == 'on'){
     echo "RETURN KEY";
     echo '<pre>' , var_dump($return_token) , '</pre>';

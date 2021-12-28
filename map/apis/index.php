@@ -95,7 +95,7 @@ th{text-align:left;}
 
 
                         //                                  echo "<td>".stripos($row['platform_name'], 'xero')."</td>";
-
+  
                         if(stripos($row['platform_name'], 'xero') === 0 
                             ){
                                 $platforms_shown['xero'] = 'yes';

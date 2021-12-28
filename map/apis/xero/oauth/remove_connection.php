@@ -36,7 +36,7 @@ $sql = "SELECT * FROM api_xero_tenant_details
         AND id <> 0
         ORDER BY entry_id DESC LIMIT 1"; 
 
-        echo "<br>".$sql."<br>";
+       // echo "<br>".$sql."<br>";
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
