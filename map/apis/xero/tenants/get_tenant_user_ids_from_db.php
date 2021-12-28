@@ -10,6 +10,7 @@ $tenant_user_id_count
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
+// this is to control some etting
 $sql = "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))";
 mysqli_query($conn, $sql);
 

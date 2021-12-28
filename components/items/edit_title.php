@@ -6,7 +6,7 @@ require $_SERVER['DOCUMENT_ROOT']."/account/security/logged_in_check.php";
 //		exit();
 		
 		
-		
+	
 		
 if($_GET['primary_folder'] != 'components'){				$_SESSION['editing_title_of_primary_folder'] 	=	$_GET['primary_folder'];} 	else{$_GET['primary_folder'] 	= $_SESSION['editing_title_of_primary_folder'];}
 if($_GET['secondary_folder'] != 'items'){					$_SESSION['editing_title_of_secondary_folder'] 	=	$_GET['secondary_folder'];}	else{$_GET['secondary_folder']	= $_SESSION['editing_title_of_secondary_folder'];}
@@ -16,16 +16,18 @@ if($_GET['item_id'] != 'components/items/edit_title.php'	      ){$_SESSION['edit
 //echo $_SESSION['editing_title_of_primary_folder'];
 //echo $_SESSION['editing_title_of_secondary_folder'];
 //echo $_GET['item_id'];
-
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/folder_to_database_relationships.php";
 	
 	 $sql = "SELECT * FROM ".$database." WHERE item_id = '".$_SESSION['editing_title_of_item_id'] ."' AND user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
-//exit();
-require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+
+//echo $sql;	 exit();
+
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-$_SESSION['title_of_item_actually_being_edited'] = $row['title'];
-	
+unset($_SESSION['title_of_item_actually_being_edited']);
+ $_SESSION['title_of_item_actually_being_edited'] = $row['title'];
+//	exit();
 	
 	
 	
@@ -46,17 +48,17 @@ if($_SESSION['editing_title_of_primary_folder'] == 'network'){
 }
 if($_SESSION['editing_title_of_primary_folder'] == 'biz_dev'){
 	if($_SESSION['editing_title_of_secondary_folder'] == 'events'){			$_SESSION['editing_type_of_item_for_display'] = 'event';}
-	if($_SESSION['editing_title_of_secondary_folder'] == 'one_to_ones'){		$_SESSION['editing_type_of_item_for_display'] = 'one to one';}
+	if($_SESSION['editing_title_of_secondary_folder'] == 'one_to_ones'){	$_SESSION['editing_type_of_item_for_display'] = 'one to one';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'referrers'){		$_SESSION['editing_type_of_item_for_display'] = 'referrer';}		
 }
 if($_SESSION['editing_title_of_primary_folder'] == 'sales'){
 	if($_SESSION['editing_title_of_secondary_folder'] == 'new_potentials'){		$_SESSION['editing_type_of_item_for_display'] = 'inital sale';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'potential_upsells'){	$_SESSION['editing_type_of_item_for_display'] = 'potential upsell';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'recurring_sale'){		$_SESSION['editing_type_of_item_for_display'] = 'recurring sale';}	
-	if($_SESSION['editing_title_of_secondary_folder'] == 'sale'){			$_SESSION['editing_type_of_item_for_display'] = 'sale';}	
+	if($_SESSION['editing_title_of_secondary_folder'] == 'sale'){				$_SESSION['editing_type_of_item_for_display'] = 'sale';}	
 }
 if($_SESSION['editing_title_of_primary_folder'] == 'marketing'){
-	if($_SESSION['editing_title_of_secondary_folder'] == 'target_markets'){		$_SESSION['editing_type_of_item_for_display'] = 'target market';}
+	if($_SESSION['editing_title_of_secondary_folder'] == 'target_markets'){	$_SESSION['editing_type_of_item_for_display'] = 'target market';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'channels'){		$_SESSION['editing_type_of_item_for_display'] = 'channel';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'angles'){			$_SESSION['editing_type_of_item_for_display'] = 'marketing angle';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'promotions'){		$_SESSION['editing_type_of_item_for_display'] = 'promotion';}		
@@ -77,16 +79,16 @@ if($_SESSION['editing_title_of_primary_folder'] == 'wheelhouse'){
 }
 if($_SESSION['editing_title_of_primary_folder'] == 'improvements'){			$_SESSION['editing_type_of_item_for_display'] = 'improvement';}
 if($_SESSION['editing_title_of_primary_folder'] == 'admin'){
-//	if($_SESSION['editing_title_of_secondary_folder'] == 'homework'){		$_SESSION['editing_type_of_item_for_display'] = 'homework';}
+//	if($_SESSION['editing_title_of_secondary_folder'] == 'homework'){			$_SESSION['editing_type_of_item_for_display'] = 'homework';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'future_questions'){	$_SESSION['editing_type_of_item_for_display'] = 'future question';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'general_notes'){		$_SESSION['editing_type_of_item_for_display'] = 'general note';}
 	
-	if($_SESSION['editing_title_of_secondary_folder'] == 'support_requests'){	$_SESSION['editing_type_of_item_for_display'] = 'support requests';}
-	if($_SESSION['editing_title_of_secondary_folder'] == 'bugs_to_fix'){		$_SESSION['editing_type_of_item_for_display'] = 'bugs to fix';}
+	if($_SESSION['editing_title_of_secondary_folder'] == 'support_requests'){		$_SESSION['editing_type_of_item_for_display'] = 'support requests';}
+	if($_SESSION['editing_title_of_secondary_folder'] == 'bugs_to_fix'){			$_SESSION['editing_type_of_item_for_display'] = 'bugs to fix';}
 	if($_SESSION['editing_title_of_secondary_folder'] == 'general_maintenance'){	$_SESSION['editing_type_of_item_for_display'] = 'general maintenance';}	
 	if($_SESSION['editing_title_of_secondary_folder'] == 'iterative_improvements'){	$_SESSION['editing_type_of_item_for_display'] = 'iterative improvements';}
-	if($_SESSION['editing_title_of_secondary_folder'] == 'other_development'){	$_SESSION['editing_type_of_item_for_display'] = 'other development';}
-	if($_SESSION['editing_title_of_secondary_folder'] == 'new_features'){		$_SESSION['editing_type_of_item_for_display'] = 'new features';}	
+	if($_SESSION['editing_title_of_secondary_folder'] == 'other_development'){		$_SESSION['editing_type_of_item_for_display'] = 'other development';}
+	if($_SESSION['editing_title_of_secondary_folder'] == 'new_features'){			$_SESSION['editing_type_of_item_for_display'] = 'new features';}	
 	
 	
 	
@@ -113,6 +115,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/st
 echo "<form action='edit_submit.php' method='post'>";
 echo "<span class='prompt-font'>Edit the name of this ".$_SESSION['editing_type_of_item_for_display']."?</span>";
 $value = $_SESSION['title_of_item_actually_being_edited'];
+
+if(isset($_SESSION['title_of_item_actually_being_edited'])){$value = $_SESSION['title_of_item_actually_being_edited'];}
 require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/inputs/standard_input.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/submits/standard.php";
 hidden_form_inputs_for_folders_and_items();

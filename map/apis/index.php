@@ -66,47 +66,66 @@ th{text-align:left;}
     $sql = "SELECT * FROM api_connections 
     WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
     AND deleted <> 'yes'
+    ORDER BY entry_id DESC
     ";
 
     $result = mysqli_query($conn, $sql);
 
+    $platforms_shown['xero'] = 'no';
+
+
+
     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
-        echo "
+
+        if($platforms_shown['xero'] == 'no'){
+
+            echo "
+                    <tr>
+                        <td>".ucfirst($row['platform_name'])."</td>
+                        <td><a target='_blank' href='";http://".
+                                                    if(substr($row['platform_web_address'], 0, 4) != 'http') {echo "http://";} 
+                                                        echo $row['platform_web_address']."'>".$row['platform_web_address']."</td>";
+
+                        if($row['active'] != 'yes'){echo "<td style='color:green;'> tick</td>";}else{echo "<td></td>";}
+
+                        if($_SESSION['user_id'] == $_SESSION['viewing_client_id']){
+                        if($row['active'] == 'yes'){echo "<td ><a style='color:red;' href='/map/apis/delete.php?saas_connection=".$row['entry_id']."'>DELETE</a></td>";}else{echo "<td></td>";}
+                        }
 
 
-                <tr>
-                    <td>".ucfirst($row['platform_name'])."</td>
-                    <td><a target='_blank' href='";http://".
-                                                  if(substr($row['platform_web_address'], 0, 4) != 'http') {echo "http://";} 
-                                                    echo $row['platform_web_address']."'>".$row['platform_web_address']."</td>";
+                        //                                  echo "<td>".stripos($row['platform_name'], 'xero')."</td>";
 
-                    if($row['active'] != 'yes'){echo "<td style='color:green;'> tick</td>";}else{echo "<td></td>";}
-                    if($row['active'] == 'yes'){echo "<td ><a style='color:red;' href='/map/apis/delete.php?saas_connection=".$row['entry_id']."'>DELETE</a></td>";}else{echo "<td></td>";}
-                    
+                        if(stripos($row['platform_name'], 'xero') === 0 
+                            ){
+                                $platforms_shown['xero'] = 'yes';
+                                echo "<td>";
+                                    if($row['originally_connected_successfully'] == 'no'){
+                                        require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/oauth/connection_button.php";
+                                    }
+                                    else{
 
+                                        $sql = "SELECT * FROM api_xero_tenant_details
+                                                WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
+                                                ORDER BY entry_id DESC LIMIT 1";
+                                        $result = mysqli_query($conn, $sql);
+                                        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-                     //                                  echo "<td>".stripos($row['platform_name'], 'xero')."</td>";
+                                        echo $row['tenantName']." - ";
+                                        echo "<span style='color: forestgreen;'>Currently connected</span>"; 
+                                            //this of course could have bucket loads more detail added to it
+                                            //disconnect not just delete etc etc etc but for now honeslty i'm not worrying about that at alll
 
-                    if(stripos($row['platform_name'], 'xero') === 0){
-                            echo "<td>";
-                                if($row['connected_successfully'] == 'no'){
-                                    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/connection_button.php";
-                                }
-                                else{
-                                    echo "<span style='color: forestgreen;'>Currently connected</span>"; 
-                                        //this of course could have bucket loads more detail added to it
-                                        //disconnect not just delete etc etc etc but for now honeslty i'm not worrying about that at alll
-
-                                }
-                            echo "</td>";
-                     }
-                    else{
-                        echo "  <td class='blink_me slower'>
-                                    Available at completion of <a href='/knowledgebase/current_service/phases_of_engagement/' style='color:red;' >secondary mapping</a> 
-                                </td>";
-                    } 
-        echo "</tr>";
+                                    }
+                                echo "</td>";
+                        }
+                        else{
+                            echo "  <td class='blink_me slower'>
+                                        Available at completion of <a href='/knowledgebase/current_service/phases_of_engagement/' style='color:red;' >secondary mapping</a> 
+                                    </td>";
+                        } 
+            echo "</tr>";
+        }
     }
 
 ?>

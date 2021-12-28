@@ -303,9 +303,14 @@ if(check_primary_folder('account') &&
 		if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
 			$top_sub_sub_menu_options = add_top_sub_sub_menu_option('default_pages'	,$top_sub_sub_menu_options);	//we just set it as profile on every login see /account/variables/initial_setup.php	
 		}
+
+		//not sure what this was for
+		//maybe for turning things on and off for clients/users
+		/*
 		if($_SESSION['dreamboat_crew'] == 'yes'){
 			$top_sub_sub_menu_options = add_top_sub_sub_menu_option('main_nav_control'		,$top_sub_sub_menu_options);
 		}
+		*/
 	}	
 }
 

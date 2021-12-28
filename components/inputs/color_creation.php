@@ -5,5 +5,5 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $background_color	= $row['background_hex'];
 $contrast_color		= $row['contrast_hex'];
-$text_color		= $row['text_hex'];
-$degrees 		= rand(0, 360);
+$text_color		    = $row['text_hex'];
+$degrees 		    = rand(0, 360);

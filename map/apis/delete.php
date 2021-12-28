@@ -20,8 +20,30 @@ $sql = "UPDATE  api_connections
 
 //echo $sql;exit();
 
+$result = mysqli_query($conn, $sql);
 
-mysqli_query($conn, $sql);
+$sql = "SELECT * FROM api_connections
+        WHERE entry_id = '".$_GET['saas_connection']."'
+        AND   user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
+$result = mysqli_query($conn, $sql);
+//echo $sql;exit();
+
+while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+
+     //   echo strcasecmp(trim($row['platform_name']), 'Xero');
+     //   exit();
+
+        if(strcasecmp(trim($row['platform_name']), 'xero') == 0){
+                require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/oauth/remove_connection.php";
+
+        }
+
+
+
+}
+
+
+
 
 header("Location: /map/apis/");
 exit();

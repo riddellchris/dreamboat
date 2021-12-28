@@ -15,22 +15,22 @@ echo hidden_form_inputs_for_folders_and_items();
 
 
 
-$max_width 	= '150px';
-$display 	= "inline-block";
+$max_width 		= '150px';
+$display 		= "inline-block";
 $margin_top 	= "0px";
 $margin_bottom 	= "0px";
-$padding	= "7px 0px";
-$float		= "right";
+$padding		= "7px 0px";
+$float			= "right";
 require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/submits/standard.php"; 
 
 
-$max_width 	= "250px";
-$display 	= "inline-block";
-$text_align	= " left ";
+$max_width 		= "250px";
+$display 		= "inline-block";
+$text_align		= " left ";
 $placeholder	= "Add labels as required";
 $margin_top 	= "0px";
 $margin_left 	= "-4px";
-$float		= "right";
+$float			= "right";
 require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/inputs/standard_input.php";
 
 echo "<div style='display:inline-block;font-family:Comfortaa;float:right;margin-right:12px;'>";

@@ -29,7 +29,7 @@ clean_variable_to_change_homepage_to($_GET['to'], 'marketing');
 clean_variable_to_change_homepage_to($_GET['to'], 'wheelhouse');
 clean_variable_to_change_homepage_to($_GET['to'], 'time');
 clean_variable_to_change_homepage_to($_GET['to'], 'management');
-//clean_variable_to_change_homepage_to($_GET['to'], 'results');
+clean_variable_to_change_homepage_to($_GET['to'], 'results');
 clean_variable_to_change_homepage_to($_GET['to'], 'tracking');
 clean_variable_to_change_homepage_to($_GET['to'], 'improvements');
 clean_variable_to_change_homepage_to($_GET['to'], 'messages');

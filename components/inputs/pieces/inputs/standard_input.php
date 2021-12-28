@@ -9,7 +9,7 @@
 
 <?php 
 
-if(!isset($item_name)){		$item_name  	= " standard_input ";}
+if(!isset($item_name)){		$item_name  	= "standard_input";}
 if(!isset($max_width)){		$max_width  	= " 1100px ";}
 if(!isset($display)){		$display    	= " block ";}
 if(!isset($text_align)){	$text_align 	= " center ";}
@@ -23,7 +23,7 @@ else{                       $auto_focus = " ";} //most of the time autofocus wil
 echo "
 <input 
 name = '".$item_name."'
-class=' standard_input '
+class='standard_input'
 
 style='
 font-size: 20px;

@@ -40,7 +40,7 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
 	home_page_change_buttons('notes',		$row['home_page']);
 }
 home_page_change_buttons('map',		$row['home_page']);
-//home_page_change_buttons('insights',		$row['home_page']);
+home_page_change_buttons('insights',		$row['home_page']);
 home_page_change_buttons('profile',		$row['home_page']);
 
 if($_SESSION['viewing_client_mental_health_only'] != 'yes'){

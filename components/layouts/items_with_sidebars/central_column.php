@@ -14,7 +14,8 @@ $sql = "SELECT * FROM ".$database." WHERE user_id = '".mysqli_real_escape_string
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-
+//echo $sql;
+//exit();
 
 
 function is_person_based_item(){
@@ -44,24 +45,24 @@ function item_link_creation($database, $code, $make_on_off, $copy){
 if(is_person_based_item()){	if($row['category'] == 'staff'){$people_code = "non_staff"; 	$people_copy = "non staff";}
 							if($row['category'] != 'staff'){$people_code = "staff";			$people_copy = "staff";}}
 $code = ''; $copy = '';
-if(check_folders_two_deep('business',	'services'		)){	$code = 'products';				$copy = 'product';}
-if(check_folders_two_deep('network',	'groups'		)){	$code = '';						$copy = '';}
-if(check_folders_two_deep('network',	'businesses'	)){	$code = 'groups'; 				$copy = 'group';}	
-if(check_folders_two_deep('network',	'people'		)){	$code = $people_code; 			$copy = $people_copy;}	
-if(check_folders_two_deep('biz_dev',	'referrers'		)){ $code = $people_code; 			$copy = $people_copy;}	
-if(check_folders_two_deep('management',	'staff'			)){	$code = $people_code; 			$copy = $people_copy;}	
-if(check_folders_two_deep('management',	'clients'		)){ $code = $people_code; 			$copy = $people_copy;}		
-if(check_folders_two_deep('wheelhouse',	'goals'			)){	$code = 'dreams'; 				$copy = 'dream';}
-if(check_folders_two_deep('wheelhouse',	'milestones'	)){	$code = 'goals'; 				$copy = 'goal';}
-if(check_folders_two_deep('wheelhouse',	'tasks'			)){	$code = 'milestones'; 			$copy = 'milestone';}
-if(check_folders_two_deep('wheelhouse',	'homework'		)){	$code = 'tasks'; 				$copy = 'task';}				
-if(check_primary_folder('activities'					)){	$code = ''; 					$copy = '';}								
-if(check_folders_two_deep('issues',	'critical'			)){	$code = 'important'; 			$copy = 'important';}
-if(check_folders_two_deep('issues',	'important'			)){	$code = 'other'; 				$copy = 'other';}											
-if(check_folders_two_deep('sales',	'new_potentials'	)){	$code = 'potential_upsells'; 	$copy = 'potential upsell';}		
-if(check_folders_two_deep('sales',	'potential_upsells'	)){	$code = 'recurring_sales';	 	$copy = 'recurring sale';}
-if(check_folders_two_deep('upgrades',	'underway'		)){	$code = 'completed';			$copy = 'completed';}
-if(check_folders_two_deep('upgrades',	'planned'		)){	$code = 'underway';				$copy = 'underway';}
+if(check_folders_two_deep('business',	'services'			)){	$code = 'products';				$copy = 'product';}
+if(check_folders_two_deep('network',	'groups'			)){	$code = '';						$copy = '';}
+if(check_folders_two_deep('network',	'businesses'		)){	$code = 'groups'; 				$copy = 'group';}	
+if(check_folders_two_deep('network',	'people'			)){	$code = $people_code; 			$copy = $people_copy;}	
+if(check_folders_two_deep('biz_dev',	'referrers'			)){ $code = $people_code; 			$copy = $people_copy;}	
+if(check_folders_two_deep('management',	'staff'				)){	$code = $people_code; 			$copy = $people_copy;}	
+if(check_folders_two_deep('management',	'clients'			)){ $code = $people_code; 			$copy = $people_copy;}		
+if(check_folders_two_deep('wheelhouse',	'goals'				)){	$code = 'dreams'; 				$copy = 'dream';}
+if(check_folders_two_deep('wheelhouse',	'milestones'		)){	$code = 'goals'; 				$copy = 'goal';}
+if(check_folders_two_deep('wheelhouse',	'tasks'				)){	$code = 'milestones'; 			$copy = 'milestone';}
+if(check_folders_two_deep('wheelhouse',	'homework'			)){	$code = 'tasks'; 				$copy = 'task';}				
+if(check_primary_folder('activities'						)){	$code = ''; 					$copy = '';}								
+if(check_folders_two_deep('issues',		'critical'			)){	$code = 'important'; 			$copy = 'important';}
+if(check_folders_two_deep('issues',		'important'			)){	$code = 'other'; 				$copy = 'other';}											
+if(check_folders_two_deep('sales',		'new_potentials'	)){	$code = 'potential_upsells'; 	$copy = 'potential upsell';}		
+if(check_folders_two_deep('sales',		'potential_upsells'	)){	$code = 'recurring_sales';	 	$copy = 'recurring sale';}
+if(check_folders_two_deep('upgrades',	'underway'			)){	$code = 'completed';			$copy = 'completed';}
+if(check_folders_two_deep('upgrades',	'planned'			)){	$code = 'underway';				$copy = 'underway';}
 if($copy != ''){$bottom_left = item_link_creation($database, $code, 'on', $copy);}
 else{$bottom_left = 'empty';}
 
@@ -71,31 +72,31 @@ else{$bottom_left = 'empty';}
 if(is_person_based_item()){	if($row['referrer'] == 'yes'){	$people_code = "non_referrer";	$people_copy = "non referrer";}
 							if($row['referrer'] != 'yes'){	$people_code = "referrer";		$people_copy = "referrer";}}
 $code = ''; $copy = '';
-if(check_folders_two_deep('business',	'products'		)){	$code = 'services';				$copy = 'service';}
-if(check_folders_two_deep('network',	'businesses'	)){	$code = ''; 					$copy = '';}
-if(check_folders_two_deep('network',	'groups'		)){	$code = 'businesses';			$copy = 'business';}
-if(check_folders_two_deep('network',	'people'		)){	$code = $people_code; 			$copy = $people_copy;}	
-if(check_folders_two_deep('biz_dev',	'referrers'		)){ $code = $people_code; 			$copy = $people_copy;}		
-if(check_folders_two_deep('management',	'staff'			)){	$code = $people_code; 			$copy = $people_copy;}		
-if(check_folders_two_deep('management',	'clients'		)){ $code = $people_code; 			$copy = $people_copy;}		
-if(check_folders_two_deep('wheelhouse',	'dreams'		)){	$code = 'goals';				$copy = 'goal';}
-if(check_folders_two_deep('wheelhouse',	'goals'			)){	$code = 'milestones';			$copy = 'milestone';}
-if(check_folders_two_deep('wheelhouse',	'milestones'	)){	$code = 'tasks';				$copy = 'task';}
-if(check_folders_two_deep('wheelhouse',	'tasks'			)){	$code = 'homework';				$copy = 'homework';}	
-if(check_primary_folder('activities'					)){	$code = ''; 					$copy = '';}									
-if(check_folders_two_deep('issues',	'important'			)){	$code = 'critical';				$copy = 'critical';}
-if(check_folders_two_deep('issues',	'other'				)){	$code = 'important';			$copy = 'important';}				
-if(check_folders_two_deep('sales',	'potential_upsells'	)){	$code = 'new_potentials';		$copy = 'new potential';}
-if(check_folders_two_deep('sales',	'recurring_sales'	)){	$code = 'potential_upsells';	$copy = 'potential upsell';}	
-if(check_folders_two_deep('upgrades',	'completed'		)){	$code = 'underway';				$copy = 'underway';}
-if(check_folders_two_deep('upgrades',	'underway'		)){	$code = 'planned';				$copy = 'planned';}
+if(check_folders_two_deep('business',	'products'			)){	$code = 'services';				$copy = 'service';}
+if(check_folders_two_deep('network',	'businesses'		)){	$code = ''; 					$copy = '';}
+if(check_folders_two_deep('network',	'groups'			)){	$code = 'businesses';			$copy = 'business';}
+if(check_folders_two_deep('network',	'people'			)){	$code = $people_code; 			$copy = $people_copy;}	
+if(check_folders_two_deep('biz_dev',	'referrers'			)){ $code = $people_code; 			$copy = $people_copy;}		
+if(check_folders_two_deep('management',	'staff'				)){	$code = $people_code; 			$copy = $people_copy;}		
+if(check_folders_two_deep('management',	'clients'			)){ $code = $people_code; 			$copy = $people_copy;}		
+if(check_folders_two_deep('wheelhouse',	'dreams'			)){	$code = 'goals';				$copy = 'goal';}
+if(check_folders_two_deep('wheelhouse',	'goals'				)){	$code = 'milestones';			$copy = 'milestone';}
+if(check_folders_two_deep('wheelhouse',	'milestones'		)){	$code = 'tasks';				$copy = 'task';}
+if(check_folders_two_deep('wheelhouse',	'tasks'				)){	$code = 'homework';				$copy = 'homework';}	
+if(check_primary_folder(  'activities'						)){	$code = ''; 					$copy = '';}									
+if(check_folders_two_deep('issues',		'important'			)){	$code = 'critical';				$copy = 'critical';}
+if(check_folders_two_deep('issues',		'other'				)){	$code = 'important';			$copy = 'important';}				
+if(check_folders_two_deep('sales',		'potential_upsells'	)){	$code = 'new_potentials';		$copy = 'new potential';}
+if(check_folders_two_deep('sales',		'recurring_sales'	)){	$code = 'potential_upsells';	$copy = 'potential upsell';}	
+if(check_folders_two_deep('upgrades',	'completed'			)){	$code = 'underway';				$copy = 'underway';}
+if(check_folders_two_deep('upgrades',	'underway'			)){	$code = 'planned';				$copy = 'planned';}
 
 
 if($copy != ''){$bottom_right = item_link_creation($database, $code, 'on', $copy);}
 else{$bottom_right = 'empty';}
 
 //TOP LEFT
-if($row['deleted'] != 'yes'){	$code = "deleted"; 	$copy = "delete";}
+if($row['deleted'] != 'yes'){	$code = "deleted"; 		$copy = "delete";}
 if($row['deleted'] == 'yes'){	$code = "undeleted";	$copy = "undelete";}
 $top_left = item_link_creation($database, $code, 'off', $copy);
 
@@ -127,7 +128,9 @@ echo "<div class='standard_box' style='  ";
 	echo "<div class='top-left'>".$top_left."</div>";	
 	echo "<div class='top-right'>".$top_right."</div>";
 	if($bottom_right != 'empty'){echo "<div class='bottom-right'>".$bottom_right."</div>";}
-	echo "<div class='centered' style='color:".$text[$color_combo]."'>";
+	echo "<div class='centered' style='";
+		//color:".$text[$color_combo]." //this used to go here - if it does it's got something to do with notifications but may be deprecated now
+		echo "'>";
 		//this also includes homework stars if you're looking for them
 		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/pieces/box/item_title_display.php";
 	echo "</div>";
@@ -137,7 +140,8 @@ echo "<div class='standard_box' style='  ";
 		if($code != 'client'){echo "left:41%;";}else{echo "left:43%;";}//just to try and fudge centeredness as much as possible
 		echo "'>".$bottom_middle."</div>";	
 	}
-	echo $row['prompt'];
+	//echo $row['prompt']; //pretty sure this is also redundant when it comes to this sort of thing
+	//pretty sure it was just used when venting etc etc
 echo "</div>";	
 
 

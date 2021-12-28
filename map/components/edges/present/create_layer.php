@@ -138,21 +138,21 @@ $style_string       .= "    font-family: Barlow Semi Condensed;
     //now finally all that we need to do here is build the "title string"
 
     if($_SESSION['map_edge_color'] == 'non_descript'){	                        $color_title_string = "";                                       $color_unit_string = "";}
-    if($_SESSION['map_edge_color'] == 'users_time'){		                    $color_title_string = "User&#x27;s time: ";                          $color_unit_string = " hours";}
-    if($_SESSION['map_edge_color'] == 'financial'){		                    $color_title_string = "User&#x27;s perspective financial: $ ";       $color_unit_string = "";}
+    if($_SESSION['map_edge_color'] == 'users_time'){		                    $color_title_string = "User&#x27;s time: ";                     $color_unit_string = " hours";}
+    if($_SESSION['map_edge_color'] == 'financial'){		                        $color_title_string = "User&#x27;s perspective financial: $ ";  $color_unit_string = "";}
     if($_SESSION['map_edge_color'] == 'productivity'){	                        $color_title_string = "Productivity: $ ";                       $color_unit_string = " / hr";}
     if($_SESSION['map_edge_color'] == 'productivity_improvement_potential'){	$color_title_string = "Productivity improvement potential: ";	$color_unit_string = "%";}
-    if($_SESSION['map_edge_color'] == 'communication'){	                    $color_title_string = "Total communication quality: ";          $color_unit_string = " /10";}
-    if($_SESSION['map_edge_color'] == 'trust'){			                    $color_title_string = "Trust: ";	                            $color_unit_string = " /10";}
+    if($_SESSION['map_edge_color'] == 'communication'){	                        $color_title_string = "Total communication quality: ";          $color_unit_string = " /10";}
+    if($_SESSION['map_edge_color'] == 'trust'){			                        $color_title_string = "Trust: ";	                            $color_unit_string = " /10";}
     if($_SESSION['map_edge_color'] == 'quality'){			                    $color_title_string = "Quality: ";	                            $color_unit_string = " /10";}	
-    if($_SESSION['map_edge_color'] == 'kpi_1'){			                    $color_title_string = "".$kpi_1_title.": ";	                    $color_unit_string = "";}
-    if($_SESSION['map_edge_color'] == 'kpi_2'){			                    $color_title_string = "".$kpi_2_title.": ";	                    $color_unit_string = "";}
-    if($_SESSION['map_edge_color'] == 'kpi_3'){			                    $color_title_string = "".$kpi_3_title.": ";	                    $color_unit_string = "";}
-    if($_SESSION['map_edge_color'] == 'kpi_4'){			                    $color_title_string = "".$kpi_4_title.": ";                     $color_unit_string = "";}
+    if($_SESSION['map_edge_color'] == 'kpi_1'){			                        $color_title_string = "".$kpi_1_title.": ";	                    $color_unit_string = "";}
+    if($_SESSION['map_edge_color'] == 'kpi_2'){			                        $color_title_string = "".$kpi_2_title.": ";	                    $color_unit_string = "";}
+    if($_SESSION['map_edge_color'] == 'kpi_3'){			                        $color_title_string = "".$kpi_3_title.": ";	                    $color_unit_string = "";}
+    if($_SESSION['map_edge_color'] == 'kpi_4'){			                        $color_title_string = "".$kpi_4_title.": ";                     $color_unit_string = "";}
 
     if($_SESSION['map_edge_thickness'] == 'non_descript'){	                        $thickness_title_string = "";                                       $thickness_unit_string = "";}
-    if($_SESSION['map_edge_thickness'] == 'users_time'){		                    $thickness_title_string = "User&#x27;s time: ";                          $thickness_unit_string = " hours";}
-    if($_SESSION['map_edge_thickness'] == 'financial'){		                        $thickness_title_string = "User&#x27;s perspective financial: $ ";       $thickness_unit_string = "";}
+    if($_SESSION['map_edge_thickness'] == 'users_time'){		                    $thickness_title_string = "User&#x27;s time: ";                     $thickness_unit_string = " hours";}
+    if($_SESSION['map_edge_thickness'] == 'financial'){		                        $thickness_title_string = "User&#x27;s perspective financial: $ ";  $thickness_unit_string = "";}
     if($_SESSION['map_edge_thickness'] == 'productivity'){	                        $thickness_title_string = "Productivity: $ ";                       $thickness_unit_string = " / hr";}
     if($_SESSION['map_edge_thickness'] == 'productivity_improvement_potential'){	$thickness_title_string = "Productivity improvement potential: ";	$thickness_unit_string = "%";}
     if($_SESSION['map_edge_thickness'] == 'communication'){	                        $thickness_title_string = "Total communication quality: ";          $thickness_unit_string = " /10";}
@@ -203,5 +203,9 @@ $style_string       .= "    font-family: Barlow Semi Condensed;
                     >
         </div>
     </a>"; 
+
+
+
+    require $_SERVER['DOCUMENT_ROOT']."/map/components/edges/present/produce_chart.php";
 
 }

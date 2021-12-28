@@ -30,8 +30,7 @@ echo "
 
         // workflow max is a separate system honestly so that should be separated out honestly
 
-
-        require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/redirect_uri.php";                                   
+        require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/oauth/redirect_uri.php";                                   
 
 
 

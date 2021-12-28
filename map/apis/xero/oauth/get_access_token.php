@@ -7,10 +7,13 @@ if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $sql = "SELECT * FROM api_xero_refresh_tokens
-        WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
+        WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 
         ORDER BY entry_id
         DESC LIMIT 1";
+
+//echo $sql;exit();
+
 $result = mysqli_query($conn, $sql);     
 
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -50,9 +53,9 @@ if($debug == 'on'){
     $return_token = json_decode($server_output, true);
 
 
-    $debug = 'off';
+    $debug = 'on';
     if($debug == 'on'){
-    echo "RETURN TOKEN";
+    echo "RETURN KEY";
     echo '<pre>' , var_dump($return_token) , '</pre>';
     }
 
