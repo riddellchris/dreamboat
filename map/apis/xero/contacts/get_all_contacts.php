@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/get_tenant_user_ids_from_db.php";
+require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/tenants/get_tenant_user_ids_from_db.php";
 
 //for each in that array
 for($j = 0; $j < $tenant_user_id_count; $j++){

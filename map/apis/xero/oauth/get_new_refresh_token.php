@@ -20,7 +20,7 @@ $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
     $_SESSION['user_id'] = $row['user_id'];
-    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/get_access_token.php";
+    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/oauth/get_access_token.php";
 
 }
 

@@ -1,30 +1,83 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+//the point of this is to ensure that if "logged in" the correct user Id is used,
+//BUT 
+//if not logged in then nothing else happens and we just use $_SESSION['user_id'] which is changed according to what is required in other files
+if( isset($_SESSION['viewing_client_id']) && 
+    isset($_SESSION['user_id'])){
+    $user_id_for_request = $_SESSION['viewing_client_id'];}
+else{
+    if(isset($_SESSION['user_id'])){
+        $user_id_for_request = $_SESSION['user_id'];
+    }
+    else{
+        //just for testing
+        $_SESSION['user_id'] = 1;
+        $user_id_for_request = $_SESSION['user_id'];
+    }
+}
+
+
 //TO DO: 
 //Build this optimisation such that we aren't calling for a new token every time.
 //if the current access token is more than 30 minutes old then you should get a new access token.
-
+//first then we must test the last time for the most recent access code
+//this is as simple as 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM api_xero_refresh_tokens
-        WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
-
-        ORDER BY entry_id
+$sql = "SELECT * FROM api_xero_return_keys
+        WHERE user_id = '".mysqli_real_escape_string($conn, $user_id_for_request)."'
+        ORDER BY id
         DESC LIMIT 1";
-
 //echo $sql;exit();
-
 $result = mysqli_query($conn, $sql);     
-
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-$refresh_token = $row['refresh_token'];
+
+echo $row['timestamp_entered'];
+echo "<br>";
+echo strtotime($row['timestamp_entered']);
+echo "<br>";
+echo date('U');
+$time_difference = date('U') - strtotime($row['timestamp_entered']);
+echo "<br>";
+echo $time_difference." seconds";
+if($time_difference > 29 * 60){$use_current_token = 'no';}
+else{$use_current_token = 'yes';}
 
 
-$debug = 'off';
-if($debug == 'on'){
-    echo $row['entry_id']."_".$refresh_token;
-    exit();
+if($use_current_token == 'yes'){
+
+    $access_token = $row['access_token'];
+
+
 }
+else{
+
+
+
+
+
+
+   // require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+    $sql = "SELECT * FROM api_xero_refresh_tokens
+            WHERE user_id = '".mysqli_real_escape_string($conn, $user_id_for_request)."'
+
+            ORDER BY entry_id
+            DESC LIMIT 1";
+
+    //echo $sql;exit();
+
+    $result = mysqli_query($conn, $sql);     
+
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $refresh_token = $row['refresh_token'];
+
+
+    $debug = 'off';
+    if($debug == 'on'){
+        echo $row['entry_id']."_".$refresh_token;
+        exit();
+    }
 
     require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/apis/xero/application_details/client_id.php";
     require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/apis/xero/application_details/secret.php";
@@ -65,3 +118,4 @@ if($debug == 'on'){
 
     $access_token = $return_token['access_token'];
 
+}

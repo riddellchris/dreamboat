@@ -8,6 +8,8 @@ $tenant_user_id_count
 */
 
 
+
+
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
 // this is to control some etting
@@ -16,6 +18,9 @@ mysqli_query($conn, $sql);
 
 $sql = "SELECT * FROM api_xero_tenant_details GROUP BY user_id";
 $result_for_tenants = mysqli_query($conn, $sql);
+
+//echo $sql;exit();
+
 
 $i = 0;
 $tenant_user_id_count = 0;
@@ -26,4 +31,18 @@ while($row_for_tenants = mysqli_fetch_array($result_for_tenants, MYSQLI_ASSOC)){
     $tenant_xero_id[$i] = $row_for_tenants['tenantId'];    //this does make the assumption that there is only one tenant - as per "check_tenants.php" this is a TODO item and needs adjustment in time for sure
     $tenant_user_id_count ++;
 
+
+    $debug = 'on';
+    if($debug == 'on'){
+    echo "user_id = ".$tenant_user_id[$i];
+    echo "<br>";
+    echo "tenant_id = ".$tenant_xero_id[$i];
+
+    }
+
+}
+
+$debug = 'off';
+if($debug == 'on'){
+    echo '<pre>' , var_dump($tenant_user_id) , '</pre>';
 }
