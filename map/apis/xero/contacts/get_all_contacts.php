@@ -10,7 +10,7 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
     $_SESSION['user_id']    = $tenant_user_id[$j];
     $tenant_id              = $tenant_xero_id[$j];
 
-    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/get_access_token.php";
+    require $_SERVER['DOCUMENT_ROOT']."/map/apis/xero/oauth/get_access_token.php";
 
     //this process is ordered to match the layout of https://api-explorer.xero.com/
     $ch = curl_init();
