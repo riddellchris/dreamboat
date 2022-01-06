@@ -4,6 +4,9 @@ $current_version = "1.5";
 require dirname(__FILE__)."/".basename(__FILE__, ".php")."/".$current_version.".php";
 
 /*
+1.7 Data update from 1.5
+
+
 1.6 
 no trendlines just to do "my homework"
 

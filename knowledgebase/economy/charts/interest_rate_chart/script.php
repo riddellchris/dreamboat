@@ -10,6 +10,14 @@
         data.addColumn('number',   'Critical_date_1');
         data.addRows([
 
+
+
+[new Date(2021,  12	,8),	0.1,		null], 
+[new Date(2021,  11	,3),	0.1,		null], 
+[new Date(2021,  10	,6),	0.1,		null], 
+[new Date(2021,  9	,8),	0.1,		null], 
+[new Date(2021,  8	,4),	0.1,		null], 
+[new Date(2021,  7	,7),	0.1,		null], 
 [new Date(2021,  6	,2),	0.1,		null], 
 [new Date(2021,  5	,5),	0.1,		null], 
 [new Date(2021,  4	,7),	0.1,		null], 

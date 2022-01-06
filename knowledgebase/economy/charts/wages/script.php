@@ -11,7 +11,7 @@
         data.addColumn({type: 'string', role: 'style'});
         data.addRows([
 
-[new Date(1998,9,1),3.1,1.3,null],
+          [new Date(1998,9,1),3.1,1.3,null],
 [new Date(1998,12,1),3.3,1.4,null],
 [new Date(1999,3,1),3.1,1.1,null],
 [new Date(1999,6,1),3.1,0.9,null],
