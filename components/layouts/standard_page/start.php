@@ -10,7 +10,9 @@ if($_SERVER['SERVER_PORT'] == 8888){
 if(!isset($_SESSION)){session_start();}
 
 
-if(!isset($_SESSION['logged_in'])){$_SESSION['logged_in'] = 'no';}
+if(!isset($_SESSION['logged_in'])){				$_SESSION['logged_in'] = 'no';}
+if(!isset($_SESSION['dreamboat_crew'])){		$_SESSION['dreamboat_crew'] = 'no';}
+if(!isset($_SESSION['dreamboat_developer'])){	$_SESSION['dreamboat_developer'] = 'no';}
 
 
 //development assessments

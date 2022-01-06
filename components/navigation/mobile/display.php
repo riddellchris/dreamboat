@@ -57,13 +57,14 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 	check_url('/contact_us/') != 1){
 	
 	
-	
-		if($_SESSION['dreamboat_crew'] == 'yes'){
-			require_file("/components/navigation/mobile/components/users.php");				
-			require_file("/components/navigation/mobile/components/notes.php");
-		//This really must be turned off until we are ready.
-		//This will require far more cash to completely put together and achieve
-		
+		if(isset($_SESSION['dreamboat_crew'])){    	
+			if($_SESSION['dreamboat_crew'] == 'yes'){
+				require_file("/components/navigation/mobile/components/users.php");				
+				require_file("/components/navigation/mobile/components/notes.php");
+			//This really must be turned off until we are ready.
+			//This will require far more cash to completely put together and achieve
+			
+			}
 		}
 		
 		require_file("/components/navigation/mobile/components/map.php");			

@@ -22,12 +22,15 @@ function myFunction() {
     
 
 <?php
-if($_SESSION['dreamboat_crew']== 'yes'){    
-    //this line of code pushes all the accordians down if you open up the mobile menu
-echo "
-	hide_all_accordian_details();
-   ";
+if(isset($_SESSION['dreamboat_crew'])){    
+    if($_SESSION['dreamboat_crew']== 'yes'){    
+        //this line of code pushes all the accordians down if you open up the mobile menu
+    echo "
+        hide_all_accordian_details();
+    ";
+        }
     }
+
 ?>
     
    // x.scrollTop = 0; // For Safari
