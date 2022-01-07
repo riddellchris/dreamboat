@@ -30,6 +30,7 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
 
     $debug = 'on';
     if($debug == 'on'){
+        echo "<br>";
         echo "NUMBER OF CONTACTS<BR>";
         echo $number_of_contacts = count($response['Contacts']);
         echo "<br>";

@@ -29,7 +29,7 @@ for($j = 0; $j < count($tenant_user_id); $j++){
 
     $number_of_invoices = count($response['Invoices']);
 
-    $debug = 'off';
+    $debug = 'on';
     if($debug == 'on'){
         echo "NUMBER OF INVOICES<BR>".$number_of_invoices;
         echo "<br>";

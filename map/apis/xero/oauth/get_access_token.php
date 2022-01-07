@@ -33,12 +33,20 @@ $sql = "SELECT * FROM api_xero_return_keys
 $result = mysqli_query($conn, $sql);     
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
+
+echo "<br>Return KEY entered into db (according to the db)<BR>";
 echo $row['timestamp_entered'];
 echo "<br>";
 echo strtotime($row['timestamp_entered']);
-echo "<br>";
+echo "<br>Unix time time according to ";
 echo date('U');
+
+//if port :888 th
 $time_difference = date('U') - strtotime($row['timestamp_entered']);
+
+if($_SERVER['SERVER_PORT'] != '8888'){
+    $time_difference = $time_difference + 60*60*10;
+}
 echo "<br>";
 echo $time_difference." seconds";
 if($time_difference > 29 * 60){$use_current_token = 'no';}
