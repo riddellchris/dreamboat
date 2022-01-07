@@ -1,6 +1,10 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+
+date_default_timezone_set('Australia/Melbourne');
+
+
 //the point of this is to ensure that if "logged in" the correct user Id is used,
 //BUT 
 //if not logged in then nothing else happens and we just use $_SESSION['user_id'] which is changed according to what is required in other files
@@ -45,9 +49,11 @@ echo "<br>Client string time: &nbsp;&nbsp;";echo date('Y-m-d H:i:s');
 //if port :888 th
 $time_difference = date('U') - strtotime($row['timestamp_entered']);
 
+/*
 if($_SERVER['SERVER_PORT'] != '8888'){
     $time_difference = $time_difference + 60*60*10;
 }
+*/
 echo "<br>";
 echo $time_difference." seconds";
 if(abs($time_difference) > 29 * 60){$use_current_token = 'no';}
