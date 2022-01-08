@@ -9,9 +9,9 @@ $sql = "SELECT * FROM tracking_kpi_settings
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-if($row['kpi_1_title'] != ''){$kpi_1_title = "KPI #1 ".$row['kpi_1_title'];}else{$kpi_1_title = 'KPI #1';}
-if($row['kpi_2_title'] != ''){$kpi_2_title = "KPI #2 ".$row['kpi_2_title'];}else{$kpi_2_title = 'KPI #2';}
-if($row['kpi_3_title'] != ''){$kpi_3_title = "KPI #3 ".$row['kpi_3_title'];}else{$kpi_3_title = 'KPI #3';}
-if($row['kpi_4_title'] != ''){$kpi_4_title = "KPI #4 ".$row['kpi_4_title'];}else{$kpi_4_title = 'KPI #4';}
+if(isset($row['kpi_1_title'])){if($row['kpi_1_title'] != ''){$kpi_1_title = "KPI #1 ".$row['kpi_1_title'];}else{$kpi_1_title = 'KPI #1';}}
+if(isset($row['kpi_1_title'])){if($row['kpi_2_title'] != ''){$kpi_2_title = "KPI #2 ".$row['kpi_2_title'];}else{$kpi_2_title = 'KPI #2';}}
+if(isset($row['kpi_1_title'])){if($row['kpi_3_title'] != ''){$kpi_3_title = "KPI #3 ".$row['kpi_3_title'];}else{$kpi_3_title = 'KPI #3';}}
+if(isset($row['kpi_1_title'])){if($row['kpi_4_title'] != ''){$kpi_4_title = "KPI #4 ".$row['kpi_4_title'];}else{$kpi_4_title = 'KPI #4';}}
 
 ?>

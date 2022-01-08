@@ -126,10 +126,10 @@ echo "
 require $_SERVER['DOCUMENT_ROOT']."/components/styling/load_required.php";
 
 $checked_background = 'no';
-if(isset($_SESSION['display_map_diagnostics'])){
-	if($_SESSION['display_map_diagnostics'] == 'off' && $_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'personal'){$checked_background = 'yes';}
-	if($_SESSION['display_map_diagnostics'] == 'off' && $_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'business'){$checked_background = 'yes';}
-	if($_SESSION['display_map_diagnostics'] == 'off' && $_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'economy'){$checked_background = 'yes';}
+if(isset($_SESSION['display_map_diagnostics']) && isset($_GET['tertiary_folder'])){
+	if($_SESSION['display_map_diagnostics'] == 'off' && $_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'personal' && $_GET['tertiary_folder'] == 'main_view'){	$checked_background = 'yes';}
+	if($_SESSION['display_map_diagnostics'] == 'off' && $_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'business' && $_GET['tertiary_folder'] == 'main_view'){	$checked_background = 'yes';}
+	if($_SESSION['display_map_diagnostics'] == 'off' && $_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'economy'){	$checked_background = 'yes';}
 }
 
 

@@ -5,7 +5,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/defaults.php";
 
 unset($top_sub_menu_options);
 unset($top_sub_sub_menu_options);
-if(!isset($top_sub_menu_options)){	$top_sub_menu_options = array();}
+if(!isset($top_sub_menu_options)){		$top_sub_menu_options = array();}
 if(!isset($top_sub_sub_menu_options)){	$top_sub_sub_menu_options = array();}
 
 
@@ -51,8 +51,8 @@ if(check_primary_folder('impact')){	$top_sub_menu_options = add_top_sub_menu_opt
 
 
 if(check_primary_folder('processes')){	$top_sub_menu_options = add_top_sub_menu_option('individual'	,$top_sub_menu_options);	
-					$top_sub_menu_options = add_top_sub_menu_option('businesses'						,$top_sub_menu_options);	
-					$top_sub_menu_options = add_top_sub_menu_option('economic'							,$top_sub_menu_options);	
+										$top_sub_menu_options = add_top_sub_menu_option('businesses'	,$top_sub_menu_options);	
+										$top_sub_menu_options = add_top_sub_menu_option('economic'		,$top_sub_menu_options);	
 																	}
 if(check_primary_folder('contact_us')){	$top_sub_menu_options = add_top_sub_menu_option('display_no_menu'	,$top_sub_menu_options);	}
 	
@@ -89,54 +89,63 @@ if(check_primary_folder('interrogation')){
 
 if(check_primary_folder('map')){
 
-		$top_sub_menu_options = add_top_sub_menu_option('apis'	,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('apis'		,$top_sub_menu_options);
+	//if(check_secondary_folder('apis')){
+	//	if($_SESSION['dreamboat_crew'] == 'yes'){
+	//	$top_sub_sub_menu_options = add_top_sub_sub_menu_option('test_sub_menu'		,$top_sub_sub_menu_options);		
+	//	}
+	//}
+	//if(check_secondary_folder('economy')){
+	//	$top_sub_sub_menu_options = add_top_sub_sub_menu_option('main_view'		,$top_sub_sub_menu_options);		
 
-	
-												$top_sub_menu_options = add_top_sub_menu_option('personal'	,$top_sub_menu_options);
-	
+	//}
+	//echo $_SESSION['dreamboat_crew'];exit();
+
+	$top_sub_menu_options = add_top_sub_menu_option('personal'	,$top_sub_menu_options);
+	if(check_secondary_folder('personal')){
+		if($_SESSION['dreamboat_crew'] == 'yes'){
+			$top_sub_sub_menu_options = add_top_sub_sub_menu_option('main_view'			,$top_sub_sub_menu_options);			
+			$top_sub_sub_menu_options = add_top_sub_sub_menu_option('matching'			,$top_sub_sub_menu_options);
+			$top_sub_sub_menu_options = add_top_sub_sub_menu_option('interplay'			,$top_sub_sub_menu_options);
+			$top_sub_sub_menu_options = add_top_sub_sub_menu_option('valuation'			,$top_sub_sub_menu_options);
+		}
+	}
+
 	//leave this here // in time this can happen but privacy concerns need to be workedout
 	//	if($_SESSION['viewing_client_network_access_yes_no'] == 'yes'){	
-			if($_SESSION['dreamboat_crew'] == 'yes'){
-				$top_sub_menu_options = add_top_sub_menu_option('business'					,$top_sub_menu_options);
-				if(	$_GET['secondary_folder'] == 'business' OR
-					$_GET['secondary_folder'] == 'grouping'  OR
-					$_GET['secondary_folder'] == 'permissions' 
+	if($_SESSION['dreamboat_crew'] == 'yes'){
+		$top_sub_menu_options = add_top_sub_menu_option('business'					,$top_sub_menu_options);
+		if(check_secondary_folder('business')){
+				$top_sub_sub_menu_options = add_top_sub_sub_menu_option('main_view'		,$top_sub_sub_menu_options);		
+				$top_sub_sub_menu_options = add_top_sub_sub_menu_option('grouping'		,$top_sub_sub_menu_options);
+				$top_sub_sub_menu_options = add_top_sub_sub_menu_option('matching'		,$top_sub_sub_menu_options);
+				$top_sub_sub_menu_options = add_top_sub_sub_menu_option('interplay'		,$top_sub_sub_menu_options);
+				$top_sub_sub_menu_options = add_top_sub_sub_menu_option('valuation'		,$top_sub_sub_menu_options);
+				$top_sub_sub_menu_options = add_top_sub_sub_menu_option('permissions'	,$top_sub_sub_menu_options);
+		}
+	}
+	//	}
+		
 					
-					){
-						$top_sub_menu_options = add_top_sub_menu_option('grouping'	,$top_sub_menu_options);
-						$top_sub_menu_options = add_top_sub_menu_option('permissions'	,$top_sub_menu_options);
-					}
-				
-				}
-			//	}
-			
-					
-	if($_SESSION['dreamboat_crew'] == 'yes'){$top_sub_menu_options = add_top_sub_menu_option('economy'	,$top_sub_menu_options);}		
+	if($_SESSION['dreamboat_crew'] == 'yes'){
+		$top_sub_menu_options = add_top_sub_menu_option('economy'	,$top_sub_menu_options);
+	}		
 
 	//hidden unless 
 	//this is because it's only to be added to as we go - use new tab where possible
 	if($_GET['secondary_folder'] == 'edges'){		
 		$top_sub_menu_options = add_top_sub_menu_option('edges'			,$top_sub_menu_options);				
 	}
-	
-	//CR 21.03.02
-	//Don't delete this just yet - this should be used in time i think... probably as a sub-layer of edges
-	//$top_sub_menu_options = add_top_sub_menu_option('links'			,$top_sub_menu_options);
-	if($_SESSION['dreamboat_crew'] == 'yes'){	$top_sub_menu_options = add_top_sub_menu_option('matching'			,$top_sub_menu_options);}
-		//ideally will value nodes & even the entire system but not yet... not yet
-		//	$top_sub_menu_options = add_top_sub_menu_option('valuation'	,$top_sub_menu_options); 		
-	if($_SESSION['dreamboat_crew'] == 'yes'){	$top_sub_menu_options = add_top_sub_menu_option('interplay'			,$top_sub_menu_options);}
-	if($_SESSION['dreamboat_crew'] == 'yes'){	$top_sub_menu_options = add_top_sub_menu_option('valuation'			,$top_sub_menu_options);}
-	}
+}
 
 
 
 if(check_primary_folder('notes')){
-	$top_sub_menu_options = add_top_sub_menu_option('pilot_notes'				,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('pilot_notes'							,$top_sub_menu_options);
 	if(check_secondary_folder('pilot_notes')){
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('for_the_phone'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('for_the_phone'				,$top_sub_sub_menu_options);
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('for_sales_and_meetings'	,$top_sub_sub_menu_options);
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('for_printing'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('for_printing'				,$top_sub_sub_menu_options);
 
 	}	
 	$top_sub_menu_options = add_top_sub_menu_option('all_discussion_history'	,$top_sub_menu_options);

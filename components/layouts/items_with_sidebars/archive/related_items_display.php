@@ -145,7 +145,7 @@ else{
 
 
 
-echo "<form action='/components/items/connect.php?primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."&tertiary_folder=".$_SESSION['tertiary_folder']."&quarternary_folder=".$_SESSION['quarternary_folder']."&item_id=".$_GET['item_id']."' method='post'>";
+echo "<form action='/components/items/connect.php?primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."&tertiary_folder=".$_GET['tertiary_folder']."&quarternary_folder=".$_GET['quarternary_folder']."&item_id=".$_GET['item_id']."' method='post'>";
 	echo "<select name ='connect_or_new' class='prompt-font ";
 	if(	$show_this_type == 'dreams'	OR
 		$show_this_type == 'goals'	OR

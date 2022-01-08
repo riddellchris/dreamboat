@@ -8,26 +8,27 @@ require_once $_SERVER['DOCUMENT_ROOT']."/components/functions/strip_underscores.
 $item_type = ucfirst(strip_underscores($secondary));		
 		
 //network		
-	if($primary == 'network' && $secondary == 'groups'){$active_title = "'Total Active ".$item_type."'"; 		$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}
-	if($primary == 'network' && $secondary == 'people'){$active_title = "'Total Active ".$item_type."'"; 		$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}
-	if($primary == 'network' && $secondary == 'businesses'){$active_title = "'Total Active ".$item_type."'"; 	$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}
+	if($primary == 'network' && $secondary == 'groups'){			$active_title = "'Total Active ".$item_type."'"; 		$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}
+	if($primary == 'network' && $secondary == 'people'){			$active_title = "'Total Active ".$item_type."'"; 		$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}
+	if($primary == 'network' && $secondary == 'businesses'){		$active_title = "'Total Active ".$item_type."'"; 		$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}
 	
 //biz_dev		
-	if($primary == 'biz_dev' && $secondary == 'events'){		$active_title = "'Currently Planned ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 		$closed_title = "'".$item_type." ATTENDED'";}
-	if($primary == 'biz_dev' && $secondary == 'one_to_ones'){	$active_title = "'Currently Planned ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 		$closed_title = "'".$item_type." HAD'";}
-	if($primary == 'biz_dev' && $secondary == 'referrers'){		$active_title = "'Total Active ".$item_type."'"; 	$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}	
+	if($primary == 'biz_dev' && $secondary == 'events'){			$active_title = "'Currently Planned ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 			$closed_title = "'".$item_type." ATTENDED'";}
+	if($primary == 'biz_dev' && $secondary == 'one_to_ones'){		$active_title = "'Currently Planned ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 			$closed_title = "'".$item_type." HAD'";}
+	if($primary == 'biz_dev' && $secondary == 'referrers'){			$active_title = "'Total Active ".$item_type."'"; 		$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}	
 	
 //SALES		
-	if($primary == 'sales' && $secondary == 'new_potentials'){	$active_title = "'Currently Active ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 		$closed_title = "'".$item_type." CLOSED'";}
-	if($primary == 'sales' && $secondary == 'potential_upsells'){	$active_title = "'Currently Active ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 		$closed_title = "'".$item_type." CLOSED'";}
-	if($primary == 'sales' && $secondary == 'recurring_sales'){	$active_title = "'Total Active ".$item_type."'"; 	$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}		
+	if($primary == 'sales' && $secondary == 'new_potentials'){		$active_title = "'Currently Active ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 			$closed_title = "'".$item_type." CLOSED'";}
+	if($primary == 'sales' && $secondary == 'potential_upsells'){	$active_title = "'Currently Active ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 			$closed_title = "'".$item_type." CLOSED'";}
+	if($primary == 'sales' && $secondary == 'recurring_sales'){		$active_title = "'Total Active ".$item_type."'"; 		$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}		
 	
 //SALES		
-	if($primary == 'management' && $secondary == 'clients'){	$active_title = "'Currently Active ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 		$closed_title = "'".$item_type." LOST'";}
+	if($primary == 'management' && $secondary == 'clients'){		$active_title = "'Currently Active ".$item_type."'"; 	$new_title = "'".$item_type." ADDED'"; 			$closed_title = "'".$item_type." LOST'";}
 			
 	
-	
-	
+//not sure if this is perfect
+if(!isset($using_for_data_tables)){$using_for_data_tables = 'no';}
+
 if($using_for_data_tables != 'yes'){
 
 //new... events /// events planned this week not just new          
@@ -45,7 +46,7 @@ if($using_for_data_tables != 'yes'){
  
 //this little bit is redundant now 22.06.20
 //it was just to make a chart for content... leave it for the minute but can probably be saved and go into archive somehow
-if($_SESSION['primary_folder'] == 'content'){
+if($_GET['primary_folder'] == 'content'){
 $user_to_view = 2;
 }
 else{

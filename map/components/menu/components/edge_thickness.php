@@ -14,8 +14,8 @@ echo "	<select name='map_edge_thickness' onchange='this.form.submit()'>";
 	echo "	<option value='communication'";	                        if($_SESSION['map_edge_thickness'] == 'communication'){	echo " selected ";}		echo ">THICKNESS: Total communication quality</option>";
 	echo "	<option value='trust'";			                        if($_SESSION['map_edge_thickness'] == 'trust'){			echo " selected ";}		echo ">THICKNESS: Trust</option>";	
 	echo "	<option value='quality'";			                    if($_SESSION['map_edge_thickness'] == 'quality'){		echo " selected ";}		echo ">THICKNESS: Quality</option>";		
-	echo "	<option value='kpi_1'";			                        if($_SESSION['map_edge_thickness'] == 'kpi_1'){			echo " selected ";}		echo ">THICKNESS: ".$kpi_1_title."</option>";	
-	echo "	<option value='kpi_2'";			                        if($_SESSION['map_edge_thickness'] == 'kpi_2'){			echo " selected ";}		echo ">THICKNESS: ".$kpi_2_title."</option>";	
-	echo "	<option value='kpi_3'";			                        if($_SESSION['map_edge_thickness'] == 'kpi_3'){			echo " selected ";}		echo ">THICKNESS: ".$kpi_3_title."</option>";	
-	echo "	<option value='kpi_4'";			                        if($_SESSION['map_edge_thickness'] == 'kpi_4'){			echo " selected ";}		echo ">THICKNESS: ".$kpi_4_title."</option>";
+	if(isset($kpi_1_title)){echo "	<option value='kpi_1'";			if($_SESSION['map_edge_thickness'] == 'kpi_1'){			echo " selected ";}		echo ">THICKNESS: ".$kpi_1_title."</option>";	}
+	if(isset($kpi_2_title)){echo "	<option value='kpi_2'";			if($_SESSION['map_edge_thickness'] == 'kpi_2'){			echo " selected ";}		echo ">THICKNESS: ".$kpi_2_title."</option>";	}
+	if(isset($kpi_3_title)){echo "	<option value='kpi_3'";			if($_SESSION['map_edge_thickness'] == 'kpi_3'){			echo " selected ";}		echo ">THICKNESS: ".$kpi_3_title."</option>";	}
+	if(isset($kpi_4_title)){echo "	<option value='kpi_4'";			if($_SESSION['map_edge_thickness'] == 'kpi_4'){			echo " selected ";}		echo ">THICKNESS: ".$kpi_4_title."</option>";	}
 echo "	</select>";

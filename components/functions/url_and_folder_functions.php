@@ -8,11 +8,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/defaults.php";
 function url_folder_get_string_creation(){
 	admin_functions_in_pages_usage(__FUNCTION__,__FILE__);
 	
-	if(primary_folders_name() 	!= ''){$string = "primary_folder=".primary_folders_name();}
+	if(primary_folders_name() 		!= ''){$string = "primary_folder=".primary_folders_name();}
 	if(secondary_folders_name() 	!= ''){$string .= "&secondary_folder=".secondary_folders_name();}
-	if(tertiary_folders_name() 	!= ''){$string .= "&tertiary_folder=".tertiary_folders_name();}
+	if(tertiary_folders_name() 		!= ''){$string .= "&tertiary_folder=".tertiary_folders_name();}
 	if(quarternary_folders_name() 	!= ''){$string .= "&quarternary_folder=".quarternary_folders_name();}	
-	if(item_id_from_url() 		!= ''){$string .= "&item_id=".item_id_from_url();}
+	if(item_id_from_url() 			!= ''){$string .= "&item_id=".item_id_from_url();}
 	return $string;
 }
 

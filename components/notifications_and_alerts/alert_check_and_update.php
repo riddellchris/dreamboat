@@ -10,6 +10,21 @@ require $_SERVER['DOCUMENT_ROOT']."/components/notifications_and_alerts/alert_re
 $_SESSION['user_alerts_notes'] 					= 'off';
 
 $_SESSION['user_alerts_map'] 					= 'off';
+	$_SESSION['user_alerts_map_apis'] 			= 'off';
+	$_SESSION['user_alerts_map_personal'] 			= 'off';
+		$_SESSION['user_alerts_map_personal_main_view']	= 'off';
+		$_SESSION['user_alerts_map_personal_matching']	= 'off';
+		$_SESSION['user_alerts_map_personal_interplay'] = 'off';
+		$_SESSION['user_alerts_map_personal_valuation'] = 'off';
+	$_SESSION['user_alerts_map_business'] 			= 'off';
+		$_SESSION['user_alerts_map_business_main_view']	= 'off';
+		$_SESSION['user_alerts_map_business_grouping']	= 'off';
+		$_SESSION['user_alerts_map_business_matching'] 	= 'off';
+		$_SESSION['user_alerts_map_business_interplay'] = 'off';
+		$_SESSION['user_alerts_map_business_valuation'] = 'off';
+		$_SESSION['user_alerts_map_business_permissions'] = 'off';
+	$_SESSION['user_alerts_map_economy'] 			= 'off';
+
 $_SESSION['user_alerts_insights'] 					= 'off';
 $_SESSION['user_alerts_profile'] 					= 'off';
 	$_SESSION['user_alerts_profile_settings'] 			= 'off';

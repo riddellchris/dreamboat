@@ -34,6 +34,18 @@ echo "
 
 }
 
+//CR 08/01/21
+//just for something that I can't quite figure out right now:
+	if($_GET['secondary_folder'] == 'personal' OR $_GET['secondary_folder'] == 'business'){
+		echo "
+		@media screen and (max-width: 769px)   {.sub_sub_menu_div{margin-top: 81px;}}
+		@media screen and (min-width: 769px)   {.sub_sub_menu_div{margin-top: 51px;}}
+		";
+	
+	}
+
+
+
 
 echo "
 @media screen and (max-width: 950px)  and (min-width: 600px)  {
@@ -62,9 +74,7 @@ echo "
 	padding-bottom: 6px;
 	color:white;
 	background-color:#2b1eba;
-	text-decoration:none;
-	
-	
+	text-decoration:none;	
 	}
 .sub_sub_menu_div:hover{
 	background-color:#ff2424;

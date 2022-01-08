@@ -40,7 +40,7 @@ for($i = 0; $i < $number_of_entries; $i ++){
         ]);
 
         var options = {
-          title: <?php echo "'".$title_if_desired."'";//if I want I can put some stuff in here?>,
+          title: <?php if(isset($title_if_desired)){echo "'".$title_if_desired."'";}//if I want I can put some stuff in here?>,
           curveType: 'function',
           crosshair: { trigger: 'both' },
           legend: { position: 'bottom' },

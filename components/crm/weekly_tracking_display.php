@@ -14,11 +14,12 @@ $user_to_view = $_SESSION['viewing_client_id'];
 
 
 $sql = "SELECT * FROM tracking_inputs_weekly WHERE user_id = '".$user_to_view."' ORDER BY entry_id;";
+//echo $sql;exit();
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) == 0){$no_data = 'yes';}
-
+else{$no_data = 'no';}
 
 if($no_data == 'yes'){
 	echo "<div  style='width: 100%; height: 400px;";

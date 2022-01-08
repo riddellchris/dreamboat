@@ -31,8 +31,8 @@ echo "	<select name='map_edge_color' onchange='this.form.submit()'>";
 	echo "	<option value='communication'";	                        if($_SESSION['map_edge_color'] == 'communication'){		echo " selected ";}		echo ">COLOR: Total communication quality</option>";
 	echo "	<option value='trust'";			                        if($_SESSION['map_edge_color'] == 'trust'){				echo " selected ";}		echo ">COLOR: Trust</option>";	
 	echo "	<option value='quality'";			                    if($_SESSION['map_edge_color'] == 'quality'){			echo " selected ";}		echo ">COLOR: Quality</option>";		
-	echo "	<option value='kpi_1'";			                        if($_SESSION['map_edge_color'] == 'kpi_1'){				echo " selected ";}		echo ">COLOR: ".$kpi_1_title."</option>";	
-	echo "	<option value='kpi_2'";			                        if($_SESSION['map_edge_color'] == 'kpi_2'){				echo " selected ";}		echo ">COLOR: ".$kpi_2_title."</option>";	
-	echo "	<option value='kpi_3'";			                        if($_SESSION['map_edge_color'] == 'kpi_3'){				echo " selected ";}		echo ">COLOR: ".$kpi_3_title."</option>";	
-	echo "	<option value='kpi_4'";			                        if($_SESSION['map_edge_color'] == 'kpi_4'){				echo " selected ";}		echo ">COLOR: ".$kpi_4_title."</option>";
+	if(isset($kpi_1_title)){echo "	<option value='kpi_1'";			                        if($_SESSION['map_edge_color'] == 'kpi_1'){				echo " selected ";}		echo ">COLOR: ".$kpi_1_title."</option>";	}
+	if(isset($kpi_2_title)){echo "	<option value='kpi_2'";			                        if($_SESSION['map_edge_color'] == 'kpi_2'){				echo " selected ";}		echo ">COLOR: ".$kpi_2_title."</option>";	}
+	if(isset($kpi_3_title)){echo "	<option value='kpi_3'";			                        if($_SESSION['map_edge_color'] == 'kpi_3'){				echo " selected ";}		echo ">COLOR: ".$kpi_3_title."</option>";	}
+	if(isset($kpi_4_title)){echo "	<option value='kpi_4'";			                        if($_SESSION['map_edge_color'] == 'kpi_4'){				echo " selected ";}		echo ">COLOR: ".$kpi_4_title."</option>";	}
 echo "	</select>";

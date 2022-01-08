@@ -26,6 +26,10 @@ if(!isset($_SESSION['interrogation_page'])){			$_SESSION['interrogation_page'] 	
 if(!isset($_SESSION['notes_page'])){					$_SESSION['notes_page'] 			= 'pilot_notes';}
 	if(!isset($_SESSION['notes_pilot_notes_page'])){		$_SESSION['notes_pilot_notes_page'] 			= 'for_sales_and_meetings';}
 if(!isset($_SESSION['map_page'])){						$_SESSION['map_page'] 				= 'personal';}
+	if(!isset($_SESSION['map_apis_page'])){				$_SESSION['map_apis_page'] 				= 'display_no_menu';}
+	if(!isset($_SESSION['map_personal_page'])){			$_SESSION['map_personal_page'] 			= 'main_view';}
+	if(!isset($_SESSION['map_business_page'])){			$_SESSION['map_business_page'] 			= 'main_view';}
+	if(!isset($_SESSION['map_economy_page'])){			$_SESSION['map_economy_page'] 			= 'display_no_menu';}
 if(!isset($_SESSION['biz_dev_page'])){					$_SESSION['biz_dev_page'] 			= 'one_to_ones';}
 if(!isset($_SESSION['sales_page'])){					$_SESSION['sales_page'] 			= 'all';}
 if(!isset($_SESSION['marketing_page'])){				$_SESSION['marketing_page'] 		= 'promotions';}

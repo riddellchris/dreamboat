@@ -1,8 +1,8 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-//echo $_GET['focus'];
-//exit();
+echo $_GET['focus'];
+exit();
 
 require_once $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/initial_folder_settings.php";
 
@@ -12,6 +12,9 @@ echo $_GET['secondary_folder'];
 exit();*/
 //lazy man's code here on this page but it's working for now...
 
+
+
+#BUG:: this needs some work still
 
 $skip_setting = 'no';
 
@@ -46,8 +49,8 @@ unset($skip_setting);
 /*
 echo $_GET['primary_folder'];
 echo $_GET['secondary_folder'];
-
-exit();*/
+exit();
+*/
 
 header("Location: /".$_GET['primary_folder']."/".$_GET['secondary_folder']."/");
 exit();

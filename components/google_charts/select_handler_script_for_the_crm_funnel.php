@@ -1,4 +1,16 @@
-      function selectHandler() {
+<?php
+if(!isset($_SESSION)){session_start();}
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+
+
+?>;
+
+
+
+
+
+
+function selectHandler() {
           var selectedItem = chart.getSelection()[0];
           if (selectedItem) {
             var topping 		= data.getValue(selectedItem.row, 0);

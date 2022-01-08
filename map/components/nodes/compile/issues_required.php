@@ -53,14 +53,15 @@ if($map_triggers['related_issues_count'] != 0){
 				AND 	item_id 			= '".$ids_to_keep[$i]."'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-		
-		$related_issues['primary_folder'][$i] 	= $row['found_in_primary_folder'];
-		$related_issues['secondary_folder'][$i]	= $row['found_in_secondary_folder'];
-		$related_issues['database'][$i] 		= $row['found_in_database'];
-		$related_issues['id'][$i] 				= $row['item_id'];
-		$related_issues['items_all_id'][$i] 	= $row['items_central_id'];
-		$related_issues['title'][$i] 			= $row['title'];		
-		
+	
+		if(mysqli_num_rows($result) > 0){
+			$related_issues['primary_folder'][$i] 	= $row['found_in_primary_folder'];
+			$related_issues['secondary_folder'][$i]	= $row['found_in_secondary_folder'];
+			$related_issues['database'][$i] 		= $row['found_in_database'];
+			$related_issues['id'][$i] 				= $row['item_id'];
+			$related_issues['items_all_id'][$i] 	= $row['items_central_id'];
+			$related_issues['title'][$i] 			= $row['title'];		
+		}
 	}
 
 	$map_triggers['issues_exist_to_merge'] = 'no';

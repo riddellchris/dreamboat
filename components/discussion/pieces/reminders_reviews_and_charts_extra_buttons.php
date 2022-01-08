@@ -1,32 +1,39 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if(		$_GET['primary_folder'] 	== 'map' 			OR
-		$_GET['primary_folder'] 	== 'admin' 			OR
-		$_GET['primary_folder'] 	== 'interrogation' 	OR
-		$_GET['primary_folder'] 	== 'notes' 			OR
-		$_GET['primary_folder'] 	== 'results' 		OR
-		$_GET['primary_folder'] 	== 'wheelhouse' 	OR
-		$_GET['primary_folder'] 	== 'messages' 		OR
-		$_GET['primary_folder'] 	== 'activities' 	OR	
-		$_GET['primary_folder'] 	== 'issues' 		OR
-		$_GET['primary_folder'] 	== 'upgrades' 		OR
-	(	$_GET['primary_folder'] 	== 'management' 	AND $_GET['secondary_folder'] != 'clients') 	OR
-	(	$_GET['primary_folder'] 	== 'management' 	AND $_GET['tertiary_folder'] == 'item') 		OR
-		$_GET['primary_folder'] 	== 'marketing' 		OR
-	(	$_GET['primary_folder'] 	== 'sales' 			AND $_GET['tertiary_folder'] == 'item') 		OR
-	(	$_GET['primary_folder'] 	== 'biz_dev' 		AND $_GET['tertiary_folder'] == 'item') 		OR
-	(	$_GET['primary_folder'] 	== 'network' 		AND $_GET['tertiary_folder'] == 'item')			OR
-		$_GET['primary_folder'] 	== 'business' 		OR
-	(	$_GET['primary_folder'] 	== 'profile' 		AND $_GET['secondary_folder'] != 'reviews')	
+$settings_off 	= 'no';
+$data_hidden 	= 'no';
+
+if(!isset($_GET['tertiary_folder'])){$tertiary_folder = 'unknown';}
+
+
+
+if(		$_GET['primary_folder'] 	== 'map' 			){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'admin' 			){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'interrogation' 	){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'notes' 			){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'results' 		){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'wheelhouse' 	){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'messages' 		){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'activities' 	){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'issues' 		){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'upgrades' 		){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'management' 	AND $_GET['secondary_folder'] != 'clients'	){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'management' 	AND $tertiary_folder 	== 'item'	){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'marketing' 		){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'sales' 			AND $tertiary_folder == 'item'){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'biz_dev' 		AND $tertiary_folder == 'item'){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'network' 		AND $tertiary_folder == 'item'){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'business' 		){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'profile' 		AND $_GET['secondary_folder'] != 'reviews'){$settings_off = 'yes';$data_hidden = 'yes';}
 		
 		
-		OR		$_GET['primary_folder'] 	== 'network' 
-		OR		$_GET['primary_folder'] 	== 'biz_dev' 		
-		OR		$_GET['primary_folder'] 	== 'sales' 		
-		OR		$_GET['primary_folder'] 	== 'marketing' 	
-		OR		$_GET['primary_folder'] 	== 'management' 				
-	){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'network' 		){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'biz_dev' 		){$settings_off = 'yes';$data_hidden = 'yes';}	
+if(		$_GET['primary_folder'] 	== 'sales' 			){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'marketing' 		){$settings_off = 'yes';$data_hidden = 'yes';}
+if(		$_GET['primary_folder'] 	== 'management' 	){$settings_off = 'yes';$data_hidden = 'yes';}			
+	
 
 if(	$_GET['primary_folder'] 	== 'profile' 		AND $_GET['secondary_folder'] == 'reviews')	{
 

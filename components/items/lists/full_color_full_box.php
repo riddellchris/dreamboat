@@ -129,6 +129,8 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 
 require $_SERVER['DOCUMENT_ROOT']."/components/notifications_and_alerts/find_item_ids_in_this_folder_with_outstanding_alerts.php";
 
+//echo $sql_for_display;exit();
+
 $displaying_active_issue = 0;
 $top_of_list = 'yes';
 
@@ -143,7 +145,16 @@ while($row = mysqli_fetch_array($result_for_display, MYSQLI_ASSOC)){
 				if(in_array($row['item_id'], $item_ids_with_active_alerts)){$color = 'orange'; $contrast_color = 'yellow'; $alert_on = 'yes';}
 			}
 			if($alert_on == 'no'){
-				if($row['deleted'] == 'yes'){$color = '#858181'; $contrast_color = '#c2c2c2';}
+
+				//$row['deleted'] applies for items BUT critically doesn't apply for notifications
+				//therefore what we really need to do here is have some conditions for greyed out or not
+				//it will be greyed out which will only occur IFF 
+				 	//well no it will be colour unless deteled exists and is 'yes'
+				$box_color = 'color';
+			 	if(isset($row['deleted'])){
+					if($row['deleted'] == 'yes'){$box_color = 'greyed_out';}
+				}
+				if($box_color == 'greyed_out'){$color = '#858181'; $contrast_color = '#c2c2c2';}
 				else{$color = $row['background_color']; $contrast_color = $row['contrast_color'];}
 			}
 			echo " style='background-image: linear-gradient(".$row['degrees']."deg, ".$color.", ".$contrast_color.");'>";
@@ -154,7 +165,7 @@ while($row = mysqli_fetch_array($result_for_display, MYSQLI_ASSOC)){
 			echo "<div class='top-left'>";
 			echo "</div>";	
 			
-			echo "<div class='centered' style='color:".$text[$color_combo]."'>";
+			echo "<div class='centered' style='color:white;'>"; //".$text[$color_combo]."'>";
 				require $_SERVER['DOCUMENT_ROOT']."/components/layouts/pieces/box/item_title_display.php";						
 			echo "</div>";	
 					

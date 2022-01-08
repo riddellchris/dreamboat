@@ -83,12 +83,12 @@ if($number_of_top_sub_menu_options > 0){
 
 //	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'edges'){	$for_pilots_only = 'yes';}
 //	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'apis'){			$for_pilots_only = 'yes';}
-	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'grouping'){		$for_pilots_only = 'yes';}
-	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'permissions'){	$for_pilots_only = 'yes';}	
-	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'matching'){		$for_pilots_only = 'yes';}
-	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'interplay'){		$for_pilots_only = 'yes';}
+//	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'grouping'){		$for_pilots_only = 'yes';}
+//	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'permissions'){	$for_pilots_only = 'yes';}	
+//	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'matching'){		$for_pilots_only = 'yes';}
+//	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'interplay'){		$for_pilots_only = 'yes';}
 	//	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'links'){	$for_pilots_only = 'yes';} /// probably the same as 'interplay' above
-	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'valuation'){		$for_pilots_only = 'yes';}
+//	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'valuation'){		$for_pilots_only = 'yes';}
 //	if($_GET['primary_folder'] == 'map' 		&& $display_option[$i] == 'nodes'){	$for_pilots_only = 'yes';}
 
 
