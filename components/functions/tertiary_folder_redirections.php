@@ -16,7 +16,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/initial_fol
 require $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/defaults.php";
 
 
-$redirection_url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/".$_SESSION['tertiary_folder']."/".$_SESSION[$_SESSION['primary_folder']."_".$_SESSION['secondary_folder']."_".$_SESSION['tertiary_folder']."_page"]."/";
+$redirection_url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/".$_GET['tertiary_folder']."/".$_SESSION[$_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder']."_page"]."/";
 
 header("Location: ".$redirection_url);
 exit();

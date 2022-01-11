@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 
-date_default_timezone_set('Australia/Melbourne');
+date_default_timezone_set('Australia/Sydney'); //to match with the location of the Server
 
 
 //the point of this is to ensure that if "logged in" the correct user Id is used,

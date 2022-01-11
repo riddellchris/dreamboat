@@ -8,8 +8,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 .center-text{  
 
 <?php
-if($_SESSION['primary_folder'] == 'text'){$hex_1 = '#006aff'; $hex_2 = '#00ffb7';}
-if($_SESSION['primary_folder'] == 'crm'){$hex_1 = '#00FFB7'; $hex_2 = '#02e355';}
+if($_GET['primary_folder'] == 'text'){$hex_1 = '#006aff'; $hex_2 = '#00ffb7';}
+if($_GET['primary_folder'] == 'crm'){$hex_1 = '#00FFB7'; $hex_2 = '#02e355';}
 
 
 echo "background: -webkit-linear-gradient(180deg, ".$hex_1.", ".$hex_2.")";?>

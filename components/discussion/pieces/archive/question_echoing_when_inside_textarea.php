@@ -3,9 +3,9 @@ if(!isset($_SESSION)){session_start();}
 
 /*
 $sql = "SELECT * FROM auto_coach_string_response_and_folder_suggestions 
-	WHERE 	found_in_primary_folder 	= '".$_SESSION['primary_folder']."'
-	AND	found_in_secondary_folder 	= '".$_SESSION['secondary_folder']."'
-	AND	found_in_tertiary_folder 	= '".$_SESSION['tertiary_folder']."'
+	WHERE 	found_in_primary_folder 	= '".$_GET['primary_folder']."'
+	AND	found_in_secondary_folder 	= '".$_GET['secondary_folder']."'
+	AND	found_in_tertiary_folder 	= '".$_GET['tertiary_folder']."'
 	ORDER BY string_length DESC";*/
 	
 $sql = "SELECT * FROM auto_coach_string_response_and_folder_suggestions 

@@ -172,8 +172,8 @@ echo "
 echo "<textarea id='textarea_input'  name='textarea_input' ";
 if($_SESSION['dreamboat_crew'] == 'yes' && $_SESSION['viewing_client_id'] != $_SESSION['user_id']){echo " rows='4' ";}
 else{echo " rows='6' autofocus ";}
-/*if(	$_SESSION['secondary_folder'] == 'flow' OR
-	$_SESSION['secondary_folder'] == 'wellbeing'){
+/*if(	$_GET['secondary_folder'] == 'flow' OR
+	$_GET['secondary_folder'] == 'wellbeing'){
 	echo "onkeydown = 'if(event.keyCode == 13){this.form.submit();event.preventDefault();return false;}'";
 }*/
 

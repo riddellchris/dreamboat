@@ -24,11 +24,24 @@ else{
 	
 	}
 
+
+	$on_item_page = 'no';
+	if(isset($_GET['tertiary_folder'])){
+		if($_GET['tertiary_folder'] == 'item'){
+			$on_item_page = 'yes';
+		}							
+	}
+	if(isset($_GET['quaternary_folder'])){
+		if($_GET['quaternary_folder'] == 'item'){
+			$on_item_page = 'yes';
+		}							
+	}
+
+
 	echo $row['title'];
 	if(check_primary_folder('upgrades')){echo "<span style='color: transparent;'>&#x2605;</span>";}	
 	//to expand this to display edit on all lists not just the display of the actual item... much code will need to be re-written
-	if(	$_GET['tertiary_folder'] == 'item' OR 
-		$_GET['quaternary_folder'] == 'item' ){
+	if( $on_item_page == 'yes'){
 		echo "<br>";
 		echo "<small><a href='/components/items/edit_title.php?".url_folder_get_string_creation()."'>edit</a></small>";
 	}

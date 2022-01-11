@@ -12,9 +12,9 @@ echo "
 	<div class='features_right' style='float:left;padding:0px;'>
 		<div style='font-family: helvetica;    font-size: 20px;font-weight: 800;";
 
-if($_SESSION['secondary_folder'] == 'phone'){$hex_1 = '#ff1414';}
-if($_SESSION['secondary_folder'] == 'text'){$hex_1 = '#00a2ff';}
-if($_SESSION['secondary_folder'] == 'platform'){$hex_1 = 'rgb(23, 110, 29)';}
+if($_GET['secondary_folder'] == 'phone'){$hex_1 = '#ff1414';}
+if($_GET['secondary_folder'] == 'text'){$hex_1 = '#00a2ff';}
+if($_GET['secondary_folder'] == 'platform'){$hex_1 = 'rgb(23, 110, 29)';}
 echo "color: ".$hex_1.";";
 		
 		

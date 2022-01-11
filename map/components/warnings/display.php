@@ -3,7 +3,7 @@
 #warnings_box{
     color: #4332ff; 
     position: fixed; 
-    top: 115; 
+    top: 155; 
     width: 400px; 
     left: calc(50% - 200px);
     text-align:center; 

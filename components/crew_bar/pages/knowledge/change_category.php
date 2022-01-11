@@ -4,9 +4,9 @@ if(!isset($_SESSION)){session_start();}
 unset($_SESSION['displaying_knowledgebase_title']);
 
 if(isset($_POST['category'])){				
-		$_SESSION['primary_folder_knowledgebase_set_for']	= $_SESSION['primary_folder'];
-		$_SESSION['secondary_folder_knowledgebase_set_for']	= $_SESSION['secondary_folder'];			
-		$_SESSION['tertiary_folder_knowledgebase_set_for']	= $_SESSION['tertiary_folder'];			
+		$_SESSION['primary_folder_knowledgebase_set_for']	= $_GET['primary_folder'];
+		$_SESSION['secondary_folder_knowledgebase_set_for']	= $_GET['secondary_folder'];			
+		$_SESSION['tertiary_folder_knowledgebase_set_for']	= $_GET['tertiary_folder'];			
 		$_SESSION['displaying_knowledgebase_category']		= $_POST['category'];
 
 	//add to category requests

@@ -31,13 +31,21 @@ if($sub_sub_number_of_menu_options > 0){
 		if($_SESSION['dreamboat_crew'] == 'yes'){
 			if(	$_GET['primary_folder'] 	== 'profile' 	&& $_GET['secondary_folder']	== 'reviews' 	&&	$sub_sub_display_option[$i]	== 'settings'			){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
 			if(	$_GET['primary_folder'] 	== 'account' 	&& $_GET['secondary_folder']	== 'settings' 	&&	$sub_sub_display_option[$i] == 'main_nav_control'	){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
+			if(	$_GET['primary_folder'] 	== 'map' 		&& $_GET['secondary_folder']	== 'personal' 	&&	$sub_sub_display_option[$i] == 'matching'			){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
+			if(	$_GET['primary_folder'] 	== 'map' 		&& $_GET['secondary_folder']	== 'personal' 	&&	$sub_sub_display_option[$i] == 'interplay'			){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
+			if(	$_GET['primary_folder'] 	== 'map' 		&& $_GET['secondary_folder']	== 'personal' 	&&	$sub_sub_display_option[$i] == 'valuation'			){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
+			if(	$_GET['primary_folder'] 	== 'map' 		&& $_GET['secondary_folder']	== 'business' 	&&	$sub_sub_display_option[$i] == 'grouping'			){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
+			if(	$_GET['primary_folder'] 	== 'map' 		&& $_GET['secondary_folder']	== 'business' 	&&	$sub_sub_display_option[$i] == 'matching'			){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
+			if(	$_GET['primary_folder'] 	== 'map' 		&& $_GET['secondary_folder']	== 'business' 	&&	$sub_sub_display_option[$i] == 'interplay'			){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
+			if(	$_GET['primary_folder'] 	== 'map' 		&& $_GET['secondary_folder']	== 'business' 	&&	$sub_sub_display_option[$i] == 'valuation'			){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
+			if(	$_GET['primary_folder'] 	== 'map' 		&& $_GET['secondary_folder']	== 'business' 	&&	$sub_sub_display_option[$i] == 'permissions'		){	$pilot_settings_class = " pilot_settings_in_sub_menus ";}	
 		}
 		
 		echo "<a ";		
 			echo "href ='/components/sub_menus/sub_sub_menu/change.php?page=".$_GET['secondary_folder']."&to=".$top_sub_sub_menu_options[$i]."&primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."'";
 			echo "class='sub_sub_menu_div sub_sub_div_width ".$pilot_settings_class;
 			if(isset($_GET['tertiary_folder'])){
-				if($pilot_settings_class == '' && $_GET['tertiary_folder'] == $top_sub_sub_menu_options[$i]){echo " highlighted ";}
+				if($_GET['tertiary_folder'] == $top_sub_sub_menu_options[$i]){echo " highlighted ";}
 			}
 			if($_SESSION["user_alerts_".$_GET['primary_folder'].'_'.$_GET['secondary_folder'].'_'.$top_sub_sub_menu_options[$i]] == 'on'){echo " alert ";}	
 			echo "'>";

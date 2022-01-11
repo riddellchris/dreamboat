@@ -4,7 +4,7 @@ echo "'"; //this just ends the placeholder prompt
 
 /*
 //this shouldn't be an issue either for now
-if($_SESSION['primary_folder'] == 'flow' OR $_SESSION['primary_folder'] == 'wellbeing'){ 
+if($_GET['primary_folder'] == 'flow' OR $_GET['primary_folder'] == 'wellbeing'){ 
  	echo "onkeydown = 'if(event.keyCode == 13){this.form.submit();event.preventDefault();return false;}'";
 }
 */

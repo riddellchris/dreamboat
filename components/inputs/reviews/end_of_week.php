@@ -14,10 +14,10 @@ if($_POST['submit_button'] != 'skip'){
 						}	
 //events -- marking resolved those that are currently active
 	if($_SESSION['next_prompt_id'] == '340'){	
-							$_SESSION['primary_folder'] 	= 'biz_dev';	//required for folder to database relationships
-							$_SESSION['secondary_folder'] 	= 'events';	//required for folder to database relationships
+							$_GET['primary_folder'] 	= 'biz_dev';	//required for folder to database relationships
+							$_GET['secondary_folder'] 	= 'events';	//required for folder to database relationships
 							$_GET['to'] 			= 'resolved';			
-							$_SESSION['item_id_from_url'] 	= mysqli_real_escape_string($conn, $_GET['item_id']);					
+							$_GET['item_id'] 	= mysqli_real_escape_string($conn, $_GET['item_id']);					
 							$_SESSION['reviewing'] 		= 'yes';	
 							require $_SERVER['DOCUMENT_ROOT']."/components/items/standard_adjustments.php";
 							require $_SERVER['DOCUMENT_ROOT']."/components/inputs/reviews/end_of_week_optimal_next_prompt_redirection.php";									

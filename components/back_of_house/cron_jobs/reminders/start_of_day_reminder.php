@@ -238,11 +238,11 @@ if($Brisbane_hour == '07'){
 		
 //		echo $reminder_type;
 		
-		$_SESSION['primary_folder'] 	= $row['primary_folder'];
-		$_SESSION['secondary_folder'] 	= $row['secondary_folder'];		
-		$_SESSION['tertiary_folder'] 	= $row['tertiary_folder'];
+		$_GET['primary_folder'] 	= $row['primary_folder'];
+		$_GET['secondary_folder'] 	= $row['secondary_folder'];		
+		$_GET['tertiary_folder'] 	= $row['tertiary_folder'];
 		$_SESSION['quaternary_folder'] 	= $row['quaternary_folder'];
-		$_SESSION['item_id_from_url'] 	= $row['item_id_from_url'];
+		$_GET['item_id'] 	= $row['item_id_from_url'];
 								
 		//then finally we run the notification and alert system
 		//create alert notification and send email iff required

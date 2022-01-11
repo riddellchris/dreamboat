@@ -25,10 +25,10 @@ echo "<div style='";
 	
 		if($_SESSION['knowledgebase_sub_menu'] == 'view existing'){		
 			$sql = "SELECT DISTINCT category FROM knowledgebase 
-				WHERE 	primary_folder = '".$_SESSION['primary_folder']."'
-				AND	secondary_folder = '".$_SESSION['secondary_folder']."'
-				AND	tertiary_folder = '".$_SESSION['tertiary_folder']."'";
-			if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_SESSION['item_id_from_url']."'";}					
+				WHERE 	primary_folder = '".$_GET['primary_folder']."'
+				AND	secondary_folder = '".$_GET['secondary_folder']."'
+				AND	tertiary_folder = '".$_GET['tertiary_folder']."'";
+			if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_GET['item_id']."'";}					
 			$sql .= "ORDER BY category DESC";
 			
 			//echo $sql;exit();
@@ -58,10 +58,10 @@ echo "<div style='";
 						echo "<select class='secure_input' name = 'title' rows='22' style='width: 100%;'  onchange='this.form.submit()' autocomplete='off'>";
 						echo "<option>.... select a title to view</option>";	
 							$sql = "SELECT * FROM knowledgebase 
-								WHERE 	primary_folder = '".$_SESSION['primary_folder']."'
-								AND	secondary_folder = '".$_SESSION['secondary_folder']."'
-								AND	tertiary_folder = '".$_SESSION['tertiary_folder']."'";
-								if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_SESSION['item_id_from_url']."'";}					
+								WHERE 	primary_folder = '".$_GET['primary_folder']."'
+								AND	secondary_folder = '".$_GET['secondary_folder']."'
+								AND	tertiary_folder = '".$_GET['tertiary_folder']."'";
+								if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_GET['item_id']."'";}					
 							$sql .= "
 								AND	category = '".$_SESSION['displaying_knowledgebase_category']."'								
 								ORDER BY views DESC";
@@ -81,10 +81,10 @@ echo "<div style='";
 						
 					if(isset($_SESSION['displaying_knowledgebase_title'])){
 							$sql = "SELECT * FROM knowledgebase 
-								WHERE 	primary_folder = '".$_SESSION['primary_folder']."'
-								AND	secondary_folder = '".$_SESSION['secondary_folder']."'
-								AND	tertiary_folder = '".$_SESSION['tertiary_folder']."'";
-								if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_SESSION['item_id_from_url']."'";}					
+								WHERE 	primary_folder = '".$_GET['primary_folder']."'
+								AND	secondary_folder = '".$_GET['secondary_folder']."'
+								AND	tertiary_folder = '".$_GET['tertiary_folder']."'";
+								if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_GET['item_id']."'";}					
 							$sql .= "
 								AND	category = '".$_SESSION['displaying_knowledgebase_category']."'								
 								ORDER BY views DESC";
@@ -113,10 +113,10 @@ echo "<div style='";
 			echo "<form method='post' action='/components/knowledgebase/add.php'>";
 			
 			$sql = "SELECT DISTINCT category FROM knowledgebase 
-				WHERE 	primary_folder = '".$_SESSION['primary_folder']."'
-				AND	secondary_folder = '".$_SESSION['secondary_folder']."'
-				AND	tertiary_folder = '".$_SESSION['tertiary_folder']."'";
-			if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_SESSION['item_id_from_url']."'";}		
+				WHERE 	primary_folder = '".$_GET['primary_folder']."'
+				AND	secondary_folder = '".$_GET['secondary_folder']."'
+				AND	tertiary_folder = '".$_GET['tertiary_folder']."'";
+			if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_GET['item_id']."'";}		
 			$sql .= "	
 				ORDER BY category DESC";
 			require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";

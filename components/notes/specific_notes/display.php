@@ -7,10 +7,10 @@ echo "<div style='height:50vh;padding:15px;'>";
 	
 	$sql= "	SELECT note_details 
 		FROM notes 
-		WHERE 	primary_folder 		= '".$_SESSION['primary_folder']."'
-		AND 	secondary_folder 	= '".$_SESSION['secondary_folder']."'
-		AND 	tertiary_folder 	= '".$_SESSION['tertiary_folder']."'		
-		AND 	item_id 		= '".$_SESSION['item_id_from_url']."'		
+		WHERE 	primary_folder 		= '".$_GET['primary_folder']."'
+		AND 	secondary_folder 	= '".$_GET['secondary_folder']."'
+		AND 	tertiary_folder 	= '".$_GET['tertiary_folder']."'		
+		AND 	item_id 		= '".$_GET['item_id']."'		
 		AND 	about_user_id 		= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'		
 		AND 	last_edited_by 		= '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'		
 		ORDER BY note_id DESC LIMIT 1

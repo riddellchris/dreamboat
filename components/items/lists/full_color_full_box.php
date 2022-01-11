@@ -173,7 +173,9 @@ while($row = mysqli_fetch_array($result_for_display, MYSQLI_ASSOC)){
 			echo "<div class='top-right'>";
 				if($_GET['primary_folder'] != 'notifications'){ 
 					if($top_of_list != 'yes'){
-					echo "<a class='corner-link' href='/components/items/lists/slide_item.php?item_id=".$row['item_id']."&direction=up&primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."&tertiary_folder=".$_GET['tertiary_folder']."'>More critical";
+					echo "<a class='corner-link' href='/components/items/lists/slide_item.php?item_id=".$row['item_id']."&direction=up&primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder'];
+						if(isset($_GET['tertiary_folder'])){echo "&tertiary_folder=".$_GET['tertiary_folder'];}
+						echo "'>More critical";
 						echo"</a>";
 					}
 					else{$top_of_list = 'no';}
@@ -205,7 +207,7 @@ while($row = mysqli_fetch_array($result_for_display, MYSQLI_ASSOC)){
 				
 				if($_GET['primary_folder'] != 'admin'){
 					echo "/".$_GET['primary_folder']."/".$_GET['secondary_folder'];
-					if($_GET['tertiary_folder'] != ''){echo "/".$_GET['tertiary_folder'];}
+					if(isset($_GET['tertiary_folder'])){if($_GET['tertiary_folder'] != ''){echo "/".$_GET['tertiary_folder'];}}
 					echo "/item/display.php?item_id=".$row['item_id']."&primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."&tertiary_folder=";
 					if($_GET['primary_folder'] != 'admin'){echo "item";}
 					else{echo $_GET['tertiary_folder']."&quarternary_folder=item";}

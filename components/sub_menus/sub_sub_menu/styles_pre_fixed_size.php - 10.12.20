@@ -4,7 +4,7 @@ echo "
 <style>
 ";
 
-if($_SESSION['primary_folder'] == 'profile' && $_SESSION['secondary_folder'] == 'reviews'){
+if($_GET['primary_folder'] == 'profile' && $_GET['secondary_folder'] == 'reviews'){
 echo "
 @media screen and (max-width: 600px)   {
 	.sub_sub_menu_div{

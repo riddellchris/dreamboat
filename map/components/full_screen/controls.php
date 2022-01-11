@@ -9,7 +9,7 @@
 .fullscreen_icons{
 	position: fixed;
 	right: 13;
-	top: 110;
+	top: 150;
 	font-size: larger;
 	z-index: 2000;
 }

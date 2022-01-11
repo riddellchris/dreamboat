@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if($_SESSION['primary_folder'] != 'content'){
+if($_GET['primary_folder'] != 'content'){
 	if(!isset($_SESSION['viewing_client_id'])){header("Location: /users/"); exit();}
 	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 	$_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];

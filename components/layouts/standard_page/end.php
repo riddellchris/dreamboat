@@ -75,8 +75,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer.php";
 /*
 if(!isset($_SESSION)){session_start();}
 
-echo $_SESSION['primary_folder'];
-echo $_SESSION['secondary_folder'];
+echo $_GET['primary_folder'];
+echo $_GET['secondary_folder'];
 
 exit();
 */

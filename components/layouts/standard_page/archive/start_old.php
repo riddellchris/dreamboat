@@ -10,12 +10,12 @@ if($_SESSION['this_page'] != $_SERVER['REQUEST_URI']){
 require $_SERVER['DOCUMENT_ROOT']."/components/functions/required_functions.php";
 
 if(primary_folders_name() != 'components'){
-	$_SESSION['primary_folder'] 	= primary_folders_name();
-	$_SESSION['secondary_folder'] 	= secondary_folders_name();
-	$_SESSION['item_id_from_url'] 	= item_id_from_url();
+	$_GET['primary_folder'] 	= primary_folders_name();
+	$_GET['secondary_folder'] 	= secondary_folders_name();
+	$_GET['item_id'] 	= item_id_from_url();
 	}
 	
-$_SESSION['tertiary_folder'] 	= tertiary_folders_name();	//this line has probably inaccurately been used as a test - with 'items'
+$_GET['tertiary_folder'] 	= tertiary_folders_name();	//this line has probably inaccurately been used as a test - with 'items'
 $_SESSION['quaternary_folder'] 	= quaternary_folders_name();	//this isn't really used at all yet
 $_SESSION['final_file_name'] 	= final_file_name();		//neither is this
 
@@ -47,9 +47,9 @@ if($_SESSION['dreamboat_crew'] == 'yes' && $_SESSION['show_as_dreamboat_crew'] =
 	
 
 	echo "<div class='pilot_sides'  style='width:20%;float: right;background-color: #f75b52;height:120vh;font-family:Monda;color:white;box-shadow: -10px 0px 10px -5px #5e5e5e;'>";
-		if(	$_SESSION['primary_folder_knowledgebase_set_for'] 	!= $_SESSION['primary_folder']		OR
-			$_SESSION['secondary_folder_knowledgebase_set_for'] 	!= $_SESSION['secondary_folder']	OR
-			$_SESSION['tertiary_folder_knowledgebase_set_for'] 	!= $_SESSION['tertiary_folder']
+		if(	$_SESSION['primary_folder_knowledgebase_set_for'] 	!= $_GET['primary_folder']		OR
+			$_SESSION['secondary_folder_knowledgebase_set_for'] 	!= $_GET['secondary_folder']	OR
+			$_SESSION['tertiary_folder_knowledgebase_set_for'] 	!= $_GET['tertiary_folder']
 			){			
 				unset($_SESSION['primary_folder_knowledgebase_set_for']);
 				unset($_SESSION['secondary_folder_knowledgebase_set_for']);			

@@ -141,7 +141,7 @@ if($Brisbane_hour == '21' && $brisbane_day == '0' ){
 			$new_potentials_closed_this_week[$user_id] = mysqli_num_rows($result);	
 			
 			$_SESSION['viewing_client_id'] = $user_id;
-			$_SESSION['secondary_folder'] = 'new_potentials';
+			$_GET['secondary_folder'] = 'new_potentials';
 			require $_SERVER['DOCUMENT_ROOT']."/components/crm/funnel_calculations.php";	
 			$new_potentials_value[$user_id]			= $funnel_value;
 			$new_potentials_weighted_value[$user_id]	= $weighted_funnel;
@@ -164,7 +164,7 @@ if($Brisbane_hour == '21' && $brisbane_day == '0' ){
 
 
 			$_SESSION['viewing_client_id'] = $user_id;
-			$_SESSION['secondary_folder'] = 'potential_upsells';
+			$_GET['secondary_folder'] = 'potential_upsells';
 			require $_SERVER['DOCUMENT_ROOT']."/components/crm/funnel_calculations.php";	
 			$potential_upsells_value[$user_id]		= $funnel_value;
 			$potential_upsells_weighted_value[$user_id]	= $weighted_funnel;
@@ -187,7 +187,7 @@ if($Brisbane_hour == '21' && $brisbane_day == '0' ){
 
 
 			$_SESSION['viewing_client_id'] = $user_id;
-			$_SESSION['secondary_folder'] = 'recurring_sales';
+			$_GET['secondary_folder'] = 'recurring_sales';
 			require $_SERVER['DOCUMENT_ROOT']."/components/crm/funnel_calculations.php";	
 			$recurring_sales_value[$user_id]		= $funnel_value;
 			//no weighted... as at present 23/4/20 we aren't running a funnel on recurring...

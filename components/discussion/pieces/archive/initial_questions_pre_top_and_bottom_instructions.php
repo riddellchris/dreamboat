@@ -1,9 +1,9 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if('profile' == $_SESSION['primary_folder']){
-	if('wellbeing' == $_SESSION['secondary_folder']){
-		if('mood' == $_SESSION['tertiary_folder']){
+if('profile' == $_GET['primary_folder']){
+	if('wellbeing' == $_GET['secondary_folder']){
+		if('mood' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "How are you right now?";
 			$_SESSION['prompt_2'] = "What&#39;s making you happy?";
 			$_SESSION['prompt_3'] = "What&#39;s making you upset?";
@@ -12,7 +12,7 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss these to better optimise your mood...";
 			}
 			
-		if('stress' == $_SESSION['tertiary_folder']){
+		if('stress' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "How are your stress levels right now?";
 			$_SESSION['prompt_2'] = "Is it always clear what needs to be done?";
 			$_SESSION['prompt_3'] = "Are you sleeping well?";
@@ -21,7 +21,7 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss these to start better managing your stress...";
 			}
 		
-		if('energy' == $_SESSION['tertiary_folder']){
+		if('energy' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "How are your energy levels right now?";
 			$_SESSION['prompt_2'] = "What&#39;s helping or hindering your energy right now?";
 			$_SESSION['prompt_3'] = "Do you have decent balance?";
@@ -30,7 +30,7 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss these questions to improve your energy levels...";
 			}
 		
-		if('health' == $_SESSION['tertiary_folder']){
+		if('health' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "How is your health in general right now?";
 			$_SESSION['prompt_2'] = "What&#39;s going well, what&#39;s not going so well?";
 			$_SESSION['prompt_3'] = "Are there any issues really impacting your performance?";
@@ -39,8 +39,8 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss these through to improve your health...";
 			}
 	}	
-	if('flow' == $_SESSION['secondary_folder']){
-		if('focus' == $_SESSION['tertiary_folder']){
+	if('flow' == $_GET['secondary_folder']){
+		if('focus' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "What&#39;s been happening?";
 			$_SESSION['prompt_2'] = "What are you trying to achieve?";
 			$_SESSION['prompt_3'] = "What&#39;s stopping you?";
@@ -49,7 +49,7 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss these questions to find focus...";
 			}
 	
-		if('think' == $_SESSION['tertiary_folder']){
+		if('think' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "What are all the things going through your mind?";
 			$_SESSION['prompt_2'] = "What really matters?";
 			$_SESSION['prompt_3'] = "What is most important to tackle now?";
@@ -58,7 +58,7 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss these questions to think clearly...";
 			}
 			
-		if('plan' == $_SESSION['tertiary_folder']){
+		if('plan' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "What&#39;s coming up?";
 			$_SESSION['prompt_2'] = "What does the near future look like?";
 			$_SESSION['prompt_3'] = "Is there anything concerning you?";
@@ -67,7 +67,7 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss these questions to plan ahead...";
 			}
 		
-		if('vent' == $_SESSION['tertiary_folder']){
+		if('vent' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "What going on?";
 			$_SESSION['prompt_2'] = "How are you feeling?";
 			$_SESSION['prompt_3'] = "What can you do about it?";
@@ -76,7 +76,7 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss these questions to clear your head...";
 			}
 			
-		if('dream' == $_SESSION['tertiary_folder']){
+		if('dream' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "What does the future hold?";
 			$_SESSION['prompt_2'] = "What does it look like?";
 			$_SESSION['prompt_3'] = "What is in your way?";
@@ -85,7 +85,7 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss these questions to see the future...";
 			}
 			
-		if('reflect' == $_SESSION['tertiary_folder']){
+		if('reflect' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "What do you want to reflect about?";
 			$_SESSION['prompt_2'] = "Where have you come from?";
 			$_SESSION['prompt_3'] = "What have you acheived?";
@@ -94,8 +94,8 @@ if('profile' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "And what&#39;s the future going to hold now?";
 		}				
 	}
-	if('progress' == $_SESSION['secondary_folder']){
-		if('item' == $_SESSION['tertiary_folder']){
+	if('progress' == $_GET['secondary_folder']){
+		if('item' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "Add notes about this prorgess...";
 			$_SESSION['prompt_2'] = "How is it going?";
 			$_SESSION['prompt_3'] = "What has happened since the last update?";
@@ -114,9 +114,9 @@ if('profile' == $_SESSION['primary_folder']){
 	}		
 }		
 
-if('business' == $_SESSION['primary_folder']){
-	if($_SESSION['secondary_folder'] == 'products'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+if('business' == $_GET['primary_folder']){
+	if($_GET['secondary_folder'] == 'products'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Add notes about this product...";
 			$_SESSION['prompt_2'] = "How great is it for the business?";
 			$_SESSION['prompt_3'] = "What are you currently charging (and want to charge)?";
@@ -134,8 +134,8 @@ if('business' == $_SESSION['primary_folder']){
 		}
 	}
 		
-	if($_SESSION['secondary_folder'] == 'services'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+	if($_GET['secondary_folder'] == 'services'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Add notes about this service...";
 			$_SESSION['prompt_2'] = "How great is it for the business?";
 			$_SESSION['prompt_3'] = "What are you currently charging (and want to charge)?";
@@ -154,9 +154,9 @@ if('business' == $_SESSION['primary_folder']){
 	}
 }
 
-if('network' == $_SESSION['primary_folder']){
-	if($_SESSION['secondary_folder'] == 'people'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+if('network' == $_GET['primary_folder']){
+	if($_GET['secondary_folder'] == 'people'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "How are you going with this person right now?";
 			$_SESSION['prompt_2'] = "How the relationship working for you?";
 			$_SESSION['prompt_3'] = "How much work is it taking to have a good relationship with them?";
@@ -173,8 +173,8 @@ if('network' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss to optimise your productivity...";		
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'businesses'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+	if($_GET['secondary_folder'] == 'businesses'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "How are you going with this business right now?";
 			$_SESSION['prompt_2'] = "What work is there to be done here?";
 			$_SESSION['prompt_3'] = "How ideal will this business be for your business?";
@@ -191,8 +191,8 @@ if('network' == $_SESSION['primary_folder']){
 			$_SESSION['prompt_6'] = "Discuss to optimise your productivity...";		
 		}
 	}	
-	if($_SESSION['secondary_folder'] == 'groups'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+	if($_GET['secondary_folder'] == 'groups'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "How are you going with this group right now?";
 			$_SESSION['prompt_2'] = "How is it helping you?";
 			$_SESSION['prompt_3'] = "How much work is it taking to have a good relationship with it?";
@@ -211,9 +211,9 @@ if('network' == $_SESSION['primary_folder']){
 
 	}		
 }
-if($_SESSION['primary_folder'] == 'biz_dev'){
-	if($_SESSION['secondary_folder'] == 'events'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+if($_GET['primary_folder'] == 'biz_dev'){
+	if($_GET['secondary_folder'] == 'events'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "How did this event go?";
 			$_SESSION['prompt_2'] = "What did you gain?";
 			$_SESSION['prompt_3'] = "What successes did you have?";
@@ -230,8 +230,8 @@ if($_SESSION['primary_folder'] == 'biz_dev'){
 			$_SESSION['prompt_6'] = "Discuss to optimise your events strategy...";		
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'one_to_ones'){
-		if($_SESSION['tertiary_folder'] == 'item'){		
+	if($_GET['secondary_folder'] == 'one_to_ones'){
+		if($_GET['tertiary_folder'] == 'item'){		
 			$_SESSION['prompt_1'] = "Add notes about this one to one...";
 			$_SESSION['prompt_2'] = "How did it go?";
 			$_SESSION['prompt_3'] = "How should we categorise this person now then?";
@@ -248,8 +248,8 @@ if($_SESSION['primary_folder'] == 'biz_dev'){
 			$_SESSION['prompt_6'] = "Discuss these through to improve your BD work...";
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'referrers'){
-		if($_SESSION['tertiary_folder'] == 'item'){		
+	if($_GET['secondary_folder'] == 'referrers'){
+		if($_GET['tertiary_folder'] == 'item'){		
 			$_SESSION['prompt_1'] = "How is this referrer going right now?";
 			$_SESSION['prompt_2'] = "Are they delivering for you right now?";
 			$_SESSION['prompt_3'] = "Are they taking up lots of time or money?";
@@ -267,9 +267,9 @@ if($_SESSION['primary_folder'] == 'biz_dev'){
 		}
 	}		
 }
-if($_SESSION['primary_folder'] == 'sales'){
-	if($_SESSION['secondary_folder'] == 'new_potentials'){
-		if($_SESSION['tertiary_folder'] == 'item'){		
+if($_GET['primary_folder'] == 'sales'){
+	if($_GET['secondary_folder'] == 'new_potentials'){
+		if($_GET['tertiary_folder'] == 'item'){		
 			$_SESSION['prompt_1'] = "Add notes about this potential sale...";
 			$_SESSION['prompt_2'] = "What is the next touchpoint?";
 			$_SESSION['prompt_3'] = "How confident are you about it?";
@@ -286,8 +286,8 @@ if($_SESSION['primary_folder'] == 'sales'){
 			$_SESSION['prompt_6'] = "Discuss these through to improve your sales...";
 		}
 	}		
-	if($_SESSION['secondary_folder'] == 'potential_upsells'){
-		if($_SESSION['tertiary_folder'] == 'item'){		
+	if($_GET['secondary_folder'] == 'potential_upsells'){
+		if($_GET['tertiary_folder'] == 'item'){		
 			$_SESSION['prompt_1'] = "Add notes about this upsell...";
 			$_SESSION['prompt_2'] = "Are you doing it / have you done it?";
 			$_SESSION['prompt_3'] = "How is it going?";
@@ -304,8 +304,8 @@ if($_SESSION['primary_folder'] == 'sales'){
 			$_SESSION['prompt_6'] = "Discuss these through to improve your sales...";
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'recurring_sales'){
-		if($_SESSION['tertiary_folder'] == 'item'){		
+	if($_GET['secondary_folder'] == 'recurring_sales'){
+		if($_GET['tertiary_folder'] == 'item'){		
 			$_SESSION['prompt_1'] = "Add notes about this sale...";
 			$_SESSION['prompt_2'] = "Are you doing it / have you done it?";
 			$_SESSION['prompt_3'] = "How is it going?";
@@ -322,8 +322,8 @@ if($_SESSION['primary_folder'] == 'sales'){
 			$_SESSION['prompt_6'] = "Discuss these through to improve your recurring sales...";
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'all'){
-		if($_SESSION['tertiary_folder'] == 'item'){		
+	if($_GET['secondary_folder'] == 'all'){
+		if($_GET['tertiary_folder'] == 'item'){		
 			$_SESSION['prompt_1'] = "Add notes about this sale...";
 			$_SESSION['prompt_2'] = "Are you doing it / have you done it?";
 			$_SESSION['prompt_3'] = "How is it going?";
@@ -342,9 +342,9 @@ if($_SESSION['primary_folder'] == 'sales'){
 	}
 
 }
-if($_SESSION['primary_folder'] == 'marketing'){
-	if($_SESSION['secondary_folder'] == 'target_markets'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+if($_GET['primary_folder'] == 'marketing'){
+	if($_GET['secondary_folder'] == 'target_markets'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Add notes about this target market...";
 			$_SESSION['prompt_2'] = "How rewarding is it for you right now?";
 			$_SESSION['prompt_3'] = "How important to your business is this target market right now?";
@@ -361,8 +361,8 @@ if($_SESSION['primary_folder'] == 'marketing'){
 			$_SESSION['prompt_6'] = "Discuss these through to improve your marketing...";
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'channels'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+	if($_GET['secondary_folder'] == 'channels'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Add notes about this channel...";
 			$_SESSION['prompt_2'] = "Is it working as desired right now?";
 			$_SESSION['prompt_3'] = "What results and rewards have been achieved?";
@@ -379,8 +379,8 @@ if($_SESSION['primary_folder'] == 'marketing'){
 			$_SESSION['prompt_6'] = "Discuss these through to improve your marketing...";
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'promotion'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+	if($_GET['secondary_folder'] == 'promotion'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Add notes about this promotion...";
 			$_SESSION['prompt_2'] = "Is it working as desired right now?";
 			$_SESSION['prompt_3'] = "What results and rewards have been achieved?";
@@ -397,8 +397,8 @@ if($_SESSION['primary_folder'] == 'marketing'){
 			$_SESSION['prompt_6'] = "Discuss these through to improve your marketing...";
 		}
 	}	
-	if($_SESSION['secondary_folder'] == 'tasks'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+	if($_GET['secondary_folder'] == 'tasks'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Add notes about this marketing task...";
 			$_SESSION['prompt_2'] = "Are you getting it done?";
 			$_SESSION['prompt_3'] = "How important does it seem right now?";
@@ -418,9 +418,9 @@ if($_SESSION['primary_folder'] == 'marketing'){
 }	
 
 
-if($_SESSION['primary_folder'] == 'management'){
-	if($_SESSION['secondary_folder'] == 'assets'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+if($_GET['primary_folder'] == 'management'){
+	if($_GET['secondary_folder'] == 'assets'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Add notes about this asset...";
 			$_SESSION['prompt_2'] = "How great is it for the business?";
 			$_SESSION['prompt_3'] = "What are you gaining from using it?";
@@ -437,8 +437,8 @@ if($_SESSION['primary_folder'] == 'management'){
 			$_SESSION['prompt_6'] = "Discuss to optimise your asset values...";
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'systems'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+	if($_GET['secondary_folder'] == 'systems'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Add notes about this system...";
 			$_SESSION['prompt_2'] = "How great is it for the business?";
 			$_SESSION['prompt_3'] = "What are you gaining from using it?";
@@ -455,8 +455,8 @@ if($_SESSION['primary_folder'] == 'management'){
 			$_SESSION['prompt_6'] = "Discuss to optimise your business systems...";
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'staff'){
-		if($_SESSION['tertiary_folder'] == 'item'){		
+	if($_GET['secondary_folder'] == 'staff'){
+		if($_GET['tertiary_folder'] == 'item'){		
 			$_SESSION['prompt_1'] = "Add notes about this staff member...";
 			$_SESSION['prompt_2'] = "How are they performing right now?";
 			$_SESSION['prompt_3'] = "Do you trust them?";
@@ -473,8 +473,8 @@ if($_SESSION['primary_folder'] == 'management'){
 			$_SESSION['prompt_6'] = "Answer these questions to the function of your staff...";
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'other'){
-		if($_SESSION['tertiary_folder'] == 'item'){		
+	if($_GET['secondary_folder'] == 'other'){
+		if($_GET['tertiary_folder'] == 'item'){		
 			$_SESSION['prompt_1'] = "Add notes about this management topic...";
 			$_SESSION['prompt_2'] = "How is it going?";
 			$_SESSION['prompt_3'] = "What concerns do you have?";
@@ -492,11 +492,11 @@ if($_SESSION['primary_folder'] == 'management'){
 		}
 	}
 
-	if($_SESSION['secondary_folder'] == 'clients'){
+	if($_GET['secondary_folder'] == 'clients'){
 		$singular = substr($_SESSION['viewing_client_what_clients_are_called'], 0, -1);
 		$plural = $_SESSION['viewing_client_what_clients_are_called'];	
 	
-		if($_SESSION['tertiary_folder'] == 'item'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Add notes about this $singular...";
 			$_SESSION['prompt_2'] = "How is this $singular going?";
 			$_SESSION['prompt_3'] = "How happy are they?";
@@ -516,8 +516,8 @@ if($_SESSION['primary_folder'] == 'management'){
 }
 
 
-if($_SESSION['primary_folder'] == 'tracking'){
-	if($_SESSION['secondary_folder'] == 'kpis'){
+if($_GET['primary_folder'] == 'tracking'){
+	if($_GET['secondary_folder'] == 'kpis'){
 		$_SESSION['prompt_1'] = "How are we progressing?";
 		$_SESSION['prompt_2'] = "Do you feel things are on track right now?";		
 		$_SESSION['prompt_3'] = "If not, why not and how can we fix it?";
@@ -525,7 +525,7 @@ if($_SESSION['primary_folder'] == 'tracking'){
 		$_SESSION['prompt_5'] = "How can we ensure we acheive it in good time?";	
 		$_SESSION['prompt_6'] = "";	
 	}
-	if($_SESSION['secondary_folder'] == 'revenue_and_profit'){
+	if($_GET['secondary_folder'] == 'revenue_and_profit'){
 		$_SESSION['prompt_1'] = "How are we progressing?";
 		$_SESSION['prompt_2'] = "Do you feel things are on track right now?";		
 		$_SESSION['prompt_3'] = "If not, why not and how can we fix it?";
@@ -533,7 +533,7 @@ if($_SESSION['primary_folder'] == 'tracking'){
 		$_SESSION['prompt_5'] = "How can we ensure we acheive it in good time?";	
 		$_SESSION['prompt_6'] = "";	
 	}
-	if($_SESSION['secondary_folder'] == 'revenue_and_income'){
+	if($_GET['secondary_folder'] == 'revenue_and_income'){
 		$_SESSION['prompt_1'] = "How are we progressing?";
 		$_SESSION['prompt_2'] = "Do you feel things are on track right now?";		
 		$_SESSION['prompt_3'] = "If not, why not and how can we fix it?";
@@ -541,7 +541,7 @@ if($_SESSION['primary_folder'] == 'tracking'){
 		$_SESSION['prompt_5'] = "How can we ensure we acheive it on time?";	
 		$_SESSION['prompt_6'] = "";		
 	}
-	if($_SESSION['secondary_folder'] == 'income_and_hours'){	
+	if($_GET['secondary_folder'] == 'income_and_hours'){	
 		$_SESSION['prompt_1'] = "How are we progressing?";
 		$_SESSION['prompt_2'] = "Do you feel things are on track right now?";		
 		$_SESSION['prompt_3'] = "If not, why not and how can we fix it?";
@@ -549,7 +549,7 @@ if($_SESSION['primary_folder'] == 'tracking'){
 		$_SESSION['prompt_5'] = "How can we ensure we acheive it in good time?";
 		$_SESSION['prompt_6'] = "";		
 	}
-	if($_SESSION['secondary_folder'] == 'productivity'){	
+	if($_GET['secondary_folder'] == 'productivity'){	
 		$_SESSION['prompt_1'] = "How are we progressing?";
 		$_SESSION['prompt_2'] = "Do you feel things are on track right now?";		
 		$_SESSION['prompt_3'] = "If not, why not and how can we fix it?";
@@ -559,9 +559,9 @@ if($_SESSION['primary_folder'] == 'tracking'){
 	}
 }
 
-if($_SESSION['primary_folder'] == 'improvements'){
-	if($_SESSION['secondary_folder'] == 'planned'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+if($_GET['primary_folder'] == 'improvements'){
+	if($_GET['secondary_folder'] == 'planned'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "How can you define this planned improvement better right now?";
 			$_SESSION['prompt_2'] = "What needs to be acheived?";
 			$_SESSION['prompt_3'] = "Why does this improvement matter so much?";
@@ -578,8 +578,8 @@ if($_SESSION['primary_folder'] == 'improvements'){
 			$_SESSION['prompt_6'] = "Discuss these plans to structure the future better...";	
 		}
 	}	
-	if($_SESSION['secondary_folder'] == 'completed'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+	if($_GET['secondary_folder'] == 'completed'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "Why are you looking back at this improvement?";
 			$_SESSION['prompt_2'] = "What new ideas have you had?";
 			$_SESSION['prompt_3'] = "Are you happy with how it went?";
@@ -597,8 +597,8 @@ if($_SESSION['primary_folder'] == 'improvements'){
 
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'underway'){
-		if($_SESSION['tertiary_folder'] == 'item'){
+	if($_GET['secondary_folder'] == 'underway'){
+		if($_GET['tertiary_folder'] == 'item'){
 			$_SESSION['prompt_1'] = "How is this improvement going?";
 			$_SESSION['prompt_2'] = "What&#39;s good, what&#39;s bad what&#39;s ugly?";
 			$_SESSION['prompt_3'] = "How will things change once it&#39;s completed?";
@@ -616,7 +616,7 @@ if($_SESSION['primary_folder'] == 'improvements'){
 		}
 	}	
 }
-if($_SESSION['primary_folder'] == 'time'){
+if($_GET['primary_folder'] == 'time'){
 			$_SESSION['prompt_1'] = "Where is your time going?";
 			$_SESSION['prompt_2'] = "Where are you losing time?";
 			$_SESSION['prompt_3'] = "Where can you gain time?";
@@ -628,9 +628,9 @@ if($_SESSION['primary_folder'] == 'time'){
 
 
 
-if($_SESSION['primary_folder'] == 'admin'){
-	if('general_notes' == $_SESSION['secondary_folder']){
-		if('item' == $_SESSION['tertiary_folder']){
+if($_GET['primary_folder'] == 'admin'){
+	if('general_notes' == $_GET['secondary_folder']){
+		if('item' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "What do you need to document on this topic?";
 			$_SESSION['prompt_2'] = "What general comments come to mind?";
 			$_SESSION['prompt_3'] = "What are they working on?";
@@ -649,8 +649,8 @@ if($_SESSION['primary_folder'] == 'admin'){
 	}
 
 
-	if('homework' == $_SESSION['secondary_folder']){
-		if('item' == $_SESSION['tertiary_folder']){
+	if('homework' == $_GET['secondary_folder']){
+		if('item' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "Add notes about this homework...";
 			$_SESSION['prompt_2'] = "How is it going?";
 			$_SESSION['prompt_3'] = "What is it leading to?";
@@ -671,9 +671,9 @@ if($_SESSION['primary_folder'] == 'admin'){
 
 
 
-if($_SESSION['primary_folder'] == 'wheelhouse'){
-	if($_SESSION['secondary_folder'] == 'dreams'){
-		if('item' == $_SESSION['tertiary_folder']){
+if($_GET['primary_folder'] == 'wheelhouse'){
+	if($_GET['secondary_folder'] == 'dreams'){
+		if('item' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "Add notes about this dream...";
 			$_SESSION['prompt_2'] = "How are we progressing?";
 			$_SESSION['prompt_3'] = "Do you feel things are on track right now?";		
@@ -690,8 +690,8 @@ if($_SESSION['primary_folder'] == 'wheelhouse'){
 			$_SESSION['prompt_6'] = "... and why?";		
 		}	
 	}
-	if($_SESSION['secondary_folder'] == 'goals'){
-		if('item' == $_SESSION['tertiary_folder']){
+	if($_GET['secondary_folder'] == 'goals'){
+		if('item' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "Add notes about this goal...";
 			$_SESSION['prompt_2'] = "How are we progressing?";
 			$_SESSION['prompt_3'] = "Do you feel things are on track right now?";		
@@ -708,8 +708,8 @@ if($_SESSION['primary_folder'] == 'wheelhouse'){
 			$_SESSION['prompt_6'] = "... and why?";	
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'milestones'){
-		if('item' == $_SESSION['tertiary_folder']){
+	if($_GET['secondary_folder'] == 'milestones'){
+		if('item' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "Add notes about this milestone...";
 			$_SESSION['prompt_2'] = "How are we progressing?";
 			$_SESSION['prompt_3'] = "Do you feel things are on track right now?";		
@@ -726,8 +726,8 @@ if($_SESSION['primary_folder'] == 'wheelhouse'){
 			$_SESSION['prompt_6'] = "... and why?";	
 		}
 	}
-	if($_SESSION['secondary_folder'] == 'tasks'){	
-		if('item' == $_SESSION['tertiary_folder']){
+	if($_GET['secondary_folder'] == 'tasks'){	
+		if('item' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "Add notes about this task...";
 			$_SESSION['prompt_2'] = "How are we progressing?";
 			$_SESSION['prompt_3'] = "Do you feel things are on track right now?";		
@@ -744,8 +744,8 @@ if($_SESSION['primary_folder'] == 'wheelhouse'){
 			$_SESSION['prompt_6'] = "... and why?";	
 		}
 	}
-	if('issues' == $_SESSION['secondary_folder']){
-		if('item' == $_SESSION['tertiary_folder']){
+	if('issues' == $_GET['secondary_folder']){
+		if('item' == $_GET['tertiary_folder']){
 			$_SESSION['prompt_1'] = "Add notes about this issue...";
 			$_SESSION['prompt_2'] = "How is it going?";
 			$_SESSION['prompt_3'] = "What has happened since the last update?";
@@ -770,7 +770,7 @@ if($_SESSION['primary_folder'] == 'wheelhouse'){
 
 
 
-if($_SESSION['primary_folder'] == 'messages'){
+if($_GET['primary_folder'] == 'messages'){
 	if($_SESSION['dreamboat_crew'] == 'yes'){$to = 'client '.$_SESSION['viewing_client_first_name']."?";}
 	else{$to = 'Productivity Pilot '.$_SESSION['pilots_first_name']."?";}				
 		$_SESSION['prompt_1'] = "What do you want to say to your ".$to;

@@ -1,6 +1,6 @@
 <?php
 
-if($_SESSION['primary_folder'] != 'content'){
+if($_GET['primary_folder'] != 'content'){
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/tab_scripts_and_styles.php";

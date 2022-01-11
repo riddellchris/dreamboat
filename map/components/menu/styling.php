@@ -1,7 +1,6 @@
 <style>
 #map_menu_container{
 	position:fixed;
-	top:100;
 	text-align: center;
 	padding-top:10px;
 	padding-bottom:10px;
@@ -9,8 +8,15 @@
 	font-family:helvetica;
 	text-align: left;
 	z-index: 4000000;
+	top:130;
 }
 #body:fullscreen 		#map_menu_container       {  		top:  -5;}
+
+
+
+
+
+
 
 
 select{

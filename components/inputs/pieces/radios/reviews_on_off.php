@@ -4,7 +4,7 @@
 
 <?php
 if(!isset($_SESSION)){session_start();}
-if($_SESSION['primary_folder'] != 'account'){
+if($_GET['primary_folder'] != 'account'){
 echo "
 <form method='post' action='/account/settings/periodic_reviews/adjust.php'>
 ";
@@ -23,7 +23,7 @@ echo "
 	?>>OFF</input>
 
 <?php
-if($_SESSION['primary_folder'] != 'account'){
+if($_GET['primary_folder'] != 'account'){
 echo "
 </form>
 ";

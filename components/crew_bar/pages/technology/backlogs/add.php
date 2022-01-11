@@ -23,12 +23,12 @@ $note = mysqli_real_escape_string($conn, $_POST['wisdom']);
 				title, 
 				note_details)
 	VALUES(
-		'".$_SESSION['primary_folder']."',
-		'".$_SESSION['secondary_folder']."',	
-		'".$_SESSION['tertiary_folder']."',";	
+		'".$_GET['primary_folder']."',
+		'".$_GET['secondary_folder']."',	
+		'".$_GET['tertiary_folder']."',";	
 
 	//just for histories right now			
-	if($_SESSION['final_file_name']  == 'view_history'){$sql .= "'".$_SESSION['item_id_from_url']."',";}
+	if($_SESSION['final_file_name']  == 'view_history'){$sql .= "'".$_GET['item_id']."',";}
 
 	$sql .= "'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
 		'".$category_to_store."',

@@ -3,8 +3,10 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
 $sql = "SELECT numerical_zone 
-		FROM '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
+		FROM ".mysqli_real_escape_string($conn, $_GET['primary_folder'])."
 		WHERE item_id = '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";
+
+	//	echo $sql; exit();
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $value_zone = $row['numerical_zone'];

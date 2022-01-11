@@ -5,101 +5,101 @@ if(!isset($_SESSION)){session_start();}
 
 $user_creating_notifications_name = 'You';
 	
-//	echo $_SESSION['primary_folder'];
-//	echo $_SESSION['secondary_folder'] ;
-//	echo $_SESSION['tertiary_folder'];
+//	echo $_GET['primary_folder'];
+//	echo $_GET['secondary_folder'] ;
+//	echo $_GET['tertiary_folder'];
 //	exit();
 	
 if($notification_type == 'standard_discussion'){
 
-/*	if($_SESSION['primary_folder'] == 'wellbeing'){
-		$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/";
-		if($_SESSION['secondary_folder'] == 'health'){	$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}
-		if($_SESSION['secondary_folder'] == 'energy'){	$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}
-		if($_SESSION['secondary_folder'] == 'stress'){	$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}
-		if($_SESSION['secondary_folder'] == 'mood'){	$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}
+/*	if($_GET['primary_folder'] == 'wellbeing'){
+		$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/";
+		if($_GET['secondary_folder'] == 'health'){	$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}
+		if($_GET['secondary_folder'] == 'energy'){	$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}
+		if($_GET['secondary_folder'] == 'stress'){	$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}
+		if($_GET['secondary_folder'] == 'mood'){	$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}
 	}
-	if($_SESSION['primary_folder'] == 'flow'){
-		$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/";
-		if($_SESSION['secondary_folder'] == 'focus'){	$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}
-		if($_SESSION['secondary_folder'] == 'think'){	$description = $user_creating_notifications_name." discussed your thinking with you";}
-		if($_SESSION['secondary_folder'] == 'plan'){	$description = $user_creating_notifications_name." discussed your planning ahead with you";}
-		if($_SESSION['secondary_folder'] == 'vent'){	$description = $user_creating_notifications_name." discussed your venting with you";}
-		if($_SESSION['secondary_folder'] == 'dream'){	$description = $user_creating_notifications_name." discussed your dreams with you";}
-		if($_SESSION['secondary_folder'] == 'reflect'){	$description = $user_creating_notifications_name." discussed your reflections with you";}
+	if($_GET['primary_folder'] == 'flow'){
+		$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/";
+		if($_GET['secondary_folder'] == 'focus'){	$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}
+		if($_GET['secondary_folder'] == 'think'){	$description = $user_creating_notifications_name." discussed your thinking with you";}
+		if($_GET['secondary_folder'] == 'plan'){	$description = $user_creating_notifications_name." discussed your planning ahead with you";}
+		if($_GET['secondary_folder'] == 'vent'){	$description = $user_creating_notifications_name." discussed your venting with you";}
+		if($_GET['secondary_folder'] == 'dream'){	$description = $user_creating_notifications_name." discussed your dreams with you";}
+		if($_GET['secondary_folder'] == 'reflect'){	$description = $user_creating_notifications_name." discussed your reflections with you";}
 	}*/
-	if($_SESSION['primary_folder'] == 'profile'){	
-		if($_SESSION['tertiary_folder']  != 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/";}
-		if($_SESSION['secondary_folder'] == 'issues'			&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your issues with you";}
-		if($_SESSION['secondary_folder'] == 'homework'			&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your homework with you";}		
-		if($_SESSION['secondary_folder'] == 'progress'			&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your progress with you";}
-		if($_SESSION['secondary_folder'] == 'future_questions'		&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your progress with you";}								
+	if($_GET['primary_folder'] == 'profile'){	
+		if($_GET['tertiary_folder']  != 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/";}
+		if($_GET['secondary_folder'] == 'issues'			&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your issues with you";}
+		if($_GET['secondary_folder'] == 'homework'			&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your homework with you";}		
+		if($_GET['secondary_folder'] == 'progress'			&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your progress with you";}
+		if($_GET['secondary_folder'] == 'future_questions'		&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your progress with you";}								
 	
-		if($_SESSION['tertiary_folder']  == 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/item/display.php?item_id=".$_SESSION['item_id_from_url'];}
-		if($_SESSION['secondary_folder'] == 'issues'			&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed an issue with you";}
-		if($_SESSION['secondary_folder'] == 'homework'			&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed some homework with you";}		
-		if($_SESSION['secondary_folder'] == 'progress'			&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed some progress with you";}	
-		if($_SESSION['secondary_folder'] == 'future_questions'		&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed some progress with you";}					
+		if($_GET['tertiary_folder']  == 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/item/display.php?item_id=".$_GET['item_id'];}
+		if($_GET['secondary_folder'] == 'issues'			&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed an issue with you";}
+		if($_GET['secondary_folder'] == 'homework'			&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed some homework with you";}		
+		if($_GET['secondary_folder'] == 'progress'			&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed some progress with you";}	
+		if($_GET['secondary_folder'] == 'future_questions'		&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed some progress with you";}					
 	}
-	if($_SESSION['primary_folder'] == 'network'){
-		if($_SESSION['tertiary_folder']  != 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/";}	
-		if($_SESSION['secondary_folder'] == 'messages'){$description = $user_creating_notifications_name." sent you a message";}
+	if($_GET['primary_folder'] == 'network'){
+		if($_GET['tertiary_folder']  != 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/";}	
+		if($_GET['secondary_folder'] == 'messages'){$description = $user_creating_notifications_name." sent you a message";}
 		
-		if($_SESSION['tertiary_folder']  == 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/item/display.php?item_id=".$_SESSION['item_id_from_url'];}
-		if($_SESSION['secondary_folder'] == 'organisations'){$description = $user_creating_notifications_name." commented on an organisation";}
-		if($_SESSION['secondary_folder'] == 'people'){$description = $user_creating_notifications_name." commented on an person";}
+		if($_GET['tertiary_folder']  == 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/item/display.php?item_id=".$_GET['item_id'];}
+		if($_GET['secondary_folder'] == 'organisations'){$description = $user_creating_notifications_name." commented on an organisation";}
+		if($_GET['secondary_folder'] == 'people'){$description = $user_creating_notifications_name." commented on an person";}
 	}
-	if($_SESSION['primary_folder'] == 'wheelhouse'){
-		if($_SESSION['tertiary_folder']  != 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/";}
-		if($_SESSION['secondary_folder'] == 'dreams'		&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}
-		if($_SESSION['secondary_folder'] == 'goals'		&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}		
-		if($_SESSION['secondary_folder'] == 'milestones'	&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}		
-		if($_SESSION['secondary_folder'] == 'tasks'		&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}				
+	if($_GET['primary_folder'] == 'wheelhouse'){
+		if($_GET['tertiary_folder']  != 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/";}
+		if($_GET['secondary_folder'] == 'dreams'		&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}
+		if($_GET['secondary_folder'] == 'goals'		&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}		
+		if($_GET['secondary_folder'] == 'milestones'	&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}		
+		if($_GET['secondary_folder'] == 'tasks'		&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}				
 	
-		if($_SESSION['tertiary_folder']  == 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/item/display.php?item_id=".$_SESSION['item_id_from_url'];}
-		if($_SESSION['secondary_folder'] == 'dreams'		&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a dream with you";}
-		if($_SESSION['secondary_folder'] == 'goals'		&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a goal with you";}		
-		if($_SESSION['secondary_folder'] == 'milestones'	&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a milestone task with you";}		
-		if($_SESSION['secondary_folder'] == 'tasks'		&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a specific task with you";}		
+		if($_GET['tertiary_folder']  == 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/item/display.php?item_id=".$_GET['item_id'];}
+		if($_GET['secondary_folder'] == 'dreams'		&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a dream with you";}
+		if($_GET['secondary_folder'] == 'goals'		&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a goal with you";}		
+		if($_GET['secondary_folder'] == 'milestones'	&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a milestone task with you";}		
+		if($_GET['secondary_folder'] == 'tasks'		&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a specific task with you";}		
 	}	
-	if($_SESSION['primary_folder'] == 'management'){
-		if($_SESSION['tertiary_folder']  != 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/";}
-		if($_SESSION['secondary_folder'] == 'staff'	&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}
-		if($_SESSION['secondary_folder'] == 'clients'	&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}		
-		if($_SESSION['secondary_folder'] == 'sales'	&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}		
-		if($_SESSION['secondary_folder'] == 'marketing'	&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}		
-		if($_SESSION['secondary_folder'] == 'products'	&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}		
-		if($_SESSION['secondary_folder'] == 'services'	&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_SESSION['secondary_folder']." with you";}		
+	if($_GET['primary_folder'] == 'management'){
+		if($_GET['tertiary_folder']  != 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/";}
+		if($_GET['secondary_folder'] == 'staff'	&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}
+		if($_GET['secondary_folder'] == 'clients'	&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}		
+		if($_GET['secondary_folder'] == 'sales'	&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}		
+		if($_GET['secondary_folder'] == 'marketing'	&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}		
+		if($_GET['secondary_folder'] == 'products'	&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}		
+		if($_GET['secondary_folder'] == 'services'	&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your ".$_GET['secondary_folder']." with you";}		
 	
 	
-		if($_SESSION['tertiary_folder']  == 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/item/display.php?item_id=".$_SESSION['item_id_from_url'];}
-		if($_SESSION['secondary_folder'] == 'staff'	&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a staff member with you";}
-		if($_SESSION['secondary_folder'] == 'clients'	&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a client with you";}		
-		if($_SESSION['secondary_folder'] == 'sales'	&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a sales activity with you";}		
-		if($_SESSION['secondary_folder'] == 'marketing'	&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a marketing & BD activity with you";}		
-		if($_SESSION['secondary_folder'] == 'products'	&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a product with you";}		
-		if($_SESSION['secondary_folder'] == 'services'	&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a service with you";}		
+		if($_GET['tertiary_folder']  == 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/item/display.php?item_id=".$_GET['item_id'];}
+		if($_GET['secondary_folder'] == 'staff'	&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a staff member with you";}
+		if($_GET['secondary_folder'] == 'clients'	&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a client with you";}		
+		if($_GET['secondary_folder'] == 'sales'	&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a sales activity with you";}		
+		if($_GET['secondary_folder'] == 'marketing'	&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a marketing & BD activity with you";}		
+		if($_GET['secondary_folder'] == 'products'	&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a product with you";}		
+		if($_GET['secondary_folder'] == 'services'	&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed a service with you";}		
 	}
-	if($_SESSION['primary_folder'] == 'tracking'){
-		$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/";
-		if($_SESSION['secondary_folder'] == 'kpis'		){$description = $user_creating_notifications_name." discussed your KPIs with you";}
-		if($_SESSION['secondary_folder'] == 'revenue_and_profit'){$description = $user_creating_notifications_name." discussed your Revenue & Profit with you";}		
-		if($_SESSION['secondary_folder'] == 'revenue_and_income'){$description = $user_creating_notifications_name." discussed your Revenue & Income with you";}		
-		if($_SESSION['secondary_folder'] == 'income_and_hours'	){$description = $user_creating_notifications_name." discussed your Income & Hours with you";}		
-		if($_SESSION['secondary_folder'] == 'productivity'	){$description = $user_creating_notifications_name." discussed your Productivity with you";}
+	if($_GET['primary_folder'] == 'tracking'){
+		$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/";
+		if($_GET['secondary_folder'] == 'kpis'		){$description = $user_creating_notifications_name." discussed your KPIs with you";}
+		if($_GET['secondary_folder'] == 'revenue_and_profit'){$description = $user_creating_notifications_name." discussed your Revenue & Profit with you";}		
+		if($_GET['secondary_folder'] == 'revenue_and_income'){$description = $user_creating_notifications_name." discussed your Revenue & Income with you";}		
+		if($_GET['secondary_folder'] == 'income_and_hours'	){$description = $user_creating_notifications_name." discussed your Income & Hours with you";}		
+		if($_GET['secondary_folder'] == 'productivity'	){$description = $user_creating_notifications_name." discussed your Productivity with you";}
 	}	
 	
 
-	if($_SESSION['primary_folder'] == 'improvements'){
-		if($_SESSION['tertiary_folder']  != 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/";}
-		if($_SESSION['secondary_folder'] == 'completed'		&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your improvements with you";}
-		if($_SESSION['secondary_folder'] == 'underway'		&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your improvements with you";}		
-		if($_SESSION['secondary_folder'] == 'planned'		&&	$_SESSION['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your improvements with you";}						
+	if($_GET['primary_folder'] == 'improvements'){
+		if($_GET['tertiary_folder']  != 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/";}
+		if($_GET['secondary_folder'] == 'completed'		&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your improvements with you";}
+		if($_GET['secondary_folder'] == 'underway'		&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your improvements with you";}		
+		if($_GET['secondary_folder'] == 'planned'		&&	$_GET['tertiary_folder'] == ''){$description = $user_creating_notifications_name." discussed your improvements with you";}						
 	
-		if($_SESSION['tertiary_folder']  == 'item'){$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/item/display.php?item_id=".$_SESSION['item_id_from_url'];}
-		if($_SESSION['secondary_folder'] == 'completed'		&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed an improvement with you";}
-		if($_SESSION['secondary_folder'] == 'underway'		&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed an improvement with you";}		
-		if($_SESSION['secondary_folder'] == 'planned'		&&	$_SESSION['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed an improvement with you";}		
+		if($_GET['tertiary_folder']  == 'item'){$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/item/display.php?item_id=".$_GET['item_id'];}
+		if($_GET['secondary_folder'] == 'completed'		&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed an improvement with you";}
+		if($_GET['secondary_folder'] == 'underway'		&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed an improvement with you";}		
+		if($_GET['secondary_folder'] == 'planned'		&&	$_GET['tertiary_folder'] == 'item'){$description = $user_creating_notifications_name." discussed an improvement with you";}		
 	}
 	
 	$_SESSION['email_title'] = $description;
@@ -120,7 +120,7 @@ if($notification_type == 'add_new'){
 	if($_SESSION['adding_new'] == 'issues'){		$description = $user_creating_notifications_name." added a new issue to your Dreamboat";};
 	if($_SESSION['adding_new'] == 'progress'){		$description = $user_creating_notifications_name." added a new piece of progress to your Dreamboat";};
 	if($_SESSION['adding_new'] == 'homework'){		$description = $user_creating_notifications_name." added a new homework activity to your Dreamboat";};
-	if($_SESSION['primary_folder'] == 'improvements'){	$description = $user_creating_notifications_name." added a new improvement to your Dreamboat";};
+	if($_GET['primary_folder'] == 'improvements'){	$description = $user_creating_notifications_name." added a new improvement to your Dreamboat";};
 	if($_SESSION['adding_new'] == 'people'){		$description = $user_creating_notifications_name." added a new person to your Dreamboat";};
 //	if($_SESSION['adding_new'] == 'people'){		$description = $user_creating_notifications_name." added a <a href=&#39;/item/display.php?item_id=".$last_insert_id."&#39;>new person</a> to your Dreamboat";};
 	if($_SESSION['adding_new'] == 'organisations'){		$description = $user_creating_notifications_name." added a new organisation to your Dreamboat";};
@@ -146,32 +146,32 @@ if($notification_type == 'add_new'){
 if(	$notification_type == 'deleted'	OR
 	$notification_type == 'undeleted'
 	){	
-	if($_SESSION['primary_folder'] == 'profile'){
-		if($_SESSION['secondary_folder'] == 'issues'){	$end_bit = "an issue";}
-		if($_SESSION['secondary_folder'] == 'homework'){$end_bit = "some homework";}	
-		if($_SESSION['secondary_folder'] == 'progress'){$end_bit = "some progress";}
+	if($_GET['primary_folder'] == 'profile'){
+		if($_GET['secondary_folder'] == 'issues'){	$end_bit = "an issue";}
+		if($_GET['secondary_folder'] == 'homework'){$end_bit = "some homework";}	
+		if($_GET['secondary_folder'] == 'progress'){$end_bit = "some progress";}
 	}	
-	if($_SESSION['primary_folder'] == 'network'){
-		if($_SESSION['secondary_folder'] == 'organisations'){$end_bit = "an organisation";}
-		if($_SESSION['secondary_folder'] == 'people'){$end_bit = "a person";}
+	if($_GET['primary_folder'] == 'network'){
+		if($_GET['secondary_folder'] == 'organisations'){$end_bit = "an organisation";}
+		if($_GET['secondary_folder'] == 'people'){$end_bit = "a person";}
 	}
-	if($_SESSION['primary_folder'] == 'wheelhouse'){
-		if($_SESSION['secondary_folder'] == 'dreams'){		$end_bit = "a dream";}	
-		if($_SESSION['secondary_folder'] == 'milestones'){	$end_bit = "a milestone";}
-		if($_SESSION['secondary_folder'] == 'goals'){		$end_bit = "a goal";}	
-		if($_SESSION['secondary_folder'] == 'tasks'){		$end_bit = "a task";}		
+	if($_GET['primary_folder'] == 'wheelhouse'){
+		if($_GET['secondary_folder'] == 'dreams'){		$end_bit = "a dream";}	
+		if($_GET['secondary_folder'] == 'milestones'){	$end_bit = "a milestone";}
+		if($_GET['secondary_folder'] == 'goals'){		$end_bit = "a goal";}	
+		if($_GET['secondary_folder'] == 'tasks'){		$end_bit = "a task";}		
 			
 	}
-	if($_SESSION['primary_folder'] == 'management'){
-		if($_SESSION['secondary_folder'] == 'staff'){		$end_bit = "a staff member";}	
-		if($_SESSION['secondary_folder'] == 'clients'){		$end_bit = "a client";}
-		if($_SESSION['secondary_folder'] == 'sales'){		$end_bit = "a sales activity";}
-		if($_SESSION['secondary_folder'] == 'marketing'){	$end_bit = "a marketing activity";}	
-		if($_SESSION['secondary_folder'] == 'services'){	$end_bit = "a service";}	
-		if($_SESSION['secondary_folder'] == 'products'){	$end_bit = "a product";}	
+	if($_GET['primary_folder'] == 'management'){
+		if($_GET['secondary_folder'] == 'staff'){		$end_bit = "a staff member";}	
+		if($_GET['secondary_folder'] == 'clients'){		$end_bit = "a client";}
+		if($_GET['secondary_folder'] == 'sales'){		$end_bit = "a sales activity";}
+		if($_GET['secondary_folder'] == 'marketing'){	$end_bit = "a marketing activity";}	
+		if($_GET['secondary_folder'] == 'services'){	$end_bit = "a service";}	
+		if($_GET['secondary_folder'] == 'products'){	$end_bit = "a product";}	
 
 	}
-	if($_SESSION['primary_folder'] == 'improvements'){
+	if($_GET['primary_folder'] == 'improvements'){
 		$end_bit = "an improvement";	
 	}
 	if(	$notification_type == 'deleted'){	$description = $user_creating_notifications_name." deleted ".$end_bit;	}
@@ -213,7 +213,7 @@ if($notification_type == 'reminder'){
 		
 		echo 'in here';
 		
-		$url = "/".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/";
+		$url = "/".$_GET['primary_folder']."/".$_GET['secondary_folder']."/";
 		$description = "You have ".$reminder_type." reminder on your Dreamboat.";
 		$_SESSION['email_title'] = $description;
 		$_SESSION['email_instruction'] = "To view and respond to it <br>just login below:";
@@ -237,8 +237,8 @@ if($notification_type == 'add_new'){
 	$related_item_id = $last_insert_id;
 }
 else{
-	$tertiary_folder = $_SESSION['tertiary_folder'];
-	$related_item_id = $_SESSION['item_id_from_url'];
+	$tertiary_folder = $_GET['tertiary_folder'];
+	$related_item_id = $_GET['item_id'];
 
 
 }
@@ -260,8 +260,8 @@ else{
 							text_color,
 							degrees							
 							)
-		VALUES	('".$_SESSION['primary_folder']."', 						 
-			 '".$_SESSION['secondary_folder']."',
+		VALUES	('".$_GET['primary_folder']."', 						 
+			 '".$_GET['secondary_folder']."',
 			 '".$tertiary_folder."',
 			 '".$related_item_id."', 
 			 '".$description."', 
@@ -294,8 +294,8 @@ else{
 								text_color,
 								degrees							
 								)
-			VALUES	('".$_SESSION['primary_folder']."', 						 
-				 '".$_SESSION['secondary_folder']."',
+			VALUES	('".$_GET['primary_folder']."', 						 
+				 '".$_GET['secondary_folder']."',
 				 '".$tertiary_folder."',
 				 '".$related_item_id."',
 				 '".$description."', 
@@ -330,7 +330,7 @@ else{
 			
 		//add to appropriate discussions feeds too
 		$sql = "INSERT INTO discussion (system_notification, comment, primary_folder, secondary_folder, related_id , to_user_id, user_id)
-			VALUES('yes','".$description."','".$_SESSION['primary_folder']."','".$_SESSION['secondary_folder']."','".$related_item_id."','".$to_user_id."','".mysqli_real_escape_string($conn, $_SESSION['user_id'])."')	";
+			VALUES('yes','".$description."','".$_GET['primary_folder']."','".$_GET['secondary_folder']."','".$related_item_id."','".$to_user_id."','".mysqli_real_escape_string($conn, $_SESSION['user_id'])."')	";
 			mysqli_query($conn, $sql);
 			
 		}					

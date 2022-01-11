@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 /*
-if(isset($_SESSION['primary_folder']) && $_SESSION['primary_folder'] == 'content'){
+if(isset($_GET['primary_folder']) && $_GET['primary_folder'] == 'content'){
 $user_to_view = 2;
 $mode = 'new_potentials';
 

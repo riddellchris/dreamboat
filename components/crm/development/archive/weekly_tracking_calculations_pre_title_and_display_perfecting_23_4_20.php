@@ -11,13 +11,13 @@ if(!isset($_SESSION)){session_start();}
         
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT']."/components/functions/strip_underscores.php";
-$item_type = ucfirst(strip_underscores($_SESSION['secondary_folder']));
+$item_type = ucfirst(strip_underscores($_GET['secondary_folder']));
 
      
 echo "['Week ending dd/mm', ";
 
-	$primary 	= $_SESSION['primary_folder'];
-	$secondary 	= $_SESSION['secondary_folder'];
+	$primary 	= $_GET['primary_folder'];
+	$secondary 	= $_GET['secondary_folder'];
 		
 //network		
 	if($primary == 'network' && $secondary == 'groups'){$active_title = "'Total Active ".$item_type."'"; 		$new_title = "'Weekly New ".$item_type."'"; 	$closed_title = "";}
@@ -66,7 +66,7 @@ echo "['Week ending dd/mm', ";
  $result = mysqli_query($conn, $sql);
  $i = 0;
  
- $secondary = $_SESSION['secondary_folder'];
+ $secondary = $_GET['secondary_folder'];
  
  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
  	      if($secondary == 'people'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}

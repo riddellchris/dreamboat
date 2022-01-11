@@ -12,10 +12,10 @@ $sql = "INSERT INTO notes (	about_user_id,
 				note_details)
 	VALUES(	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
 		'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
-		'".$_SESSION['primary_folder']."',
-		'".$_SESSION['secondary_folder']."',
-		'".$_SESSION['tertiary_folder']."',
-		'".$_SESSION['item_id_from_url']."',
+		'".$_GET['primary_folder']."',
+		'".$_GET['secondary_folder']."',
+		'".$_GET['tertiary_folder']."',
+		'".$_GET['item_id']."',
 		'".mysqli_real_escape_string($conn, $_POST['notes'])."'	
 		)";
 mysqli_query($conn, $sql);

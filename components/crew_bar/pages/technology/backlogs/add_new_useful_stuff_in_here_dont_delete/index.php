@@ -30,10 +30,10 @@ echo "<div style='height:25vh;'></div>";
 //The way we file updates and improve the system will need some work in the first place until we can hire someone to really work on Dev Ops... perhaps Jesse Jesseeppi";	
 		if($_SESSION['technology_sub_menu'] == 'discuss'){		
 			$sql = "SELECT DISTINCT category FROM technology 
-				WHERE 	primary_folder = '".$_SESSION['primary_folder']."'
-				AND	secondary_folder = '".$_SESSION['secondary_folder']."'
-				AND	tertiary_folder = '".$_SESSION['tertiary_folder']."'";
-			if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_SESSION['item_id_from_url']."'";}					
+				WHERE 	primary_folder = '".$_GET['primary_folder']."'
+				AND	secondary_folder = '".$_GET['secondary_folder']."'
+				AND	tertiary_folder = '".$_GET['tertiary_folder']."'";
+			if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_GET['item_id']."'";}					
 			$sql .= "ORDER BY category DESC";
 			
 			//echo $sql;exit();
@@ -59,11 +59,11 @@ echo "<div style='height:25vh;'></div>";
 				echo "<select class='secure_input'  name = 'layer_to_apply_to'>
 						<option>Across</option>";
 							echo "<option value='entire_platform'>		The entire platform</option>";			
-							echo "<option value='primary_folder'>		The /".$_SESSION['primary_folder']."/ section</option>";
-						if(isset($_SESSION['secondary_folder']) && $_SESSION['secondary_folder'] != ''){
-							echo "<option value='secondary_folder'>		The /".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/ section</option>";
-							if(isset($_SESSION['tertiary_folder']) && $_SESSION['tertiary_folder'] != ''){
-								echo "<option value='tertiary_folder'>		The /".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/".$_SESSION['tertiary_folder']."/ section</option>";
+							echo "<option value='primary_folder'>		The /".$_GET['primary_folder']."/ section</option>";
+						if(isset($_GET['secondary_folder']) && $_GET['secondary_folder'] != ''){
+							echo "<option value='secondary_folder'>		The /".$_GET['primary_folder']."/".$_GET['secondary_folder']."/ section</option>";
+							if(isset($_GET['tertiary_folder']) && $_GET['tertiary_folder'] != ''){
+								echo "<option value='tertiary_folder'>		The /".$_GET['primary_folder']."/".$_GET['secondary_folder']."/".$_GET['tertiary_folder']."/ section</option>";
 									echo "<option value='this_specific_item'>	Only this specific item&#39;s page</option>";	
 								}	
 							}
@@ -76,10 +76,10 @@ echo "<div style='height:25vh;'></div>";
 						echo "<select class='secure_input' name = 'title' rows='22' style='width: 100%;'  onchange='this.form.submit()' autocomplete='off'>";
 						echo "<option>.... select a title to view</option>";	
 							$sql = "SELECT * FROM technology 
-								WHERE 	primary_folder = '".$_SESSION['primary_folder']."'
-								AND	secondary_folder = '".$_SESSION['secondary_folder']."'
-								AND	tertiary_folder = '".$_SESSION['tertiary_folder']."'";
-								if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_SESSION['item_id_from_url']."'";}					
+								WHERE 	primary_folder = '".$_GET['primary_folder']."'
+								AND	secondary_folder = '".$_GET['secondary_folder']."'
+								AND	tertiary_folder = '".$_GET['tertiary_folder']."'";
+								if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_GET['item_id']."'";}					
 							$sql .= "
 								AND	category = '".$_SESSION['displaying_technology_category']."'								
 								ORDER BY views DESC";
@@ -99,10 +99,10 @@ echo "<div style='height:25vh;'></div>";
 						
 					if(isset($_SESSION['displaying_technology_title'])){
 							$sql = "SELECT * FROM technology 
-								WHERE 	primary_folder = '".$_SESSION['primary_folder']."'
-								AND	secondary_folder = '".$_SESSION['secondary_folder']."'
-								AND	tertiary_folder = '".$_SESSION['tertiary_folder']."'";
-								if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_SESSION['item_id_from_url']."'";}					
+								WHERE 	primary_folder = '".$_GET['primary_folder']."'
+								AND	secondary_folder = '".$_GET['secondary_folder']."'
+								AND	tertiary_folder = '".$_GET['tertiary_folder']."'";
+								if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_GET['item_id']."'";}					
 							$sql .= "
 								AND	category = '".$_SESSION['displaying_technology_category']."'								
 								ORDER BY views DESC";
@@ -133,10 +133,10 @@ echo "<div style='height:25vh;'></div>";
 //The way we file updates and improve the system will need some work in the first place until we can hire someone to really work on Dev Ops... perhaps Jesse Jesseeppi";	
 		if($_SESSION['technology_sub_menu'] == 'prioritise'){		
 			$sql = "SELECT DISTINCT category FROM technology 
-				WHERE 	primary_folder = '".$_SESSION['primary_folder']."'
-				AND	secondary_folder = '".$_SESSION['secondary_folder']."'
-				AND	tertiary_folder = '".$_SESSION['tertiary_folder']."'";
-			if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_SESSION['item_id_from_url']."'";}					
+				WHERE 	primary_folder = '".$_GET['primary_folder']."'
+				AND	secondary_folder = '".$_GET['secondary_folder']."'
+				AND	tertiary_folder = '".$_GET['tertiary_folder']."'";
+			if($_SESSION['final_file_name']  == 'view_history'){$sql .= " AND item_id = '".$_GET['item_id']."'";}					
 			$sql .= "ORDER BY category DESC";
 			
 			//echo $sql;exit();
@@ -163,11 +163,11 @@ echo "<div style='height:25vh;'></div>";
 				echo "<select class='secure_input'  name = 'layer_to_apply_to'>
 						<option>Across</option>";
 							echo "<option value='entire_platform'>		The entire platform</option>";			
-							echo "<option value='primary_folder'>		The /".$_SESSION['primary_folder']."/ section</option>";
-						if(isset($_SESSION['secondary_folder']) && $_SESSION['secondary_folder'] != ''){
-							echo "<option value='secondary_folder'>		The /".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/ section</option>";
-							if(isset($_SESSION['tertiary_folder']) && $_SESSION['tertiary_folder'] != ''){
-								echo "<option value='tertiary_folder'>		The /".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/".$_SESSION['tertiary_folder']."/ section</option>";
+							echo "<option value='primary_folder'>		The /".$_GET['primary_folder']."/ section</option>";
+						if(isset($_GET['secondary_folder']) && $_GET['secondary_folder'] != ''){
+							echo "<option value='secondary_folder'>		The /".$_GET['primary_folder']."/".$_GET['secondary_folder']."/ section</option>";
+							if(isset($_GET['tertiary_folder']) && $_GET['tertiary_folder'] != ''){
+								echo "<option value='tertiary_folder'>		The /".$_GET['primary_folder']."/".$_GET['secondary_folder']."/".$_GET['tertiary_folder']."/ section</option>";
 									echo "<option value='this_specific_item'>	Only this specific item&#39;s page</option>";	
 								}	
 							}
@@ -186,11 +186,11 @@ echo "<div style='height:25vh;'></div>";
 				echo "<select class='secure_input'  name = 'layer_to_apply_to'>
 						<option>Where should this apply?</option>";
 							echo "<option value='entire_platform'>		The entire platform</option>";			
-							echo "<option value='primary_folder'>		The /".$_SESSION['primary_folder']."/ section</option>";
-						if(isset($_SESSION['secondary_folder']) && $_SESSION['secondary_folder'] != ''){
-							echo "<option value='secondary_folder'>		The /".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/ section</option>";
-							if(isset($_SESSION['tertiary_folder']) && $_SESSION['tertiary_folder'] != ''){
-								echo "<option value='tertiary_folder'>		The /".$_SESSION['primary_folder']."/".$_SESSION['secondary_folder']."/".$_SESSION['tertiary_folder']."/ section</option>";
+							echo "<option value='primary_folder'>		The /".$_GET['primary_folder']."/ section</option>";
+						if(isset($_GET['secondary_folder']) && $_GET['secondary_folder'] != ''){
+							echo "<option value='secondary_folder'>		The /".$_GET['primary_folder']."/".$_GET['secondary_folder']."/ section</option>";
+							if(isset($_GET['tertiary_folder']) && $_GET['tertiary_folder'] != ''){
+								echo "<option value='tertiary_folder'>		The /".$_GET['primary_folder']."/".$_GET['secondary_folder']."/".$_GET['tertiary_folder']."/ section</option>";
 									echo "<option value='this_specific_item'>	Only this specific item&#39;s page</option>";	
 								}	
 							}

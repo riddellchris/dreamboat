@@ -146,8 +146,8 @@ echo "<div id='top_of_discussion_tabs' style='max-width:1100px;margin:auto;displ
 
 //reviews are now just for text///updates are for lists and data
 /*
-$primary = $_SESSION['primary_folder'];
-$secondary = $_SESSION['secondary_folder'];
+$primary = $_GET['primary_folder'];
+$secondary = $_GET['secondary_folder'];
 
 if($_GET['tertiary_folder'] != 'item'){
 	if($primary == 'business'){$show_review_now = 'yes';}

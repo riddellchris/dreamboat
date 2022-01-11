@@ -31,9 +31,9 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
 
 
 		if(!isset($_SESSION['ai_business_age'])){		
-			$product_to_age_ratio = $_SESSION['ai_number_of_'.$_SESSION['secondary_folder']] / $_SESSION['ai_business_age'];
+			$product_to_age_ratio = $_SESSION['ai_number_of_'.$_GET['secondary_folder']] / $_SESSION['ai_business_age'];
 		
-			if($product_to_age_ratio < 1){$_SESSION['ai_list_warning'] = "More ".$_SESSION['secondary_folder']." are expected for a business of this age";}
+			if($product_to_age_ratio < 1){$_SESSION['ai_list_warning'] = "More ".$_GET['secondary_folder']." are expected for a business of this age";}
 		}
 		
 		if($_SESSION['ai_business_age'] == 0){$_SESSION['ai_list_warning'] = "Check this business' age";
@@ -49,7 +49,7 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
 	
 /*	
 	//for all lists this is the required variable to make any assessment here
-	//$_SESSION['ai_number_of_'.$_SESSION['secondary_folder']]
+	//$_SESSION['ai_number_of_'.$_GET['secondary_folder']]
 	
 */	
 	

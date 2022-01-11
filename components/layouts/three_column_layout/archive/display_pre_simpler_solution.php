@@ -10,7 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/components/layouts/three_column_layout/
 
 <div class='container'>
     <div class='one'>
-		<?php require $_SERVER['DOCUMENT_ROOT']."/components/lhs_side_panels/".$_SESSION['primary_folder']."_".$_SESSION['secondary_folder'].".php";?>
+		<?php require $_SERVER['DOCUMENT_ROOT']."/components/lhs_side_panels/".$_GET['primary_folder']."_".$_GET['secondary_folder'].".php";?>
 	</div>
     <div class='two' style='text-align:center;'>
 	
@@ -39,7 +39,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/components/layouts/three_column_layout/
 			<?php require $_SERVER['DOCUMENT_ROOT']."/components/lists/display_list.php";?>
 	</div>				
 	<div class ='mobile_bottom'>
-			<?php require $_SERVER['DOCUMENT_ROOT']."/components/lhs_side_panels/".$_SESSION['primary_folder']."_".$_SESSION['secondary_folder'].".php";?>
+			<?php require $_SERVER['DOCUMENT_ROOT']."/components/lhs_side_panels/".$_GET['primary_folder']."_".$_GET['secondary_folder'].".php";?>
 	</div>
 </div>
 

@@ -1,10 +1,10 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if(	$_SESSION['secondary_folder'] != 'dreams' AND
-	$_SESSION['secondary_folder'] != 'goals' AND
-	$_SESSION['secondary_folder'] != 'milestones' AND
-	$_SESSION['secondary_folder'] != 'tasks'
+if(	$_GET['secondary_folder'] != 'dreams' AND
+	$_GET['secondary_folder'] != 'goals' AND
+	$_GET['secondary_folder'] != 'milestones' AND
+	$_GET['secondary_folder'] != 'tasks'
 	){
 
 	echo "	<div class='item_collapsible'>Wheelhouse</div>
@@ -12,14 +12,14 @@ if(	$_SESSION['secondary_folder'] != 'dreams' AND
 	}
 
 
-		if($_SESSION['secondary_folder'] != 'dreams'){			$show_this_type = 'dreams';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}	
-		if($_SESSION['secondary_folder'] != 'goals'){			$show_this_type = 'goals';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}				
-		if($_SESSION['secondary_folder'] != 'milestones'){		$show_this_type = 'milestones';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}				
-		if($_SESSION['secondary_folder'] != 'tasks'){			$show_this_type = 'tasks';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}	
-if(	$_SESSION['secondary_folder'] != 'dreams' AND
-	$_SESSION['secondary_folder'] != 'goals' AND
-	$_SESSION['secondary_folder'] != 'milestones' AND
-	$_SESSION['secondary_folder'] != 'tasks'
+		if($_GET['secondary_folder'] != 'dreams'){			$show_this_type = 'dreams';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}	
+		if($_GET['secondary_folder'] != 'goals'){			$show_this_type = 'goals';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}				
+		if($_GET['secondary_folder'] != 'milestones'){		$show_this_type = 'milestones';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}				
+		if($_GET['secondary_folder'] != 'tasks'){			$show_this_type = 'tasks';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}	
+if(	$_GET['secondary_folder'] != 'dreams' AND
+	$_GET['secondary_folder'] != 'goals' AND
+	$_GET['secondary_folder'] != 'milestones' AND
+	$_GET['secondary_folder'] != 'tasks'
 	){	
 
 
@@ -100,11 +100,11 @@ for (i = 0; i < coll.length; i++) {
 		
 }
 	
-	if($_SESSION['secondary_folder'] != 'issues'){			$show_this_type = 'issues';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
-	if($_SESSION['secondary_folder'] != 'homework'){		$show_this_type = 'homework';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
-	if($_SESSION['secondary_folder'] != 'progress'){		$show_this_type = 'progress';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
+	if($_GET['secondary_folder'] != 'issues'){			$show_this_type = 'issues';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
+	if($_GET['secondary_folder'] != 'homework'){		$show_this_type = 'homework';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
+	if($_GET['secondary_folder'] != 'progress'){		$show_this_type = 'progress';		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
 	
 if($_SESSION['dreamboat_crew'] == 'yes'){
-	if($_SESSION['secondary_folder'] != 'future_questions'){	$show_this_type = 'future_questions';	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
+	if($_GET['secondary_folder'] != 'future_questions'){	$show_this_type = 'future_questions';	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/related_items_display.php";}
 }
 

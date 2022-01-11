@@ -1,9 +1,9 @@
 <style>
 .title_text{ 
 	<?php
-	if($_SESSION['secondary_folder'] == 'text'){	$hex_1 = '#006aff'; $hex_2 = '#00ffb7';}
-	if($_SESSION['secondary_folder'] == 'platform'){$hex_1 = '#00FFB7'; $hex_2 = '#02e355';}
-	if($_SESSION['secondary_folder'] == 'phone'){	$hex_1 = '#ff0000'; $hex_2 = '#ff0040';}
+	if($_GET['secondary_folder'] == 'text'){	$hex_1 = '#006aff'; $hex_2 = '#00ffb7';}
+	if($_GET['secondary_folder'] == 'platform'){$hex_1 = '#00FFB7'; $hex_2 = '#02e355';}
+	if($_GET['secondary_folder'] == 'phone'){	$hex_1 = '#ff0000'; $hex_2 = '#ff0040';}
 	echo "background: -webkit-linear-gradient(180deg, ".$hex_1.", ".$hex_2.");";
 	?>
 	-webkit-background-clip: text;

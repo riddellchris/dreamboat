@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if($_SESSION['secondary_folder'] == 'mood'){
+if($_GET['secondary_folder'] == 'mood'){
 	$_SESSION['prompt_1']= "How are you right now?";
 	$_SESSION['prompt_2']= "What&#39;s making you happy?";
 	$_SESSION['prompt_3']= "What&#39;s making you upset?";
@@ -11,7 +11,7 @@ if($_SESSION['secondary_folder'] == 'mood'){
 //	$_SESSION['instructional_prompt'] = "(HIT ENTER TO SUBMIT)";
 	}
 	
-if($_SESSION['secondary_folder'] == 'stress'){
+if($_GET['secondary_folder'] == 'stress'){
 	$_SESSION['prompt_1']= "How are your stress levels right now?";
 	$_SESSION['prompt_2']= "Is it always clear what needs to be done?";
 	$_SESSION['prompt_3']= "Are you sleeping well?";
@@ -21,7 +21,7 @@ if($_SESSION['secondary_folder'] == 'stress'){
 //	$_SESSION['instructional_prompt'] = "(HIT ENTER TO SUBMIT)";
 	}
 
-if($_SESSION['secondary_folder'] == 'energy'){
+if($_GET['secondary_folder'] == 'energy'){
 	$_SESSION['prompt_1']= "How are your energy levels right now?";
 	$_SESSION['prompt_2']= "What&#39;s helping them or hindering them?";
 	$_SESSION['prompt_3']= "Do you have decent balance?";
@@ -31,7 +31,7 @@ if($_SESSION['secondary_folder'] == 'energy'){
 //	$_SESSION['instructional_prompt'] = "(HIT ENTER TO SUBMIT)";
 	}
 
-if($_SESSION['secondary_folder'] == 'health'){
+if($_GET['secondary_folder'] == 'health'){
 	$_SESSION['prompt_1']= "How is your health in general right now?";
 	$_SESSION['prompt_2']= "What&#39;s going well, what&#39;s not going so well?";
 	$_SESSION['prompt_3']= "Are there any issues really impacting your performance?";
