@@ -40,14 +40,14 @@ else{
 	//item_b is collected from the current URL 
 	$item_b_primary_folder 		= $_GET['primary_folder'];
 	$item_b_secondary_folder 	= $_GET['secondary_folder'];
-	$item_b_id 			= $_GET['item_id'];		
+	$item_b_id 					= $_GET['item_id'];		
 		
 
 
 // now we need to fill a few gaps
 	//gap 1 is the primary folder of item a which is as simple as finding the corresponding primary folder from the secondary folder within items_central_index
 	$sql = "SELECT primary_folder FROM items_central_index 
-		WHERE secondary_folder = '".$item_a_secondary_folder."'";
+			WHERE secondary_folder = '".mysqli_real_escape_string($conn, $item_a_secondary_folder)."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$item_a_primary_folder = $row['primary_folder'];
@@ -56,9 +56,9 @@ else{
 	//gap 2 is the database for item_b given the primary and secondary folder taken from the $_GET array
 		//then we should have everything we need
 	$sql = "SELECT found_in_database 
-		FROM items_central_index 
-		WHERE primary_folder = '".$item_b_primary_folder."'
-		AND   secondary_folder = '".$item_b_secondary_folder."'";
+			FROM items_central_index 
+			WHERE primary_folder 	= '".mysqli_real_escape_string($conn, $item_b_primary_folder)."'
+			AND   secondary_folder 	= '".mysqli_real_escape_string($conn, $item_b_secondary_folder)."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$item_b_database = $row['found_in_database'];
@@ -66,15 +66,15 @@ else{
 
 //and finally we need to get out the titles from the items_all database
 	//for this all we need is the database and the id to collec the right ID
-	$sql = "SELECT title FROM ".$item_a_database."
-		WHERE item_id = '".$item_a_id."'";
+	$sql = "SELECT title FROM ".mysqli_real_escape_string($conn, $item_a_database)."
+			WHERE item_id = '".mysqli_real_escape_string($conn, $item_a_id)."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$item_a_title = $row['title'];
 
 	//for this all we need is the database and the id to collec the right ID
-	$sql = "SELECT title FROM ".$item_b_database."
-		WHERE item_id = '".$item_b_id."'";
+	$sql = "SELECT title FROM ".mysqli_real_escape_string($conn, $item_b_database)."
+			WHERE item_id = '".mysqli_real_escape_string($conn, $item_b_id)."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$item_b_title = $row['title'];
@@ -95,18 +95,19 @@ else{
 						item_b_secondary_folder,
 						item_b_title
 						)
-				VALUES	(	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
-						'".$item_a_database."',
-						'".$item_a_id."',
-						'".$item_a_primary_folder."',
-						'".$item_a_secondary_folder."',						
-						'".$item_a_title."',
+				VALUES	(	
 						'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
-						'".$item_b_database."',
-						'".$item_b_id."',
-						'".$item_b_primary_folder."',
-						'".$item_b_secondary_folder."',
-						'".$item_b_title."'
+						'".mysqli_real_escape_string($conn, $item_a_database)."',
+						'".mysqli_real_escape_string($conn, $item_a_id)."',
+						'".mysqli_real_escape_string($conn, $item_a_primary_folder)."',
+						'".mysqli_real_escape_string($conn, $item_a_secondary_folder)."',						
+						'".mysqli_real_escape_string($conn, $item_a_title)."',
+						'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
+						'".mysqli_real_escape_string($conn, $item_b_database)."',
+						'".mysqli_real_escape_string($conn, $item_b_id)."',
+						'".mysqli_real_escape_string($conn, $item_b_primary_folder)."',
+						'".mysqli_real_escape_string($conn, $item_b_secondary_folder)."',
+						'".mysqli_real_escape_string($conn, $item_b_title)."'
 				)
 		";
 
@@ -129,18 +130,19 @@ else{
 						item_b_secondary_folder,
 						item_b_title
 						)
-				VALUES	(	'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
-						'".$item_b_database."',
-						'".$item_b_id."',
-						'".$item_b_primary_folder."',
-						'".$item_b_secondary_folder."',						
-						'".$item_b_title."',
+				VALUES	(	
 						'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
-						'".$item_a_database."',
-						'".$item_a_id."',
-						'".$item_a_primary_folder."',
-						'".$item_a_secondary_folder."',
-						'".$item_a_title."'
+						'".mysqli_real_escape_string($conn, $item_b_database)."',
+						'".mysqli_real_escape_string($conn, $item_b_id)."',
+						'".mysqli_real_escape_string($conn, $item_b_primary_folder)."',
+						'".mysqli_real_escape_string($conn, $item_b_secondary_folder)."',						
+						'".mysqli_real_escape_string($conn, $item_b_title)."',
+						'".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
+						'".mysqli_real_escape_string($conn, $item_a_database)."',
+						'".mysqli_real_escape_string($conn, $item_a_id)."',
+						'".mysqli_real_escape_string($conn, $item_a_primary_folder)."',
+						'".mysqli_real_escape_string($conn, $item_a_secondary_folder)."',
+						'".mysqli_real_escape_string($conn, $item_a_title)."'
 				)
 		";
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";

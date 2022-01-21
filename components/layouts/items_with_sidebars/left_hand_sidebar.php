@@ -149,44 +149,45 @@ else{
 			
 			
 				if($row['found_in_secondary_folder'] != $last_item_type){
-					echo "<option value='unselectable'>";
+					echo "<optgroup label='";
 					
 					//more customisations to be added here without doubt
 					//including
 					$custom_display = 'no';
-					if($row['found_in_secondary_folder'] == 'critical'	){$category_string_for_display 	= 'critical issues';		$custom_display = 'yes';}
-					if($row['found_in_secondary_folder'] == 'important'	){$category_string_for_display 	= 'important issues';		$custom_display = 'yes';}
-					if($row['found_in_secondary_folder'] == 'other'		){$category_string_for_display 	= 'other issues';		$custom_display = 'yes';}
+					if($row['found_in_secondary_folder'] == 'critical'	){		$category_string_for_display 	= 'critical issues';			$custom_display = 'yes';}
+					if($row['found_in_secondary_folder'] == 'important'	){		$category_string_for_display 	= 'important issues';			$custom_display = 'yes';}
+					if($row['found_in_secondary_folder'] == 'other'		){		$category_string_for_display 	= 'other issues';				$custom_display = 'yes';}
 					if(	$row['found_in_secondary_folder'] == 'all'	&&	
-						$row['found_in_primary_folder'] == 'issues'	){$category_string_for_display 	= 'uncategorised issues';	$custom_display = 'yes';}
+						$row['found_in_primary_folder'] == 'issues'	){			$category_string_for_display 	= 'uncategorised issues';		$custom_display = 'yes';}
 					
-					if($row['found_in_secondary_folder'] == 'doing'		){$category_string_for_display 	= 'doing activities';		$custom_display = 'yes';}					
-					if($row['found_in_secondary_folder'] == 'planning'	){$category_string_for_display 	= 'planning activities';	$custom_display = 'yes';}
-					if($row['found_in_secondary_folder'] == 'managing'	){$category_string_for_display 	= 'managing activities';	$custom_display = 'yes';}
-					if($row['found_in_secondary_folder'] == 'supporting'	){$category_string_for_display 	= 'supporting activities';	$custom_display = 'yes';}
-					if($row['found_in_secondary_folder'] == 'administrating'){$category_string_for_display 	= 'administrating activities';	$custom_display = 'yes';}					
-					if($row['found_in_secondary_folder'] == 'growing'	){$category_string_for_display 	= 'growing activities';		$custom_display = 'yes';}					
+					if($row['found_in_secondary_folder'] == 'doing'		){		$category_string_for_display 	= 'doing activities';			$custom_display = 'yes';}					
+					if($row['found_in_secondary_folder'] == 'planning'	){		$category_string_for_display 	= 'planning activities';		$custom_display = 'yes';}
+					if($row['found_in_secondary_folder'] == 'managing'	){		$category_string_for_display 	= 'managing activities';		$custom_display = 'yes';}
+					if($row['found_in_secondary_folder'] == 'supporting'	){	$category_string_for_display 	= 'supporting activities';		$custom_display = 'yes';}
+					if($row['found_in_secondary_folder'] == 'administrating'){	$category_string_for_display 	= 'administrating activities';	$custom_display = 'yes';}					
+					if($row['found_in_secondary_folder'] == 'growing'	){		$category_string_for_display 	= 'growing activities';			$custom_display = 'yes';}					
 					if(	$row['found_in_secondary_folder'] == 'all'	&&	
-						$row['found_in_primary_folder'] == 'activities'	){$category_string_for_display 	= 'uncategorised activities';	$custom_display = 'yes';}					
+						$row['found_in_primary_folder'] == 'activities'	){		$category_string_for_display 	= 'uncategorised activities';	$custom_display = 'yes';}					
 										
-					if($custom_display == 'no'){$category_string_for_display = $row['found_in_secondary_folder'];}
+					if($custom_display == 'no'){								$category_string_for_display 	= $row['found_in_secondary_folder'];}
 					
 					
 					
 					
 					
 					
-						echo ">>".strtoupper($category_string_for_display);
-					echo "</option>";				
+						echo strtoupper($category_string_for_display);
+					echo "'>";				
 				}
 				
 				if($row['found_in_secondary_folder'] != ''){	
 					echo "<option value='db=".$row['found_in_database']."&secondary_folder=".$row['found_in_secondary_folder']."&item_id=".$row['item_id']."'>";
-						echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$row['title'];
+						echo $row['title'];
 					echo "</option>";
 				}
 				
-				$last_item_type = $row['found_in_secondary_folder'];				
+				$last_item_type = $row['found_in_secondary_folder'];
+				echo "</optgroup>";				
 			}
 			
 		}	

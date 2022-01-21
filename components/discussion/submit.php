@@ -13,12 +13,15 @@ if(
 	){
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 		
-	$prompt_1 = safely_replace_apostrophies($_SESSION['prompt_1']);
-	$prompt_2 = safely_replace_apostrophies($_SESSION['prompt_2']);
-	$prompt_3 = safely_replace_apostrophies($_SESSION['prompt_3']);
-	$prompt_4 = safely_replace_apostrophies($_SESSION['prompt_4']);
-	$prompt_5 = safely_replace_apostrophies($_SESSION['prompt_5']);
-	$prompt_6 = safely_replace_apostrophies($_SESSION['prompt_6']);
+	
+	//this shouldn't really be displayed on here as a thing itself... this should really be stored as an array of some form in a database
+	//therefore only on number / code is required to match against the prompts i do think that I planned this pre
+	if(isset($_SESSION['prompt_1_string'])){$prompt_1 = safely_replace_apostrophies($_SESSION['prompt_1_string']);}
+	if(isset($_SESSION['prompt_2_string'])){$prompt_2 = safely_replace_apostrophies($_SESSION['prompt_2_string']);}
+	if(isset($_SESSION['prompt_3_string'])){$prompt_3 = safely_replace_apostrophies($_SESSION['prompt_3_string']);}
+	if(isset($_SESSION['prompt_4_string'])){$prompt_4 = safely_replace_apostrophies($_SESSION['prompt_4_string']);}
+	if(isset($_SESSION['prompt_5_string'])){$prompt_5 = safely_replace_apostrophies($_SESSION['prompt_5_string']);}
+	if(isset($_SESSION['prompt_6_string'])){$prompt_6 = safely_replace_apostrophies($_SESSION['prompt_6_string']);}
 
 	
 	if($_SESSION['dreamboat_crew'] == 'yes'){$other_parties_id = $_SESSION['viewing_client_id'];}
@@ -49,59 +52,69 @@ if(
 
 	
 	$sql = "INSERT INTO discussion (
-					primary_folder, 		     
-					secondary_folder, 
-					tertiary_folder, 
-					quarternary_folder, 					
-					related_id,						   
-					to_user_id, 			 
-					user_id, 			     
-					comment, ";
+											primary_folder, 		     
+											secondary_folder ";
+	if(isset($_GET['tertiary_folder'])){		$sql .= ",tertiary_folder, 		";}	
+	if(isset($_GET['quarternary_folder'])){		$sql .= ",quarternary_folder, 	";}							
+
+	$sql .= "
+					,related_id						   
+					,to_user_id 			 
+					,user_id 			     
+					,comment ";
 		if(isset($_SESSION['selected_prompt_text'])){
-				$sql .= "responding_to_prepared_prompt,  
-					 prompt_answered,
-					 prompt_answered_id,";
+				$sql .= "responding_to_prepared_prompt  
+					 ,prompt_answered
+					 ,prompt_answered_id";
 		}
 		if(isset($_POST['advice_textarea'])){
-				$sql .= "private_pilot_advice,  
-					 private_pilot_advice_category,
+				$sql .= "	,private_pilot_advice
+					 		,private_pilot_advice_category
 				";
 		}
-		$sql .=  "		reason_for_asking,
-					prompt_1, 
-					prompt_2, 
-					prompt_3, 
-					prompt_4, 
-					prompt_5, 
-					prompt_6
+		if(isset($_POST['pilot_reasoning'])){		$sql .=  "	,reason_for_asking";}
+		if(isset($_SESSION['prompt_1_string'])){	$sql .= "	,prompt_1	";} 
+		if(isset($_SESSION['prompt_2_string'])){	$sql .= "	,prompt_2	";} 
+		if(isset($_SESSION['prompt_3_string'])){	$sql .= "	,prompt_3	";} 
+		if(isset($_SESSION['prompt_4_string'])){	$sql .= "	,prompt_4	";} 
+		if(isset($_SESSION['prompt_5_string'])){	$sql .= "	,prompt_5	";} 
+		if(isset($_SESSION['prompt_6_string'])){	$sql .= "	,prompt_6	";} 
+
+		$sql .= "
 					) 
 		VALUES(			
 					'".mysqli_real_escape_string($conn, $_POST['primary_folder'])."',
-					'".mysqli_real_escape_string($conn, $_POST['secondary_folder'])."',
-					'".mysqli_real_escape_string($conn, $_POST['tertiary_folder'])."',
-					'".mysqli_real_escape_string($conn, $quarternary_folder)."',					
-					'".mysqli_real_escape_string($conn, $_POST['item_id'])."',								
-					'".mysqli_real_escape_string($conn, $other_parties_id)."',
-					'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
-					'".mysqli_real_escape_string($conn, $_SESSION['users_latest_discussion_input'])."',";
+					'".mysqli_real_escape_string($conn, $_POST['secondary_folder'])."'";
+
+
+		if(isset($_GET['tertiary_folder'])){		$sql .= ",'".mysqli_real_escape_string($conn, $_POST['tertiary_folder'])."'	";}
+		if(isset($_GET['quarternary_folder'])){		$sql .= ",'".mysqli_real_escape_string($conn, $quarternary_folder)."'		";}
+					
+		$sql .= "
+					,'".mysqli_real_escape_string($conn, $_POST['item_id'])."'							
+					,'".mysqli_real_escape_string($conn, $other_parties_id)."'
+					,'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
+					,'".mysqli_real_escape_string($conn, $_SESSION['users_latest_discussion_input'])."'";
 		if(isset($_SESSION['selected_prompt_text'])){
 								$sql .= "'yes', 
-									 '".$_SESSION['selected_prompt_text']."',
-									 '".$_SESSION['selected_prompt_id']."',";
+									 ,'".$_SESSION['selected_prompt_text']."'
+									, '".$_SESSION['selected_prompt_id']."'";
 								}
 		if(isset($_POST['advice_textarea'])){
-								$sql .= " 'yes', 
-									  '".mysqli_real_escape_string($conn, $_GET['advice_category'])."',
+								$sql .= " ,'yes' 
+									  ,'".mysqli_real_escape_string($conn, $_GET['advice_category'])."'
 								";
 								}								
 								
-		$sql .= "		'".mysqli_real_escape_string($conn, $_POST['pilot_reasoning'])."',
-					'".mysqli_real_escape_string($conn, $prompt_1)."',
-					'".mysqli_real_escape_string($conn, $prompt_2)."',
-					'".mysqli_real_escape_string($conn, $prompt_3)."',
-					'".mysqli_real_escape_string($conn, $prompt_4)."',
-					'".mysqli_real_escape_string($conn, $prompt_5)."',
-					'".mysqli_real_escape_string($conn, $prompt_6)."')";
+		if(isset($_POST['pilot_reasoning'])){		$sql .= ",'".mysqli_real_escape_string($conn, $_POST['pilot_reasoning'])."'	";}
+		if(isset($_SESSION['prompt_1_string'])){	$sql .= ",'".mysqli_real_escape_string($conn, $prompt_1)."'";} 
+		if(isset($_SESSION['prompt_2_string'])){	$sql .= ",'".mysqli_real_escape_string($conn, $prompt_2)."'";} 
+		if(isset($_SESSION['prompt_3_string'])){	$sql .= ",'".mysqli_real_escape_string($conn, $prompt_3)."'";} 
+		if(isset($_SESSION['prompt_4_string'])){	$sql .= ",'".mysqli_real_escape_string($conn, $prompt_4)."'";} 
+		if(isset($_SESSION['prompt_5_string'])){	$sql .= ",'".mysqli_real_escape_string($conn, $prompt_5)."'";} 
+		if(isset($_SESSION['prompt_6_string'])){	$sql .= ",'".mysqli_real_escape_string($conn, $prompt_6)."'";} 
+					
+		$sql .= ")";
 //echo $sql;
 //exit();
 

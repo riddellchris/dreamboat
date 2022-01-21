@@ -165,7 +165,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 					echo " >";
 		
 					echo "<br>";
-					echo "<input name='reminder' class='secure_input reminder_inputs' style='width:100%;max-width:1100px;' placeholder = 'What should you check on at this time???'";
+					echo "<input name='reminder' autocomplete='off' class='secure_input reminder_inputs' style='width:100%;max-width:1100px;' placeholder = 'What should you check on at this time???'";
 					if(isset($row['reminder_text'])){if($row['reminder_text'] != ''){echo "value = '".$row['reminder_text']."'";}}
 					echo "></input>";
 					

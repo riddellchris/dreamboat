@@ -35,21 +35,17 @@ $sql = "SELECT * FROM discussion
 $and_required = 'no';
 
 $test_count = 0;
-if (isset($_GET['secondary_folder'])) {
-	if ($_GET['secondary_folder'] 	== 'item') {
-		$test_count++;
-	}
-}
-if (isset($_GET['tertiary_folder'])) {
-	if ($_GET['tertiary_folder'] 	== 'item') {
-		$test_count++;
-	}
-}
-if (isset($_GET['quarternary_folder'])) {
-	if ($_GET['quarternary_folder'] 	== 'item') {
-		$test_count++;
-	}
-}
+if (isset($_GET['secondary_folder'])){		if ($_GET['secondary_folder'] 	== 'item') {$test_count++;}}
+if (isset($_GET['tertiary_folder'])){		if ($_GET['tertiary_folder'] 	== 'item') {$test_count++;}}
+if (isset($_GET['quarternary_folder'])) {	if ($_GET['quarternary_folder'] == 'item') {$test_count++;}}
+
+//the only anomaly is that item Id's apply on map/edges/index so we need to account for this
+if($_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'edges'){$test_count++;}
+
+
+
+
+
 //this should only be if we are in an item.
 if ($test_count == 1) {
 	$sql .= "   discussion.related_id = '" . mysqli_real_escape_string($conn, $_GET['item_id']) . "'";
@@ -232,6 +228,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		}
 	//test2
 	if(	isset($_GET['quarternary_folder']) &&
+		isset($_GET['tertiary_folder']) &&
 		isset($row['related_id']) &&
 		isset($_GET['item_id'])){
 			if($_GET['tertiary_folder'] == 'item' 	&& $row['related_id'] == $_GET['item_id']){
