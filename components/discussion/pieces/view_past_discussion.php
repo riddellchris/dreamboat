@@ -250,6 +250,9 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 	} 
 
 
+	//TODO:: Somehwere in here there should be an admin feature if dreamboat crew
+	//that allows us to adjust the user any notes are applied to within /notes/pilot_notes
+	//for now 21.01.22 i'll just delete them to clean that up
 
 
 	$show_now = 'yes';

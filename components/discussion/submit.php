@@ -115,8 +115,7 @@ if(
 		if(isset($_SESSION['prompt_6_string'])){	$sql .= ",'".mysqli_real_escape_string($conn, $prompt_6)."'";} 
 					
 		$sql .= ")";
-//echo $sql;
-//exit();
+//echo $sql;exit();
 
 				
 	$result = mysqli_query($conn, $sql);

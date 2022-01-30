@@ -12,11 +12,10 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 //partly against mysqli_real_escape_string but also against the standard set and correct where errors occur
 $database 	= $_GET['db'];
 
-if($_GET['primary_folder'] == 'activities'){	$item_id 	= $_GET['item_id'];}
-else{											$item_id 	= $_GET['id'];}
+$item_id 	= $_GET['id'];
 
-if($_GET['primary_folder'] == 'activities'){	$change_to 	= $_POST['activity_category'];} //this is because activities comes from a form not a link due to it's numerous categories
-else{											$change_to 	= $_GET['to'];}
+if($_GET['db'] == 'activities'){	$change_to 	= $_POST['activity_category'];} //this is because activities comes from a form not a link due to it's numerous categories
+else{								$change_to 	= $_GET['to'];}
 
 
 
@@ -27,9 +26,9 @@ else{											$change_to 	= $_GET['to'];}
 //discussion
 //notifications etc too
 $sql = "SELECT * FROM items_all 
-		WHERE found_in_database = '".$database."' 
-		AND item_id = '".$item_id."'";
-//	echo $sql; exit();
+		WHERE found_in_database = '".mysqli_real_escape_string($conn, $database)."' 
+		AND item_id = '".mysqli_real_escape_string($conn, $item_id)."'";
+	//echo $sql; exit();
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 //var_dump($row);
@@ -111,7 +110,7 @@ if($folders_actually_changed == 'yes'){
 else{
 	$adjusted_primary_folder	= $original_primary_folder;
 	$adjusted_secondary_folder	= $original_secondary_folder;
-	$new_category 			= $current_category;
+	$new_category 				= $current_category;
 }
 	
 //now we need to calculate the new primary_folder & secondary folders
@@ -119,8 +118,8 @@ if($change_to == 'clients'		){$adjusted_primary_folder 	= 'management';}
 if($change_to == 'staff'		){$adjusted_primary_folder 	= 'management';}
 if($change_to == 'referrer'		){$adjusted_primary_folder	= 'biz_dev';	$adjusted_secondary_folder 	= 'referrers';}
 if($change_to == 'non_referrer'	){
-						$sql = "SELECT * FROM people 
-							WHERE item_id = '".$item_id."'";
+						$sql = "	SELECT * FROM people 
+									WHERE item_id = '".mysqli_real_escape_string($conn, $item_id)."'";
 						$result = mysqli_query($conn, $sql);
 						$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 						
@@ -134,8 +133,8 @@ if($change_to == 'non_referrer'	){
 
 //now let's adjust the specific database
 //making note of the issue with people & referrers
-$sql = "UPDATE 						   ".$database."
-	SET 			category 		= '".$new_category."'";
+$sql = "	UPDATE ".mysqli_real_escape_string($conn, $database)."
+			SET 	category	= '".mysqli_real_escape_string($conn, $new_category)."'";
 				//,
 				//primary_folder  	= '".$adjusted_primary_folder."',
 				//secondary_folder 	= '".$adjusted_secondary_folder."'";
@@ -147,7 +146,7 @@ if($change_to == 'active'){			$sql .= ",status = 'yes'";}
 if($change_to == 'resolved'){		$sql .= ",status = 'no'";}		
 $sql .="	
 	WHERE 	user_id 	= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
-	AND 	item_id 	= '".$item_id."'";
+	AND 	item_id 	= '".mysqli_real_escape_string($conn, $item_id)."'";
 //echo "hi";
 //echo $sql; exit();
 
@@ -158,17 +157,17 @@ mysqli_query($conn, $sql);
 //then let's adjust items_all for this specific item
 $sql = "UPDATE items_all 
 		SET 
-			found_in_primary_folder   	= '".$adjusted_primary_folder."',
-			found_in_secondary_folder 	= '".$adjusted_secondary_folder."',
-			category 		  			= '".$new_category."'";
+			found_in_primary_folder   	= '".mysqli_real_escape_string($conn, $adjusted_primary_folder)."',
+			found_in_secondary_folder 	= '".mysqli_real_escape_string($conn, $adjusted_secondary_folder)."',
+			category 		  			= '".mysqli_real_escape_string($conn, $new_category)."'";
 if($change_to == 'deleted'){		$sql .= ",deleted_or_not = 'yes'";}		
 if($change_to == 'undeleted'){		$sql .= ",deleted_or_not = 'no'";}
 if($change_to == 'active'){			$sql .= ",current_status = 'yes'";}		
 if($change_to == 'resolved'){		$sql .= ",current_status = 'no'";}	
 		
 $sql .= "
-	WHERE found_in_database = '".$database."'
-	AND   item_id 			= '".$item_id."'";
+	WHERE found_in_database = '".mysqli_real_escape_string($conn, $database)."'
+	AND   item_id 			= '".mysqli_real_escape_string($conn, $item_id)."'";
 mysqli_query($conn, $sql);
 
 
@@ -179,25 +178,25 @@ if(	$change_to == 'referrer'		OR
 		if(	$change_to == 'referrer'	){	$set_to = 'yes';}
 		if(	$change_to == 'non_referrer'){		$set_to = 'no';}			
 		$sql = "UPDATE 	items_all 
-				SET 	people_referrer 	= '".$set_to."'
-				WHERE 	found_in_database 	= '".$database."'
-				AND   	item_id 			= '".$item_id."'";
+				SET 	people_referrer 	= '".mysqli_real_escape_string($conn, $set_to)."'
+				WHERE 	found_in_database 	= '".mysqli_real_escape_string($conn, $database)."'
+				AND   	item_id 			= '".mysqli_real_escape_string($conn, $item_id)."'";
 		mysqli_query($conn, $sql); 
 }
 
 //then finally let's adjust the items relationships_table for all instances of this item
-$sql = "UPDATE item_relationships
-	SET item_a_primary_folder 	= '".$adjusted_primary_folder."',
-	    item_a_secondary_folder	= '".$adjusted_secondary_folder."'
-	WHERE item_a_database 		= '".$database."'
-	AND item_a_id 			= '".$item_id."'";
+$sql = "	UPDATE 	item_relationships
+			SET 	item_a_primary_folder 	= '".mysqli_real_escape_string($conn, $adjusted_primary_folder)."',
+	    			item_a_secondary_folder	= '".mysqli_real_escape_string($conn, $adjusted_secondary_folder)."'
+			WHERE 	item_a_database 		= '".mysqli_real_escape_string($conn, $database)."'
+			AND 	item_a_id 				= '".mysqli_real_escape_string($conn, $item_id)."'";
 mysqli_query($conn, $sql); 
 //then repeat in reverse for b 
-$sql = "UPDATE item_relationships
-	SET item_b_primary_folder 	= '".$adjusted_primary_folder."',
-	    item_b_secondary_folder	= '".$adjusted_secondary_folder."'
-	WHERE item_b_database 		= '".$database."'
-	AND item_b_id 			= '".$item_id."'";
+$sql = "	UPDATE	item_relationships
+			SET		item_b_primary_folder 	= '".mysqli_real_escape_string($conn, $adjusted_primary_folder)."',
+	    			item_b_secondary_folder	= '".mysqli_real_escape_string($conn, $adjusted_secondary_folder)."'
+			WHERE 	item_b_database 		= '".mysqli_real_escape_string($conn, $database)."'
+			AND 	item_b_id 				= '".mysqli_real_escape_string($conn, $item_id)."'";
 mysqli_query($conn, $sql); 
 
 
@@ -208,20 +207,20 @@ $sql = "UPDATE item_relationships
 	SET ";
 if($change_to == 'deleted'){		$sql .= "item_a_deleted_or_not = 'yes'";}		
 if($change_to == 'undeleted'){		$sql .= "item_a_deleted_or_not = 'no'";}
-if($change_to == 'active'){		$sql .= "item_a_current_status = 'yes'";}		
+if($change_to == 'active'){			$sql .= "item_a_current_status = 'yes'";}		
 if($change_to == 'resolved'){		$sql .= "item_a_current_status = 'no'";}
-	$sql .= "WHERE item_a_database 		= '".$database."'
-		 AND item_a_id 			= '".$item_id."'";
+	$sql .= "	WHERE 	item_a_database = '".mysqli_real_escape_string($conn, $database)."'
+		 		AND 	item_a_id 		= '".mysqli_real_escape_string($conn, $item_id)."'";
 mysqli_query($conn, $sql); 
 
 $sql = "UPDATE item_relationships
 	SET ";
 if($change_to == 'deleted'){		$sql .= "item_b_deleted_or_not = 'yes'";}		
 if($change_to == 'undeleted'){		$sql .= "item_b_deleted_or_not = 'no'";}
-if($change_to == 'active'){		$sql .= "item_b_current_status = 'yes'";}		
+if($change_to == 'active'){			$sql .= "item_b_current_status = 'yes'";}		
 if($change_to == 'resolved'){		$sql .= "item_b_current_status = 'no'";}
-	$sql .= "WHERE item_b_database 		= '".$database."'
-		 AND item_b_id 			= '".$item_id."'";
+	$sql .= "	WHERE item_b_database 	= '".mysqli_real_escape_string($conn, $database)."'
+		 		AND item_b_id 			= '".mysqli_real_escape_string($conn, $item_id)."'";
 mysqli_query($conn, $sql); 
 
 
@@ -236,42 +235,41 @@ mysqli_query($conn, $sql);
 
 //this will all be the same no matter where
 //change all notifications and links within the notifications page of this
-$sql = "UPDATE notifications_and_alerts 
-	SET 	primary_folder		= '".$adjusted_primary_folder."' AND
-		secondary_folder 	= '".$adjusted_secondary_folder."' 
-	WHERE user_id 		= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
-	AND primary_folder 	= '".$original_primary_folder."'
-	AND secondary_folder 	= '".$original_secondary_folder."'
-	AND item_id 		= '".$item_id ."'";
+$sql = "UPDATE 	notifications_and_alerts 
+		SET 	primary_folder		= '".mysqli_real_escape_string($conn, $adjusted_primary_folder)."',
+				secondary_folder 	= '".mysqli_real_escape_string($conn, $adjusted_secondary_folder)."' 
+		WHERE 	user_id 			= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
+		AND 	primary_folder 		= '".mysqli_real_escape_string($conn, $original_primary_folder)."'
+		AND 	secondary_folder 	= '".mysqli_real_escape_string($conn, $original_secondary_folder)."'
+		AND 	item_id 			= '".mysqli_real_escape_string($conn, $item_id)."'";
 mysqli_query($conn, $sql);
 
 //echo "/".$adjusted_primary_folder."/".$adjusted_secondary_folder."/";
 //exit();
 //adjust all reminders
-$sql = "UPDATE reminders 
-	SET 	primary_folder	 = '".$adjusted_primary_folder."' AND
-		secondary_folder = '".$adjusted_secondary_folder."' 
-	WHERE for_user_id 	= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
-	AND primary_folder 	= '".$original_primary_folder."'
-	AND secondary_folder 	= '".$original_secondary_folder."'
-	AND item_id 		= '".$item_id ."'";
+$sql = "UPDATE	reminders 
+		SET 	primary_folder	 	= '".mysqli_real_escape_string($conn, $adjusted_primary_folder)."',
+				secondary_folder 	= '".mysqli_real_escape_string($conn, $adjusted_secondary_folder)."' 
+		WHERE 	for_user_id 		= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
+		AND 	primary_folder 		= '".mysqli_real_escape_string($conn, $original_primary_folder)."'
+		AND 	secondary_folder 	= '".mysqli_real_escape_string($conn, $original_secondary_folder)."'
+		AND 	item_id 			= '".mysqli_real_escape_string($conn, $item_id)."'";
 mysqli_query($conn, $sql);
 
 
- $sql = "UPDATE discussion 
- 	SET 	primary_folder 		= '".$adjusted_primary_folder."',
-  		secondary_folder 	= '".$adjusted_secondary_folder."'   		
-	WHERE (	user_id 		= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
-		OR
-		to_user_id 	=  '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' )
-	AND primary_folder 	= '".$original_primary_folder."'
-	AND secondary_folder 	= '".$original_secondary_folder."'	
-	AND related_id 		= '".$item_id ."'";
+$sql = "UPDATE 	discussion 
+		SET 	primary_folder 		= '".mysqli_real_escape_string($conn, $adjusted_primary_folder)."' AND
+				secondary_folder 	= '".mysqli_real_escape_string($conn, $adjusted_secondary_folder)."'   		
+		WHERE (	user_id 			= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
+				OR
+				to_user_id 			= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' )
+		AND primary_folder 			= '".mysqli_real_escape_string($conn, $original_primary_folder)."'
+		AND secondary_folder 		= '".mysqli_real_escape_string($conn, $original_secondary_folder)."'	
+		AND related_id 				= '".mysqli_real_escape_string($conn, $item_id)."'";
 		
 mysqli_query($conn, $sql);
 
-//echo "/".$adjusted_primary_folder."/".$adjusted_secondary_folder."/";
-//exit();
+//echo "/".$adjusted_primary_folder."/".$adjusted_secondary_folder."/";exit();
 
 
 header("Location: /".$adjusted_primary_folder."/".$adjusted_secondary_folder."/item/display.php?item_id=".$item_id);

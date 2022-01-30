@@ -29,7 +29,7 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 		if($value_set == 'untouched'){
 			echo "<div class='prompt-font blink_me' style='color:#281e96;'>";
 				if(check_primary_folder('activities')){		$singluar = 'activity';}
-				if(check_primary_folder('issues')){		$singluar = 'issue';}		
+				if(check_primary_folder('issues')){			$singluar = 'issue';}		
 				if(check_primary_folder('upgrades')){		$singluar = 'upgrades';}						
 				echo "add some ".$singular." details to have charting display";
 			echo "</div>";
@@ -185,7 +185,8 @@ while($row = mysqli_fetch_array($result_for_display, MYSQLI_ASSOC)){
 				if($_GET['primary_folder'] != 'notifications'){ 
 					if($number_of_results_to_display  != $displaying_active_issue){
 						echo "<a class='corner-link' href='/components/items/lists/slide_item.php?item_id=".$row['item_id']."&direction=down&primary_folder=";
-						echo $_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."&tertiary_folder=".$_GET['tertiary_folder'];						
+						echo $_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder'];
+						if(isset($_GET['tertiary_folder'])){echo "&tertiary_folder=".$_GET['tertiary_folder'];}											
 						echo "'>less critical";								
 					echo "</a>";}
 				}				
@@ -201,10 +202,15 @@ while($row = mysqli_fetch_array($result_for_display, MYSQLI_ASSOC)){
 				if($row['numerical_zone'] == '' && $row['numerical_datapoint'] == 0){echo "blink_me";}
 			}
 		
-			if(in_array($row['item_id'], $item_ids_with_active_alerts)){echo ' alert ';}
+			if(isset($item_ids_with_active_alerts)){if(in_array($row['item_id'], $item_ids_with_active_alerts)){echo ' alert ';}}
 			if($_GET['primary_folder'] != 'notifications'){ 		
-				echo "' onclick= location.href='";
+				echo "' >";
+
+				//cutting this out for a minute
+				//echo "onclick= location.href='";
 				
+				echo "<a style='width:100%;  display:block; text-decoration:none; color:white;' href='";
+
 				if($_GET['primary_folder'] != 'admin'){
 					echo "/".$_GET['primary_folder']."/".$_GET['secondary_folder'];
 					if(isset($_GET['tertiary_folder'])){if($_GET['tertiary_folder'] != ''){echo "/".$_GET['tertiary_folder'];}}
@@ -219,6 +225,7 @@ while($row = mysqli_fetch_array($result_for_display, MYSQLI_ASSOC)){
 						
 				echo "'>";	
 				echo "VIEW FULL";
+				echo "</a>";
 			}
 			if($_GET['primary_folder'] == 'notifications'){ 		
 				echo "' onclick= location.href='".$row['link_to']."'>";	

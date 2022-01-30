@@ -14,13 +14,17 @@ AND tertiary_folder = 'item'
 ";
 
 //echo $sql_for_alerts;exit();
+
+
 $result_for_alerts = mysqli_query($conn, $sql_for_alerts);
-unset($item_ids_with_active_alerts);
-$i_for_alerts = 0;
-while($row_for_alerts = mysqli_fetch_array($result_for_alerts, MYSQLI_ASSOC)){
-	$item_ids_with_active_alerts[$i_for_alerts] = $row_for_alerts['related_id'];
-	$i_for_alerts++;
+
+if(mysqli_num_rows($result_for_alerts) != 0){
+	unset($item_ids_with_active_alerts);
+	$i_for_alerts = 0;
+	while($row_for_alerts = mysqli_fetch_array($result_for_alerts, MYSQLI_ASSOC)){
+		$item_ids_with_active_alerts[$i_for_alerts] = $row_for_alerts['related_id'];
+		$i_for_alerts++;
+	}
 }
 
-//var_dump($item_ids_with_active_alerts);
-//exit();
+//var_dump($item_ids_with_active_alerts);exit();

@@ -93,7 +93,11 @@ if($number_of_prompts > 0){
 
 
 
-	if($number_of_prompts > 3){
+	if($number_of_prompts > 4){
+
+
+	//echo '<pre>' , var_dump($not_top_three) , '</pre>';//exit();
+
 
 		//will randomise keys starting at 0 hence why the for loop below moves the way it does
 		shuffle($not_top_three);

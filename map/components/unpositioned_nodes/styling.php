@@ -14,6 +14,9 @@
     box-shadow: 4px 0px 8px 4px rgb(0 0 0 / 13%);   
            font-family: helvetica;
            font-size: 18px;
+
+           overflow-y: auto;
+       max-height: calc(100vh - 625px)
 }
 
 #body:fullscreen 		#unpositioned_nodes_container       {  		bottom:  15;}
@@ -24,6 +27,7 @@
     font-size: 18px;
     width: 60px;
        padding: 3px; 
+
 
 }   
    form{
