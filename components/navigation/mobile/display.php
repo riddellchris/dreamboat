@@ -66,7 +66,7 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 			
 			}
 		}
-		
+		//require_file("/components/navigation/mobile/components/map.php");			
 		require_file("/components/navigation/mobile/components/map.php");			
 		require_file("/components/navigation/mobile/components/insights.php");
 		require_file("/components/navigation/mobile/components/profile.php");
