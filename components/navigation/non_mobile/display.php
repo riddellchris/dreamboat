@@ -118,7 +118,7 @@ if(isset($_SESSION['logged_in'])){
 		//}
 		require_file('/components/navigation/non_mobile/components/insights.php');
 		require_file('/components/navigation/non_mobile/components/map.php');
-	//	require_file('/components/navigation/non_mobile/components/data.php');
+		require_file('/components/navigation/non_mobile/components/data.php');
 
 	}
 }
