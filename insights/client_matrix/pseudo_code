@@ -1,0 +1,7 @@
+ok so let's first just lay all of this out
+
+firstly, first and foremost we need to pull out two critical things from xero:
+1. being the contacts
+   -- ideally all contacts that have been sent an invoice
+2. Every line item that has been sent to them
+   -- potentially something about o
