@@ -254,17 +254,17 @@ if(check_primary_folder('results')){
 //	}
 }
 
-/*
-CR 26.03.21
-The thing here is that this whole section should be split into something like:
-Outreach:
-	Cold - sub_sub_menu
-	Gap filling - sub_sub_menu
-	Referrals - sub_sub_menu
-Products
-Settings
-	--this would required a bit of juggling which isn't critical today 
-*/
+
+//CR 26.03.21
+//The thing here is that this whole section should be split into something like:
+//Outreach:
+//	Cold - sub_sub_menu
+//	Gap filling - sub_sub_menu
+//	Referrals - sub_sub_menu
+//Products
+//Settings
+//	--this would required a bit of juggling which isn't critical today 
+
 
 if(check_primary_folder('users')){
 	$top_sub_menu_options = add_top_sub_menu_option('initial_outreach'		, $top_sub_menu_options);
