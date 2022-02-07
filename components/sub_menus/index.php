@@ -87,9 +87,18 @@ if(check_primary_folder('interrogation')){
 	$top_sub_menu_options = add_top_sub_menu_option('all'		,$top_sub_menu_options);
 }
 
+
+
+if(check_primary_folder('data')){
+	$top_sub_menu_options = add_top_sub_menu_option('apis'			,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('matching'		,$top_sub_menu_options);
+}
+
+
+
 if(check_primary_folder('map')){
 
-	$top_sub_menu_options = add_top_sub_menu_option('apis'		,$top_sub_menu_options);
+	//$top_sub_menu_options = add_top_sub_menu_option('apis'		,$top_sub_menu_options);
 	//if(check_secondary_folder('apis')){
 	//	if($_SESSION['dreamboat_crew'] == 'yes'){
 	//	$top_sub_sub_menu_options = add_top_sub_sub_menu_option('test_sub_menu'		,$top_sub_sub_menu_options);		

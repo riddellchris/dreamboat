@@ -35,7 +35,7 @@ $number_of_currently_connected_applications = mysqli_num_rows($result['api_conne
 if($number_of_currently_connected_applications == 0){
   echo "<div colspan='5' class='prompt-font'>";
     echo "<br>";
-    echo "You have no connected applications. <br>Click <a style='color:red;' href='/map/apis/'>here</a> to add some.";
+    echo "You have no connected applications. <br>Click <a style='color:red;' href='/data/apis/'>here</a> to add some.";
   echo "</div>";
 }
 else{

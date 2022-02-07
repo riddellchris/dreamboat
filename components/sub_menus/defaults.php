@@ -12,7 +12,7 @@ if(!isset($_SESSION['processes_page'])){				$_SESSION['processes_page'] 		= 'ind
 if(!isset($_SESSION['impact_page'])){					$_SESSION['impact_page'] 			= 'on_you';}
 if(!isset($_SESSION['contact_us_page'])){				$_SESSION['contact_us_page'] 		= 'display_no_menu';}
 
-if(!isset($_SESSION['insights_page'])){					$_SESSION['insights_page'] 			= 'display_no_menu';}
+
 
 if(!isset($_SESSION['profile_page'])){					$_SESSION['profile_page'] 			= 'details';}
 	if(!isset($_SESSION['profile_flow_page'])){			$_SESSION['profile_flow_page'] 		= 'focus';}
@@ -25,11 +25,13 @@ if(!isset($_SESSION['network_page'])){					$_SESSION['network_page'] 			= 'peopl
 if(!isset($_SESSION['interrogation_page'])){			$_SESSION['interrogation_page'] 	= 'all';}
 if(!isset($_SESSION['notes_page'])){					$_SESSION['notes_page'] 			= 'pilot_notes';}
 	if(!isset($_SESSION['notes_pilot_notes_page'])){		$_SESSION['notes_pilot_notes_page'] 			= 'for_sales_and_meetings';}
+if(!isset($_SESSION['data_page'])){						$_SESSION['data_page'] 				= 'apis';}	
 if(!isset($_SESSION['map_page'])){						$_SESSION['map_page'] 				= 'personal';}
 	if(!isset($_SESSION['map_apis_page'])){				$_SESSION['map_apis_page'] 				= 'display_no_menu';}
 	if(!isset($_SESSION['map_personal_page'])){			$_SESSION['map_personal_page'] 			= 'main_view';}
 	if(!isset($_SESSION['map_business_page'])){			$_SESSION['map_business_page'] 			= 'main_view';}
 	if(!isset($_SESSION['map_economy_page'])){			$_SESSION['map_economy_page'] 			= 'display_no_menu';}
+if(!isset($_SESSION['insights_page'])){					$_SESSION['insights_page'] 			= 'display_no_menu';}
 if(!isset($_SESSION['biz_dev_page'])){					$_SESSION['biz_dev_page'] 			= 'one_to_ones';}
 if(!isset($_SESSION['sales_page'])){					$_SESSION['sales_page'] 			= 'all';}
 if(!isset($_SESSION['marketing_page'])){				$_SESSION['marketing_page'] 		= 'promotions';}

@@ -9,8 +9,11 @@ require $_SERVER['DOCUMENT_ROOT']."/components/notifications_and_alerts/alert_re
 //profile
 $_SESSION['user_alerts_notes'] 					= 'off';
 
+$_SESSION['user_alerts_data'] 					= 'off';
+	$_SESSION['user_alerts_map_apis'] 				= 'off';
+	$_SESSION['user_alerts_map_matching'] 			= 'off';
+
 $_SESSION['user_alerts_map'] 					= 'off';
-	$_SESSION['user_alerts_map_apis'] 			= 'off';
 	$_SESSION['user_alerts_map_personal'] 			= 'off';
 		$_SESSION['user_alerts_map_personal_main_view']	= 'off';
 		$_SESSION['user_alerts_map_personal_matching']	= 'off';

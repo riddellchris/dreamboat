@@ -18,6 +18,7 @@ function clean_variable_to_change_homepage_to($get_variable, $acceptable_name){
 
 clean_variable_to_change_homepage_to($_GET['to'], 'users');
 clean_variable_to_change_homepage_to($_GET['to'], 'notes');
+clean_variable_to_change_homepage_to($_GET['to'], 'data');
 clean_variable_to_change_homepage_to($_GET['to'], 'map');
 clean_variable_to_change_homepage_to($_GET['to'], 'insights');
 clean_variable_to_change_homepage_to($_GET['to'], 'profile');
