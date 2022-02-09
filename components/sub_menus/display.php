@@ -44,9 +44,9 @@ echo"
 
 //this should probably be for all sub menus now but I simply don't have time to make that complete adjustment
 $position = 'inherit';
-if($_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'personal'){$position = 'fixed';}
-if($_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'business'){$position = 'fixed';}
-if($_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'economy'){$position = 'fixed';}
+if($_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'personal'){	$position = 'fixed';}
+if($_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'business'){	$position = 'fixed';}
+if($_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'economy'){		$position = 'fixed';}
 
 echo "<div id='sub_menu_div_container' style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);position:".$position.";z-index: 1;width:100%;z-index:1900;'>";
 

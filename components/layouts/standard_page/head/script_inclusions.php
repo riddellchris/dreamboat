@@ -19,6 +19,8 @@ if(!isset($_SESSION)){session_start();}
 	}
 */
 
+	//be careful NOT to add in a secondary folder here as much calculating gets done when in the /insights/preparation/
+	if(check_primary_folder('insights')			            ){	require $_SERVER['DOCUMENT_ROOT']."/insights/charts/script_control.php";}	
 
 	if(check_primary_folder('map')){
 		if(check_secondary_folder(	'edges')){		require $_SERVER['DOCUMENT_ROOT']."/map/edges/google_chart_script.php";}

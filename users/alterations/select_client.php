@@ -40,6 +40,8 @@ unset($_SESSION['notifications_page']);
 unset($_SESSION['legal_page']);
 unset($_SESSION['funnel_focus']);
 
+unset($_SESSION['tag_use']); //from insight development
+
 //reset all session variable starting with AI
 foreach (array_keys($_SESSION) as $key) {
 /*	echo $key;

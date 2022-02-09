@@ -4,9 +4,6 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
 
 
-
-
-
 //so interestingly here there is probably a list of insights that just need to be produced and released for each client.
 
 
@@ -41,16 +38,13 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
 
 if($_SESSION['viewing_client_id'] == 4231 OR $_SESSION['viewing_client_id'] == 1){
 
-    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/timeular/all_data_as_json.php";
-
-    //now we just want to sort the response
-        //to be honest a simple for loop should sort this out
-            //holy fuck i'm about to produce that first chart pretty much aren't I
-            //holy shit!
 
 
+    require $_SERVER['DOCUMENT_ROOT']."/insights/charts/time_per_activity/div.php";
 
-
+    echo "<div style='width:100%; text-align: center; padding-top: 20px;'>";
+        echo "<span class='prompt-font'>Showing all tags - To adjust visit <a style='color:red;' href='/insights/preparation/'>preparation</a></span>";
+    echo "</div>";
 
 }
 else{

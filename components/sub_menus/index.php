@@ -50,13 +50,15 @@ if(check_primary_folder('impact')){	$top_sub_menu_options = add_top_sub_menu_opt
 
 
 
-if(check_primary_folder('processes')){	$top_sub_menu_options = add_top_sub_menu_option('individual'	,$top_sub_menu_options);	
-										$top_sub_menu_options = add_top_sub_menu_option('businesses'	,$top_sub_menu_options);	
-										$top_sub_menu_options = add_top_sub_menu_option('economic'		,$top_sub_menu_options);	
+if(check_primary_folder('processes')){
+	$top_sub_menu_options = add_top_sub_menu_option('individual'	,$top_sub_menu_options);	
+	$top_sub_menu_options = add_top_sub_menu_option('businesses'	,$top_sub_menu_options);	
+	$top_sub_menu_options = add_top_sub_menu_option('economic'		,$top_sub_menu_options);	
 																	}
 if(check_primary_folder('contact_us')){	$top_sub_menu_options = add_top_sub_menu_option('display_no_menu'	,$top_sub_menu_options);	}
 	
-if(check_primary_folder('insights')){	$top_sub_menu_options = add_top_sub_menu_option('display_no_menu'	,$top_sub_menu_options);	}	
+if(check_primary_folder('insights')){	$top_sub_menu_options = add_top_sub_menu_option('preparation'	,$top_sub_menu_options);
+										$top_sub_menu_options = add_top_sub_menu_option('display'		,$top_sub_menu_options);	}	
 	
 	
 if(check_primary_folder('profile')){
@@ -184,7 +186,6 @@ if(check_primary_folder('sales')){
 	$top_sub_menu_options = add_top_sub_menu_option('potential_upsells'	,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('new_potentials'	,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('all'				,$top_sub_menu_options);	
-
 	$top_sub_menu_options = add_top_sub_menu_option('worksheets'		,$top_sub_menu_options);	//this should only be visible if the pilot has activated a worksheet from this list
 
 }

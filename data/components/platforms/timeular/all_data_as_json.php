@@ -32,7 +32,7 @@ $response = json_decode($content, true);
 //$response = json_encode($response, JSON_PRETTY_PRINT);
 
 
-echo '<pre>' , var_dump($response) , '</pre>';
+//echo '<pre>' , var_dump($response) , '</pre>';
 
 //so now all we need to is split this out to find all the different tags/labels and go from there
 //this 

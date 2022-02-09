@@ -69,13 +69,28 @@ th{text-align:left; font-size:larger;}
                     if(stripos($row_connections['platform_name'], 'timeular')   === 0 ){$scoped_platform = 'yes';  $oauth_platform = 'no';  $use_generic_key_storage = 'yes';}
                     if(stripos($row_connections['platform_name'], 'xero')       === 0 ){$scoped_platform = 'yes';  $oauth_platform = 'yes'; $use_generic_key_storage = 'not_applicable';}
                     
-                    if($use_generic_key_storage == 'yes'){require $_SERVER['DOCUMENT_ROOT']."/data/apis/keys/box.php";}
+                    if($use_generic_key_storage == 'yes'){
+                                                                //just for now -- 
+                                                                if(
+                                                                        ($_SESSION['user_id'] == 1 OR $_SESSION['user_id'] == 4231) &&
+                                                                        stripos($row_connections['platform_name'], 'timeular') === 0
+                                                                    ){
+                                                                        echo "<td>";
+                                                                        require $_SERVER['DOCUMENT_ROOT']."/data/components/display_elements/currently_connected.php";
+                                                                        echo "</td>";
+                                                                }
+                                                                else{
+                                                                    require $_SERVER['DOCUMENT_ROOT']."/data/apis/keys/box.php";
+
+                                                                }
+                    
+                    }
                     if($oauth_platform          == 'yes'){
                         if(stripos($row_connections['platform_name'], 'xero')       === 0 ){require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/connection_display/xero.php";}
                     }
                     if($scoped_platform == 'no'){
-                        echo "  <td class='blink_me slower'>
-                                    Available at completion of <a href='/knowledgebase/current_service/phases_of_engagement/' style='color:red;' >secondary mapping</a> 
+                        echo "  <td>
+                                    Complete connection available soon. 
                                 </td>";
                     } 
         echo "</tr>";
