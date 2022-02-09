@@ -1,24 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
-
-
-
-//so interestingly here there is probably a list of insights that just need to be produced and released for each client.
-
-
-
-//to start though this should be kept pretty simple.
-//to start with we just need to control this 
-
-
-if($_SESSION['dreamboat_crew'] == 'yes'){
-    //then display and allow these people to make new views
-    echo "<form>";
-
-    echo "</form>";
-
-}
+require $_SERVER['DOCUMENT_ROOT']."/insights/components/menu/display.php";
 
 
 //for everyone just display what's actually working and released

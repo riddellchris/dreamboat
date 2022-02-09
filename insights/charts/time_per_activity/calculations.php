@@ -62,6 +62,29 @@ if($_SESSION['viewing_client_id'] == 4231 OR $_SESSION['viewing_client_id'] == 1
                     $_SESSION['tag_use']['label'][$entry_number]                     = $response['timeEntries'][$i]['note']['tags'][$j]['label'];
 //echo "<br>";
 
+
+                    //if($_SESSION['tag_use']['label'][$entry_number] == 'GOUGH PLASTICS'){echo "<BR>".$gap;}      
+                    //if($_SESSION['tag_use']['label'][$entry_number] == 'WOOLLY FLEECE'){echo "<BR>".$gap;}
+                    //this produces the correct numbers frankly
+                    //so why don't we just calculate it here
+                    
+                    /*
+                    $labels_to_display = array();
+                    $labels_to_display['name'] = array();
+                    $labels_to_display['duration'] = array();
+                    //if this label hasn't yet been found then we just add it 
+                    if(!in_array($_SESSION['tag_use']['label'][$entry_number], $_SESSION['tag_use']['label'])){
+                        $labels_to_display['name'][count($labels_to_display)]       = $_SESSION['tag_use']['label'][$entry_number];
+                        $labels_to_display['duration'][count($labels_to_display)]   = $gap;
+                    }
+                    else{
+                        //find the appropriate key and add to the gap
+                        //where the appropriate key is 
+                        $appropriate_key = array_search($_SESSION['tag_use']['label'][$entry_number], $labels_to_display['name']);
+                        $labels_to_display['duration'][$appropriate_key] += $gap;
+                    }
+*/
+
                     //this needs some sort of conditional thing here for sure
                     //this need to be created only for the first time viewing this
                     //this really shouldn't go here
@@ -78,6 +101,10 @@ if($_SESSION['viewing_client_id'] == 4231 OR $_SESSION['viewing_client_id'] == 1
             }
         }
     }
+
+   // echo '<pre>' , var_dump($labels_to_display['name']) , '</pre>';
+ //   echo '<pre>' , var_dump($labels_to_display['duration']) , '</pre>';
+
 
     //it really should go at the end here 
     //once all the labels are sorted pretty much
