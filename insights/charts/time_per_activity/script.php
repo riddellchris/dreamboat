@@ -33,7 +33,7 @@ if(!isset($_SESSION)){session_start();}
           for($i = 0; $i < count($unique_labels); $i ++){
             for($j = 0; $j < count($_SESSION['tag_use']['label']); $j ++){
               if($_SESSION['tag_use']['label'][$j] == $unique_labels[$i]){
-                $total_time[$i] = $_SESSION['tag_use']['gap_in_seconds'][$j] / 60;
+                $total_time[$i] = $_SESSION['tag_use']['gap_in_seconds'][$j] / 3660;
 
               }
             }
