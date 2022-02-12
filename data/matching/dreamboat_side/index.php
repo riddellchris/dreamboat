@@ -12,6 +12,8 @@ if(!isset($_SESSION)){session_start();}
                         //the full list goes in there
                         echo "<option>People</option>";
                         echo "<option>Organisations</option>";
+                        echo "<option>Products & Services</option>";  
+
                     echo "</select>";
                 echo "</form>";
 

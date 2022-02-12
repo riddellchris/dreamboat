@@ -4,6 +4,7 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/start_of_page_top_of_centering_divs.php"; //center all of this
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+require $_SERVER['DOCUMENT_ROOT']."/data/components/styling/tables.php";
 
 $sql = "UPDATE  api_xero_oauth_keys 
         SET     used = 'yes' 
@@ -21,7 +22,7 @@ th{text-align:left; font-size:larger;}
 .app_tds{vertical-align: top;}
 </style>
         <span   class='prompt-font'>Add & connect<br> your <a href='https://en.wikipedia.org/wiki/Software_as_a_service' target='_blank' style='color:red;'>SaaS</a> applications</span>
-        <table  style='margin-left:auto; margin-right:auto; font-family: Barlow Semi Condensed; margin-top: 40px; border-top: 8px #281396 solid;border-bottom: 8px #281396 solid; padding: 4px;'>
+        <table  class='data_tables'>
             <tr>
                 <th>Platform name</th>
                 <th>Main web address  </th>

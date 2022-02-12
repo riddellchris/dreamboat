@@ -94,7 +94,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
 
 
-        $sql = "INSERT INTO api_xero_invoice_data 
+        $sql = "INSERT INTO api_xero_data_invoice 
                 (
                 user_id,    
                 Id,

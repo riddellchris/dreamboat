@@ -4,7 +4,7 @@ if(!isset($_SESSION)){session_start();}
 
 
 
-echo '<pre>' , var_dump($_POST) , '</pre>';
+//echo '<pre>' , var_dump($_POST) , '</pre>';
 
 //ideally this should scan against a set number of potentials
 //this could probalbly even come just from a test to check agains the api_applications database

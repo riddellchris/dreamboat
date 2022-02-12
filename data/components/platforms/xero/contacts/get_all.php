@@ -55,7 +55,7 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
 
         $sql = " 
         SELECT *
-            FROM api_xero_contacts_data
+            FROM api_xero_data_contacts
             WHERE   user_id         = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 
             //AND     Id              = '".mysqli_real_escape_string($conn, $response['Id'])."'
@@ -116,7 +116,7 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
 
 
 
-        $sql = "INSERT INTO api_xero_contacts_data 
+        $sql = "INSERT INTO api_xero_data_contacts 
                 (
                 user_id,    
                 Id,

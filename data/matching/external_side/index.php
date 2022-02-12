@@ -76,10 +76,16 @@ if(!isset($_SESSION)){session_start();}
 
 
             echo "</select>";
+
+            /*
+            This is pretty much 
+            going to be done simply by / dependent on the critical endpoint
+            so that's easy now then - so easy
             echo "<select name='endpoint_for_matching'  onchange='this.form.submit()'>";
                     echo " ";
   
-            echo "</select>";          
+            echo "</select>";    
+            */      
             //before we get to this we need to make the select work such that it all sticks
             //for that we need an onchange submit
         echo "</form>";

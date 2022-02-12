@@ -57,7 +57,7 @@ for($j = 0; $j < count($tenant_user_id); $j++){
         //see if there are any duplicates already stored in the database
         $sql = " 
             SELECT  *
-            FROM    api_xero_item_data
+            FROM    api_xero_data_item
             WHERE   user_id         = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 
             //AND   Id              = '".mysqli_real_escape_string($conn, $response['Id'])."'
@@ -106,7 +106,7 @@ for($j = 0; $j < count($tenant_user_id); $j++){
     if($number_of_results === 0){
    
 
-        $sql = "INSERT INTO api_xero_item_data 
+        $sql = "INSERT INTO api_xero_data_item 
                 (
                 user_id,    
                 TenantID,

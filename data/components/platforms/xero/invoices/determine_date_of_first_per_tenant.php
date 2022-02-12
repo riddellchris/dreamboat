@@ -7,7 +7,7 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/get_t
 
 for($j = 0; $j < $tenant_user_id_count; $j++){
 
-    $sql = "SELECT * FROM api_xero_invoice_data 
+    $sql = "SELECT * FROM api_xero_data_invoice 
             WHERE user_id = '".mysqli_real_escape_string($conn, $tenant_user_id[$j])."'
             ORDER BY UpdatedDateUTC ASC
             LIMIT 1";
