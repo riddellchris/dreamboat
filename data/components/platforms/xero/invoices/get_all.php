@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/tenants/get_tenant_user_ids_from_db.php";
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/get_tenant_user_ids_from_db.php";
 
 //for each in that array
 for($j = 0; $j < count($tenant_user_id); $j++){
@@ -29,13 +29,14 @@ for($j = 0; $j < count($tenant_user_id); $j++){
 
     $number_of_invoices = count($response['Invoices']);
 
-    $debug = 'on';
+    $debug = 'off';
     if($debug == 'on'){
         echo "NUMBER OF INVOICES<BR>".$number_of_invoices;
         echo "<br>";
 
         echo "ALL INVOICES AVAILABLE";
-        echo '<pre>' , var_dump($response) , '</pre>';}
+        echo '<pre>' , var_dump($response) , '</pre>';
+    }
 
 
 
@@ -221,7 +222,7 @@ for($j = 0; $j < count($tenant_user_id); $j++){
         ";
 
  
-       echo $sql."<br><br><br>";
+      // echo $sql."<br><br><br>";
 
        mysqli_query($conn, $sql);
         }

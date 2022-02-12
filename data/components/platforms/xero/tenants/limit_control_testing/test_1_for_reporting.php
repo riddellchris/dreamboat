@@ -30,7 +30,7 @@ function p_and_l_scan($item, $key){
 
 }
 
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/tenants/get_tenant_user_ids_from_db.php";
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/get_tenant_user_ids_from_db.php";
 
 $debug = 'no';
 if($debug == 'yes'){

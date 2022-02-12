@@ -53,7 +53,7 @@ echo "
 
         }
     echo "
-    >Connect to to Xero";
+    >Connect to Xero";
 
     //echo $sql; exit();
     if($_SESSION['user_id'] != $_SESSION['viewing_client_id']){echo " -- not clickable for pilot";}

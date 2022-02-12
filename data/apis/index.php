@@ -31,12 +31,7 @@ th{text-align:left; font-size:larger;}
             </tr>
 
 <?php
-    $sql = "SELECT * FROM   api_connections 
-            WHERE           user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
-            AND             deleted <> 'yes'
-            ORDER BY        entry_id DESC";
-
-   $result_connections  = mysqli_query($conn, $sql);//  or die( mysqli_error($conn));;
+    require $_SERVER['DOCUMENT_ROOT']."/data/apis/connections/testing/all_platforms.php";
 
     while($row_connections = mysqli_fetch_array($result_connections , MYSQLI_ASSOC)){
 
@@ -103,7 +98,14 @@ th{text-align:left; font-size:larger;}
                 .new_api_input{background-color: #ededed;}
             </style>
             <form method='post' action='/data/apis/connections/submit_new_saas_app.php' style='margin-top: 50px;'>
-                <td>    <input name ='platform_name' autocomplete='off' autofocus class='new_api_input' placeholder ='Next platform name'></input></td>
+
+            <?php
+
+            if($number_of_active_connections == 0){$platform_prefix = "First ";}else{$platform_prefix = "Next ";}
+                echo "
+                    <td>    <input name ='platform_name' autocomplete='off' autofocus class='new_api_input' placeholder ='".$platform_prefix." platform name'></input></td>
+                ";
+                ?>
                 <td>    <input name ='platform_web_address'  autocomplete='off' class='new_api_input' placeholder ='... and web address'></input></td>
                 <td>    <input type='submit' value='connect' class='login-submit'></input></td>
                 <td>    <!-- empty --> </td>

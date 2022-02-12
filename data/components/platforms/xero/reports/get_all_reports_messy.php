@@ -4,7 +4,7 @@ if(!isset($_SESSION)){session_start();}
 
 //echo "hi'";
 //exit();
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/tenants/get_tenant_user_ids_from_db.php";
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/get_tenant_user_ids_from_db.php";
 
 $debug = 'no';
 if($debug == 'yes'){

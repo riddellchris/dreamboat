@@ -1,5 +1,16 @@
 <?php
 if(!isset($_SESSION)){session_start();}
+
+
+
+require $_SERVER['DOCUMENT_ROOT']."/insights/charts/time_per_activity/defaults.php";
+
+
+
+
+
+
+
 //reset to clean up mess - iff created
 unset($_SESSION['tag_use']);
 

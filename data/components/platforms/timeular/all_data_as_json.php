@@ -3,6 +3,12 @@ if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/timeular/authentication/sign_in.php";
 
+/*
+if(isset($insights_date_start)){}
+else{}
+if(isset($insights_date_end)){}
+else{}
+*/
 
 $curl = curl_init();
 

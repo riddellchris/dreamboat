@@ -56,7 +56,7 @@ if($_SERVER['SERVER_PORT'] != '8888'){
 }
 */
 ////echo "<br>";
-echo $time_difference." seconds";
+//echo $time_difference." seconds";
 if(abs($time_difference) > 29 * 60){$use_current_token = 'no';}
 else{$use_current_token = 'yes';}
 

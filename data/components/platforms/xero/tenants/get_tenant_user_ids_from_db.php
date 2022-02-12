@@ -32,7 +32,7 @@ while($row_for_tenants = mysqli_fetch_array($result_for_tenants, MYSQLI_ASSOC)){
     $tenant_user_id_count ++;
 
 
-    $debug = 'on';
+    $debug = 'off';
     if($debug == 'on'){
     echo "user_id = ".$tenant_user_id[$i];
     echo "<br>";

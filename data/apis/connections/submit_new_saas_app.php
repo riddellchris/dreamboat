@@ -3,7 +3,7 @@ if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
-$platform = strtolower($_POST['platform_name']);
+$platform = trim(strtolower($_POST['platform_name']));
 
 
 

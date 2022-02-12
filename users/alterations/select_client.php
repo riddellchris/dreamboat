@@ -3,6 +3,7 @@ if(!isset($_SESSION)){session_start();}
 $_SESSION['viewing_client_id'] = $_GET['clients_user_id'];
 
 require $_SERVER['DOCUMENT_ROOT']."/account/variables/run_critical_variable_update.php";
+require $_SERVER['DOCUMENT_ROOT']."/data/components/update_processes/master.php";
 
 unset($_SESSION['viewing_client_cooling_off_date']);  // not immediately required on change/// so leave it out for now
 					//is created by /admin/users/alterations/get_cooling_off_date.php though
@@ -40,6 +41,8 @@ unset($_SESSION['notifications_page']);
 unset($_SESSION['legal_page']);
 unset($_SESSION['funnel_focus']);
 
+
+unset($_SESSION['insights_menu']); 
 unset($_SESSION['tag_use']); //from insight development
 
 //reset all session variable starting with AI
@@ -54,7 +57,8 @@ foreach (array_keys($_SESSION) as $key) {
     }
 }
 //exit();
-
+//echo $debug['xero_data_upate'];
+//exit();
 
 /*
 if($_SESSION['user_id'] != $_SESSION['viewing_client_id']){
@@ -70,4 +74,6 @@ if($changing_subscription_value != 'yes'){
 	header("Location: /issues/");
 	exit();
 }
+
+
 ?>

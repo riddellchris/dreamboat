@@ -176,7 +176,28 @@ if($access_denied == 'no'){
 
         require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenants.php";
         require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/store_tenants.php";   
-    //    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/get_all_invoices.php";
+
+
+        //This is where we extract all critical data
+        //It's killing me that I cannot - right now find the actual reference to the limits piece in the Xero API where it says something about 
+        //on first connection - there is something like a 30 minute grace period you can activate to suck in all data for that tenant 
+        //thus skipping all limits.
+        //this will be something to note when found
+        //and eventually do something about
+        // yep i really don't know where it is
+        //anywaymoving on
+
+        //really most importantly though - this data should be collected every time that user logs in OR
+        //a pilot changes to view their file - not just on initial upload.
+        /*
+        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/invoices/get_all.php";
+        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/contacts/get_all.php";
+        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/items/get_all.php";
+        */
+
+        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/update_processes/all.php";
+
+
     //exit();
     //exit();
 

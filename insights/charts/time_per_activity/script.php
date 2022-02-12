@@ -58,8 +58,7 @@ if(!isset($_SESSION)){session_start();}
 
         var options = {
           chart: {
-            title: 'Time per tag',
-            subtitle: 'From 0BC to Today',
+            title: 'Time per tag'
           },
           titleTextStyle: {
                   fontName: 'Barlow Semi Condensed', // i.e. 'Times New Roman'

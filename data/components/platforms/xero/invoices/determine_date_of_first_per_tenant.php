@@ -3,7 +3,7 @@ if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/tenants/get_tenant_user_ids_from_db.php";
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/get_tenant_user_ids_from_db.php";
 
 for($j = 0; $j < $tenant_user_id_count; $j++){
 
