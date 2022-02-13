@@ -16,6 +16,15 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 $sql = "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))";
 mysqli_query($conn, $sql);
 
+
+//this should really have a specific setting on it where i can make it stick
+//so we might do a "get all update" behind the scenes but then not if just for one person
+//if just for one person we just update for them directly
+/*
+for example
+if $live site
+
+*/
 $sql = "SELECT * FROM api_xero_tenant_details GROUP BY user_id";
 $result_for_tenants = mysqli_query($conn, $sql);
 

@@ -5,7 +5,7 @@ if(!isset($_SESSION)){session_start();}
 //Build this optimisation such that we aren't calling for a new token every time.
 //if the current access token is more than 30 minutes old then you should get a new access token.
 
-if(isset($_SESSION['viewing_client_id']) && isset($_SESSION['user_id'])){
+if(isset($_SESSION['viewing_client_id'])){
     $user_id_for_request = $_SESSION['viewing_client_id'];
 }
 else{

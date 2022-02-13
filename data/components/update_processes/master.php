@@ -25,8 +25,8 @@ if(!isset($_SESSION)){session_start();}
 
             $debug['xero_data_upate'] = "xero updated";
 
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/invoices/get_all.php";
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/contacts/get_all.php";
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/items/get_all.php";
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/invoices/get_one.php";
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/contacts/get_one.php";
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/items/get_one.php";
         }
     }
