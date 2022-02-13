@@ -28,10 +28,9 @@ $sql .=    "
 
 
 if(isset($response['Items'][$i]['SalesDetails'])){
-$sql .= "
-    AND     UnitPrice       = '".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['UnitPrice'])."'
-    AND     AccountCode     = '".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['AccountCode'])."'
-    AND     TaxType         = '".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['TaxType'])."'";
+    if(isset($response['Items'][$i]['SalesDetails']['UnitPrice'])){     $sql .= "   AND     UnitPrice       = '".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['UnitPrice'])."'";     }
+    if(isset($response['Items'][$i]['SalesDetails']['AccountCode'])){   $sql .= "   AND     AccountCode     = '".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['AccountCode'])."'";   }
+    if(isset($response['Items'][$i]['SalesDetails']['TaxType'])){       $sql .= "   AND     TaxType         = '".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['TaxType'])."'";       }
 }
 
 $sql .= "

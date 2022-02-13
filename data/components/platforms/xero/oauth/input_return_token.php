@@ -12,7 +12,7 @@ $sql = "INSERT INTO api_xero_return_keys (  user_id,
                                             scope
                                             )
                                         VALUES (
-                                            '".mysqli_real_escape_string($conn, $user_id_for_token_retrival)."',
+                                            '".mysqli_real_escape_string($conn, $user_id_for_request)."',
                                             '".mysqli_real_escape_string($conn, $return_token['id_token'])."',
                                             '".mysqli_real_escape_string($conn, $return_token['access_token'])."', 
                                             '".mysqli_real_escape_string($conn, $return_token['expires_in'])."',                                                                   
@@ -28,10 +28,10 @@ $sql = "INSERT INTO api_xero_return_keys (  user_id,
 //THIS IS FAR FAR FAR FROM IDEAL!
 
 if(     $return_token['refresh_token'] <> ''    AND
-        isset($user_id_for_token_retrival)){
+        isset($user_id_for_request)){
 
         $sql = "INSERT INTO api_xero_refresh_tokens (  user_id, refresh_token )
-                VALUES (    '".mysqli_real_escape_string($conn, $user_id_for_token_retrival)."', 
+                VALUES (    '".mysqli_real_escape_string($conn, $user_id_for_request)."', 
                             '".mysqli_real_escape_string($conn, $return_token['refresh_token'])."')";
             //                echo $sql; exit();
         mysqli_query($conn, $sql);

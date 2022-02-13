@@ -8,20 +8,7 @@ date_default_timezone_set('Australia/Sydney'); //to match with the location of t
 //the point of this is to ensure that if "logged in" the correct user Id is used,
 //BUT 
 //if not logged in then nothing else happens and we just use $_SESSION['user_id'] which is changed according to what is required in other files
-if( isset($_SESSION['viewing_client_id'])){
-    $user_id_for_request = $_SESSION['viewing_client_id'];}
-else{
-    if(isset($user_id_for_token_retrival)){
-        $user_id_for_request = $user_id_for_token_retrival;
-    }
-    /*
-    else{
-        //just for testing
-        $_SESSION['user_id'] = 1;
-        $user_id_for_request = $_SESSION['user_id'];
-    }
-    */
-}
+if( isset($_SESSION['viewing_client_id'])){     $user_id_for_request = $_SESSION['viewing_client_id'];  }
 
 
 //TO DO: 

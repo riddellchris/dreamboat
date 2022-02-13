@@ -7,25 +7,16 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/get_t
 for($j = 0; $j < $tenant_user_id_count; $j++){
 
     //set the $_SESSION user_id with the corresponding user_id for this tenant
-    $_SESSION['user_id']    = $tenant_user_id[$j];
+    $user_id_for_request    = $tenant_user_id[$j];
     $tenant_id              = $tenant_xero_id[$j];
 
+    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
+
+    $getting_all = 'yes';
     require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/contacts/get_one.php";
+    unset($getting_all);
 
 }
-
-
-
-        //then break out any arrays that may exist and work from there 
-
-
-
-        //then from there we should be able to start working some things out
-        //even just in terms of invoice sizing
-
-        //perhaps we also need to pull out more information about / from other user data
-        //i don't exactly know
-        
 
 
 

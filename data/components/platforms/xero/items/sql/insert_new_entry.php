@@ -15,11 +15,10 @@ $sql = "INSERT INTO api_xero_data_item
         UpdatedDateUTC,";
         //>>> Purchase details >> in array format -
         //>>> Sales details
-        $sql .= "
-                UnitPrice,
-                AccountCode,
-                TaxType,
-                ";
+        if(isset($response['Items'][$i]['SalesDetails']['UnitPrice'])){         $sql .= " UnitPrice,";       }
+        if(isset($response['Items'][$i]['SalesDetails']['AccountCode'])){       $sql .= " AccountCode,";     }
+        if(isset($response['Items'][$i]['SalesDetails']['TaxType'])){           $sql .= " TaxType,";         }
+               
         
 $sql .= "
         Name,
@@ -39,10 +38,14 @@ $sql .= "
             '".mysqli_real_escape_string($conn, $response['Items'][$i]['ItemID'])."', 
             '".mysqli_real_escape_string($conn, $response['Items'][$i]['Code'])."',                     
             '".mysqli_real_escape_string($conn, $response['Items'][$i]['Description'])."',                         
-            '".mysqli_real_escape_string($conn, $response['Items'][$i]['UpdatedDateUTC'])."',                    
-            '".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['UnitPrice'])."', 
-            '".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['AccountCode'])."', 
-            '".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['TaxType'])."',   
+            '".mysqli_real_escape_string($conn, $response['Items'][$i]['UpdatedDateUTC'])."',   ";  
+
+            if(isset($response['Items'][$i]['SalesDetails']['UnitPrice'])){     $sql.= "'".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['UnitPrice'])."',";          }
+            if(isset($response['Items'][$i]['SalesDetails']['AccountCode'])){   $sql.= "'".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['AccountCode'])."', ";       }
+            if(isset($response['Items'][$i]['SalesDetails']['TaxType'])){       $sql.= "'".mysqli_real_escape_string($conn, $response['Items'][$i]['SalesDetails']['TaxType'])."', ";           }
+            
+            
+        $sql .= "
             '".mysqli_real_escape_string($conn, $response['Items'][$i]['Name'])."', 
             '".mysqli_real_escape_string($conn, $response['Items'][$i]['IsTrackedAsInventory'])."',                     
             '".mysqli_real_escape_string($conn, $response['Items'][$i]['IsSold'])."',                         

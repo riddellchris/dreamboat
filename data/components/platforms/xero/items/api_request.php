@@ -27,5 +27,5 @@ if($debug == 'on'){
 
     echo "ALL ITEMS AVAILABLE";
     echo '<pre>' , var_dump($response) , '</pre>';
-//exit();
+    exit();
 }

@@ -15,19 +15,23 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
 
 $sql = "SELECT * FROM api_xero_tenant_details 
-        WHERE user_id = '".$_SESSION['viewing_client_id']."'
-        AND tenant_id IS NOT NULL
+        WHERE user_id = '".$user_id_for_request."'
+        AND id IS NOT NULL
         AND actively_disconnected = 'no'";
+//echo $sql;exit();
+
 $tenants_to_check_for_this_user = mysqli_query($conn, $sql);
 
 $i = 0;
+$tenant_user_id_count = 0;
 while($row = mysqli_fetch_array($tenants_to_check_for_this_user, MYSQLI_ASSOC)){
     $tenants_for_this_user[$i] = $row['tenantId'];    //this does make the assumption that there is only one tenant - as per "check_tenants.php" this is a TODO item and needs adjustment in time for sure
     $tenant_user_id_count ++;
 }
 
+$tenant_id = $tenants_for_this_user[0];
 //now we need to get out the 
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/tenants/check_tenants.php";
+//require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenants.php";
 //now what we need to do is get out every active tenant ID and compare with what's above
 //then probably compare with what's above somehow
 
