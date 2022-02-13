@@ -1,6 +1,8 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+if(isset($_SESSION['viewing_client_id'])){ $user_id_for_request = $_SESSION['viewing_client_id'];}
+
 //first let's escape anything critical here
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $sql = "INSERT INTO api_xero_return_keys (  user_id,
