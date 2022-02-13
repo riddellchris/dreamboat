@@ -103,7 +103,7 @@ if($access_denied == 'no'){
         */
         $access_token = json_decode(base64_decode($payload), true);
 
-        if($debug == 'on'){    
+        if($debug == 'off'){    
             echo "ACCESS TOKEN";
             echo '<pre>' , var_dump($access_token) , '</pre>';
         }
@@ -121,7 +121,7 @@ if($access_denied == 'no'){
                                                     authentication_event_id
                                                     )
                                                 VALUES (
-                                                    '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
+                                                    '".mysqli_real_escape_string($conn, $user_id_for_request)."',
                                                     '".mysqli_real_escape_string($conn, $access_token['nbf'])."',
                                                     '".mysqli_real_escape_string($conn, $access_token['exp'])."',                   
                                                     '".mysqli_real_escape_string($conn, $access_token['iss'])."',
