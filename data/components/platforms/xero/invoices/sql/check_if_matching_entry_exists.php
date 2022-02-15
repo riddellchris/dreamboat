@@ -50,9 +50,9 @@ if(!isset($_SESSION)){session_start();}
     $sql .= "
         AND    LineAmountTypes      = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['LineAmountTypes'])."'";
     //LineItems       >> in array format
-      $sql .= "        AND    SubTotal             = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['SubTotal'])."' ";
-      $sql .= "        AND    TotalTax             = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['TotalTax'])."' ";
-      $sql .= "       AND    Total                = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Total'])."'";
+      $sql .= " AND    SubTotal             = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['SubTotal'])."' ";
+      $sql .= " AND    TotalTax             = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['TotalTax'])."' ";
+      $sql .= " AND    Total                = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Total'])."'";
     //  AND    UpdatedDateUTC       = '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['UpdatedDateUTC'])."'
 
     $sql .= "

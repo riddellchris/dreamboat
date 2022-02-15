@@ -38,8 +38,8 @@ if(!isset($_SESSION)){session_start();}
             IsDiscounted,
             HasAttachments,
             HasErrors,";                    
-    if(isset($response['Invoices'][$i]['Contact']['ContactId'])){    
-        $sql .= "ContactId,"   ;     //Contact      >> in array format
+    if(isset($response['Invoices'][$i]['Contact']['ContactID'])){    
+        $sql .= "ContactID,"   ;     //Contact      >> in array format
     }
             $sql .= "
             InvoiceStatus,"; //this is just because Status is used far earlier on (see row 2)
@@ -92,8 +92,8 @@ if(!isset($_SESSION)){session_start();}
                 '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['IsDiscounted'])."',   
                 '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['HasAttachments'])."',   
                 '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['HasErrors'])."',";  
-                if(isset($response['Invoices'][$i]['Contact']['ContactId'])){                   
-                 $sql .= "'".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Contact']['ContactId'])."',  ";
+                if(isset($response['Invoices'][$i]['Contact']['ContactID'])){                   
+                 $sql .= "'".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Contact']['ContactID'])."',  ";
                 }
                 $sql .= "
                 '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Status'])."',   
@@ -107,6 +107,6 @@ if(!isset($_SESSION)){session_start();}
     ";
 
 
-  // echo $sql."<br><br><br>";
-
+   //echo $sql."<br><br><br>";
+   //             exit();
    mysqli_query($conn, $sql);

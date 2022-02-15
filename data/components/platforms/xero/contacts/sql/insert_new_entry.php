@@ -5,6 +5,7 @@ if(!isset($_SESSION)){session_start();}
     $sql = "INSERT INTO api_xero_data_contacts 
             (
             user_id,    
+            TenantId,
             Id,
             Status,
             ProviderName,
@@ -47,6 +48,7 @@ if(!isset($_SESSION)){session_start();}
             VALUES
             (   
                 '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
+                '".mysqli_real_escape_string($conn, $tenant_id)."',                
                 '".mysqli_real_escape_string($conn, $response['Id'])."',
                 '".mysqli_real_escape_string($conn, $response['Status'])."',
                 '".mysqli_real_escape_string($conn, $response['ProviderName'])."',
@@ -84,6 +86,6 @@ if(!isset($_SESSION)){session_start();}
     ";
 
 
-   //echo $sql."<br><br><br>";
+   //echo $sql."<br><br><br>";exit();
 
    mysqli_query($conn, $sql);
