@@ -47,7 +47,7 @@ if(!isset($_SESSION)){session_start();}
 
             VALUES
             (   
-                '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
+                '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
                 '".mysqli_real_escape_string($conn, $tenant_id)."',                
                 '".mysqli_real_escape_string($conn, $response['Id'])."',
                 '".mysqli_real_escape_string($conn, $response['Status'])."',
