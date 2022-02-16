@@ -51,6 +51,7 @@ if(!isset($_SESSION)){session_start();}
             TotalTax,
             Total,
             UpdatedDateUTC,
+            UpdatedDateUTC_cleaned,
             CurrencyCode               
             )
 
@@ -101,7 +102,8 @@ if(!isset($_SESSION)){session_start();}
                 '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['SubTotal'])."',                       
                 '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['TotalTax'])."',                       
                 '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['Total'])."',   
-                '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['UpdatedDateUTC'])."',   
+                '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['UpdatedDateUTC'])."',  
+                '".mysqli_real_escape_string($conn, substr($response['Invoices'][$i]['UpdatedDateUTC'], 6, -7))."',                   
                 '".mysqli_real_escape_string($conn, $response['Invoices'][$i]['CurrencyCode'])."'                                    
                 )
     ";
