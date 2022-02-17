@@ -18,23 +18,15 @@ require $_SERVER['DOCUMENT_ROOT']."/insights/components/menu/display.php";
 
 //so to start with i can just cut this by the results from leigh's thing easy.
 
-if($_SESSION['viewing_client_id'] == 4231 OR $_SESSION['viewing_client_id'] == 1){
-    if($_SESSION['insights_menu'] == 'time_per_activity'){require $_SERVER['DOCUMENT_ROOT']."/insights/charts/time_per_activity/div.php";}
+$insights_are_available = 'no';
+if($_SESSION['insights_menu'] == 'time_per_activity'){  require $_SERVER['DOCUMENT_ROOT']."/insights/charts/time_per_activity/div.php";     $insights_are_available = 'yes';}
+if($_SESSION['insights_menu'] == 'revenue_stacked'){    require $_SERVER['DOCUMENT_ROOT']."/insights/charts/revenue/stacked/div.php";       $insights_are_available = 'yes';}
 
 
 
-
-
-}
-else{
-    //this shouldn't just be for this / if this occurs
-    //there needs to be some break or adjustment
+if($insights_are_available == 'no'){
     echo "<div class='prompt-font' style='text-align:center;padding-top:35vh;'>no insights are available yet</div>";
-    //before i do that though what i really need to do is properly lay out or collect actually all the other things i can pull out
-    //fuck yes
 }
-
-
 
 
 

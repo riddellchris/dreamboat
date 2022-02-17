@@ -1,12 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-if(!isset($_SESSION['insights_menu'])){
-    //if($_SESSION['viewing_client_id'] == 4231 OR $_SESSION['viewing_client_id'] == 1){
-        $_SESSION['insights_menu'] = 'time_per_activity';
-   // }
-//$_SESSION['insights_menu'] = 'stacked_revenue';
-}
+//defaults are found prior to /charts/script control.php for obvious reasons such that it loads the right scripts
 
 
 

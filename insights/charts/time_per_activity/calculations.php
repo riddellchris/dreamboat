@@ -3,11 +3,7 @@ if(!isset($_SESSION)){session_start();}
 
 
 
-require $_SERVER['DOCUMENT_ROOT']."/insights/charts/time_per_activity/defaults.php";
-
-
-
-
+//defaults occur prior to these calculations but are stored in script control now
 
 
 
