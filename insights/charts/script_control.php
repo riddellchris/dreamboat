@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-require $_SERVER['DOCUMENT_ROOT']."/insights/components/menu/defaults.php";
+require $_SERVER['DOCUMENT_ROOT']."/insights/menu/defaults.php";
 
 //this sits up in the head of the page so should really have the menu defaults above it
 
@@ -16,7 +16,7 @@ if($_SESSION['viewing_client_id'] == 4231 OR $_SESSION['viewing_client_id'] == 1
     }
 }
 
-if($_SESSION['insights_menu'] == 'revenue_stacked'){  require $_SERVER['DOCUMENT_ROOT']."/insights/charts/revenue/stacked/script.php";}
+if($_SESSION['insights_menu']['headline_chart'] == 'revenue_stacked'){  require $_SERVER['DOCUMENT_ROOT']."/insights/charts/revenue/stacked/script.php";}
 
 ?>
 

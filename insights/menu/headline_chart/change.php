@@ -12,16 +12,16 @@ if($_POST['headline_chart'] == 'sales_client_vs_product_matrix'){   $adjust_sess
 
 
 echo $adjust_session_variable."<br>";
-echo $_SESSION['insights_menu'];echo "<br>";
+echo $_SESSION['insights_menu']['headline_chart'];echo "<br>";
 
 
-if($adjust_session_variable == 'yes'){$_SESSION['insights_menu'] = $_POST['headline_chart'];
+if($adjust_session_variable == 'yes'){$_SESSION['insights_menu']['headline_chart'] = $_POST['headline_chart'];
 
 //echo "in here<br>";
 //echo $_POST['headline_chart'];
 //exit();
 }
-//echo $_SESSION['insights_menu'];echo "<br>";
+//echo $_SESSION['insights_menu']['headline_chart'];echo "<br>";
 //exit();
 
 header("Location: /".$_POST['primary_folder']."/".$_POST['secondary_folder']."/");

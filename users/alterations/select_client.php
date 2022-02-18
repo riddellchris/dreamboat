@@ -42,7 +42,7 @@ unset($_SESSION['legal_page']);
 unset($_SESSION['funnel_focus']);
 
 
-unset($_SESSION['insights_menu']); 
+unset($_SESSION['insights_menu']['headline_chart']); 
 unset($_SESSION['tag_use']); //from insight development
 
 //reset all session variable starting with AI
