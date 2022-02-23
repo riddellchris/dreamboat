@@ -66,32 +66,50 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 			
 			}
 		}
-		require_file("/components/navigation/mobile/components/data.php");			
-		require_file("/components/navigation/mobile/components/map.php");			
-		require_file("/components/navigation/mobile/components/insights.php");
-		require_file("/components/navigation/mobile/components/profile.php");
+
+		$nav_name = "data"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+		$nav_name = "map"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+		$nav_name = "insights"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+		$nav_name = "profile"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}			
+
+		//require_file("/components/navigation/mobile/components/profile.php");
 	
 		//if($_SESSION['viewing_client_mental_health_only'] != 'yes'){	
-			require_file("/components/navigation/mobile/components/business.php");
-			require_file("/components/navigation/mobile/components/network.php");
+			$nav_name = "business"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+			$nav_name = "network"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}		
+
+			//require_file("/components/navigation/mobile/components/business.php");
+			//require_file("/components/navigation/mobile/components/network.php");
 	
 			if($_SESSION['viewing_client_sales_process_involvement_yes_no'] == 'yes'){	
-			
-				require_file("/components/navigation/mobile/components/biz_dev.php");
-				require_file("/components/navigation/mobile/components/marketing.php");			
-				require_file("/components/navigation/mobile/components/sales.php");		
+				$nav_name = "biz_dev"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+				$nav_name = "marketing"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}	
+				$nav_name = "sales"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}				
+				//require_file("/components/navigation/mobile/components/biz_dev.php");
+				//require_file("/components/navigation/mobile/components/marketing.php");			
+				//require_file("/components/navigation/mobile/components/sales.php");		
 				}
-		require_file("/components/navigation/mobile/components/management.php");
-		require_file("/components/navigation/mobile/components/wheelhouse.php");
-		require_file("/components/navigation/mobile/components/activities.php");
-		require_file("/components/navigation/mobile/components/issues.php");
-		require_file("/components/navigation/mobile/components/upgrades.php");	
-		require_file("/components/navigation/mobile/components/results.php");
+
+				$nav_name = "management"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+				$nav_name = "wheelhouse"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}	
+				$nav_name = "activities"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+				$nav_name = "issues"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+				$nav_name = "upgrades"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}	
+				$nav_name = "results"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+
+
+		//require_file("/components/navigation/mobile/components/management.php");
+		//require_file("/components/navigation/mobile/components/wheelhouse.php");
+		//require_file("/components/navigation/mobile/components/activities.php");
+		//require_file("/components/navigation/mobile/components/issues.php");
+		//require_file("/components/navigation/mobile/components/upgrades.php");	
+		//require_file("/components/navigation/mobile/components/results.php");
 		//}
 
-		require_file("/components/navigation/mobile/components/messages.php");
-		require_file("/components/navigation/mobile/components/notifications.php");
-				
+		//require_file("/components/navigation/mobile/components/messages.php");
+		//require_file("/components/navigation/mobile/components/notifications.php");
+		$nav_name = "messages"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}	
+		$nav_name = "notifications"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}				
 
 		
 		echo "<a class='about_us nav-links wide-nav'";

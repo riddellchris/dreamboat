@@ -40,32 +40,37 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
 	home_page_change_buttons('notes',		$row['home_page']);
 }
 
-home_page_change_buttons('data',		$row['home_page']);
-home_page_change_buttons('map',			$row['home_page']);
-home_page_change_buttons('insights',	$row['home_page']);
-home_page_change_buttons('profile',		$row['home_page']);
+
+$nav_name = "data"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+$nav_name = "map"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+$nav_name = "insights"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+$nav_name = "profile"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+
+
 
 if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
-	home_page_change_buttons('business',		$row['home_page']);
-	home_page_change_buttons('network',			$row['home_page']);
-	home_page_change_buttons('biz_dev',			$row['home_page']);
-	home_page_change_buttons('sales',			$row['home_page']);
-	home_page_change_buttons('marketing',		$row['home_page']);
-	home_page_change_buttons('management',		$row['home_page']);
-	home_page_change_buttons('improvements',	$row['home_page']);
-	home_page_change_buttons('issues',			$row['home_page']);
-	home_page_change_buttons('wheelhouse',		$row['home_page']);
-	home_page_change_buttons('time',			$row['home_page']);
-	home_page_change_buttons('results',			$row['home_page']);
+	$nav_name = "business"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "network"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "biz_dev"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "sales"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "marketing"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "management"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "wheelhouse"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "activities"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "issues"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "upgrades"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "results"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 }
-home_page_change_buttons('messages',			$row['home_page']);
-home_page_change_buttons('notifications',		$row['home_page']);
+
+$nav_name = "messages"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+$nav_name = "notifications"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 
 
+/*
 if($_SESSION['dreamboat_crew'] == 'yes'){
 	home_page_change_buttons('users',$row['home_page']);
 }
-
+*/
 echo "<a class='grey-button wide-button' style='padding-top:0px;' href='../../'>back</a>";
 
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";

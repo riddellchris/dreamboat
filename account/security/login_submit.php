@@ -25,6 +25,7 @@ if(mysqli_num_rows($select)===1) {
 	require $_SERVER['DOCUMENT_ROOT']."/account/security/login_initial_variable_setup.php";
 	require $_SERVER['DOCUMENT_ROOT']."/account/security/login_register_login.php";
 	require $_SERVER['DOCUMENT_ROOT']."/data/components/update_processes/master.php";
+	require $_SERVER['DOCUMENT_ROOT']."/components/navigation/pieces/what_to_display.php";
 
 		
 	//set the session message to nothing just so that if they didn't log in correctly prior the old error doesn't show up

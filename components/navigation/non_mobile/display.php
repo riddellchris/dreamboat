@@ -72,54 +72,68 @@ if(isset($_SESSION['logged_in'])){
 			
 			
 			
-
+		$nav_name = "notifications"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){
 			echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 				if($_SESSION['user_alerts_notifications'] == 'on'){echo " alert ";}		
 				echo "' style='float:right;padding-top:18px;";
 				if(check_url('/notifications/') == 1 OR $_GET['primary_folder'] == 'notifications'){echo "color:#00ff00;";}
 			echo "'  href='/notifications/'>notifications</a>";
+		}
 
+		$nav_name = "messages"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){		
 			echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 				if($_SESSION['user_alerts_messages'] == 'on'){echo " alert ";}		
 				echo "' style='float:right;";
 				if(check_url('/messages/') == 1 OR $_GET['primary_folder'] == 'messages'){echo "color:#00ff00;";}
 			echo "' title='Communications central' href='/messages/'>messages</a>";
+		}
 
 
 	//if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
-		require_file('/components/navigation/non_mobile/components/results.php');
-
+	//	require_file('/components/navigation/non_mobile/components/results.php');
+		$nav_name = "results"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 
 	//CR 26.2.21
 	//these will probably come back in the next couple of months as the 
-		require_file('/components/navigation/non_mobile/components/upgrades.php');
-		require_file('/components/navigation/non_mobile/components/issues.php');
-		require_file('/components/navigation/non_mobile/components/activities.php');	
-		require_file('/components/navigation/non_mobile/components/wheelhouse.php');
-		require_file('/components/navigation/non_mobile/components/management.php');
+	//	require_file('/components/navigation/non_mobile/components/upgrades.php');
+	//	require_file('/components/navigation/non_mobile/components/issues.php');
+	//	require_file('/components/navigation/non_mobile/components/activities.php');	
+	//	require_file('/components/navigation/non_mobile/components/wheelhouse.php');
+	//	require_file('/components/navigation/non_mobile/components/management.php');
+
+		$nav_name = "upgrades"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+		$nav_name = "issues"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}		
+		$nav_name = "activities"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+		$nav_name = "wheelhouse"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}		
+		$nav_name = "management"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 
 		if($_SESSION['viewing_client_sales_process_involvement_yes_no'] == 'yes'){		
 			//if($_SESSION['dreamboat_crew_navigation_option_on'] != 'yes'){
-			require_file('/components/navigation/non_mobile/components/sales.php');	//}
+				$nav_name = "sales"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+			//}
 			//if($_SESSION['dreamboat_crew_navigation_option_on'] != 'yes'){
-			require_file('/components/navigation/non_mobile/components/marketing.php');//}	
+				$nav_name = "marketing"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+			//}	
 			//if($_SESSION['dreamboat_crew_navigation_option_on'] != 'yes'){
-			require_file('/components/navigation/non_mobile/components/biz_dev.php');//}	
+				$nav_name = "biz_dev"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+			//}	
 		}
 		
 		//if($_SESSION['dreamboat_crew_navigation_option_on'] != 'yes'){
-		require_file('/components/navigation/non_mobile/components/network.php');
+			$nav_name = "network"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 		//}
 		//if($_SESSION['dreamboat_crew_navigation_option_on'] != 'yes'){
-		require_file('/components/navigation/non_mobile/components/business.php');
+			$nav_name = "business"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 		//}			
 		//if($_SESSION['dreamboat_crew_navigation_option_on'] != 'yes'){
-		require_file('/components/navigation/non_mobile/components/profile.php');
-		//}
-		require_file('/components/navigation/non_mobile/components/insights.php');
-		require_file('/components/navigation/non_mobile/components/map.php');
-		require_file('/components/navigation/non_mobile/components/data.php');
 
+	//		echo '<pre>' , var_dump($_SESSION['main_nav_control']) , '</pre>';		exit();
+
+		$nav_name = "profile"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+		//}
+		$nav_name = "insights"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+		$nav_name = "map"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+		$nav_name = "data"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 	}
 }
 	

@@ -42,12 +42,9 @@ if(check_primary_folder('solutions')){
 					//$top_sub_menu_options = add_top_sub_menu_option('specific'				,$top_sub_menu_options);	
 					}
 if(check_primary_folder('impact')){	$top_sub_menu_options = add_top_sub_menu_option('on_you'		,$top_sub_menu_options);
-					//$top_sub_menu_options = add_top_sub_menu_option('on_staff'					,$top_sub_menu_options);
-					$top_sub_menu_options = add_top_sub_menu_option('on_businesses'					,$top_sub_menu_options);
-					$top_sub_menu_options = add_top_sub_menu_option('on_economies'					,$top_sub_menu_options);	}
-
-
-
+									//$top_sub_menu_options = add_top_sub_menu_option('on_staff'					,$top_sub_menu_options);
+									$top_sub_menu_options = add_top_sub_menu_option('on_businesses'					,$top_sub_menu_options);
+									$top_sub_menu_options = add_top_sub_menu_option('on_economies'					,$top_sub_menu_options);	}
 
 
 if(check_primary_folder('processes')){
@@ -290,9 +287,11 @@ if(check_primary_folder('users')){
 
 
 
-//	$top_sub_menu_options = add_top_sub_menu_option('owners'				,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('regular_users'			,$top_sub_menu_options);
-//	$top_sub_menu_options = add_top_sub_menu_option('details'				,$top_sub_menu_options);
+//	$top_sub_menu_options = add_top_sub_menu_option('owners'					,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('regular_users'				,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('navigation_management'		,$top_sub_menu_options);
+
+//	$top_sub_menu_options = add_top_sub_menu_option('details'					,$top_sub_menu_options);
 	if($_SESSION['user_id'] == '1'){
 		$top_sub_menu_options = add_top_sub_menu_option('finances'				,$top_sub_menu_options);
 		$top_sub_menu_options = add_top_sub_menu_option('savings'				,$top_sub_menu_options);

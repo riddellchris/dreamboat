@@ -1,4 +1,6 @@
 <?php 
+//session start code is just few rows down on this page only
+
 
 if($_SERVER['SERVER_PORT'] == 8888){
 	header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
@@ -264,20 +266,11 @@ echo "
 				echo "text-align:center;z-index: 2000;'>";
 
                 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/pieces/dreamboat_logo/display.php";
+				require $_SERVER['DOCUMENT_ROOT']."/components/layouts/pieces/live_or_not_reminder.php";
 
-
-
-//echo $_SESSION['dreamboat_developer']; exit();
-				if(isset($_SESSION['dreamboat_developer'])){
-					if($_SESSION['dreamboat_developer'] == 'yes'){
-							echo "	<style>
-										.developer{float:left;}
-									</style>";
-							if($_SESSION['dreamboat_developer_view'] == 'live'){	echo "<a class='developer blink_me' href='/components/dev_ops/version_control/change.php' style='color:red'>live</a>";}
-							if($_SESSION['dreamboat_developer_view'] == 'future'){	echo "<a class='developer blink_me' href='/components/dev_ops/version_control/change.php'  style='color:green'>future</a>";}						
-					}
+				if($_SESSION['logged_in'] == 'yes'){
+					require $_SERVER['DOCUMENT_ROOT']."/components/navigation/pieces/what_to_display.php";		
 				}
-				
 
 				//if($_SESSION['logged_in'] == 'yes'						){	
 				require $_SERVER['DOCUMENT_ROOT']."/components/navigation/non_mobile/display.php"; 

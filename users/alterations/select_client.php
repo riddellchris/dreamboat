@@ -4,6 +4,7 @@ $_SESSION['viewing_client_id'] = $_GET['clients_user_id'];
 
 require $_SERVER['DOCUMENT_ROOT']."/account/variables/run_critical_variable_update.php";
 require $_SERVER['DOCUMENT_ROOT']."/data/components/update_processes/master.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/navigation/pieces/what_to_display.php";
 
 unset($_SESSION['viewing_client_cooling_off_date']);  // not immediately required on change/// so leave it out for now
 					//is created by /admin/users/alterations/get_cooling_off_date.php though
