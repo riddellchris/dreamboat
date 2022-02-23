@@ -3,12 +3,8 @@ if(!isset($_SESSION)){session_start();}
 
 
 //this actually needs to happen twice if user
+require $_SERVER['DOCUMENT_ROOT']."/components/navigation/pieces/what_to_display_query.php";
 
-$sql = "SELECT * FROM user_main_nav_control 
-        WHERE   user_id = '".$_SESSION['viewing_client_id']."'
-        AND     latest_version_for_this_user = 'yes'
-        ORDER BY id DESC LIMIT 1
-        ";
 
       //  echo $sql; exit();
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";

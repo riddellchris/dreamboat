@@ -5,10 +5,10 @@ require $_SERVER[DOCUMENT_ROOT]."/components/back_of_house/database/connection.p
 $first_name 		= mysqli_real_escape_string($conn, $_POST['first_name']);
 $second_name 		= mysqli_real_escape_string($conn, $_POST['second_name']);
 $phone_number 		= mysqli_real_escape_string($conn, $_POST['phone_number']);
-$email 			= mysqli_real_escape_string($conn, $_POST['email']);
-$plan 			= mysqli_real_escape_string($conn, strtolower($_POST['plan']));
+$email 			    = mysqli_real_escape_string($conn, $_POST['email']);
+$plan 			    = mysqli_real_escape_string($conn, strtolower($_POST['plan']));
 $business_name 		= mysqli_real_escape_string($conn, $_POST['business_name']);
-$category 		= mysqli_real_escape_string($conn, $_POST['category']);
+$category 		    = mysqli_real_escape_string($conn, $_POST['category']);
 $default_password 	= password_hash('hello', PASSWORD_DEFAULT);
 $client_gained 		= mysqli_real_escape_string($conn, $_POST['client_gained']);
 

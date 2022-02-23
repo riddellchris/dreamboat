@@ -2,7 +2,8 @@
 if(!isset($_SESSION)){session_start();}
 
 
-
+if($creating_new_user != 'yes'){$user_id = $_SESSION['viewing_client_id'];}
+//else user_id variable comes from database_initialisation_processes
 
 $sql = "INSERT INTO user_main_nav_control
         (   user_id,
@@ -25,7 +26,7 @@ $sql = "INSERT INTO user_main_nav_control
             notifications
         )
         VALUES(
-            '".$_SESSION['viewing_client_id']."',";
+            '".$user_id."',";
             $sql .= " 'yes' , ";
             $sql .= " 'no' , ";        
             $sql .= " 'yes' , ";    

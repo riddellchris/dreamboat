@@ -21,8 +21,9 @@ mysqli_query($conn, $sql);
 //this is not actually needed
 //require $_SERVER['DOCUMENT_ROOT']."/components/controls/defaults_to_apply_for_every_user.php";
 
-
-
+$creating_new_user = 'yes';
+require $_SERVER['DOCUMENT_ROOT']."/components/navigation/pieces/main_nav_initialisation.php";
+unset($creating_new_user);
 
 mysqli_close($conn);
 
