@@ -23,14 +23,6 @@ if(isset($_SESSION['masked_domain'])){
 else{$_SESSION['masked_domain_primary_colour'] = ' #4332ff ';}
 
 
-
-<?php
-if(!isset($_SESSION)){session_start();}
-
-echo ".nav-div{background-color: ".$_SESSION['masked_domain_primary_colour'].";}";
-
-?>
-
 //development assessments
 require $_SERVER['DOCUMENT_ROOT']."/components/functions/connect_to_database.php";	//20.07.08 CR Not sure how much it is used right now 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/analytics/update_page_load_number.php";
