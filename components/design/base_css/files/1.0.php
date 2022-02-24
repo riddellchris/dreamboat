@@ -137,8 +137,12 @@ input[type=radio]{
 
 
 
+<?php
+if(!isset($_SESSION)){session_start();}
 
-.nav-div{background-color: #4332ff;}
+echo ".nav-div{background-color: ".$_SESSION['masked_domain_primary_colour'].";}";
+
+?>
 
 @media screen and (max-width: 480px) {
 
