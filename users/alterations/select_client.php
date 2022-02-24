@@ -72,7 +72,7 @@ if($changing_subscription_value == 'yes'){
 	$_SESSION['viewing_client_current_subscription_value'] = $row['current_subscription_value'];
 }
 if($changing_subscription_value != 'yes'){
-	header("Location: /issues/");
+	header("Location: /");
 	exit();
 }
 

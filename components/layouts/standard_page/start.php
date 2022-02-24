@@ -16,6 +16,12 @@ if(!isset($_SESSION['logged_in'])){				$_SESSION['logged_in'] = 'no';}
 if(!isset($_SESSION['dreamboat_crew'])){		$_SESSION['dreamboat_crew'] = 'no';}
 if(!isset($_SESSION['dreamboat_developer'])){	$_SESSION['dreamboat_developer'] = 'no';}
 
+if(isset($_SESSION['masked_domain'])){$_SESSION['masked_domain_primary_colour'] = "#d6fc49;";}
+else{$_SESSION['masked_domain_primary_colour'] = '#4332ff;';}
+
+
+
+
 
 //development assessments
 require $_SERVER['DOCUMENT_ROOT']."/components/functions/connect_to_database.php";	//20.07.08 CR Not sure how much it is used right now 

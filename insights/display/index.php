@@ -19,8 +19,8 @@ require $_SERVER['DOCUMENT_ROOT']."/insights/menu/display.php";
 //so to start with i can just cut this by the results from leigh's thing easy.
 
 $insights_are_available = 'no';
-if($_SESSION['insights_menu']['headline_chart'] == 'time_per_activity'){  require $_SERVER['DOCUMENT_ROOT']."/insights/charts/time_per_activity/div.php";     $insights_are_available = 'yes';}
-if($_SESSION['insights_menu']['headline_chart'] == 'revenue_stacked'){    require $_SERVER['DOCUMENT_ROOT']."/insights/charts/revenue/stacked/div.php";       $insights_are_available = 'yes';}
+if($_SESSION['insights_menu']['headline_chart'] == 'time_per_activity'){  require $_SERVER['DOCUMENT_ROOT']."/insights/pages/time_per_activity/div.php";     $insights_are_available = 'yes';}
+if($_SESSION['insights_menu']['headline_chart'] == 'revenue_stacked'){    require $_SERVER['DOCUMENT_ROOT']."/insights/pages/revenue/stacked/div.php";       $insights_are_available = 'yes';}
 
 
 

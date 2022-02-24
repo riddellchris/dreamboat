@@ -62,7 +62,9 @@ if($_GET['primary_folder'] != 'slideshows' AND $_GET['secondary_folder'] != 'let
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/contact.php";
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/support.php";
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/login.php";
-    require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/knowledgebase.php";
+	if(!isset($_SESSION['masked_domain'])){
+    	require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/knowledgebase.php";
+	}
 }
 else{
 
@@ -73,7 +75,10 @@ echo "
 </style>
 "; 
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/login.php";
-    require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/knowledgebase.php";
+
+	if(!isset($_SESSION['masked_domain'])){
+    	require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/knowledgebase.php";
+	}
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/support.php";
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/contact.php";
     require $_SERVER['DOCUMENT_ROOT']."/components/navigation/footer/components/legal.php";

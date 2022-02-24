@@ -24,6 +24,17 @@ echo "<form method='post' action='/insights/menu/headline_chart/change.php' styl
                 if($_SESSION['insights_menu']['headline_chart'] == $name){echo " selected ";}                    
                 echo ">Time per client revenue</option>";//bar for now
         }
+
+
+        
+        echo "<optgroup label = 'Automatic insights'>";
+        $name = '12_month_product_sales_review';                  
+        echo "<option value = '".$name."'";    
+        if($_SESSION['insights_menu']['headline_chart'] == $name){echo " selected ";}                       
+        echo ">12 month product sales review</option>";
+
+
+        /*
             echo "<optgroup label = 'Revenue Charts'>";
                 $name = 'revenue_stacked';                  
                 echo "<option value = '".$name."'";    
@@ -40,6 +51,10 @@ echo "<form method='post' action='/insights/menu/headline_chart/change.php' styl
                 echo "<option value = '".$name."'";   
                 if($_SESSION['insights_menu']['headline_chart'] == $name){echo " selected ";}                     
                 echo ">Client Product Matrix</option>";
+
+                */
+
+
             //this stuff therefore indicates exactly what we need in order to be able to pull out of xero in order to really make it all stick and work
             //it's not an endless list by ANY stretch of the imagination
             //not even close to an endless list

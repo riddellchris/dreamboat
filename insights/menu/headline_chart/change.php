@@ -4,6 +4,7 @@ if(!isset($_SESSION)){session_start();}
 //echo '<pre>' , var_dump($_POST) , '</pre>';
 
 $adjust_session_variable = 'no';
+if($_POST['headline_chart'] == '12_month_product_sales_review'){    $adjust_session_variable = 'yes';}
 if($_POST['headline_chart'] == 'time_per_activity'){                $adjust_session_variable = 'yes';}
 if($_POST['headline_chart'] == 'time_per_client'){                  $adjust_session_variable = 'yes';}
 if($_POST['headline_chart'] == 'revenue_stacked'){                  $adjust_session_variable = 'yes';}

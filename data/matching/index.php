@@ -7,9 +7,16 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/styling/tables.php";
 
 
 //if there are
-echo "<div style='width:100vw;'>";
-
-
+echo "  <div style='width: 100%;  text-align: center; margin-top: 30vh;'>";
+    echo "<div style='width: 100%;  text-align: center;'>";
+        echo "
+        <span class='prompt-font'>
+            Nothing to do here just yet<br>
+            Go to <a href='/insights/display/' style='color:red;'>display</a> for now.
+        </span>
+        ";
+    echo "</div>";
+/*
     echo "<div style='float: left;width: 50vw;  min-height: 50px;  '>";
         require $_SERVER['DOCUMENT_ROOT']."/data/matching/external_side/index.php";
 
@@ -106,7 +113,7 @@ echo "<div style='width:100vw;'>";
     echo "</form>";
 
     echo "</div>";
-
+*/
 
 echo "</div>";
 

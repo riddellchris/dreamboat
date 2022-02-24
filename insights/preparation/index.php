@@ -31,12 +31,14 @@ echo "  <div style='width: 100%;  text-align: center;'>";
 
 
     if(!isset($_SESSION['tag_use']['label'])){
-        echo "
-            <span class='prompt-font'>
-                Nothing to do here just yet<br>
-                Go to <a href='/insights/display/' style='color:red;'>display</a> for now.
-            </span>
-        ";
+        echo "  <div style='width: 100%;  text-align: center; margin-top: 30vh;'>";
+            echo "
+                <span class='prompt-font'>
+                    Nothing to do here just yet<br>
+                    Go to <a href='/insights/display/' style='color:red;'>display</a> for now.
+                </span>
+            ";
+        echo "</div>";
     }
     else{
         //echo "<div  '>";
