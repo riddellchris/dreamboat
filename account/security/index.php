@@ -13,7 +13,7 @@ if($show_login_page == 'yes'){
 	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/start_of_page_top_of_centering_divs.php";
 	
 	
-	echo "	<form action='login_submit.php' method='post'>
+	echo "	<form action='/account/security/login_submit.php' method='post'>
 	
 	
 	
