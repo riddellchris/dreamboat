@@ -7,4 +7,4 @@ if($_GET['primary_folder'] == 'slideshows' OR $_GET['secondary_folder'] == 'lett
 echo "' href='/'";
 //if($_SESSION['logged_in'] != 'yes'){echo " style='float:none; padding-left: 0px;' ";}		
 if(check_primary_folder('home')){echo " style='float:none; padding-left: 0px; margin-top:4vh; ' ";}	
-    echo ">DREAMBOAT</a>";
+    echo ">".$_SESSION['masked_domain_logo_name']."</a>";

@@ -35,7 +35,7 @@ if($_SESSION['logged_in'] == 'yes' AND
 				
 		echo "<a class='dulled_nav about_us nav-links hide_for_mobile' style='float:right;padding-top:18px;";
 			if($_SESSION['dreamboat_crew'] == 'yes'){echo "padding-right:18px;";} //because this is the last menu item
-			if(check_url('/account/') == 1 OR $_GET['primary_folder'] == 'account'){echo "color:#00ff00;";}
+			if(check_url('/account/') == 1 OR $_GET['primary_folder'] == 'account'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 			else{echo "style='color:white;";}
 			echo "'";
 		echo " title='All your account based fun.' href='/account/'>account</a>";
@@ -43,7 +43,7 @@ if($_SESSION['logged_in'] == 'yes' AND
 		if($_SESSION['dreamboat_crew'] == 'yes'){
 			
 			echo "<a class='about_us nav-links hide_for_mobile' style='float:right;";	
-			if(check_url('/users/') == 1 OR $_GET['primary_folder'] == 'users'){echo "color:#00ff00;";}
+			if(check_url('/users/') == 1 OR $_GET['primary_folder'] == 'users'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 						 else{echo "color: red;";}
 			if(isset($_SESSION['viewing_client_id'])){echo "font-weight:800;font-size:40px;padding-top:7px;font-family: Arvo;";}
 			else{echo "padding-top:18px;";}
@@ -67,13 +67,13 @@ if($_SESSION['logged_in'] == 'yes' AND
 		echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_notifications'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;padding-top:18px;";
-			if(check_url('/notifications/') == 1 OR $_GET['primary_folder'] == 'notifications'){echo "color:#00ff00;";}
+			if(check_url('/notifications/') == 1 OR $_GET['primary_folder'] == 'notifications'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "'  href='/notifications/'>notifications</a>";
 
 		echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_messages'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/messages/') == 1 OR $_GET['primary_folder'] == 'messages'){echo "color:#00ff00;";}
+			if(check_url('/messages/') == 1 OR $_GET['primary_folder'] == 'messages'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='Communications central' href='/messages/'>messages</a>";*/
 
 
@@ -81,31 +81,31 @@ if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
 		echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_results'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/results/') == 1 OR $_GET['primary_folder'] == 'results'){echo "color:#00ff00;";}
+			if(check_url('/results/') == 1 OR $_GET['primary_folder'] == 'results'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='How your results are improving.' href='/results/'>results</a>";	
 
 		echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_improvements'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/improvements/') == 1 OR $_GET['primary_folder'] == 'improvements'){echo "color:#00ff00;";}
+			if(check_url('/improvements/') == 1 OR $_GET['primary_folder'] == 'improvements'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='Ways to improve your productivity' href='/improvements/'>improvements</a>";
 
 		echo "<a class='about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_issues'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/issues/') == 1 OR $_GET['primary_folder'] == 'issues'){echo "color:#00ff00;";}
+			if(check_url('/issues/') == 1 OR $_GET['primary_folder'] == 'issues'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='Issues impacting your productivity' href='/issues/'>issues</a>";	
 
 		echo "<a class='about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_activities'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/activities/') == 1 OR check_primary_folder('activities')){echo "color:#00ff00;";}
+			if(check_url('/activities/') == 1 OR check_primary_folder('activities')){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='The things you do on a regular basis in your work role.' href='/activities/'>activities</a>";
 
 		echo "<a class='about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_wheelhouse'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/wheelhouse/') == 1 OR $_GET['primary_folder'] == 'wheelhouse'){echo "color:#00ff00;";}
+			if(check_url('/wheelhouse/') == 1 OR $_GET['primary_folder'] == 'wheelhouse'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='Where you get things done' href='/wheelhouse/'>wheelhouse</a>";	
 
 		echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
@@ -114,7 +114,7 @@ if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
 			//this one has the AND because of /admin/management/ causing a duplicaiton
 			//you can't just go with AND $_GET['primary_folder'] because of what happens when adding via /components/items/ etc
 			if((check_url('/management/') == 1 OR $_GET['primary_folder'] == 'management')
-				AND check_url('/admin/') != 1	){echo "color:#00ff00;";}
+				AND check_url('/admin/') != 1	){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='General management issues' href='/management/'>management</a>";	
 
 if($_SESSION['viewing_client_sales_process_involvement_yes_no'] == 'yes'){		
@@ -123,25 +123,25 @@ if($_SESSION['viewing_client_sales_process_involvement_yes_no'] == 'yes'){
 			echo "' style='float:right;";
 			if((check_url('/sales/') == 1 OR $_GET['primary_folder'] == 'sales')
 			AND check_url('/results/') != 1	
-			){echo "color:#00ff00;";} //results/sales/ causes a bug here hence two criteria
+			){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";} //results/sales/ causes a bug here hence two criteria
 		echo "' title='Sell, sell, sell!' href='/sales/'>sales</a>";	
 
 		echo "<a class='about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_marketing'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/marketing/') == 1 OR $_GET['primary_folder'] == 'marketing'){echo "color:#00ff00;";}
+			if(check_url('/marketing/') == 1 OR $_GET['primary_folder'] == 'marketing'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='Marketing in all its forms!' href='/marketing/'>marketing</a>";		
 
 		echo "<a class='about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_biz_dev'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/biz_dev/') == 1 OR $_GET['primary_folder'] == 'biz_dev'){echo "color:#00ff00;";}
+			if(check_url('/biz_dev/') == 1 OR $_GET['primary_folder'] == 'biz_dev'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='All your BD fun!' href='/biz_dev/'>biz dev</a>";	
 }		
 		echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_network'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/network/') == 1 OR $_GET['primary_folder'] == 'network'){echo "color:#00ff00;";}
+			if(check_url('/network/') == 1 OR $_GET['primary_folder'] == 'network'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='Your commercial network.' ";
 		 	if($_SESSION['user_alerts_network_messages'] == 'on'){echo "href='/network/messages/'";}
 		 	else{echo "href='/network/'";}
@@ -150,13 +150,13 @@ if($_SESSION['viewing_client_sales_process_involvement_yes_no'] == 'yes'){
 		echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_business'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/business/') == 1 OR $_GET['primary_folder'] == 'business'){echo "color:#00ff00;";}
+			if(check_url('/business/') == 1 OR $_GET['primary_folder'] == 'business'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='The business you work for' href='/business/'>business</a>";		
 }
 		echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 			if($_SESSION['user_alerts_profile'] == 'on'){echo " alert ";}		
 			echo "' style='float:right;";
-			if(check_url('/profile/') == 1 OR $_GET['primary_folder'] == 'profile'){echo "color:#00ff00;";}
+			if(check_url('/profile/') == 1 OR $_GET['primary_folder'] == 'profile'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "' title='All about you.' href='/profile/'>profile</a>";		
 
 					
@@ -181,7 +181,7 @@ if( $_SESSION['logged_in'] != 'yes' OR
 
 /*
 		echo "<a class='about_us nav-links hide_for_mobile' style='float:right;";
-		if(check_url('/content/contact_us/') == 1){echo "color:#00ff00;";}
+		if(check_url('/content/contact_us/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "'  href='/content/contact_us/'>contact</a>";*/
 //}
 //*/

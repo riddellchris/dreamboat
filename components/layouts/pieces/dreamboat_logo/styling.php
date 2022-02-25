@@ -4,9 +4,9 @@ echo"
 	.dreamboat-logo{	
 				margin-top: 1px;
 				text-decoration:none;
-				font-family: Helvetica;
+				font-family: ".$_SESSION['masked_domain_logo_font_family'].";
 				font-weight:700;
-				text-transform:uppercase;
+				text-transform:".$_SESSION['masked_domain_logo_text_transform'].";
 				letter-spacing: 0.1em;
 				float:left;
 			}
@@ -23,7 +23,7 @@ echo "	.dreamboat-logo{	color:#00ff00;}
 	}
 else{
 echo "	.dreamboat-logo{	color:#ffffff;}
-	.dreamboat-logo:hover{	color:#00ff00;}
+
 	";
 
 }
@@ -36,7 +36,7 @@ echo "
 
 //if($centered_dreamboat_logo != 'yes'){
 	echo "	@media screen and (min-width: 480px) {	.dreamboat-logo{	padding-left:18px;}}
-		@media screen and (max-width: 480px) {	.dreamboat-logo{	padding-left:10px;}}";
+		@media screen and (max-width: 480px) {		.dreamboat-logo{	padding-left:10px;}}";
 //}
 	
 echo "	

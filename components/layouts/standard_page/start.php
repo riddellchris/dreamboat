@@ -16,11 +16,7 @@ if(!isset($_SESSION['logged_in'])){				$_SESSION['logged_in'] = 'no';}
 if(!isset($_SESSION['dreamboat_crew'])){		$_SESSION['dreamboat_crew'] = 'no';}
 if(!isset($_SESSION['dreamboat_developer'])){	$_SESSION['dreamboat_developer'] = 'no';}
 
-if(isset($_SESSION['masked_domain'])){
-	if($_SESSION['masked_domain'] == 'ottoit'){	$_SESSION['masked_domain_primary_colour'] = " #d6fc49 ";}
-	}
 
-else{$_SESSION['masked_domain_primary_colour'] = ' #4332ff ';}
 
 
 //development assessments
@@ -48,17 +44,13 @@ if(isset($_SESSION['logged_in'])){
 
 
 //actual html outputs
+require $_SERVER['DOCUMENT_ROOT']."/components/whitelabeling/style_changes.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/html/index.php"; 
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/head/index.php"; //this is where all the google chart scripts are for the main body of the platform
 
-//echo "TEST HERE".$_SESSION['masked_domain'];exit();
-echo "
 
-<style>
-.nav-div{ background-color: ".$_SESSION['masked_domain_primary_colour']." ;}
-.footer{ background-color: ".$_SESSION['masked_domain_primary_colour']." ;}
-</style>
-";	
+
+
 
 
 //CR 03.08.20

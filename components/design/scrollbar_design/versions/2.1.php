@@ -5,7 +5,7 @@ if(!isset($width)){$width = '20px';}
 //first layer width = 20
 //second layer width = 15
 
-if(!isset($background_color)){$background_color = '#4332ff';}
+if(!isset($background_color)){$background_color = $_SESSION['masked_domain_primary_colour'];}
 //first layer color 	= #281e96
 //second layer color 	= #5040ff
 

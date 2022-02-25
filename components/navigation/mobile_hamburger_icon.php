@@ -25,7 +25,7 @@ else{
 }
 
 echo "
-			#mobile_menu_icon:hover{color:#00ff00;}
+			//#mobile_menu_icon:hover{color:#00ff00;}
 			.mobile_menu_red{	color:#00ff00;}
 			.mobile_menu_white{	color:#fff;}	
 </style>";

@@ -20,7 +20,7 @@ if($_GET['primary_folder'] != 'slideshows' AND $_GET['secondary_folder'] != 'let
 
 echo "		
 			
-			background-color: #4332FF;
+			
 			height:120vh;
 		}
 
@@ -113,13 +113,13 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 
 		
 		echo "<a class='about_us nav-links wide-nav'";
-		if(check_url('/account/') == 1 OR $_GET['primary_folder'] == 'account'){echo "style='color:#00ff00;'";}
+		if(check_url('/account/') == 1 OR $_GET['primary_folder'] == 'account'){echo "style='color:".$_SESSION['masked_domain_highlight_colour'] .";'";}
 		else{echo "style='color: white;'";}
 		echo " title='All your account based fun.'  href='/account/'>account</a>";	
 	
 		if($_SESSION['dreamboat_crew'] != 'yes'){
 			echo "<a class='about_us nav-links wide-nav' style='";
-			if(check_url('/call/') == 1 OR $_GET['primary_folder'] == 'call'){echo "color:#00ff00;'";}
+			if(check_url('/call/') == 1 OR $_GET['primary_folder'] == 'call'){echo "color:".$_SESSION['masked_domain_highlight_colour'] .";'";}
 			else{echo "color: red;font-weight:900;'";}
 			echo " title='Go on, call as much as you need to.' href='/call/'>call ".$_SESSION['pilots_first_name']."</a>";		
 		}
@@ -143,7 +143,7 @@ if(	//$_SESSION['logged_in'] 		!= 'yes' OR
 
 				echo "<a class='about_us nav-links wide-nav' style='";	
 					if($_SESSION['logged_in'] != 'yes'){	
-						if(check_url('/account/security/') == 1){echo "color:#00ff00;'";}
+						if(check_url('/account/security/') == 1){echo "color:".$_SESSION['masked_domain_highlight_colour'] .";'";}
 						else{echo "color:red;'";}
 						echo "href='/account/security/' title='Happy days, let&#39;s log in'>login</a>";
 					}
@@ -154,38 +154,38 @@ if(	//$_SESSION['logged_in'] 		!= 'yes' OR
 
 			/*	
 				echo "<a class='about_us nav-links wide-nav' style='";	
-				if(check_url('/snapshot/') == 1){echo "color:#00ff00;";}
+				if(check_url('/snapshot/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 				echo "' title=''  href='/snapshot/'>snapshot</a>";
 			*/
 			
 			
 			
 				echo "<a class='about_us nav-links wide-nav' style='";	
-				if(check_url('/knowledgebase/') == 1){echo "color:#00ff00;";}
+				if(check_url('/knowledgebase/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 				echo "' title=''  href='/knowledgebase/'>knowledgebase</a>";
 			/*	
 				echo "<a class='about_us nav-links wide-nav' style='";	
-				if(check_url('/solution/') == 1){echo "color:#00ff00;";}
+				if(check_url('/solution/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 				echo "' title=''  href='/solution/'>solution</a>";
 			*/
 			
 				echo "<a class='about_us nav-links wide-nav' style='";	
-				if(check_url('/support/contact_us/') == 1){echo "color:#00ff00;";}
+				if(check_url('/support/contact_us/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 				echo "' title=''  href='/support/contact_us/'>contact</a>";
 		}				
 			
 			/*
 				echo "<a class='about_us nav-links wide-nav' style='";	
-				if(check_url('/processes/') == 1){echo "color:#00ff00;";}
+				if(check_url('/processes/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 				echo "' title=''  href='/processes/'>processes</a>";
 			
 				echo "<a class='about_us nav-links wide-nav' style='";	
-				if(check_url('/impact/') == 1){echo "color:#00ff00;";}
+				if(check_url('/impact/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 				echo "' title=''  href='/impact/'>impact</a>";
 			*/
 			
 				echo "<a class='about_us nav-links wide-nav' style='";	
-				if(check_url('/legal/') == 1){echo "color:#00ff00;";}
+				if(check_url('/legal/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 				echo "' title=''  href='/legal/'>legal</a>";	
 			
 

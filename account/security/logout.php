@@ -10,8 +10,10 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $sql = "UPDATE data_user_login_logouts SET logout_timestamp = CURRENT_TIME() WHERE session_id = '".$row['session_id']."'";
 $result = mysqli_query($conn, $sql);
 
+if(isset($_SESSION['masked_domain'])){$go_to_url = "/account/security/".$_SESSION['masked_domain']."/";}
+else{$go_to_url = "/";}
 session_destroy();
-header("Location: /");
+header("Location: ".$go_to_url);
 exit();
 
 ?>

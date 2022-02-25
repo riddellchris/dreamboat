@@ -34,7 +34,7 @@ if(	check_url('knowledgebase') == 1 OR
 			}
 
 			if($logged_in == 'no'){
-				if(check_url('/account/security/') == 1){echo "color:#00ff00;";}
+				if(check_url('/account/security/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 				else{echo "color:red;";}				
 				echo "' title='' href='/account/security/' title='Happy days, let&#39;s sign in'>login";
 			}

@@ -38,7 +38,10 @@ if(	isset($_SESSION['last_page_used']) &&
 	check_url('/contact_us/') &&
 	check_url('/impact/')!= 1	
 	){
-	echo "<a class='nav-links' href='https://dreamboat.com.au".$_SESSION['last_page_used']."' style='margin-bottom:18px;margin-left:0px;'";
+	echo "<a class='nav-links' href='";https://dreamboat.com.au";
+		if($_SERVER['SERVER_PORT'] == '8888'){	echo "http://localhost:8888";}
+		else{echo "https://dreamboat.com.au";}
+		echo $_SESSION['last_page_used']."' style='margin-bottom:18px;margin-left:0px;'";
 	echo ">BACK</a>";
 	$back_used = 'yes';
 }

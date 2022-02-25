@@ -223,7 +223,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
 
 <?php
-
+unset($background_color);
 $max_width = "600px";
 require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/submits/standard.php";
 echo "<br>";

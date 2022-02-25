@@ -67,19 +67,14 @@ echo "
 
 
 .sub_sub_menu_div{
-
 	font-family:helvetica;
 	text-transform: uppercase;
 	padding-top: 8px;
 	padding-bottom: 6px;
 	color:white;
-	background-color:#2b1eba;
 	text-decoration:none;	
 	}
-.sub_sub_menu_div:hover{
-	background-color:#ff2424;
-	color:#ffe6e6;  
-	}
+
 .sub_sub_menu_div.highlighted:hover{
 	background-color:#ff0000;
 	}
@@ -132,7 +127,6 @@ echo "
 	padding-top: 9px;
 	padding-bottom: 8px;
 	color:white;
-	background-color:#675ce0;
 	text-decoration:none;
 	}
 .sub_sub_menu_div:hover{background-color:red;}

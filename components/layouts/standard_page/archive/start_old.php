@@ -97,9 +97,9 @@ if($_SESSION['dreamboat_crew'] == 'yes' && $_SESSION['show_as_dreamboat_crew'] =
 			@media screen and (min-width: 480px)  and (min-height: 812px) {#mobile_menu_icon{padding-top:9px;}}
 			@media screen and (min-width: 480px)  and (max-height: 812px) {#mobile_menu_icon{padding-top:9px;}}
 			
-			#mobile_menu_icon:hover{
-			color:#00ff00;
-			}
+			//#mobile_menu_icon:hover{
+			//color:#00ff00;
+			//}
 			.mobile_menu_red{
 			color:#00ff00;
 			}

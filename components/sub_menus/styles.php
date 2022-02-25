@@ -15,7 +15,7 @@ $hover_code = "
 	font-family:helvetica;
 	text-transform: uppercase;
 	color:white;
-	background-color:#2b1eba;
+	
 	text-decoration:none;
 }
 .sub_menu_div:hover{

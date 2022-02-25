@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 echo "<a class='about_us nav-links wide-nav' style='";	
-if(check_url('/users/') == 1 OR $_GET['primary_folder'] == 'users'){echo "color:#00ff00;";}
+if(check_url('/users/') == 1 OR $_GET['primary_folder'] == 'users'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 else{echo "color:red;";}
 echo "' title='All those clients, and you.'";
 

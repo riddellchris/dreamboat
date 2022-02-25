@@ -20,14 +20,14 @@ html{
 
 
 
-.big-div{color:  #281e96;min-height:100vh;position:relative;}
+.big-div{min-height:100vh;position:relative;}
 
 
 .footer{ 
 	bottom:0;
 	text-align:center;
 	position:fixed;
-	background-color:  #4332ff;
+	
 }
 
 //old heavy footer shadow
@@ -69,7 +69,7 @@ display:inline-block;float:right;margin-right:60px;
 }
 
 select{
-background-color: DodgerBlue;
+
 color:white;
 font-size:18px;
 border-radius:0px;
@@ -248,17 +248,14 @@ font-family:Monda;color:#C0C0C0;font-size:22px;font-weight:600;
 
 .secure_input{
 	background-color:#fff;
-	color: #281e96;
+	
 	border:none;
 	padding-bottom:14px;
 //	min-width:400px;
 width:100%;
 	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
 }
-.secure_input::placeholder{
-color: #281e96;
 
-}
 
 .password_input{
 background-color:#a0ffce;
@@ -282,7 +279,6 @@ color:#4332ff;
 	font-size: 16px;
 	font-weight: 600;
 	font-style: normal;
-	color: #281e96;
 	text-transform: uppercase;
 	letter-spacing: .1em;
 	-webkit-appearance: none;
@@ -434,9 +430,7 @@ input{
     -webkit-font-smoothing: subpixel-antialiased;  
     text-decoration:none;
 }
-.nav-links:hover{
-	color:#00ff00
-}
+
 .nav-link-selected{   
     color: #fff;
 }
@@ -548,8 +542,7 @@ color:red;
 .strong-red-button{		background-color:#d62c2c;	color:white;}
 .strong-red-button:hover{	background-color:#e50000;	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);}
 
-.blue-button{			background-color:#281e96;	color:white;}
-.blue-button:hover{		background-color:#4332ff;	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);}
+
 .black-button{			background-color:black;		color:white;}
 .black-button:hover{		background-color: #ff0000;	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);}
 .gold-button{			background-color: #FFD700;	color: #ff0000;}

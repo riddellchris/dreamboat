@@ -76,7 +76,7 @@ if(isset($_SESSION['logged_in'])){
 			echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 				if($_SESSION['user_alerts_notifications'] == 'on'){echo " alert ";}		
 				echo "' style='float:right;padding-top:18px;";
-				if(check_url('/notifications/') == 1 OR $_GET['primary_folder'] == 'notifications'){echo "color:#00ff00;";}
+				if(check_url('/notifications/') == 1 OR $_GET['primary_folder'] == 'notifications'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 			echo "'  href='/notifications/'>notifications</a>";
 		}
 
@@ -84,7 +84,7 @@ if(isset($_SESSION['logged_in'])){
 			echo "<a class='dulled_nav about_us nav-links hide_for_mobile";
 				if($_SESSION['user_alerts_messages'] == 'on'){echo " alert ";}		
 				echo "' style='float:right;";
-				if(check_url('/messages/') == 1 OR $_GET['primary_folder'] == 'messages'){echo "color:#00ff00;";}
+				if(check_url('/messages/') == 1 OR $_GET['primary_folder'] == 'messages'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 			echo "' title='Communications central' href='/messages/'>messages</a>";
 		}
 
@@ -177,7 +177,7 @@ if( $_SESSION['logged_in'] != 'yes' OR
 
 /*
 		echo "<a class='about_us nav-links hide_for_mobile' style='float:right;";
-		if(check_url('/content/contact_us/') == 1){echo "color:#00ff00;";}
+		if(check_url('/content/contact_us/') == 1){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 		echo "'  href='/content/contact_us/'>contact</a>";*/
 //}
 //*/
