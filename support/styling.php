@@ -1,7 +1,11 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+
+echo "
 <style>
 .secure_input{
 	margin-bottom:15px; 
-	background-color: red;
+	background-color: ".$_SESSION['masked_domain_primary_colour_darker'].";
 	color: white;
 	text-align: center;
 	max-width: 400px;
@@ -14,7 +18,7 @@
 	
 		
 .login-submit{
-	background-color: forestgreen;
+	background-color: #FF0000;
 	margin-top: 18px;
 	color: white;
 	max-width: 400px;
@@ -22,7 +26,8 @@
 	
 	
 textarea{
-	background-color: darkblue;
+	background-color: ".$_SESSION['masked_domain_primary_colour_darker'].";
 	color: white;
 	}
 </style>
+";

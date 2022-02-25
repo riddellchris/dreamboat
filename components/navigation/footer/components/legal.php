@@ -5,5 +5,5 @@ if(!isset($_SESSION)){session_start();}
 	echo "<a class='nav-links";
 	if($_GET['primary_folder'] == 'slideshows' OR $_GET['secondary_folder'] == 'letter' ){echo " long ";}
 	echo "' href='/legal/'  style='".$contact_margin_left;
-	if(check_url('/legal/') == 1){echo "color:#63f263;margin-top: 18px;";}
+	if(check_url('/legal/') == 1){echo "color:".$_SESSION['masked_domain_highlight_colour'].";margin-top: 18px;";}
 	echo "'>legal</a>";

@@ -106,20 +106,22 @@ if($number_of_top_sub_menu_options > 0){
 //that's just how it works
 //so to test that we will need to query the worksheets tab and go from there.
 
-require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql  = "	SELECT * FROM user_worksheets 
-			WHERE 	user_id 		= '".$_SESSION['viewing_client_id']."' 
-			AND 	primary_folder 	= '".$_GET['primary_folder']."'
-			AND 	status 			= 'active'";
-$result = mysqli_query($conn, $sql);
 
-if(mysqli_num_rows($result) == 0){
-	if($_GET['primary_folder'] == 'sales' 		&& $display_option[$i] == 'worksheets'){		$for_pilots_only = 'yes';}
+if(isset($_SESSION['viewing_client_id'])){
+	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+	$sql  = "	SELECT * FROM user_worksheets 
+				WHERE 	user_id 		= '".$_SESSION['viewing_client_id']."' 
+				AND 	primary_folder 	= '".$_GET['primary_folder']."'
+				AND 	status 			= 'active'";
+	$result = mysqli_query($conn, $sql);
 
+	if(mysqli_num_rows($result) == 0){
+		if($_GET['primary_folder'] == 'sales' 		&& $display_option[$i] == 'worksheets'){		$for_pilots_only = 'yes';}
+
+	}
+				//no secondary_folder here as really it isn't needed given that primary_folder is the one that holds the worksheets
+				// e.g. /sales/worksheets/
 }
-			//no secondary_folder here as really it isn't needed given that primary_folder is the one that holds the worksheets
-			// e.g. /sales/worksheets/
-
 
 
 if($top_sub_menu_options[$i] != 'display_no_menu'){	

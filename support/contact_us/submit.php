@@ -1,13 +1,13 @@
 <?php
 if(!isset($_SESSION)){session_start();}
-//var_dump($_POST);
+//var_dump($_POST);exit();
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-	$name		= mysqli_real_escape_string($conn, $_POST['name']);
-	$number		= mysqli_real_escape_string($conn, $_POST['number']);
-	$mail		= mysqli_real_escape_string($conn, $_POST['mail']);
-	$feedback	= mysqli_real_escape_string($conn, $_POST['feedback']);
+	if(isset($_POST['name'])){		$name		= mysqli_real_escape_string($conn, $_POST['name']);		}else{$name = '';}
+	if(isset($_POST['number'])){	$number		= mysqli_real_escape_string($conn, $_POST["number"]);	}else{$number = '';}
+	if(isset($_POST['mail'])){		$mail		= mysqli_real_escape_string($conn, $_POST['mail']);		}else{$mail = '';}
+	if(isset($_POST['feedback'])){	$feedback	= mysqli_real_escape_string($conn, $_POST['feedback']);	}else{$feedback = '';}
 
 $sql = "INSERT INTO feedback
 		(name, number, email, comments)

@@ -1,10 +1,11 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
+
+
+echo "
+<div style='color:".$_SESSION['masked_domain_primary_colour_darker'].";font-family: Comfortaa;padding: 0px 15px;max-width:100%;text-align:left;resize:both;margin-top:15px;margin-bottom:95px;'>
+";
 ?>
-
-
-<div style='color: #281e96;font-family: Comfortaa;padding: 0px 15px;max-width:100%;text-align:left;resize:both;margin-top:15px;margin-bottom:95px;'>
-
 <style>
 b{color:red;}
 </style>
