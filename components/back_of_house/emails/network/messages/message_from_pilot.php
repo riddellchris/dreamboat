@@ -13,11 +13,11 @@ $mail->AddAddress($email , $first_name." ".$second_name);  // Add a recipient
 
 $mail->IsHTML(true);                                  // Set email format to HTML
 
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/header.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/horizontal_line.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/footer.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/body_top.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/body_bottom.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/header.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/horizontal_line.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/footer.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/body_top.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/body_bottom.php";
 
 $mail->Subject = $pilots_first_name." sent you a message!";
 $mail->Body    = $header.$horizontal_line.$body_top."<span style='text-shadow: 2px 2px 4px grey;

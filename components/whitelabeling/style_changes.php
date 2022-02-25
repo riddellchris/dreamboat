@@ -13,7 +13,7 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_logo_name']                = "otto";
                                                                 $_SESSION['masked_domain_logo_font_family']         = "PTSansRegular, Arial, Helvetica, sans-serif";
                                                                 $_SESSION['masked_domain_logo_text_transform']      = "none";
-                                                                $_SESSION['masked_domain_html_title']               = "OttoIT - Analytics";
+                                                                $_SESSION['masked_domain_html_title']               = "Otto IT - Analytics";
     }
 	if($_SESSION['masked_domain'] == 'reliableaccountants'){	
                                                                 $_SESSION['masked_domain_primary_colour']           = " #0a0a0a ";

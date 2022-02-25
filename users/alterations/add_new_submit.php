@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION)){session_start();}
-require $_SERVER[DOCUMENT_ROOT]."/components/back_of_house/database/connection.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
 $first_name 		= mysqli_real_escape_string($conn, $_POST['first_name']);
 $second_name 		= mysqli_real_escape_string($conn, $_POST['second_name']);

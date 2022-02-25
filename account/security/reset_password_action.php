@@ -28,7 +28,7 @@ if(mysqli_num_rows($select)!==0) {
 		WHERE email = '$email_to_check_for'";	
 	$select = mysqli_query($conn, $sql);	
 	
-require $_SERVER[DOCUMENT_ROOT]."/components/back_of_house/emails/forgot_password.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/emails/forgot_password.php";
 	
 	//i.e. not as part of the rest of the chaos
 	if(isset($_POST['email'])){

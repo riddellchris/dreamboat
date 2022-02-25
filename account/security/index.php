@@ -49,7 +49,7 @@ if($show_login_page == 'yes'){
 	
 		</div>
 		<div class='login-cells'>
-			<a type='submit'  class='grey-button wide-button'  href='reset_password.php'>reset your password</a>
+			<a type='submit'  class='grey-button wide-button'  href='/account/security/reset_password.php'>reset your password</a>
 	
 		</div>
 	</div> 

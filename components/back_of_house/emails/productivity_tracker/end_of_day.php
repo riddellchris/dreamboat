@@ -11,13 +11,13 @@ $mail->AddAddress($email , $first_name." ".$second_name);  // Add a recipient
 $mail->IsHTML(true);                                  // Set email format to HTML
 
 
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/header.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/horizontal_line.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/header.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/horizontal_line.php";
 $email_type = 'Productivity Tracker End Of Day';
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/unsubscribe_link.php"; 
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/footer.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/body_top.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/body_bottom.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/unsubscribe_link.php"; 
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/footer.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/body_top.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/body_bottom.php";
 
 $subject[1] = "Boom ".$first_name."! You're done with work!";
 $subject[2] = "Solid day ".$first_name."!";

@@ -12,11 +12,11 @@ $mail->AddAddress('productivity-pilots@dreamboat.co' , 'Productivity Pilots');  
 $mail->IsHTML(true);                                  // Set email format to HTML
 
 
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/header.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/horizontal_line.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/footer.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/body_top.php";
-require $_SERVER[DOCUMENT_ROOT]."/back_of_house/emails/template/body_bottom.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/header.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/horizontal_line.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/footer.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/body_top.php";
+require $_SERVER['DOCUMENT_ROOT']."/back_of_house/emails/template/body_bottom.php";
 
 $mail->Subject = $note;
 $mail->Body    = $header.$footer;

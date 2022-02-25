@@ -1,9 +1,9 @@
 <?php
 $business = 'yes';
-require $_SERVER[DOCUMENT_ROOT]."/management/edit_update.php";
+require $_SERVER['DOCUMENT_ROOT']."/management/edit_update.php";
 /*CODE OUT
 if(!isset($_SESSION)){session_start();}
-require $_SERVER[DOCUMENT_ROOT]."/components/back_of_house/database/connection.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
 $vision 		= mysqli_real_escape_string($conn, $_POST['vision']);
 $mission 		= mysqli_real_escape_string($conn, $_POST['mission']);

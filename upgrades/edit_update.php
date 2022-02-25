@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION)){session_start();}
-require $_SERVER[DOCUMENT_ROOT]."/components/back_of_house/database/connection.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
 $next_few_months 		= mysqli_real_escape_string($conn, $_POST['next_few_months']);
 $three_months_away 		= mysqli_real_escape_string($conn, $_POST['three_months_away']);

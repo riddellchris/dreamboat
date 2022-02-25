@@ -8,13 +8,13 @@ $mail->AddAddress($email , $first_name." ".$second_name);  // Add a recipient
 $mail->IsHTML(true);                                  // Set email format to HTML
 
 
-require $_SERVER[DOCUMENT_ROOT]."/components/back_of_house/emails/template/header.php";
-require $_SERVER[DOCUMENT_ROOT]."/components/back_of_house/emails/template/footer.php";
-require $_SERVER[DOCUMENT_ROOT]."/components/back_of_house/emails/template/body_top.php";
-require $_SERVER[DOCUMENT_ROOT]."/components/back_of_house/emails/template/body_bottom.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/emails/template/header.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/emails/template/footer.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/emails/template/body_top.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/emails/template/body_bottom.php";
 
 $mail->Subject = "Let's reset your password";
-$mail->Body    =  $header.$horizontal_line.$body_top."<span style='text-shadow: 2px 2px 4px grey;
+$mail->Body    =  $header.$body_top."<span style='text-shadow: 2px 2px 4px grey;
     font-family: helvetica;
     text-transform: uppercase;
     font-size: 28px;
@@ -41,7 +41,7 @@ $mail->Body    =  $header.$horizontal_line.$body_top."<span style='text-shadow: 
 		    background: #fafafa;
 		    text-indent: 0px;
 		    text-shadow: none;
-		    display: inline-block;'>click here</a>".$body_bottom.$horizontal_line.$footer;
+		    display: inline-block;'>click here</a>".$body_bottom.$footer;
 $mail->AltBody = "To start resetting your password just use the link below:<br>".$url;
 
 
