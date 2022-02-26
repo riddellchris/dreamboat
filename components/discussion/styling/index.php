@@ -14,14 +14,17 @@
 
 
 
+<?php
+if(!isset($_SESSION)){session_start();}
 
-#discussion_submit{background-color:#281e96;}
-#discussion_submit:hover{background-color:#4332ff;}
+echo "
+	#discussion_submit{			background-color:	".$_SESSION['masked_domain_primary_colour_darker'].";}
+	#discussion_submit:hover{	background-color:	".$_SESSION['masked_domain_primary_colour'].";}
+	#textarea_input{			outline: 6px inset 	".$_SESSION['masked_domain_primary_colour_darker'].";}
+	#textarea_input:focus{		outline: 8px inset 	".$_SESSION['masked_domain_primary_colour'].";}
+";
+?>
 
-
-
-#textarea_input{outline: 6px inset #281e96;}
-#textarea_input:focus{outline: 8px inset #4332ff;}
 
 #textarea_input{
 	font-family: Comfortaa;

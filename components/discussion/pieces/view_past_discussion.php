@@ -134,47 +134,91 @@ echo "<div style='display:block;padding-bottom:150px;'>";
 $result = mysqli_query($conn, $sql);
 
 
-
-$me[1] = '#281E96';
-$me[2] = '#2F2EA2';
-$me[3] = '#363FAD';
-$me[4] = '#3D4FB9';
-$me[5] = '#4560C5';
-$me[6] = '#4C70D1';
-$me[7] = '#5381DC';
-$me[8] = '#5A91E8';
-
-
-$me_time_color[1] = '#A6C9FF';
-$me_time_color[2] = '#AECEFF';
-$me_time_color[3] = '#B5D2FF';
-$me_time_color[4] = '#BDD7FF';
-$me_time_color[5] = '#C4DBFF';
-$me_time_color[6] = '#CCE0FF';
-$me_time_color[7] = '#CCE0FF';
-$me_time_color[8] = '#DBE9FF';
+if(!isset($_SESSION['masked_domain'])){
+	$me[1] = '#281E96';
+	$me[2] = '#2F2EA2';
+	$me[3] = '#363FAD';
+	$me[4] = '#3D4FB9';
+	$me[5] = '#4560C5';
+	$me[6] = '#4C70D1';
+	$me[7] = '#5381DC';
+	$me[8] = '#5A91E8';
 
 
-$you_time_color[1] = '#A9FFA6';
-$you_time_color[2] = '#B2FFAE';
-$you_time_color[3] = '#BCFFB5';
-$you_time_color[4] = '#C5FFBD';
-$you_time_color[5] = '#CEFFC4';
-$you_time_color[6] = '#D7FFCC';
-$you_time_color[7] = '#E1FFD3';
-$you_time_color[8] = '#EAFFDB';
+	$me_time_color[1] = '#A6C9FF';
+	$me_time_color[2] = '#AECEFF';
+	$me_time_color[3] = '#B5D2FF';
+	$me_time_color[4] = '#BDD7FF';
+	$me_time_color[5] = '#C4DBFF';
+	$me_time_color[6] = '#CCE0FF';
+	$me_time_color[7] = '#CCE0FF';
+	$me_time_color[8] = '#DBE9FF';
 
 
-#24961e
-$you[1] = '#1E962E';
-$you[2] = '#27A238';
-$you[3] = '#2FAD42';
-$you[4] = '#38B94C';
-$you[5] = '#40C556';
-$you[6] = '#49D160';
-$you[7] = '#51DC6A';
-$you[8] = '#5AE874';
+	$you_time_color[1] = '#A9FFA6';
+	$you_time_color[2] = '#B2FFAE';
+	$you_time_color[3] = '#BCFFB5';
+	$you_time_color[4] = '#C5FFBD';
+	$you_time_color[5] = '#CEFFC4';
+	$you_time_color[6] = '#D7FFCC';
+	$you_time_color[7] = '#E1FFD3';
+	$you_time_color[8] = '#EAFFDB';
 
+
+	#24961e
+	$you[1] = '#1E962E';
+	$you[2] = '#27A238';
+	$you[3] = '#2FAD42';
+	$you[4] = '#38B94C';
+	$you[5] = '#40C556';
+	$you[6] = '#49D160';
+	$you[7] = '#51DC6A';
+	$you[8] = '#5AE874';
+}
+else{
+	$me[1] = $_SESSION['masked_domain_primary_colour_darker'];
+	$me[2] = $_SESSION['masked_domain_primary_colour_darker'];
+	$me[3] = $_SESSION['masked_domain_primary_colour_darker'];
+	$me[4] = $_SESSION['masked_domain_primary_colour_darker'];
+	$me[5] = $_SESSION['masked_domain_primary_colour_darker'];
+	$me[6] = $_SESSION['masked_domain_primary_colour_darker'];
+	$me[7] = $_SESSION['masked_domain_primary_colour_darker'];
+	$me[8] = $_SESSION['masked_domain_primary_colour_darker'];
+
+
+	$me_time_color[1] = $_SESSION['masked_domain_primary_colour'];
+	$me_time_color[2] = $_SESSION['masked_domain_primary_colour'];
+	$me_time_color[3] = $_SESSION['masked_domain_primary_colour'];
+	$me_time_color[4] = $_SESSION['masked_domain_primary_colour'];
+	$me_time_color[5] = $_SESSION['masked_domain_primary_colour'];
+	$me_time_color[6] = $_SESSION['masked_domain_primary_colour'];
+	$me_time_color[7] = $_SESSION['masked_domain_primary_colour'];
+	$me_time_color[8] = $_SESSION['masked_domain_primary_colour'];
+
+
+	$you_time_color[1] = $_SESSION['masked_domain_menu_tone_one'];
+	$you_time_color[2] = $_SESSION['masked_domain_menu_tone_one'];
+	$you_time_color[3] = $_SESSION['masked_domain_menu_tone_one'];
+	$you_time_color[4] = $_SESSION['masked_domain_menu_tone_one'];
+	$you_time_color[5] = $_SESSION['masked_domain_menu_tone_one'];
+	$you_time_color[6] = $_SESSION['masked_domain_menu_tone_one'];
+	$you_time_color[7] = $_SESSION['masked_domain_menu_tone_one'];
+	$you_time_color[8] = $_SESSION['masked_domain_menu_tone_one'];
+
+
+	#24961e
+	$you[1] = $_SESSION['masked_domain_focus_colour'];
+	$you[2] = $_SESSION['masked_domain_focus_colour'];
+	$you[3] = $_SESSION['masked_domain_focus_colour'];
+	$you[4] = $_SESSION['masked_domain_focus_colour'];
+	$you[5] = $_SESSION['masked_domain_focus_colour'];
+	$you[6] = $_SESSION['masked_domain_focus_colour'];
+	$you[7] = $_SESSION['masked_domain_focus_colour'];
+	$you[8] = $_SESSION['masked_domain_focus_colour'];
+
+
+
+}
 
 
 

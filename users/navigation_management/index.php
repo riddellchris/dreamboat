@@ -133,6 +133,14 @@ $options_to_extract = [
         if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
         echo "</a>";
 
+        $var = "time";
+        echo "<br>";
+        echo "<a class='";
+        if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
+        echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
+        if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
+        echo "</a>";
+
         $var = "issues";
         echo "<br>";
         echo "<a class='";
@@ -150,6 +158,14 @@ $options_to_extract = [
         echo "</a>";
 
         $var = "results";
+        echo "<br>";
+        echo "<a class='";
+        if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
+        echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
+        if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
+        echo "</a>";
+
+        $var = "finances";
         echo "<br>";
         echo "<a class='";
         if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}

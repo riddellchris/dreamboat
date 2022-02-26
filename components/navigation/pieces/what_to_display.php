@@ -30,9 +30,11 @@ else{
         'marketing',
         'wheelhouse',
         'activities',
+        'time',        
         'issues',
         'upgrades',
         'results',
+        'finances',        
         'messages',
         'notifications'];
 

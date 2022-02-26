@@ -88,7 +88,7 @@ if(isset($_SESSION['logged_in'])){
 			echo "' title='Communications central' href='/messages/'>messages</a>";
 		}
 
-
+		$nav_name = "finances"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 	//if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
 	//	require_file('/components/navigation/non_mobile/components/results.php');
 		$nav_name = "results"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
@@ -102,7 +102,8 @@ if(isset($_SESSION['logged_in'])){
 	//	require_file('/components/navigation/non_mobile/components/management.php');
 
 		$nav_name = "upgrades"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
-		$nav_name = "issues"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}		
+		$nav_name = "issues"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}	
+		$nav_name = "time"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}			
 		$nav_name = "activities"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 		$nav_name = "wheelhouse"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}		
 		$nav_name = "management"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}

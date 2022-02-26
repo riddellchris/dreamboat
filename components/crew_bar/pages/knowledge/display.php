@@ -4,7 +4,7 @@ if(!isset($_SESSION)){session_start();}
 echo"
 <style>
 .textarea_input{font-family:Comfortaa;color:#281e96;text-align:left;}
-.textarea_input::placeholder{color:#281e96;}
+.textarea_input::placeholder{color: #281e96;}
 select{font-family:Comfortaa;background-color:white;color:#281e96;}
 input{font-family:Comfortaa;}
 </style>

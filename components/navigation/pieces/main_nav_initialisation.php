@@ -19,9 +19,11 @@ $sql = "INSERT INTO user_main_nav_control
             marketing,
             wheelhouse,
             activities,
+            time,
             issues,        
             upgrades, 
             results, 
+            finances,            
             messages,
             notifications
         )
@@ -30,6 +32,8 @@ $sql = "INSERT INTO user_main_nav_control
             $sql .= " 'yes' , ";
             $sql .= " 'no' , ";        
             $sql .= " 'yes' , ";    
+            $sql .= " 'no' , "; 
+            $sql .= " 'no' , "; 
             $sql .= " 'no' , "; 
             $sql .= " 'no' , "; 
             $sql .= " 'no' , "; 

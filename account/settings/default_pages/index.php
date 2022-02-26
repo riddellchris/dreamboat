@@ -57,9 +57,11 @@ if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
 	$nav_name = "management"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 	$nav_name = "wheelhouse"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 	$nav_name = "activities"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "time"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}	
 	$nav_name = "issues"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 	$nav_name = "upgrades"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 	$nav_name = "results"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "finances"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 }
 
 $nav_name = "messages"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}

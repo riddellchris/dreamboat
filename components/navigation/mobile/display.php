@@ -93,10 +93,11 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 				$nav_name = "management"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
 				$nav_name = "wheelhouse"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}	
 				$nav_name = "activities"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+				$nav_name = "time"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}				
 				$nav_name = "issues"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
 				$nav_name = "upgrades"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}	
 				$nav_name = "results"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
-
+				$nav_name = "finances"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
 
 		//require_file("/components/navigation/mobile/components/management.php");
 		//require_file("/components/navigation/mobile/components/wheelhouse.php");
