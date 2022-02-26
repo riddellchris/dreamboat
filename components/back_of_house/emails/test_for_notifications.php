@@ -37,7 +37,7 @@ $mail->Body    =  $header.$body_top."
 					    font-size: 16px;
 					    font-weight: 600;
 					    font-style: normal;
-					    color: #281e96;
+					    color: ".$_SESSION['masked_domain_primary_colour_darker'].";
 					    text-transform: uppercase;
 					    text-decoration:none;
 					    letter-spacing: .1em;

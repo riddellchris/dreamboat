@@ -18,7 +18,7 @@ $mail->Body    =  $header.$body_top."<span style='text-shadow: 2px 2px 4px grey;
     font-family: helvetica;
     text-transform: uppercase;
     font-size: 28px;
-    color: #281e96;'>TO RESET YOUR PASSWORD</span><BR>
+    color: ".$_SESSION['masked_domain_primary_colour_darker'].";'>TO RESET YOUR PASSWORD</span><BR>
 <a href='".$url."'  style='min-width: 300px;
 		    padding-top: 15px;
 		    padding-bottom: 12px;
@@ -26,7 +26,7 @@ $mail->Body    =  $header.$body_top."<span style='text-shadow: 2px 2px 4px grey;
 		    font-size: 16px;
 		    font-weight: 600;
 		    font-style: normal;
-		    color: #281e96;
+		    color: ".$_SESSION['masked_domain_primary_colour_darker'].";
 		    text-transform: uppercase;
 		    text-decoration:none;
 		    letter-spacing: .1em;
