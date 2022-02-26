@@ -223,6 +223,12 @@ if(check_primary_folder('activities')){
 	$top_sub_menu_options = add_top_sub_menu_option('growing'			,$top_sub_menu_options);			
 	$top_sub_menu_options = add_top_sub_menu_option('all'				,$top_sub_menu_options);
 	}
+if(check_primary_folder('time')){
+	$top_sub_menu_options = add_top_sub_menu_option('this_week'				,$top_sub_menu_options);
+		//since last session?
+	$top_sub_menu_options = add_top_sub_menu_option('this_month'			,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('all_time'			,$top_sub_menu_options);	
+	}
 
 if(check_primary_folder('upgrades')){
 	$top_sub_menu_options = add_top_sub_menu_option('all'		,$top_sub_menu_options);
@@ -251,8 +257,10 @@ if(check_primary_folder('results')){
 		$top_sub_menu_options = add_top_sub_menu_option('productivity'		,$top_sub_menu_options);		
 //	}
 }
-
-
+if(check_primary_folder('finances')){
+	$top_sub_menu_options = add_top_sub_menu_option('cashflow_analysis'	,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('margin_analysis'	,$top_sub_menu_options);
+}
 //CR 26.03.21
 //The thing here is that this whole section should be split into something like:
 //Outreach:

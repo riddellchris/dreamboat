@@ -125,6 +125,7 @@ if(isset($_SESSION['viewing_client_id'])){
 
 
 if($top_sub_menu_options[$i] != 'display_no_menu'){	
+
 		echo "<a ";
 			echo "href ='/components/sub_menus/change.php?page=".$_GET['primary_folder']."&to=".$top_sub_menu_options[$i]."'";
 			echo "class='sub_menu_div div_width ";
@@ -148,10 +149,19 @@ if($top_sub_menu_options[$i] != 'display_no_menu'){
 			}	
 			echo "'>";
 			echo $display_option[$i];
+
+			if($_SESSION['dreamboat_crew'] == 'yes'){
+				echo "<span>";
+					echo "&nbsp;&nbsp;<i class='fa fa-solid fa-eye'  style='font-size: 1em; color: Tomato;'></i>";
+					echo "<i class='fa fa-solid fa-eye'  style='font-size: 1em; color: Tomato;'></i>";
+				echo "</span>";
+			}
 		echo "</a>";
 		}
 	}
 }
+
+
 
 echo "</div>";
 

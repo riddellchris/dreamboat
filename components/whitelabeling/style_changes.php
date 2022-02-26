@@ -46,10 +46,11 @@ else{
     $_SESSION['masked_domain_menu_tone_two']            = " #675ce0; ";    
     $_SESSION['masked_domain_highlight_colour']         = " #00ff00 ";
     $_SESSION['masked_domain_focus_colour']             = " #ff2424 ";
-    $_SESSION['masked_domain_logo_name']                = "DREAMBOAT";
+    $_SESSION['masked_domain_logo_name']                = "Dreamboat";
     $_SESSION['masked_domain_logo_font_family']         = "Helvetica";
-    $_SESSION['masked_domain_logo_text_transform']      = "none";
+    $_SESSION['masked_domain_logo_text_transform']      = "uppercase";
     $_SESSION['masked_domain_html_title']               = "Transforming the Australian Economy - DREAMBOAT";
+
 
 }
 //echo "TEST HERE".$_SESSION['masked_domain'];exit();

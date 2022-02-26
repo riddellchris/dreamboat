@@ -3,7 +3,7 @@ if(!isset($_SESSION)){session_start();}
 require_once $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/PHPMailer_5_2/PHPMailerAutoload.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/emails/account_connection/notifications.php";
 $mail->From = "notifications@dreamboat.com.au";
-$mail->FromName = "DREAMBOAT";
+$mail->FromName = $_SESSION['masked_domain_logo_name'] ;
 $mail->AddAddress($email , $first_name." ".$second_name);  // Add a recipient
 $mail->IsHTML(true);                                  // Set email format to HTML
 
@@ -27,7 +27,7 @@ $mail->Body    =  $header.$body_top."<span style='text-shadow: 2px 2px 4px grey;
 		    font-weight: 600;
 		    font-style: normal;
 		    color: ".$_SESSION['masked_domain_primary_colour_darker'].";
-		    text-transform: uppercase;
+		    text-transform: ".$_SESSION['masked_domain_logo_text_transform'].";
 		    text-decoration:none;
 		    letter-spacing: .1em;
 		    -webkit-appearance: none;
