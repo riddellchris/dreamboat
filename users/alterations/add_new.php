@@ -23,9 +23,13 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/st
 <?php
 echo "<input name ='client_gained' type='hidden' value='";
 
-//if($_POST['page'] == 'care_'){	echo "no";}
-if($_POST['page'] == 'regular_users'){		echo "yes";}
-else{echo "no";}
+
+$echo_no = 'on';
+if(isset($_POST['page'])){
+    if($_POST['page'] == 'regular_users'){$echo_no = 'off';}
+}
+if($echo_no == 'on'){echo "no";}else{echo "yes";}
+unset($echo_no);
 
 echo "'>";
 ?>

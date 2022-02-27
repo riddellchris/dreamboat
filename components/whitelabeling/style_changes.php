@@ -12,18 +12,24 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_focus_colour']             = " #ff7549 ";
                                                                 $_SESSION['masked_domain_logo_name']                = "otto";
                                                                 $_SESSION['masked_domain_logo_font_family']         = "PTSansRegular, Arial, Helvetica, sans-serif";
+                                                                $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
+                                                                $_SESSION['masked_domain_logo_color']               = "#d6fc49";
+                                                                $_SESSION['masked_domain_logo_font_weight']         = "700";  
                                                                 $_SESSION['masked_domain_logo_text_transform']      = "none";
                                                                 $_SESSION['masked_domain_html_title']               = "Otto IT - Analytics";
     }
 	if($_SESSION['masked_domain'] == 'reliableaccountants'){	
-                                                                $_SESSION['masked_domain_primary_colour']           = " #0a0a0a ";
-                                                                $_SESSION['masked_domain_primary_colour_darker']    = " #004751 ";
-                                                                $_SESSION['masked_domain_menu_tone_one']            = " #004751 ";
-                                                                $_SESSION['masked_domain_menu_tone_two']            = " #004751 ";                                                                
+                                                                $_SESSION['masked_domain_primary_colour']           = " #121cf2 ";
+                                                                $_SESSION['masked_domain_primary_colour_darker']    = " #050ca6 ";
+                                                                $_SESSION['masked_domain_menu_tone_one']            = " #3841ff ";
+                                                                $_SESSION['masked_domain_menu_tone_two']            = " #6168ff ";                                                                
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #2CDCF1 ";
                                                                 $_SESSION['masked_domain_focus_colour']             = " #121CF2 ";
-                                                                $_SESSION['masked_domain_logo_name']                = "reliableaccountants";
+                                                                $_SESSION['masked_domain_logo_name']                = "Reliable Accountants";
                                                                 $_SESSION['masked_domain_logo_font_family']         = "Arial, Helvetica, Arial, Lucida, sans-serif";
+                                                                $_SESSION['masked_domain_logo_letter_spacing']      = "0.002em";
+                                                                $_SESSION['masked_domain_logo_color']               = "#2CDCF1";
+                                                                $_SESSION['masked_domain_logo_font_weight']         = "800";  
                                                                 $_SESSION['masked_domain_logo_text_transform']      = "none";
                                                                 $_SESSION['masked_domain_html_title']               = "Reliable Accountants - Analytics";
     }	
@@ -34,6 +40,9 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #6EC1E4 ";
                                                                 $_SESSION['masked_domain_focus_colour']             = " #51585f ";
                                                                 $_SESSION['masked_domain_logo_name']                = "orizon";
+                                                                $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
+                                                                $_SESSION['masked_domain_logo_color']               = "#FFFFF";
+                                                                $_SESSION['masked_domain_logo_font_weight']         = "700";  
                                                                 $_SESSION['masked_domain_logo_font_family']         = "Raleway";
                                                                 $_SESSION['masked_domain_logo_text_transform']      = "none";
                                                                 $_SESSION['masked_domain_html_title']               = "Orizon Consulting - Analytics";
@@ -48,6 +57,9 @@ else{
     $_SESSION['masked_domain_focus_colour']             = " #ff2424 ";
     $_SESSION['masked_domain_logo_name']                = "Dreamboat";
     $_SESSION['masked_domain_logo_font_family']         = "Helvetica";
+    $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
+    $_SESSION['masked_domain_logo_color']               = "#FFFFFF";
+    $_SESSION['masked_domain_logo_font_weight']         = "700";   
     $_SESSION['masked_domain_logo_text_transform']      = "uppercase";
     $_SESSION['masked_domain_html_title']               = "Transforming the Australian Economy - DREAMBOAT";
 

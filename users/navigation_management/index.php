@@ -52,7 +52,7 @@ $options_to_extract = [
             echo "<a class='";
             if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
             echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
+            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
             echo "</a>";
         echo "</td>";
         echo "<td>";
