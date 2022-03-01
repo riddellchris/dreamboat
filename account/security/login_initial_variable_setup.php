@@ -8,6 +8,10 @@ $_SESSION['logged_in'] 		= 'yes';
 $_SESSION['first_name'] 	= $row['first_name'];
 $_SESSION['last_name'] 		= $row['second_name'];
 $_SESSION['users_homepage'] = $row['home_page'];
+
+$_SESSION['display_demo_charts'] = $row['demos_on'];
+
+
 if ($row['client_or_crew'] == 'crew') {
 	$_SESSION['dreamboat_crew'] 						= 'yes';
 	$_SESSION['pilots_id'] 								= $_SESSION['user_id']; // for when they have dreamboat crew display off still to enter the right stuff

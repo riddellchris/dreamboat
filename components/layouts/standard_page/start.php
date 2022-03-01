@@ -34,9 +34,13 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/analytics/store_fil
 
 
 //folder calculations alerts & warnings
+
+
+
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/initial_folder_settings.php";
 if(isset($_SESSION['logged_in'])){
 	if($_SESSION['logged_in'] == 'yes'){
+		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/demos_on_check.php";
 		require $_SERVER['DOCUMENT_ROOT']."/components/notifications_and_alerts/alert_check_and_update.php";
 		require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/artifical_intelligence/calculations_and_warnings.php";
 	}

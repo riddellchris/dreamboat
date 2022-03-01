@@ -129,8 +129,8 @@ echo "
 	color:white;
 	text-decoration:none;
 	}
-.sub_sub_menu_div:hover{background-color:red;}
-.highlighted{background-color:red;}
+.sub_sub_menu_div:hover{background-color:	".$_SESSION['masked_domain_focus_colour'].";}
+.highlighted{			background-color:	".$_SESSION['masked_domain_focus_colour'].";}
 	
 </style>";
 ?>

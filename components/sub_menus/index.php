@@ -56,7 +56,9 @@ if(check_primary_folder('contact_us')){	$top_sub_menu_options = add_top_sub_menu
 	
 if(check_primary_folder('insights')){	$top_sub_menu_options = add_top_sub_menu_option('preparation'	,$top_sub_menu_options);
 										$top_sub_menu_options = add_top_sub_menu_option('display'		,$top_sub_menu_options);	}	
-	
+
+
+if(check_primary_folder('overview')){	$top_sub_menu_options = add_top_sub_menu_option('display_no_menu'	,$top_sub_menu_options);}		
 	
 if(check_primary_folder('profile')){
 	$top_sub_menu_options = add_top_sub_menu_option('details'	,$top_sub_menu_options);
@@ -190,7 +192,8 @@ if(check_primary_folder('marketing')){
 	$top_sub_menu_options = add_top_sub_menu_option('target_markets'	,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('angles'			,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('channels'			,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('promotions'		,$top_sub_menu_options);	
+	$top_sub_menu_options = add_top_sub_menu_option('promotions'		,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('funnel'			,$top_sub_menu_options);		
 }
 if(check_primary_folder('management')){
 	$top_sub_menu_options = add_top_sub_menu_option('other'		,$top_sub_menu_options);
@@ -252,14 +255,17 @@ if(check_primary_folder('results')){
 		}		
 		if($_SESSION['viewing_client_financial_management_yes_no'] == 'yes'){
 		$top_sub_menu_options = add_top_sub_menu_option('finances'			,$top_sub_menu_options);	
+
+
 		}			
 		$top_sub_menu_options = add_top_sub_menu_option('work'				,$top_sub_menu_options);		
 		$top_sub_menu_options = add_top_sub_menu_option('productivity'		,$top_sub_menu_options);		
 //	}
 }
 if(check_primary_folder('finances')){
-	$top_sub_menu_options = add_top_sub_menu_option('cashflow_analysis'	,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('margin_analysis'	,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('cashflow_analysis'	,$top_sub_menu_options);		
+	$top_sub_menu_options = add_top_sub_menu_option('budget_variance'	,$top_sub_menu_options);	
 }
 //CR 26.03.21
 //The thing here is that this whole section should be split into something like:

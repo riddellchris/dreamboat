@@ -26,7 +26,7 @@ exit();
 $current_date = date('Y-m-d H:i:s');
 $sql = "INSERT INTO user_account_details (first_name, second_name, phone_number, business_name, email, client_status,  pilots_id, password, client_gained)
 		VALUES('$first_name', '$second_name', '$phone_number', '$business_name', '$email', 'active',  '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."', '$default_password','$client_gained')";
-echo $sql;exit();		
+//echo $sql;exit();		
 mysqli_query($conn, $sql);
 
 $user_id = mysqli_insert_id($conn);

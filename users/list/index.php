@@ -128,6 +128,7 @@ if($incoming_clients == 'no'){
 require_file('/components/functions/text_and_design/span_of_text_in_color.php');
 
 	echo "<div class='list_cell'></div>";
+	echo "<div class='list_cell'  style='background-color: red;'>DEMO MODULE</div>";	
 	echo "<div class='list_cell'><span style='color: green;'>Just <br> wellbeing & flow</span><br>mental<br>health<br>only<br>FREE</div>";	//not released yet - will only be released to the market when auto/prompt coaching is really at an incredible standard/// don't deleted this
 	echo "<div class='list_cell'><span style='color: orange;'>not<br>recommended<br>SOLO<BR>for real<br>progress</span><br>digital<br>platform<br>$25+GST</div>";  //digital platform "plus" and other modules to come will be additional to this
 	echo "<div class='list_cell'><span style='color: red;'></span><br>unlimited<br>text<br>$75+GST</div>";
@@ -211,6 +212,15 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		
 		
 if($incoming_clients == 'no'){
+
+
+	if($row['demos_on']=='yes'){$set='no';}else{$set='yes';}
+	echo"<div class='list_cell' style='background-color: red;'> <a href='/users/alterations/change_plan.php?to=demos_on&clients_user_id=".$row['user_id']."&set=".$set."'";
+		if($row['demos_on']=='yes'){echo " style='color: #00ff00;";}else{echo "style='color:#cecece;";}
+		echo "'>";
+		if($row['demos_on']==''){echo ' --- ';}else{echo $row['demos_on'];}
+	echo "</a></div>";
+
 	if($row['mental_health_platform']=='yes'){$set='no';}else{$set='yes';}
 	echo"<div class='list_cell'> <a href='/users/alterations/change_plan.php?to=mental_health_platform&clients_user_id=".$row['user_id']."&set=".$set."'";
 		if($row['mental_health_platform']=='yes'){echo " style='color: #00ff00;'";}else{echo "style='color:#cecece;'";}

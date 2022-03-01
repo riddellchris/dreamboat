@@ -1,5 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
+
+if($_GET['to'] == 'demos_on'		){$to = 'demos_on'; 		/*$off_1 = 'text'; 	$off_2 = 'audio';*/	$proceed = 'yes';}
 if($_GET['to'] == 'digital'			){$to = 'digital'; 			$off_1 = 'text'; 	$off_2 = 'audio';	$proceed = 'yes';}
 if($_GET['to'] == 'digital'			){$to = 'digital'; 			$off_1 = 'text'; 	$off_2 = 'audio';	$proceed = 'yes';}
 if($_GET['to'] == 'text'			){$to = 'text'; 			$off_1 = 'digital'; $off_2 = 'audio';	$proceed = 'yes';}

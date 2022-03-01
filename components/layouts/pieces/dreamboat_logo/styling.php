@@ -3,14 +3,33 @@ echo"
 <style>
 	.dreamboat-logo{	
 				margin-top: 1px;
-				text-decoration:none;
-				font-family: ".$_SESSION['masked_domain_logo_font_family'].";
-				font-weight:".$_SESSION['masked_domain_logo_font_weight'].";
-				text-transform:".$_SESSION['masked_domain_logo_text_transform'].";
-				letter-spacing:".$_SESSION['masked_domain_logo_letter_spacing'].";
-				float:left;
-			}
+				float:left;";
 
+				if($_SESSION['masked_domain_logo_image'] != "yes"){
+					echo "
+						text-decoration:none;
+						font-family: ".$_SESSION['masked_domain_logo_font_family'].";
+						font-weight:".$_SESSION['masked_domain_logo_font_weight'].";
+						text-transform:".$_SESSION['masked_domain_logo_text_transform'].";
+						letter-spacing:".$_SESSION['masked_domain_logo_letter_spacing'].";
+					";
+				}
+				else{
+					echo "	background-image: url('/components/design/logos/".$_SESSION['masked_domain']."/".$_SESSION['masked_domain_logo_file_name']."');
+							margin-left: 25px;
+							margin-top: 5px;
+							height: 40px;
+							width: 100px;
+							background-repeat: no-repeat;
+					";
+
+
+
+				}
+		echo "
+				}";
+
+echo "
 	.dreamboat-logo.slideshow{
 		margin-top: -18px;
 		}

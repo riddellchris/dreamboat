@@ -34,6 +34,9 @@ if(!isset($_SESSION)){session_start();}
 */
 	}
 
+	if(check_folders_two_deep(	'marketing','funnel'	)){	require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/funnel/script.php";}	
+	if(check_folders_two_deep(	'marketing','funnel'	)){	require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/longditudinal/script.php";}	
+
 
 	if(check_primary_folder(	'network'			)){	require $_SERVER['DOCUMENT_ROOT']."/components/crm/weekly_tracking_calculations.php";}
 	if(check_primary_folder(	'biz_dev'			)){	require $_SERVER['DOCUMENT_ROOT']."/components/crm/weekly_tracking_calculations.php";}
@@ -65,7 +68,7 @@ if(!isset($_SESSION)){session_start();}
 	if(check_primary_folder('problem')			            ){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/problem/include_all_scripts.php";}
 	if(check_primary_folder('solution')			            ){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/problem/include_all_scripts.php";}	
 	
-//	if(check_folders_two_deep(	'components'	,'diagrams'		)){	require $_SERVER['DOCUMENT_ROOT']."/components/diagrams/development/test_builds/basic_diagram_play/google_chart_and_icon_overlap_script.php";}
+	//if(check_folders_two_deep(	'components'	,'diagrams'		)){	require $_SERVER['DOCUMENT_ROOT']."/components/diagrams/development/test_builds/basic_diagram_play/google_chart_and_icon_overlap_script.php";}
 
 
 	//CR 20.08.21 This is empty right now

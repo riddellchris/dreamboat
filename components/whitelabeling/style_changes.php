@@ -10,6 +10,8 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_menu_tone_two']            = " #00899c ";
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #d6fc49 ";
                                                                 $_SESSION['masked_domain_focus_colour']             = " #ff7549 ";
+                                                                $_SESSION['masked_domain_logo_image']               = "yes";
+                                                                    $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg";                                                 
                                                                 $_SESSION['masked_domain_logo_name']                = "otto";
                                                                 $_SESSION['masked_domain_logo_font_family']         = "PTSansRegular, Arial, Helvetica, sans-serif";
                                                                 $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
@@ -25,6 +27,8 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_menu_tone_two']            = " #6168ff ";                                                                
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #2CDCF1 ";
                                                                 $_SESSION['masked_domain_focus_colour']             = " #121CF2 ";
+                                                                $_SESSION['masked_domain_logo_image']               = "no";
+                                                                    $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg"; 
                                                                 $_SESSION['masked_domain_logo_name']                = "Reliable Accountants";
                                                                 $_SESSION['masked_domain_logo_font_family']         = "Arial, Helvetica, Arial, Lucida, sans-serif";
                                                                 $_SESSION['masked_domain_logo_letter_spacing']      = "0.002em";
@@ -39,6 +43,8 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_menu_tone_two']            = " #004751 ";                                                                
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #6EC1E4 ";
                                                                 $_SESSION['masked_domain_focus_colour']             = " #51585f ";
+                                                                $_SESSION['masked_domain_logo_image']               = "no";
+                                                                    $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg"; 
                                                                 $_SESSION['masked_domain_logo_name']                = "orizon";
                                                                 $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
                                                                 $_SESSION['masked_domain_logo_color']               = "#FFFFF";
@@ -55,6 +61,8 @@ else{
     $_SESSION['masked_domain_menu_tone_two']            = " #675ce0; ";    
     $_SESSION['masked_domain_highlight_colour']         = " #00ff00 ";
     $_SESSION['masked_domain_focus_colour']             = " #ff2424 ";
+    $_SESSION['masked_domain_logo_image']               = "no";
+        $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg"; 
     $_SESSION['masked_domain_logo_name']                = "Dreamboat";
     $_SESSION['masked_domain_logo_font_family']         = "Helvetica";
     $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";

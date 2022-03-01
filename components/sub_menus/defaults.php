@@ -40,6 +40,7 @@ if(!isset($_SESSION['time_page'])){						$_SESSION['time_page'] 					= 'this_wee
 if(!isset($_SESSION['issues_page'])){					$_SESSION['issues_page'] 				= 'all';}
 if(!isset($_SESSION['opportunities_page'])){			$_SESSION['opportunities_page'] 		= 'all';}
 if(!isset($_SESSION['improvements_page'])){				$_SESSION['improvements_page'] 			= 'all';}
+if(!isset($_SESSION['upgrades_page'])){					$_SESSION['upgrades_page'] 				= 'underway';}
 if(!isset($_SESSION['results_page'])){					$_SESSION['results_page'] 				= 'productivity';}
 if(!isset($_SESSION['finances_page'])){					$_SESSION['finances_page'] 				= 'cash_flow_analysis';}
 if(!isset($_SESSION['messages_page'])){					$_SESSION['messages_page'] 				= 'all';}

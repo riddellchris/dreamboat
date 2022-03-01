@@ -1,6 +1,10 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+			
+
+
+
 //see head for appropraite calculations
 if(check_primary_folder('activities')){		require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/numerical_planning/charts/div.php";}				
 if(check_primary_folder('issues')){			require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/numerical_planning/charts/div.php";}	
@@ -26,11 +30,21 @@ if($display_guiding_words == 'yes'){
 
 
 $left_done = 'no';
+
+
+if(check_folders_two_deep('marketing','funnel')){
+	//or there is real data here that should replace this
+	if($_SESSION['display_demo_charts'] == 'yes'){ 	require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/longditudinal/div.php";}
+	$left_done = 'yes';
+}
+
+
+
 //CR 20.08.21 I don't believe thie one is being used any more right now
 //if(	check_folders_two_deep('management','administration'){	require $_SERVER['DOCUMENT_ROOT']."/components/lists/display_list.php"; 		$left_done = 'yes';	}
 if(	check_folders_two_deep('profile','details') OR
 	check_folders_two_deep('business','details')){		require $_SERVER['DOCUMENT_ROOT']."/".$_GET['primary_folder']."/details/body.php";	$left_done = 'yes';	}
-if(	check_folders_two_deep('users','details')){		require $_SERVER['DOCUMENT_ROOT']."/profile/details/body.php";	$left_done = 'yes';	}	
+if(	check_folders_two_deep('users','details')){			require $_SERVER['DOCUMENT_ROOT']."/profile/details/body.php";	$left_done = 'yes';	}	
 	
 if(	check_primary_folder('network') 	OR 
 	check_primary_folder('biz_dev')		OR 
