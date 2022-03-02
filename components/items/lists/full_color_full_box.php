@@ -30,8 +30,8 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 			echo "<div class='prompt-font blink_me' style='color:#281e96;'>";
 				if(check_primary_folder('activities')){		$singluar = 'activity';}
 				if(check_primary_folder('issues')){			$singluar = 'issue';}		
-				if(check_primary_folder('upgrades')){		$singluar = 'upgrades';}						
-				echo "add some ".$singular." details to have charting display";
+				if(check_primary_folder('upgrades')){		$singluar = 'upgrades'; }						
+				echo "add some ".$singluar." details to have charting display";
 			echo "</div>";
 		}
 	}

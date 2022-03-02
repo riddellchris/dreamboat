@@ -5,10 +5,10 @@ if(!isset($_SESSION)){session_start();}
 $adjust_variable_name = 'yes';
 
 
-if(	$_GET['tertiary_folder'] == 'productivity' && $variable_name == 'kpi_1'){$adjust_variable_name = 'no';}
-if(	$_GET['tertiary_folder'] == 'productivity' && $variable_name == 'kpi_2'){$adjust_variable_name = 'no';}
-if(	$_GET['tertiary_folder'] == 'productivity' && $variable_name == 'kpi_3'){$adjust_variable_name = 'no';}
-if(	$_GET['tertiary_folder'] == 'productivity' && $variable_name == 'kpi_4'){$adjust_variable_name = 'no';}
+if(	$_GET['secondary_folder'] == 'productivity' && $variable_name == 'kpi_1'){$adjust_variable_name = 'no';}
+if(	$_GET['secondary_folder'] == 'productivity' && $variable_name == 'kpi_2'){$adjust_variable_name = 'no';}
+if(	$_GET['secondary_folder'] == 'productivity' && $variable_name == 'kpi_3'){$adjust_variable_name = 'no';}
+if(	$_GET['secondary_folder'] == 'productivity' && $variable_name == 'kpi_4'){$adjust_variable_name = 'no';}
 
 if($adjust_variable_name == 'yes'){
 	require_once $_SERVER['DOCUMENT_ROOT']."/components/functions/strip_underscores.php";

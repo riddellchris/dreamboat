@@ -186,7 +186,9 @@ if(check_primary_folder('sales')){
 	$top_sub_menu_options = add_top_sub_menu_option('new_potentials'	,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('all'				,$top_sub_menu_options);	
 	$top_sub_menu_options = add_top_sub_menu_option('worksheets'		,$top_sub_menu_options);	//this should only be visible if the pilot has activated a worksheet from this list
-
+	if(check_secondary_folder('worksheets')){	
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('client_product_matrix'				,$top_sub_sub_menu_options);	
+	}
 }
 if(check_primary_folder('marketing')){
 	$top_sub_menu_options = add_top_sub_menu_option('target_markets'	,$top_sub_menu_options);
@@ -303,7 +305,7 @@ if(check_primary_folder('users')){
 
 //	$top_sub_menu_options = add_top_sub_menu_option('owners'					,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('regular_users'				,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('navigation_management'		,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('display_controls'		,$top_sub_menu_options);
 
 //	$top_sub_menu_options = add_top_sub_menu_option('details'					,$top_sub_menu_options);
 	if($_SESSION['user_id'] == '1'){

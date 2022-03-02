@@ -28,10 +28,38 @@ else{								$change_to 	= $_GET['to'];}
 $sql = "SELECT * FROM items_all 
 		WHERE found_in_database = '".mysqli_real_escape_string($conn, $database)."' 
 		AND item_id = '".mysqli_real_escape_string($conn, $item_id)."'";
-	//echo $sql; exit();
+	echo $sql; exit();
+
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 //var_dump($row);
+
+
+	//if empty then we need to come back around to this and make that work such that we can pull that out
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */			start here - fix this for those things that haven't go anything in them
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+	//****************************** */
+
+
 
 //echo '<pre>' , var_dump($row) , '</pre>';
 //exit();
@@ -45,26 +73,28 @@ $people_referrer	= $row['people_referrer'];
 
 $folders_actually_changed = 'yes';
 //business
-if($change_to == 'products'			){$new_category = $change_to;	$_SESSION['business_page'] = $new_category;}
-if($change_to == 'services'			){$new_category = $change_to;	$_SESSION['business_page'] = $new_category;}
+if($change_to == 'products'			){$new_category = $change_to;					$_SESSION['business_page'] = $new_category;}
+if($change_to == 'services'			){$new_category = $change_to;					$_SESSION['business_page'] = $new_category;}
 //network
-if($change_to == 'groups'			){$new_category = $change_to;	$_SESSION['network_page'] = $new_category;}
-if($change_to == 'businesses'		){$new_category = $change_to;	$_SESSION['network_page'] = $new_category;}
+if($change_to == 'groups'			){$new_category = $change_to;					$_SESSION['network_page'] = $new_category;}
+if($change_to == 'businesses'		){$new_category = $change_to;					$_SESSION['network_page'] = $new_category;}
 //biz_dev
-if($change_to == 'non_referrer'		){$new_category = $current_category; $query_element = " SET referrer = 'no'";}
-if($change_to == 'referrer'			){$new_category = $current_category; $query_element = " SET referrer = 'yes'";}
+if($change_to == 'non_referrer'		){$new_category = $current_category; 			$query_element = " SET referrer = 'no'";}
+if($change_to == 'referrer'			){$new_category = $current_category; 			$query_element = " SET referrer = 'yes'";}
 //sales
-if($change_to == 'new_potentials'	){$new_category = $change_to;	$_SESSION['sales_page'] = $new_category;}
-if($change_to == 'potential_upsells'){$new_category = $change_to;	$_SESSION['sales_page'] = $new_category;}
-if($change_to == 'recurring_sales'	){$new_category = $change_to;	$_SESSION['sales_page'] = $new_category;}
+if($change_to == 'new_potentials'	){$new_category = $change_to;					$_SESSION['sales_page'] = $new_category;}
+if($change_to == 'potential_upsells'){$new_category = $change_to;					$_SESSION['sales_page'] = $new_category;}
+if($change_to == 'recurring_sales'	){$new_category = $change_to;					$_SESSION['sales_page'] = $new_category;}
 //management
-if($change_to == 'clients'			){$new_category = $change_to;	$_SESSION['management_page'] = $new_category;}
-if($change_to == 'staff'			){$new_category = $change_to;	$_SESSION['management_page'] = $new_category;}
+if($change_to == 'clients'			){$new_category = $change_to;					$_SESSION['management_page'] = $new_category;}
+if($change_to == 'staff'			){$new_category = $change_to;					$_SESSION['management_page'] = $new_category;}
 //wheelhouse
-if($change_to == 'dreams'			){$new_category = $change_to;	$_SESSION['wheelhouse_page'] = $new_category;}
-if($change_to == 'goals'			){$new_category = $change_to;	$_SESSION['wheelhouse_page'] = $new_category;}
-if($change_to == 'milestones'		){$new_category = $change_to;	$_SESSION['wheelhouse_page'] = $new_category;}
-if($change_to == 'tasks'			){$new_category = $change_to;	$_SESSION['wheelhouse_page'] = $new_category;}
+if($change_to == 'dreams'			){$new_category = $change_to;					$_SESSION['wheelhouse_page'] = $new_category;}
+if($change_to == 'goals'			){$new_category = $change_to;					$_SESSION['wheelhouse_page'] = $new_category;}
+if($change_to == 'milestones'		){$new_category = $change_to;					$_SESSION['wheelhouse_page'] = $new_category;}
+if($change_to == 'tasks'			){$new_category = $change_to;					$_SESSION['wheelhouse_page'] = $new_category;}
+
+
 //activities
 //this comes from a select form not a simple binary form
 if($change_to == 'doing'			){$new_category = $_POST['activity_category'];	$_SESSION['activities_page'] = $new_category;}
@@ -74,25 +104,26 @@ if($change_to == 'administrating'	){$new_category = $_POST['activity_category'];
 if($change_to == 'supporting'		){$new_category = $_POST['activity_category'];	$_SESSION['activities_page'] = $new_category;}
 if($change_to == 'growing'			){$new_category = $_POST['activity_category'];	$_SESSION['activities_page'] = $new_category;}
 //issues
-if($change_to == 'critical'			){$new_category = $change_to;	$_SESSION['issues_page'] = $new_category;}
-if($change_to == 'important'		){$new_category = $change_to;	$_SESSION['issues_page'] = $new_category;}
-if($change_to == 'other'			){$new_category = $change_to;	$_SESSION['issues_page'] = $new_category;}
+if($change_to == 'critical'			){$new_category = $change_to;					$_SESSION['issues_page'] = $new_category;}
+if($change_to == 'important'		){$new_category = $change_to;					$_SESSION['issues_page'] = $new_category;}
+if($change_to == 'other'			){$new_category = $change_to;					$_SESSION['issues_page'] = $new_category;}
 //upgrades
-if($change_to == 'completed'		){$new_category = $change_to;	$_SESSION['upgrades_page'] = $new_category;}
-if($change_to == 'underway'			){$new_category = $change_to;	$_SESSION['upgrades_page'] = $new_category;}
-if($change_to == 'planned'			){$new_category = $change_to;	$_SESSION['upgrades_page'] = $new_category;}
-
-
+if($change_to == 'completed'		){$new_category = $change_to;					$_SESSION['upgrades_page'] = $new_category;}
+if($change_to == 'underway'			){$new_category = $change_to;					$_SESSION['upgrades_page'] = $new_category;}
+if($change_to == 'planned'			){$new_category = $change_to;					$_SESSION['upgrades_page'] = $new_category;}
 
 //deleted
-if($change_to == 'deleted'			){$new_category = $current_category;	$folders_actually_changed = 'no';}
-if($change_to == 'undeleted'		){$new_category = $current_category;	$folders_actually_changed = 'no';}
+if($change_to == 'deleted'			){$new_category = $current_category;			$folders_actually_changed = 'no';}
+if($change_to == 'undeleted'		){$new_category = $current_category;			$folders_actually_changed = 'no';}
 
-if($change_to == 'active'			){$new_category = $current_category;	$folders_actually_changed = 'no';}
-if($change_to == 'resolved'			){$new_category = $current_category;	$folders_actually_changed = 'no';}
+if($change_to == 'active'			){$new_category = $current_category;			$folders_actually_changed = 'no';}
+if($change_to == 'resolved'			){$new_category = $current_category;			$folders_actually_changed = 'no';}
 
-if($change_to == 'referrer'			){$new_category = $current_category;	$folders_actually_changed = 'no';}
-if($change_to == 'non_referrer'		){	$new_category = $current_category;	$folders_actually_changed = 'no';}
+if($change_to == 'referrer'			){$new_category = $current_category;			$folders_actually_changed = 'no';}
+if($change_to == 'non_referrer'		){$new_category = $current_category;			$folders_actually_changed = 'no';}
+
+
+
 
 //then we can split all this into 
 //orginal primary folder, original secondary folder
@@ -101,8 +132,8 @@ if($change_to == 'non_referrer'		){	$new_category = $current_category;	$folders_
 //which allows us to use the update feature where = original settings and update to the new setttings
 //to do this we just set them all and then adjust for the anomalies
 //other than these couple of anomalies
-$original_primary_folder	= $primary_folder;
-$original_secondary_folder 	= $secondary_folder;
+$original_primary_folder		= $primary_folder;
+$original_secondary_folder 		= $secondary_folder;
 if($folders_actually_changed == 'yes'){
 	$adjusted_primary_folder	= $primary_folder;
 	$adjusted_secondary_folder	= $change_to;
@@ -269,7 +300,7 @@ $sql = "UPDATE 	discussion
 		
 mysqli_query($conn, $sql);
 
-//echo "/".$adjusted_primary_folder."/".$adjusted_secondary_folder."/";exit();
+echo "/".$adjusted_primary_folder."/".$adjusted_secondary_folder."/";exit();
 
 
 header("Location: /".$adjusted_primary_folder."/".$adjusted_secondary_folder."/item/display.php?item_id=".$item_id);

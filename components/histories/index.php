@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION)){session_start();}
-if(is_numeric(strpos($_SERVER['REQUEST_URI'],'/improvements/')) == 1){$details_page = 'improvements_details';}
+if(is_numeric(strpos($_SERVER['REQUEST_URI'],'/improvements/')) == 1){$details_page = 'upgrades_details';}
 if(is_numeric(strpos($_SERVER['REQUEST_URI'],'/homework/')) == 1){$details_page = 'homework_details';}
 if(is_numeric(strpos($_SERVER['REQUEST_URI'],'/issues/')) == 1){$details_page = 'issues_details';}
 

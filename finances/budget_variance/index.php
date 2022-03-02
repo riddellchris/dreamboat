@@ -3,35 +3,19 @@ if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
-/*
-so this really 
-needs budgets to be created and then variances monitored
-probably on the BAS element of each amount
-at the very least
 
+//this should really be including all the other tracking system data BUT
+//WITH A FEW KEY DIFFERENCES
 
-
-
-to do that we would need a daily cron job to see what bas reports have been included
-GEThttps://api.xero.com/api.xro/2.0/Reports
-is the way to get this list
-and then 
-
-https://developer.xero.com/documentation/api/accounting/reports/#bank-summary
-Optional parameters for GET BAS Report
-ReportID	Add the ReportID to the end of the url to retrieve the details of a specific BAS Report
-Example response for an individual published BAS Report
-
-GET https://api.xero.com/api.xro/2.0/Reports/3d0a1240-e606-4fae-a823-77bcf79d5e79
-
-
-
-
-
-
-
-*/
-
+//storing and setting budgets is critical 
+//very critical
+//pulling out the most serious accounts ///
+//I really want the last bit to include some analysis of the past year or more
+//how taht works as a:
+    //percent of revenue
+    //growth YoY
+    //then set and calculate ideally
+    //what's going on here
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";

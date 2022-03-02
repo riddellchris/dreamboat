@@ -32,6 +32,7 @@ if(!isset($_SESSION['map_page'])){						$_SESSION['map_page'] 					= 'personal';
 if(!isset($_SESSION['insights_page'])){					$_SESSION['insights_page'] 				= 'display';}
 if(!isset($_SESSION['biz_dev_page'])){					$_SESSION['biz_dev_page'] 				= 'one_to_ones';}
 if(!isset($_SESSION['sales_page'])){					$_SESSION['sales_page'] 				= 'all';}
+if(!isset($_SESSION['sales_worksheets_page'])){			$_SESSION['sales_worksheets_page'] 		= 'client_product_matrix';}
 if(!isset($_SESSION['marketing_page'])){				$_SESSION['marketing_page'] 			= 'promotions';}
 if(!isset($_SESSION['management_page'])){				$_SESSION['management_page'] 			= 'clients';}
 if(!isset($_SESSION['wheelhouse_page'])){				$_SESSION['wheelhouse_page'] 			= 'tasks';}
@@ -42,7 +43,7 @@ if(!isset($_SESSION['opportunities_page'])){			$_SESSION['opportunities_page'] 	
 if(!isset($_SESSION['improvements_page'])){				$_SESSION['improvements_page'] 			= 'all';}
 if(!isset($_SESSION['upgrades_page'])){					$_SESSION['upgrades_page'] 				= 'underway';}
 if(!isset($_SESSION['results_page'])){					$_SESSION['results_page'] 				= 'productivity';}
-if(!isset($_SESSION['finances_page'])){					$_SESSION['finances_page'] 				= 'cash_flow_analysis';}
+if(!isset($_SESSION['finances_page'])){					$_SESSION['finances_page'] 				= 'cashflow_analysis';}
 if(!isset($_SESSION['messages_page'])){					$_SESSION['messages_page'] 				= 'all';}
 if(!isset($_SESSION['notifications_page'])){			$_SESSION['notifications_page'] 		= 'alerts';}
 if(!isset($_SESSION['account_page'])){					$_SESSION['account_page'] 				= 'settings';}

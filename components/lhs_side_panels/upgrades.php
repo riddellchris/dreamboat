@@ -2,11 +2,11 @@
 if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM improvements_details WHERE client_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' ORDER BY update_id DESC  LIMIT 1";
+$sql = "SELECT * FROM upgrades_details WHERE client_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' ORDER BY update_id DESC  LIMIT 1";
 
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) == 0){  
-$sql = "INSERT INTO improvements_details (user_id) VALUES ('".$_SESSION['viewing_client_id']."')";
+$sql = "INSERT INTO upgrades_details (user_id) VALUES ('".$_SESSION['viewing_client_id']."')";
 //exit();
 $result = mysqli_query($conn, $sql);
 
@@ -17,7 +17,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
  
     <div class='details-font'>Upgrade phases</div>
-	<form action='/improvements/edit_update.php' method='post' style='width:100%;padding-top:1vh;text-align:left;padding-left:25px;'>	
+	<form action='/upgrades/edit_update.php' method='post' style='width:100%;padding-top:1vh;text-align:left;padding-left:25px;'>	
 	
 	<a class='to_history' href='/improvements/view_history.php?view=next_few_months' title='View the history of the next few months improvements list'>< Next few months</a>
 	

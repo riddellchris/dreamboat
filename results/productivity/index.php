@@ -25,6 +25,7 @@ $_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];
 //test to see if there is an actual input yet
 
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='productivity' ORDER BY entry_id DESC LIMIT 1";
+//echo $sql; exit();
 	$result = mysqli_query($conn, $sql);
 	$test1 = mysqli_num_rows($result);
 

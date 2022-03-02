@@ -13,7 +13,7 @@ $other_notes			= mysqli_real_escape_string($conn, $_POST['other_notes']);
 $current_date = date('Y-m-d H:i:s');
    
 	   
- $sql = "INSERT INTO  improvements_details (next_few_months, three_months_away, six_months_away, twelve_months_away, three_years_away, five_years_away,  other_notes, client_id, made_by_id)
+ $sql = "INSERT INTO  upgrades_details (next_few_months, three_months_away, six_months_away, twelve_months_away, three_years_away, five_years_away,  other_notes, client_id, made_by_id)
 	VALUES('$next_few_months', '$three_months_away','$six_months_away','$twelve_months_away','$three_years_away','$five_years_away','$other_notes','".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."','".$_SESSION['user_id']."')";
 
 
@@ -24,6 +24,6 @@ $current_date = date('Y-m-d H:i:s');
    
 mysqli_query($conn, $sql);
 
-header("Location: /improvements/");
+header("Location: /upgrades/");
 
 ?>

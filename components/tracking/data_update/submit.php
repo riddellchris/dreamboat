@@ -36,7 +36,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/tracking/data_update/escaping.php
 function make_not_last_version_of_tracking_data($data_type, $target_or_not, $database_connection){
 	$sql = "UPDATE tracking_inputs 
 		SET latest_version_of_this_data_type = 'no' 
-		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
+		WHERE user_id = '".mysqli_real_escape_string($database_connection, $_SESSION['viewing_client_id'])."' 
 		AND data_type='".$data_type."'";		
 	if($target_or_not == 'yes'){$sql .= " AND target_yes_no = 'yes'";}	
 	mysqli_query($database_connection, $sql);
@@ -50,7 +50,7 @@ function start_of_input_query($data_type, $target_or_not, $month_combo){
 	if($target_or_not == 'yes'){	$sql .= dates_combo('yes', 	$month_combo);}
 	else{				$sql .= dates_combo('no', $month_combo, $escaped_variables);}
 	
-	$sql .= ") VALUES  	('".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',    '".$data_type;
+	$sql .= ") VALUES  	('".mysqli_real_escape_string($database_connection, $_SESSION['viewing_client_id'])."',    '".$data_type;
 	if($target_or_not == 'yes'){	$sql .= "_target";}	
 	$sql .= "', '".$target_or_not."',";
 	
@@ -85,7 +85,7 @@ function update_and_submit($data_type, $database_connection, $month_combo, $esca
 
 		$target = 'yes';
 		for($i = 1; $i <= 2; $i ++){
-			make_not_last_version_of_tracking_data($data_type, $target, $conn);		
+			make_not_last_version_of_tracking_data($data_type, $target, $database_connection);		
 			$sql =  start_of_input_query($data_type, $target, $month_combo);
 			$sql .= end_of_input_query($data_type, $target, $escaped_variables);	
 	//		echo $sql;
