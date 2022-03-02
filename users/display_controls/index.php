@@ -469,6 +469,9 @@ if(isset($_GET['adjusting'])){
             echo "</tr>";
 
 
+            //probably prior to this all we need to do 
+
+
 
 
             require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
@@ -476,11 +479,13 @@ if(isset($_GET['adjusting'])){
                     WHERE primary_folder = '".mysqli_real_escape_string($conn, $_GET['adjusting'])."'";
             $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                echo "<tr>";
-                    echo "<td >".ucfirst($row['secondary_folder'])."</td>";
-                    echo "<td>radio on</td>";
-                    echo "<td>radio off</td>";
+                if($row['tertiary_folder'] == ''){
+                    echo "<tr>";
+                        echo "<td >".ucfirst($row['secondary_folder'])."</td>";
+                        echo "<td><input type='radio'></input></td>";
+                        echo "<td><input type='radio'></input</td>";
                     echo "</tr>";
+                }
             }
 
         echo "</table>";

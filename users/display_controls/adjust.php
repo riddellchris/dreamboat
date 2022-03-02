@@ -23,5 +23,5 @@ if($_GET['type'] == 'messages'){    $go_to = $_GET['type'];}
 if($_GET['type'] == 'notifications'){$go_to = $_GET['type'];}
 
 
-header("Location: /users/navigation_management/index.php?adjusting=".$go_to);
+header("Location: /users/display_controls/index.php?adjusting=".$go_to);
 exit();
