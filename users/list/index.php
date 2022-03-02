@@ -63,16 +63,21 @@ if($incoming_clients == 'no'){echo "padding-top:25vh;";}
 echo "'>";
 
 if($incoming_clients == 'no'){
+	if(isset($_SESSION['masked_domain'])){
+		echo "	<br><br>";
+		echo "<a href='/components/whitelabeling/unset.php'>UNSET THEME</a>";
+		echo "	<br><br>";
+	}
 
-echo "<a class='login-submit'  ";
-if($_SESSION['viewing_client_id'] == $_SESSION['user_id']){echo "style='background-color:red;color:white;' ";}
-else{echo "style='background-color:#13ad13;color:white;' href='/users/alterations/select_client.php?clients_user_id=".$_SESSION['user_id']."' ";}
+	echo "<a class='login-submit'  ";
+	if($_SESSION['viewing_client_id'] == $_SESSION['user_id']){echo "style='background-color:red;color:white;' ";}
+	else{echo "style='background-color:#13ad13;color:white;' href='/users/alterations/select_client.php?clients_user_id=".$_SESSION['user_id']."' ";}
 
-echo ">";
-if($_SESSION['viewing_client_id'] == $_SESSION['user_id']){echo "I'm selected";}
-else{echo "select me";}
-echo "</a>";
-echo "	<br><br><br><br>";
+	echo ">";
+	if($_SESSION['viewing_client_id'] == $_SESSION['user_id']){echo "I'm selected";}
+	else{echo "select me";}
+	echo "</a>";
+	echo "	<br><br><br><br>";
 }
 
 
