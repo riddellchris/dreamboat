@@ -72,37 +72,42 @@ else{
 
 
 }
-//echo "TEST HERE".$_SESSION['masked_domain'];exit();
-echo "
 
-<style>
-.nav-links:hover{               color:              ".$_SESSION['masked_domain_highlight_colour']." ;}
-.nav-div{                       background-color:   ".$_SESSION['masked_domain_primary_colour']."   ;}
-.footer{                        background-color:   ".$_SESSION['masked_domain_primary_colour']."   ;}
-.prompt-font{                   color:              ".$_SESSION['masked_domain_primary_colour']."   ;}
-.login-submit{                  color:              ".$_SESSION['masked_domain_primary_colour']."   ;}
-.secure_input{                  color:              ".$_SESSION['masked_domain_primary_colour']."   ;}
-.big-div{                       color:              ".$_SESSION['masked_domain_primary_colour_darker']." ;}
-.secure_input::placeholder{                         ".$_SESSION['masked_domain_primary_colour']."   ;}
-.sub_menu_div{                  background-color:   ".$_SESSION['masked_domain_menu_tone_one']."    ;}
-.data_tables{                   border-top:     8px ".$_SESSION['masked_domain_primary_colour_darker']." solid;}
-.data_tables{                   border-bottom:  8px ".$_SESSION['masked_domain_primary_colour_darker']." solid;}
-.dreamboat-logo:hover{	        color:              ".$_SESSION['masked_domain_highlight_colour'].";}
-.blue-button{			        background-color:   ".$_SESSION['masked_domain_primary_colour_darker'].";	color:white;}
-.blue-button:hover{		        background-color:   ".$_SESSION['masked_domain_primary_colour'].";	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);}
-#mobile_menu{                   background-color:   ".$_SESSION['masked_domain_primary_colour']."  }
-#mobile_menu_icon:hover{        color:              ".$_SESSION['masked_domain_highlight_colour']." ;}
 
-.sub_sub_menu_div{            background-color: ".$_SESSION['masked_domain_menu_tone_two']." ;}
-select{ background-color: ".$_SESSION['masked_domain_primary_colour'].";}
+if(!isset($no_echos)){//this is to do with the unset process not stalling a very, very minor thing but possible and useful none the less
+    //echo "TEST HERE".$_SESSION['masked_domain'];exit();
+    echo "
 
-.sub_sub_menu_div:hover{
-	background-color: ".$_SESSION['masked_domain_focus_colour']." ;}
-	color:#ffe6e6;  
-	}
-.sub_sub_menu_div.highlighted:hover{
-	background-color:#ff0000;
-	}
+    <style>
+    .nav-links:hover{               color:              ".$_SESSION['masked_domain_highlight_colour']." ;}
+    .nav-div{                       background-color:   ".$_SESSION['masked_domain_primary_colour']."   ;}
+    .footer{                        background-color:   ".$_SESSION['masked_domain_primary_colour']."   ;}
+    .prompt-font{                   color:              ".$_SESSION['masked_domain_primary_colour']."   ;}
+    .login-submit{                  color:              ".$_SESSION['masked_domain_primary_colour']."   ;}
+    .secure_input{                  color:              ".$_SESSION['masked_domain_primary_colour']."   ;}
+    .big-div{                       color:              ".$_SESSION['masked_domain_primary_colour_darker']." ;}
+    .secure_input::placeholder{                         ".$_SESSION['masked_domain_primary_colour']."   ;}
+    .sub_menu_div{                  background-color:   ".$_SESSION['masked_domain_menu_tone_one']."    ;}
+    .data_tables{                   border-top:     8px ".$_SESSION['masked_domain_primary_colour_darker']." solid;}
+    .data_tables{                   border-bottom:  8px ".$_SESSION['masked_domain_primary_colour_darker']." solid;}
+    .dreamboat-logo:hover{	        color:              ".$_SESSION['masked_domain_highlight_colour'].";}
+    .blue-button{			        background-color:   ".$_SESSION['masked_domain_primary_colour_darker'].";	color:white;}
+    .blue-button:hover{		        background-color:   ".$_SESSION['masked_domain_primary_colour'].";	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);}
+    #mobile_menu{                   background-color:   ".$_SESSION['masked_domain_primary_colour']."  }
+    #mobile_menu_icon:hover{        color:              ".$_SESSION['masked_domain_highlight_colour']." ;}
 
-</style>
-";	
+    .sub_sub_menu_div{            background-color: ".$_SESSION['masked_domain_menu_tone_two']." ;}
+    select{ background-color: ".$_SESSION['masked_domain_primary_colour'].";}
+
+    .sub_sub_menu_div:hover{
+        background-color: ".$_SESSION['masked_domain_focus_colour']." ;}
+        color:#ffe6e6;  
+        }
+    .sub_sub_menu_div.highlighted:hover{
+        background-color:#ff0000;
+        }
+
+    </style>
+    ";	
+
+}
