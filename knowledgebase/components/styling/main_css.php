@@ -99,7 +99,7 @@ p{font-family: Barlow Semi Condensed;}
 //.collapsible.active{		background-color: #4332ff;}
 //.collapsible.active:hover {	background-color: #281e96;}
 
-.legal-big-title.collapsible:visited{		color: #4332ff;}
+.legal-big-title.collapsible:visited{		color: #white;}
 .legal-big-title.collapsible:visited:hover{	background-color: #281e96; color:white;}
 .legal-big-title.collapsible.hover:hover {	background-color: #281e96; color: white;}
 .legal-big-title.collapsible.active{		background-color: #99beff;}
@@ -148,7 +148,7 @@ clear:left;
 
 .legal-big-title{
 	text-transform:uppercase;
-	color: #4332ff;
+	color: white;
 
 
 	//font-family: Barlow Semi Condensed;
