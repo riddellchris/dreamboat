@@ -57,11 +57,17 @@ if ($and_required == 'yes') {
 	$and_required = 'no';
 }
 
+$item_page = 'no';
+if(isset($_GET['tertiary_folder'])){
+	if($_GET['tertiary_folder'] 	== 'item'){$item_page = 'yes';}
+
+}
+
 
 if ((($_GET['primary_folder'] == 'management' && $_GET['secondary_folder'] == 'clients') or
 		($_GET['primary_folder'] == 'management' && $_GET['secondary_folder'] == 'staff') 	or
 		($_GET['primary_folder'] == 'network'    && $_GET['secondary_folder'] == 'people'))
-	&& $_GET['tertiary_folder'] 	== 'item'
+	&& $item_page 	== 'yes'
 ) {
 	$sql .= " (	(discussion.primary_folder = 'management' AND discussion.secondary_folder = 'clients')	OR
 						(discussion.primary_folder = 'management' AND discussion.secondary_folder = 'staff')	OR 

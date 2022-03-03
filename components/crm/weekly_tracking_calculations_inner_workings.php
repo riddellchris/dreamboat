@@ -75,16 +75,16 @@ $user_to_view = $_SESSION['viewing_client_id'];
  	      if($secondary == 'clients'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = -$row[$secondary.'_closed_this_week'];}
 */ 
  
- 	      if($secondary == 'people'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
- 	      if($secondary == 'groups'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
- 	      if($secondary == 'businesses'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
- 	      if($secondary == 'referrers'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
- 	      if($secondary == 'events'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
- 	      if($secondary == 'one_to_ones'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
- 	      if($secondary == 'new_potentials'){	$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
+ 	      if($secondary == 'people'){				$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
+ 	      if($secondary == 'groups'){				$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
+ 	      if($secondary == 'businesses'){			$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
+ 	      if($secondary == 'referrers'){			$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
+ 	      if($secondary == 'events'){				$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
+ 	      if($secondary == 'one_to_ones'){			$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
+ 	      if($secondary == 'new_potentials'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
  	      if($secondary == 'potential_upsells'){ 	$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
- 	      if($secondary == 'recurring_sales'){	$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
- 	      if($secondary == 'clients'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];} 
+ 	      if($secondary == 'recurring_sales'){		$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];}
+ 	      if($secondary == 'clients'){				$total_active[$i] = $row[$secondary.'_currently_active']; 	$weekly_new[$i] = $row[$secondary.'_gained_this_week'];	$weekly_closed[$i] = $row[$secondary.'_closed_this_week'];} 
  
  	      
  	      $week_starting[$i] = "'Week ending Sunday: ".$row['week_ending_day']."/".$row['week_ending_month']."'";

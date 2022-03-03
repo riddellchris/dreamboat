@@ -21,6 +21,8 @@ $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) == 0){$no_data = 'yes';}
 else{$no_data = 'no';}
 
+
+
 if($no_data == 'yes'){
 	echo "<div  style='width: 100%; height: 400px;";
 		if($no_data == 'yes'){echo "margin-top:175px;color:#4332ff;";}
