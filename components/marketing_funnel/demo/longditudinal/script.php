@@ -11,62 +11,36 @@
         data.addColumn('number',   'New Enrolments');        
         data.addRows([
 <?php
-/**/
+
+
+
+echo "  [new Date(2020,3,1),    32.5    ,400,130],          ";  
+echo "  [new Date(2020,4,1),    24,500,120],            ";
+echo "  [new Date(2020,5,1),    18.33333333,600,110],    ";
+echo "  [new Date(2020,6,1),    16.66666667,600,100],             ";
+echo "  [new Date(2020,7,1),    12.85714286,700,90],    ";
+echo "  [new Date(2020,8,1),    12,750,90],    ";
+echo "  [new Date(2020,9,1),    10,1000,100],           ";
+echo "  [new Date(2020,10,1),   10.90909091,1100,120],    ";
+echo "  [new Date(2020,11,1),   11.66666667,1200,140],    ";
+echo "  [new Date(2020,12,1),   14.44444444,900,130],    ";
+echo "  [new Date(2021,1,1),    13.75,800,110],    ";
+echo "  [new Date(2021,2,1),    11.11111111,900,100],               ";
+echo "  [new Date(2021,3,1),    14,700,98],    ";
+echo "  [new Date(2021,4,1),    12,800,96],    ";
+echo "  [new Date(2021,5,1),    12.85714286,700,90],    ";
+echo "  [new Date(2021,6,1),    10,900,90],    ";
+echo "  [new Date(2021,7,1),    12.5,800,100],    ";
+echo "  [new Date(2021,8,1),    11,1000,110],    ";
+echo "  [new Date(2021,9,1),    10,1100,110],    ";
+echo "  [new Date(2021,10,1),   10,1200,120],    ";
+echo "  [new Date(2021,11,1),   7.692307692,1300,100],    ";
+echo "  [new Date(2021,12,1),   9.473684211,950,90],    ";
+echo "  [new Date(2022,1,1),    9.444444444,900,85],    ";
+echo "  [new Date(2022,2,1),    8,1000,80]    ";
+
+
 ?>
-
-
-[new Date(2009,3,1),-0.0275861590617212,null,null],
-[new Date(2009,6,1),-0.211201149548294,null,null],
-[new Date(2009,9,1),-0.347816339499299,null,null],
-[new Date(2009,12,1),0.0955317473072282,null,null],
-[new Date(2010,3,1),0.429850533281513,null,null],
-[new Date(2010,6,1),0.595125431294634,null,null],
-[new Date(2010,9,1),0.977880425417598,null,null],
-[new Date(2010,12,1),1.01885074690454,null,null],
-[new Date(2011,3,1),0.958699022711172,null,null],
-[new Date(2011,6,1),1.05614870910458,null,null],
-[new Date(2011,9,1),1.13852708983262,null,null],
-[new Date(2011,12,1),1.23179798407584,null,null],
-[new Date(2012,3,1),1.82285147498931,null,null],
-[new Date(2012,6,1),2.11862770521029,null,null],
-[new Date(2012,9,1),2.12314856064361,null,null],
-[new Date(2012,12,1),1.94072217713974,null,null],
-[new Date(2013,3,1),1.35678300508046,null,null],
-[new Date(2013,6,1),0.849638282229609,null,null],
-[new Date(2013,9,1),0.585115076947129,null,null],
-[new Date(2013,12,1),0.583007010467339,null,null],
-[new Date(2014,3,1),0.752224614332375,null,null],
-[new Date(2014,6,1),1.04430268349818,null,null],
-[new Date(2014,9,1),1.1634597700192,null,null],
-[new Date(2014,12,1),1.07124802275817,null,null],
-[new Date(2015,3,1),0.949039555228532,null,null],
-[new Date(2015,6,1),0.712239265700326,null,null],
-[new Date(2015,9,1),0.696597034102014,null,null],
-[new Date(2015,12,1),0.840078908285742,null,null],
-[new Date(2016,3,1),0.891305198936348,null,null],
-[new Date(2016,6,1),1.14939947308144,null,null],
-[new Date(2016,9,1),1.02179334241953,null,null],
-[new Date(2016,12,1),0.996863740465981,null,null],
-[new Date(2017,3,1),0.828359255891216,null,null],
-[new Date(2017,6,1),0.587023016478052,null,null],
-[new Date(2017,9,1),0.805740585471126,null,null],
-[new Date(2017,12,1),0.791565294230337,null,null],
-[new Date(2018,3,1),1.03124731983395,null,null],
-[new Date(2018,6,1),1.30295676052,null,null],
-[new Date(2018,9,1),1.19720759771154,null,null],
-[new Date(2018,12,1),1.15176398369138,null,null],
-[new Date(2019,3,1),0.8973128042955,null,null],
-[new Date(2019,6,1),0.571380483610048,null,null],
-[new Date(2019,9,1),0.443085534780738,200,null],
-[new Date(2019,12,1),0.439440137987128,200,null],
-[new Date(2020,3,1),0.426521872486468,200,null],
-[new Date(2020,6,1),-1.27887805111128,200,null],
-[new Date(2020,9,1),-2.20600241907276,200,300],
-[new Date(2020,12,1),-2.63858753440666,200,400],
-[new Date(2021,3,1),52,200,420],
-[new Date(2021,6,1),50,200,400]
-
-
         ]);
 
 
@@ -82,11 +56,11 @@
 
                     titleFontSize: 15,
 		'chartArea': {'width': '89%', 'height': '90%'},
-          legend: 'none', 
+          legend: { position: 'bottom', alignment: 'center' },
 
    // Draw a trendline for data series 0.,
           hAxis: {
-            format: 'yy', 
+            format: 'MMM/yy', 
             gridlines: {color: 'none'}, 
             
             textStyle : {
@@ -95,20 +69,31 @@
             },
             ticks: [
 
-                new Date(2022,1,1),             
-                new Date(2021,1,1),       
-                new Date(2020,1,1), 
-                new Date(2019,1,1),
-                new Date(2018,1,1), 
-                new Date(2017,1,1),
-                new Date(2016,1,1), 
-                new Date(2015,1,1),
-                new Date(2014,1,1), 
-                new Date(2013,1,1),
-                new Date(2012,1,1), 
-                new Date(2011,1,1),
-                new Date(2010,1,1), 
-                new Date(2009,1,1)
+                new Date(2022,2,1),             
+                new Date(2022,1,1),  
+                new Date(2021,12,1),  
+                new Date(2021,11,1),  
+                new Date(2021,10,1),  
+                new Date(2021,9,1),  
+                new Date(2021,8,1),  
+                new Date(2021,7,1),  
+                new Date(2021,6,1),  
+                new Date(2021,5,1),  
+                new Date(2021,4,1),  
+                new Date(2021,3,1),  
+                new Date(2021,2,1),  
+                new Date(2021,1,1),  
+                new Date(2020,12,1),  
+                new Date(2020,11,1),  
+                new Date(2020,10,1),  
+                new Date(2020,9,1),  
+                new Date(2020,8,1),  
+                new Date(2020,7,1),  
+                new Date(2020,6,1),  
+                new Date(2020,5,1)
+
+                     
+
 
                 ]
             		
@@ -135,15 +120,17 @@
               },
               minValue: 0,
               title: 'Conversion Ratio',
-
+              titleTextStyle: { color: 'red' },
+              textStyle:{color: 'red'},
             }
 
 
           },
 
-                    series: {          
+                    series: {    
+                                             1: { color: 'green', lineWidth: 3, lineDashStyle: [10, 2], targetAxisIndex:0 }     ,            
                       0: { color: 'red', lineWidth: 5,  targetAxisIndex:1 }     , 
-                       1: { color: 'green', lineWidth: 3, lineDashStyle: [10, 2], targetAxisIndex:0 }     ,                
+          
                       2: { color: 'orange', lineWidth: 3, lineDashStyle: [10, 2], targetAxisIndex:0 }
                     
                     }

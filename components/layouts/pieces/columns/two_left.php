@@ -32,6 +32,35 @@ if($display_guiding_words == 'yes'){
 $left_done = 'no';
 
 
+if(check_primary_folder('highlights')){
+	require $_SERVER['DOCUMENT_ROOT']."/highlights/styling.php";
+
+
+
+
+	echo "<div class='highlights_package'>
+				<span class='highlights_number' style='color: green;'>1000</span>
+				<br>
+				<span class='highlights_text' style='color:green;'>New leads this month</span>
+			</div>";
+	echo "<div class='highlights_package'>
+			<span class='highlights_number' style='color:red;'>	8% </span>
+			<br>
+			<span class='highlights_text' style='color:red;'>conversion ratio</span>
+		</div>";
+	echo "<div class='highlights_package'>
+			<span class='highlights_number' style='color:orange;'>	80 </span>
+			<br>
+			<span class='highlights_text' style='color:orange;'>New sales this month</span>
+
+	
+	</div>";
+	$left_done = 'yes';
+}
+
+
+
+
 if(check_folders_two_deep('marketing','funnel')){
 	//or there is real data here that should replace this
 	if($_SESSION['display_demo_charts'] == 'yes'){ 	require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/longditudinal/div.php";}

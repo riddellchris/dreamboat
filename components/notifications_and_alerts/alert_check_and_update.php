@@ -27,7 +27,7 @@ $_SESSION['user_alerts_map'] 					= 'off';
 		$_SESSION['user_alerts_map_business_valuation'] = 'off';
 		$_SESSION['user_alerts_map_business_permissions'] = 'off';
 	$_SESSION['user_alerts_map_economy'] 			= 'off';
-
+$_SESSION['user_alerts_highlights'] 				= 'off';
 $_SESSION['user_alerts_overview'] 					= 'off';
 $_SESSION['user_alerts_insights'] 					= 'off';
 $_SESSION['user_alerts_profile'] 					= 'off';

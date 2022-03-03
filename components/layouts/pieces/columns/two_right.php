@@ -18,6 +18,28 @@ if(check_folders_two_deep('overview','display_no_menu')){
 }
 
 
+if(check_primary_folder('highlights')){
+	require $_SERVER['DOCUMENT_ROOT']."/highlights/styling.php";
+
+
+
+
+	echo "<div class='highlights_package' style='margin-top: 7vh;'>
+				<span class='highlights_number' style='color: orange;'>$80,000</span>
+				<br>
+				<span class='highlights_text' style='color: orange;'>Revenue this month</span>
+			</div>";
+	echo "<div class='highlights_package'>
+			<span class='highlights_number' style='color: #32a852'>	10% </span>
+			<br>
+			<span class='highlights_text' style='color: #32a852'>Net Margin last month</span>
+		</div>";
+
+	$right_done = 'yes';
+}
+
+
+
 
 if(check_folders_two_deep('management','administration')){	$right_done = 'yes';	require $_SERVER['DOCUMENT_ROOT']."/components/discussion/display.php";}
 if(check_folders_two_deep('profile','reviews')){			$right_done = 'yes';	require $_SERVER['DOCUMENT_ROOT']."/profile/reviews/".$_GET['tertiary_folder']."/display.php";}				

@@ -6,66 +6,40 @@
 
         var data = new google.visualization.DataTable();
         data.addColumn('date',   'Quarter');
-        data.addColumn('number',   'Revenue');
-        data.addColumn('number',   'Profit Margin');
-        data.addColumn('number',   '');        
+        data.addColumn('number',   'Annualised Revenue');
+        data.addColumn('number',   'Net Margin');
+     
         data.addRows([
 <?php
 /**/
+
+
+
+echo "  [new Date(2020,3,1),    1400000,  14],          ";  
+echo "  [new Date(2020,4,1),    1450000,  13],            ";
+echo "  [new Date(2020,5,1),    1500000,  12],    ";
+echo "  [new Date(2020,6,1),    1300000,  12],             ";
+echo "  [new Date(2020,7,1),    1400000,  12],    ";
+echo "  [new Date(2020,8,1),    1500000,  13],    ";
+echo "  [new Date(2020,9,1),    1600000,  14],           ";
+echo "  [new Date(2020,10,1),   1650000,  15],    ";
+echo "  [new Date(2020,11,1),   1700000,  16],    ";
+echo "  [new Date(2020,12,1),   1750000,15],    ";
+echo "  [new Date(2021,1,1),    1650000,14],    ";
+echo "  [new Date(2021,2,1),    1500000,13],               ";
+echo "  [new Date(2021,3,1),    1500000,12],    ";
+echo "  [new Date(2021,4,1),    1900000,14],    ";
+echo "  [new Date(2021,5,1),    1600000,15],    ";
+echo "  [new Date(2021,6,1),    1800000,14],    ";
+echo "  [new Date(2021,7,1),    1850000,13],    ";
+echo "  [new Date(2021,8,1),    1900000,12],    ";
+echo "  [new Date(2021,9,1),    1800000,13],    ";
+echo "  [new Date(2021,10,1),   1900000,14],    ";
+echo "  [new Date(2021,11,1),   2100000,15],    ";
+echo "  [new Date(2021,12,1),   2150000,15],    ";
+echo "  [new Date(2022,1,1),    2200000,16],    ";
+echo "  [new Date(2022,2,1),    2100000,14]    ";
 ?>
-
-
-[new Date(2009,3,1),    124364  ,0.1,null],
-[new Date(2009,6,1),    134846 ,0.1,null],
-[new Date(2009,9,1),    144889 ,0.1,null],
-[new Date(2009,12,1),   2500000 ,0.1,null],
-[new Date(2010,3,1),    2500000 ,0.1,null],
-[new Date(2010,6,1),  2500000   ,0.1,null],
-[new Date(2010,9,1),  2500000,0.1,null],
-[new Date(2010,12,1), 2500000,0.1,null],
-[new Date(2011,3,1),  2500000,0.1,null],
-[new Date(2011,6,1),  2500000,0.1,null],
-[new Date(2011,9,1),  2500000,4.2,null],
-[new Date(2011,12,1), 2500000,4.3,null],
-[new Date(2012,3,1),  2500000,4.4,null],
-[new Date(2012,6,1),  2500000,4.5,null],
-[new Date(2012,9,1),  2500000,4.6,null],
-[new Date(2012,12,1), 2500000,4.7,null],
-[new Date(2013,3,1),  2500000,0.1,null],
-[new Date(2013,6,1),  2500000,0.1,null],
-[new Date(2013,9,1),  2500000,0.1,null],
-[new Date(2013,12,1), 2500000,0.1,null],
-[new Date(2014,3,1),  2500000,0.1,null],
-[new Date(2014,6,1),  2500000,0.1,null],
-[new Date(2014,9,1),  2500000,0.1,null],
-[new Date(2014,12,1), 2500000,0.1,null],
-[new Date(2015,3,1),  2500000,0.1,null],
-[new Date(2015,6,1),  2500000,0.1,null],
-[new Date(2015,9,1),  2500000,6.0,null],
-[new Date(2015,12,1), 2500000,0.1,null],
-[new Date(2016,3,1),  2500000,0.1,null],
-[new Date(2016,6,1),  2500000,0.1,null],
-[new Date(2016,9,1),  2500000,0.1,null],
-[new Date(2016,12,1), 2500000,0.1,null],
-[new Date(2017,3,1),  2500000,0.1,null],
-[new Date(2017,6,1),  2500000,0.1,null],
-[new Date(2017,9,1),  2500000,0.1,null],
-[new Date(2017,12,1), 2500000,0.1,null],
-[new Date(2018,3,1),  2500000,0.1,null],
-[new Date(2018,6,1),  2500000,9.2,null],
-[new Date(2018,9,1),  2500000,9.3,null],
-[new Date(2018,12,1), 2500000,9.4,null],
-[new Date(2019,3,1),  2500000,9.5,null],
-[new Date(2019,6,1),  2500000,9.5,null],
-[new Date(2019,9,1),  2500000,9.7,null],
-[new Date(2019,12,1), 2500000,9.6,null],
-[new Date(2020,3,1),  2500000,9.8,null],
-[new Date(2020,6,1),  2500000,10.1,null],
-[new Date(2020,9,1),  2500000,10.2,null],
-[new Date(2020,12,1), 2500000,10.4,null],
-[new Date(2021,3,1),  2500000,10.2,null],
-[new Date(2021,6,1),  2500000,10,null]
-
 
 
         ]);
@@ -83,11 +57,11 @@
           subtitle: 'GDP per Capita Annual % Change (Source: ABS)',
                     titleFontSize: 15,
 		'chartArea': {'width': '89%', 'height': '90%'},
-          legend: 'none', 
+    legend: { position: 'bottom', alignment: 'center' }, 
 
 
           hAxis: {
-            format: 'yy', 
+            format: 'MMM/yy', 
             gridlines: {color: 'none'}, 
             
             textStyle : {
@@ -96,20 +70,29 @@
             },
             ticks: [
 
-                new Date(2022,1,1),             
-                new Date(2021,1,1),       
-                new Date(2020,1,1), 
-                new Date(2019,1,1),
-                new Date(2018,1,1), 
-                new Date(2017,1,1),
-                new Date(2016,1,1), 
-                new Date(2015,1,1),
-                new Date(2014,1,1), 
-                new Date(2013,1,1),
-                new Date(2012,1,1), 
-                new Date(2011,1,1),
-                new Date(2010,1,1), 
-                new Date(2009,1,1),
+
+              new Date(2022,2,1),             
+                new Date(2022,1,1),  
+                new Date(2021,12,1),  
+                new Date(2021,11,1),  
+                new Date(2021,10,1),  
+                new Date(2021,9,1),  
+                new Date(2021,8,1),  
+                new Date(2021,7,1),  
+                new Date(2021,6,1),  
+                new Date(2021,5,1),  
+                new Date(2021,4,1),  
+                new Date(2021,3,1),  
+                new Date(2021,2,1),  
+                new Date(2021,1,1),  
+                new Date(2020,12,1),  
+                new Date(2020,11,1),  
+                new Date(2020,10,1),  
+                new Date(2020,9,1),  
+                new Date(2020,8,1),  
+                new Date(2020,7,1),  
+                new Date(2020,6,1),  
+                new Date(2020,5,1)
 
                 ]
             		
@@ -136,10 +119,10 @@
             textStyle : {
                 fontName: 'Barlow Semi Condensed',
                 bold: true
-              },title: 'Gross Margin (%)',
+              },title: 'Net Margin (%)',
               textStyle:{color: '#ff5e00'},
               minValue: 0,
-              ticks: [ 0, 2, 4, 6, 8, 10, 12,14]
+              ticks: [ 0, 2, 4, 6, 8, 10, 12,14,16,18]
               
             } 
  

@@ -57,7 +57,7 @@ if(check_primary_folder('contact_us')){	$top_sub_menu_options = add_top_sub_menu
 if(check_primary_folder('insights')){	$top_sub_menu_options = add_top_sub_menu_option('preparation'	,$top_sub_menu_options);
 										$top_sub_menu_options = add_top_sub_menu_option('display'		,$top_sub_menu_options);	}	
 
-
+if(check_primary_folder('highlights')){	$top_sub_menu_options = add_top_sub_menu_option('display_no_menu'	,$top_sub_menu_options);}	
 if(check_primary_folder('overview')){	$top_sub_menu_options = add_top_sub_menu_option('display_no_menu'	,$top_sub_menu_options);}		
 	
 if(check_primary_folder('profile')){

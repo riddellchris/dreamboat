@@ -12,6 +12,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 $options_to_extract = [
     'data',
     'map',
+    'highlights',   
     'insights',
     'overview',
     'profile',
@@ -63,13 +64,25 @@ if(isset($_GET['adjusting'])){$adjusting = $_GET['adjusting'];}else{$adjusting =
         echo "</td>";
         echo "<td>";
             $var = "map";
+
             echo "<a class='";
             if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
             echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            if($row[$var] == 'yes'){echo "<td>
-                                                <a href=''>adjust</a>";}
+            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
             echo "</a>";
         echo "</td>";
+        echo "<td>";
+            $var = "highlights";
+
+            echo "<a class='";
+            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
+            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
+            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
+            echo "</a>";
+        echo "</td>";
+
+
+
         echo "<td>";
             $var = "insights";
 
@@ -272,6 +285,17 @@ echo "<style>
                 echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
             }
         echo "</td>";
+
+        $var = "highlights";
+        echo "<td class='adjust_cell'>";
+            if($adjusting != $var){
+                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
+            }
+            else{
+                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
+            }
+        echo "</td>";
+
 
         $var = "insights";
         echo "<td class='adjust_cell'>";

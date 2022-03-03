@@ -486,7 +486,16 @@ else{
 }
 echo "</div>";
 echo "</div>";
+
+
+
+
+
+
 echo "<div style='width:100%;text-align:center;margin-top:25px;margin-left:auto;margin-right:auto;font-family:Comfortaa;'>";
+echo "<span class='blink_me prompt-font'>If not visible check <a style='color:red;' href='/users/gap_filling/'>gap filling</a> or <a  style='color:red;' href='/users/initial_outreach/'>initial outreach</a></span>";
+
+
 print_copy_for_pilots_only("
 	if you pay for anything greater than or including fortnightly half hour sessions - platform access and text based discussion is included.<br>
 	Below that platform access is included for both unlimited text an monthly half hour sessions

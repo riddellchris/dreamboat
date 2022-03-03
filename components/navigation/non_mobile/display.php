@@ -133,7 +133,10 @@ if(isset($_SESSION['logged_in'])){
 		$nav_name = "profile"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 		//}
 		$nav_name = "insights"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
-		$nav_name = "overview"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require $_SERVER['DOCUMENT_ROOT']."/components/navigation/non_mobile/components/".$nav_name.".php";}
+
+
+		$nav_name = "overview"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+		$nav_name = "highlights"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 		$nav_name = "map"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 		$nav_name = "data"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 	}

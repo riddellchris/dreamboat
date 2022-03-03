@@ -20,6 +20,7 @@ else{
     $options_to_extract = [
         'data',
         'map',
+        'highlights',
         'overview',        
         'insights',
         'profile',

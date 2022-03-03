@@ -8,6 +8,7 @@ $var = 'data';          if($_GET['type'] == $var	){$nav_setting_to_change = $var
 $var = 'map';           if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'insights';      if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'overview';      if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
+$var = 'highlights';      if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'profile';       if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'business';      if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'network';       if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
