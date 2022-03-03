@@ -34,6 +34,13 @@ if(!isset($_SESSION)){session_start();}
 */
 	}
 
+	if(check_primary_folder(	'overview'	)){	
+		require $_SERVER['DOCUMENT_ROOT']."/components/financials/demo/summary/script.php";
+		//require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/charts/gdp_per_capita_problem/script.php";
+		require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/longditudinal/script.php";		
+	}	
+
+
 	if(check_folders_two_deep(	'marketing','funnel'	)){	require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/funnel/script.php";}	
 	if(check_folders_two_deep(	'marketing','funnel'	)){	require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/longditudinal/script.php";}	
 

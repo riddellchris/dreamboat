@@ -11,7 +11,11 @@ if(check_folders_two_deep('marketing','funnel')){
 	if($_SESSION['display_demo_charts'] == 'yes'){ require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/funnel/div.php"; }
 	$right_done = 'yes';	
 }
-
+if(check_folders_two_deep('overview','display_no_menu')){
+	//or there is real data here that should replace this
+	if($_SESSION['display_demo_charts'] == 'yes'){ require $_SERVER['DOCUMENT_ROOT']."/components/financials/demo/summary/div.php"; }
+	$right_done = 'yes';	
+}
 
 
 

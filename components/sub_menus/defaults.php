@@ -30,6 +30,7 @@ if(!isset($_SESSION['map_page'])){						$_SESSION['map_page'] 					= 'personal';
 	if(!isset($_SESSION['map_business_page'])){			$_SESSION['map_business_page'] 			= 'main_view';}
 	if(!isset($_SESSION['map_economy_page'])){			$_SESSION['map_economy_page'] 			= 'display_no_menu';}
 if(!isset($_SESSION['insights_page'])){					$_SESSION['insights_page'] 				= 'display';}
+if(!isset($_SESSION['overview_page'])){					$_SESSION['overview_page'] 				= 'display_no_menu';}
 if(!isset($_SESSION['biz_dev_page'])){					$_SESSION['biz_dev_page'] 				= 'one_to_ones';}
 if(!isset($_SESSION['sales_page'])){					$_SESSION['sales_page'] 				= 'all';}
 if(!isset($_SESSION['sales_worksheets_page'])){			$_SESSION['sales_worksheets_page'] 		= 'client_product_matrix';}

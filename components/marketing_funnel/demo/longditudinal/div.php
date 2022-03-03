@@ -1,1 +1,1 @@
-<div id="longditudinal_marketing_funnel" style="width: 900px; height: 500px"></div>
+<div id="economic_background_gdp_per_capita_percentage_change" style="width: 100%; height: 70vh"></div>
