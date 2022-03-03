@@ -143,12 +143,15 @@ else{
 				
 					echo "	
 						<form method='post' action='/components/items/connect.php?primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."&item_id=".$_GET['item_id']."'>
-						<select style='display:inline-block;'  onchange='this.form.submit()' name='link_node_selection'>";	
+						<select style='display:inline-block;'  onchange='this.form.submit()' name='link_node_selection'>";
+						echo "<option value'select_one' disabled selected>Select one</option>";		
 					$first_unconnected_element = 'no';
 				}
-			
+						
 			
 				if($row['found_in_secondary_folder'] != $last_item_type){
+
+
 					echo "<optgroup label='";
 					
 					//more customisations to be added here without doubt
