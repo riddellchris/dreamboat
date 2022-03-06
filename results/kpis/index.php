@@ -249,8 +249,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/tracking/charting/display_month_c
     
 
 
-	<div id="curve_chart1" style='max-width:1100px;margin:auto;height:500px;'></div>
-
-<?php
+	<?php
+require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/curve_chart_div.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/end_of_page_requires.php";
 ?>

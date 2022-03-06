@@ -18,6 +18,7 @@ if(mysqli_num_rows($result) == 0){
 else{
 
     $options_to_extract = [
+        'walkthroughs',
         'data',
         'map',
         'highlights',

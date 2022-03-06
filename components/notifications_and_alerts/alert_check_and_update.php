@@ -8,7 +8,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/notifications_and_alerts/alert_re
 //just turn them all off for now
 //profile
 $_SESSION['user_alerts_notes'] 					= 'off';
-
+$_SESSION['user_alerts_walkthroughs'] 					= 'off';
 $_SESSION['user_alerts_data'] 					= 'off';
 	$_SESSION['user_alerts_map_apis'] 				= 'off';
 	$_SESSION['user_alerts_map_matching'] 			= 'off';

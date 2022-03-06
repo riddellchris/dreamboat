@@ -3,7 +3,7 @@ if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
-
+$var = 'walkthroughs';          if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'data';          if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'map';           if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'insights';      if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}

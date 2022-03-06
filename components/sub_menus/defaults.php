@@ -23,6 +23,8 @@ if(!isset($_SESSION['network_page'])){					$_SESSION['network_page'] 				= 'peop
 if(!isset($_SESSION['interrogation_page'])){			$_SESSION['interrogation_page'] 		= 'all';}
 if(!isset($_SESSION['notes_page'])){					$_SESSION['notes_page'] 				= 'pilot_notes';}
 	if(!isset($_SESSION['notes_pilot_notes_page'])){	$_SESSION['notes_pilot_notes_page'] 	= 'for_sales_and_meetings';}
+
+	if(!isset($_SESSION['walkthroughs_page'])){						$_SESSION['walkthroughs_page'] 					= 'our_process';}		
 if(!isset($_SESSION['data_page'])){						$_SESSION['data_page'] 					= 'apis';}	
 if(!isset($_SESSION['map_page'])){						$_SESSION['map_page'] 					= 'personal';}
 	if(!isset($_SESSION['map_apis_page'])){				$_SESSION['map_apis_page'] 				= 'display_no_menu';}

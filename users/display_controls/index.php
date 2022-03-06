@@ -53,6 +53,17 @@ if(isset($_GET['adjusting'])){$adjusting = $_GET['adjusting'];}else{$adjusting =
     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
     echo "<tr>";
+
+        echo "<td>";
+        $var = "walkthroughs";
+
+        echo "<a class='";
+        if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
+        echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
+        //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
+        echo "</a>";
+    echo "</td>";
+
         echo "<td>";
             $var = "data";
 

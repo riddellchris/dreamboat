@@ -7,8 +7,11 @@ if($creating_new_user != 'yes'){$user_id = $_SESSION['viewing_client_id'];}
 
 $sql = "INSERT INTO user_main_nav_control
         (   user_id,
+            walkthroughs,
             data,
             map,
+            hightlights,
+            overview,
             insights,
             profile,       
             business,
@@ -30,8 +33,10 @@ $sql = "INSERT INTO user_main_nav_control
         VALUES(
             '".$user_id."',";
             $sql .= " 'yes' , ";
-            $sql .= " 'no' , ";        
-            $sql .= " 'yes' , ";    
+            $sql .= " 'no' , ";     
+            $sql .= " 'no' , ";                
+            $sql .= " 'yes' , ";  
+            $sql .= " 'no' , ";  
             $sql .= " 'no' , "; 
             $sql .= " 'no' , "; 
             $sql .= " 'no' , "; 

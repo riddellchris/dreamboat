@@ -139,6 +139,7 @@ if(isset($_SESSION['logged_in'])){
 		$nav_name = "highlights"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 		$nav_name = "map"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 		$nav_name = "data"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+		$nav_name = "walkthroughs"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}		
 	}
 }
 	
