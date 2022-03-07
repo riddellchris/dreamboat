@@ -6,7 +6,7 @@ if($_GET['primary_folder'] != 'content'){
 	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 	$_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];
 
-	echo "<div style='width:100%;text-align:center;' class='prompt-font'>To address various budgets <a style='color:red;' href='/finances/budget_variance/'>click here></a></div>";
+	echo "<div style='width:100%;text-align:center;' class='prompt-font'>To address various budgets <a style='color:red;' href='/finances/budgets/'>click here></a></div>";
 
 
 	$user_to_display = $_SESSION['viewing_client_id'];

@@ -108,8 +108,8 @@ CHANGE `kpi_4_max` `kpi_4_max` INT(11) NULL, CHANGE `kpi_4_min` `kpi_4_min` INT(
 mysqli_query($conn, $sql);
 
 
-
 $sql = "ALTER TABLE `discussion` CHANGE `related_id` `related_id` INT(11) NULL";
-mysqli_query($conn, $sql)
+mysqli_query($conn, $sql);
+//echo $sql; exit();
 
 
