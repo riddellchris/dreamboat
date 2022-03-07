@@ -245,6 +245,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/tracking/charting/display_month_c
 
         chart.draw(data, options);
       }
+
+	  $(window).resize(function(){drawChart();});	  
     </script>
     
 

@@ -123,7 +123,9 @@ echo "
 
 
 	echo "<div style = 'text-align:center;'>";
-	echo "<input name='new_prompt' class='new_prompt_from_pilot' placeholder='SEEN BY PILOTS ONLY - If asking a new question - write it here' autofocus autocomplete='off'></input>";
+	echo "<input name='new_prompt' class='new_prompt_from_pilot' placeholder='SEEN BY PILOTS ONLY - If asking a new question - write it here'";  
+		if($_GET['primary_folder'] != 'results'){echo " autofocus ";} ///this is so we don't bump down too far on the page
+	echo "autocomplete='off'></input>";
 	echo "</div>";
 	
 

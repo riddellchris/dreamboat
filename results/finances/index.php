@@ -238,10 +238,7 @@ else{
       
     </script>
     
-
-
-	<div id="curve_chart1" style='max-width:1100px;margin:auto;height:500px;'></div>
-
 <?php
+require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/curve_chart_div.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/end_of_page_requires.php";
 ?>

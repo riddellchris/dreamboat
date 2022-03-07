@@ -45,11 +45,12 @@ if($test1 != 0 OR $test2 != 0){
 
 
 <?php
-	echo"<div id='curve_chart1' style='max-width:1100px;margin:auto;height:500px;";
+
+/*
 		if($test1 == 0 AND $test2 == 0){
 			echo "text-align:center;padding-top:240px;";
 		}
-	echo "'>";
+//	echo "'>";
 
 			if($test1 == 0 AND $test2 == 0){
 				echo "
@@ -57,10 +58,12 @@ if($test1 != 0 OR $test2 != 0){
 					Measuring, tracking & improving<br> <span style='color:red;'>your productivity </span></span>
 				";
 			}	
-		?>
-	</div>
+	*/
+//echo "	</div> ";
  
 
-<?php
+	
+
+require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/curve_chart_div.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/end_of_page_requires.php";
 ?>

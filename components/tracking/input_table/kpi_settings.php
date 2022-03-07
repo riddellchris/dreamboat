@@ -1,9 +1,30 @@
 <?php
 if(!isset($_SESSION)){session_start();}
+
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+
 $sql = "SELECT * FROM tracking_kpi_settings 
 	WHERE client_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
 	ORDER BY entry_id DESC LIMIT 1"; // select column
 $result = mysqli_query($conn, $sql);
+
+//lazy - very lazy initialisation processes
+if(mysqli_num_rows($result) == 0){
+	$sql = "INSERT INTO tracking_kpi_settings
+			(client_id) 
+			VALUES 
+			('".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."') ";
+		//	echo $sql;exit();
+	mysqli_query($conn, $sql);	
+
+
+
+	$sql = "SELECT * FROM tracking_kpi_settings 
+	WHERE client_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 
+	ORDER BY entry_id DESC LIMIT 1"; // select column
+	$result = mysqli_query($conn, $sql);
+}
+
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 

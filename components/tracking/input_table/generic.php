@@ -2,6 +2,9 @@
 if(!isset($_SESSION)){session_start();}
 
 
+
+
+
 $adjust_variable_name = 'yes';
 
 
@@ -38,12 +41,29 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 				WHERE data_type = '".$variable_name."' 
 				AND user_id = '".$user_to_display."' 
 				AND latest_version_of_this_data_type = 'yes' ORDER BY entry_id DESC LIMIT 1"; // select column
+				//echo $sql;exit();
+			$result = mysqli_query($conn, $sql);
+
+			if(mysqli_num_rows($result) == 0){
+				$sql = "INSERT INTO tracking_inputs (data_type, user_id, latest_version_of_this_data_type) VALUES ('".$variable_name."', '".$user_to_display."', 'yes')";
+				//echo $sql;exit();
+				mysqli_query($conn, $sql);
+
+				$sql = "SELECT * FROM tracking_inputs 
+				WHERE data_type = '".$variable_name."' 
+				AND user_id = '".$user_to_display."' 
+				AND latest_version_of_this_data_type = 'yes' ORDER BY entry_id DESC LIMIT 1"; // select column
+				//echo $sql;exit();
+			}
 			$result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			?>	
 			</div>
 
 			<?php
+//echo '<pre>' , var_dump($row) , '</pre>';
+//exit();
+
 			for($i = 0; $i < 13; $i++){
 				echo "<div class='div-table-cell'>	
 					<input ";
@@ -75,6 +95,18 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 				AND user_id = '".$user_to_display."' 
 				AND latest_version_of_this_data_type = 'yes' ORDER BY entry_id DESC LIMIT 1"; // select column
 			$result = mysqli_query($conn, $sql);
+			if(mysqli_num_rows($result) == 0){
+				$sql = "INSERT INTO tracking_inputs (data_type, user_id, latest_version_of_this_data_type) VALUES ('".$variable_name."_target', '".$user_to_display."', 'yes')";
+				//echo $sql;exit();
+				mysqli_query($conn, $sql);
+
+				$sql = "SELECT * FROM tracking_inputs 
+				WHERE data_type = '".$variable_name."_target' 
+				AND user_id = '".$user_to_display."' 
+				AND latest_version_of_this_data_type = 'yes' ORDER BY entry_id DESC LIMIT 1"; // select column
+				//echo $sql;exit();
+			}
+			$result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			?>
 			</div>
@@ -86,11 +118,17 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 				echo "<div class='div-table-cell'></div>";
 				}
 
+//echo '<pre>' , var_dump($row) , '</pre>';
+
+
 			//for loop of remaining 6 target cells
 			for($i = 0; $i < 7; $i++){
+
+
 				echo "
 					<div class='div-table-cell'>	
-						<input class='si_digits_wide ".$variable_name."_target' name='".$variable_name."_target_".$month_combo[$i+6]."' value ='".$row[$month_combo[$i+6]]."' style='border-style: dashed'>
+						<input class='si_digits_wide ".$variable_name."_target' name='".$variable_name."_target_".$month_combo[$i+6]."' 
+						value ='".$row[$month_combo[$i+6]]."' style='border-style: dashed'>
 					</div>";
 				}
 			?>

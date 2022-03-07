@@ -7,13 +7,13 @@ $_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];
 ?>
 
 
-    <script type="text/javascript">
+    <script name='results_work' type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-           ['Year', 'Income', 'Income Target','Hours Worked','Hours Worked Target'],
+           ['Year', 'Income', 'Income Target', 'Hours Worked', 'Hours Worked Target'],
           
        <?php
  
@@ -67,6 +67,7 @@ $_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];
 	
         require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='hours_worked' ORDER BY entry_id DESC LIMIT 1"; // select column
+	//echo $sql; exit();
 	$result = mysqli_query($conn, $sql);
 	unset($hours_worked);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -153,15 +154,17 @@ require $_SERVER['DOCUMENT_ROOT']."/components/tracking/charting/display_month_c
 
         chart.draw(data, options);
       }
+	  $(window).resize(function(){drawChart();});	  
     </script>
     
  
 
 
-	<div id="curve_chart1" style='max-width:1100px;margin:auto;height:500px;'></div>
+
 
   
 
 <?php
+require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/curve_chart_div.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/end_of_page_requires.php";
 ?>

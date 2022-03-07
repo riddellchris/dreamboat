@@ -6,6 +6,10 @@ require $_SERVER['DOCUMENT_ROOT']."/components/functions/sql/compile_insert_quer
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/current_month_and_year_combo.php";
 
 
+
+//echo '<pre>' , var_dump($_POST) , '</pre>';
+//exit();
+
 //month combo comes from the file /components/tracking/date_update_system/current_month_and_year_combo.php
 function dates_combo($target_or_not, $month_combo){
 
@@ -42,7 +46,7 @@ function make_not_last_version_of_tracking_data($data_type, $target_or_not, $dat
 	mysqli_query($database_connection, $sql);
 }
 
-function start_of_input_query($data_type, $target_or_not, $month_combo){
+function start_of_input_query($data_type, $target_or_not, $escaped_variables, $month_combo, $database_connection){
 
 	$sql = "INSERT INTO 	 tracking_inputs 
 				(user_id, data_type, target_yes_no, ";
@@ -73,7 +77,7 @@ function end_of_input_query($data_type, $target_or_not, $escaped_variables){
 		if($i <> 12){$sql .= ",";}
 		else{$sql .= ")";}
 	}
-		
+	//echo $sql; exit();		
 	return $sql;
 }
 
@@ -85,9 +89,9 @@ function update_and_submit($data_type, $database_connection, $month_combo, $esca
 
 		$target = 'yes';
 		for($i = 1; $i <= 2; $i ++){
-			make_not_last_version_of_tracking_data($data_type, $target, $database_connection);		
-			$sql =  start_of_input_query($data_type, $target, $month_combo);
-			$sql .= end_of_input_query($data_type, $target, $escaped_variables);	
+			make_not_last_version_of_tracking_data(		$data_type, $target, $database_connection);		
+			$sql =  start_of_input_query(				$data_type, $target, $escaped_variables, $month_combo, $database_connection);
+			$sql .= end_of_input_query(					$data_type, $target, $escaped_variables);	
 	//		echo $sql;
 	//		echo "<br>";
 			mysqli_query($database_connection, $sql);		
@@ -127,18 +131,18 @@ $array_keys = array_keys($_POST);
 
 //if there is any post variables starting with the root name then run the function to do it all
 //if not then don't touch anything
-$data_type = 'commission';		if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'sales'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'expenses'; 		if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'revenue'; 		if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'profit'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'income'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'hours'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'commission';			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'sales'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'expenses'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'revenue'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'profit'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'income'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'hours'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
 $data_type = 'productivity'; 		if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'kpi_1'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'kpi_2'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'kpi_3'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
-$data_type = 'kpi_4'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'kpi_1'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'kpi_2'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'kpi_3'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'kpi_4'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
 $data_type = 'related_kpi_a'; 		if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
 $data_type = 'related_kpi_b'; 		if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
 $data_type = 'time_spent_by_user'; 	if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
@@ -244,7 +248,7 @@ if(isset($_POST['what_is_productivity'])){
 
 }
 
-
-header("Location: ".$_SESSION['this_page']);
+//echo "go to now";
+header("Location: /results/");
 exit();
 ?>

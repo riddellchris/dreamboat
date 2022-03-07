@@ -37,7 +37,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_business_name']
 	else{echo "placeholder='What is your backstory?&#10;How is it influencing your direction?&#10;How is it influencing your passions?'";}
 	*/
 	?>		
-	><?php echo $row['vision'];?></textarea><br>
+	><?php if(isset($row['vision'])){echo $row['vision'];} ?></textarea><br>
 
 
 	<a class='to_history' href='/business/view_history.php?view=mission'>< Mission</a><br>	
@@ -51,7 +51,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_business_name']
 	//if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='What friends does this person have?&#10;What are they learning from them?&#10;Where are they going as a result?'";}
 	//else{echo "placeholder='Who are your work friends?&#10;How are they helping?&#10;What might they be hindering?'";}
 	?>
-	><?php echo $row['mission'];?></textarea><br>
+	><?php if(isset($row['mission'])){echo $row['mission'];}?></textarea><br>
 	
 <!--
 <a class='to_history' href='/business/view_history.php?view=core_competencies'>< Core Competencies</a><br>	
@@ -68,7 +68,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_business_name']
 	//if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='Who is in the family of this person?&#10;What influence do they have on the business if any?&#10;How supportive are they?'";}
 	//else{echo "placeholder='Who is in your family?&#10;How are they helping?&#10;How supportive are they?'";}
 	?>
-	><?php echo $row['core_competencies'];?></textarea><br>	
+	><?php if(isset($row['core_competencies'])){echo $row['core_competencies'];} ?></textarea><br>	
 -->
 	
 		<a class='to_history' href='/business/view_history.php?view=strengths'>< Strengths</a><br>	

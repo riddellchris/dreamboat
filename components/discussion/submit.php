@@ -54,11 +54,11 @@ if(
 	$sql = "INSERT INTO discussion (
 											primary_folder, 		     
 											secondary_folder ";
-	if(isset($_GET['tertiary_folder'])){		$sql .= ",tertiary_folder, 		";}	
-	if(isset($_GET['quarternary_folder'])){		$sql .= ",quarternary_folder, 	";}							
-
+	if(isset($_GET['tertiary_folder'])){		$sql .= ",tertiary_folder 		";}	
+	if(isset($_GET['quarternary_folder'])){		$sql .= ",quarternary_folder	";}							
+	if(isset($_GET['item_id'])){	$sql .= ",related_id 	";}			
 	$sql .= "
-					,related_id						   
+										   
 					,to_user_id 			 
 					,user_id 			     
 					,comment ";
@@ -89,9 +89,8 @@ if(
 
 		if(isset($_GET['tertiary_folder'])){		$sql .= ",'".mysqli_real_escape_string($conn, $_POST['tertiary_folder'])."'	";}
 		if(isset($_GET['quarternary_folder'])){		$sql .= ",'".mysqli_real_escape_string($conn, $quarternary_folder)."'		";}
-					
-		$sql .= "
-					,'".mysqli_real_escape_string($conn, $_POST['item_id'])."'							
+		if(isset($_GET['item_id'])){				$sql .= ",'".mysqli_real_escape_string($conn, $_POST['item_id'])."'		";}
+		$sql .= "					
 					,'".mysqli_real_escape_string($conn, $other_parties_id)."'
 					,'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
 					,'".mysqli_real_escape_string($conn, $_SESSION['users_latest_discussion_input'])."'";

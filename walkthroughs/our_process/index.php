@@ -19,13 +19,12 @@ echo "
     &nbsp;&nbsp; What would challenge the business.<br>
     &nbsp;&nbsp; How & why.      <br>   
          <br>
-    <br>
     Then from there we keep them on track with that with monthly review and planning meeting, if not more regular as clients and elements of their business require.<br>
     <br>
-    <br>  
 
     <span style=''>    
     When it comes to dashboards and reporting we work this through with them based on what will give them the absolute most control over their business.    <br>
+    <br>
     Further to that we typically start with some very basic reporting and expand over time as more critical numbers become apparent.    <br>
     <br>
     </span>

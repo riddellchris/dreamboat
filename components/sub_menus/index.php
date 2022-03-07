@@ -193,6 +193,14 @@ if(check_primary_folder('sales')){
 	if(check_secondary_folder('worksheets')){	
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('client_product_matrix'				,$top_sub_sub_menu_options);	
 	}
+	$top_sub_menu_options = add_top_sub_menu_option('insights'		,$top_sub_menu_options);	//this should only be visible if the pilot has activated a worksheet from this list
+	if(check_secondary_folder('insights')){	
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('top_10_client_share'				,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('new_client_share'				,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('product_share'				,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('average_client_growth_rate'				,$top_sub_sub_menu_options);						
+	}
+
 }
 if(check_primary_folder('marketing')){
 	$top_sub_menu_options = add_top_sub_menu_option('target_markets'	,$top_sub_menu_options);

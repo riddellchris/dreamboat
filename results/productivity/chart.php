@@ -313,4 +313,6 @@ $display_variable_name = "KPI".substr($display_variable_name, 3);
 
         chart.draw(data, options);
       }
+
+	  $(window).resize(function(){drawChart();});	  
     </script>

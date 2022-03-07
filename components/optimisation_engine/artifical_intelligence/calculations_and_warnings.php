@@ -30,7 +30,7 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
 		$_GET['secondary_folder'] == 'services'){
 
 
-		if(!isset($_SESSION['ai_business_age'])){		
+		if(isset($_SESSION['ai_business_age'])){		
 			$product_to_age_ratio = $_SESSION['ai_number_of_'.$_GET['secondary_folder']] / $_SESSION['ai_business_age'];
 		
 			if($product_to_age_ratio < 1){$_SESSION['ai_list_warning'] = "More ".$_GET['secondary_folder']." are expected for a business of this age";}
