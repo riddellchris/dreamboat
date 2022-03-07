@@ -26,34 +26,37 @@ echo "
 		if($warning_displayed == 'no'  ){
         echo "
 		    <tr>";
-//            if(count($unpositioned_nodes['items_all_id']) != 0){
-            if(  (count($nodes['items_all_id']) - count($positioned_ids)) != 0){
-                echo " <td colspan='6' class='blink_me' style='color: red;text-align: center;font-family: Barlow Semi Condensed; weight: 600;text-transform: uppercase;'>As yet unplaced nodes</td>";
+            //if(isset($unpositioned_nodes)){
+             //   if(count($unpositioned_nodes['items_all_id']) != 0){
+                    if(  (count($nodes['items_all_id']) - count($positioned_ids)) != 0){
+                        echo " <td colspan='6' class='blink_me' style='color: red;text-align: center;font-family: Barlow Semi Condensed; weight: 600;text-transform: uppercase;'>As yet unplaced nodes</td>";
 
-                
+                        
 
-                    //this should all be done with some sort of order by / select
-                    //this is because it's going to get pretty hectic when you add in all the contacts and businesses.
-                    //so hectic
-                    //invoice size
-                    //related to those already on the board
-                    //alphabetical
-                    //reverse alphabetical
-                    //potential improvement value
-                    //productivity impact uncertainty
-                    //network impacts
-                    //that sort of thing - absolutely.
-                    //brilliant
-
-
-
+                            //this should all be done with some sort of order by / select
+                            //this is because it's going to get pretty hectic when you add in all the contacts and businesses.
+                            //so hectic
+                            //invoice size
+                            //related to those already on the board
+                            //alphabetical
+                            //reverse alphabetical
+                            //potential improvement value
+                            //productivity impact uncertainty
+                            //network impacts
+                            //that sort of thing - absolutely.
+                            //brilliant
 
 
-            }
-            else{
-                echo " <td colspan='6'  style='color: black;text-align: center;font-family: Barlow Semi Condensed; weight: 600;text-transform: uppercase;'>THERE ARE NO CURRENTLY UNPLACED NODES FOR THIS VIEW</td>";
 
-            }
+
+
+                    }
+                    else{
+                        echo " <td colspan='6'  style='color: black;text-align: center;font-family: Barlow Semi Condensed; weight: 600;text-transform: uppercase;'>THERE ARE NO CURRENTLY UNPLACED NODES FOR THIS VIEW</td>";
+
+                    }
+                //}
+           // }
             echo "            </tr>";
         	$warning_displayed = 'yes';
 		}

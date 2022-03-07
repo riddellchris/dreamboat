@@ -6,3 +6,5 @@ $sql = "SELECT * FROM user_main_nav_control
         AND     latest_version_for_this_user = 'yes'
         ORDER BY id DESC LIMIT 1
         ";
+
+//echo $sql;        exit();

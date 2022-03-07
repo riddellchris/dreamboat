@@ -277,9 +277,10 @@ if(check_primary_folder('results')){
 //	}
 }
 if(check_primary_folder('finances')){
-	$top_sub_menu_options = add_top_sub_menu_option('margin_analysis'	,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('cashflow_analysis'	,$top_sub_menu_options);		
-	$top_sub_menu_options = add_top_sub_menu_option('budget_variance'	,$top_sub_menu_options);	
+	$top_sub_menu_options = add_top_sub_menu_option('actuals'	,$top_sub_menu_options);	
+	$top_sub_menu_options = add_top_sub_menu_option('margins'	,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('cashflow'	,$top_sub_menu_options);		
+	$top_sub_menu_options = add_top_sub_menu_option('budgets'	,$top_sub_menu_options);	
 }
 //CR 26.03.21
 //The thing here is that this whole section should be split into something like:

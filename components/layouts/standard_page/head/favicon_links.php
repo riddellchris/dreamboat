@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 if(isset($_SESSION['masked_domain'])){$appended_folder = $_SESSION['masked_domain']."/";}
-else{$appended_folder = '';}
+else{$appended_folder = 'dreamboat/';}
 
 echo "
 <!-- pulled from / made at https://www.favicon-generator.org/ -->

@@ -47,7 +47,7 @@ if(!isset($_SESSION['opportunities_page'])){			$_SESSION['opportunities_page'] 	
 if(!isset($_SESSION['improvements_page'])){				$_SESSION['improvements_page'] 			= 'all';}
 if(!isset($_SESSION['upgrades_page'])){					$_SESSION['upgrades_page'] 				= 'underway';}
 if(!isset($_SESSION['results_page'])){					$_SESSION['results_page'] 				= 'productivity';}
-if(!isset($_SESSION['finances_page'])){					$_SESSION['finances_page'] 				= 'cashflow_analysis';}
+if(!isset($_SESSION['finances_page'])){					$_SESSION['finances_page'] 				= 'actuals';}
 if(!isset($_SESSION['messages_page'])){					$_SESSION['messages_page'] 				= 'all';}
 if(!isset($_SESSION['notifications_page'])){			$_SESSION['notifications_page'] 		= 'alerts';}
 if(!isset($_SESSION['account_page'])){					$_SESSION['account_page'] 				= 'settings';}

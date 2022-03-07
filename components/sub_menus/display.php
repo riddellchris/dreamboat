@@ -116,7 +116,7 @@ if(isset($_SESSION['viewing_client_id'])){
 	$result = mysqli_query($conn, $sql);
 
 	if(mysqli_num_rows($result) == 0){
-		if($_GET['primary_folder'] == 'sales' 		&& $display_option[$i] == 'worksheets'){		$for_pilots_only = 'yes';}
+	//	if($_GET['primary_folder'] == 'sales' 		&& $display_option[$i] == 'worksheets'){		$for_pilots_only = 'yes';}
 
 	}
 				//no secondary_folder here as really it isn't needed given that primary_folder is the one that holds the worksheets

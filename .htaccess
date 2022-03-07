@@ -8,4 +8,6 @@ Header set Cache-Control "private"
 
 <IfModule mod_headers.c>
 Header set Cache-Control "max-age=0,no-store"
+
+php_value error_log components/back_of_house/logs/all_errors.log
 </IfModule>

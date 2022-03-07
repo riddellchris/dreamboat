@@ -153,22 +153,22 @@ $data_type = 'financial_flow'; 		if(check_array_keys($data_type, $array_keys) ==
 
 
 //and finally we'll leave this for now to ensure that updating takes place as appropriate.
-if(isset($_POST['kpi_1_title']	)){$kpi_1_title	=	mysqli_real_escape_string($conn, $_POST['kpi_1_title']);}
-if(isset($_POST['kpi_1_units']	)){$kpi_1_units	=	mysqli_real_escape_string($conn, $_POST['kpi_1_units']);}
-if(isset($_POST['kpi_1_max']	)){$kpi_1_max	=	mysqli_real_escape_string($conn, $_POST['kpi_1_max']);}
-if(isset($_POST['kpi_1_min']	)){$kpi_1_min	=	mysqli_real_escape_string($conn, $_POST['kpi_1_min']);}
-if(isset($_POST['kpi_2_title']	)){$kpi_2_title	=	mysqli_real_escape_string($conn, $_POST['kpi_2_title']);}
-if(isset($_POST['kpi_2_units']	)){$kpi_2_units	=	mysqli_real_escape_string($conn, $_POST['kpi_2_units']);}
-if(isset($_POST['kpi_2_max']	)){$kpi_2_max	=	mysqli_real_escape_string($conn, $_POST['kpi_2_max']);}
-if(isset($_POST['kpi_2_min']	)){$kpi_2_min	=	mysqli_real_escape_string($conn, $_POST['kpi_2_min']);}
-if(isset($_POST['kpi_3_title']	)){$kpi_3_title	=	mysqli_real_escape_string($conn, $_POST['kpi_3_title']);}
-if(isset($_POST['kpi_3_units']	)){$kpi_3_units	=	mysqli_real_escape_string($conn, $_POST['kpi_3_units']);}
-if(isset($_POST['kpi_3_max']	)){$kpi_3_max	=	mysqli_real_escape_string($conn, $_POST['kpi_3_max']);}
-if(isset($_POST['kpi_3_min']	)){$kpi_3_min	=	mysqli_real_escape_string($conn, $_POST['kpi_3_min']);}
-if(isset($_POST['kpi_4_title']	)){$kpi_4_title	=	mysqli_real_escape_string($conn, $_POST['kpi_4_title']);}
-if(isset($_POST['kpi_4_units']	)){$kpi_4_units	=	mysqli_real_escape_string($conn, $_POST['kpi_4_units']);}
-if(isset($_POST['kpi_4_max']	)){$kpi_4_max	=	mysqli_real_escape_string($conn, $_POST['kpi_4_max']);}
-if(isset($_POST['kpi_4_min']	)){$kpi_4_min	=	mysqli_real_escape_string($conn, $_POST['kpi_4_min']);}
+if(isset($_POST['kpi_1_title']	)){$kpi_1_title	=	mysqli_real_escape_string($conn, $_POST['kpi_1_title']);}	else{$kpi_1_title 	=	'';}
+if(isset($_POST['kpi_1_units']	)){$kpi_1_units	=	mysqli_real_escape_string($conn, $_POST['kpi_1_units']);}	else{$kpi_1_units 	=	'';}
+if(isset($_POST['kpi_1_max']	)){$kpi_1_max	=	mysqli_real_escape_string($conn, $_POST['kpi_1_max']);}		else{$kpi_1_max 	=  	0;}
+if(isset($_POST['kpi_1_min']	)){$kpi_1_min	=	mysqli_real_escape_string($conn, $_POST['kpi_1_min']);}		else{$kpi_1_min 	=	0;}
+if(isset($_POST['kpi_2_title']	)){$kpi_2_title	=	mysqli_real_escape_string($conn, $_POST['kpi_2_title']);}	else{$kpi_2_title 	=	'';}
+if(isset($_POST['kpi_2_units']	)){$kpi_2_units	=	mysqli_real_escape_string($conn, $_POST['kpi_2_units']);}	else{$kpi_2_units 	=	'';}
+if(isset($_POST['kpi_2_max']	)){$kpi_2_max	=	mysqli_real_escape_string($conn, $_POST['kpi_2_max']);}		else{$kpi_2_max 	=  	0;}
+if(isset($_POST['kpi_2_min']	)){$kpi_2_min	=	mysqli_real_escape_string($conn, $_POST['kpi_2_min']);}		else{$kpi_2_min 	=  	0;}
+if(isset($_POST['kpi_3_title']	)){$kpi_3_title	=	mysqli_real_escape_string($conn, $_POST['kpi_3_title']);}	else{$kpi_3_title 	=	'';}
+if(isset($_POST['kpi_3_units']	)){$kpi_3_units	=	mysqli_real_escape_string($conn, $_POST['kpi_3_units']);}	else{$kpi_3_units 	=	'';}
+if(isset($_POST['kpi_3_max']	)){$kpi_3_max	=	mysqli_real_escape_string($conn, $_POST['kpi_3_max']);}		else{$kpi_3_max 	=  	0;}
+if(isset($_POST['kpi_3_min']	)){$kpi_3_min	=	mysqli_real_escape_string($conn, $_POST['kpi_3_min']);}		else{$kpi_3_min 	=  	0;}
+if(isset($_POST['kpi_4_title']	)){$kpi_4_title	=	mysqli_real_escape_string($conn, $_POST['kpi_4_title']);}	else{$kpi_4_title 	=	'';}
+if(isset($_POST['kpi_4_units']	)){$kpi_4_units	=	mysqli_real_escape_string($conn, $_POST['kpi_4_units']);}	else{$kpi_4_units 	=	'';}
+if(isset($_POST['kpi_4_max']	)){$kpi_4_max	=	mysqli_real_escape_string($conn, $_POST['kpi_4_max']);}		else{$kpi_4_max 	=  	0;}
+if(isset($_POST['kpi_4_min']	)){$kpi_4_min	=	mysqli_real_escape_string($conn, $_POST['kpi_4_min']);}		else{$kpi_4_min 	=  	0;}
 
 if(isset($_POST['related_kpi_a_title']	)){$related_kpi_a_title	=	mysqli_real_escape_string($conn, $_POST['related_kpi_a_title']);}
 if(isset($_POST['related_kpi_a_units']	)){$related_kpi_a_units	=	mysqli_real_escape_string($conn, $_POST['related_kpi_a_units']);}
@@ -228,8 +228,7 @@ if($_SESSION['results_page'] == 'kpis'){
 			'".$kpi_4_max."',
 			'".$kpi_4_min."')";
 	
-	//echo $sql;
-	//exit();
+	//echo $sql;exit();
 	mysqli_query($conn, $sql);
 
 }
