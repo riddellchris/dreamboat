@@ -5,11 +5,46 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/productivity_title_creation.php";
 ?>
 
-<select name = 'what_is_productivity' style='width:100%; padding-right: 25%;background-color:gold;color:#4332ff;height:55px;font-size:2em' >
-  <option <?php if($_SESSION['viewing_client_what_is_productivity'] == 'kpi_1'){	echo 'selected';} 	?> value="kpi_1"	><?php echo $kpi_1_title;?></option>
-  <option <?php if($_SESSION['viewing_client_what_is_productivity'] == 'kpi_2'){	echo 'selected';} 	?> value="kpi_2"	><?php echo $kpi_2_title;?></option>
-  <option <?php if($_SESSION['viewing_client_what_is_productivity'] == 'kpi_3'){	echo 'selected';} 	?> value="kpi_3"	><?php echo $kpi_3_title;?></option>
-  <option <?php if($_SESSION['viewing_client_what_is_productivity'] == 'kpi_4'){	echo 'selected';} 	?> value="kpi_4"	><?php echo $kpi_4_title;?></option>
+<select name = 'what_is_productivity' style='max-width:1200px; width: 100%; background-color:gold;color:#4332ff;height:55px;font-size:2em' >
+
+<?php
+  if(isset($kpi_1_title)){
+    echo "<option ";
+    if($_SESSION['viewing_client_what_is_productivity'] == 'kpi_1'){	echo 'selected';}  
+    echo "value='kpi_1'	>";
+    echo $kpi_1_title;
+    echo "</option>";
+  }
+  if(isset($kpi_2_title)){
+    echo "<option ";
+    if($_SESSION['viewing_client_what_is_productivity'] == 'kpi_2'){	echo 'selected';}  
+    echo "value='kpi_2'	>";
+    echo $kpi_2_title;
+    echo "</option>";
+  }
+  if(isset($kpi_3_title)){
+    echo "<option ";
+    if($_SESSION['viewing_client_what_is_productivity'] == 'kpi_3'){	echo 'selected';}  
+    echo "value='kpi_3'	>";
+    echo $kpi_3_title;
+    echo "</option>";
+  }
+  if(isset($kpi_4_title)){
+    echo "<option ";
+    if($_SESSION['viewing_client_what_is_productivity'] == 'kpi_4'){	echo 'selected';}  
+    echo "value='kpi_4'	>";
+    echo $kpi_4_title;
+    echo "</option>";
+  }
+  if(isset($kpi_5_title)){
+    echo "<option ";
+    if($_SESSION['viewing_client_what_is_productivity'] == 'kpi_5'){	echo 'selected';}  
+    echo "value='kpi_5'	>";
+    echo $kpi_5_title;
+    echo "</option>";
+  }
+?>
+
   <option <?php if($_SESSION['viewing_client_what_is_productivity'] == 'commission'){	echo 'selected';} 	?> value="commission"	>Commission</option>
   <option <?php if($_SESSION['viewing_client_what_is_productivity'] == 'sales'){	echo 'selected';} 	?> value="sales"	>Sales</option>
   <option <?php if($_SESSION['viewing_client_what_is_productivity'] == 'revenue'){	echo 'selected';} 	?> value="revenue"	>Revenue</option>

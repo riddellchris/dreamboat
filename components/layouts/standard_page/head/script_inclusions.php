@@ -51,6 +51,14 @@ if(!isset($_SESSION)){session_start();}
 	}	
 
 
+
+	if(check_folders_two_deep(	'time','this_week'	)){	require $_SERVER['DOCUMENT_ROOT']."/time/components/scripts/period_length/script.php";}	
+	if(check_folders_two_deep(	'time','this_month'	)){	require $_SERVER['DOCUMENT_ROOT']."/time/components/scripts/period_length/script.php";}	
+	if(check_folders_two_deep(	'time','past_year'	)){	require $_SERVER['DOCUMENT_ROOT']."/time/components/scripts/longditudinal/script.php";}	
+	
+	
+
+
 	if(check_folders_two_deep(	'marketing','funnel'	)){	require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/funnel/script.php";}	
 	if(check_folders_two_deep(	'marketing','funnel'	)){	require $_SERVER['DOCUMENT_ROOT']."/components/marketing_funnel/demo/longditudinal/script.php";}	
 

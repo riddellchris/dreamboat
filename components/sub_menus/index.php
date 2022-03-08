@@ -195,10 +195,10 @@ if(check_primary_folder('sales')){
 	}
 	$top_sub_menu_options = add_top_sub_menu_option('insights'		,$top_sub_menu_options);	//this should only be visible if the pilot has activated a worksheet from this list
 	if(check_secondary_folder('insights')){	
-		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('top_10_client_share'				,$top_sub_sub_menu_options);
-		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('new_client_share'				,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('top_10_client_share'			,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('new_client_share'			,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('product_share'				,$top_sub_sub_menu_options);
-		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('average_client_growth_rate'				,$top_sub_sub_menu_options);						
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('average_client_growth_rate'	,$top_sub_sub_menu_options);						
 	}
 
 }
@@ -207,7 +207,7 @@ if(check_primary_folder('marketing')){
 	$top_sub_menu_options = add_top_sub_menu_option('angles'			,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('channels'			,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('promotions'		,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('funnel'			,$top_sub_menu_options);		
+//	$top_sub_menu_options = add_top_sub_menu_option('funnel'			,$top_sub_menu_options);		
 }
 if(check_primary_folder('management')){
 	$top_sub_menu_options = add_top_sub_menu_option('other'		,$top_sub_menu_options);
@@ -241,10 +241,26 @@ if(check_primary_folder('activities')){
 	$top_sub_menu_options = add_top_sub_menu_option('all'				,$top_sub_menu_options);
 	}
 if(check_primary_folder('time')){
-	$top_sub_menu_options = add_top_sub_menu_option('this_week'				,$top_sub_menu_options);
-		//since last session?
-	$top_sub_menu_options = add_top_sub_menu_option('this_month'			,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('all_time'			,$top_sub_menu_options);	
+		$top_sub_menu_options = add_top_sub_menu_option('this_week'				,$top_sub_menu_options);
+		if(check_secondary_folder('this_week')){	
+			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
+			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_client'			,$top_sub_sub_menu_options);		
+		}
+			//since last session?
+		$top_sub_menu_options = add_top_sub_menu_option('this_month'			,$top_sub_menu_options);
+		if(check_secondary_folder('this_month')){	
+			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
+			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_client'			,$top_sub_sub_menu_options);	
+			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_revenue'			,$top_sub_sub_menu_options);					
+		}
+
+
+		$top_sub_menu_options = add_top_sub_menu_option('past_year'			,$top_sub_menu_options);
+		if(check_secondary_folder('past_year')){	
+			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
+			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_client'			,$top_sub_sub_menu_options);	
+			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_revenue'			,$top_sub_sub_menu_options);					
+		}	
 	}
 
 if(check_primary_folder('upgrades')){
@@ -279,8 +295,13 @@ if(check_primary_folder('results')){
 if(check_primary_folder('finances')){
 	$top_sub_menu_options = add_top_sub_menu_option('actuals'	,$top_sub_menu_options);	
 	$top_sub_menu_options = add_top_sub_menu_option('margins'	,$top_sub_menu_options);
+	if(check_secondary_folder('margins')){	
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('overall'			,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('per_product'		,$top_sub_sub_menu_options);
+	}
 	$top_sub_menu_options = add_top_sub_menu_option('cashflow'	,$top_sub_menu_options);		
-	$top_sub_menu_options = add_top_sub_menu_option('budgets'	,$top_sub_menu_options);	
+	$top_sub_menu_options = add_top_sub_menu_option('budgets'	,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('forecasts'	,$top_sub_menu_options);		
 }
 //CR 26.03.21
 //The thing here is that this whole section should be split into something like:

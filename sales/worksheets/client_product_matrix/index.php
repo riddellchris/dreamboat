@@ -2,6 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
+//get all items 
 $sql = "SELECT * FROM api_xero_data_item 
         WHERE user_id = '".$_SESSION['viewing_client_id']."'";
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
@@ -11,6 +12,10 @@ $number_of_items = mysqli_num_rows($result);
 //if there are no items then show error
 //if there are no invoices then show error
 //if there is no xero connection then show that error as well
+
+
+
+
 
 
 //if there are enough invoices
@@ -72,5 +77,57 @@ $number_of_items = mysqli_num_rows($result);
 //order and reset appropriately 
 //that's absolutely the best way to make that work for sure
 
+
+echo "<div class='prompt-font' style='text-align:center; width: 100%; '>Based on data from the last 24 months</div>";
+?>
+<style>
+        table{font-size: 1.3em; border-spacing: 0px; }
+        th{padding: 2px 6px;}
+        td{padding: 2px 6px; text-align: center; color: white;}
+        .sold{                  background-color: green;}
+        .sold:hover{            background-color: #0aa30a;}
+        .not_sold{              background-color: #c70000; padding: unset;}
+        .not_sold:hover{        background-color: red;}
+        .in_action{             background-color: #c97500;}
+        .in_action:hover{       background-color: #ff9f19;}
+        th{font-family: Barlow Semi Condensed;}
+        td a{width: 100%; text-decoration: none; color: white;}
+</style>
+
+
+<div style='width: 100%; text-align:center;'>
+        <table style='display: inline-block;'>
+                  <!-- So to this means that the rest will all workout -->
+                  <!-- these are just the item names ordered as apporpriate -->              
+                <tr><th></th><th>Item 1</th><th>Item 2</th><th>Item 3</th><th>Item 4</th></tr>
+                <tr>
+                        <th>Client 1</th>
+                        <td class='sold'><a>&#x2714;</a></td>
+                        <td class='not_sold'><a>&#x2718;</a></td>
+                        <td class='in_action'><a href='change_item.php?'>&#x27A0;</a></td>
+                        <td></td>
+                </tr>
+                <!-- So to make this work all we need to do is pull this off in such a way that I can pull the rest of this off
+
+                        -->
+                <tr><th>Client 2</th><td></td><td></td><td></td><td></td></tr>
+                <tr><th>Client 3</th><td></td><td></td><td></td><td></td></tr>
+                <tr><th>Client 4</th><td></td><td></td><td></td><td></td></tr>
+                <tr><th>Client 5</th><td></td><td></td><td></td><td></td></tr>
+                <tr><th>Client 6</th><td></td><td></td><td></td><td></td></tr>
+                <tr><th>Client 7</th><td></td><td></td><td></td><td></td></tr>
+                <tr><th>Client 8</th><td></td><td></td><td></td><td></td></tr>
+                <tr><th>Client 9</th><td></td><td></td><td></td><td></td></tr>
+        </table>
+</div>
+
+
+
+
+
+
+
+
+<?php
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";
 ?>

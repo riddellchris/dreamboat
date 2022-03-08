@@ -36,18 +36,26 @@ if(!isset($_SESSION['highlights_page'])){				$_SESSION['highlights_page'] 				= 
 if(!isset($_SESSION['overview_page'])){					$_SESSION['overview_page'] 				= 'display_no_menu';}
 if(!isset($_SESSION['biz_dev_page'])){					$_SESSION['biz_dev_page'] 				= 'one_to_ones';}
 if(!isset($_SESSION['sales_page'])){					$_SESSION['sales_page'] 				= 'all';}
-if(!isset($_SESSION['sales_worksheets_page'])){			$_SESSION['sales_worksheets_page'] 		= 'client_product_matrix';}
+	if(!isset($_SESSION['sales_worksheets_page'])){		$_SESSION['sales_worksheets_page'] 		= 'client_product_matrix';}
+	if(!isset($_SESSION['sales_insights_page'])){		$_SESSION['sales_insights_page'] 		= 'top_10_client_share';}
 if(!isset($_SESSION['marketing_page'])){				$_SESSION['marketing_page'] 			= 'promotions';}
 if(!isset($_SESSION['management_page'])){				$_SESSION['management_page'] 			= 'clients';}
 if(!isset($_SESSION['wheelhouse_page'])){				$_SESSION['wheelhouse_page'] 			= 'tasks';}
 if(!isset($_SESSION['activities_page'])){				$_SESSION['activities_page'] 			= 'doing';}
 if(!isset($_SESSION['time_page'])){						$_SESSION['time_page'] 					= 'this_week';}
+	if(!isset($_SESSION['time_this_week_page'])){		$_SESSION['time_this_week_page'] 		= 'by_activity';}
+	if(!isset($_SESSION['time_this_month_page'])){		$_SESSION['time_this_month_page'] 		= 'by_activity';}
+	if(!isset($_SESSION['time_past_year_page'])){		$_SESSION['time_past_year_page'] 		= 'by_revenue';}
+
+
 if(!isset($_SESSION['issues_page'])){					$_SESSION['issues_page'] 				= 'all';}
 if(!isset($_SESSION['opportunities_page'])){			$_SESSION['opportunities_page'] 		= 'all';}
 if(!isset($_SESSION['improvements_page'])){				$_SESSION['improvements_page'] 			= 'all';}
 if(!isset($_SESSION['upgrades_page'])){					$_SESSION['upgrades_page'] 				= 'underway';}
 if(!isset($_SESSION['results_page'])){					$_SESSION['results_page'] 				= 'productivity';}
 if(!isset($_SESSION['finances_page'])){					$_SESSION['finances_page'] 				= 'actuals';}
+	if(!isset($_SESSION['finances_margins_page'])){		$_SESSION['finances_margins_page'] 		= 'overall';}
+
 if(!isset($_SESSION['messages_page'])){					$_SESSION['messages_page'] 				= 'all';}
 if(!isset($_SESSION['notifications_page'])){			$_SESSION['notifications_page'] 		= 'alerts';}
 if(!isset($_SESSION['account_page'])){					$_SESSION['account_page'] 				= 'settings';}

@@ -18,7 +18,8 @@ $sql = "INSERT INTO 		user_review_cycles (user_id) VALUES ('".$user_id."')";
 mysqli_query($conn, $sql);
 $sql = "INSERT INTO 		user_main_nav_control (user_id) VALUES ('".$user_id."')";
 mysqli_query($conn, $sql);
-
+$sql = "INSERT INTO 		tracking_kpi_settings (user_id) VALUES ('".$user_id."')";
+mysqli_query($conn, $sql);
 //this is not actually needed
 //require $_SERVER['DOCUMENT_ROOT']."/components/controls/defaults_to_apply_for_every_user.php";
 

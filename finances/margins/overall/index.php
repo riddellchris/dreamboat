@@ -4,11 +4,9 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/finances/holding_page.php";
 
 /*
-simple - very simple plots and then a data table of revenue and expenses over the past 24 months
-potentially go to all time as a seperate sub menu to copy it out / view it properly
-
-
-
+will need some good/great reporting out of that
+//happy days
+this information is only going to come from the logs
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";

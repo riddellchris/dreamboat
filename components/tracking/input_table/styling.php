@@ -90,6 +90,7 @@ $results_colors['productivity_target'] 	= '#281e96';
 }
 .div-table-row {
   display: table-row;
+  //display: inline-block;
   width: auto;
   clear: both;
 }

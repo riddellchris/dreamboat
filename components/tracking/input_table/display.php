@@ -40,28 +40,32 @@ require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/curre
 
 
 <!-- THE TITLE BLOCK -->
-<div class='div-table-row'>
-	<div class='div-table-col-1'>		
-		<div class='div-table-cell title'>
-		</div>
-		<?php
-		for($i = 0;$i < 13; $i++){
-			echo "	<div class='div-table-cell' style='text-align:center;'>".
-				$month_name[$i]."
-				</div>";
-				}
-		?>
-	</div>
-</div>
 
-<?php require $_SERVER['DOCUMENT_ROOT']."/components/tracking/input_table/controls.php";?>
-	<div class='div-table-row'>
-	<?php
-		//if($_SESSION['dreamboat_crew'] =='yes'){
-		echo "<input type='submit' class='login-submit' style='width:100%;' value='update'>";
-		//}
-	?>
-	</div>
+		<div class='div-table-row'>
+			<div class='div-table-col-1'>		
+				<div class='div-table-cell title'>
+				</div>
+				<?php
+				for($i = 0;$i < 13; $i++){
+					echo "	<div class='div-table-cell' style='text-align:center;'>".
+						$month_name[$i]."
+						</div>";
+						}
+				?>
+			</div>
+		</div>
+	
+
+
+	<?php require $_SERVER['DOCUMENT_ROOT']."/components/tracking/input_table/controls.php";?>
+		<div>
+		<?php
+			//if($_SESSION['dreamboat_crew'] =='yes'){
+			echo "<input type='submit' class='login-submit' style='max-width:1200px; width: 100%; ' value='update'>";
+			//}
+		?>
+		</div>
+		
 </div>	
 </form>
 

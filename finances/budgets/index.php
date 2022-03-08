@@ -1,7 +1,15 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+require $_SERVER['DOCUMENT_ROOT']."/finances/holding_page.php";
+
+/*
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";
+*/
+
+
+//require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
 
 //this should really be including all the other tracking system data BUT
@@ -18,4 +26,4 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
     //what's going on here
 
 
-require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";
+//require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";
