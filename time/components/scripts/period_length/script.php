@@ -14,14 +14,32 @@ echo "<script type='text/javascript' name='time_charts_".$_GET['secondary_folder
     if($_GET['secondary_folder'] == 'this_week' && $_GET['tertiary_folder'] == 'by_activity'){
         echo "
         data.addColumn('string',   'GDP per Capita Annual Change (%)');    
-        data.addColumn('number',   'Hours this ');              
+        data.addColumn('number',   'On site');           
+        data.addColumn('number',   'Client meetings');
+        data.addColumn('number',   'Documentation');   
+        
+        ['Internal',                4,   2,  6,  2,  3,  3],
+        ['Northern Electrics',      4,   0,  2,  3,  1.5,  0],
+        ['Peninsula Massage',       3,   0,  2,  3,  1,  0],
+        ['Big Bobs Mobility',       2,   0,  0.2,  0,  0,  0],
+        ['Green Point Plastics',    2,   1,  0.2,  0,  0,  0],                        
+        ['James Thomas Gardening',  2,   0,  0.2,  1,  0,  0],
+        ['Illusive Blinks',         2,   0,  0.2,  0,  0.5,  0],
+        ['AXZ Manufacturing',       1,   1,  0,  0,  0.25,  0],
+        ['The T Shop'       ,       0.5, 0,  0,  0,  0,  0],                        
+        ['Hello Goodbye Cards',     0.5, 0,  0,  0,  0,  0],
+        ['We talk phones',          0.5, 0,  0,  0,  0,  0],
+        ['John & Sons Concrete',    0.5, 0,  0,  0,  0,  0],
+        ['Richmond Athletic',       0.5, 0,  0,  0,  0,  0]        
+
+
         data.addRows([
-                        ['Doing',           1.34963880043759],
-                        ['Planning',        1.11461495303138],
-                        ['Managing',        1.03466733329246],
-                        ['Supporting',      1.39174066850022],
-                        ['Administrating',  1.89209623038058],
-                        ['Growing',         1.89209623038058]
+                        ['Doing',           6,2,4],
+                        ['Planning',        0,0,0],
+                        ['Managing',        0,0,0],
+                        ['Supporting',      0,0,0],
+                        ['Administrating',  0,0,0],
+                        ['Growing',         0,0,0]
         ";
     }
 
@@ -36,12 +54,19 @@ echo "<script type='text/javascript' name='time_charts_".$_GET['secondary_folder
         data.addColumn('number',   'Growing');          
         
         data.addRows([
-                        ['Northern Electrics',  1.34963880043759,   2,  2,  3,  3,  3],
-                        ['Peninsula Massage',   1.11461495303138,   2,  2,  3,  3,  3],
-                        ['Big Bobs Mobility',   1.03466733329246,   2,  2,  3,  3,  3],
-                        ['Green Point Plastics',1.39174066850022,   2,  2,  3,  3,  3],
-                        ['Administrating',      1.89209623038058,   2,  2,  3,  3,  3],
-                        ['Growing',             1.89209623038058,   2,  2,  3,  3,  3]
+          ['Internal',                4,   2,  6,  2,  3,  3],
+          ['Northern Electrics',      4,   0,  2,  3,  1.5,  0],
+          ['Peninsula Massage',       3,   0,  2,  3,  1,  0],
+          ['Big Bobs Mobility',       2,   0,  0.2,  0,  0,  0],
+          ['Green Point Plastics',    2,   1,  0.2,  0,  0,  0],                        
+          ['James Thomas Gardening',  2,   0,  0.2,  1,  0,  0],
+          ['Illusive Blinks',         2,   0,  0.2,  0,  0.5,  0],
+          ['AXZ Manufacturing',       1,   1,  0,  0,  0.25,  0],
+          ['The T Shop'       ,       0.5, 0,  0,  0,  0,  0],                        
+          ['Hello Goodbye Cards',     0.5, 0,  0,  0,  0,  0],
+          ['We talk phones',          0.5, 0,  0,  0,  0,  0],
+          ['John & Sons Concrete',    0.5, 0,  0,  0,  0,  0],
+          ['Richmond Athletic',       0.5, 0,  0,  0,  0,  0]
         ";
     }
 
@@ -78,12 +103,19 @@ echo "<script type='text/javascript' name='time_charts_".$_GET['secondary_folder
         data.addColumn('number',   'Administrating');  
         data.addColumn('number',   'Growing');                
         data.addRows([
-            ['Northern Electrics',  1.34963880043759,   2,  2,  3,  3,  3],
-            ['Peninsula Massage',   1.11461495303138,   2,  2,  3,  3,  3],
-            ['Big Bobs Mobility',   1.03466733329246,   2,  2,  3,  3,  3],
-            ['Green Point Plastics',1.39174066850022,   2,  2,  3,  3,  3],
-            ['Administrating',      1.89209623038058,   2,  2,  3,  3,  3],
-            ['Growing',             1.89209623038058,   2,  2,  3,  3,  3]
+          ['Internal',                5,  2,  6,  2,  3,  3],
+          ['Northern Electrics',      18, 1,  2,  3,  1.5,  0],
+          ['Peninsula Massage',       15, 1,  2,  3,  1,  0],
+          ['Big Bobs Mobility',       8,  1,  0.2,  0,  0,  0],
+          ['Green Point Plastics',    6,  3,  0.2,  0,  0,  0],                        
+          ['James Thomas Gardening',  6,  1,  0.2,  1,  0,  0],
+          ['Illusive Blinks',         4,  1,  0.2,  0,  0.5,  0],
+          ['AXZ Manufacturing',       4,  2,  0,  0,  0.25,  0],
+          ['The T Shop'       ,       4,  1,  0,  0,  0,  0],                        
+          ['Hello Goodbye Cards',     3,  1,  0,  0,  0,  0],
+          ['We talk phones',          2,  0,  0,  0,  0,  0],
+          ['John & Sons Concrete',    2,  0,  0,  0,  0,  0],
+          ['Richmond Athletic',       1,  0,  0,  0,  0,  0]
         ";
     }
 
@@ -152,9 +184,13 @@ else{ echo "lineWidth:10,";}
             minValue: 0
           },
           
-                    series: {          
+                    series: {        
+                    0: { color: 'green', lineWidth: 3, lineDashStyle: [10, 2] }     ,    
                        1: { color: '#b5b5b5', lineWidth: 3, lineDashStyle: [10, 2] }     ,                
-                      2: { color: '#b5b5b5', lineWidth: 3, lineDashStyle: [10, 2] }
+                      2: { color: 'red', lineWidth: 3, lineDashStyle: [10, 2] } ,                
+                      3: { color: 'purple', lineWidth: 3, lineDashStyle: [10, 2] } ,                
+                      4: { color: 'black', lineWidth: 3, lineDashStyle: [10, 2] } ,                
+                      5: { color: 'orange', lineWidth: 3, lineDashStyle: [10, 2] }
                     
                     }
         };

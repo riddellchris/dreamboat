@@ -188,7 +188,9 @@ if(check_primary_folder('sales')){
 	$top_sub_menu_options = add_top_sub_menu_option('recurring_sales'	,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('potential_upsells'	,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('new_potentials'	,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('all'				,$top_sub_menu_options);	
+	$top_sub_menu_options = add_top_sub_menu_option('all'				,$top_sub_menu_options);
+	
+	/*
 	$top_sub_menu_options = add_top_sub_menu_option('worksheets'		,$top_sub_menu_options);	//this should only be visible if the pilot has activated a worksheet from this list
 	if(check_secondary_folder('worksheets')){	
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('client_product_matrix'				,$top_sub_sub_menu_options);	
@@ -200,6 +202,7 @@ if(check_primary_folder('sales')){
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('product_share'				,$top_sub_sub_menu_options);
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('average_client_growth_rate'	,$top_sub_sub_menu_options);						
 	}
+	*/
 
 }
 if(check_primary_folder('marketing')){
@@ -241,26 +244,29 @@ if(check_primary_folder('activities')){
 	$top_sub_menu_options = add_top_sub_menu_option('all'				,$top_sub_menu_options);
 	}
 if(check_primary_folder('time')){
+	//what has been put in here is simply ONLY because of 
+
+
 		$top_sub_menu_options = add_top_sub_menu_option('this_week'				,$top_sub_menu_options);
 		if(check_secondary_folder('this_week')){	
-			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
+			//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
 			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_client'			,$top_sub_sub_menu_options);		
 		}
 			//since last session?
 		$top_sub_menu_options = add_top_sub_menu_option('this_month'			,$top_sub_menu_options);
 		if(check_secondary_folder('this_month')){	
-			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
+			//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
 			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_client'			,$top_sub_sub_menu_options);	
-			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_revenue'			,$top_sub_sub_menu_options);					
+			//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_revenue'			,$top_sub_sub_menu_options);					
 		}
 
 
-		$top_sub_menu_options = add_top_sub_menu_option('past_year'			,$top_sub_menu_options);
-		if(check_secondary_folder('past_year')){	
-			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
+	//	$top_sub_menu_options = add_top_sub_menu_option('past_year'			,$top_sub_menu_options);
+		//if(check_secondary_folder('past_year')){	
+			//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
 			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_client'			,$top_sub_sub_menu_options);	
-			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_revenue'			,$top_sub_sub_menu_options);					
-		}	
+			//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_revenue'			,$top_sub_sub_menu_options);					
+		//}	
 	}
 
 if(check_primary_folder('upgrades')){
@@ -277,6 +283,8 @@ if(check_primary_folder('results')){
 //	$top_sub_menu_options = add_top_sub_menu_option('monthly'	,$top_sub_menu_options);
 //	if(check_secondary_folder('monthly')){
 		$top_sub_menu_options = add_top_sub_menu_option('kpis'				,$top_sub_menu_options);
+
+
 		if($_SESSION['viewing_client_sales_process_involvement_yes_no'] == 'yes'){
 		$top_sub_menu_options = add_top_sub_menu_option('sales'				,$top_sub_menu_options);	
 		}

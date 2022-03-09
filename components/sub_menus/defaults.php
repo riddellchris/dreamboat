@@ -47,6 +47,10 @@ if(!isset($_SESSION['time_page'])){						$_SESSION['time_page'] 					= 'this_wee
 	if(!isset($_SESSION['time_this_month_page'])){		$_SESSION['time_this_month_page'] 		= 'by_activity';}
 	if(!isset($_SESSION['time_past_year_page'])){		$_SESSION['time_past_year_page'] 		= 'by_revenue';}
 
+	if(!isset($_SESSION['time_this_week_page'])){		$_SESSION['time_this_week_page'] 		= 'by_activity';}
+	if(!isset($_SESSION['time_this_month_page'])){		$_SESSION['time_this_month_page'] 		= 'by_activity';}
+	if(!isset($_SESSION['time_past_year_page'])){		$_SESSION['time_past_year_page'] 		= 'by_revenue';}
+
 
 if(!isset($_SESSION['issues_page'])){					$_SESSION['issues_page'] 				= 'all';}
 if(!isset($_SESSION['opportunities_page'])){			$_SESSION['opportunities_page'] 		= 'all';}
