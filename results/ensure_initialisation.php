@@ -8,6 +8,9 @@ $items_to_initialise[$i] = 'income_target';         $i ++;
 $items_to_initialise[$i] = 'hours_worked';                 $i ++;
 $items_to_initialise[$i] = 'hours_worked_target';          $i ++;
 
+$items_to_initialise[$i] = 'commission';                 $i ++;
+$items_to_initialise[$i] = 'commission_target';          $i ++;
+
 $items_to_initialise[$i] = 'hours';                 $i ++;
 $items_to_initialise[$i] = 'hours_target';          $i ++;
 $items_to_initialise[$i] = 'productivity';          $i ++;
