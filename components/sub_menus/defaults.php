@@ -43,14 +43,14 @@ if(!isset($_SESSION['management_page'])){				$_SESSION['management_page'] 			= '
 if(!isset($_SESSION['wheelhouse_page'])){				$_SESSION['wheelhouse_page'] 			= 'tasks';}
 if(!isset($_SESSION['activities_page'])){				$_SESSION['activities_page'] 			= 'doing';}
 if(!isset($_SESSION['time_page'])){						$_SESSION['time_page'] 					= 'this_week';}
+	if(!isset($_SESSION['time_this_week_page'])){		$_SESSION['time_this_week_page'] 		= 'by_client';}
+	if(!isset($_SESSION['time_this_month_page'])){		$_SESSION['time_this_month_page'] 		= 'by_client';}
+	if(!isset($_SESSION['time_past_year_page'])){		$_SESSION['time_past_year_page'] 		= 'by_client';}
+/* where it should 
 	if(!isset($_SESSION['time_this_week_page'])){		$_SESSION['time_this_week_page'] 		= 'by_activity';}
 	if(!isset($_SESSION['time_this_month_page'])){		$_SESSION['time_this_month_page'] 		= 'by_activity';}
 	if(!isset($_SESSION['time_past_year_page'])){		$_SESSION['time_past_year_page'] 		= 'by_revenue';}
-
-	if(!isset($_SESSION['time_this_week_page'])){		$_SESSION['time_this_week_page'] 		= 'by_activity';}
-	if(!isset($_SESSION['time_this_month_page'])){		$_SESSION['time_this_month_page'] 		= 'by_activity';}
-	if(!isset($_SESSION['time_past_year_page'])){		$_SESSION['time_past_year_page'] 		= 'by_revenue';}
-
+*/
 
 if(!isset($_SESSION['issues_page'])){					$_SESSION['issues_page'] 				= 'all';}
 if(!isset($_SESSION['opportunities_page'])){			$_SESSION['opportunities_page'] 		= 'all';}

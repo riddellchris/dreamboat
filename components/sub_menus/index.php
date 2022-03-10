@@ -264,7 +264,7 @@ if(check_primary_folder('time')){
 	//	$top_sub_menu_options = add_top_sub_menu_option('past_year'			,$top_sub_menu_options);
 		//if(check_secondary_folder('past_year')){	
 			//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_activity'			,$top_sub_sub_menu_options);
-			$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_client'			,$top_sub_sub_menu_options);	
+			//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_client'			,$top_sub_sub_menu_options);	
 			//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('by_revenue'			,$top_sub_sub_menu_options);					
 		//}	
 	}

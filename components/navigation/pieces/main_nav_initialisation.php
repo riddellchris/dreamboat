@@ -7,53 +7,9 @@ if(isset($creating_new_user)){
 //else user_id variable comes from database_initialisation_processes
 
 $sql = "INSERT INTO user_main_nav_control
-        (   user_id,
-            walkthroughs,
-            data,
-            map,
-            hightlights,
-            overview,
-            insights,
-            profile,       
-            business,
-            network,
-            biz_dev,
-            management,
-            sales,
-            marketing,
-            wheelhouse,
-            activities,
-            time,
-            issues,        
-            upgrades, 
-            results, 
-            finances,            
-            messages,
-            notifications
+        (   user_id
         )
-        VALUES(
-            '".$user_id."',";
-            $sql .= " 'yes' , ";
-            $sql .= " 'yes' , ";     
-            $sql .= " 'no' , ";                
-            $sql .= " 'yes' , ";  
-            $sql .= " 'no' , ";  
-            $sql .= " 'yes' , "; 
-            $sql .= " 'no' , "; 
-            $sql .= " 'no' , "; 
-            $sql .= " 'yes' , "; 
-            $sql .= " 'no' , "; 
-            $sql .= " 'yes' , "; 
-            $sql .= " 'yes' , "; 
-            $sql .= " 'yes' , "; 
-            $sql .= " 'yes' , "; 
-            $sql .= " 'yes' , "; 
-            $sql .= " 'yes' , "; 
-            $sql .= " 'yes' , "; 
-            $sql .= " 'no' , "; 
-            $sql .= " 'no' , "; 
-            $sql .= " 'yes' , ";            
-            $sql .= " 'no'  )";              
+        VALUES(".$_SESSION['viewing_client_id'].")";              
 
 //echo $sql; exit();
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";

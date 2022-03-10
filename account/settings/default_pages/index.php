@@ -43,7 +43,7 @@ if($_SESSION['dreamboat_crew'] == 'yes'){
 
 $nav_name = "data"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 $nav_name = "map"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
-$nav_name = "insights"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+//$nav_name = "insights"; if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 $nav_name = "profile"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 
 
