@@ -100,10 +100,10 @@ p{font-family: Barlow Semi Condensed;}
 //.collapsible.active:hover {	background-color: #281e96;}
 
 .legal-big-title.collapsible:visited{		color: #white;}
-.legal-big-title.collapsible:visited:hover{	background-color: #281e96; color:white;}
-.legal-big-title.collapsible.hover:hover {	background-color: #281e96; color: white;}
-.legal-big-title.collapsible.active{		background-color: #99beff;}
-.legal-big-title.collapsible.active:hover {	background-color: #281e96; color: white;}
+.legal-big-title.collapsible:visited:hover{	background-color: ".$_SESSION['masked_domain_focus_colour']."; color:white;}
+.legal-big-title.collapsible.hover:hover {	background-color: ".$_SESSION['masked_domain_focus_colour']."; color: white;}
+.legal-big-title.collapsible.active{		background-color: ".$_SESSION['masked_domain_menu_tone_two'].";}
+.legal-big-title.collapsible.active:hover {	background-color: ".$_SESSION['masked_domain_focus_colour']."; color: white;}
 
 //.collapsible {  	transform: rotateY(0deg) rotate(-9deg); 			transition: transform 2s;}/* needs Y at 0 deg to behave properly*/
 //.collapsible.active{	transform: rotateY(0deg) rotate(9deg)  translate(0%, 20px);}

@@ -28,7 +28,7 @@ else{								$change_to 	= $_GET['to'];}
 $sql = "SELECT * FROM items_all 
 		WHERE found_in_database = '".mysqli_real_escape_string($conn, $database)."' 
 		AND item_id = '".mysqli_real_escape_string($conn, $item_id)."'";
-	echo $sql; exit();
+	//echo $sql; exit();
 
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -169,12 +169,12 @@ $sql = "	UPDATE ".mysqli_real_escape_string($conn, $database)."
 				//,
 				//primary_folder  	= '".$adjusted_primary_folder."',
 				//secondary_folder 	= '".$adjusted_secondary_folder."'";
-if($change_to == 'referrer'){		$sql .= ",referrer = 'yes'";}		
-if($change_to == 'non_referrer'){	$sql .= ",referrer = 'no'";}			
-if($change_to == 'deleted'){		$sql .= ",deleted = 'yes'";}		
-if($change_to == 'undeleted'){		$sql .= ",deleted = 'no'";}
-if($change_to == 'active'){			$sql .= ",status = 'yes'";}		
-if($change_to == 'resolved'){		$sql .= ",status = 'no'";}		
+if($change_to == 'referrer'){		$sql .= ",	referrer 	= 'yes'";}		
+if($change_to == 'non_referrer'){	$sql .= ",	referrer 	= 'no'";}			
+if($change_to == 'deleted'){		$sql .= ",	deleted 	= 'yes'";}		
+if($change_to == 'undeleted'){		$sql .= ",	deleted 	= 'no'";}
+if($change_to == 'active'){			$sql .= ",	status 		= 'yes'";}		
+if($change_to == 'resolved'){		$sql .= ",	status 		= 'no'";}		
 $sql .="	
 	WHERE 	user_id 	= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
 	AND 	item_id 	= '".mysqli_real_escape_string($conn, $item_id)."'";
@@ -300,7 +300,7 @@ $sql = "UPDATE 	discussion
 		
 mysqli_query($conn, $sql);
 
-echo "/".$adjusted_primary_folder."/".$adjusted_secondary_folder."/";exit();
+//echo "/".$adjusted_primary_folder."/".$adjusted_secondary_folder."/";exit();
 
 
 header("Location: /".$adjusted_primary_folder."/".$adjusted_secondary_folder."/item/display.php?item_id=".$item_id);

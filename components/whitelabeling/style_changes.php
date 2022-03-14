@@ -17,7 +17,7 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_logo_color']               = "#d6fc49";
                                                                 $_SESSION['masked_domain_logo_font_weight']         = "700";  
                                                                 $_SESSION['masked_domain_logo_text_transform']      = "none";
-                                                                $_SESSION['masked_domain_html_title']               = "Otto IT - Analytics";
+                                                                $_SESSION['masked_domain_html_title']               = "Otto Analytics";
     }
 	if($_SESSION['masked_domain'] == 'reliableaccountants'){	
                                                                 $_SESSION['masked_domain_primary_colour']           = " #121cf2 ";
@@ -34,7 +34,7 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_logo_color']               = "#2CDCF1";
                                                                 $_SESSION['masked_domain_logo_font_weight']         = "800";  
                                                                 $_SESSION['masked_domain_logo_text_transform']      = "none";
-                                                                $_SESSION['masked_domain_html_title']               = "Reliable Accountants - Analytics";
+                                                                $_SESSION['masked_domain_html_title']               = "Reliable Analytics";
     }	
 	if($_SESSION['masked_domain'] == 'orizonconsulting'){		$_SESSION['masked_domain_primary_colour']           = " #000000 ";
                                                                 $_SESSION['masked_domain_primary_colour_darker']    = " #004751 ";
@@ -50,8 +50,11 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_logo_font_weight']         = "700";  
                                                                 $_SESSION['masked_domain_logo_font_family']         = "Raleway";
                                                                 $_SESSION['masked_domain_logo_text_transform']      = "none";
-                                                                $_SESSION['masked_domain_html_title']               = "Orizon Consulting - Analytics";
+                                                                $_SESSION['masked_domain_html_title']               = "Orizon Analytics";
 	}
+
+    $_SESSION['masked_domain_html_title'] = $_SESSION['masked_domain_html_title']." by Dreamboat";
+
 }
 else{
     $_SESSION['masked_domain_primary_colour']           = " #4332ff ";

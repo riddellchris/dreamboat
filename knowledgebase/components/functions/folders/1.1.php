@@ -20,7 +20,7 @@ function primary_knowledgebase_menu_item($id, $pilot_only_yes_no){
 		echo "'";
 
 		echo " style = '";
-		if($_GET['secondary_folder'] == $id){ echo "color: red; font-weight: 700;";}
+		if($_GET['secondary_folder'] == $id){ echo "color: ".$_SESSION['masked_domain_highlight_colour']."; font-weight: 700;";}
 		if($id == 'start_slideshow'){ echo "background-color:ghostwhite;";}	
 		if($id == 'dot_dot_dot_divider'){ echo "text-decoration:none;";}		
 		echo "'";
@@ -48,7 +48,7 @@ function secondary_knowledgebase_menu_item($id, $pilot_only_yes_no){
 			
 		if($_GET['tertiary_folder'] != $id){echo " can_select ";}
 		echo "' style = 'padding-left:3vw;";
-		if($_GET['tertiary_folder'] == $id){ echo " color: red; font-weight: 700;"; }
+		if($_GET['tertiary_folder'] == $id){ echo " color: ".$_SESSION['masked_domain_highlight_colour']."; font-weight: 700;"; }
 		if($id == 'start_slideshow'){ echo " 	    background-color:ghostwhite;'"; }	
 		echo "'>".strip_underscores($id);
 		if($pilot_only_yes_no == 'yes'){echo " - PILOT ONLY";}
@@ -67,7 +67,7 @@ function tertiary_knowledgebase_menu_item($id, $pilot_only_yes_no){
 				
 			if($_GET['quarternary_folder'] != $id){echo " can_select ";}
 			echo "' style = 'padding-left:6vw;";
-			if($_GET['quarternary_folder'] == $id){ echo " color: red; font-weight: 700;"; }
+			if($_GET['quarternary_folder'] == $id){ echo " color: ".$_SESSION['masked_domain_highlight_colour']."; font-weight: 700;"; }
 			echo "'>".strip_underscores($id);
 			if($pilot_only_yes_no == 'yes'){echo " - PILOT ONLY";}
 			echo "</a>"; 

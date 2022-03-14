@@ -200,8 +200,13 @@ if(check_primary_folder('sales')){
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('top_10_client_share'			,$top_sub_sub_menu_options);
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('new_client_share'			,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('product_share'				,$top_sub_sub_menu_options);
-		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('average_client_growth_rate'	,$top_sub_sub_menu_options);						
-	}
+		//		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('average_client_growth_rate'	,$top_sub_sub_menu_options);						
+		//standard client trajectory is far more useful here than average client growth rate
+		//but for now this can probably just be left ouf
+		// all of these would need far more comparaitive data further back and better information about the client journey
+		//ass this will have changed over time / some bounding is crticial
+		//this is probably good after the bounding menu is completed
+}
 	*/
 
 }

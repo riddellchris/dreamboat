@@ -1,7 +1,15 @@
 <?php
 if(!isset($_SESSION)){session_start();}
-$current_version = "1.5";
+$current_version = "1.6";
 require dirname(__FILE__)."/".basename(__FILE__, ".php")."/".$current_version.".php";
+
+//1.6
+//has hidden unless logged in
+// and if masked then not displayed on pricing
+
+
+//1.5
+//has all time is tracked and billed accordingly
 
 //1.4
 //HAS conditions for launch

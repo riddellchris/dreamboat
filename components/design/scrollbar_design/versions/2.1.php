@@ -5,7 +5,8 @@ if(!isset($width)){$width = '20px';}
 //first layer width = 20
 //second layer width = 15
 
-if(!isset($background_color)){$background_color = $_SESSION['masked_domain_primary_colour'];}
+if(!isset($background_color)){$background_color	 = $_SESSION['masked_domain_primary_colour'];}
+if(!isset($hover_color)		){$hover_color		 = $_SESSION['masked_domain_primary_colour_darker'];}
 //first layer color 	= #281e96
 //second layer color 	= #5040ff
 
@@ -40,7 +41,7 @@ $shadow_color = "rgb(0 0 0 / 13%)";
 	
 	/* Handle on hover */
 	".$scrollbar_for."::-webkit-scrollbar-thumb:hover {
-	  background: #4332ff; 
+	  background: ".$hover_color."; 
 	}
 }
 
@@ -54,3 +55,6 @@ $shadow_color = "rgb(0 0 0 / 13%)";
 }
 </style>
 ";
+
+unset($background_color);
+unset($hover_color);
