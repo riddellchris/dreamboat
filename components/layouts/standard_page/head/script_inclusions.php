@@ -72,6 +72,31 @@ if(!isset($_SESSION)){session_start();}
 											 
 	if(check_folders_two_deep(	'sales','potential_upsells'	)){	require $_SERVER['DOCUMENT_ROOT']."/components/crm/funnel_calculations.php";
 										                        require $_SERVER['DOCUMENT_ROOT']."/components/crm/funnel_chart_script.php";}
+
+	if(check_folders_two_deep(	'sales','potential_upsells'	)){	require $_SERVER['DOCUMENT_ROOT']."/components/crm/funnel_calculations.php";
+																require $_SERVER['DOCUMENT_ROOT']."/components/crm/funnel_chart_script.php";}
+	
+	if(check_folders_two_deep(	'sales','insights'	)){	
+		if($_GET['tertiary_folder'] == 'new_client_share'){
+			if($_SESSION['sales']['insights']['new_client_share']['specific_view'] == 'demo_data'){
+				require $_SERVER['DOCUMENT_ROOT']."/sales/insights/new_client_share/demo_data/script.php";
+			}
+		}
+		if($_GET['tertiary_folder'] == 'top_10_client_share'){
+			if($_SESSION['sales']['insights']['top_10_client_share']['specific_view'] == 'demo_data'){
+				require $_SERVER['DOCUMENT_ROOT']."/sales/insights/top_10_client_share/demo_data/script.php";
+			}
+		}
+		if($_GET['tertiary_folder'] == 'product_share'){
+			if($_SESSION['sales']['insights']['product_share']['specific_view'] == 'demo_data'){
+				require $_SERVER['DOCUMENT_ROOT']."/sales/insights/product_share/demo_data/script.php";
+			}
+		}
+
+		require $_SERVER['DOCUMENT_ROOT']."/components/crm/funnel_calculations.php";
+	}
+
+
 										
 	if(check_folders_two_deep(	'management','clients'		)){	require $_SERVER['DOCUMENT_ROOT']."/components/crm/weekly_tracking_calculations.php";}
 	

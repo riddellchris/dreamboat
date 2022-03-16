@@ -10,6 +10,9 @@ function change_clients_to_appropriate_name($original_name){
 
 $number_of_top_sub_menu_options = count($top_sub_menu_options);
 
+
+require $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/views/styling.php";
+
 echo "
 <style>
 	.div_width{width:calc(100% / ".$number_of_top_sub_menu_options.");}";
@@ -133,7 +136,16 @@ if($top_sub_menu_options[$i] != 'display_no_menu'){
 			
 			//original and newer version shown here
 			//if($_SESSION[$if_content.$_GET['primary_folder'].'_page'] == $top_sub_menu_options[$i]){echo " highlighted";}
-			if($_GET['secondary_folder'] == $top_sub_menu_options[$i]){echo " highlighted";}
+			if($_GET['secondary_folder'] == $top_sub_menu_options[$i]){
+				
+				//not a permanent thing but trying to clean all of this up so it all works
+				if($_GET['primary_folder'] == 'sales' && $_SESSION['secondary_folder'] == 'insights'){
+					require $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/defaults.php";
+				}
+				else{
+					echo " highlighted"; // this is now the last thing we might display if 
+				}
+			}
 			else{
 
 				
@@ -150,12 +162,13 @@ if($top_sub_menu_options[$i] != 'display_no_menu'){
 			echo "'>";
 			echo $display_option[$i];
 
-			if($_SESSION['dreamboat_crew'] == 'yes'){
-				echo "<span>";
-					echo "&nbsp;&nbsp;<i class='fa fa-solid fa-eye'  style='font-size: 1em; color: Tomato;'></i>";
-					echo "<i class='fa fa-solid fa-eye'  style='font-size: 1em; color: Tomato;'></i>";
-				echo "</span>";
-			}
+			//none of this really works for changing the view
+			//the only sure fire answer is to set up clicking while selected to other views frankly
+			//if($_SESSION['dreamboat_crew'] == 'yes'){
+			//if($_GET['secondary_folder'] == $top_sub_menu_options[$i]){
+			//	echo "<a style='font-size: 1em; color: forestgreen;' href=='view_change.com'>change view;</a>";
+			//}
+				//}
 		echo "</a>";
 		}
 	}

@@ -15,7 +15,7 @@ admin_functions_in_pages_usage(__FUNCTION__,__FILE__);
 	echo "style='height: ".$height.";'></div>";
 
 	if($_GET['primary_folder'] == 'knowledgebase'){
-		echo "<div id='".$id."_print' 	 class='print_only google_chart_divs' 	style='margin-left:auto;margin-right:auto;height:500px;width:500px;'		></div>";
+		echo "<div id='".$id."_print' 	 class='print_only google_chart_divs' 	style='margin-left:auto;margin-right:auto;height:800px;width:1200px;'		></div>";
 		// style='width:".$width.";height:".$height.";'
 	}
 

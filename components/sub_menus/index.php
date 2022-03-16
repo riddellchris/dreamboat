@@ -190,11 +190,9 @@ if(check_primary_folder('sales')){
 	$top_sub_menu_options = add_top_sub_menu_option('new_potentials'	,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('all'				,$top_sub_menu_options);
 	
-	/*
-	$top_sub_menu_options = add_top_sub_menu_option('worksheets'		,$top_sub_menu_options);	//this should only be visible if the pilot has activated a worksheet from this list
-	if(check_secondary_folder('worksheets')){	
-		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('client_product_matrix'				,$top_sub_sub_menu_options);	
-	}
+	
+
+	
 	$top_sub_menu_options = add_top_sub_menu_option('insights'		,$top_sub_menu_options);	//this should only be visible if the pilot has activated a worksheet from this list
 	if(check_secondary_folder('insights')){	
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('top_10_client_share'			,$top_sub_sub_menu_options);
@@ -206,8 +204,11 @@ if(check_primary_folder('sales')){
 		// all of these would need far more comparaitive data further back and better information about the client journey
 		//ass this will have changed over time / some bounding is crticial
 		//this is probably good after the bounding menu is completed
-}
-	*/
+	}
+	$top_sub_menu_options = add_top_sub_menu_option('worksheets'		,$top_sub_menu_options);	//this should only be visible if the pilot has activated a worksheet from this list
+	if(check_secondary_folder('worksheets')){	
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('client_product_matrix'				,$top_sub_sub_menu_options);	
+	}	
 
 }
 if(check_primary_folder('marketing')){

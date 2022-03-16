@@ -42,10 +42,24 @@ if($sub_sub_number_of_menu_options > 0){
 		}
 		
 		echo "<a ";		
-			echo "href ='/components/sub_menus/sub_sub_menu/change.php?page=".$_GET['secondary_folder']."&to=".$top_sub_sub_menu_options[$i]."&primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."'";
+			echo "href ='/components/sub_menus/sub_sub_menu/change.php?page=".$_GET['secondary_folder']."&to=".$top_sub_sub_menu_options[$i];
+			if(isset($_GET['tertiary_folder'])){ echo "&from=".$_GET['tertiary_folder'];	}
+			echo "&primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."'";
 			echo "class='sub_sub_menu_div sub_sub_div_width ".$pilot_settings_class;
 			if(isset($_GET['tertiary_folder'])){
-				if($_GET['tertiary_folder'] == $top_sub_sub_menu_options[$i]){echo " highlighted ";}
+				if($_GET['tertiary_folder'] == $top_sub_sub_menu_options[$i]){
+					if($_GET['primary_folder'] == 'sales' ){
+						if($_GET['secondary_folder'] == 'insights' OR $_GET['secondary_folder'] == 'worksheets'){
+							if($_SESSION['sales'][$_GET['secondary_folder']][$_GET['tertiary_folder']]['specific_view'] == 'info'){				echo " info ";}
+							if($_SESSION['sales'][$_GET['secondary_folder']][$_GET['tertiary_folder']]['specific_view'] == 'designs'){			echo " designs ";}
+							if($_SESSION['sales'][$_GET['secondary_folder']][$_GET['tertiary_folder']]['specific_view'] == 'under_construction'){	echo " under_construction ";}
+							if($_SESSION['sales'][$_GET['secondary_folder']][$_GET['tertiary_folder']]['specific_view'] == 'demo_data'){			echo " demo_data ";}
+							if($_SESSION['sales'][$_GET['secondary_folder']][$_GET['tertiary_folder']]['specific_view'] == 'live_data'){			echo " live_data ";}
+						}
+					}
+					
+					echo " highlighted ";
+				}
 			}
 			if($_SESSION["user_alerts_".$_GET['primary_folder'].'_'.$_GET['secondary_folder'].'_'.$top_sub_sub_menu_options[$i]] == 'on'){echo " alert ";}	
 			echo "'>";

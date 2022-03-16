@@ -1,7 +1,6 @@
 <?php 
 //session start code is just few rows down on this page only
 
-
 if($_SERVER['SERVER_PORT'] == 8888){
 	header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 	header("Cache-Control: post-check=0, pre-check=0", false);
@@ -332,4 +331,45 @@ echo "
 		else{$sub_menus = 'on';}
 		
 		if($sub_menus == 'on'){	require $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/index.php";}
+
+
+		if(		$_GET['primary_folder'] 	== 'sales' 				
+				//&&
+				//$_GET['tertiary_folder'] 	== 'top_10_client_share'
+				){	
+			require $_SERVER['DOCUMENT_ROOT']."/map/components/warnings/styling.php";	
+			if(isset($_GET['tertiary_folder'])){
+				echo "<div id='warnings_box'>";
+					if($_GET['tertiary_folder'] == 'top_10_client_share'){	
+						if($_SESSION['sales']['insights']['top_10_client_share']['specific_view'] == 'info'){				echo "General info";}
+						if($_SESSION['sales']['insights']['top_10_client_share']['specific_view'] == 'designs'){			echo "Current designs";}
+						if($_SESSION['sales']['insights']['top_10_client_share']['specific_view'] == 'under_construction'){	echo "Under Construction";}
+						if($_SESSION['sales']['insights']['top_10_client_share']['specific_view'] == 'demo_data'){			echo "Demo data";}
+						if($_SESSION['sales']['insights']['top_10_client_share']['specific_view'] == 'live_data'){			echo "Live data";}
+					}
+					if($_GET['tertiary_folder'] == 'new_client_share'){	
+						if($_SESSION['sales']['insights']['new_client_share']['specific_view'] == 'info'){					echo "General info";}
+						if($_SESSION['sales']['insights']['new_client_share']['specific_view'] == 'designs'){				echo "Current designs";}
+						if($_SESSION['sales']['insights']['new_client_share']['specific_view'] == 'under_construction'){	echo "Under Construction";}
+						if($_SESSION['sales']['insights']['new_client_share']['specific_view'] == 'demo_data'){				echo "Demo data";}
+						if($_SESSION['sales']['insights']['new_client_share']['specific_view'] == 'live_data'){				echo "Live data";}
+					}
+					if($_GET['tertiary_folder'] == 'product_share'){	
+						if($_SESSION['sales']['insights']['product_share']['specific_view'] == 'info'){					echo "General info";}
+						if($_SESSION['sales']['insights']['product_share']['specific_view'] == 'designs'){				echo "Current designs";}
+						if($_SESSION['sales']['insights']['product_share']['specific_view'] == 'under_construction'){	echo "Under Construction";}
+						if($_SESSION['sales']['insights']['product_share']['specific_view'] == 'demo_data'){			echo "Demo data";}
+						if($_SESSION['sales']['insights']['product_share']['specific_view'] == 'live_data'){			echo "Live data";}
+					}
+					if($_GET['tertiary_folder'] == 'client_product_matrix'){	
+						if($_SESSION['sales']['worksheets']['client_product_matrix']['specific_view'] == 'info'){				echo "General info";}
+						if($_SESSION['sales']['worksheets']['client_product_matrix']['specific_view'] == 'designs'){			echo "Current designs";}
+						if($_SESSION['sales']['worksheets']['client_product_matrix']['specific_view'] == 'under_construction'){	echo "Under Construction";}
+						if($_SESSION['sales']['worksheets']['client_product_matrix']['specific_view'] == 'demo_data'){			echo "Demo data";}
+						if($_SESSION['sales']['worksheets']['client_product_matrix']['specific_view'] == 'live_data'){			echo "Live data";}
+					}
+				echo "</div>";
+			}
+		}
+
 		?>

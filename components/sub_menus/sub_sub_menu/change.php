@@ -19,6 +19,10 @@ $to = $_GET['to'];
 
 $_SESSION[$if_content.$page_name.'_page'] = $to;
 
+if($_GET['to'] == $_GET['from']){
+$changed = 'no';
+require $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/sub_sub_menu/change/views.php";
+}
 
 
 

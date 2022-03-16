@@ -1,23 +1,7 @@
-<style>
-
-#warnings_box{
-    color: #4332ff; 
-    position: fixed; 
-    top: 155; 
-    width: 400px; 
-    left: calc(50% - 200px);
-    text-align:center; 
-    text-transform:uppercase;
-    font-family: helvetica;
-    z-index: 3000000;
-}
-
-
-#body:fullscreen 		#warnings_box       {  		top:  10;}
-</style>
-
 <?php
 if(!isset($_SESSION)){session_start();}
+
+require $_SERVER['DOCUMENT_ROOT']."/map/components/warnings/styling.php";
 
 //these will change with each display for each user
 //while clearly linked to sliding layers it should probably / for code cleanliness and simpliciy be done with all separate code

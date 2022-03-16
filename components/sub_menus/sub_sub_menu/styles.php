@@ -26,8 +26,10 @@ echo "
 		height:100%;
 		text-align:center;
 		font-size:16px;
+		
 	}
 }
+
 ";
 
 
@@ -55,6 +57,7 @@ echo "
 		height:100%;
 		text-align:center;
 		font-size:16px;
+		margin-top: -8px;
 	}
 }
 @media screen and (min-width: 950px) {
