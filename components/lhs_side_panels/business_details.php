@@ -82,7 +82,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_business_name']
 	//if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='Who is in the family of this person?&#10;What influence do they have on the business if any?&#10;How supportive are they?'";}
 	//else{echo "placeholder='Who is in your family?&#10;How are they helping?&#10;How supportive are they?'";}
 	?>
-	><?php echo $row['strengths'];?></textarea><br>
+	><?php if(isset($row['strengths'])){echo $row['strengths'];}?></textarea><br>
 		<a class='to_history' href='/business/view_history.php?view=weaknesses'>< Weaknesses</a><br>	
 	<textarea rows='4' 	class='secure_input standard_textarea'  name='weaknesses' 			
 	<?php
@@ -94,7 +94,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_business_name']
 	//if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='Who is in the family of this person?&#10;What influence do they have on the business if any?&#10;How supportive are they?'";}
 	//else{echo "placeholder='Who is in your family?&#10;How are they helping?&#10;How supportive are they?'";}
 	?>
-	><?php echo $row['weaknesses'];?></textarea><br>	
+	><?php if(isset($row['weaknesses'])){echo $row['weaknesses'];} ?></textarea><br>	
 		<a class='to_history' href='/business/view_history.php?view=opportunities'>< Opportunities</a><br>	
 	<textarea rows='4' 	class='secure_input standard_textarea'  name='opportunities' 			
 	<?php
@@ -106,7 +106,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_business_name']
 	//if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='Who is in the family of this person?&#10;What influence do they have on the business if any?&#10;How supportive are they?'";}
 	//else{echo "placeholder='Who is in your family?&#10;How are they helping?&#10;How supportive are they?'";}
 	?>
-	><?php echo $row['opportunities'];?></textarea><br>
+	><?php if(isset($row['opportunities'])){echo $row['opportunities'];} ?></textarea><br>
 		<a class='to_history' href='/business/view_history.php?view=threats'>< Threats</a><br>	
 	<textarea rows='4' 	class='secure_input standard_textarea'  name='threats' 			
 	<?php
@@ -118,7 +118,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_business_name']
 	//if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='Who is in the family of this person?&#10;What influence do they have on the business if any?&#10;How supportive are they?'";}
 	//else{echo "placeholder='Who is in your family?&#10;How are they helping?&#10;How supportive are they?'";}
 	?>
-	><?php echo $row['threats'];?></textarea><br>	
+	><?php if(isset($row['threats'])){echo $row['threats'];} ?></textarea><br>	
 		<a class='to_history' href='/business/view_history.php?view=competitors'>< Competitors</a><br>	
 	<textarea rows='4' 	class='secure_input standard_textarea'  name='competitors' 			
 	<?php
@@ -130,14 +130,14 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_business_name']
 	//if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='Who is in the family of this person?&#10;What influence do they have on the business if any?&#10;How supportive are they?'";}
 	//else{echo "placeholder='Who is in your family?&#10;How are they helping?&#10;How supportive are they?'";}
 	?>
-	><?php echo $row['competitors'];?></textarea><br>	
+	><?php if(isset($row['competitors'])){echo $row['competitors'];} ?></textarea><br>	
 
 	
 	<a class='to_history' href='/business/view_history.php?view=other_business_notes'>< Other</a><br>	
 	<textarea rows='4' 	class='secure_input standard_textarea'  name='other_business_notes' 	
 	placeholder='Are there any other things that are of importance?&#10;Whatever it is... write it here!'
 	title='Are there any other things that are of importance?&#10;Whatever it is... write it here!'	
-	><?php echo $row['other_business_notes'];?></textarea><br>	
+	><?php if(isset($row['other_business_notes'])){echo $row['other_business_notes'];} ?></textarea><br>	
 	
 	<input type = 'submit' class='login-submit'  style='max-width:1100px;width: calc(100% - 60px);margin-top:25px;' value='update'>
 	</form>

@@ -32,7 +32,7 @@ $revenue_at_40_to_50_percent	= 0;
 $revenue_at_30_to_40_percent	= 0;
 $revenue_at_20_to_30_percent	= 0;
 $revenue_at_10_to_20_percent	= 0;
-$revenue_at_0_to_10_percent	= 0;
+$revenue_at_0_to_10_percent		= 0;
 
 $weighted_funnel = 0;
 

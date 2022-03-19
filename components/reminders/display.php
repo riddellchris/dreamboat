@@ -8,13 +8,23 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 
 
 	$sql = "SELECT * FROM reminders 
-		WHERE
-		for_user_id			= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 	AND
-		primary_folder 		= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."' 		AND
-		secondary_folder 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' 	AND		
-		tertiary_folder 	= '".mysqli_real_escape_string($conn, $_GET['tertiary_folder'])."' 		AND
-		item_id				= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'
-		ORDER BY reminder_id DESC LIMIT 1";
+			WHERE
+			for_user_id			= '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' 	AND
+			primary_folder 		= '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."' 		AND
+			secondary_folder 	= '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."' 	";
+
+if(isset($_GET['tertiary_folder'])){			
+		$sql .= "		
+			AND		
+			tertiary_folder 	= '".mysqli_real_escape_string($conn, $_GET['tertiary_folder'])."' 		";}
+
+if(isset($_GET['item_id'])){
+		$sql .= "		
+			AND
+			item_id				= '".mysqli_real_escape_string($conn, $_GET['item_id'])."'";}
+
+	$sql .= "		
+			ORDER BY reminder_id DESC LIMIT 1";
 	//if the date is beyond today //should probably show that somehow
 
 //	echo $sql;exit();
@@ -32,61 +42,67 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 			if($_GET['secondary_folder'] == 'wellbeing'){		$checking_up_on = "your ".$_GET['tertiary_folder'];}
 			else{												$checking_up_on = "your ".$_GET['secondary_folder'];}
 		}
+
+	$is_item_in_reminders = 'no';
+	if(isset($_GET['tertiary_folder'])){
+		if($is_item_in_reminders == 'yes'){$is_item_in_reminders == 'yes';}
+	}
+
 	if($_GET['primary_folder'] == 'business'){
-			if($_GET['tertiary_folder'] != 'item'){	
+			if($is_item_in_reminders == 'no'){	
 				if($_GET['secondary_folder'] == 'products'	){	$checking_up_on = "your products";}	
 				if($_GET['secondary_folder'] == 'services'	){	$checking_up_on = "your services";}
 			}
-			if($_GET['tertiary_folder'] == 'item'){	
+			if($is_item_in_reminders == 'yes'){	
 				if($_GET['secondary_folder'] == 'products'	){	$checking_up_on = "this product";}	
 				if($_GET['secondary_folder'] == 'services'	){	$checking_up_on = "this service";}			
 			}											
 		}	
 	if($_GET['primary_folder'] == 'network'){
-			if($_GET['tertiary_folder'] != 'item'){	
+			if($is_item_in_reminders == 'no'){	
 				if($_GET['secondary_folder'] == 'groups'){		$checking_up_on = "your groups";}	
 				if($_GET['secondary_folder'] == 'businesses'){	$checking_up_on = "your businesses";}		
 				if($_GET['secondary_folder'] == 'people'){		$checking_up_on = "your people";}
 			}
-			if($_GET['tertiary_folder'] == 'item'){	
+			if($is_item_in_reminders == 'yes'){	
 				if($_GET['secondary_folder'] == 'groups'){		$checking_up_on = "this group";}	
 				if($_GET['secondary_folder'] == 'businesses'){	$checking_up_on = "this business";}		
 				if($_GET['secondary_folder'] == 'people'){		$checking_up_on = "this person";}
 			}		
 		}
 	if($_GET['primary_folder'] == 'biz_dev'){
-			if($_GET['tertiary_folder'] != 'item'){			
+			if($is_item_in_reminders == 'no'){			
 				if($_GET['secondary_folder'] == 'events'){		$checking_up_on = "this event";}	
 				if($_GET['secondary_folder'] == 'one_to_ones'){	$checking_up_on = "this one to one";}	
 				if($_GET['secondary_folder'] == 'referrers'){	$checking_up_on = "this referrer";}
 			}
-			if($_GET['tertiary_folder'] == 'item'){			
+			if($is_item_in_reminders == 'yes'){			
 				if($_GET['secondary_folder'] == 'events'){		$checking_up_on = "your events";}	
 				if($_GET['secondary_folder'] == 'one_to_ones'){	$checking_up_on = "your one to ones";}	
 				if($_GET['secondary_folder'] == 'referrers'){	$checking_up_on = "your referrers";}
 			}
 		}
 	if($_GET['primary_folder'] == 'sales'){
-			if($_GET['tertiary_folder'] != 'item'){
+			if($is_item_in_reminders == 'no'){
 				if($_GET['secondary_folder'] == 'new_potentials'){		$checking_up_on = "these new potential sales";}		
 				if($_GET['secondary_folder'] == 'potential_upsells'){	$checking_up_on = "these potential upsells";}	
 				if($_GET['secondary_folder'] == 'recurring_sales'){		$checking_up_on = "these recurring sales";}
 			}
 
-			if($_GET['tertiary_folder'] == 'item'){
+			if($is_item_in_reminders == 'yes'){
 				if($_GET['secondary_folder'] == 'new_potentials'){		$checking_up_on = "this new potential sale";}		
 				if($_GET['secondary_folder'] == 'potential_upsells'){	$checking_up_on = "this potential upsell";}	
 				if($_GET['secondary_folder'] == 'recurring_sales'){		$checking_up_on = "this recurring sale";}
 			}		
 		}		
 	if($_GET['primary_folder'] == 'marketing'){
-			if($_GET['tertiary_folder'] != 'item'){	
+			if($is_item_in_reminders == 'no'){	
 				if($_GET['secondary_folder'] == 'target_markets'){	$checking_up_on = "these target markets";}		
 				if($_GET['secondary_folder'] == 'channels'){		$checking_up_on = "these marketing channels";}	
 				if($_GET['secondary_folder'] == 'angles'){			$checking_up_on = "these marketing angles";}	
 				if($_GET['secondary_folder'] == 'promotions'){		$checking_up_on = "these promotions";}
 			}	
-			if($_GET['tertiary_folder'] == 'item'){	
+			if($is_item_in_reminders == 'yes'){	
 				if($_GET['secondary_folder'] == 'target_markets'){	$checking_up_on = "this target market";}		
 				if($_GET['secondary_folder'] == 'channels'){		$checking_up_on = "this marketing channel";}	
 				if($_GET['secondary_folder'] == 'angles'){			$checking_up_on = "this marketing angle";}	
@@ -94,7 +110,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 			}				
 		}		
 	if($_GET['primary_folder'] == 'wheelhouse'){
-		if($_GET['tertiary_folder'] != 'item'){
+		if($is_item_in_reminders == 'no'){
 			if($_GET['secondary_folder'] == 'dreams'	){	$checking_up_on = "your dreams";}		
 			if($_GET['secondary_folder'] == 'goals'	){		$checking_up_on = "your goals";}	
 			if($_GET['secondary_folder'] == 'milestones'){	$checking_up_on = "your milestones";}	
@@ -112,14 +128,14 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	}
 	if($_GET['primary_folder'] == 'time'){						$checking_up_on = "your time";}
 	if($_GET['primary_folder'] == 'management'){
-			if($_GET['tertiary_folder'] != 'item'){	
+			if($is_item_in_reminders == 'no'){	
 				if($_GET['secondary_folder'] == 'other'		){	$checking_up_on = "your other management areas";}		
 				if($_GET['secondary_folder'] == 'assets'	){	$checking_up_on = "your assets";}	
 				if($_GET['secondary_folder'] == 'systems'	){	$checking_up_on = "your systems";}	
 				if($_GET['secondary_folder'] == 'staff'		){	$checking_up_on = "your staff";}
 				if($_GET['secondary_folder'] == 'clients'	){	$checking_up_on = "your clients";}	
 			}
-			if($_GET['tertiary_folder'] == 'item'){
+			if($is_item_in_reminders == 'yes'){
 				if($_GET['secondary_folder'] == 'other'		){	$checking_up_on = "this management area";}		
 				if($_GET['secondary_folder'] == 'assets'	){	$checking_up_on = "this business assets";}	
 				if($_GET['secondary_folder'] == 'systems'	){	$checking_up_on = "this systems";}	
@@ -137,12 +153,12 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 			if($_GET['secondary_folder'] == 'productivity'			){	$checking_up_on = "your productivity";}								
 		}
 	if($_GET['primary_folder'] == 'improvements'){
-			if($_GET['tertiary_folder'] != 'item'){	
+			if($is_item_in_reminders == 'no'){	
 				if($_GET['secondary_folder'] == 'planned'	){	$checking_up_on = "your planned improvements";}		
 				if($_GET['secondary_folder'] == 'underway'	){	$checking_up_on = "your underway improvements";}	
 				if($_GET['secondary_folder'] == 'completed'	){	$checking_up_on = "your completed improvements";}	
 			}
-			if($_GET['tertiary_folder'] == 'item'){
+			if($is_item_in_reminders == 'yes'){
 				if($_GET['secondary_folder'] == 'planned'	){	$checking_up_on = "this planned improvement";}		
 				if($_GET['secondary_folder'] == 'underway'	){	$checking_up_on = "this underway improvement";}	
 				if($_GET['secondary_folder'] == 'completed'	){	$checking_up_on = "this completed improvement";}		
@@ -151,7 +167,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 
 
 
-
+		unset($is_item_in_reminders);
 
 
 	echo "<div style='width:100%;text-align:center;font-family:Comfortaa;color:#281e96;margin-top:20px;'>";

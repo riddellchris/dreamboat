@@ -7,12 +7,13 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $id_to_check = mysqli_real_escape_string($conn, $_GET['item_id']);
 
-$sql = "SELECT * FROM improvements WHERE item_id = '".$id_to_check."'";
+$sql = "SELECT * FROM upgrades WHERE item_id = '".$id_to_check."'";
+//echo $sql; exit();
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 if($row['mode'] == 'planned'){	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/items_with_sidebars/display.php";}
-if($row['mode'] == 'underway'){	$_SESSION['improvements_page']	= 'underway';	header("Location: /improvements/underway/item/display.php?item_id=".$id_to_check);exit();}
-if($row['mode'] == 'completed'){$_SESSION['improvements_page']	= 'completed';	header("Location: /improvements/completed/item/display.php?item_id=".$id_to_check);exit();}
+if($row['mode'] == 'underway'){	$_SESSION['upgrades_page']	= 'underway';	header("Location: /upgrades/underway/item/display.php?item_id=".$id_to_check);exit();}
+if($row['mode'] == 'completed'){$_SESSION['upgrades_page']	= 'completed';	header("Location: /upgrades/completed/item/display.php?item_id=".$id_to_check);exit();}
 
 ?>

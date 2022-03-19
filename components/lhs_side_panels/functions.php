@@ -1,6 +1,6 @@
 <?php
 //edit the titles - done
-if(!function_exists(lhs_side_bar_block)){
+if(!function_exists('lhs_side_bar_block')){
 	function lhs_side_bar_block($descriptor,
 				    $display_descriptor, 
 				    $title_placeholder,
@@ -9,6 +9,8 @@ if(!function_exists(lhs_side_bar_block)){
 		<textarea rows='4'  class='secure_input standard_textarea'  name='".$descriptor."'   	
 		placeholder='".$title_placeholder."'	
 		title='".$title_placeholder."'
-		>".$row[$descriptor]."</textarea><br>";
+		>";
+		if(isset($row[$descriptor])){ echo $row[$descriptor];}
+		echo "</textarea><br>";
 	}
 }

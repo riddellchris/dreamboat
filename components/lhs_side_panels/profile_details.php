@@ -23,7 +23,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_first_name']." 
 	if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='What is this persons backstory?&#10;How does it impact the business direction?&#10;What good is that & what bad is that?'";}
 	else{echo "placeholder='What is your backstory?&#10;How is it influencing your direction?&#10;How is it influencing your passions?'";}
 	?>		
-	><?php echo $row['backstory'];?></textarea><br>
+	><?php if(isset($row['backstory'])){echo $row['backstory'];} ?></textarea><br>
 
 
 	<a class='to_history' href='/profile/view_history.php?view=skills'>< Skills</a><br>	
@@ -34,7 +34,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_first_name']." 
 	echo " title='".$title_and_placeholder."' ";
 	echo " placeholder = '".$title_and_placeholder."'";
 	?>
-	><?php echo $row['skills'];?></textarea><br>
+	><?php if(isset($row['skills'])){echo $row['skills'];} ?></textarea><br>
 <a class='to_history' href='/profile/view_history.php?view=training'>< Training</a><br>	
 	<textarea rows='4' 	class='secure_input standard_textarea'  name='training' 
 	
@@ -46,7 +46,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_first_name']." 
 	//if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='Who is in the family of this person?&#10;What influence do they have on the business if any?&#10;How supportive are they?'";}
 	//else{echo "placeholder='Who is in your family?&#10;How are they helping?&#10;How supportive are they?'";}
 	?>
-	><?php echo $row['training'];?></textarea><br>	
+	><?php if(isset($row['training'])){echo $row['training'];} ?></textarea><br>	
 	
 	
 		<a class='to_history' href='/profile/view_history.php?view=obsessions'>< Obsessions</a><br>	
@@ -60,7 +60,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_first_name']." 
 	//if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='Who is in the family of this person?&#10;What influence do they have on the business if any?&#10;How supportive are they?'";}
 	//else{echo "placeholder='Who is in your family?&#10;How are they helping?&#10;How supportive are they?'";}
 	?>
-	><?php echo $row['obsessions'];?></textarea><br>
+	><?php if(isset($row['obsessions'])){echo $row['obsessions'];} ?></textarea><br>
 	
 
 <!--
@@ -72,7 +72,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_first_name']." 
 	if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='What friends does this person have?&#10;What are they learning from them?&#10;Where are they going as a result?'";}
 	else{echo "placeholder='Who are your work friends?&#10;How are they helping?&#10;What might they be hindering?'";}
 	?>
-	><?php echo $row['friends'];?></textarea><br>
+	><?php if(isset($row['friends'])){echo $row['friends'];} ?></textarea><br>
 	<a class='to_history' href='/profile/view_history.php?view=family'>< Family</a><br>	
 	<textarea rows='4' 	class='secure_input standard_textarea'  name='family' 		
 	<?php
@@ -81,9 +81,7 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_first_name']." 
 	if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='Who is in the family of this person?&#10;What influence do they have on the business if any?&#10;How supportive are they?'";}
 	else{echo "placeholder='Who is in your family?&#10;How are they helping?&#10;How supportive are they?'";}
 	?>
-	><?php echo $row['family'];?></textarea><br>-->
-
-
+	><?php if(isset($row['family'])){echo $row['family'];} ?></textarea><br>-->
 
 	<a class='to_history' href='/profile/view_history.php?view=hobbies'>< Hobbies</a><br>	
 	<textarea rows='4' 	class='secure_input standard_textarea'  name='hobbies' 	
@@ -95,17 +93,13 @@ else{echo "<div class='details-font'>".$_SESSION['viewing_client_first_name']." 
 	if($_SESSION['dreamboat_crew'] == 'yes'){echo "placeholder='What hobbies does this person have?&#10;How are they a reward for hard work?&#10;How are they a reward for good work?'";}
 	else{echo "placeholder='What hobbies do you have?&#10;How are they a reward for hard work?&#10;How are they a reward for good work?'";}
 	?>	
-	
-	
-	><?php echo $row['hobbies'];?></textarea><br>
-
-	
+	><?php if(isset($row['hobbies'])){echo $row['hobbies'];} ?></textarea><br>
 	
 	<a class='to_history' href='/profile/view_history.php?view=other_notes'>< Other</a><br>	
 	<textarea rows='4' 	class='secure_input standard_textarea'  name='other_notes' 	
 	placeholder='Are there any other things that are of importance?&#10;Whatever it is... write it here!'
 	title='Are there any other things that are of importance?&#10;Whatever it is... write it here!'	
-	><?php echo $row['other_notes'];?></textarea><br>	
+	><?php if(isset($row['other_notes'])){echo $row['other_notes'];} ?></textarea><br>	
 	
 	<input type = 'submit' class='login-submit'  style='max-width:1100px;width: calc(100% - 60px);margin-top:25px;' value='update'>
 	</form>

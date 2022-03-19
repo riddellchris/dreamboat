@@ -35,7 +35,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 <?php
 //edit the titles - done
-if(!function_exists(lhs_side_bar_block)){
+if(!function_exists('lhs_side_bar_block')){
 	function lhs_side_bar_block($descriptor,
 				    $display_descriptor, 
 				    $title_placeholder,
@@ -44,7 +44,9 @@ if(!function_exists(lhs_side_bar_block)){
 		<textarea rows='4'  class='secure_input standard_textarea'  name='".$descriptor."'   	
 		placeholder='".$title_placeholder."'	
 		title='".$title_placeholder."'
-		>".$row[$descriptor]."</textarea><br>";
+		>";
+		if(isset($row[$descriptor])){ echo $row[$descriptor];}
+		echo "</textarea><br>";
 	}
 }
 
@@ -80,7 +82,7 @@ lhs_side_bar_block('target_market',
 	<textarea rows='4' class='secure_input standard_textarea'   name='other_marketing_notes' 		
 	placeholder='Are there any other things that are of importance?&#10;Whatever it is... write it here!'
 	title='Are there any other things that are of importance?&#10;Whatever it is... write it here!'
-	><?php echo $row['other_marketing_notes'];?></textarea><br>	
+	><?php if(isset($row['other_marketing_notes'])){echo $row['other_marketing_notes'];}?></textarea><br>	
 
 
 	
