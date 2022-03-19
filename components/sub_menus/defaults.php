@@ -41,6 +41,7 @@ if(!isset($_SESSION['sales_page'])){					$_SESSION['sales_page'] 				= 'all';}
 if(!isset($_SESSION['marketing_page'])){				$_SESSION['marketing_page'] 			= 'promotions';}
 if(!isset($_SESSION['management_page'])){				$_SESSION['management_page'] 			= 'clients';}
 if(!isset($_SESSION['wheelhouse_page'])){				$_SESSION['wheelhouse_page'] 			= 'tasks';}
+if(!isset($_SESSION['wheelhouse_insights_page'])){		$_SESSION['wheelhouse_insights_page'] 	= 'wip_valuation';}
 if(!isset($_SESSION['activities_page'])){				$_SESSION['activities_page'] 			= 'doing';}
 if(!isset($_SESSION['time_page'])){						$_SESSION['time_page'] 					= 'this_week';}
 	if(!isset($_SESSION['time_this_week_page'])){		$_SESSION['time_this_week_page'] 		= 'by_client';}
@@ -57,8 +58,12 @@ if(!isset($_SESSION['opportunities_page'])){			$_SESSION['opportunities_page'] 	
 if(!isset($_SESSION['improvements_page'])){				$_SESSION['improvements_page'] 			= 'all';}
 if(!isset($_SESSION['upgrades_page'])){					$_SESSION['upgrades_page'] 				= 'underway';}
 if(!isset($_SESSION['results_page'])){					$_SESSION['results_page'] 				= 'productivity';}
-if(!isset($_SESSION['finances_page'])){					$_SESSION['finances_page'] 				= 'actuals';}
-	if(!isset($_SESSION['finances_margins_page'])){		$_SESSION['finances_margins_page'] 		= 'overall';}
+if(!isset($_SESSION['finances_page'])){					$_SESSION['finances_page'] 				= 'cashflow';}
+
+	if(!isset($_SESSION['finances_cashflow_page'])){			$_SESSION['finances_cashflow_page'] 		= 'actuals';}
+	if(!isset($_SESSION['finances_profit_and_loss_page'])){		$_SESSION['finances_profit_and_loss_page'] 	= 'actuals';}
+	if(!isset($_SESSION['finances_balance_sheet_page'])){		$_SESSION['finances_balance_sheet_page'] 	= 'actuals';}
+	if(!isset($_SESSION['finances_worksheets_page'])){			$_SESSION['finances_worksheets_page'] 		= 'margins';}
 
 if(!isset($_SESSION['messages_page'])){					$_SESSION['messages_page'] 				= 'all';}
 if(!isset($_SESSION['notifications_page'])){			$_SESSION['notifications_page'] 		= 'alerts';}

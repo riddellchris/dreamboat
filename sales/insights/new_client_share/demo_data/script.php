@@ -51,7 +51,7 @@
                   fontSize: 20 // 12, 18 whatever you want (don't specify px)
               },
           'chartArea': {'width': '90%', 'height': '90%'},
-          legend: {position: 'top', alignment: 'start'},
+          legend: {position: 'bottom', alignment: 'center'},
           hAxis: {
             textStyle : {
                 fontName: 'Barlow Semi Condensed',
@@ -97,8 +97,9 @@
                         textStyle : {
                 fontName: 'Barlow Semi Condensed',
                 bold: true
-            },   
+            },  
             
+                format: 'percent',
             gridlines: {color: 'none'}}
 
         };

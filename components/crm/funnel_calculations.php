@@ -12,12 +12,11 @@ $mode = $_GET['secondary_folder'];
 //}
 
 $sql = "SELECT * FROM sales 
-	WHERE user_id = '".$user_to_view."'
-	AND category = '".$mode."'
-	AND status = 'active'
-	AND deleted = 'no'
-	
-	";
+		WHERE user_id 			= '".$user_to_view."'
+		AND category 			= '".$mode."'
+		AND status 				= 'active'
+		AND deleted 			= 'no'
+		";
 
 //	echo $sql;
 //	exit();

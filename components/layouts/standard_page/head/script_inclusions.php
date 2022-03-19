@@ -103,6 +103,10 @@ if(!isset($_SESSION)){session_start();}
 	if(check_primary_folder(	'activities'		)){	require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/numerical_planning/charts/script.php";}						
 	if(check_primary_folder(	'issues'			)){	require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/numerical_planning/charts/script.php";}	
 	if(check_primary_folder(	'upgrades'			)){	require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/numerical_planning/charts/script.php";}	
+
+	if(check_primary_folder(	'wheelhouse'		)){	require $_SERVER['DOCUMENT_ROOT']."/wheelhouse/insights/wip_valuation/script.php";}	
+
+
 	
 	if(	check_folders_two_deep('knowledgebase','system') 	  && 
 		$_GET['tertiary_folder'] 	== 'versions'		){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/system/versions/chart_script/current_version.php";}	

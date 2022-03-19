@@ -231,7 +231,11 @@ if(check_primary_folder('wheelhouse')){
 	$top_sub_menu_options = add_top_sub_menu_option('goals'			,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('milestones'	,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('tasks'			,$top_sub_menu_options);
-	}
+	$top_sub_menu_options = add_top_sub_menu_option('insights'		,$top_sub_menu_options);	
+	if(check_secondary_folder('insights')){	
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('wip_valuation'				,$top_sub_sub_menu_options);	
+	}	
+}
 
 if(check_primary_folder('issues')){
 	$top_sub_menu_options = add_top_sub_menu_option('other'		,$top_sub_menu_options);
@@ -307,15 +311,32 @@ if(check_primary_folder('results')){
 //	}
 }
 if(check_primary_folder('finances')){
-	$top_sub_menu_options = add_top_sub_menu_option('actuals'	,$top_sub_menu_options);	
-	$top_sub_menu_options = add_top_sub_menu_option('margins'	,$top_sub_menu_options);
-	if(check_secondary_folder('margins')){	
-		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('overall'			,$top_sub_sub_menu_options);
-		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('per_product'		,$top_sub_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('cashflow'			,$top_sub_menu_options);
+	if(check_secondary_folder('cashflow')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'	,$top_sub_sub_menu_options);	
 	}
-	$top_sub_menu_options = add_top_sub_menu_option('cashflow'	,$top_sub_menu_options);		
-	$top_sub_menu_options = add_top_sub_menu_option('budgets'	,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('forecasts'	,$top_sub_menu_options);		
+
+	$top_sub_menu_options = add_top_sub_menu_option('profit_and_loss'	,$top_sub_menu_options);
+	if(check_secondary_folder('profit_and_loss')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'	,$top_sub_sub_menu_options);	
+	}
+	$top_sub_menu_options = add_top_sub_menu_option('balance_sheet'		,$top_sub_menu_options);
+	if(check_secondary_folder('balance_sheet')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'	,$top_sub_sub_menu_options);	
+	}
+
+	$top_sub_menu_options = add_top_sub_menu_option('worksheets'		,$top_sub_menu_options);
+	if(check_secondary_folder('worksheets')){	
+		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('margins'			,$top_sub_sub_menu_options);
+			//gross & per product
+			//per product
+	}
 }
 //CR 26.03.21
 //The thing here is that this whole section should be split into something like:
