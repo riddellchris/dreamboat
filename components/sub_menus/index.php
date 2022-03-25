@@ -57,7 +57,9 @@ if(check_primary_folder('contact_us')){	$top_sub_menu_options = add_top_sub_menu
 if(check_primary_folder('insights')){	$top_sub_menu_options = add_top_sub_menu_option('preparation'	,$top_sub_menu_options);
 										$top_sub_menu_options = add_top_sub_menu_option('display'		,$top_sub_menu_options);	}	
 
-if(check_primary_folder('walkthroughs')){	$top_sub_menu_options = add_top_sub_menu_option('our_process'					,$top_sub_menu_options);
+if(check_primary_folder('walkthroughs')){	
+											$top_sub_menu_options = add_top_sub_menu_option('critical_background'			,$top_sub_menu_options);
+											$top_sub_menu_options = add_top_sub_menu_option('our_process'					,$top_sub_menu_options);
 											$top_sub_menu_options = add_top_sub_menu_option('other_samples_and_examples'	,$top_sub_menu_options);
 											}	
 
@@ -313,21 +315,21 @@ if(check_primary_folder('results')){
 if(check_primary_folder('finances')){
 	$top_sub_menu_options = add_top_sub_menu_option('cashflow'			,$top_sub_menu_options);
 	if(check_secondary_folder('cashflow')){	
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'	,$top_sub_sub_menu_options);	
 	}
 
 	$top_sub_menu_options = add_top_sub_menu_option('profit_and_loss'	,$top_sub_menu_options);
 	if(check_secondary_folder('profit_and_loss')){	
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'	,$top_sub_sub_menu_options);	
 	}
 	$top_sub_menu_options = add_top_sub_menu_option('balance_sheet'		,$top_sub_menu_options);
 	if(check_secondary_folder('balance_sheet')){	
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'	,$top_sub_sub_menu_options);	
 	}
 
