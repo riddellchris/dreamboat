@@ -5,10 +5,17 @@ if($_GET['primary_folder'] != 'messages'){
 	if($usage_case == "standard_discussion"){
 	
 		if(!isset($_SESSION['selected_prompt_text'])){	
+			$are_prompts = 'yes';// super lazy 
+			if($_GET['primary_folder'] == 'sales' && $_GET['secondary_folder'] == 'insights'){$are_prompts = 'no';}
+			if($_GET['primary_folder'] == 'sales' && $_GET['secondary_folder'] == 'worksheets'){$are_prompts = 'no';}
+
+				if($are_prompts == 'yes'){echo "Select a question above to respond directly to it&#10;";}
+
+
 			//be careful with how you leave the arrangement of this font as it does seem to display exactly as presented
 			if($_SESSION['dreamboat_crew'] == 'yes'){
-				echo "Select a question above to respond directly to it&#10;Converse with your Client as you please&#10;Or just take notes as you need.";}
-			else{	echo "Select a question above to respond directly to it&#10;Converse with your Pilot as you please&#10;Or just take notes as you need.";}
+				echo "Converse with your Client as you please&#10;Or just take notes as you need.";}
+			else{	echo "Converse with your Pilot as you please&#10;Or just take notes as you need.";}
 		}
 		else{
 			//require $_SERVER['DOCUMENT_ROOT']."/components/discussion/safely_replacing_apostrophies_function.php";

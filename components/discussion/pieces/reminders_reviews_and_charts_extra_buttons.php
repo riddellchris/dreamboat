@@ -5,6 +5,7 @@ $settings_off 	= 'no';
 $data_hidden 	= 'no';
 
 if(!isset($_GET['tertiary_folder'])){$tertiary_folder = 'unknown';}
+else{$tertiary_folder = $_GET['tertiary_folder'];}
 
 
 
