@@ -28,7 +28,7 @@ $platform = trim(strtolower($_POST['platform_name']));
             AND             deleted                             = 'no'";
 //this is not included here
 
-//     echo $sql; exit();
+     //echo $sql; exit();
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) == 0){
 
@@ -38,7 +38,7 @@ $platform = trim(strtolower($_POST['platform_name']));
                                     VALUES  (   '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
                                                 '".mysqli_real_escape_string($conn, $platform)."',
                                                 '".$_POST['platform_web_address']."' )";
-        //echo $sql; exit();
+      //  echo $sql; exit();
 
 
         mysqli_query($conn, $sql);

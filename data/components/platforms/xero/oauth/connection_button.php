@@ -22,6 +22,7 @@ echo "
         $scope .= "accounting.reports.read ";
         $scope .= "accounting.settings.read ";
         $scope .= "accounting.contacts.read ";
+        $scope .= "accounting.budgets.read ";
         $scope .= "assets.read ";     
         //projects would be great to add but they require additional certificaiton
        // $scope .= "finance.accountingactivity.read ";            
