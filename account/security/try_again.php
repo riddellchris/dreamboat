@@ -5,7 +5,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 ?>
 
 
-<form action='login_submit.php' method='post'>
+<form action='login/submit.php' method='post'>
 	<div style ='display: table; width:100%;height:100%;text-align:center;overflow: hidden;'>
 		<div style ='display: table-cell; vertical-align: middle;'>
 			<div class='login-cells prompt-font' style='font-family:helvetica;text-transform:uppercase;font-size:28px;color:#281e96;'>

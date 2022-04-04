@@ -22,8 +22,8 @@ if(mysqli_num_rows($select)===1) {
 
 	//iff password verify is true then log them in
 	if(password_verify($_POST['password'], $stored_password)){
-	require $_SERVER['DOCUMENT_ROOT']."/account/security/login_initial_variable_setup.php";
-	require $_SERVER['DOCUMENT_ROOT']."/account/security/login_register_login.php";
+	require $_SERVER['DOCUMENT_ROOT']."/account/security/login/initial_variable_setup.php";
+	require $_SERVER['DOCUMENT_ROOT']."/account/security/login/register_login.php";
 	require $_SERVER['DOCUMENT_ROOT']."/data/components/update_processes/master.php";
 	require $_SERVER['DOCUMENT_ROOT']."/components/navigation/pieces/what_to_display.php";
 

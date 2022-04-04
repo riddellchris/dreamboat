@@ -117,10 +117,10 @@ $_SESSION['user_alerts_call'] 						= 'off';
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-$sql = "SELECT * FROM user_account_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
+$sql = "SELECT * FROM user_type_details WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-if($row['client_or_crew'] == 'crew'){$crew = 'yes';}else{$crew = 'no';}
+if($row['dreamboat_crew'] == 'yes'){$crew = 'yes';}else{$crew = 'no';}
 
 
 

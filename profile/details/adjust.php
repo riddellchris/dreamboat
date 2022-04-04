@@ -7,10 +7,10 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 
   $sql = "UPDATE user_account_details
 	SET	
-		first_name 				= '".mysqli_real_escape_string($conn, $_POST['first_name'])."',	
+		first_name 					= '".mysqli_real_escape_string($conn, $_POST['first_name'])."',	
 		second_name 				= '".mysqli_real_escape_string($conn, $_POST['second_name'])."',
 		phone_number 				= '".mysqli_real_escape_string($conn, $_POST['phone_number'])."',		
-		email 					= '".mysqli_real_escape_string($conn, $_POST['email'])."',		
+		email 						= '".mysqli_real_escape_string($conn, $_POST['email'])."',		
 		role 					= '".mysqli_real_escape_string($conn, $_POST['role'])."',						
 		type_of_person				= '".mysqli_real_escape_string($conn, $_POST['type_of_person'])."',
 		own_yes_no				= '".mysqli_real_escape_string($conn, $_POST['own_yes_no'])."',			

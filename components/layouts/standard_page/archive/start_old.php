@@ -15,7 +15,7 @@ if(primary_folders_name() != 'components'){
 	$_GET['item_id'] 	= item_id_from_url();
 	}
 	
-$_GET['tertiary_folder'] 	= tertiary_folders_name();	//this line has probably inaccurately been used as a test - with 'items'
+$_GET['tertiary_folder'] 		= tertiary_folders_name();	//this line has probably inaccurately been used as a test - with 'items'
 $_SESSION['quaternary_folder'] 	= quaternary_folders_name();	//this isn't really used at all yet
 $_SESSION['final_file_name'] 	= final_file_name();		//neither is this
 

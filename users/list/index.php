@@ -52,9 +52,25 @@ if($incoming_clients == 'yes'){
 
 if($incoming_clients == 'yes'){$client_gained_sql = " AND client_gained = 'no'";}
 if($_GET['secondary_folder'] == 'regular_users'){$client_gained_sql = " AND (client_gained = 'yes' OR contract_sent <> '0000-00-00') ";}
-$sql = "SELECT * FROM user_account_details WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' AND client_status = 'active' AND dead = 'no' ".$client_gained_sql." ORDER BY first_name, second_name";
+$sql = "SELECT * FROM user_type_details WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' ";
+//this gives us all the user_ids
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
+
+//then we just need the status and dead from the sales data
+/*
+while($row = mysqli_real_escape_string($conn, $sql)){
+	$sql = "SELECT * FROM client_status = 'active'";
+}
+*/
+//then select out the rest and order by first name from user account details
+//while{
+	$sql = "SELECT * FROM user_account_details AND first_name, second_name";
+//}
+
+//then print out those arrays frankly.
+
+
 
 //echo $sql;
 //exit();

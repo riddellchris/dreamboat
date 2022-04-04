@@ -3,6 +3,31 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/styles.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/defaults.php";
 
+
+
+/*
+CR 29.03.22
+So this really needs to transform into something pretty succinct such that I can pull all of these things together.
+So that I can collapse everything depending on the client and the user scenario.
+Obviously some flexibility is critical.
+How that's done remains to be seen though.
+Let's see.
+
+This should really be turned into a session variable that adjusts for each users such that they don't see everything or can't access everything from the cookie
+Which honestly doesn't matter too much.
+
+Really the biggest issue here is the problem of the dreamboat crew bit.
+That's the most critical problem
+
+This though should be stored in a database nice and efficiently 
+Entirely efficiently.
+how that works is most critical but not today
+
+Figuring out how the budgets can work / should work seems to be most critical - essential even
+
+
+*/
+
 unset($top_sub_menu_options);
 unset($top_sub_sub_menu_options);
 if(!isset($top_sub_menu_options)){		$top_sub_menu_options = array();}
@@ -336,6 +361,10 @@ if(check_primary_folder('finances')){
 	$top_sub_menu_options = add_top_sub_menu_option('worksheets'		,$top_sub_menu_options);
 	if(check_secondary_folder('worksheets')){	
 		$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('margins'			,$top_sub_sub_menu_options);
+		//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('margins'			,$top_sub_sub_menu_options);	
+		//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('margins'			,$top_sub_sub_menu_options);
+		//$top_sub_sub_menu_options 		= add_top_sub_sub_menu_option('margins'			,$top_sub_sub_menu_options);
+		
 			//gross & per product
 			//per product
 	}
@@ -352,7 +381,7 @@ if(check_primary_folder('finances')){
 
 
 if(check_primary_folder('users')){
-	$top_sub_menu_options = add_top_sub_menu_option('initial_outreach'		, $top_sub_menu_options);
+	//$top_sub_menu_options = add_top_sub_menu_option('initial_outreach'		, $top_sub_menu_options);
 		/* This really should expand out into multiple things 
 			Networks
 			Cold calls & poentially 
@@ -361,7 +390,7 @@ if(check_primary_folder('users')){
 
 
 
-	$top_sub_menu_options = add_top_sub_menu_option('gap_filling'			,$top_sub_menu_options);	
+	//$top_sub_menu_options = add_top_sub_menu_option('gap_filling'			,$top_sub_menu_options);	
 	/*
 		This should probably even be followed up by gap filling
 		this really isn't anything other than calls at this point in my head
@@ -373,16 +402,17 @@ if(check_primary_folder('users')){
 	*/
 
 
-
+	//$top_sub_menu_options = add_top_sub_menu_option('sales'				,$top_sub_menu_options);
 //	$top_sub_menu_options = add_top_sub_menu_option('owners'					,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('regular_users'				,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('display_controls'		,$top_sub_menu_options);
-
-//	$top_sub_menu_options = add_top_sub_menu_option('details'					,$top_sub_menu_options);
 	if($_SESSION['user_id'] == '1'){
-		$top_sub_menu_options = add_top_sub_menu_option('finances'				,$top_sub_menu_options);
-		$top_sub_menu_options = add_top_sub_menu_option('savings'				,$top_sub_menu_options);
+		$top_sub_menu_options = add_top_sub_menu_option('display_controls'		,$top_sub_menu_options);
 	}
+//	$top_sub_menu_options = add_top_sub_menu_option('details'					,$top_sub_menu_options);
+	//if($_SESSION['user_id'] == '1'){
+	//	$top_sub_menu_options = add_top_sub_menu_option('finances'				,$top_sub_menu_options);
+	//	$top_sub_menu_options = add_top_sub_menu_option('savings'				,$top_sub_menu_options);
+	//}
 }
 if(check_primary_folder('notifications')){
 	$top_sub_menu_options = add_top_sub_menu_option('alerts'		,$top_sub_menu_options);	
