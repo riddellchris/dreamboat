@@ -101,9 +101,10 @@ $number_of_items = mysqli_num_rows($result);
         <table style='display: inline-block;'>
                   <!-- So to this means that the rest will all workout -->
                   <!-- these are just the item names ordered as apporpriate -->              
-                <tr><th></th><th>Item 1</th><th>Item 2</th><th>Item 3</th></tr>
+                <tr><th></th><th>Office 365</th><th>Cyber Security</th><th>VOIP</th><th>Web hosting</th><th>Web hosting</th></tr>
                 <tr>
-                        <th>Client 1</th>
+                        <th>Northern Electrics</th>
+                        <td class='sold'><a>&#x2714;</a></td>
                         <td class='sold'><a>&#x2714;</a></td>
                         <td class='sold'><a>&#x2714;</a></td>
                         <td class='sold'><a>&#x2714;</a></td>
@@ -113,30 +114,34 @@ $number_of_items = mysqli_num_rows($result);
 
                         -->
                 <tr>
-                        <th>Client 2</th>
+                        <th>Penninsula Massage</th>
+                        <td class='sold'><a>&#x2714;</a></td>
                         <td class='sold'><a>&#x2714;</a></td>
                         <td class='sold'><a>&#x2714;</a></td>
                         <td class='sold'><a>&#x2714;</a></td>
                         <td></td>
                 </tr>
                 <tr>
-                        <th>Client 3</th>
+                        <th>Big Bobs Mobility</th>
                         <td class='sold'><a>&#x2714;</a></td>
                         <td class='sold'><a>&#x2714;</a></td>
+                        <td class='not_sold'><a>&#x2718;</a></td>
                         <td class='not_sold'><a>&#x2718;</a></td>
                         <td></td>
                 </tr>
                 <tr>
-                        <th>Client 4</th>
+                        <th>Green Point Plastics</th>
                         <td class='sold'><a>&#x2714;</a></td>
                         <td class='in_action'><a href='change_item.php?'>&#x27A0;</a></td>
+                        <td class='not_sold'><a>&#x2718;</a></td>
                         <td class='not_sold'><a>&#x2718;</a></td>
                         <td></td>
                 </tr>
                 <tr>
-                        <th>Client 5</th>
+                        <th>Illusive Blinks</th>
                         <td class='sold'><a>&#x2714;</a></td>
                         <td class='in_action'><a href='change_item.php?'>&#x27A0;</a></td>
+                        <td class='not_sold'><a>&#x2718;</a></td>
                         <td class='not_sold'><a>&#x2718;</a></td>
                         <td></td>
                 </tr>
