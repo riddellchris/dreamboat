@@ -101,7 +101,7 @@ $number_of_items = mysqli_num_rows($result);
         <table style='display: inline-block;'>
                   <!-- So to this means that the rest will all workout -->
                   <!-- these are just the item names ordered as apporpriate -->              
-                <tr><th></th><th>Office 365</th><th>Cyber Security</th><th>VOIP</th><th>Web hosting</th><th>Web hosting</th></tr>
+                <tr><th></th><th>Office 365</th><th>Cyber Security</th><th>VOIP</th><th>Web hosting</th></tr>
                 <tr>
                         <th>Northern Electrics</th>
                         <td class='sold'><a>&#x2714;</a></td>

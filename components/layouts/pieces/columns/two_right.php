@@ -32,7 +32,7 @@ if(check_primary_folder('highlights')){
 	echo "<div class='highlights_package'>
 			<span class='highlights_number' style='color: #32a852'>	10% </span>
 			<br>
-			<span class='highlights_text' style='color: #32a852'>Net Margin last month</span>
+			<span class='highlights_text' style='color: #32a852'>Net Margin this month</span>
 		</div>";
 
 	$right_done = 'yes';
