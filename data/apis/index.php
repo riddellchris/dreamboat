@@ -113,7 +113,7 @@ th{text-align:left; font-size:larger;}
                 ";
                 ?>
                 <td>    <input name ='platform_web_address'  autocomplete='off' class='new_api_input' placeholder ='... and web address'></input></td>
-                <td>    <input type='submit' value='connect' class='login-submit'></input></td>
+                <td>    <input type='submit' value='add' class='login-submit'></input></td>
                 <td>    <!-- empty --> </td>
                 <td>    <!-- empty --></td>  
             </form>
