@@ -28,7 +28,7 @@ th{text-align:left; font-size:larger;}
                 <th>Main web address  </th>
                 <th><!-- save --></th>
                 <th><!-- delete --></th>
-                <th>Connect</th>
+                <th>Status</th>
             </tr>
 
 <?php
