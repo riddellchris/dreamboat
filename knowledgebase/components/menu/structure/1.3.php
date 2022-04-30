@@ -15,6 +15,7 @@ require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/current_servic
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/system.php";
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/expected_future.php";
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/more.php";
+//require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/slideshows.php";
 
 if(isset($_SESSION['dreamboat_crew'])){
     if($_SESSION['dreamboat_crew'] == 'yes'){
