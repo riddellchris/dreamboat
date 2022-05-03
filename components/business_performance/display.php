@@ -20,7 +20,7 @@ echo "<div style='height:50vh;padding:0px;'>";
 	
 		if($_SESSION['performance_sub_menu'] == 'sales'){	require $_SERVER['DOCUMENT_ROOT']."/components/performance/sales/display.php";}
 		if($_SESSION['performance_sub_menu'] == 'management'){	require $_SERVER['DOCUMENT_ROOT']."/components/performance/management/display.php";}	
-		if($_SESSION['performance_sub_menu'] == 'finances'){	require $_SERVER['DOCUMENT_ROOT']."/components/performance/finances/display.php";}	
+		if($_SESSION['performance_sub_menu'] == 'financials'){	require $_SERVER['DOCUMENT_ROOT']."/components/performance/financials/display.php";}	
 
 		echo "</form>";
 	

@@ -3,7 +3,7 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
 echo "
-Obviously how the finances are tracking.<br>
+Obviously how the financials are tracking.<br>
 Where those expenses going and what exactly is happening<br><br>
 //this probably should be done with Google charts and some great databases connected to Xero on the back end.<br>
 //then with some simple forecasting as a result - happy days!!!!<br>

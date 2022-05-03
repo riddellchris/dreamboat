@@ -27,7 +27,7 @@ $options_to_extract = [
     'issues',
     'upgrades',
     'results',
-    'finances',
+    'financials',
     'messages',
     'notifications'];
 */
@@ -232,7 +232,7 @@ if(isset($_GET['adjusting'])){$adjusting = $_GET['adjusting'];}else{$adjusting =
             echo "</a>";
             echo "</td>";
             echo "<td>";
-            $var = "finances";
+            $var = "financials";
 
             echo "<a class='";
             if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
@@ -458,7 +458,7 @@ echo "<style>
             }
         echo "</td>"; 
 
-        $var = "finances";
+        $var = "financials";
         echo "<td class='adjust_cell'>";
             if($adjusting != $var){
                 echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";

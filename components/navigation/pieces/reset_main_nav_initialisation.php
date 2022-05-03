@@ -25,7 +25,7 @@ $sql = "UPDATE  user_main_nav_control
                 issues          =  'yes' ,
                 upgrades        =  'no' ,
                 results         =  'yes' ,
-                finances        =  'yes' ,
+                financials        =  'yes' ,
                 messages        =  'no' ,
                 notifications   =  'no' ,
 

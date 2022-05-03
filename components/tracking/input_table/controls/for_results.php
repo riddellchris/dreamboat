@@ -36,12 +36,12 @@ if(	$_GET['secondary_folder'] == 'inputs' OR
 	
 	
 if(	$_GET['secondary_folder'] == 'inputs' OR
-	$_SESSION['results_page'] == 'finances'){	$variable_name = 'revenue';require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/input_table/generic.php';}
+	$_SESSION['results_page'] == 'financials'){	$variable_name = 'revenue';require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/input_table/generic.php';}
 
 if(	$_GET['secondary_folder'] == 'inputs' OR
-	$_SESSION['results_page'] == 'finances'){	$variable_name = 'expenses';require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/input_table/generic.php';}
+	$_SESSION['results_page'] == 'financials'){	$variable_name = 'expenses';require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/input_table/generic.php';}
 if(	$_GET['secondary_folder'] == 'inputs' OR
-	$_SESSION['results_page'] == 'finances'){	$variable_name = 'profit';require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/input_table/generic.php';}
+	$_SESSION['results_page'] == 'financials'){	$variable_name = 'profit';require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/input_table/generic.php';}
 if(	$_GET['secondary_folder'] == 'inputs' OR
 	$_SESSION['results_page'] == 'work' ){			$variable_name = 'income';require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/input_table/generic.php';}
 if(	$_GET['secondary_folder'] == 'inputs' OR

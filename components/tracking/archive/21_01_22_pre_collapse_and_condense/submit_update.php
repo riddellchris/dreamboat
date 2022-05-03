@@ -106,7 +106,7 @@ VALUES  ('".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
 mysqli_query($conn, $sql);
 }
 
-if(		$_SESSION['results_page'] == 'finances' OR
+if(		$_SESSION['results_page'] == 'financials' OR
 		$_SESSION['results_page'] == 'inputs'	){
 	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='expenses'";
 	
@@ -149,7 +149,7 @@ mysqli_query($conn, $sql);
 
 
 if(	$_SESSION['results_page'] == 'productivity' OR
-	$_SESSION['results_page'] == 'finances' OR
+	$_SESSION['results_page'] == 'financials' OR
 		$_SESSION['results_page'] == 'inputs'	
 	){
 	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='revenue'";
@@ -194,7 +194,7 @@ mysqli_query($conn, $sql);
 
 if(
 $_SESSION['results_page'] == 'productivity' OR
-$_SESSION['results_page'] == 'finances' OR
+$_SESSION['results_page'] == 'financials' OR
 		$_SESSION['results_page'] == 'inputs'	){
 	$sql = "UPDATE tracking_inputs SET latest_version_of_this_data_type = 'no' WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."' AND data_type='profit'";
 	mysqli_query($conn, $sql);	

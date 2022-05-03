@@ -82,10 +82,10 @@ if($_SESSION['admin_principle_menu_layer'] == 'other'){
 	$admin_sub_menu_options 	= build_admin_layer_two_menus('staff',		$admin_sub_menu_options);
 	$admin_sub_menu_options 	= build_admin_layer_two_menus('legal',		$admin_sub_menu_options);
 	$admin_sub_menu_options 	= build_admin_layer_two_menus('accounting',	$admin_sub_menu_options);
-	$admin_sub_menu_options 	= build_admin_layer_two_menus('finances',	$admin_sub_menu_options);
+	$admin_sub_menu_options 	= build_admin_layer_two_menus('financials',	$admin_sub_menu_options);
 	
 	/*
-	if($_SESSION['admin_principle_menu_layer'] == 'finances'){
+	if($_SESSION['admin_principle_menu_layer'] == 'financials'){
 		$admin_sub_menu_options 	= build_admin_layer_two_menus('personal_tracking',	$admin_sub_menu_options);
 		$admin_sub_menu_options 	= build_admin_layer_two_menus('group_tracking',		$admin_sub_menu_options);
 		$admin_sub_menu_options 	= build_admin_layer_two_menus('cashflows',		$admin_sub_menu_options);

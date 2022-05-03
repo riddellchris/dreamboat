@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 
-require $_SERVER['DOCUMENT_ROOT']."/admin/finances/chart/first_chart.php";
+require $_SERVER['DOCUMENT_ROOT']."/admin/financials/chart/first_chart.php";
 
 //<div style='width:100%;text-align:center;'>
 echo "	<div id='finance_tracker' style='display:inline-block;height:35vh;'></div>";

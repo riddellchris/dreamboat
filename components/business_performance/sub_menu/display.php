@@ -10,7 +10,7 @@ echo "
 
 echo "<div style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'>";
 
-if(!isset($_SESSION['performance_sub_menu'])){$_SESSION['performance_sub_menu'] = 'finances';}
+if(!isset($_SESSION['performance_sub_menu'])){$_SESSION['performance_sub_menu'] = 'financials';}
 
 		echo "<a ";
 			if($_SESSION['performance_sub_menu'] != 'sales'){echo "href ='/components/performance/sub_menu/change.php?to=sales'";}
@@ -28,11 +28,11 @@ if(!isset($_SESSION['performance_sub_menu'])){$_SESSION['performance_sub_menu'] 
 			echo 'management';
 		echo "</a>";
 		echo "<a ";
-			if($_SESSION['performance_sub_menu'] != 'finances'){echo "href ='/components/performance/sub_menu/change.php?to=finances'";}
+			if($_SESSION['performance_sub_menu'] != 'financials'){echo "href ='/components/performance/sub_menu/change.php?to=financials'";}
 			echo "class='sub_menu_div performance";
-			if($_SESSION['performance_sub_menu'] == 'finances'){echo " highlighted";}
+			if($_SESSION['performance_sub_menu'] == 'financials'){echo " highlighted";}
 			echo "'>";
-			echo 'finances';
+			echo 'financials';
 		echo "</a>";
 
 	

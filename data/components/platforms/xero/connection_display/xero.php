@@ -38,6 +38,7 @@ echo "<td>";
                 $sql = "SELECT * FROM api_xero_tenant_details
                         WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'
                         ORDER BY entry_id DESC LIMIT 1";
+                    //    echo $sql; exit();
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

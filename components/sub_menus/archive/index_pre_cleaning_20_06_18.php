@@ -439,7 +439,7 @@ if(check_primary_folder('admin')){
 	$option_1 = 'knowledge';
 	$option_2 = 'technology';
 	$option_3 = 'management';		
-	$option_4 = 'finances';		//pilot revenues, payments etc // probably should be through xero for now
+	$option_4 = 'financials';		//pilot revenues, payments etc // probably should be through xero for now
 	$option_5 = 'users';
 	
 	if(check_secondary_folder('users')){
@@ -463,8 +463,8 @@ if(check_primary_folder('admin')){
 		
 	}	
 /*
-	if(check_secondary_folder('finances')){
-		$sub_sub_page_name = 'finances';
+	if(check_secondary_folder('financials')){
+		$sub_sub_page_name = 'financials';
 		$sub_sub_number_of_menu_options = 4;
 		$sub_sub_option_1 = 'default_pages';
 	}*/	

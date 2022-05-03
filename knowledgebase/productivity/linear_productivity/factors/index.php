@@ -16,7 +16,7 @@ require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/layout/pre_content.
 			point_detailed_start('no',10,8,8,$span_start."Trust".$span_end." - between people, with markets, with businesses");point_end_only();
 			point_detailed_start('no',10,8,8,$span_start."Risks".$span_end." - legal, financial, HSE, strategic, economic");point_end_only();
 			point_detailed_start('no',10,8,8,$span_start."Communication".$span_end." - clarity, certainty, recurrence");point_end_only();
-			point_detailed_start('no',10,8,8,$span_start."Waste".$span_end." - of assets, of finances, of people, of resources");point_end_only();
+			point_detailed_start('no',10,8,8,$span_start."Waste".$span_end." - of assets, of financials, of people, of resources");point_end_only();
 		list_end();
 
 echo "<br><br>";

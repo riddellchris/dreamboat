@@ -58,12 +58,17 @@ if(!isset($_SESSION['opportunities_page'])){			$_SESSION['opportunities_page'] 	
 if(!isset($_SESSION['improvements_page'])){				$_SESSION['improvements_page'] 			= 'all';}
 if(!isset($_SESSION['upgrades_page'])){					$_SESSION['upgrades_page'] 				= 'underway';}
 if(!isset($_SESSION['results_page'])){					$_SESSION['results_page'] 				= 'productivity';}
-if(!isset($_SESSION['finances_page'])){					$_SESSION['finances_page'] 				= 'cashflow';}
+if(!isset($_SESSION['financials_page'])){					$_SESSION['financials_page'] 				= 'cashflow';}
 
-	if(!isset($_SESSION['finances_cashflow_page'])){			$_SESSION['finances_cashflow_page'] 		= 'actuals';}
-	if(!isset($_SESSION['finances_profit_and_loss_page'])){		$_SESSION['finances_profit_and_loss_page'] 	= 'actuals';}
-	if(!isset($_SESSION['finances_balance_sheet_page'])){		$_SESSION['finances_balance_sheet_page'] 	= 'actuals';}
-	if(!isset($_SESSION['finances_worksheets_page'])){			$_SESSION['finances_worksheets_page'] 		= 'margins';}
+	if(!isset($_SESSION['financials_cashflow_page'])){			$_SESSION['financials_cashflow_page'] 			= 'actuals';}
+	if(!isset($_SESSION['financials_profit_and_loss_page'])){	$_SESSION['financials_profit_and_loss_page'] 	= 'actuals';}
+	if(!isset($_SESSION['financials_balance_sheet_page'])){		$_SESSION['financials_balance_sheet_page'] 		= 'actuals';}
+	if(!isset($_SESSION['financials_worksheets_page'])){		$_SESSION['financials_worksheets_page'] 		= 'margins';}
+	if(!isset($_SESSION['financials_cash_page'])){			$_SESSION['financials_cash_page'] 		= 'at_bank';}
+	if(!isset($_SESSION['financials_revenue_page'])){		$_SESSION['financials_revenue_page'] 	= 'tracker';}
+	if(!isset($_SESSION['financials_expenses_page'])){		$_SESSION['financials_expenses_page'] 	= 'total';}
+
+
 
 if(!isset($_SESSION['messages_page'])){					$_SESSION['messages_page'] 				= 'all';}
 if(!isset($_SESSION['notifications_page'])){			$_SESSION['notifications_page'] 		= 'alerts';}
@@ -73,7 +78,7 @@ if(!isset($_SESSION['users_page'])){					$_SESSION['users_page']  				= 'regular
 
 if(!isset($_SESSION['admin_page'])){					$_SESSION['admin_page'] 				= 'technology';}
 	if(!isset($_SESSION['admin_management_page'])){		$_SESSION['admin_management_page']		= 'staff';}
-	if(!isset($_SESSION['admin_finances_page'])){		$_SESSION['admin_finances_page']  		= 'overview';}
+	if(!isset($_SESSION['admin_financials_page'])){		$_SESSION['admin_financials_page']  		= 'overview';}
 	if(!isset($_SESSION['admin_technology_page'])){		$_SESSION['admin_technology_page']		= 'support_requests';}	
 	if(!isset($_SESSION['admin_knowledge_page'])){		$_SESSION['admin_knowledge_page'] 		= 'standard_engagement_timeline';}	
 	if(!isset($_SESSION['admin_advice_page'])){			$_SESSION['admin_advice_page']  		= 'general';}

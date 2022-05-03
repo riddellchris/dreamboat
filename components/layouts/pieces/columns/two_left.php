@@ -18,7 +18,7 @@ if($_GET['primary_folder'] == 'activities' && tertiary_folders_name() != 'item')
 		if(secondary_folders_name() == 'planning'){	$string = "Planning ahead";}
 		if(secondary_folders_name() == 'managing'){	$string = "Managing people, assets, processes";}
 		if(secondary_folders_name() == 'growing'){	$string = "Selling, networking, marketing";}		
-		if(secondary_folders_name() == 'administrating'){$string = "records, paperwork, Legal, finances";}
+		if(secondary_folders_name() == 'administrating'){$string = "records, paperwork, Legal, financials";}
 		if(secondary_folders_name() == 'supporting'){$string = "helping people, above, beside / around you";}		
 }
 

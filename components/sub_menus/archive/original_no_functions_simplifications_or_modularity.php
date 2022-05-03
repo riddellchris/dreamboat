@@ -190,7 +190,7 @@ if(check_primary_folder('results')){
 		}		
 		if($_SESSION['viewing_client_financial_management_yes_no'] == 'yes'){
 			$i++;		
-			$sub_sub_option[$i] = 'finances';
+			$sub_sub_option[$i] = 'financials';
 		}			
 		
 		$i++;			
@@ -216,7 +216,7 @@ if(check_primary_folder('admin')){
 	$option[1] = 'knowledge';
 	$option[2] = 'technology';
 	$option[3] = 'management';		
-	$option[4] = 'finances';		//pilot revenues, payments etc // probably should be through xero for now
+	$option[4] = 'financials';		//pilot revenues, payments etc // probably should be through xero for now
 	$option[5] = 'users';
 	
 	if(check_secondary_folder('users')){
@@ -240,8 +240,8 @@ if(check_primary_folder('admin')){
 		
 	}	
 /*
-	if(check_secondary_folder('finances')){
-		$sub_sub_page_name = 'finances';
+	if(check_secondary_folder('financials')){
+		$sub_sub_page_name = 'financials';
 		$sub_sub_number_of_menu_options = 4;
 		$sub_sub_option[1] = 'default_pages';
 	}*/	

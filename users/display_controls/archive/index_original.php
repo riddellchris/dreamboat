@@ -165,7 +165,7 @@ $options_to_extract = [
         if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
         echo "</a>";
 
-        $var = "finances";
+        $var = "financials";
         echo "<br>";
         echo "<a class='";
         if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}

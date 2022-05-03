@@ -68,7 +68,7 @@ copy_big_title_open('Our model of productivity','our_model_of_productivity');
 			point($span_start."Trust".$span_end." - between people, with markets, with businesses");
 			point($span_start."Risks".$span_end." - legal, financial, HSE, strategic, economic");
 			point($span_start."Communication".$span_end." - clarity, certainty, recurrance");
-			point($span_start."Waste".$span_end." - of assets, of finances, of people, of resources");
+			point($span_start."Waste".$span_end." - of assets, of financials, of people, of resources");
 		list_end();	
 	copy_title_close();	
 	

@@ -59,13 +59,20 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 	
 		if(isset($_SESSION['dreamboat_crew'])){    	
 			if($_SESSION['dreamboat_crew'] == 'yes'){
-				require_file("/components/navigation/mobile/components/users.php");				
+				require_file("/components/navigation/mobile/components/users.php");		
 				require_file("/components/navigation/mobile/components/notes.php");
 			//This really must be turned off until we are ready.
 			//This will require far more cash to completely put together and achieve
 			
 			}
 		}
+
+		if(isset($_SESSION['multi_user'])){    		
+			if($_SESSION['multi_user'] == 'yes'){
+				require_file("/components/navigation/mobile/components/users.php");		
+		}
+		}
+
 
 		$nav_name = "data"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
 		$nav_name = "walkthroughs"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
@@ -100,7 +107,7 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 				$nav_name = "issues"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
 				$nav_name = "upgrades"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}	
 				$nav_name = "results"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
-				$nav_name = "finances"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
+				$nav_name = "financials"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
 
 		//require_file("/components/navigation/mobile/components/management.php");
 		//require_file("/components/navigation/mobile/components/wheelhouse.php");

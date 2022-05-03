@@ -18,7 +18,7 @@ if($_GET['type'] == 'time'){        $go_to = $_GET['type'];}
 if($_GET['type'] == 'issues'){      $go_to = $_GET['type'];}
 if($_GET['type'] == 'upgrades'){    $go_to = $_GET['type'];}
 if($_GET['type'] == 'results'){     $go_to = $_GET['type'];}
-if($_GET['type'] == 'finances'){    $go_to = $_GET['type'];}
+if($_GET['type'] == 'financials'){    $go_to = $_GET['type'];}
 if($_GET['type'] == 'messages'){    $go_to = $_GET['type'];}
 if($_GET['type'] == 'notifications'){$go_to = $_GET['type'];}
 

@@ -329,7 +329,7 @@ if(check_primary_folder('results')){
 		$top_sub_menu_options = add_top_sub_menu_option('commission'		,$top_sub_menu_options);		
 		}		
 		if($_SESSION['viewing_client_financial_management_yes_no'] == 'yes'){
-		$top_sub_menu_options = add_top_sub_menu_option('finances'			,$top_sub_menu_options);	
+		$top_sub_menu_options = add_top_sub_menu_option('financials'			,$top_sub_menu_options);	
 
 
 		}			
@@ -337,7 +337,7 @@ if(check_primary_folder('results')){
 		$top_sub_menu_options = add_top_sub_menu_option('productivity'		,$top_sub_menu_options);		
 //	}
 }
-if(check_primary_folder('finances')){
+if(check_primary_folder('financials')){
 	$top_sub_menu_options = add_top_sub_menu_option('cashflow'			,$top_sub_menu_options);
 	if(check_secondary_folder('cashflow')){	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'	,$top_sub_sub_menu_options);
@@ -357,6 +357,25 @@ if(check_primary_folder('finances')){
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'	,$top_sub_sub_menu_options);	
 	}
+
+	$top_sub_menu_options = add_top_sub_menu_option('revenue'		,$top_sub_menu_options);
+	if(check_secondary_folder('revenue')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('tracker'				,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('breakdown'				,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('shopify_comparison'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('sales_mix'				,$top_sub_sub_menu_options);
+	}
+	$top_sub_menu_options = add_top_sub_menu_option('expenses'		,$top_sub_menu_options);	
+	if(check_secondary_folder('expenses')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('total'	,$top_sub_sub_menu_options);	
+	}
+
+	$top_sub_menu_options = add_top_sub_menu_option('cash'		,$top_sub_menu_options);
+	if(check_secondary_folder('cash')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('owner_drawings'	,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('at_bank'			,$top_sub_sub_menu_options);			
+	}
+
 
 	$top_sub_menu_options = add_top_sub_menu_option('worksheets'		,$top_sub_menu_options);
 	if(check_secondary_folder('worksheets')){	
@@ -410,7 +429,7 @@ if(check_primary_folder('users')){
 	}
 //	$top_sub_menu_options = add_top_sub_menu_option('details'					,$top_sub_menu_options);
 	//if($_SESSION['user_id'] == '1'){
-	//	$top_sub_menu_options = add_top_sub_menu_option('finances'				,$top_sub_menu_options);
+	//	$top_sub_menu_options = add_top_sub_menu_option('financials'				,$top_sub_menu_options);
 	//	$top_sub_menu_options = add_top_sub_menu_option('savings'				,$top_sub_menu_options);
 	//}
 }

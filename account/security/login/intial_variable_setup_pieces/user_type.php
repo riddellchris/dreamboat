@@ -14,8 +14,14 @@ if(mysqli_num_rows($result) == 0){$
     }
 
 
+if($row['multi_user'] == 'yes') {
+	$_SESSION['multi_user'] 						= 'yes';
+}
+
+
 if($row['dreamboat_crew'] == 'yes') {
 	$_SESSION['dreamboat_crew'] 						= 'yes';
+
 	$_SESSION['pilots_id'] 								= $_SESSION['user_id']; // for when they have dreamboat crew display off still to enter the right stuff
 	$_SESSION['show_as_dreamboat_crew'] 				= 'no';
 	$_SESSION['dreamboat_crew_navigation_option_on'] 	= 'yes';

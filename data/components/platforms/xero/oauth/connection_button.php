@@ -39,7 +39,7 @@ echo "
     $unique_code = md5(rand(999, 99999));
     $state  = "success_".$_SESSION['user_id']."_".$row_connections['entry_id']."_".$unique_code; //this is an optional string
 
-        if($_SESSION['user_id'] == $_SESSION['viewing_client_id']){ // otherwise not actual end user
+       if($_SESSION['user_id'] == $_SESSION['viewing_client_id']){ // otherwise not actual end user
             //TERRIBLE //HACK:: Really this should be a link that connects to another page:
             //Let's call that page pre_connection for now
             //Then we can simply insert this information as we are on the way to connecting rather than creating an insert EVERY time we load this page /data/apis/ which is clearly ridiculous
@@ -57,6 +57,6 @@ echo "
     >Connect to Xero";
 
     //echo $sql; exit();
-    if($_SESSION['user_id'] != $_SESSION['viewing_client_id']){echo " -- not clickable for pilot";}
+    if($_SESSION['user_id'] != $_SESSION['viewing_client_id']){echo " -- not clickable if not your account";}
     echo "
                                 </a>";

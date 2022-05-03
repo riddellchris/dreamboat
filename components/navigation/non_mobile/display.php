@@ -88,7 +88,7 @@ if(isset($_SESSION['logged_in'])){
 			echo "' title='Communications central' href='/messages/'>messages</a>";
 		}
 
-		$nav_name = "finances"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+		$nav_name = "financials"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 	//if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
 	//	require_file('/components/navigation/non_mobile/components/results.php');
 		$nav_name = "results"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
@@ -163,6 +163,13 @@ if(isset($_SESSION['dreamboat_crew'])){
 			require_file('/components/navigation/non_mobile/components/users.php');					
 	}
 }
+if(isset($_SESSION['multi_user'])){
+	if($_SESSION['multi_user'] == 'yes'){  		
+			require_file('/components/navigation/non_mobile/components/users.php');					
+	}
+}
+
+
 	
 	
 	/*	

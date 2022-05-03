@@ -6,7 +6,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
 
 
-require $_SERVER['DOCUMENT_ROOT']."/admin/finances/display/home.php";
+require $_SERVER['DOCUMENT_ROOT']."/admin/financials/display/home.php";
 
 
 
