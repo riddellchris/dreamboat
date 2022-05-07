@@ -59,6 +59,30 @@ if(isset($_SESSION['logged_in'])){
 }
 
 
+
+
+//ensure initialisation of the navigation menu and settings if there isn't the / an appropriate setup for this user.
+	//this only matters if logged in
+	if(isset($_SESSION['logged_in'])){
+		if($_SESSION['logged_in'] == 'yes'){
+			//check against the most most critical user
+			//if they have the default pages turned on or not
+			//the same applies when it comes to allowing multiple users to figure this stuff out
+				//what controls are we going to apply there?
+					//I think for now it doesn't matter
+					//anyone with multi user access can have total access across everything frankly
+					//Just let that run for now
+					//I don't need to control that
+
+					//therefore:
+						//
+
+
+		}
+	}
+
+
+
 //actual html outputs
 require $_SERVER['DOCUMENT_ROOT']."/components/whitelabeling/style_changes.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/html/index.php"; 

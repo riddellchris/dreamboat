@@ -35,4 +35,4 @@
   }
   </script>
 
-<div id='chart_div' style='width: 800px; height: 600px;'></div>
+<div id='chart_div' style='height: 1754px; width: 1240px; '></div>
