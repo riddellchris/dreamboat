@@ -108,7 +108,7 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 				$nav_name = "upgrades"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}	
 				$nav_name = "results"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
 				$nav_name = "financials"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
-
+				$nav_name = "reporting"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/mobile/components/".$nav_name.".php");}
 		//require_file("/components/navigation/mobile/components/management.php");
 		//require_file("/components/navigation/mobile/components/wheelhouse.php");
 		//require_file("/components/navigation/mobile/components/activities.php");

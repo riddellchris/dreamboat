@@ -37,7 +37,8 @@ else{
         'issues',
         'upgrades',
         'results',
-        'financials',        
+        'financials',  
+        'reporting',               
         'messages',
         'notifications'];
 

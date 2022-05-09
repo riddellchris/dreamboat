@@ -34,7 +34,7 @@ if(		$_GET['primary_folder'] 	== 'biz_dev' 		){$settings_off = 'yes';$data_hidde
 if(		$_GET['primary_folder'] 	== 'sales' 			){$settings_off = 'yes';$data_hidden = 'yes';}
 if(		$_GET['primary_folder'] 	== 'marketing' 		){$settings_off = 'yes';$data_hidden = 'yes';}
 if(		$_GET['primary_folder'] 	== 'management' 	){$settings_off = 'yes';$data_hidden = 'yes';}			
-	
+if(		$_GET['primary_folder'] 	== 'reporting' 		){$settings_off = 'yes';$data_hidden = 'yes';}		
 
 if(	$_GET['primary_folder'] 	== 'profile' 		AND $_GET['secondary_folder'] == 'reviews')	{
 
@@ -167,7 +167,7 @@ $sql = "SELECT * FROM user_account_details
 		WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-if($row['client_or_crew'] == 'crew'){$crew = 'yes';}else{$crew = 'no';}
+if($row['dreamboat_crew'] == 'yes'){$crew = 'yes';}else{$crew = 'no';}
 
 //then turn on anything that needs to be on
 $sql = "SELECT * FROM notifications_and_alerts 

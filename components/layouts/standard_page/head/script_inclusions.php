@@ -107,6 +107,35 @@ if(!isset($_SESSION)){session_start();}
 	if(check_primary_folder(	'wheelhouse'		)){	require $_SERVER['DOCUMENT_ROOT']."/wheelhouse/insights/wip_valuation/script.php";}	
 
 
+	if(check_primary_folder('financials')){	
+		if(check_secondary_folder('revenue')){
+			if(check_tertiary_folder('tracker')){				require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/tracker/script.php";}
+			if(check_tertiary_folder('breakdown')){				require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/breakdown/script.php";}
+			if(check_tertiary_folder('sales_mix')){				require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/sales_mix/script.php";}
+			if(check_tertiary_folder('shopify_comparison')){	require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/shopify_comparison/script.php";}
+		}
+		if(check_secondary_folder('expenses')){
+			if(check_tertiary_folder('adspend_vs_return')){		require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/adspend_vs_return/script.php";}
+			if(check_tertiary_folder('total')){					require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/total/script.php";}
+		}
+	}	
+
+	if(check_primary_folder('reporting')){	
+			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/tracker/script.php";
+			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/breakdown/script.php";
+			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/sales_mix/script.php";
+			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/shopify_comparison/script.php";
+			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/adspend_vs_return/script.php";
+			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/total/script.php";
+
+	}
+
+
+
+
+
+
+
 	
 	if(	check_folders_two_deep('knowledgebase','system') 	  && 
 		$_GET['tertiary_folder'] 	== 'versions'		){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/system/versions/chart_script/current_version.php";}	

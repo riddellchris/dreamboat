@@ -247,7 +247,18 @@ if(isset($_POST['what_is_productivity'])){
 
 }
 
+if(isset($_POST['go_to_after_update'])){
+	if($_POST['go_to_after_update'] == 'financial_revenue_tracker'){
+		unset($_SESSION['go_to_after_update']);
+		header("Location: /financials/revenue/tracker/");
+	}
+
+
+}
+else{
+	header("Location: /results/");
+}
+		
 //echo "go to now";
-header("Location: /results/");
 exit();
 ?>

@@ -68,7 +68,7 @@ if(!isset($_SESSION['financials_page'])){					$_SESSION['financials_page'] 				=
 	if(!isset($_SESSION['financials_revenue_page'])){		$_SESSION['financials_revenue_page'] 	= 'tracker';}
 	if(!isset($_SESSION['financials_expenses_page'])){		$_SESSION['financials_expenses_page'] 	= 'total';}
 
-
+if(!isset($_SESSION['reporting_page'])){					$_SESSION['reporting_page'] 				= 'layout_1';}
 
 if(!isset($_SESSION['messages_page'])){					$_SESSION['messages_page'] 				= 'all';}
 if(!isset($_SESSION['notifications_page'])){			$_SESSION['notifications_page'] 		= 'alerts';}

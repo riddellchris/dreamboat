@@ -4,7 +4,22 @@ require $_SERVER['DOCUMENT_ROOT']."/components/tracking/input_table/styling.php"
 
 
 <form method='post' action='/components/tracking/data_update/submit.php'>
+
+
+
+
+
+
 <?php
+
+if($_GET['primary_folder'] == 'financials' && $_GET['secondary_folder'] == 'revenue' && $_GET['tertiary_folder'] == 'tracker'){$go_to = 'financial_revenue_tracker';}
+
+if(isset($go_to)){
+	echo "<input type='hidden' name='go_to_after_update' value ='".$go_to."'>";
+	unset($go_to);
+}
+
+
 
 echo "<div class='div-table' style='margin:auto;";
 if($_GET['secondary_folder'] == 'inputs'){ echo "margin-top:4vh;margin-bottom:8vh;";}

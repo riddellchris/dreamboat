@@ -22,7 +22,8 @@ $var = 'time';        	if($_GET['type'] == $var	){$nav_setting_to_change = $var;
 $var = 'issues';        if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'upgrades';      if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'results';       if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
-$var = 'financials';      if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
+$var = 'financials';    if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
+$var = 'reporting';     if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'messages';      if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 $var = 'notifications'; if($_GET['type'] == $var	){$nav_setting_to_change = $var;		$clean_get = 'yes';}
 

@@ -62,6 +62,7 @@ if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
 	$nav_name = "upgrades"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 	$nav_name = "results"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 	$nav_name = "financials"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
+	$nav_name = "reporting"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}
 }
 
 $nav_name = "messages"; 			if($_SESSION['main_nav_control'][$nav_name] == 'yes'){home_page_change_buttons($nav_name,		$row['home_page']);}

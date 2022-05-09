@@ -367,7 +367,8 @@ if(check_primary_folder('financials')){
 	}
 	$top_sub_menu_options = add_top_sub_menu_option('expenses'		,$top_sub_menu_options);	
 	if(check_secondary_folder('expenses')){	
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('total'	,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('total'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('adspend_vs_return'	,$top_sub_sub_menu_options);			
 	}
 
 	$top_sub_menu_options = add_top_sub_menu_option('cash'		,$top_sub_menu_options);
@@ -388,6 +389,13 @@ if(check_primary_folder('financials')){
 			//per product
 	}
 }
+
+
+if(check_primary_folder('reporting')){
+	$top_sub_menu_options = add_top_sub_menu_option('layout_1'			,$top_sub_menu_options);
+	$top_sub_menu_options = add_top_sub_menu_option('layout_2'			,$top_sub_menu_options);
+}
+
 //CR 26.03.21
 //The thing here is that this whole section should be split into something like:
 //Outreach:

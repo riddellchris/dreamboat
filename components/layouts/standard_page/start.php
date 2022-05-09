@@ -298,8 +298,13 @@ echo "
 
 
 	<?php	
-	if($_GET['primary_folder'] != 'slideshows' AND 
-			$_GET['secondary_folder'] != 'letter' ){	
+
+if(!isset($_GET['tertiary_folder'])){$_GET['tertiary_folder'] = '';}
+
+	if(	$_GET['primary_folder'] != 'slideshows' AND 
+		$_GET['secondary_folder'] != 'letter' AND
+		$_GET['tertiary_folder'] != 'print' 	
+			){	
 
 
 
@@ -336,8 +341,13 @@ echo "
 		//it has the #mobile_menu_icon
 		if($_GET['primary_folder'] != 'knowledgebase'){require $_SERVER['DOCUMENT_ROOT']."/components/navigation/mobile/display.php";}
 
+
+
 	if($_GET['primary_folder'] != 'slideshows' AND 
-			$_GET['secondary_folder'] != 'letter' ){	
+			$_GET['secondary_folder'] != 'letter' AND
+			$_GET['tertiary_folder'] != 'print' 	
+			
+			){	
 		require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/adjustable_top_spacer.php"; //this enusres that the 'page' starts below the nav bar
 	}
 	
@@ -350,7 +360,8 @@ echo "
 		
 		//CR 20.09.07 Cuts out displaying the menu when it's in these folders... this isn't ideal but allows for the basic $_GET folder assessments, alterations and management to function right now
 		if(	$_GET['primary_folder'] == 'knowledgebase' 		OR
-			($_GET['primary_folder'] == 'support' AND $_SESSION['logged_in'] != 'yes') 
+			($_GET['primary_folder'] == 'support' AND $_SESSION['logged_in'] != 'yes') OR
+			$_GET['tertiary_folder'] == 'print'
 			){$sub_menus = 'off';}
 		else{$sub_menus = 'on';}
 		

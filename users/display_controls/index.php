@@ -241,6 +241,15 @@ if(isset($_GET['adjusting'])){$adjusting = $_GET['adjusting'];}else{$adjusting =
             echo "</a>";
             echo "</td>";
             echo "<td>";
+            $var = "reporting";
+
+            echo "<a class='";
+            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
+            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
+            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
+            echo "</a>";
+            echo "</td>";
+            echo "<td>";
             $var = "messages";
 
             echo "<a class='";

@@ -24,7 +24,7 @@ else{
 ?>
 
 
-    <script type="text/javascript">
+    <script name='results_financials' type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
