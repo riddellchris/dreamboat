@@ -1,5 +1,6 @@
 <?php
 if(!isset($_SESSION)){session_start();}
+require $_SERVER['DOCUMENT_ROOT']."/account/security/logged_in_check.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
 //finding along the way little bits of waste here and there is critical to success but also incrememtal productivity improvement

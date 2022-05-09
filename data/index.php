@@ -1,5 +1,6 @@
 <?php
 if(!isset($_SESSION)){session_start();}
+require $_SERVER['DOCUMENT_ROOT']."/account/security/logged_in_check.php";
 //echo 'hi';exit();
 
 //echo '<pre>' , var_dump($_SESSION) , '</pre>';

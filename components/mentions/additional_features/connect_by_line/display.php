@@ -1,5 +1,6 @@
 <?php
 if(!isset($_SESSION)){session_start();}
+require $_SERVER['DOCUMENT_ROOT']."/account/security/logged_in_check.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 //cut by lines that are displayed that contain multille @
 //this therefore signifies a very high probability of any other relationships that should be included
