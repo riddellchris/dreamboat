@@ -117,6 +117,7 @@ else{
     if($debug == 'on'){
     echo "RETURN KEY";
     echo '<pre>' , var_dump($return_token) , '</pre>';
+    //exit();
     }
 
     //this one needs to store again into return keys

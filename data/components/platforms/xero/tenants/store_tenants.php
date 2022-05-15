@@ -15,7 +15,7 @@ $sql = "INSERT INTO api_xero_tenant_details (  user_id,
 
                                             )
 VALUES (
-            '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."',
+            '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
             '".mysqli_real_escape_string($conn, $response[0]['id'])."',
             '".mysqli_real_escape_string($conn, $response[0]['authEventId'])."',                   
             '".mysqli_real_escape_string($conn, $response[0]['tenantId'])."',
@@ -25,6 +25,5 @@ VALUES (
             '".mysqli_real_escape_string($conn, $response[0]['updatedDateUtc'])."'                                              
     )";
 
-//echo $sql;
-//exit();    
+//echo $sql;exit();    
 $result = mysqli_query($conn, $sql);

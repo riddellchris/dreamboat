@@ -362,7 +362,12 @@ if(check_primary_folder('financials')){
 	if(check_secondary_folder('revenue')){	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('tracker'				,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('breakdown'				,$top_sub_sub_menu_options);
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('shopify_comparison'	,$top_sub_sub_menu_options);
+
+
+		//if($_SESSION['dreamboat_crew'] == 'yes' OR $_SESSION['user_id'] == ''){
+			$top_sub_sub_menu_options = add_top_sub_sub_menu_option('shopify_comparison'	,$top_sub_sub_menu_options);
+		//}
+
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('sales_mix'				,$top_sub_sub_menu_options);
 	}
 	$top_sub_menu_options = add_top_sub_menu_option('expenses'		,$top_sub_menu_options);	

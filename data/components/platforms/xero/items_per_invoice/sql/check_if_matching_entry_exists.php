@@ -5,7 +5,7 @@ if(!isset($_SESSION)){session_start();}
 $sql = " 
     SELECT  *
     FROM    api_xero_data_invoice_line_items
-    WHERE   user_id         = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
+    WHERE   user_id         = '".mysqli_real_escape_string($conn, $user_id_for_request)."'";
 
 
 if(isset($response['Items'][$i]['SalesDetails'])){

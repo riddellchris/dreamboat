@@ -29,7 +29,7 @@ $sql .= "
 
         VALUES
         (   
-            '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."',
+            '".mysqli_real_escape_string($conn, $user_id_for_request)."',
             '".mysqli_real_escape_string($conn, $tenant_id)."',
             '".mysqli_real_escape_string($conn, $response['Id'])."',
             '".mysqli_real_escape_string($conn, $response['Status'])."',

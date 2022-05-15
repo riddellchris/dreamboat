@@ -1,6 +1,20 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+
+/*READ ME
+This 
+
+
+
+*/
+
+
+
+
+
+
+
 echo "
 <a ";
     $response_type  = "code";
@@ -48,6 +62,13 @@ echo "
             $sql = "INSERT INTO api_xero_oauth_keys (user_id, string, application_entry_id)
                     VALUES ('".$_SESSION['user_id']."','".$unique_code."', '".$row_connections['entry_id']."')";    
             mysqli_query($conn, $sql);
+
+
+
+            //$client_id is actually for the application
+            //in this case DREAMBOAT
+            //THIS COMES FROM 
+                //COMPONENTS/BACK_OF_HOUSE/APIS/XERO/APPLICATION_DETAILS.PHP
 
             //probably could update the "used / yes" column here but not essentials
             echo "href='https://login.xero.com/identity/connect/authorize?response_type=code&client_id=".$client_id."&redirect_uri=".$redirect_uri."&scope=".$scope."&state=".$state."'";
