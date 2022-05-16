@@ -398,7 +398,7 @@ if(check_primary_folder('financials')){
 
 if(check_primary_folder('reporting')){
 	$top_sub_menu_options = add_top_sub_menu_option('layout_1'			,$top_sub_menu_options);
-	$top_sub_menu_options = add_top_sub_menu_option('layout_2'			,$top_sub_menu_options);
+	//$top_sub_menu_options = add_top_sub_menu_option('layout_2'			,$top_sub_menu_options);
 }
 
 //CR 26.03.21

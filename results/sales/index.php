@@ -7,7 +7,7 @@ $_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];
 ?>
 
 
-     <script type="text/javascript">
+<script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
