@@ -21,7 +21,7 @@ $sql = "SELECT * FROM api_xero_return_keys
         WHERE user_id = '".mysqli_real_escape_string($conn, $user_id_for_request)."'
         ORDER BY id
         DESC LIMIT 1";
-echo $sql."<br>";
+//echo $sql."<br>";
 //exit();
 $result = mysqli_query($conn, $sql);     
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -115,7 +115,7 @@ else{
     $return_token = json_decode($server_output, true);
 
 
-    $debug = 'on';
+    $debug = 'off';
     if($debug == 'on'){
     echo "RETURN KEY";
     echo '<pre>' , var_dump($return_token) , '</pre>';
