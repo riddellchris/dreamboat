@@ -21,7 +21,8 @@ $sql = "SELECT * FROM api_xero_return_keys
         WHERE user_id = '".mysqli_real_escape_string($conn, $user_id_for_request)."'
         ORDER BY id
         DESC LIMIT 1";
-//echo $sql;exit();
+echo $sql."<br>";
+//exit();
 $result = mysqli_query($conn, $sql);     
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -44,6 +45,7 @@ if($_SERVER['SERVER_PORT'] != '8888'){
 }
 */
 ////echo "<br>";
+$use_current_token = 'yes';
 //echo $time_difference." seconds";
 if(abs($time_difference) > 29 * 60){$use_current_token = 'no';}
 else{$use_current_token = 'yes';}
@@ -113,7 +115,7 @@ else{
     $return_token = json_decode($server_output, true);
 
 
-    $debug = 'off';
+    $debug = 'on';
     if($debug == 'on'){
     echo "RETURN KEY";
     echo '<pre>' , var_dump($return_token) , '</pre>';
