@@ -8,12 +8,13 @@ TECH staff can build and manage it properly.
 THERE is LOTS of stuff pre built in here - don't forget or loose them
 the flows are pretty self evident based on the titles really
 */
-
+/*
 if(isset($_SESSION['dreamboat_crew'])){
-	/*
+	
 	CR 20.08.14
 	//notes, advice and knowledge would be good but honestly who cares right now
 	I can manage it alone and perhaps we'll never have the bottom section only elements that matter in one single angle*/
+	/*
 	if(	//$_SESSION['viewing_client_id'] == '1' && //just for now
 		$_SESSION['dreamboat_crew'] == 'yes' &&
 		is_numeric(strpos($_SERVER['REQUEST_URI'],'/knowledgebase/')) != 1 
@@ -21,7 +22,10 @@ if(isset($_SESSION['dreamboat_crew'])){
 		//echo "<div style='height:250px;'>&nbsp;</div>";
 		require $_SERVER['DOCUMENT_ROOT']."/components/crew_bar/layouts/overarching_layout.php";
 	}
-}
+	*/
+//}
+
+
 
 //if($_GET['primary_folder'] == 'map'){echo "<div name='map_spacer' style='height:200px;'></div>";}
 if(check_url('/slideshows/') == 1){

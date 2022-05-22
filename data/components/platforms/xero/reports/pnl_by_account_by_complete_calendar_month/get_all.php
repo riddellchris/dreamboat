@@ -1,9 +1,11 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-
-
-
+//this is going to need to be run against 
+//all accounts which need to be stored and updated first
+//this update can be run via /data/components/xero/accounts/get_one.php
+//at the same time we probably need to update 
+//then all I need to do here is to 
 
 
 // Call function with value to search as second argument

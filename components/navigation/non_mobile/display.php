@@ -88,11 +88,11 @@ if(isset($_SESSION['logged_in'])){
 			echo "' title='Communications central' href='/messages/'>messages</a>";
 		}
 		$nav_name = "reporting"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
-		$nav_name = "financials"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+
 	//if($_SESSION['viewing_client_mental_health_only'] != 'yes'){
 	//	require_file('/components/navigation/non_mobile/components/results.php');
 		$nav_name = "results"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
-
+		$nav_name = "financials"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 	//CR 26.2.21
 	//these will probably come back in the next couple of months as the 
 	//	require_file('/components/navigation/non_mobile/components/upgrades.php');
@@ -157,7 +157,7 @@ if(isset($_SESSION['dreamboat_crew'])){
 
 			//require_file('/components/navigation/non_mobile/components/link_to_progress_for_pilots.php');	
 
-			require_file('/components/navigation/non_mobile/components/notes.php');   
+		//	require_file('/components/navigation/non_mobile/components/notes.php');   
 	
 			
 			require_file('/components/navigation/non_mobile/components/users.php');					
