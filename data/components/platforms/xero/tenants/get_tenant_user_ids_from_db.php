@@ -37,6 +37,7 @@ while($row_for_tenants = mysqli_fetch_array($result_for_tenants, MYSQLI_ASSOC)){
 
     $tenant_user_id[$i] = $row_for_tenants['user_id'];
     $tenant_xero_id[$i] = $row_for_tenants['tenantId'];    //this does make the assumption that there is only one tenant - as per "check_tenants.php" this is a TODO item and needs adjustment in time for sure
+    $i ++;
     $tenant_user_id_count ++;
 
 
@@ -50,7 +51,7 @@ while($row_for_tenants = mysqli_fetch_array($result_for_tenants, MYSQLI_ASSOC)){
 
 }
 
-$debug = 'off';
+$debug = 'on';
 if($debug == 'on'){
     echo '<pre>' , var_dump($tenant_user_id) , '</pre>';
 }
