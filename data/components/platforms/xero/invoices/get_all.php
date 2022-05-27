@@ -10,8 +10,8 @@ for($j = 0; $j < count($tenant_user_id); $j++){
     $user_id_for_request    = $tenant_user_id[$j];
     $tenant_id              = $tenant_xero_id[$j];
 
-    echo $user_id_for_request."<br>";
-    echo $tenant_id."<br>";
+  //  echo $user_id_for_request."<br>";
+  //  echo $tenant_id."<br>";
 
    // require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
 

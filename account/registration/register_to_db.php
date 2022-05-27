@@ -9,13 +9,13 @@ var_dump($_POST);
 unset($_SESSION['rego_error']);
 
 //check passwords match
-if(!isset($_SESSION['rego_error']) && $_POST['first_name'] == ''){		$_SESSION['rego_error'] = "Sorry what's your first name?";}
-if(!isset($_SESSION['rego_error']) && $_POST['second_name'] == ''){		$_SESSION['rego_error'] = "Sorry what's your last name?";}
-if(!isset($_SESSION['rego_error']) && $_POST['phone'] == ''){			$_SESSION['rego_error'] = "Sorry what's your phone number?";}
-if(!isset($_SESSION['rego_error']) && $_POST['email1'] == ''){			$_SESSION['rego_error'] = "We need your email to sign you in please";}
-if(!isset($_SESSION['rego_error']) && $_POST['email2'] == ''){			$_SESSION['rego_error'] = "Sorry can you repeat your email for us";}
-if(!isset($_SESSION['rego_error']) && $_POST['email1'] != $_POST['email2']){	$_SESSION['rego_error'] = "Please ensure your emails match";}
-if(!isset($_SESSION['rego_error']) && $_POST['password1'] != $_POST['password2']){$_SESSION['rego_error'] = "Please ensure your passwords match";}
+if(!isset($_SESSION['rego_error']) && $_POST['first_name'] == ''){					$_SESSION['rego_error'] = "Sorry what's your first name?";}
+if(!isset($_SESSION['rego_error']) && $_POST['second_name'] == ''){					$_SESSION['rego_error'] = "Sorry what's your last name?";}
+if(!isset($_SESSION['rego_error']) && $_POST['phone'] == ''){						$_SESSION['rego_error'] = "Sorry what's your phone number?";}
+if(!isset($_SESSION['rego_error']) && $_POST['email1'] == ''){						$_SESSION['rego_error'] = "We need your email to sign you in please";}
+if(!isset($_SESSION['rego_error']) && $_POST['email2'] == ''){						$_SESSION['rego_error'] = "Sorry can you repeat your email for us";}
+if(!isset($_SESSION['rego_error']) && $_POST['email1'] != $_POST['email2']){		$_SESSION['rego_error'] = "Please ensure your emails match";}
+if(!isset($_SESSION['rego_error']) && $_POST['password1'] != $_POST['password2']){	$_SESSION['rego_error'] = "Please ensure your passwords match";}
 
 // prepare all the fields from the form for SQL using mysqli_real_escape_string
 $first_name 	= mysqli_real_escape_string($conn,ucfirst(strtolower(trim($_POST['first_name']))));
