@@ -12,6 +12,8 @@ if(!isset($_SESSION)){session_start();}
             //therefore allowing access to far more connections as part of the partner program
 
 
+
+//not sure why this is needed!
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
 
 $sql = "SELECT * FROM api_xero_tenant_details 
