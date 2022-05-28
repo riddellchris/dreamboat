@@ -31,7 +31,7 @@ $url_for_api_request =  "https://api.xero.com/api.xro/2.0/Reports/ProfitAndLoss?
 echo $url_for_api_request;
 
 //$user_id_for_request = 1;
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
+//require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
 
 //this process is ordered to match the layout of https://api-explorer.xero.com/
@@ -63,6 +63,10 @@ if($debug == 'on'){
     echo '<pre>' , var_dump($response) , '</pre>';
     //exit();
 }
+
+
+unset($pulled_from_json);
+
 
 
 //iterate through and pull out appropriate data:

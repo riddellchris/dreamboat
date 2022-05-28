@@ -47,7 +47,7 @@ for($main_counter = 0; $main_counter < count($tenant_user_id); $main_counter++){
 
     //set the $_SESSION user_id with the corresponding user_id for this tenant
     $user_id_for_request    = $tenant_user_id[$main_counter];
-   // $tenant_id              = $tenant_xero_id[$j];
+    $tenant_id              = $tenant_xero_id[$main_counter];
 
 
   //  echo "hi";
