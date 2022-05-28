@@ -25,7 +25,9 @@ for example
 if $live site
 
 */
-$sql = "SELECT * FROM api_xero_tenant_details GROUP BY user_id";
+$sql = "SELECT * FROM api_xero_tenant_details 
+        WHERE actively_disconnected = 'no'
+        GROUP BY user_id";
 $result_for_tenants = mysqli_query($conn, $sql);
 //echo $sql;exit();
 
