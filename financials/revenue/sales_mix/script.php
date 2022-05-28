@@ -95,7 +95,7 @@ else{
               if($other['value']        > 0){  echo " ['Other',         ".$other['value'].",        '".$other['value']."'],        ";}
               if($wholesale['value']    > 0){  echo " ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],    ";}
               if($distributors['value'] > 0){  echo " ['Distributors',  ".$distributors['value'].", '".$distributors['value']."']  ";}
-            
+              $title = "Sales Mix - over the past 6 complete months";
               
             }
           }
@@ -118,7 +118,10 @@ else{
        
 
                 <?php
-                echo "title: 'Sales Mix',";
+                echo "title: '";
+                if(isset($title)){echo $title;}
+                else{echo "Sales Mix";}
+                echo "',";
                 ?>
 
 
