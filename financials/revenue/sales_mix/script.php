@@ -78,6 +78,8 @@ else{
                 if($row['account_name'] == 'RAW_Other'){                  $other['value']         += $row['value'];}
                 if($row['account_name'] == 'Sales from Market Stalls'){   $other['value']         += $row['value'];}
 
+                $accurate_as_at_string = $row['accurate_as_at_string'];
+
                 //RAW_Contract Manufacturing not included as not a sales item
 
               }
@@ -108,6 +110,11 @@ else{
                        
         var options = {
           title : 'Sales Mix',
+
+          <?php
+            if(isset($accurate_as_at_string)){echo "subtitle : '".$accurate_as_at_string."',";}
+          ?>
+
           vAxis: {title: '$'},
           hAxis: {title: 'Month'},
           seriesType: 'bars',

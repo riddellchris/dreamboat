@@ -20,14 +20,23 @@ echo date('Y-m-d', strtotime(date('Y-m')."last day of -6 months"));
 
 //so that makes querying any report really simple then as all we need to do is focus on building these little bits and pieces out
 //as the from date becomes:
-$from_date = date('Y-m-d', strtotime(date('Y-m')."first day of -6 months"));
+$from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of -6 months"));
+$from_date_string   = date('M j',   strtotime(date('Y-m')."first day of -6 months"));
 //echo $from_date;
 ////echo "<br><br>";
 
 //and the to_date becomes:
-$to_date = date('Y-m-d', strtotime(date('Y-m')."last day of -1 months"));
+$to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of -1 months"));
+$to_date_string     = date('M j',   strtotime(date('Y-m')."last day of -1 months"));
+
+/*
+
 //echo $to_date;
 //echo "<br><br>";
+*/
+$updated_last_string = date('Y-m-d', strtotime(date('Y-m')));
+
+$accurate_as_at_string = "Displaying: ".$from_date_string." > ".$to_date_string." | Updated last: ".$updated_last_string; 
 
 $url_for_api_request =  "https://api.xero.com/api.xro/2.0/Reports/ProfitAndLoss?fromDate=".$from_date."&toDate=".$to_date;
 echo $url_for_api_request;
@@ -203,14 +212,22 @@ for($i = 0; $i < count($pulled_from_json['account_name'])+1; $i ++){
                 tenant_id,
                 account_id,
                 account_name,
-                value
+                value,
+                from_date_string,
+                to_date_string,
+                updated_last_string,
+                accurate_as_at_string
                 )
             VALUES(
                 '".mysqli_real_escape_string($conn, $user_id_for_request)."',
                 '".mysqli_real_escape_string($conn, $tenant_id)."',
                 '".mysqli_real_escape_string($conn, $account_id)."',
                 '".mysqli_real_escape_string($conn, $account_name)."',
-                '".mysqli_real_escape_string($conn, $value)."'
+                '".mysqli_real_escape_string($conn, $value)."',
+                '".mysqli_real_escape_string($conn, $from_date_string)."',
+                '".mysqli_real_escape_string($conn, $to_date_string)."',
+                '".mysqli_real_escape_string($conn, $updated_last_string)."',       
+                '".mysqli_real_escape_string($conn, $accurate_as_at_string)."'                
                 )
         ";
         echo $sql."<br><br><br>";
