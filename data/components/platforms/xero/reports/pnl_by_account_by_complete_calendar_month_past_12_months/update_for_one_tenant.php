@@ -3,8 +3,8 @@
 
 //simply for construction
 //ONLY COMMENT OUT SO THAT WE CAN SAVE FOR MORE CONSTRCUTION
-$user_id_for_request = 1;
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
+//$user_id_for_request = 1;
+//require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
 
 /*
 //first we need to get todays date.

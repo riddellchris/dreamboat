@@ -5,7 +5,7 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/get_t
 //for each in that array
 for($main_counter = 0; $main_counter < count($tenant_user_id); $main_counter++){
 
-  /*
+  
   echo "<br>";
   echo "User id array<br>";
   echo '<pre>' , var_dump($tenant_user_id) , '</pre>'; 
@@ -23,7 +23,7 @@ for($main_counter = 0; $main_counter < count($tenant_user_id); $main_counter++){
   echo "<br>TENANT ID";  
   echo  $tenant_id              = $tenant_xero_id[$main_counter];
   echo "<br>";
-*/
+
   //  echo "hi";
    // require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
    // echo "hi";
