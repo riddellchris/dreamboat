@@ -19,6 +19,7 @@ if( isset($_SESSION['viewing_client_id'])){     $user_id_for_request = $_SESSION
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $sql = "SELECT * FROM api_xero_return_keys
         WHERE user_id = '".mysqli_real_escape_string($conn, $user_id_for_request)."'
+        AND access_token <> ''
         ORDER BY id
         DESC LIMIT 1";
 //echo $sql."<br>";
