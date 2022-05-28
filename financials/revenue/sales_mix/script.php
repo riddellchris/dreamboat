@@ -39,6 +39,10 @@ else{
                 ['Wholesale',     288,        '288'],
                 ['Distribution',  288,        '288']
                 ";
+
+                $sub_title = "Dummy data only";
+
+
               }
           else{
 
@@ -51,7 +55,7 @@ else{
               ['DB_Distribution',  288,        '288']
               ";
 
-              $accurate_as_at_string = "Dummy data for Chris only";
+              $sub_title = "Dummy data for Chris only";
 
             }
             if($_SESSION['viewing_client_id'] == 4383){
@@ -81,7 +85,7 @@ else{
                 if($row['account_name'] == 'RAW_Other'){                  $other['value']         += $row['value'];}
                 if($row['account_name'] == 'Sales from Market Stalls'){   $other['value']         += $row['value'];}
 
-                $accurate_as_at_string = $row['accurate_as_at_string'];
+                $sub_title = $row['accurate_as_at_string'];
 
                 //RAW_Contract Manufacturing not included as not a sales item
 
@@ -95,7 +99,7 @@ else{
               if($other['value']        > 0){  echo " ['Other',         ".$other['value'].",        '".$other['value']."'],        ";}
               if($wholesale['value']    > 0){  echo " ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],    ";}
               if($distributors['value'] > 0){  echo " ['Distributors',  ".$distributors['value'].", '".$distributors['value']."']  ";}
-              $sub_title  = $row['accurate_as_at_string'];
+
               
             }
           }
