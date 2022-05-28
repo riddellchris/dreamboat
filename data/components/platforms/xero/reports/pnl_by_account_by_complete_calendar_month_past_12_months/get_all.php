@@ -20,7 +20,7 @@ for($main_counter = 0; $main_counter < count($tenant_user_id); $main_counter++){
   echo "Main counter: ".$main_counter."<br>";
   echo "<br>USER ID FOR REQUEST:";
   echo  $user_id_for_request    = $tenant_user_id[$main_counter];
-  echo "<br>TENANT ID";  
+  echo "<br>TENANT ID<br>";  
   echo  $tenant_id              = $tenant_xero_id[$main_counter];
   echo "<br>";
 

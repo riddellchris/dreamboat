@@ -36,12 +36,12 @@ $to_date_string     = date('M j',   strtotime(date('Y-m')."last day of -1 months
 
 $updated_last_string = date('Y-m-d', strtotime(date('Y-m')));
 
-echo $accurate_as_at_string = " over the past 12 complete months to ".$to_date_string;
+$accurate_as_at_string = " over the past 12 complete months to ".$to_date_string;
 
 
-echo "hi";
+//echo "hi";
 for($date_index = -1; $date_index > -13; $date_index --){
-echo "hi";
+//echo "hi";
     //ACTUAL REQUEST DATE CREATION
     $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." months"));
     $date_index_start   = $from_date;
