@@ -119,8 +119,7 @@ else{
 
                 <?php
                 echo "title: 'Sales Mix";
-                if(isset($accurate_as_at_string)){echo " - ".$accurate_as_at_string;}
-                echo "',";
+                                echo "',";
                 ?>
 
 
