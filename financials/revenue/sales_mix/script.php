@@ -90,7 +90,7 @@ else{
               if($other['value']        > 0){  echo " ['Other',         ".$other['value'].",        '".$other['value']."'],        ";}
               if($wholesale['value']    > 0){  echo " ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],    ";}
               if($distributors['value'] > 0){  echo " ['Distribution',  ".$distributors['value'].", '".$distributors['value']."']  ";}
-              ";
+              
             }
           }
 
