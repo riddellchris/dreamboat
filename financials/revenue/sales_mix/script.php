@@ -30,8 +30,8 @@ else{
 <?php
 
           if(
-              $_SESSION['user_id'] != 1 AND   //Chris
-              $_SESSION['user_id'] != 4383){  //Tricia Ong / mel
+              $_SESSION['viewing_client_id'] != 1 AND   //Chris
+              $_SESSION['viewing_client_id'] != 4383){  //Tricia Ong / mel
                 echo "
                 ['Month',         'Dollars', { role: 'annotation' }],
                 ['Website',       450,        '450'],    
@@ -42,7 +42,7 @@ else{
               }
           else{
 
-            if($_SESSION['user_id'] == 1){
+            if($_SESSION['viewing_client_id'] == 1){
               echo "
               ['Month',         'Dollars', { role: 'annotation' }],
               ['DB_Website',       450,        '450'],    
@@ -51,10 +51,10 @@ else{
               ['DB_Distribution',  288,        '288']
               ";
             }
-            if($_SESSION['user_id'] == 4383){
+            if($_SESSION['viewing_client_id'] == 4383){
 
               $sql = "SELECT * FROM api_xero_reports_pnl_account_past_6_complete_months
-                      WHERE user_id = '"."'
+                      WHERE user_id = '".$_SESSION['viewing_client_id']."'
                       AND   latest_version_for_this_user = 'yes'";
               $result = mysqli_query($conn, $sql);
 
@@ -94,7 +94,7 @@ else{
 
 ?>
 
-          }
+          
 
 
 
