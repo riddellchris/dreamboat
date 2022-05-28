@@ -65,7 +65,7 @@ else{
               $shopify['value']       = 0;
               $distributors['value']  = 0;
               $wholesale['value']     = 0;
-              $other['value']     = 0;
+              $other['value']         = 0;
 
 
               while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -78,7 +78,7 @@ else{
                 if($row['account_name'] == 'RAW_Other'){                  $other['value']         += $row['value'];}
                 if($row['account_name'] == 'Sales from Market Stalls'){   $other['value']         += $row['value'];}
 
-                //RAW_Contract Manufacturing not included
+                //RAW_Contract Manufacturing not included as not a sales item
 
               }
 
@@ -89,7 +89,8 @@ else{
               if($shopify['value']      > 0){  echo " ['Website',       ".$shopify['value'].",      '".$shopify['value']."'],      ";}
               if($other['value']        > 0){  echo " ['Other',         ".$other['value'].",        '".$other['value']."'],        ";}
               if($wholesale['value']    > 0){  echo " ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],    ";}
-              if($distributors['value'] > 0){  echo " ['Distribution',  ".$distributors['value'].", '".$distributors['value']."']  ";}
+              if($distributors['value'] > 0){  echo " ['Distributors',  ".$distributors['value'].", '".$distributors['value']."']  ";}
+              if($distributors['value'] > 0){  echo " ['Distributors',  ".$distributors['value'].", '".$distributors['value']."']  ";}              
               
             }
           }
