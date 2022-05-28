@@ -74,8 +74,8 @@ for($j = 0; $j < count($tenant_user_id); $j++){
 
 
 
-    $getting_all = 'yes';
+    //$getting_all = 'yes';
     require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/pnl_by_account_summed_for_last_6_complete_months/update_for_one_tenant.php";
-    unset($getting_all);
+   // unset($getting_all);
  
 }
