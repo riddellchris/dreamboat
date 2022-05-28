@@ -34,6 +34,8 @@ echo $url_for_api_request;
 //require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
 
+
+echo "<br><br>";
 echo "USER ID <br>";
 echo $user_id_for_request."<br>";
 echo "TENANT ID <br>";
@@ -41,8 +43,7 @@ echo $tenant_id ."<br>";
 echo "<br>";
 echo "ACCESS TOKEN <br>";
 echo $access_token."<br>";
-echo "TENANT ID <br>";
-echo $tenant_id."<br><br>";
+
 
 
 //this process is ordered to match the layout of https://api-explorer.xero.com/
