@@ -27,11 +27,77 @@ else{
         var data = google.visualization.arrayToDataTable([
 
 
-          ['Month',     'Dollars', { role: 'annotation' }],
-          ['Website',       450,  '450']     ,    
-          ['Other',          450,  '450'],
-          ['Wholesale',       288,  '288'],
-          ['Distribution',   288,  '288']
+<?php
+
+          if(
+              $_SESSION['user_id'] != 1 AND   //Chris
+              $_SESSION['user_id'] != 4383){  //Tricia Ong / mel
+                echo "
+                ['Month',         'Dollars', { role: 'annotation' }],
+                ['Website',       450,        '450'],    
+                ['Other',         450,        '450'],
+                ['Wholesale',     288,        '288'],
+                ['Distribution',  288,        '288']
+                ";
+              }
+          else{
+
+            if($_SESSION['user_id'] == 1){
+              echo "
+              ['Month',         'Dollars', { role: 'annotation' }],
+              ['DB_Website',       450,        '450'],    
+              ['DB_Other',         450,        '450'],
+              ['DB_Wholesale',     288,        '288'],
+              ['DB_Distribution',  288,        '288']
+              ";
+            }
+            if($_SESSION['user_id'] == 4383){
+
+              $sql = "SELECT * FROM api_xero_reports_pnl_account_past_6_complete_months
+                      WHERE user_id = '"."'
+                      AND   latest_version_for_this_user = 'yes'";
+              $result = mysqli_query($conn, $sql);
+
+              $to_present = array();
+              $to_present['label'] = array();
+              $to_present['value'] = array();
+
+              $shopify['value']       = 0;
+              $distributors['value']  = 0;
+              $wholesale['value']     = 0;
+              $other['value']     = 0;
+
+
+              while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                if($row['account_name'] == 'LAM _Shopify'){               $shopify['value']       += $row['value'];}
+                if($row['account_name'] == 'LAM_Distributors'){           $distributors['value']  += $row['value'];}
+                if($row['account_name'] == 'RAW_Distributors'){           $distributors['value']  += $row['value'];}                
+                if($row['account_name'] == 'LAM_Wholesale'){              $wholesale['value']     += $row['value'];}
+                if($row['account_name'] == 'Sale from wholesale'){        $wholesale['value']     += $row['value'];}
+                
+                if($row['account_name'] == 'RAW_Other'){                  $other['value']         += $row['value'];}
+                if($row['account_name'] == 'Sales from Market Stalls'){   $other['value']         += $row['value'];}
+
+                //RAW_Contract Manufacturing not included
+
+              }
+
+              echo "
+              ['Month',         'Dollars', { role: 'annotation' }],
+              ['Website',       ".$shopify['value'].",      '".$shopify['value']."'],    
+              ['Other',         ".$other['value'].",        '".$other['value']."'],
+              ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],
+              ['Distribution',  ".$distributors['value'].", '".$distributors['value']."']
+              ";
+            }
+          }
+
+
+
+          }
+
+
+
         ]);
 
 
