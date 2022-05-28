@@ -28,7 +28,7 @@ if(!isset($_SESSION)){session_start();}
         if($row_connections['platform_name'] == 'xero'){
 
             $debug['xero_data_upate'] = "xero updated";
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/update_processes/all.php";
+           // require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/update_processes/all.php";
 
         }
     }

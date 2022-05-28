@@ -27,7 +27,7 @@ if($row['dreamboat_crew'] == 'yes') {
 	$_SESSION['dreamboat_crew_navigation_option_on'] 	= 'yes';
 	$_SESSION['pilots_first_name'] 						= $row['first_name'];
 	$_SESSION['pilots_number'] 							= $row['phone_number'];
-
+/*
 	if ($row['dreamboat_management'] == 'yes') {
 		$_SESSION['dreamboat_management'] 		= 'yes';
 	}
@@ -38,6 +38,7 @@ if($row['dreamboat_crew'] == 'yes') {
 		$_SESSION['dreamboat_developer'] 		= 'yes';
 		$_SESSION['dreamboat_developer_view'] 	= 'live';
 	}
+	*/
 }
 else{
 	$_SESSION['dreamboat_crew']             = 'no';
