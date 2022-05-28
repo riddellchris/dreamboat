@@ -36,7 +36,8 @@ $to_date_string     = date('M j',   strtotime(date('Y-m')."last day of -1 months
 */
 $updated_last_string = date('Y-m-d', strtotime(date('Y-m')));
 
-$accurate_as_at_string = "Displaying: ".$from_date_string." > ".$to_date_string." | Updated last: ".$updated_last_string; 
+//$accurate_as_at_string = "Displaying: ".$from_date_string." > ".$to_date_string." | Updated last: ".$updated_last_string; 
+$accurate_as_at_string = " over the past 6 complete months to ".$to_date_string;
 
 $url_for_api_request =  "https://api.xero.com/api.xro/2.0/Reports/ProfitAndLoss?fromDate=".$from_date."&toDate=".$to_date;
 echo $url_for_api_request;
