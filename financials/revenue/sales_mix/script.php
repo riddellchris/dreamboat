@@ -50,6 +50,9 @@ else{
               ['DB_Wholesale',     288,        '288'],
               ['DB_Distribution',  288,        '288']
               ";
+
+              $accurate_as_at_string = "Dummy data for Chris only";
+
             }
             if($_SESSION['viewing_client_id'] == 4383){
 
@@ -109,11 +112,17 @@ else{
 
                        
         var options = {
-          title : 'Sales Mix',
+  
+         
+          
+       
 
-          <?php
-            if(isset($accurate_as_at_string)){echo "subtitle : '".$accurate_as_at_string."',";}
-          ?>
+                <?php
+                echo "title: 'Sales Mix";
+                if(isset($accurate_as_at_string)){echo " - ".$accurate_as_at_string;}
+                echo "',";
+                ?>
+
 
           vAxis: {title: '$'},
           hAxis: {title: 'Month'},
