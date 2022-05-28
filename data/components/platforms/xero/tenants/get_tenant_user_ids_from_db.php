@@ -53,7 +53,7 @@ while($row_for_tenants = mysqli_fetch_array($result_for_tenants, MYSQLI_ASSOC)){
 
 }
 
-$debug = 'on';
+$debug = 'off';
 if($debug == 'on'){
     echo '<pre>' , var_dump($tenant_user_id) , '</pre>';
 }

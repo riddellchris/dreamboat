@@ -45,9 +45,16 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/get_t
 //for each in that array
 for($main_counter = 0; $main_counter < count($tenant_user_id); $main_counter++){
 
+  echo "<br>";
+  echo "Main counter<br>";
+  echo '<pre>' , var_dump($tenant_user_id) , '</pre>'; 
+  echo '<pre>' , var_dump($tenant_xero_id) , '</pre>';
+
     //set the $_SESSION user_id with the corresponding user_id for this tenant
-    $user_id_for_request    = $tenant_user_id[$main_counter];
-    $tenant_id              = $tenant_xero_id[$main_counter];
+  echo "<br>".$user_id_for_request;
+  echo  $user_id_for_request    = $tenant_user_id[$main_counter];
+  echo "<br>".$tenant_id;  
+  echo  $tenant_id              = $tenant_xero_id[$main_counter];
 
 
   //  echo "hi";

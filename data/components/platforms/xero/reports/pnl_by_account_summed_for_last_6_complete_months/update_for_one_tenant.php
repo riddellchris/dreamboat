@@ -1,6 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+/*
 //first we need to get todays date.
 echo date('m');
 echo "<br><br>";
@@ -15,17 +16,18 @@ echo "<br><br>";
 
 //and further yet we can do this
 echo date('Y-m-d', strtotime(date('Y-m')."last day of -6 months"));
+*/
 
 //so that makes querying any report really simple then as all we need to do is focus on building these little bits and pieces out
 //as the from date becomes:
 $from_date = date('Y-m-d', strtotime(date('Y-m')."first day of -6 months"));
-echo $from_date;
-echo "<br><br>";
+//echo $from_date;
+////echo "<br><br>";
 
 //and the to_date becomes:
 $to_date = date('Y-m-d', strtotime(date('Y-m')."last day of -1 months"));
-echo $to_date;
-echo "<br><br>";
+//echo $to_date;
+//echo "<br><br>";
 
 $url_for_api_request =  "https://api.xero.com/api.xro/2.0/Reports/ProfitAndLoss?fromDate=".$from_date."&toDate=".$to_date;
 echo $url_for_api_request;
