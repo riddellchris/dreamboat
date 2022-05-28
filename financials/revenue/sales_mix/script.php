@@ -82,12 +82,14 @@ else{
 
               }
 
-              echo "
-              ['Month',         'Dollars', { role: 'annotation' }],
-              ['Website',       ".$shopify['value'].",      '".$shopify['value']."'],    
-              ['Other',         ".$other['value'].",        '".$other['value']."'],
-              ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],
-              ['Distribution',  ".$distributors['value'].", '".$distributors['value']."']
+
+              //this is because pie charts cannot have negative values
+//                if($shopify['value'] < 0){
+                                          echo " ['Month',         'Dollars',                   { role: 'annotation' }],";
+              if($shopify['value'] < 0){  echo " ['Website',       ".$shopify['value'].",      '".$shopify['value']."'],      ";}
+              if($shopify['value'] < 0){  echo " ['Other',         ".$other['value'].",        '".$other['value']."'],        ";}
+              if($shopify['value'] < 0){  echo " ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],    ";}
+              if($shopify['value'] < 0){  echo " ['Distribution',  ".$distributors['value'].", '".$distributors['value']."']  ";}
               ";
             }
           }
