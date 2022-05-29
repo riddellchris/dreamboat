@@ -54,7 +54,6 @@ else{
                     $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
                             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
                             AND           latest_version_for_this_user = 'yes'
-                            AND          ( account_name = 'Total Income' OR  account_name = 'LAM _Shopify' ) 
                             AND           date_index > -7
                             ORDER BY date_index ASC          
                             ";
