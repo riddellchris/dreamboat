@@ -78,7 +78,11 @@ else{
 
                        
         var options = {
-          title : 'Expenses Total',
+          <?php
+                echo "title: 'Total Expenses";
+                if(isset($sub_title)){echo " - ".$sub_title;}
+                echo "',";
+                ?>
           vAxis: {title: '$'},
          // hAxis: {title: 'Month'},
           seriesType: 'bars',
