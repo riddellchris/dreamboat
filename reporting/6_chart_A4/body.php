@@ -7,7 +7,7 @@ if($_GET['tertiary_folder'] == 'print'){echo "table{width: 1120px;}";}
 else{echo "table{width:100%;}";}
 
 echo"
-td{width: 50%; height: 25vh;}
+.chart_row td{width: 50%; height: 20vh;}
 .print_link{
     font-family: helvetica;
     margin-top: 30px;
@@ -16,11 +16,18 @@ td{width: 50%; height: 25vh;}
 }
 
 .google_charts_print{
-width:100%;
-height:100%;
-
+    width:100%;
+    height:100%;
 }
 
+.title_blocks{
+    width: calc(100%/3);
+}
+
+table{
+    font-family: Barlow Semi Condensed;
+
+}
 </style>";
 
 if($_GET['tertiary_folder'] != 'print'){
@@ -31,7 +38,49 @@ if($_GET['tertiary_folder'] != 'print'){
 
 //this is just hard coding a 6 up table.
 echo "<table>";
-    echo "<tr>";
+
+
+        echo "<tr>";
+            echo "<td style='width:100%;' colspan='2'>";
+                echo "<table >";
+                    echo "<tr>";
+                        echo "<td class='title_blocks'>";
+                            echo "<img src='/components/whitelabeling/prime_strategies/laila PNG.png' alt='Laila & Me' width='100' height='100' style='margin-bottom: 20px;'>";
+                            echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Laila & Me' width='140' height='140'>";
+
+                        echo "</td>";
+                        echo "<td class='title_blocks' style='text-align:center;'>";
+                            echo "Laila and Me / Rawvolution<br>MONTHLY KPI DASHBOARD";
+
+                        echo "</td>";
+                        echo "<td class='title_blocks' style='text-align:right;'>";
+
+                            echo "<img src='/components/whitelabeling/prime_strategies/Prime-Strategies-logo-1500pxW.PNG' alt='Laila & Me' style='max-height:100;'>";
+                        echo "</td>";
+                        
+                    echo "</tr>";
+                    echo "<tr>";
+                        echo "<td colspan='3' style='text-align: center;'>";
+                                echo "Meeting date";
+
+                        echo "</td>";
+                    echo "</tr>";
+                    echo "<tr>";
+                        echo "<td colspan='3' style='text-align: center;'>";
+                                echo "Reporting period";
+
+                        echo "</td>";
+                    echo "</tr>";
+
+                    echo "</table>";
+            echo "</td>";
+            echo "<td>";
+            echo "</td>";
+        echo "</tr>";
+
+
+
+    echo "<tr class='chart_row'>";
         echo "<td>";
             echo "<div id='financials_revenue_tracker_div' class='google_charts_print'></div>";
         echo "</td>";
@@ -39,7 +88,7 @@ echo "<table>";
             echo "<div id='financials_revenue_sales_mix_div'  class='google_charts_print'></div>";
         echo "</td>";
     echo "</tr>";
-    echo "<tr>";
+    echo "<tr class='chart_row'>";
         echo "<td>";
             echo "<div id='financials_revenue_shopify_comparison_div'  class='google_charts_print'></div>";
         echo "</td>";
@@ -47,12 +96,22 @@ echo "<table>";
             echo "<div id='financials_revenue_breakdown_div'  class='google_charts_print'></div>";
         echo "</td>";
     echo "</tr>";
-    echo "<tr>";
+    echo "<tr class='chart_row'>";
         echo "<td>";
             echo "<div id='financials_expenses_total_div'  class='google_charts_print'></div>";
         echo "</td>";
         echo "<td>";
             echo "<div id='financials_expenses_adspend_vs_return_div'  class='google_charts_print'></div>";
+        echo "</td>";
+    echo "</tr>";
+    echo "<tr>";
+        echo "<td colspan='2'>";
+            echo "<form action='reporting/submit.php'>";
+                echo "<textarea style='max-width:1100px;margin-left: auto; margin-right: auto; display: block; text-align: left;' rows='6'>";
+
+                echo "</textarea>";
+                require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/submits/standard.php";
+            echo "</form>";
         echo "</td>";
     echo "</tr>";
 echo "</table>";
