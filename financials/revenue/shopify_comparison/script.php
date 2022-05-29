@@ -72,7 +72,7 @@ else{
                     }
 
                     for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
-                      echo " ['".$extracted['date_index_end'][$date_index]."',       
+                      echo " ['".$extracted['date_index_end'][$extraction_counter]."',       
                                 ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."',       
                                 ".$extracted['LAM _Shopify'][$extraction_counter].",      '".$extracted['LAM _Shopify'][$extraction_counter]."'],      ";
 

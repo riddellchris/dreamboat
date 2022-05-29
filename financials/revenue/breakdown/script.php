@@ -30,7 +30,7 @@ else{
 
 
           <?php
-                echo "['Month',     'Website', { role: 'annotation' }, 'Other', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }],";
+                echo "['Month',     'Website', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }, 'Other', { role: 'annotation' }],";
                 if(
                      //Chris
                     $_SESSION['viewing_client_id'] != 4383){  //Tricia Ong / mel
