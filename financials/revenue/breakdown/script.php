@@ -118,7 +118,7 @@ else{
           seriesType: 'bars',
 
           <?php
-          if($_SESSION['user_id'] == 4383){
+          if($_SESSION['viewing_client_id'] == 4383){
             echo "colors: ['#f6b26b', '#3c78d8', 'green', 'black', 'red'],";
           }
           else{
