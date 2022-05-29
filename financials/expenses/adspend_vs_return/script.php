@@ -87,13 +87,7 @@ else{
                       echo " ['".$extracted['date_index_end'][$extraction_counter]."',      
                                 ".$computed['return_on_adspend'][$extraction_counter].",  '".$computed['return_on_adspend'][$extraction_counter]."',                       
                                 ".$extracted['website'][$extraction_counter].",           '".$extracted['website'][$extraction_counter]."',    
-                                ".$extracted['adspend'][$extraction_counter].",           '".$extracted['adspend'][$extraction_counter]."' 
-  
-
-                              
-                              
-                              
-                              ],      ";
+                                ".$extracted['adspend'][$extraction_counter].",           '".$extracted['adspend'][$extraction_counter]."' ]      ";
 
                       $sub_title = $row['accurate_as_at_string'];
 
