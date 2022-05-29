@@ -112,7 +112,15 @@ else{
 
                        
         var options = {
-          title : 'Revenue Breakdown',
+
+          <?php
+                echo "title: 'Revenue Breakdown";
+                if(isset($sub_title)){echo " - ".$sub_title;}
+                echo "',";
+                ?>
+
+
+
           vAxis: {title: '$'},
           //hAxis: {title: 'Month'},
           seriesType: 'bars',

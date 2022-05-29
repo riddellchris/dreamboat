@@ -90,7 +90,15 @@ else{
 
                        
         var options = {
-          title : 'Shopify Comparison',
+
+          <?php
+                echo "title: 'Shopify Comparison";
+                if(isset($sub_title)){echo " - ".$sub_title;}
+                echo "',";
+                ?>
+
+
+
           vAxis: {title: '$'},
          // hAxis: {title: 'Month'},
           seriesType: 'bars',

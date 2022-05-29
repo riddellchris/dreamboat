@@ -107,7 +107,14 @@ else{
 
                        
         var options = {
-          title : 'Adpend vs Return',
+
+          <?php
+                echo "title: 'Adpend vs Return";
+                if(isset($sub_title)){echo " - ".$sub_title;}
+                echo "',";
+                ?>
+
+
           vAxes: {  0: {title: '%'},
                     1: {title: '$'},
                     },
