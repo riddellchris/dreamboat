@@ -24,18 +24,65 @@ else{
                     {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
-          ['Month',     'Revenue', { role: 'annotation' },'Target'],
-          ['Dec-21',   450,   '450',   614.6],          
-          ['Jan-22',   450,    '450',   614.6],
-          ['Feb-22',   288,    '450',   682],
-          ['Mar-22',   397,    '450',   623],
-          ['Apr-22',   215,     '450',  609.4],
-          ['May-22',   366,     '450',  569.6]
+
+
+          <?php
+
+if(
+    $_SESSION['viewing_client_id'] != 1 AND   //Chris
+    $_SESSION['viewing_client_id'] != 4383){  //Tricia Ong / mel
+      echo "
+      ['Month',     'Revenue', { role: 'annotation' },'Target'],
+      ['Dec-21',   450,   '450',   614.6],          
+      ['Jan-22',   450,    '450',   614.6],
+      ['Feb-22',   288,    '450',   682],
+      ['Mar-22',   397,    '450',   623],
+      ['Apr-22',   215,     '450',  609.4],
+      ['May-22',   366,     '450',  569.6]
+      ";
+
+      $sub_title = "Dummy data only";
+
+
+    }
+else{
+
+  if( $_SESSION['viewing_client_id'] == 4383 OR 
+      $_SESSION['viewing_client_id'] == 1){
+
+    $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
+            WHERE         user_id = '".$_SESSION['viewing_client_id']."'
+            AND           latest_version_for_this_user = 'yes'
+            AND           account_name = 'Total Income'
+            ORDER BY date_index ASC          
+            ";
+    $result = mysqli_query($conn, $sql);
+
+
+    echo " ['Month',         'Revenue',                   { role: 'annotation' }, 'Target'],";
+
+    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+       echo " ['".$row['date_index_end']."',       ".$row['value'].",      '".$row['value']."', 614.6],      ";
+
+      $sub_title = $row['accurate_as_at_string'];
+
+      //RAW_Contract Manufacturing not included as not a sales item
+
+    }   
+  }
+}
+
+?>
+
         ]);
 
         var options = {
-          title : 'REVENUE TRACKER',
-          vAxis: {title: 'Cups'},
+          <?php
+                echo "title: 'Revenue Tracker";
+                if(isset($sub_title)){echo " - ".$sub_title;}
+                echo "',";
+                ?>
+          vAxis: {title: '$'},
           hAxis: {title: 'Month'},
           seriesType: 'bars',
           series: {1: {type: 'line',  lineWidth: 10, color: '#cecece'}}

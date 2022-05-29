@@ -26,7 +26,7 @@ else{
         var data = google.visualization.arrayToDataTable([
 
 
-          ['Month',     'Total', { role: 'annotation' }, 'Shopify', { role: 'annotation' }],
+          ['Month',     'Total Revenue', { role: 'annotation' }, 'Shopify Revenue', { role: 'annotation' }],
           ['Dec-21',   450,  '450',     614.6, '614'],          
           ['Jan-22',   450,  '450',     614.6, '614'],
           ['Feb-22',   288,  '288',     682, '682'],
