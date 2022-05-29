@@ -45,32 +45,43 @@ echo "<table >";
                 echo "<table >";
                     echo "<tr>";
                         echo "<td class='title_blocks'>";
-                            echo "<img src='/components/whitelabeling/prime_strategies/laila PNG.png' alt='Laila & Me' width='100' height='100' style='margin-bottom: 20px;'>";
-                            echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Laila & Me' width='140' height='140'>";
+                            if($_SESSION['viewing_client_id'] == '4383'){
+
+                                echo "<img src='/components/whitelabeling/prime_strategies/laila PNG.png' alt='Laila & Me' width='100' height='100' style='margin-bottom: 20px;'>";
+                                echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Laila & Me' width='140' height='140'>";
+                            }
+                            else{
+                                echo "<div style='margin-left: 25px;'>Your Logo</div>";
+
+                            }
 
                         echo "</td>";
                         echo "<td class='title_blocks' style='text-align:center;'>";
-                            echo "Laila and Me / Rawvolution<br>MONTHLY KPI DASHBOARD";
+                            echo "<span style='font-size: 30px; text-decoration: underline; padding-bottom: 5px; font-weight: 800;'>";
+                                if($_SESSION['viewing_client_id'] == '4383'){echo "Laila and Me / Rawvolution";}
+                                else{echo "Your Company Name";}
+                            echo "</span>";
+                            
+                            echo "<br>";
+
+                            echo "MONTHLY KPI DASHBOARD";
+
+                            echo "<br>";
+
+                                    echo "Accurate as at:<br>".date("F j, Y");
+
+                            echo "<br>";
+                            echo "";
 
                         echo "</td>";
                         echo "<td class='title_blocks' style='text-align:right;'>";
-
-                            echo "<img src='/components/whitelabeling/prime_strategies/Prime-Strategies-logo-1500pxW.PNG' alt='Laila & Me' style='max-height:100;'>";
+                            if($_SESSION['viewing_client_id'] == '4383'){
+                                echo "<img src='/components/whitelabeling/prime_strategies/Prime-Strategies-logo-1500pxW.PNG' alt='Laila & Me' style='max-height:100;'>";
+                            }
                         echo "</td>";
                         
                     echo "</tr>";
-                    echo "<tr>";
-                        echo "<td colspan='3' style='text-align: center;'>";
-                                echo "Meeting date";
 
-                        echo "</td>";
-                    echo "</tr>";
-                    echo "<tr>";
-                        echo "<td colspan='3' style='text-align: center;'>";
-                                echo "Reporting period";
-
-                        echo "</td>";
-                    echo "</tr>";
 
                     echo "</table>";
             echo "</td>";
