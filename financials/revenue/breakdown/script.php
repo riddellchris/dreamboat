@@ -115,7 +115,7 @@ else{
           hAxis: {title: 'Month'},
           seriesType: 'bars',
           colors: ['#f6b26b', '#3c78d8', 'green', 'red'],
-        isStacked: true,
+      //  isStacked: true,
         legend: {position: 'bottom'}
         };
 
