@@ -82,11 +82,11 @@ else{
                     }
 
                     for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
-                      echo " ['".$extracted['date_index_end'][$date_index]."',       
-                                ".$extracted['website'][$date_index].",      '".$extracted['website'][$date_index]."',    
-                                ".$extracted['distribution'][$date_index].", '".$extracted['distribution'][$date_index]."', 
-                                ".$extracted['wholesale'][$date_index].",    '".$extracted['wholesale'][$date_index]."',    
-                                ".$extracted['other'][$date_index].",        '".$extracted['other'][$date_index]."'
+                      echo " ['".$extracted['date_index_end'][$extraction_counter]."',       
+                                ".$extracted['website'][$extraction_counter].",      '".$extracted['website'][$extraction_counter]."',    
+                                ".$extracted['distribution'][$extraction_counter].", '".$extracted['distribution'][$extraction_counter]."', 
+                                ".$extracted['wholesale'][$extraction_counter].",    '".$extracted['wholesale'][$extraction_counter]."',    
+                                ".$extracted['other'][$extraction_counter].",        '".$extracted['other'][$extraction_counter]."'
                               
                               
                               
