@@ -46,10 +46,10 @@ echo "<table >";
                     echo "<tr>";
                         echo "<td class='title_blocks'>";
                             $go_to_dummy['logo'] = 'yes';
-                            if($_SESSION['viewing_client_id'] == '1'){   echo "<img src='/components/whitelabeling/dreamboat/screenshot_dreamboat_logo.png' alt='Dreamboat Logo'  style='margin-bottom: 20px; margin-left: 25px; max-width:300; min-height:100px;'>";
+                            if($_SESSION['viewing_client_id'] == '1'){   echo "<img src='/components/whitelabeling/dreamboat/screenshot_dreamboat_logo.png' alt='Dreamboat Logo'  style='margin-bottom: 20px; margin-left: 25px; max-width:300; min-height:40px;'>";
                                 $go_to_dummy['logo'] = 'no';
 }
-                            if($_SESSION['viewing_client_id'] == '4231'){   echo "<img src='/components/whitelabeling/national_pc/NationalPCLogo.png' alt='National PC Logo'  style='margin-bottom: 20px; margin-left: 25px; max-width:300; min-height:100px;'>";
+                            if($_SESSION['viewing_client_id'] == '4231'){   echo "<img src='/components/whitelabeling/national_pc/NationalPCLogo.png' alt='National PC Logo'  style='margin-top: 20px; margin-left: 25px; max-width:300; '>";
                                                                             $go_to_dummy['logo'] = 'no';
                             }
 
@@ -84,7 +84,7 @@ echo "<table >";
                         echo "</td>";
                         echo "<td class='title_blocks' style='text-align:right;'>";
 
-                        if($_SESSION['viewing_client_id'] == '4231'){   echo "<img src='/components/whitelabeling/dreamboat/screenshot_dreamboat_logo.png' alt='Dreamboat Logo'  style='margin-bottom: 20px; margin-left: 25px; max-width:300; min-height:100px;'>";
+                        if($_SESSION['viewing_client_id'] == '4231'){   echo "<img src='/components/whitelabeling/dreamboat/screenshot_dreamboat_logo.png' alt='Dreamboat Logo'  style='margin-bottom: 20px; margin-left: 25px; max-width:300; min-height:40px;'>";
 
                         }
 
