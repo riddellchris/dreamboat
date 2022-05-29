@@ -72,7 +72,7 @@ else{
 
 
 
-                    echo "['Month',     'Website', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }, 'Manufacturing', { role: 'annotation' }, 'Other', { role: 'annotation' }],";
+                    echo "['Month',   'Return', { role: 'annotation' }, 'Websales', { role: 'annotation' }, 'Adspend', { role: 'annotation' }],";
                     for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
 
                         $correct_elements = 0;
