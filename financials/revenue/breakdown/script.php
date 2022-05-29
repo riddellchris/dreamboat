@@ -62,23 +62,42 @@ else{
                     $result = mysqli_query($conn, $sql);
 
                     unset($extracted);
+
+                    $extracted['website']       = array();
+                    $extracted['other']         = array();
+                    $extracted['distribution']  = array();
+                    $extracted['wholesale']     = array();
+
+                    if($row['account_name'] == 'LAM _Shopify'){               $extracted['website']['value']       += $row['value'];}
+                    if($row['account_name'] == 'LAM_Distributors'){           $extracted['distribution']['value']  += $row['value'];}
+                    if($row['account_name'] == 'RAW_Distributors'){           $extracted['distribution']['value']  += $row['value'];}                
+                    if($row['account_name'] == 'LAM_Wholesale'){              $extracted['wholesale']['value']     += $row['value'];}
+                    if($row['account_name'] == 'Sale from wholesale'){        $extracted['wholesale']['value']     += $row['value'];}                   
+                    if($row['account_name'] == 'RAW_Other'){                  $extracted['other']['value']         += $row['value'];}
+                    if($row['account_name'] == 'Sales from Market Stalls'){   $extracted['other']['value']         += $row['value'];}
+
+
+
                     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                       $date_index = $row['date_index'];
-                      if($row['account_name'] == 'Total Income'){ $extracted['Total Income'][$date_index] = $row['value'];}
-                      if($row['account_name'] == 'LAM _Shopify'){ $extracted['LAM _Shopify'][$date_index] = $row['value'];} 
-                      if($row['account_name'] == 'LAM _Shopify'){ $extracted['LAM _Shopify'][$date_index] = $row['value'];} 
-                      if($row['account_name'] == 'LAM _Shopify'){ $extracted['LAM _Shopify'][$date_index] = $row['value'];} 
+                      if($row['account_name'] == 'LAM _Shopify'){               $extracted['website']['value'][$date_index]       += $row['value'];}
+                      if($row['account_name'] == 'LAM_Distributors'){           $extracted['distribution']['value'][$date_index]  += $row['value'];}
+                      if($row['account_name'] == 'RAW_Distributors'){           $extracted['distribution']['value'][$date_index]  += $row['value'];}                
+                      if($row['account_name'] == 'LAM_Wholesale'){              $extracted['wholesale']['value'][$date_index]     += $row['value'];}
+                      if($row['account_name'] == 'Sale from wholesale'){        $extracted['wholesale']['value'][$date_index]     += $row['value'];}                   
+                      if($row['account_name'] == 'RAW_Other'){                  $extracted['other']['value'][$date_index]         += $row['value'];}
+                      if($row['account_name'] == 'Sales from Market Stalls'){   $extracted['other']['value'][$date_index]         += $row['value'];}
 
+                      $extracted['date_index_end'][$date_index] = $row['date_index_end'];
 
-                                                                  $extracted['date_index_end'][$date_index] = $row['date_index_end'];                                    
                     }
 
                     for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
                       echo " ['".$extracted['date_index_end'][$date_index]."',       
-                                ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."',    
-                                ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."', 
-                                ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."',    
-                                ".$extracted['LAM _Shopify'][$extraction_counter].",      '".$extracted['LAM _Shopify'][$extraction_counter]."'
+                                ".$extracted['website']['value'][$date_index].",      '".$extracted['website']['value'][$date_index]."',    
+                                ".$extracted['distribution']['value'][$date_index].", '".$extracted['distribution']['value'][$date_index]."', 
+                                ".$extracted['wholesale']['value'][$date_index].",    '".$extracted['wholesale']['value'][$date_index]."',    
+                                ".$extracted['other']['value'][$date_index].",        '".$extracted['other']['value'][$date_index]."'
                               
                               
                               

@@ -58,6 +58,12 @@ else{
                     $result = mysqli_query($conn, $sql);
 
                     unset($extracted);
+
+
+
+
+
+
                     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                       $date_index = $row['date_index'];
                       if($row['account_name'] == 'Total Income'){ $extracted['Total Income'][$date_index] = $row['value'];}
