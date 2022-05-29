@@ -114,7 +114,7 @@ else{
         var options = {
           title : 'Revenue Breakdown',
           vAxis: {title: '$'},
-          hAxis: {title: 'Month'},
+          //hAxis: {title: 'Month'},
           seriesType: 'bars',
 
           <?php

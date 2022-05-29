@@ -111,7 +111,7 @@ else{
           vAxes: {  0: {title: '%'},
                     1: {title: '$'},
                     },
-          hAxis: {title: 'Month'},
+         // hAxis: {title: 'Month'},
           seriesType: 'bars',
           colors: ['#3c78d8', '#f6b26b'],
           series: { 0: {targetAxisIndex:0, color: '#cecece'},

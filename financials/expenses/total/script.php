@@ -80,7 +80,7 @@ else{
         var options = {
           title : 'Expenses Total',
           vAxis: {title: '$'},
-          hAxis: {title: 'Month'},
+         // hAxis: {title: 'Month'},
           seriesType: 'bars',
           colors: ['#3c78d8', '#f6b26b'],
          legend: {position: 'none'},
