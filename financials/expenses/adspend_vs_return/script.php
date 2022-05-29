@@ -89,6 +89,8 @@ else{
                                 ".$extracted['website'][$extraction_counter].",           '".$extracted['website'][$extraction_counter]."',    
                                 ".$extracted['adspend'][$extraction_counter].",           '".$extracted['adspend'][$extraction_counter]."' ]      ";
 
+                      if($extraction_counter <> 0){echo ",";}
+
                       $sub_title = $row['accurate_as_at_string'];
 
                       //RAW_Contract Manufacturing not included as not a sales item
