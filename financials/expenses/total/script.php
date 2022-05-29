@@ -30,26 +30,11 @@ else{
 echo " ['Month',         'Revenue',                   { role: 'annotation' }],";
 
 
-if(
-    $_SESSION['viewing_client_id'] != 1 AND   //Chris
-    $_SESSION['viewing_client_id'] != 4383){  //Tricia Ong / mel
-      echo "
-      ['Dec-21',   450,   '450'],          
-      ['Jan-22',   450,    '450'],
-      ['Feb-22',   288,    '450'],
-      ['Mar-22',   397,    '450'],
-      ['Apr-22',   215,     '450'],
-      ['May-22',   366,     '450']
-      ";
-
-      $sub_title = "Dummy data only";
 
 
-    }
-else{
-
-  if( $_SESSION['viewing_client_id'] == 4383 OR 
-      $_SESSION['viewing_client_id'] == 1){
+if( $_SESSION['viewing_client_id'] == 4231 OR
+    $_SESSION['viewing_client_id'] == 4383 OR 
+    $_SESSION['viewing_client_id'] == 1){
 
     $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
@@ -63,16 +48,28 @@ else{
 
 
 
-    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-       echo " ['".$row['date_index_end']."',       ".$row['value'].",      '".$row['value']."'],      ";
+  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+      echo " ['".$row['date_index_end']."',       ".$row['value'].",      '".$row['value']."'],      ";
 
       $sub_title = $row['accurate_as_at_string'];
 
       //RAW_Contract Manufacturing not included as not a sales item
-
-    }   
-  }
+  }   
 }
+else{
+  echo "
+  ['Dec-21',   450,   '450'],          
+  ['Jan-22',   450,    '450'],
+  ['Feb-22',   288,    '450'],
+  ['Mar-22',   397,    '450'],
+  ['Apr-22',   215,     '450'],
+  ['May-22',   366,     '450']
+  ";
+
+  $sub_title = "Dummy data only";
+}
+
+
 
 ?>
         ]);
