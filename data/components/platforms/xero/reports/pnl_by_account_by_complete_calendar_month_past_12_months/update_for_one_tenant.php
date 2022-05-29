@@ -39,6 +39,7 @@ $updated_last_string = date('Y-m-d', strtotime(date('Y-m')));
 $accurate_as_at_string = " over the past 12 complete months to ".$to_date_string;
 
 
+
 unset($sql_for_insert_of_12_month_data);
 
 
@@ -54,7 +55,7 @@ for($date_index = -1; $date_index > -13; $date_index --){
     $to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of ".$date_index." months"));
     $date_index_end     = $to_date;
 
-
+    $period_for_chart_display   = date('M y', strtotime(date('Y-m')."last day of ".$date_index." months"));
 
 
 
@@ -242,7 +243,8 @@ for($date_index = -1; $date_index > -13; $date_index --){
                             accurate_as_at_string,
                             date_index,
                             date_index_start,
-                            date_index_end
+                            date_index_end,
+                            period_for_chart_display
                             )
                         VALUES(
                             '".mysqli_real_escape_string($conn, $user_id_for_request)."',
@@ -256,10 +258,8 @@ for($date_index = -1; $date_index > -13; $date_index --){
                             '".mysqli_real_escape_string($conn, $accurate_as_at_string)."',
                             '".mysqli_real_escape_string($conn, $date_index)."',
                             '".mysqli_real_escape_string($conn, $date_index_start)."',
-                            '".mysqli_real_escape_string($conn, $date_index_end)."'
-
-
-                            
+                            '".mysqli_real_escape_string($conn, $date_index_end)."',
+                            '".mysqli_real_escape_string($conn, $period_for_chart_display)."'                         
                             )
                     ";
                    // echo $sql."<br><br><br>";
