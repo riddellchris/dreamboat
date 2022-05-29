@@ -45,25 +45,27 @@ echo "<table >";
                 echo "<table >";
                     echo "<tr>";
                         echo "<td class='title_blocks'>";
-                            $go_to_dummy_logo = 'yes';
+                            $go_to_dummy['logo'] = 'yes';
 
                             if($_SESSION['viewing_client_id'] == '4231'){   echo "<img src='/components/whitelabeling/national_pc/NationalPCLogo.png' alt='National PC Logo' width='100' height='100' style='margin-bottom: 20px;'>";
-                                                                            $go_to_dummy_logo = 'no';
+                                                                            $go_to_dummy['logo'] = 'no';
                             }
 
                             if($_SESSION['viewing_client_id'] == '4383'){   echo "<img src='/components/whitelabeling/prime_strategies/laila PNG.png' alt='Laila & Me' width='100' height='100' style='margin-bottom: 20px;'>";
                                                                             echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Laila & Me' width='140' height='140'>";
-                                                                            $go_to_dummy_logo = 'no';
+                                                                            $go_to_dummy['logo'] = 'no';
                             }
-                            if($go_to_dummy_logo == 'yes'){                 echo "<div style='margin-left: 25px;'>Your Logo</div>";}
+                            if($go_to_dummy['logo'] == 'yes'){                 echo "<div style='margin-left: 25px;'>Your Logo</div>";}
 
                         echo "</td>";
                         echo "<td class='title_blocks' style='text-align:center;'>";
                             echo "<span style='font-size: 30px; text-decoration: underline; padding-bottom: 5px; font-weight: 800;'>";
-                                if($_SESSION['viewing_client_id'] == '1'){      echo "Dreamboat";}
-                                if($_SESSION['viewing_client_id'] == '4231'){   echo "National PC";}
-                                if($_SESSION['viewing_client_id'] == '4383'){   echo "Laila and Me / Rawvolution";}
-                                else{echo "Your Company Name";}
+                                $go_to_dummy['title'] = 'yes';
+                                if($_SESSION['viewing_client_id'] == '1'){      echo "Dreamboat";                   $go_to_dummy['title'] = 'no';}
+                                if($_SESSION['viewing_client_id'] == '4231'){   echo "National PC";                 $go_to_dummy['title'] = 'no';}
+                                if($_SESSION['viewing_client_id'] == '4383'){   echo "Laila and Me / Rawvolution";  $go_to_dummy['title'] = 'no';}
+
+                                if($go_to_dummy['title'] == 'yes'){echo "Your Company Name";}
                             echo "</span>";
                             
                             echo "<br>";
