@@ -83,6 +83,12 @@ echo "<table >";
 
                         echo "</td>";
                         echo "<td class='title_blocks' style='text-align:right;'>";
+
+                        if($_SESSION['viewing_client_id'] == '4231'){   echo "<img src='/components/whitelabeling/dreamboat/screenshot_dreamboat_logo.png' alt='Dreamboat Logo'  style='margin-bottom: 20px; margin-left: 25px; max-width:300; min-height:100px;'>";
+
+                        }
+
+
                             if($_SESSION['viewing_client_id'] == '4383'){
                                 echo "<img src='/components/whitelabeling/prime_strategies/Prime-Strategies-logo-1500pxW.PNG' alt='Laila & Me' style='max-height:100;'>";
                             }
