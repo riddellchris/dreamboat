@@ -54,6 +54,7 @@ else{
             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
             AND           latest_version_for_this_user = 'yes'
             AND           account_name = 'Total Income'
+            AND           date_index > -7
             ORDER BY date_index ASC          
             ";
     $result = mysqli_query($conn, $sql);
