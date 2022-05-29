@@ -60,12 +60,13 @@ else{
                     unset($extracted);
                     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                       $date_index = $row['date_index'];
-                      if($row['account_name'] == 'Total Income'){$extracted['Total Income'][$date_index] = $row['value'];}
-                      if($row['account_name'] == 'LAM _Shopify'){$extracted['LAM _Shopify'][$date_index] = $row['value'];}                   
+                      if($row['account_name'] == 'Total Income'){ $extracted['Total Income'][$date_index] = $row['value'];}
+                      if($row['account_name'] == 'LAM _Shopify'){ $extracted['LAM _Shopify'][$date_index] = $row['value'];} 
+                                                                  $extracted['date_index_end'][$date_index] = $row['date_index_end'];                                    
                     }
 
-                    for($extraction_counter = -1; $extraction_counter > -7; $extraction_counter --){
-                      echo " ['".$extraction_counter."',       
+                    for($extraction_counter = -7; $extraction_counter > -1; $extraction_counter ++){
+                      echo " ['".$extracted['date_index_end'][$date_index]."',       
                                 ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."',       
                                 ".$extracted['LAM _Shopify'][$extraction_counter].",      '".$extracted['LAM _Shopify'][$extraction_counter]."'],      ";
 

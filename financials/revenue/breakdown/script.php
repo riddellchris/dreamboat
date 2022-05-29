@@ -26,13 +26,76 @@ else{
         var data = google.visualization.arrayToDataTable([
 
 
-          ['Month',     'Website', { role: 'annotation' }, 'Other', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }],
-          ['Dec-21',   450,  '450',                       614.6, '614',                       614.6, '614',                       614.6, '614'],          
-          ['Jan-22',   450,  '450',     614.6, '614',                       614.6, '614',                       614.6, '614'],
-          ['Feb-22',   288,  '288',     682, '682',                       614.6, '614',                       614.6, '614'],
-          ['Mar-22',   397,  '397',     623, '623',                       614.6, '614',                       614.6, '614'],
-          ['Apr-22',   215,   '215',    609.4, '609',                       614.6, '614',                       614.6, '614'],
-          ['May-22',   366,   '366',    569.6, '569',                       614.6, '614',                       614.6, '614']
+
+
+
+          <?php
+                echo "['Month',     'Website', { role: 'annotation' }, 'Other', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }],";
+                if(
+                     //Chris
+                    $_SESSION['viewing_client_id'] != 4383){  //Tricia Ong / mel
+                      echo "
+                      ['Dec-21',   450,  '450',                       614.6, '614',                       614.6, '614',                       614.6, '614'],          
+                      ['Jan-22',   450,  '450',     614.6, '614',                       614.6, '614',                       614.6, '614'],
+                      ['Feb-22',   288,  '288',     682, '682',                       614.6, '614',                       614.6, '614'],
+                      ['Mar-22',   397,  '397',     623, '623',                       614.6, '614',                       614.6, '614'],
+                      ['Apr-22',   215,   '215',    609.4, '609',                       614.6, '614',                       614.6, '614'],
+                      ['May-22',   366,   '366',    569.6, '569',                       614.6, '614',                       614.6, '614']
+                      ";
+
+                      $sub_title = "Dummy data only";
+
+
+                    }
+                else{
+
+                  if( $_SESSION['viewing_client_id'] == 4383){
+
+                    $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
+                            WHERE         user_id = '".$_SESSION['viewing_client_id']."'
+                            AND           latest_version_for_this_user = 'yes'
+                            AND          ( account_name = 'Total Income' OR  account_name = 'LAM _Shopify' ) 
+                            AND           date_index > -7
+                            ORDER BY date_index ASC          
+                            ";
+                    //echo $sql; exit();
+                    $result = mysqli_query($conn, $sql);
+
+                    unset($extracted);
+                    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                      $date_index = $row['date_index'];
+                      if($row['account_name'] == 'Total Income'){ $extracted['Total Income'][$date_index] = $row['value'];}
+                      if($row['account_name'] == 'LAM _Shopify'){ $extracted['LAM _Shopify'][$date_index] = $row['value'];} 
+                      if($row['account_name'] == 'LAM _Shopify'){ $extracted['LAM _Shopify'][$date_index] = $row['value'];} 
+                      if($row['account_name'] == 'LAM _Shopify'){ $extracted['LAM _Shopify'][$date_index] = $row['value'];} 
+
+
+                                                                  $extracted['date_index_end'][$date_index] = $row['date_index_end'];                                    
+                    }
+
+                    for($extraction_counter = -7; $extraction_counter > -1; $extraction_counter ++){
+                      echo " ['".$extracted['date_index_end'][$date_index]."',       
+                                ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."',    
+                                ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."', 
+                                ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."',    
+                                ".$extracted['LAM _Shopify'][$extraction_counter].",      '".$extracted['LAM _Shopify'][$extraction_counter]."'
+                              
+                              
+                              
+                              ],      ";
+
+                      $sub_title = $row['accurate_as_at_string'];
+
+                      //RAW_Contract Manufacturing not included as not a sales item
+
+                    }   
+                  }
+                }
+            ?>
+
+
+
+
         ]);
 
 
