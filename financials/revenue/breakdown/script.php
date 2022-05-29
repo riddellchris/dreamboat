@@ -77,12 +77,12 @@ else{
                       if($row['account_name'] == 'Sales from Market Stalls'){   if(!isset($extracted['other'][$date_index])){        $extracted['other'][$date_index]         = 0;} $extracted['other'][$date_index]         += $row['value'];}
                       if($row['account_name'] == 'RAW_Contract Manufacturing'){ if(!isset($extracted['manufacturing'][$date_index])){$extracted['manufacturing'][$date_index] = 0;} $extracted['manufacturing'][$date_index] += $row['value'];}                      
                       
-                      $extracted['date_index_end'][$date_index] = $row['date_index_end'];
+                      $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
 
                     }
                     echo "['Month',     'Website', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }, 'Manufacturing', { role: 'annotation' }, 'Other', { role: 'annotation' }],";
                     for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
-                      echo " ['".$extracted['date_index_end'][$extraction_counter]."',       
+                      echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',       
                                 ".$extracted['website'][$extraction_counter].",                     '".$extracted['website'][$extraction_counter]."',    
                                 ".$extracted['distribution'][$extraction_counter].",                '".$extracted['distribution'][$extraction_counter]."', 
                                 ".$extracted['wholesale'][$extraction_counter].",                   '".$extracted['wholesale'][$extraction_counter]."',    

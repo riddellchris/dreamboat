@@ -68,11 +68,11 @@ else{
                       $date_index = $row['date_index'];
                       if($row['account_name'] == 'Total Income'){ $extracted['Total Income'][$date_index] = $row['value'];}
                       if($row['account_name'] == 'LAM _Shopify'){ $extracted['LAM _Shopify'][$date_index] = $row['value'];} 
-                                                                  $extracted['date_index_end'][$date_index] = $row['date_index_end'];                                    
+                                                                  $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_display'];                                    
                     }
 
                     for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
-                      echo " ['".$extracted['date_index_end'][$extraction_counter]."',       
+                      echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',       
                                 ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."',       
                                 ".$extracted['LAM _Shopify'][$extraction_counter].",      '".$extracted['LAM _Shopify'][$extraction_counter]."'],      ";
 

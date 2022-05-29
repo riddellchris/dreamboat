@@ -65,7 +65,7 @@ else{
                       $date_index = $row['date_index'];
                       if($row['account_name'] == 'LAM _Shopify'){                       if(!isset($extracted['website'][$date_index])){ $extracted['website'][$date_index]  = 0;} $extracted['website'][$date_index]  += $row['value'];}
                       if($row['account_name'] == 'Advertising and Marketing - LAM'){    if(!isset($extracted['adspend'][$date_index])){ $extracted['adspend'][$date_index]  = 0;} $extracted['adspend'][$date_index]  += $row['value'];}                      
-                      $extracted['date_index_end'][$date_index] = $row['date_index_end'];
+                      $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
                     }
 
 
@@ -84,7 +84,7 @@ else{
                         }
 
 
-                      echo " ['".$extracted['date_index_end'][$extraction_counter]."',      
+                      echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',      
                                 ".$computed['return_on_adspend'][$extraction_counter].",  '".$computed['return_on_adspend'][$extraction_counter]."',                       
                                 ".$extracted['website'][$extraction_counter].",           '".$extracted['website'][$extraction_counter]."',    
                                 ".$extracted['adspend'][$extraction_counter].",           '".$extracted['adspend'][$extraction_counter]."' ]      ";

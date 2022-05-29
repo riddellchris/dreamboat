@@ -49,7 +49,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
 
   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-      echo " ['".$row['date_index_end']."',       ".$row['value'].",      '".$row['value']."'],      ";
+      echo " ['".$row['period_for_chart_display']."',       ".$row['value'].",      '".$row['value']."'],      ";
 
       $sub_title = $row['accurate_as_at_string'];
 
