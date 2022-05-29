@@ -79,7 +79,7 @@ else{
                         if(isset($extracted['adspend'][$extraction_counter] )){$adspend = $extracted['adspend'][$extraction_counter]; $correct_elements ++;}
                         if(isset($extracted['website'][$extraction_counter] )){$website = $extracted['website'][$extraction_counter]; $correct_elements ++;}
                         if($correct_elements == 2){
-                          $computed['return_on_adspend'][$extraction_counter] = $extracted['website'][$extraction_counter] / $extracted['adspend'][$extraction_counter];
+                          $computed['return_on_adspend'][$extraction_counter] = round($extracted['website'][$extraction_counter] / $extracted['adspend'][$extraction_counter], 1);
 
                         }
 
