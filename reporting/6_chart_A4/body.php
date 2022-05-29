@@ -47,7 +47,7 @@ echo "<table >";
                         echo "<td class='title_blocks'>";
                             $go_to_dummy['logo'] = 'yes';
 
-                            if($_SESSION['viewing_client_id'] == '4231'){   echo "<img src='/components/whitelabeling/national_pc/NationalPCLogo.png' alt='National PC Logo' width='100' height='100' style='margin-bottom: 20px;'>";
+                            if($_SESSION['viewing_client_id'] == '4231'){   echo "<img src='/components/whitelabeling/national_pc/NationalPCLogo.png' alt='National PC Logo'  height='100' style='margin-bottom: 20px;'>";
                                                                             $go_to_dummy['logo'] = 'no';
                             }
 
