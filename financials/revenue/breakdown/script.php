@@ -73,7 +73,7 @@ else{
                                                                   $extracted['date_index_end'][$date_index] = $row['date_index_end'];                                    
                     }
 
-                    for($extraction_counter = -7; $extraction_counter > -1; $extraction_counter ++){
+                    for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
                       echo " ['".$extracted['date_index_end'][$date_index]."',       
                                 ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."',    
                                 ".$extracted['Total Income'][$extraction_counter].",      '".$extracted['Total Income'][$extraction_counter]."', 
