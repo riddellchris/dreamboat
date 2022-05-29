@@ -7,7 +7,7 @@ if($_GET['tertiary_folder'] == 'print'){echo "table{width: 1120px;}";}
 else{echo "table{width:100%;}";}
 
 echo"
-.chart_row td{width: 50%; height: 20vh;}
+.chart_row td{width: 50%; height: 22.5vh;}
 .print_link{
     font-family: helvetica;
     margin-top: 30px;
@@ -37,7 +37,7 @@ if($_GET['tertiary_folder'] != 'print'){
 }
 
 //this is just hard coding a 6 up table.
-echo "<table>";
+echo "<table >";
 
 
         echo "<tr>";

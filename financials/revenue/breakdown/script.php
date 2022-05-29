@@ -30,10 +30,9 @@ else{
 
 
           <?php
-                echo "['Month',     'Website', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }, 'Other', { role: 'annotation' }],";
-                if(
-                     //Chris
-                    $_SESSION['viewing_client_id'] != 4383){  //Tricia Ong / mel
+
+                if($_SESSION['viewing_client_id'] != 4383){  //Tricia Ong / mel
+                      echo "['Month',     'Website', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }, 'Other', { role: 'annotation' }],";
                       echo "
                       ['Dec-21',   450,  '450',                       614.6, '614',                       614.6, '614',                       614.6, '614'],          
                       ['Jan-22',   450,  '450',     614.6, '614',                       614.6, '614',                       614.6, '614'],
@@ -76,17 +75,20 @@ else{
                       if($row['account_name'] == 'Sale from wholesale'){        if(!isset($extracted['wholesale'][$date_index])){    $extracted['wholesale'][$date_index]     = 0;} $extracted['wholesale'][$date_index]     += $row['value'];}                   
                       if($row['account_name'] == 'RAW_Other'){                  if(!isset($extracted['other'][$date_index])){        $extracted['other'][$date_index]         = 0;} $extracted['other'][$date_index]         += $row['value'];}
                       if($row['account_name'] == 'Sales from Market Stalls'){   if(!isset($extracted['other'][$date_index])){        $extracted['other'][$date_index]         = 0;} $extracted['other'][$date_index]         += $row['value'];}
-
+                      if($row['account_name'] == 'RAW_Contract Manufacturing'){ if(!isset($extracted['manufacturing'][$date_index])){$extracted['manufacturing'][$date_index] = 0;} $extracted['manufacturing'][$date_index] += $row['value'];}                      
+                      
                       $extracted['date_index_end'][$date_index] = $row['date_index_end'];
 
                     }
-
+                    echo "['Month',     'Website', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }, 'Manufacturing', { role: 'annotation' }, 'Other', { role: 'annotation' }],";
                     for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
                       echo " ['".$extracted['date_index_end'][$extraction_counter]."',       
-                                ".$extracted['website'][$extraction_counter].",      '".$extracted['website'][$extraction_counter]."',    
-                                ".$extracted['distribution'][$extraction_counter].", '".$extracted['distribution'][$extraction_counter]."', 
-                                ".$extracted['wholesale'][$extraction_counter].",    '".$extracted['wholesale'][$extraction_counter]."',    
-                                ".$extracted['other'][$extraction_counter].",        '".$extracted['other'][$extraction_counter]."'
+                                ".$extracted['website'][$extraction_counter].",                     '".$extracted['website'][$extraction_counter]."',    
+                                ".$extracted['distribution'][$extraction_counter].",                '".$extracted['distribution'][$extraction_counter]."', 
+                                ".$extracted['wholesale'][$extraction_counter].",                   '".$extracted['wholesale'][$extraction_counter]."',    
+                                ".$extracted['manufacturing'][$extraction_counter].",               '".$extracted['manufacturing'][$extraction_counter]."',
+                                ".$extracted['other'][$extraction_counter].",                       '".$extracted['other'][$extraction_counter]."'    
+
                               
                               
                               
@@ -114,7 +116,15 @@ else{
           vAxis: {title: '$'},
           hAxis: {title: 'Month'},
           seriesType: 'bars',
-          colors: ['#f6b26b', '#3c78d8', 'green', 'red'],
+
+          <?php
+          if($_SESSION['user_id'] == 4383){
+            echo "colors: ['#f6b26b', '#3c78d8', 'green', 'black', 'red'],";
+          }
+          else{
+            echo "colors: ['#f6b26b', '#3c78d8', 'green',  'red'],";            
+          }
+          ?>
       //  isStacked: true,
         legend: {position: 'bottom'}
         };
