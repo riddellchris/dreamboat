@@ -138,6 +138,9 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
     $last_year_index = $date_index-12;
 
+    //NULL CHECKS PER COLUMN
+    if($display_chart['period_for_chart_display'][$date_index] == ''){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}else{}
+
 
     echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
                ".$display_chart['Total Income'][$last_year_index].",      
@@ -193,7 +196,7 @@ else{
                 echo "
                 series: {
                     0: {                              color: '#281e96'}  ,
-                    0: {                              color: '#3c78d8'}  ,                          
+                    1: {                              color: '#3c78d8'}  ,                          
                     2: {type: 'line',  lineWidth: 10, color: '#cecece'}
                   }
                 ";
