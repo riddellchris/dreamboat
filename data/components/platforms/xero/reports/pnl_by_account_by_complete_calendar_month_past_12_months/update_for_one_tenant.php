@@ -48,7 +48,7 @@ unset($sql_for_insert_of_12_month_data);
 
 
         //echo "hi";
-        for($date_index = -1; $date_index > -12; $date_index --){
+        for($date_index = -1; $date_index > -24; $date_index --){
         //echo "hi";
             //ACTUAL REQUEST DATE CREATION
             $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." months"));
