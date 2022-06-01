@@ -139,7 +139,11 @@ else{
           }
           ?>
       //  isStacked: true,
-        legend: {position: 'top'}
+
+
+          //as more than three
+          //this goes to the right
+        legend: {position: 'right'}
         };
 
         <?php

@@ -139,7 +139,11 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $last_year_index = $date_index-12;
 
     //NULL CHECKS PER COLUMN
-    if($display_chart['period_for_chart_display'][$date_index] == ''){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}else{}
+    if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = '0.00';}
+ //   if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
+  //  if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
+   // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
+   // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
 
 
     echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
