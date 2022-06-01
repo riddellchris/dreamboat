@@ -102,16 +102,18 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
   for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
+    $last_year_index = $date_index-12;
+
 
     echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
                ".$display_chart['Total Income'][$date_index].",      
               '".$display_chart['Total Income'][$date_index]."', 
-               ".$display_chart['Total Income'][$date_index-12].",      
-              '".$display_chart['Total Income'][$date_index-12]."',               
+               ".$display_chart['Total Income'][$last_year_index].",      
+              '".$display_chart['Total Income'][$last_year_index]."',               
                ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
 
 
-    if($i <> -1){echo ",";}
+    if($date_index <> -1){echo ",";}
   }
 
 }
