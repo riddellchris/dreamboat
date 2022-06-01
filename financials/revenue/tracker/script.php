@@ -74,18 +74,18 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     
       }
       else{
-        $revenue_target['Aug 22']['value'] = 1000;
-        $revenue_target['Jul 22']['value'] = 1000;
-        $revenue_target['Jun 22']['value'] = 1000;
-        $revenue_target['May 22']['value'] = 1000;
-        $revenue_target['Apr 22']['value'] = 1000;
-        $revenue_target['Mar 22']['value'] = 1000;
-        $revenue_target['May 22']['value'] = 1000;
-        $revenue_target['Feb 22']['value'] = 1000;
-        $revenue_target['Jan 22']['value'] = 1000;
-        $revenue_target['Dec 21']['value'] = 1000;
-        $revenue_target['Nov 21']['value'] = 800;
-        $revenue_target['Oct 21']['value'] = 1000;
+        $revenue_target['Aug 22']['value'] = 50000;
+        $revenue_target['Jul 22']['value'] = 50000;
+        $revenue_target['Jun 22']['value'] = 50000;
+        $revenue_target['May 22']['value'] = 50000;
+        $revenue_target['Apr 22']['value'] = 50000;
+        $revenue_target['Mar 22']['value'] = 50000;
+        $revenue_target['May 22']['value'] = 50000;
+        $revenue_target['Feb 22']['value'] = 50000;
+        $revenue_target['Jan 22']['value'] = 50000;
+        $revenue_target['Dec 21']['value'] = 50000;
+        $revenue_target['Nov 21']['value'] = 50000;
+        $revenue_target['Oct 21']['value'] = 50000;
         $revenue_target['Sep 21']['value'] = 50000;
         $revenue_target['Aug 21']['value'] = 70000;
         $revenue_target['Jul 21']['value'] = 60000;
@@ -132,7 +132,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
 
-  echo " ['Month', 'Revenue', { role: 'annotation' }, 'LAST YEAR', { role: 'annotation' },'Target'],";
+  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Revenue', { role: 'annotation' }, 'Target'],";
 
   for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
@@ -140,11 +140,11 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
 
     echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
-               ".$display_chart['Total Income'][$date_index].",      
-              '".$display_chart['Total Income'][$date_index]."', 
                ".$display_chart['Total Income'][$last_year_index].",      
               '".$display_chart['Total Income'][$last_year_index]."',               
-               ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
+              ".$display_chart['Total Income'][$date_index].",      
+              '".$display_chart['Total Income'][$date_index]."', 
+              ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
 
 
     if($date_index <> -1){echo ",";}
@@ -192,7 +192,8 @@ else{
 
                 echo "
                 series: {
-                    1: {                              color: '#271e96'}  ,          
+                    0: {                              color: '#281e96'}  ,
+                          
                     2: {type: 'line',  lineWidth: 10, color: '#cecece'}
                   }
                 ";
