@@ -98,7 +98,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
 
-  for($i = $extraction_counter_start; $i <= ; $i ++){
+  for($i = $extraction_counter_start; $i <= -1; $i ++){
 
     echo " ['Month', 'Revenue', { role: 'annotation' }, 'LAST YEAR', { role: 'annotation' },'Target'],";
     echo " ['".$row['period_for_chart_display']."',       
