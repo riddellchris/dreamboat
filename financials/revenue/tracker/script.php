@@ -46,13 +46,30 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
         $revenue_target['May 22']['value'] = 50000;
         $revenue_target['Apr 22']['value'] = 50000;
         $revenue_target['Mar 22']['value'] = 50000;
-        $revenue_target['May 22']['value'] = 50000;
         $revenue_target['Feb 22']['value'] = 50000;
         $revenue_target['Jan 22']['value'] = 50000;
         $revenue_target['Dec 21']['value'] = 50000;
         $revenue_target['Nov 21']['value'] = 50000;
         $revenue_target['Oct 21']['value'] = 50000;
         $revenue_target['Sep 21']['value'] = 50000;
+        $revenue_target['Aug 21']['value'] = 70000;
+        $revenue_target['Jul 21']['value'] = 60000;
+        $revenue_target['Jun 21']['value'] = 50000;
+        $revenue_target['May 21']['value'] = 50000;
+        $revenue_target['Apr 21']['value'] = 50000;
+        $revenue_target['Mar 21']['value'] = 50000;
+        $revenue_target['Feb 22']['value'] = 50000;
+        $revenue_target['Jan 22']['value'] = 50000;
+        $revenue_target['Dec 20']['value'] = 50000;
+        $revenue_target['Nov 20']['value'] = 50000;
+        $revenue_target['Oct 20']['value'] = 50000;
+        $revenue_target['Sep 20']['value'] = 50000;
+
+
+
+
+
+
     
     
       }
@@ -69,7 +86,24 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
         $revenue_target['Dec 21']['value'] = 1000;
         $revenue_target['Nov 21']['value'] = 800;
         $revenue_target['Oct 21']['value'] = 1000;
-        $revenue_target['Sep 21']['value'] = 1000;
+        $revenue_target['Sep 21']['value'] = 50000;
+        $revenue_target['Aug 21']['value'] = 70000;
+        $revenue_target['Jul 21']['value'] = 60000;
+        $revenue_target['Jun 21']['value'] = 50000;
+        $revenue_target['May 21']['value'] = 50000;
+        $revenue_target['Apr 21']['value'] = 50000;
+        $revenue_target['Mar 21']['value'] = 50000;
+        $revenue_target['Feb 22']['value'] = 50000;
+        $revenue_target['Jan 22']['value'] = 50000;
+        $revenue_target['Dec 20']['value'] = 50000;
+        $revenue_target['Nov 20']['value'] = 50000;
+        $revenue_target['Oct 20']['value'] = 50000;
+        $revenue_target['Sep 20']['value'] = 50000;
+
+
+
+
+
       }
 
 
@@ -158,7 +192,7 @@ else{
 
                 echo "
                 series: {
-                    1: {                              color: '#271e96'}            
+                    1: {                              color: '#271e96'}  ,          
                     2: {type: 'line',  lineWidth: 10, color: '#cecece'}
                   }
                 ";
