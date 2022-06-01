@@ -143,7 +143,8 @@ else{
 
           //as more than three
           //this goes to the right
-        legend: {position: 'right'}
+        legend: {position: 'right'},
+        'chartArea': {'width': '70%'},
         };
 
         <?php
