@@ -100,7 +100,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
   echo " ['Month', 'Revenue', { role: 'annotation' }, 'LAST YEAR', { role: 'annotation' },'Target'],";
 
-  for($i = $extraction_counter_start; $i <= -1; $i ++){
+  for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
 
     echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
@@ -108,7 +108,10 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
               '".$display_chart['Total Income'][$date_index]."', 
                ".$display_chart['Total Income'][$date_index-12].",      
               '".$display_chart['Total Income'][$date_index-12]."',               
-               ".$revenue_target[$row['period_for_chart_display']]['value']."],      ";
+               ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
+
+
+    if($i <> -1){echo ",";}
   }
 
 }
