@@ -35,16 +35,8 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $_SESSION['viewing_client_id'] == 4383 OR 
     $_SESSION['viewing_client_id'] == 1){
 
-    $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
-            WHERE         user_id = '".$_SESSION['viewing_client_id']."'
-            AND           latest_version_for_this_user = 'yes'
-            AND           account_name = 'Total Income'
-            AND           date_index > -7
-            ORDER BY date_index ASC          
-            ";
-    $result = mysqli_query($conn, $sql);
 
-    echo " ['Month',         'Revenue',                   { role: 'annotation' }, 'Target'],";
+
 
 
       if($_SESSION['viewing_client_id'] == 4383){
@@ -61,8 +53,8 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
         $revenue_target['Nov 21']['value'] = 50000;
         $revenue_target['Oct 21']['value'] = 50000;
         $revenue_target['Sep 21']['value'] = 50000;
-
-
+    
+    
       }
       else{
         $revenue_target['Aug 22']['value'] = 1000;
@@ -83,15 +75,40 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
 
 
+    //EXTRACT
+    $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
+            WHERE         user_id = '".$_SESSION['viewing_client_id']."'
+            AND           latest_version_for_this_user = 'yes'
+            AND           account_name = 'Total Income'
+            AND           date_index > -24
+            ORDER BY date_index ASC          
+            ";
+    $result = mysqli_query($conn, $sql);
 
   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-      echo " ['".$row['period_for_chart_display']."',       ".$row['value'].",      '".$row['value']."', ".$revenue_target[$row['period_for_chart_display']]['value']."],      ";
+      $display_chart['period_for_chart_display'] = $row['period_for_chart_display'];
+      $display_chart['Total Income'][$row['date_index']] = $row['value'];
+      $sub_title = $row['accurate_as_at_string'];
+    //RAW_Contract Manufacturing not included as not a sales item    
+  } 
 
-    $sub_title = $row['accurate_as_at_string'];
+  
+  $months_to_display = 6;
+  //therefore
+  $max_extract_to_for_sql = $months_to_display * -1 - 1;
+  $extraction_counter_start = $months_to_display * -1; 
 
-    //RAW_Contract Manufacturing not included as not a sales item
+  for($i = $extraction_counter_start; $i <= ; $i ++){
 
-  }   
+    echo " ['Month', 'Revenue', { role: 'annotation' }, 'LAST YEAR', { role: 'annotation' },'Target'],";
+    echo " ['".$row['period_for_chart_display']."',       
+              ".$display_chart['Total Income'][$date_index].",      
+              '".$display_chart['Total Income'][$date_index]."', 
+              ".$display_chart['Total Income'][$date_index-12].",      
+              '".$display_chart['Total Income'][$date_index-12]."',               
+              ".$revenue_target[$row['period_for_chart_display']]['value']."],      ";
+  }
+
 }
 else{
   echo "
@@ -124,7 +141,32 @@ else{
           vAxis: {title: '$'},
           //hAxis: {title: 'Month'},
           seriesType: 'bars',
-          series: {1: {type: 'line',  lineWidth: 10, color: '#cecece'}}
+
+          <?php
+
+          if(
+              $_SESSION['viewing_client_id'] == 4231 OR     
+              $_SESSION['viewing_client_id'] == 4383 OR 
+              $_SESSION['viewing_client_id'] == 1){
+
+                echo "
+                series: {
+                    1: {                              color: '#271e96'}            
+                    2: {type: 'line',  lineWidth: 10, color: '#cecece'}
+                  }
+                ";
+              }
+              else{
+                echo "
+                series: {       
+                    1: {type: 'line',  lineWidth: 10, color: '#cecece'}
+                  }
+                ";
+
+              }
+
+          ?>
+
         };
 
         <?php
