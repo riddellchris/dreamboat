@@ -100,6 +100,7 @@ else{
 
 
           vAxis: {title: '$'},
+          legend: { position: 'top' },
          // hAxis: {title: 'Month'},
           seriesType: 'bars',
           colors: ['#3c78d8', '#f6b26b']

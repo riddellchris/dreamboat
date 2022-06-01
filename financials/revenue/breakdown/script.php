@@ -139,7 +139,7 @@ else{
           }
           ?>
       //  isStacked: true,
-        legend: {position: 'bottom'}
+        legend: {position: 'top'}
         };
 
         <?php

@@ -184,6 +184,7 @@ else{
                 ?>
           vAxis: {title: '$'},
           //hAxis: {title: 'Month'},
+          legend: { position: 'top'},
           seriesType: 'bars',
 
           <?php
