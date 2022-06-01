@@ -193,7 +193,7 @@ else{
                 echo "
                 series: {
                     0: {                              color: '#281e96'}  ,
-                          
+                    0: {                              color: '#3c78d8'}  ,                          
                     2: {type: 'line',  lineWidth: 10, color: '#cecece'}
                   }
                 ";
