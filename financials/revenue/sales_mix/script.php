@@ -96,10 +96,9 @@ else{
 //                if($shopify['value'] < 0){
                                           echo " ['Month',         'Dollars',                   { role: 'annotation' }],";
               if($shopify['value']      > 0){  echo " ['Website',       ".$shopify['value'].",      '".$shopify['value']."'],      ";}
-              if($other['value']        > 0){  echo " ['Other',         ".$other['value'].",        '".$other['value']."'],        ";}
               if($wholesale['value']    > 0){  echo " ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],    ";}
               if($distributors['value'] > 0){  echo " ['Distributors',  ".$distributors['value'].", '".$distributors['value']."']  ";}
-
+              if($other['value']        > 0){  echo " ['Other',         ".$other['value'].",        '".$other['value']."'],        ";}
               
             }
           }
