@@ -3,7 +3,13 @@ if(!isset($_SESSION)){session_start();}
 
 echo "<style>";
 
-if($_GET['tertiary_folder'] == 'print'){echo "table{width: 1120px;}";}
+if($_GET['tertiary_folder'] == 'print'){
+
+    if($_SESSION['viewing_client_id'] == '4383'){ $print_width = '1070px';}
+    else{ $print_width = '1120px';}
+
+    echo "table{width: ".$print_width.";}";
+}
 else{echo "table{width:100%;}";}
 
 echo"

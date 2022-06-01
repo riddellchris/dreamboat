@@ -50,10 +50,15 @@ else{
 
                   if( $_SESSION['viewing_client_id'] == 4383){
 
+                    $months_to_display = 3;
+                    //therefore
+                      $max_extract_to_for_sql = $months_to_display * -1 - 1;
+                      $extraction_counter_start = $months_to_display * -1; 
+
                     $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
                             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
                             AND           latest_version_for_this_user = 'yes'
-                            AND           date_index > -7
+                            AND           date_index > ".$max_extract_to_for_sql."
                             ORDER BY date_index ASC          
                             ";
                     //echo $sql; exit();
@@ -81,7 +86,7 @@ else{
 
                     }
                     echo "['Month',     'Website', { role: 'annotation' }, 'Wholesale', { role: 'annotation' }, 'Distribution', { role: 'annotation' }, 'Manufacturing', { role: 'annotation' }, 'Other', { role: 'annotation' }],";
-                    for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
+                    for($extraction_counter = $extraction_counter_start; $extraction_counter < 0; $extraction_counter ++){
                       echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',       
                                 ".$extracted['website'][$extraction_counter].",                     '".$extracted['website'][$extraction_counter]."',    
                                 ".$extracted['distribution'][$extraction_counter].",                '".$extracted['distribution'][$extraction_counter]."', 

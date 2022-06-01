@@ -109,7 +109,7 @@ else{
         var options = {
 
           <?php
-                echo "title: 'Adpend vs Return";
+                echo "title: 'Adspend vs Return";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>
