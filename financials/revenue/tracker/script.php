@@ -86,8 +86,8 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $result = mysqli_query($conn, $sql);
 
   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-      $display_chart['period_for_chart_display'] = $row['period_for_chart_display'];
-      $display_chart['Total Income'][$row['date_index']] = $row['value'];
+      $display_chart['period_for_chart_display'][$row['date_index']]  = $row['period_for_chart_display'];
+      $display_chart['Total Income'][$row['date_index']]              = $row['value'];
       $sub_title = $row['accurate_as_at_string'];
     //RAW_Contract Manufacturing not included as not a sales item    
   } 
@@ -98,15 +98,17 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
 
+  echo " ['Month', 'Revenue', { role: 'annotation' }, 'LAST YEAR', { role: 'annotation' },'Target'],";
+
   for($i = $extraction_counter_start; $i <= -1; $i ++){
 
-    echo " ['Month', 'Revenue', { role: 'annotation' }, 'LAST YEAR', { role: 'annotation' },'Target'],";
-    echo " ['".$row['period_for_chart_display']."',       
-              ".$display_chart['Total Income'][$date_index].",      
+
+    echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
+               ".$display_chart['Total Income'][$date_index].",      
               '".$display_chart['Total Income'][$date_index]."', 
-              ".$display_chart['Total Income'][$date_index-12].",      
+               ".$display_chart['Total Income'][$date_index-12].",      
               '".$display_chart['Total Income'][$date_index-12]."',               
-              ".$revenue_target[$row['period_for_chart_display']]['value']."],      ";
+               ".$revenue_target[$row['period_for_chart_display']]['value']."],      ";
   }
 
 }
