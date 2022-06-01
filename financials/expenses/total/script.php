@@ -43,6 +43,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
             AND           date_index > -7
             ORDER BY date_index ASC          
             ";
+           // echo $sql; exit();
     $result = mysqli_query($conn, $sql);
 
 
