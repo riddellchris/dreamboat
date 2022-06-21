@@ -129,6 +129,20 @@ if(isset($_SESSION['viewing_client_id'])){
 
 if($top_sub_menu_options[$i] != 'display_no_menu'){	
 
+
+
+	//THIS IS WHERE 
+
+
+
+
+
+
+
+
+
+
+
 		echo "<a ";
 			echo "href ='/components/sub_menus/change.php?page=".$_GET['primary_folder']."&to=".$top_sub_menu_options[$i]."'";
 			echo "class='sub_menu_div div_width ";
