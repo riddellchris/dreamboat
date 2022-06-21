@@ -51,7 +51,7 @@ echo "
 //echo "user_id = ".$_SESSION['user_id'];exit();
 
     $unique_code = md5(rand(999, 99999));
-    $state  = "success_".$_SESSION['user_id']."_".$row_connections['entry_id']."_".$unique_code; //this is an optional string
+    $state  = "success_".$_SESSION['viewing_client_id']."_".$row_connections['entry_id']."_".$unique_code; //this is an optional string
 
      //  if($_SESSION['user_id'] == $_SESSION['viewing_client_id']){ // otherwise not actual end user
             //TERRIBLE //HACK:: Really this should be a link that connects to another page:
