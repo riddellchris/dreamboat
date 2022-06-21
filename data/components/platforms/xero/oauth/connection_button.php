@@ -60,7 +60,7 @@ echo "
             //not sure this is for me today though
             //#IS_URGENT #SECURITY #UPGRADES
             $sql = "INSERT INTO api_xero_oauth_keys (user_id, string, application_entry_id)
-                    VALUES ('".$_SESSION['user_id']."','".$unique_code."', '".$row_connections['entry_id']."')";    
+                    VALUES ('".$_SESSION['viewing_client_id']."','".$unique_code."', '".$row_connections['entry_id']."')";    
             mysqli_query($conn, $sql);
 
 
