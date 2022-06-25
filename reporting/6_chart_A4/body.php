@@ -146,7 +146,22 @@ echo "<table >";
       //          }
 
 
-                echo "<textarea name='textarea_input' style='max-width:1100px;margin-left: auto; margin-right: auto; display: block; text-align: left;' rows='10'>";
+echo "
+<style>
+@media print {
+     #reporting_notes{
+        box-shadow: none;
+    }
+}
+
+</style>
+
+";
+
+
+
+
+                echo "<textarea id='reporting_notes' name='textarea_input' style='max-width:1100px;margin-left: auto; margin-right: auto; display: block; text-align: left;' rows='10'>";
 
                 $sql = "SELECT * FROM notes 
                         WHERE user_id           = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
