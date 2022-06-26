@@ -78,6 +78,10 @@ echo "<table >";
                             
                             echo "<br>";
 
+
+
+
+                            
                             echo "MONTHLY KPI DASHBOARD";
 
                             echo "<br>";
@@ -109,31 +113,69 @@ echo "<table >";
             echo "</td>";
         echo "</tr>";
 
+/*
+    $_SESSION['reporting'] = array();
+    $_SESSION['reporting']['6_chart_A4'] = array();
+    $_SESSION['reporting']['6_chart_A4']['chart_position'] = array();
+*/
+
+
+    $default_setup = 'yes';
+    if($_SESSION['viewing_client_id'] == '4383'){
+        $default_setup = 'no';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_revenue_sales_mix_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][3] = 'financials_revenue_shopify_comparison_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_revenue_breakdown_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_expenses_total_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_adspend_vs_return_div';
+    }
+    if($default_setup == 'yes'){
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_revenue_sales_mix_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][3] = 'financials_revenue_shopify_comparison_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_revenue_breakdown_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_expenses_total_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_adspend_vs_return_div';
+    }
+
+    $n = 1; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 2; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 3; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 4; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 5; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 6; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
 
 
     echo "<tr class='chart_row'>";
-        echo "<td>";
-            echo "<div id='financials_revenue_tracker_div' class='google_charts_print'></div>";
-        echo "</td>";
-        echo "<td>";
-            echo "<div id='financials_revenue_sales_mix_div'  class='google_charts_print'></div>";
-        echo "</td>";
+        $n = 1;
+            echo "<td>";
+                echo "<div id='".$chart[$n]."' class='google_charts_print'></div>";
+            echo "</td>";
+        $n = 2;
+            echo "<td>";
+                echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
+            echo "</td>";
     echo "</tr>";
     echo "<tr class='chart_row'>";
-        echo "<td>";
-            echo "<div id='financials_revenue_shopify_comparison_div'  class='google_charts_print'></div>";
-        echo "</td>";
-        echo "<td>";
-            echo "<div id='financials_revenue_breakdown_div'  class='google_charts_print'></div>";
-        echo "</td>";
+        $n = 3;
+            echo "<td>";
+                echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
+            echo "</td>";
+        $n = 4;
+            echo "<td>";
+                echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
+            echo "</td>";
     echo "</tr>";
     echo "<tr class='chart_row'>";
-        echo "<td>";
-            echo "<div id='financials_expenses_total_div'  class='google_charts_print'></div>";
-        echo "</td>";
-        echo "<td>";
-            echo "<div id='financials_expenses_adspend_vs_return_div'  class='google_charts_print'></div>";
-        echo "</td>";
+        $n = 5;
+            echo "<td>";
+                echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
+            echo "</td>";
+        $n = 6;
+            echo "<td>";
+                echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
+            echo "</td>";
     echo "</tr>";
     echo "<tr>";
         echo "<td colspan='2'>";
