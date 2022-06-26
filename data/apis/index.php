@@ -46,9 +46,9 @@ th{text-align:left; font-size:larger;}
 
                     if($row_connections['active'] != 'yes'){echo "<td style='color:green;'> tick</td>";}else{echo "<td></td>";}
 
-                    if($_SESSION['user_id'] == $_SESSION['viewing_client_id']){
+                    //if($_SESSION['user_id'] == $_SESSION['viewing_client_id']){
                     if($row_connections['active'] == 'yes'){echo "<td class='app_tds' ><a style='color:red; padding:8px;' href='/data/apis/connections/delete.php?saas_connection=".$row_connections['entry_id']."'>DELETE</a></td>";}else{echo "<td></td>";}
-                    }
+                    //}
 
                     //do we know how to make it work sufficiently / that's the question here.
                     $scoped_platform = 'no';

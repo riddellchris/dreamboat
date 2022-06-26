@@ -347,6 +347,9 @@ if(check_primary_folder('financials')){
 
 	$top_sub_menu_options = add_top_sub_menu_option('profit_and_loss'	,$top_sub_menu_options);
 	if(check_secondary_folder('profit_and_loss')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('gross_profit'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('net_profit'	,$top_sub_sub_menu_options);
+
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'	,$top_sub_sub_menu_options);
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'	,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'	,$top_sub_sub_menu_options);	
