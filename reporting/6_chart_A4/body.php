@@ -63,8 +63,8 @@ echo "<table >";
                                                                             echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Prime Strategies logo' width='140' height='140'>";
                                                                             $go_to_dummy['logo'] = 'no';
                             }
-                            if($_SESSION['viewing_client_id'] == '4398'){   echo "<img src='/components/whitelabeling/prime_strategies/shy tiger.jpg' alt='Shy Tiger' width='100' height='100' style='margin-bottom: 20px;'>";
-                                echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Prime Strategies logo' width='140' height='140'>";
+                            if($_SESSION['viewing_client_id'] == '4398'){   echo "<img src='/components/whitelabeling/prime_strategies/shy tiger.jpg' alt='Shy Tiger' ' height='100' style='margin-bottom: 20px;'>";
+                                
                                 $go_to_dummy['logo'] = 'no';
 }
 
@@ -106,7 +106,9 @@ echo "<table >";
                         }
 
 
-                            if($_SESSION['viewing_client_id'] == '4383'){
+                            if( $_SESSION['viewing_client_id'] == '4383' OR
+                                $_SESSION['viewing_client_id'] == '4398'
+                                ){
                                 echo "<img src='/components/whitelabeling/prime_strategies/Prime-Strategies-logo-1500pxW.PNG' alt='Laila & Me' style='max-height:100;'>";
                             }
                         echo "</td>";
