@@ -36,12 +36,14 @@ if($incoming_clients == 'yes'){$client_gained_sql = " AND client_gained = 'no'";
 if($_GET['secondary_folder'] == 'regular_users'){$client_gained_sql = " AND (client_gained = 'yes' OR contract_sent <> '0000-00-00') ";}
 
 
-if($_SESSION['user_id'] != 1){
+//This allows Chris to see everything / all users frankly
+//probably this needs to show the pilots for those end users in time.
+if($_SESSION['user_id'] == 1){
 	$sql = "SELECT * FROM user_account_details 
-	WHERE client_status = 'active'
-	AND dead = 'no'
-	ORDER BY first_name, second_name	
-	";
+			WHERE client_status = 'active'
+			AND dead = 'no'
+			ORDER BY first_name, second_name	
+			";
 }
 else{
 	$sql = "SELECT * FROM user_account_details 
