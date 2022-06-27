@@ -34,16 +34,24 @@ if($incoming_clients == 'yes'){
 
 if($incoming_clients == 'yes'){$client_gained_sql = " AND client_gained = 'no'";}
 if($_GET['secondary_folder'] == 'regular_users'){$client_gained_sql = " AND (client_gained = 'yes' OR contract_sent <> '0000-00-00') ";}
-$sql = "SELECT * FROM user_account_details 
 
-		WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' 
-		AND client_status = 'active'
-		AND dead = 'no'
-		ORDER BY first_name, second_name
-		
-		
-		";
-//		echo $sql; exit();
+
+if($_SESSION['user_id'] != 1){
+	$sql = "SELECT * FROM user_account_details 
+	WHERE client_status = 'active'
+	AND dead = 'no'
+	ORDER BY first_name, second_name	
+	";
+}
+else{
+	$sql = "SELECT * FROM user_account_details 
+			WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' 
+			AND client_status = 'active'
+			AND dead = 'no'
+			ORDER BY first_name, second_name	
+			";
+}
+		//		echo $sql; exit();
 //this gives us all the user_ids
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);
