@@ -74,7 +74,7 @@ if($access_denied == 'no'){
 
         require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/input_return_token.php";
 
-        if($debug == 'off'){    
+        if($debug == 'on'){    
             echo "<br><br><br>";
             echo $return_token['id_token'];
         }
@@ -103,7 +103,7 @@ if($access_denied == 'no'){
         */
         $access_token = json_decode(base64_decode($payload), true);
 
-        if($debug == 'off'){    
+        if($debug == 'on'){    
             echo "ACCESS TOKEN";
             echo '<pre>' , var_dump($access_token) , '</pre>';
         }
