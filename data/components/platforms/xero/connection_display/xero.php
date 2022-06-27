@@ -23,6 +23,8 @@ echo "<td>";
         //
 
 
+                require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/refresh.php";
+
 
                 //if test the refresh token and that works
                 //then it should say currently connected
@@ -47,9 +49,17 @@ echo "<td>";
 
 
                 echo $row['tenantName']." - ";
-                require $_SERVER['DOCUMENT_ROOT']."/data/components/display_elements/currently_connected.php";
-                    //this of course could have bucket loads more detail added to it
-                    //disconnect not just delete etc etc etc but for now honeslty i'm not worrying about that at alll
+
+                if($connected_successfully['xero'] == 'yes'){    
+                    require $_SERVER['DOCUMENT_ROOT']."/data/components/display_elements/currently_connected.php";
+                     //this of course could have bucket loads more detail added to it
+                    //disconnect not just delete etc etc etc but for now honeslty i'm not worrying about that at alll                      
+                }
+                else{
+                    require $_SERVER['DOCUMENT_ROOT']."/data/components/display_elements/connection_failed.php";
+
+                }
+
 
     }
 echo "</td>";

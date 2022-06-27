@@ -68,7 +68,7 @@ unset($sql_for_insert_of_12_month_data);
 
                     //$user_id_for_request = 1;
                     //require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
-                    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
+                    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php
 
 
                     echo "<br><br>";

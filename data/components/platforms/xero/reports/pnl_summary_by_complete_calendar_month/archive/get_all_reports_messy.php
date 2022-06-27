@@ -20,7 +20,7 @@ for($j = 0; $j < $tenant_user_id_count; $j++){
     $tenant_id              = $tenant_xero_id[$j];
 
     
-    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
+    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php
 
     //so the only complexity here is that 
     //first we actually need to get out the first month that an invoice is registered for each company.

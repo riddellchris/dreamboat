@@ -31,7 +31,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
     $tenant_id = $row['tenantId'];
 
 
-    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/get_access_token.php";
+    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/access_token/get.php
 
 
     $headers = array(  'Authorization: Bearer '.$access_token,

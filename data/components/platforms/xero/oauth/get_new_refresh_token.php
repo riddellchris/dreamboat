@@ -24,7 +24,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
 for($i = 0; $i < count($user_ids_to_refresh); $i++){
     $user_id_for_request = $user_ids_to_refresh[$i];
-    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
+    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php
 }
 
 //for now it should run once per day and we canjust go from there - easy as

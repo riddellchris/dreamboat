@@ -11,7 +11,7 @@ if(!isset($getting_all)){
     require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
 }
 
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/get_access_token.php";
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/invoices/api_request.php";
 
 //now for all invoices we want to see if they are already stored or not and then store.
