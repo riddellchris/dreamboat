@@ -5,7 +5,7 @@ echo "<style>";
 
 if($_GET['tertiary_folder'] == 'print'){
 
-    if($_SESSION['viewing_client_id'] == '4383'){ $print_width = '1070px';}
+    if($_SESSION['user_id'] == '4397'){ $print_width = '1070px';}
     else{ $print_width = '1120px';}
 
     echo "table{width: ".$print_width.";}";
@@ -63,7 +63,7 @@ echo "<table >";
                                                                             echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Prime Strategies logo' width='140' height='140'>";
                                                                             $go_to_dummy['logo'] = 'no';
                             }
-                            if($_SESSION['viewing_client_id'] == '4397'){   echo "<img src='/components/whitelabeling/prime_strategies/shy tiger.jpg' alt='Shy Tiger' width='100' height='100' style='margin-bottom: 20px;'>";
+                            if($_SESSION['viewing_client_id'] == '4398'){   echo "<img src='/components/whitelabeling/prime_strategies/shy tiger.jpg' alt='Shy Tiger' width='100' height='100' style='margin-bottom: 20px;'>";
                                 echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Prime Strategies logo' width='140' height='140'>";
                                 $go_to_dummy['logo'] = 'no';
 }
@@ -78,7 +78,7 @@ echo "<table >";
                                 if($_SESSION['viewing_client_id'] == '1'){      echo "Dreamboat";                   $go_to_dummy['title'] = 'no';}
                                 if($_SESSION['viewing_client_id'] == '4231'){   echo "National PC";                 $go_to_dummy['title'] = 'no';}
                                 if($_SESSION['viewing_client_id'] == '4383'){   echo "Laila and Me / Rawvolution";  $go_to_dummy['title'] = 'no';}
-                                if($_SESSION['viewing_client_id'] == '4397'){   echo "Sky Tiger";                   $go_to_dummy['title'] = 'no';}
+                                if($_SESSION['viewing_client_id'] == '4398'){   echo "Shy Tiger";                   $go_to_dummy['title'] = 'no';}
 
                                 if($go_to_dummy['title'] == 'yes'){echo "Your Company Name";}
                             echo "</span>";
