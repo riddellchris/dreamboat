@@ -31,7 +31,7 @@ curl_close($ch);
 $response = json_decode($content, true);
 
 
-$debug = 'on';
+$debug = 'off';
 if($debug == 'on'){
     echo "TENANTS AVAILABLE FOR ACCESS";
     echo '<pre>' , var_dump($response) , '</pre>';
