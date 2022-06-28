@@ -2,8 +2,8 @@
 if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/layout/pre_content.php";
 
-	paragraph_detailed('yes',10,10,10,"The economic fundamentals in Australia are not healthy with interest rates near 0, household debt sky high and real wage growth near 0.");
-	paragraph_detailed('no',8,10,10,"With interest rates at 0.1% and RBA Governor Phillip Lowe saying negative rates are highly unlikely, this economic lever is no longer available to us, or at the very least no longer working.");
+	paragraph_detailed('yes',10,10,10,"The economic fundamentals in Australia are not healthy with interest rates near 0, household debt sky high and real wage growth expected to stay negative for the next few years at least.");
+	//paragraph_detailed('no',8,10,10,"With interest rates at 0.85% and RBA Governor Phillip Lowe saying negative rates are highly unlikely, this economic lever is no longer available to us, or at the very least no longer working.");
 					    
 	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/economy/charts/interest_rate_chart/div.php";
 	

@@ -11,7 +11,11 @@
         data.addRows([
 
 
-
+[new Date(2022,  6	,8),	0.85,		null], 
+[new Date(2022,  5	,4),	0.35,		null], 
+[new Date(2022,  4	,6),	0.1,		null], 
+[new Date(2022,  3	,2),	0.1,		null], 
+[new Date(2022,  2	,2),	0.1,		null], 
 [new Date(2021,  12	,8),	0.1,		null], 
 [new Date(2021,  11	,3),	0.1,		null], 
 [new Date(2021,  10	,6),	0.1,		null], 
