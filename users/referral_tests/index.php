@@ -7,13 +7,13 @@ echo "
 
 <div class='prompt-font'>
 
-Select referrer
+Select referrer<BR><BR>
 
-Rows of all current users
-Columns of runs against all tests Green red
-Final column - referred / contacted
-
-Print money
+Rows of all current users<BR><BR>
+Columns of runs against all tests Green red<BR><BR>
+Final column - referred / contacted<BR><BR>
+<BR><BR>
+Print money<BR>
 
 
 
