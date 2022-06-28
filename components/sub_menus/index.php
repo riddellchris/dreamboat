@@ -456,6 +456,7 @@ if(check_primary_folder('users')){
 	$top_sub_menu_options = add_top_sub_menu_option('regular_users'				,$top_sub_menu_options);
 	if($_SESSION['user_id'] == '1'){
 		$top_sub_menu_options = add_top_sub_menu_option('display_controls'		,$top_sub_menu_options);
+		$top_sub_menu_options = add_top_sub_menu_option('referral_tests'		,$top_sub_menu_options);		
 	}
 //	$top_sub_menu_options = add_top_sub_menu_option('details'					,$top_sub_menu_options);
 	//if($_SESSION['user_id'] == '1'){

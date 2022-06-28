@@ -130,7 +130,10 @@ echo "<table >";
 
 
     $default_setup = 'yes';
-    if($_SESSION['viewing_client_id'] == '4383'){
+    if( $_SESSION['viewing_client_id'] == '4383' OR
+        $_SESSION['viewing_client_id'] == '4397' OR
+        $_SESSION['viewing_client_id'] == '4398'
+        ){
         $default_setup = 'no';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_revenue_sales_mix_div';
