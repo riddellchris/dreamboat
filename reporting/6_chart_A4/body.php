@@ -63,7 +63,7 @@ echo "<table >";
                                                                             echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Prime Strategies logo' width='140' height='140'>";
                                                                             $go_to_dummy['logo'] = 'no';
                             }
-                            if($_SESSION['viewing_client_id'] == '4398'){   echo "<img src='/components/whitelabeling/prime_strategies/shy tiger.jpg' alt='Shy Tiger' ' height='100' style='margin-bottom: 20px;'>";
+                            if($_SESSION['viewing_client_id'] == '4398'){   echo "<img src='/components/whitelabeling/prime_strategies/shy tiger.jpg' alt='Shy Tiger' ' height='100' style='margin-bottom: 0px;'>";
                                 
                                 $go_to_dummy['logo'] = 'no';
 }
