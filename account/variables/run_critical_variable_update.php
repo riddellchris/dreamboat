@@ -8,5 +8,6 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 						
 require $_SERVER['DOCUMENT_ROOT']."/account/variables/initial_setup.php";
 
+//echo $row[''];
 
 //include this in here as well
