@@ -2,7 +2,13 @@
 if(!isset($_SESSION)){session_start();}
 
 if($_SESSION['logged_in'] == 'yes'){
-	header("Location: ".$_SESSION['users_homepage']);
+	if($_SESSION['viewing_client_id'] != $_SESSION['user_id']){	
+		header("Location: ".$_SESSION['viewing_client_home_page']);
+	}
+	else{
+		header("Location: ".$_SESSION['users_homepage']);
+	}
+
 }
 else{
 	//this is sometimes used off the back of email notifications to ensure that we move to the right place

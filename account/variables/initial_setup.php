@@ -24,7 +24,7 @@ $_SESSION['viewing_client_commission_yes_no'] 					= $row['commission_yes_no'];
 $_SESSION['viewing_client_what_is_productivity'] 				= $row['what_is_productivity'];	
 $_SESSION['viewing_client_type_of_person'] 						= $row['type_of_person'];	
 $_SESSION['viewing_client_proven_referrer'] 					= $row['proven_referrer'];	
-
+$_SESSION['viewing_client_home_page'] 							= $row['homepage'];
 
 //critical for tests//
 $_SESSION['viewing_client_primary_industry'] 					= $row['primary_industry'];
