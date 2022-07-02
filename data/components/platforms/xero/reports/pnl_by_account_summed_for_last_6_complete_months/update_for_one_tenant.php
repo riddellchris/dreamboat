@@ -44,7 +44,7 @@ echo $url_for_api_request;
 
 //$user_id_for_request = 1;
 //require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php";";
 
 
 echo "<br><br>";

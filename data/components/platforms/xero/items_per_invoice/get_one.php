@@ -11,7 +11,7 @@ if(!isset($getting_all)){
     require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
 }
 
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php";
 
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/items_per_invoice/api_request.php";
 

@@ -25,7 +25,7 @@ for($main_counter = 0; $main_counter < count($tenant_user_id); $main_counter++){
   echo "<br>";
 
   //  echo "hi";
-   // require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php
+   // require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php";
    // echo "hi";
 
     //this cannot go here as it destorys the for loop

@@ -10,7 +10,7 @@ for($j = 0; $j < count($tenant_user_id); $j++){
     $user_id_for_request    = $tenant_user_id[$j];
     $tenant_id              = $tenant_xero_id[$j];
 
-    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php
+    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php";
 
     $getting_all = 'yes';
     require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/budgets/get_one.php";

@@ -27,7 +27,7 @@ $access_token = $row['access_token'];
 //echo "<br>";
 //exit();
 
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php";
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php";";
 
 
 $sql = "SELECT * FROM api_xero_tenant_details 
