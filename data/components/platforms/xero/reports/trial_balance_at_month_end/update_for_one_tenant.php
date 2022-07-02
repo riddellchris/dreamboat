@@ -29,8 +29,8 @@ echo date('Y-m-d', strtotime(date('Y-m')."last day of -6 months"));
 //as the from date becomes:
 
 //STRING CREATION
-$from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of -24 months"));
-$from_date_string   = date('M j',   strtotime(date('Y-m')."first day of -24 months"));
+$from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of -36 months"));
+$from_date_string   = date('M j',   strtotime(date('Y-m')."first day of -36 months"));
 
 //and the to_date becomes:
 $to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of -1 months"));
@@ -50,7 +50,7 @@ unset($sql_for_insert_of_12_month_data);
 
 
         //echo "hi";
-        for($date_index = -1; $date_index > -24; $date_index --){
+        for($date_index = -1; $date_index > -36; $date_index --){
         //echo "hi";
             //ACTUAL REQUEST DATE CREATION
             //$from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." months"));

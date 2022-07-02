@@ -27,8 +27,8 @@ echo date('Y-m-d', strtotime(date('Y-m')."last day of -6 months"));
 //as the from date becomes:
 
 //STRING CREATION
-$from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of -24 months"));
-$from_date_string   = date('M j',   strtotime(date('Y-m')."first day of -24 months"));
+$from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of -36 months"));
+$from_date_string   = date('M j',   strtotime(date('Y-m')."first day of -36 months"));
 
 //and the to_date becomes:
 $to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of -1 months"));
@@ -36,6 +36,7 @@ $to_date_string     = date('M j',   strtotime(date('Y-m')."last day of -1 months
 
 $updated_last_string = date('Y-m-d', strtotime(date('Y-m')));
 
+//redundant string
 $accurate_as_at_string = " complete to ".$to_date_string;
 
 
@@ -68,7 +69,7 @@ unset($sql_for_insert_of_12_month_data);
 
                     //$user_id_for_request = 1;
                     //require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
-                    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauthaccess_token/get.php";
+                    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php";
 
 
                     echo "<br><br>";
