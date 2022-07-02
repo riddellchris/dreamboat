@@ -48,7 +48,7 @@ unset($sql_for_insert_of_12_month_data);
 
 
         //echo "hi";
-        for($date_index = -1; $date_index > -24; $date_index --){
+        for($date_index = -1; $date_index > -36; $date_index --){
         //echo "hi";
             //ACTUAL REQUEST DATE CREATION
             $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." months"));
@@ -68,7 +68,7 @@ unset($sql_for_insert_of_12_month_data);
 
                     //$user_id_for_request = 1;
                     //require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
-                    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php
+                    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/access_token/get.php";
 
 
                     echo "<br><br>";
