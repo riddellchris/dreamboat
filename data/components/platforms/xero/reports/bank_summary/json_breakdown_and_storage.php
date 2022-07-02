@@ -37,7 +37,7 @@
        
                 
                 $sql_string = "
-                INSERT INTO bank_summary
+                INSERT INTO api_xero_bank_summary
                 (
                     user_id,
                     tenant_id,

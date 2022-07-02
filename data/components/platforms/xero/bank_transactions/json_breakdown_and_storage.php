@@ -9,16 +9,16 @@
    for($j = 0; $j < count($response); $j ++ ){
 
 
-                $bank_account   = $response[$j]['BankAccount']['Name'];
-                $type           = $response[$j]['Type'];
-                $reconciled     = $response[$j]['IsReconciled'];
-                $transaction_date           = $response[$j]['DateString'];
-                $sub_total      = $response[$j]['SubTotal'];
-                $total_tax      = $response[$j]['TotalTax']; 
-                $total          = $response[$j]['Total']; 
+                $bank_account       = $response[$j]['BankAccount']['Name'];
+                $type               = $response[$j]['Type'];
+                $reconciled         = $response[$j]['IsReconciled'];
+                $transaction_date   = $response[$j]['DateString'];
+                $sub_total          = $response[$j]['SubTotal'];
+                $total_tax          = $response[$j]['TotalTax']; 
+                $total              = $response[$j]['Total']; 
                 
                 $sql_string = "
-                INSERT INTO bank_transactions
+                INSERT INTO api_xero_bank_transactions
                 (
                     user_id,
                     tenant_id,
