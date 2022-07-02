@@ -26,7 +26,7 @@
     
                 
                 $sql_string = "
-                INSERT INTO quotes
+                INSERT INTO api_xero_quotes
                 (
                     user_id,
                     tenant_id,
