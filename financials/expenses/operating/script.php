@@ -138,7 +138,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
 
-  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Revenue', { role: 'annotation' }, 'Target'],";
+  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Operating Expenses', { role: 'annotation' }, 'Target'],";
 
   for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
@@ -166,7 +166,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 }
 else{
   echo "
-  ['Month',     'Revenue', { role: 'annotation' },'Target'],
+  ['Month',     'Operating Expenses', { role: 'annotation' },'Target'],
   ['Dec 21',   450, '450',  614.6],          
   ['Jan 22',   450, '450',  614.6],
   ['Feb 22',   288, '288',  682],
@@ -188,7 +188,7 @@ else{
 
         var options = {
           <?php
-                echo "title: 'Net Profit";
+                echo "title: 'Operating Expenses";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>
