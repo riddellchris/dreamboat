@@ -33,7 +33,7 @@ else{
 
 if( $_SESSION['viewing_client_id'] == 4231 OR 
     $_SESSION['viewing_client_id'] == 4383 OR 
-    $_SESSION['viewing_client_id'] == 4386 OR    
+    $_SESSION['viewing_client_id'] == 4390 OR 
     $_SESSION['viewing_client_id'] == 1){
 
 
