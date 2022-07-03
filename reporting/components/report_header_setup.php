@@ -30,11 +30,34 @@ echo "<tr>";
                         echo "</td>";
                         echo "<td class='title_blocks' style='text-align:center;'>";
                             echo "<span style='font-size: 30px; text-decoration: underline; padding-bottom: 5px; font-weight: 800;'>";
+    
+
+                                $sql_to_extract_title = "SELECT business_name FROM user_account_details 
+                                                         WHERE user_id = '".$_SESSION['viewing_client_id']."'";
+                                                     //   echo $sql_to_extract_title;exit();
+                                require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+                                $result_to_extract_title = mysqli_query($conn, $sql_to_extract_title);
+                                //echo mysqli_num_rows($result_to_extract_title);
+
+                                 $row_to_extract_title = mysqli_fetch_array($result_to_extract_title, MYSQLI_ASSOC);
+                                //var_dump($row_to_extract_title);
+                                //exit();
+                                //echo $row_to_extract_title['business_name'];
+
                                 $go_to_dummy['title'] = 'yes';
+                                if(isset($row_to_extract_title['business_name'])){
+                                    if($row_to_extract_title['business_name'] != ''){
+                                        echo $row_to_extract_title['business_name'];
+                                        $go_to_dummy['title'] = 'no';
+                                    }
+                                }
+
+                            /*
                                 if($_SESSION['viewing_client_id'] == '1'){      echo "Dreamboat";                   $go_to_dummy['title'] = 'no';}
                                 if($_SESSION['viewing_client_id'] == '4231'){   echo "National PC";                 $go_to_dummy['title'] = 'no';}
                                 if($_SESSION['viewing_client_id'] == '4383'){   echo "Laila and Me / Rawvolution";  $go_to_dummy['title'] = 'no';}
                                 if($_SESSION['viewing_client_id'] == '4398'){   echo "Shy Tiger";                   $go_to_dummy['title'] = 'no';}
+                            */
 
                                 if($go_to_dummy['title'] == 'yes'){echo "Your Company Name";}
                             echo "</span>";
