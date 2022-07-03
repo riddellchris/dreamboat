@@ -20,16 +20,16 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){      
             try{
-                $quote_date = $response[$j]['DateString'];
-                $status =  $response[$j]['Status'];
-                $sub_total =  $response[$j]['SubTotal'];
-                $total_tax =  $response[$j]['TotalTax'];
-                $total =  $response[$j]['Total'];
+                $quote_date     =  $response[$j]['DateString'];
+                $status         =  $response[$j]['Status'];
+                $sub_total      =  $response[$j]['SubTotal'];
+                $total_tax      =  $response[$j]['TotalTax'];
+                $total          =  $response[$j]['Total'];
                 
     
                 
                 $sql_string = "
-                INSERT INTO api_xero_quotes
+                INSERT INTO ".$table_name."
                 (
                     user_id,
                     tenant_id,
