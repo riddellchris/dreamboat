@@ -4,8 +4,8 @@
 //simply for construction
 //ONLY COMMENT OUT SO THAT WE CAN SAVE FOR MORE CONSTRCUTION
 //$user_id_for_request = 1;
-//require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
-
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
+//$period_name = 'months';
 
 /*
 //first we need to get todays date.
@@ -56,8 +56,9 @@ unset($sql_for_insert_of_12_month_data);
 
             $period_for_chart_display   = date('M y', strtotime(date('Y-m')."last day of ".$date_index." ".$period_name));
                 
+          //  $url_for_api_request =   "https://api.xero.com/api.xro/2.0/Quotes?DateFrom=".$from_date."&DateTo=".$to_date;
+             //   echo $url_for_api_request."<br>";
             $url_for_api_request =   "https://api.xero.com/api.xro/2.0/Quotes";
-
 
             require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/quotes/api_request.php";
                         
@@ -67,5 +68,7 @@ unset($sql_for_insert_of_12_month_data);
                             exit();
                         }
 
-                    }
             require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/quotes/json_breakdown_and_storage.php";
+
+        }
+

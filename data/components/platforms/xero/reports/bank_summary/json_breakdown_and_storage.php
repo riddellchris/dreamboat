@@ -38,7 +38,7 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
        
                 
                 $sql_string = "
-                INSERT INTO api_xero_bank_summary
+                INSERT INTO ".$table_name."
                 (
                     user_id,
                     tenant_id,
@@ -74,12 +74,13 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
                     '".mysqli_real_escape_string($conn, $period_for_chart_display)."'                         
                     )
                 ";
-                //echo $sql_string;
+                echo "<BR>".$sql_string."<BR>";
                 mysqli_query($conn, $sql_string);}
                 //exit();}}
                 catch (ErrorException $e){
 
-                    if(!isset($response[$j]['Rows'][$t])){$response[$j]['Rows'][$t] = 'Unknown error';}
+                    if(!isset($response[$j]['Rows'][$t])){$remaining_json = 'Unknown error';}
+                    else{$remaining_json = json_encode($response[$j]['Rows'][$t]);}
 
                     $sql_string = "
                     INSERT INTO api_xero_json_error
@@ -87,7 +88,7 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
                     VALUES (
                         '".mysqli_real_escape_string($conn, __FILE__)."',
                         '".mysqli_real_escape_string($conn, $e)."',
-                        '".mysqli_real_escape_string($conn, $response[$j]['Rows'][$t])."',
+                        '".mysqli_real_escape_string($conn, $remaining_json)."',
                     )
                     ";
                     mysqli_query($conn, $sql_string);

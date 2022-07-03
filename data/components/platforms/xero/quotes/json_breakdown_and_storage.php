@@ -70,6 +70,7 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
                 catch (ErrorException $e){
 
                     if(!isset($response[$j])){$response[$j] = 'Unknown Error';}
+                    else{$response[$j] = json_encode($response[$j]);}
 
                     $sql_string = "
                     INSERT INTO api_xero_json_error

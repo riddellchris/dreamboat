@@ -68,5 +68,8 @@ unset($sql_for_insert_of_12_month_data);
                             exit();
                         }
 
-                    }
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/pnl_by_account_by_complete_calendar_month_past_12_months_brad/json_breakdown_and_storage.php";
+
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/trial_balance_by_calendar_month_past_36_months/json_breakdown_and_storage.php";
+
+
+        }
