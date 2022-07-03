@@ -6,6 +6,11 @@ require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/layout/pre_content.
 
 
 
+echo "<br><br><br>";
+// removing issues that limit productivity from Australia's .");
+include_knowledgebase_image('/knowledgebase/components/diagrams/network_issues_101.svg', 'default', '65vh');
+
+echo "<br><br><br>";
 	
 	
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/layout/post_content.php";

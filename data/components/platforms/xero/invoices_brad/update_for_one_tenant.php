@@ -61,7 +61,7 @@ unset($sql_for_insert_of_12_month_data);
 
             require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/invoices_brad/api_request.php";
                         
-                        $debug = 'on';
+                        $debug = 'off';
                         if($debug == 'on'){
                             echo '<pre>' , json_encode($response['Invoices']) , '</pre>';
                             exit();

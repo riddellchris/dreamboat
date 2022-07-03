@@ -16,7 +16,7 @@
 //         }
 
 //     }
-
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/set_error_handler.php";
 
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){
@@ -26,6 +26,7 @@
             echo "Entry type = ".$response[$j]['RowType']."<br>";
             for($t = 0; $t < count($response[$j]['Rows']); $t ++){              
 
+                try{
                 $bank_account   = $response[$j]['Rows'][$t]['Cells'][0]['Value'];
                 $account_id     = $response[$j]['Rows'][$t]['Cells'][0]['Attributes'][0]['Value'];
 
@@ -73,10 +74,25 @@
                     '".mysqli_real_escape_string($conn, $period_for_chart_display)."'                         
                     )
                 ";
-                echo $sql_string;
-                //mysqli_query($conn, $sql_string);
-                exit();}
+                //echo $sql_string;
+                mysqli_query($conn, $sql_string);}
+                //exit();}}
+                catch (ErrorException $e){
+
+                    if(!isset($response[$j]['Rows'][$t])){$response[$j]['Rows'][$t] = 'Unknown error';}
+
+                    $sql_string = "
+                    INSERT INTO api_xero_json_error
+                    (file_name, exception, error_json)
+                    VALUES (
+                        '".mysqli_real_escape_string($conn, __FILE__)."',
+                        '".mysqli_real_escape_string($conn, $e)."',
+                        '".mysqli_real_escape_string($conn, $response[$j]['Rows'][$t])."',
+                    )
+                    ";
+                    mysqli_query($conn, $sql_string);
                 }
-            }
+            }}}
+            
 
         

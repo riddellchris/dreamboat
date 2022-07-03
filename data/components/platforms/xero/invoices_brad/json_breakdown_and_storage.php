@@ -13,10 +13,13 @@
 
 //     }
 
-    $response = $response['Invoices'];
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/set_error_handler.php";
+
+        $response = $response['Invoices'];
+ 
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){      
-
+                try{
                 $update_date = $response[$j]['DateString'];
                 $status =  $response[$j]['Status'];
                 $sub_total =  $response[$j]['SubTotal'];
@@ -60,10 +63,27 @@
                     '".mysqli_real_escape_string($conn, $period_for_chart_display)."'                         
                     )
                 ";
-                echo $sql_string;
-                //mysqli_query($conn, $sql_string);
-                exit();}
+                //echo $sql_string;
+                mysqli_query($conn, $sql_string);
+                //exit();}
+                }
+                catch (ErrorException $e){
 
+                    if(!isset($response[$j])){$response[$j] = 'Unknown error';}
+
+                    $sql_string = "
+                    INSERT INTO api_xero_json_errors
+                    (file_name, exception, error_json)
+                    VALUES (
+                        '".mysqli_real_escape_string($conn, __FILE__)."',
+                        '".mysqli_real_escape_string($conn, $e)."',
+                        '".mysqli_real_escape_string($conn, $response[$j])."'
+                    )";
+                    //echo $sql_string;
+                    mysqli_query($conn, $sql_string);
+                }
+            }
             
 
         
+            // $response[$j]['Rows'][$t])
