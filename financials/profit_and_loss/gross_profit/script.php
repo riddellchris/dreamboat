@@ -33,6 +33,7 @@ else{
 
 if( $_SESSION['viewing_client_id'] == 4231 OR 
     $_SESSION['viewing_client_id'] == 4383 OR 
+    $_SESSION['viewing_client_id'] == 4386 OR    
     $_SESSION['viewing_client_id'] == 1){
 
 
@@ -160,7 +161,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 }
 else{
   echo "
-  ['Month',     'Revenue', { role: 'annotation' },'Target'],
+  ['Month',     'Gross Profit', { role: 'annotation' },'Target'],
   ['Dec 21',   450, '450',  614.6],          
   ['Jan 22',   450, '450',  614.6],
   ['Feb 22',   288, '288',  682],
@@ -182,7 +183,7 @@ else{
 
         var options = {
           <?php
-                echo "title: 'Revenue Tracker";
+                echo "title: 'Gross Profit";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>

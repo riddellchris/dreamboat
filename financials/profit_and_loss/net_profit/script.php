@@ -33,6 +33,7 @@ else{
 
 if( $_SESSION['viewing_client_id'] == 4231 OR 
     $_SESSION['viewing_client_id'] == 4383 OR 
+    $_SESSION['viewing_client_id'] == 4386 OR 
     $_SESSION['viewing_client_id'] == 1){
 
 
@@ -132,7 +133,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
 
-  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Revenue', { role: 'annotation' }, 'Target'],";
+  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Net Profit', { role: 'annotation' }, 'Target'],";
 
   for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
@@ -160,7 +161,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 }
 else{
   echo "
-  ['Month',     'Revenue', { role: 'annotation' },'Target'],
+  ['Month',     'Net Profit', { role: 'annotation' },'Target'],
   ['Dec 21',   450, '450',  614.6],          
   ['Jan 22',   450, '450',  614.6],
   ['Feb 22',   288, '288',  682],

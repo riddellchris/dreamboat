@@ -67,5 +67,7 @@ unset($sql_for_insert_of_12_month_data);
                             exit();
                         }
 
-                    }
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/bank_transactions/json_breakdown_and_storage.php";
+                      require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/bank_transactions/json_breakdown_and_storage.php";
+
+        }
+
