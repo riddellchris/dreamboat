@@ -16,15 +16,21 @@ echo "<tr>";
                             }
 
                             if($_SESSION['viewing_client_id'] == '4383'){   echo "<img src='/components/whitelabeling/prime_strategies/laila PNG.png' alt='Laila & Me' width='100' height='100' style='margin-bottom: 20px;'>";
-                                                                            echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' alt='Prime Strategies logo' width='140' height='140'>";
+                                                                            echo "<img src='/components/whitelabeling/prime_strategies/WEB_NO BG_Vertical Logo with Tag.png' width='140' height='140'>";
                                                                             $go_to_dummy['logo'] = 'no';
                             }
                             if($_SESSION['viewing_client_id'] == '4398'){   echo "<img src='/components/whitelabeling/prime_strategies/shy tiger.jpg' alt='Shy Tiger' ' height='100' style='margin-bottom: 0px;'>";
-                                
+                                                                            $go_to_dummy['logo'] = 'no';
+                            }
+                            if($_SESSION['viewing_client_id'] == '4400'){   echo "<img src='/components/whitelabeling/actioncoach_steve_rouget/EastsidePlumbingandGasfitting-1-1920x677.png'  ' height='100' style='margin-bottom: 0px;'>";
                                 $go_to_dummy['logo'] = 'no';
-}
-
-
+                            }
+                            if($_SESSION['viewing_client_id'] == '4401'){   echo "<img src='/components/whitelabeling/actioncoach_steve_rouget/GC-Electrical-RGBlogo-2.png' ' height='100' style='margin-bottom: 0px;'>";
+                                $go_to_dummy['logo'] = 'no';
+                            }
+                            if($_SESSION['viewing_client_id'] == '4402'){   echo "<img src='/components/whitelabeling/actioncoach_steve_rouget/Allways_logo-removebg-preview-1-1.png' ' height='100' style='margin-bottom: 0px;'>";
+                                $go_to_dummy['logo'] = 'no';
+                            }
                             if($go_to_dummy['logo'] == 'yes'){                 echo "<div style='margin-left: 25px;'>Your Logo</div>";}
 
                         echo "</td>";
@@ -84,12 +90,22 @@ echo "<tr>";
 
                         }
 
+                        //Tricia Ong's clients
+                        if( $_SESSION['viewing_client_id'] == '4383' OR
+                            $_SESSION['viewing_client_id'] == '4398'
+                            ){
+                            echo "<img src='/components/whitelabeling/prime_strategies/Prime-Strategies-logo-1500pxW.PNG' style='max-height:100;'>";
+                        }
+                        //Steve Rouget's clients
+                        if( $_SESSION['viewing_client_id'] == '4400' OR
+                            $_SESSION['viewing_client_id'] == '4401' OR
+                            $_SESSION['viewing_client_id'] == '4402'
+                            ){
+                            echo "<img src='/components/whitelabeling/actioncoach_steve_rouget/ActionCoach-logo.gif'style='max-height:100;'>";
+                        }
 
-                            if( $_SESSION['viewing_client_id'] == '4383' OR
-                                $_SESSION['viewing_client_id'] == '4398'
-                                ){
-                                echo "<img src='/components/whitelabeling/prime_strategies/Prime-Strategies-logo-1500pxW.PNG' alt='Laila & Me' style='max-height:100;'>";
-                            }
+
+
                         echo "</td>";
                         
                     echo "</tr>";
