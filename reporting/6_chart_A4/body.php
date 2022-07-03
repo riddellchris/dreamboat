@@ -22,6 +22,27 @@ echo "<table>";
         $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_expenses_total_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_adspend_vs_return_div';
     }
+
+    //Emily Cubbins Client ids
+    if( $_SESSION['viewing_client_id'] == '4386' OR
+        $_SESSION['viewing_client_id'] == '4387' OR
+        $_SESSION['viewing_client_id'] == '4388' OR
+        $_SESSION['viewing_client_id'] == '4389' OR
+        $_SESSION['viewing_client_id'] == '4390' OR
+        $_SESSION['viewing_client_id'] == '4391' OR
+        $_SESSION['viewing_client_id'] == '4392'
+        ){
+        $default_setup = 'no';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_cashflow_debtor_days_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][3] = 'financials_expenses_opertaing_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_revenue_breakdown_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_profit_and_loss_gross_profit_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_profit_and_loss_net_profit_div';
+    }
+
+
+
     if($default_setup == 'yes'){
         $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_revenue_sales_mix_div';

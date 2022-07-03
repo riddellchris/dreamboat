@@ -103,7 +103,7 @@ if(!isset($_SESSION)){session_start();}
 	if(check_primary_folder(	'activities'		)){	require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/numerical_planning/charts/script.php";}						
 	if(check_primary_folder(	'issues'			)){	require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/numerical_planning/charts/script.php";}	
 	if(check_primary_folder(	'upgrades'			)){	require $_SERVER['DOCUMENT_ROOT']."/components/optimisation_engine/numerical_planning/charts/script.php";}	
-
+	
 	if(check_primary_folder(	'wheelhouse'		)){	require $_SERVER['DOCUMENT_ROOT']."/wheelhouse/insights/wip_valuation/script.php";}	
 
 
@@ -117,6 +117,12 @@ if(!isset($_SESSION)){session_start();}
 		if(check_secondary_folder('expenses')){
 			if(check_tertiary_folder('adspend_vs_return')){		require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/adspend_vs_return/script.php";}
 			if(check_tertiary_folder('total')){					require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/total/script.php";}
+			if(check_tertiary_folder('operating')){				require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/operating/script.php";}
+			if(check_tertiary_folder('wages')){					require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages/script.php";}		
+		}
+		if(check_secondary_folder('profit_and_loss')){
+			if(check_tertiary_folder('net_profit')){		require $_SERVER['DOCUMENT_ROOT']."/financials/profit_and_loss/net_profit/script.php";}
+			if(check_tertiary_folder('gross_profit')){		require $_SERVER['DOCUMENT_ROOT']."/financials/profit_and_loss/gross_profit/script.php";}
 		}
 	}	
 
@@ -127,16 +133,12 @@ if(!isset($_SESSION)){session_start();}
 			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/shopify_comparison/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/adspend_vs_return/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/total/script.php";
-
+			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/operating/script.php";	
+			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages/script.php";	
+			require $_SERVER['DOCUMENT_ROOT']."/financials/profit_and_loss/net_profit/script.php";
+			require $_SERVER['DOCUMENT_ROOT']."/financials/profit_and_loss/gross_profit/script.php";	
 	}
 
-
-
-
-
-
-
-	
 	if(	check_folders_two_deep('knowledgebase','system') 	  && 
 		$_GET['tertiary_folder'] 	== 'versions'		){	require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/system/versions/chart_script/current_version.php";}	
 	

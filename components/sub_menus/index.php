@@ -387,7 +387,7 @@ if(check_primary_folder('financials')){
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('total'						,$top_sub_sub_menu_options);
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('adspend_vs_return'			,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('operating'					,$top_sub_sub_menu_options);	
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('staff'						,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('wages'						,$top_sub_sub_menu_options);	
 
 	}
 

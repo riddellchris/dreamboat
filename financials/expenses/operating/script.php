@@ -5,7 +5,7 @@ if($_GET['primary_folder'] != 'reporting'){
   $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
 }
 else{
-  $location_string = 'financials_profit_and_loss_net_profit';
+  $location_string = 'financials_expenses_operating';
 
 }
 
@@ -113,7 +113,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
             AND           latest_version_for_this_user = 'yes'
-            AND           account_name = 'Net Profit'
+            AND           account_name = 'Total Operating Expenses'
             AND           date_index > -24
             ORDER BY date_index ASC          
             ";

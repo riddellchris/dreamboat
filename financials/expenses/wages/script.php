@@ -113,7 +113,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
             AND           latest_version_for_this_user = 'yes'
-            AND           account_name = 'Net Profit'
+            AND           account_name = 'Wages'
             AND           date_index > -24
             ORDER BY date_index ASC          
             ";
