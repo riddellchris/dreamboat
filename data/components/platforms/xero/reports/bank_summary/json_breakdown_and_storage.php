@@ -18,6 +18,8 @@
 //     }
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/set_error_handler.php";
 
+
+if(is_array(($response))){
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){
   
@@ -93,7 +95,9 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
                     ";
                     mysqli_query($conn, $sql_string);
                 }
-            }}}
-            
+            }
+        }
+    }
+}        
 
         
