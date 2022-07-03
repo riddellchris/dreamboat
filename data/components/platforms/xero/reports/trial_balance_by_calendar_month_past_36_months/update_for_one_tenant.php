@@ -59,7 +59,7 @@ unset($sql_for_insert_of_12_month_data);
             $url_for_api_request =  "https://api.xero.com/api.xro/2.0/Reports/TrialBalance?date=".$to_date;
             //$url_for_api_request =   "https://api.xero.com/api.xro/2.0/Reports/BankSummary";
 
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/api_request.php";
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/pnl_by_account_by_complete_calendar_month_past_12_months_brad/api_request.php";
             
                         
                         $debug = 'off';

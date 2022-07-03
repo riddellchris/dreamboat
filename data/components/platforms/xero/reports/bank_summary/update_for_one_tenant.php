@@ -3,8 +3,8 @@
 
 //simply for construction
 //ONLY COMMENT OUT SO THAT WE CAN SAVE FOR MORE CONSTRCUTION
-$user_id_for_request = 1;
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
+//$user_id_for_request = 1;
+//require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
 
 
 /*
@@ -59,7 +59,7 @@ unset($sql_for_insert_of_12_month_data);
             $url_for_api_request =   "https://api.xero.com/api.xro/2.0/Reports/BankSummary";
 
 
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/bank_summary/api_request.php";
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/api_request.php";
                         
                         $debug = 'off';
                         if($debug == 'on'){

@@ -3,8 +3,8 @@
 
 //simply for construction
 //ONLY COMMENT OUT SO THAT WE CAN SAVE FOR MORE CONSTRCUTION
-$user_id_for_request = 1;
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
+//$user_id_for_request = 1;
+//require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
 
 
 /*
@@ -44,7 +44,7 @@ $accurate_as_at_string = " complete to ".$to_date_string;
 unset($sql_for_insert_of_12_month_data);
 
         //echo "hi";
-        for($date_index = -1; $date_index > -2; $date_index --){
+        for($date_index = -1; $date_index > -24; $date_index --){
         //echo "hi";
             //ACTUAL REQUEST DATE CREATION
             $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." months"));
@@ -59,7 +59,7 @@ unset($sql_for_insert_of_12_month_data);
             $url_for_api_request =   "https://api.xero.com/api.xro/2.0/BankTransactions";
 
 
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/bank_transactions/api_request.php";
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/api_request.php";
                         
                         $debug = 'off';
                         if($debug == 'on'){
