@@ -347,6 +347,7 @@ if(check_primary_folder('financials')){
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('cash_cycle'				,$top_sub_sub_menu_options);
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('collections_this_week'		,$top_sub_sub_menu_options);
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('collections_this_month'	,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('collections_summary'		,$top_sub_sub_menu_options);		
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'					,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'					,$top_sub_sub_menu_options);
 
