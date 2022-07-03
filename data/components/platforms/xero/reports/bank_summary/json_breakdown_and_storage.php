@@ -3,8 +3,13 @@
 //If any vars before this point are needed declare here
 
 //Cleaned json 
-   $response = $response['Reports'][0]['Rows'];
-    echo json_encode($response);
+
+$proper_reponse = 'yes';
+if(isset($response['Reports'][0]['Rows'])){
+$response = $response['Reports'][0]['Rows'];
+}
+else{$proper_reponse = 'no';}
+ //   echo json_encode($response);
    
    //Test 1
 //    //getting headers out of json 
@@ -19,7 +24,7 @@
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/set_error_handler.php";
 
 
-if(is_array(($response))){
+if($proper_reponse == 'yes'){
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){
   
