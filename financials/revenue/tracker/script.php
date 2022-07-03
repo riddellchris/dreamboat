@@ -33,6 +33,12 @@ else{
 
 if( $_SESSION['viewing_client_id'] == 4231 OR 
     $_SESSION['viewing_client_id'] == 4383 OR 
+    $_SESSION['viewing_client_id'] == 4387 OR 
+    $_SESSION['viewing_client_id'] == 4388 OR 
+    $_SESSION['viewing_client_id'] == 4389 OR 
+    $_SESSION['viewing_client_id'] == 4390 OR 
+    $_SESSION['viewing_client_id'] == 4391 OR 
+    $_SESSION['viewing_client_id'] == 4392 OR 
     $_SESSION['viewing_client_id'] == 1){
 
 
@@ -196,6 +202,12 @@ else{
           if(
               $_SESSION['viewing_client_id'] == 4231 OR     
               $_SESSION['viewing_client_id'] == 4383 OR 
+              $_SESSION['viewing_client_id'] == 4387 OR 
+              $_SESSION['viewing_client_id'] == 4388 OR 
+              $_SESSION['viewing_client_id'] == 4389 OR 
+              $_SESSION['viewing_client_id'] == 4390 OR 
+              $_SESSION['viewing_client_id'] == 4391 OR 
+              $_SESSION['viewing_client_id'] == 4392 OR 
               $_SESSION['viewing_client_id'] == 1){
 
                 echo "
