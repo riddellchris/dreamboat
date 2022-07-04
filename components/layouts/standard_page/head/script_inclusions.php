@@ -124,6 +124,11 @@ if(!isset($_SESSION)){session_start();}
 			if(check_tertiary_folder('net_profit')){		require $_SERVER['DOCUMENT_ROOT']."/financials/profit_and_loss/net_profit/script.php";}
 			if(check_tertiary_folder('gross_profit')){		require $_SERVER['DOCUMENT_ROOT']."/financials/profit_and_loss/gross_profit/script.php";}
 		}
+		if(check_secondary_folder('cashflow')){
+			if(check_tertiary_folder('debtor_days')){		require $_SERVER['DOCUMENT_ROOT']."/financials/cashflow/debtor_days/script.php";}
+			//if(check_tertiary_folder('gross_profit')){		require $_SERVER['DOCUMENT_ROOT']."/financials/profit_and_loss/gross_profit/script.php";}
+		}
+
 	}	
 
 	if(check_primary_folder('reporting')){	

@@ -3,8 +3,12 @@
 //If any vars before this point are needed declare here
 
 //Cleaned json 
-   $response = $response['Reports'][0]['Rows'];
-   
+ //  $response = $response['Reports'][0]['Rows'];
+   $proper_reponse = 'yes';
+if(isset($response['Reports'][0]['Rows'])){
+$response = $response['Reports'][0]['Rows'];
+}
+else{$proper_reponse = 'no';}
    //Test 1
 //    //getting headers out of json 
 //    for($j = 0; $j < count($json_body); $j++){
@@ -17,7 +21,7 @@
 //     }
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/set_error_handler.php";
 
-
+if($proper_reponse == 'yes'){
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){
   
@@ -106,3 +110,4 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
 
         }
     }
+}
