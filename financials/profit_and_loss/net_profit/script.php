@@ -39,6 +39,9 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $_SESSION['viewing_client_id'] == 4390 OR 
     $_SESSION['viewing_client_id'] == 4391 OR 
     $_SESSION['viewing_client_id'] == 4392 OR 
+
+    //Steve Rouget's Clients
+    $_SESSION['viewing_client_id'] == 4400 OR //Brad
     $_SESSION['viewing_client_id'] == 1){
 
 
@@ -208,7 +211,9 @@ else{
               $_SESSION['viewing_client_id'] == 4390 OR 
               $_SESSION['viewing_client_id'] == 4391 OR 
               $_SESSION['viewing_client_id'] == 4392 OR 
-
+              
+              //Steve Rouget's Clients
+              $_SESSION['viewing_client_id'] == 4400 OR //Brad
               $_SESSION['viewing_client_id'] == 1){
 
                 echo "
