@@ -5,7 +5,7 @@ if($_GET['primary_folder'] != 'reporting'){
   $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
 }
 else{
-  $location_string = 'financials_profit_and_loss_net_profit';
+  $location_string = 'financials_expenses_wages';
 
 }
 
@@ -33,6 +33,12 @@ else{
 
 if( $_SESSION['viewing_client_id'] == 4231 OR 
     $_SESSION['viewing_client_id'] == 4383 OR 
+    $_SESSION['viewing_client_id'] == 4387 OR 
+    $_SESSION['viewing_client_id'] == 4388 OR 
+    $_SESSION['viewing_client_id'] == 4389 OR 
+    $_SESSION['viewing_client_id'] == 4390 OR 
+    $_SESSION['viewing_client_id'] == 4391 OR 
+    $_SESSION['viewing_client_id'] == 4392 OR 
     $_SESSION['viewing_client_id'] == 1){
 
 
@@ -113,7 +119,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
             AND           latest_version_for_this_user = 'yes'
-            AND           account_name = 'Wages'
+            AND           account_name like '%wages%'
             AND           date_index > -24
             ORDER BY date_index ASC          
             ";
@@ -132,7 +138,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
 
-  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Revenue', { role: 'annotation' }, 'Target'],";
+  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Wages', { role: 'annotation' }, 'Target'],";
 
   for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
@@ -160,7 +166,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 }
 else{
   echo "
-  ['Month',     'Revenue', { role: 'annotation' },'Target'],
+  ['Month',     'Wages', { role: 'annotation' },'Target'],
   ['Dec 21',   450, '450',  614.6],          
   ['Jan 22',   450, '450',  614.6],
   ['Feb 22',   288, '288',  682],
@@ -182,7 +188,7 @@ else{
 
         var options = {
           <?php
-                echo "title: 'Net Profit";
+                echo "title: 'Wages";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>
@@ -196,6 +202,12 @@ else{
           if(
               $_SESSION['viewing_client_id'] == 4231 OR     
               $_SESSION['viewing_client_id'] == 4383 OR 
+              $_SESSION['viewing_client_id'] == 4387 OR 
+              $_SESSION['viewing_client_id'] == 4388 OR 
+              $_SESSION['viewing_client_id'] == 4389 OR 
+              $_SESSION['viewing_client_id'] == 4390 OR 
+              $_SESSION['viewing_client_id'] == 4391 OR 
+              $_SESSION['viewing_client_id'] == 4392 OR 
               $_SESSION['viewing_client_id'] == 1){
 
                 echo "
