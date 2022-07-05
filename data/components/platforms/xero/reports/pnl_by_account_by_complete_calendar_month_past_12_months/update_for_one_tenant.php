@@ -229,7 +229,6 @@ unset($sql_for_insert_of_12_month_data);
                                             AND     tenant_id       = '".mysqli_real_escape_string($conn, $tenant_id)."'
                                             AND     account_name    = '".mysqli_real_escape_string($conn, $account_name)."'";
                                 mysqli_query($conn, $sql);            
-
                             }
 
                             if(!isset($sql_for_insert_of_12_month_data)){$sql_for_insert_of_12_month_data = array();}
