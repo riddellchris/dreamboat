@@ -103,7 +103,16 @@ echo "<tr>";
                             ){
                             echo "<img src='/components/whitelabeling/actioncoach_steve_rouget/ActionCoach-logo.gif'style='max-height:100;'>";
                         }
-
+                        //Emily Cubbins' clients
+                        if( $_SESSION['viewing_client_id'] == '4387' OR
+                            $_SESSION['viewing_client_id'] == '4388' OR
+                            $_SESSION['viewing_client_id'] == '4389' OR
+                            $_SESSION['viewing_client_id'] == '4390' OR
+                            $_SESSION['viewing_client_id'] == '4391' OR
+                            $_SESSION['viewing_client_id'] == '4392'
+                            ){
+                            echo "<img src='/components/whitelabeling/maestrobd/Maestro_RGB.png'style='max-height:100;'>";
+                        }
 
 
                         echo "</td>";

@@ -28,7 +28,7 @@ if($proper_reponse == 'yes'){
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){
   
-        if($response[$j]['RowType'] == 'Section'){
+        if( $response[$j]['RowType'] == 'Section'){
 
             echo "Entry type = ".$response[$j]['RowType']."<br>";
             for($t = 0; $t < count($response[$j]['Rows']); $t ++){              

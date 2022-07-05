@@ -7,12 +7,16 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/spacings/st
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 require $_SERVER['DOCUMENT_ROOT']."/data/components/styling/tables.php";
 
+
+/*
 $sql = "UPDATE  api_xero_oauth_keys 
         SET     used = 'yes' 
         WHERE   user_id = '".$_SESSION['user_id']."' 
         AND     timestamp >= NOW() - INTERVAL 1 DAY  ";
 //user_id is chosen NOT viewing_client_id such that it doesn't alter when/if a pilot is viewing
 //because a pilot WILL NOT be able to validate via Xero etc etc
+*/
+
 ?>
 
 
