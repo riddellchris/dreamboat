@@ -33,10 +33,12 @@ echo "<tr>";
                             }
 
                             //Emily Cubbins clients
-                            if($_SESSION['viewing_client_id'] == '4390'){   echo "<img src='/components/whitelabeling/maestrobd/SuttonIT.png' ' height='100' style='margin-bottom: 0px;'>";
+                            if($_SESSION['viewing_client_id'] == '4390'){   echo "<img src='/components/whitelabeling/maestrobd/SuttonIT.png' ' height='75px; margin-left: 25px;' style='margin-bottom: 0px;'>";
                                 $go_to_dummy['logo'] = 'no';
                             }
-                            if($_SESSION['viewing_client_id'] == '4391'){   echo "<img src='/components/whitelabeling/maestrobd/EclipsePropertyAdvisory.jpg' ' height='100' style='margin-bottom: 0px;'>";
+                            if($_SESSION['viewing_client_id'] == '4391' OR
+                                $_SESSION['viewing_client_id'] == '4389'
+                                ){   echo "<img src='/components/whitelabeling/maestrobd/EclipsePropertyAdvisory.jpg' ' height='100' style='margin-bottom: 0px;'>";
                                 $go_to_dummy['logo'] = 'no';
                             }
                             if($_SESSION['viewing_client_id'] == '4392' OR
