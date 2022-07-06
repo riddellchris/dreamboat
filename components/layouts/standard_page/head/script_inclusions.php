@@ -142,6 +142,8 @@ if(!isset($_SESSION)){session_start();}
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages/script.php";	
 			require $_SERVER['DOCUMENT_ROOT']."/financials/profit_and_loss/net_profit/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/profit_and_loss/gross_profit/script.php";	
+			require $_SERVER['DOCUMENT_ROOT']."/financials/cashflow/debtor_days/script.php";
+
 	}
 
 	if(	check_folders_two_deep('knowledgebase','system') 	  && 
