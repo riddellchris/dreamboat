@@ -38,11 +38,11 @@ echo "<tr>";
                             }
                             if($_SESSION['viewing_client_id'] == '4391' OR
                                 $_SESSION['viewing_client_id'] == '4389'
-                                ){   echo "<img src='/components/whitelabeling/maestrobd/EclipsePropertyAdvisory.jpg' ' height='100' style='margin-bottom: 0px;'>";
+                                ){   echo "<img src='/components/whitelabeling/maestrobd/EclipsePropertyAdvisory.jpg' ' height='100' style='margin-bottom: 0px;margin-left: 12.5px;'>";
                                 $go_to_dummy['logo'] = 'no';
                             }
                             if($_SESSION['viewing_client_id'] == '4392' OR
-                                $_SESSION['viewing_client_id'] == '4388'){   echo "<img src='/components/whitelabeling/maestrobd/MatthiesLawyers.gif' ' height='100' style='margin-bottom: 0px;'>";
+                                $_SESSION['viewing_client_id'] == '4388'){   echo "<img src='/components/whitelabeling/maestrobd/MatthiesLawyers.gif' ' height='95px; margin-left:5px;margin-bottom: 0px;'>";
                                 $go_to_dummy['logo'] = 'no';
                             }
 
