@@ -339,7 +339,18 @@ if(check_primary_folder('results')){
 }
 if(check_primary_folder('financials')){
 
+	$top_sub_menu_options = add_top_sub_menu_option('balance_sheet'							,$top_sub_menu_options);
+	if(check_secondary_folder('balance_sheet')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'					,$top_sub_sub_menu_options);
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'					,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'					,$top_sub_sub_menu_options);	
+	}
 
+	$top_sub_menu_options = add_top_sub_menu_option('cash'									,$top_sub_menu_options);
+	if(check_secondary_folder('cash')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('owner_drawings'			,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('at_bank'					,$top_sub_sub_menu_options);			
+	}
 
 	$top_sub_menu_options = add_top_sub_menu_option('cashflow'								,$top_sub_menu_options);
 	if(check_secondary_folder('cashflow')){	
@@ -353,6 +364,13 @@ if(check_primary_folder('financials')){
 
 	}
 
+	$top_sub_menu_options = add_top_sub_menu_option('billing'								,$top_sub_menu_options);
+	if(check_secondary_folder('billing')){	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('invoices'					,$top_sub_sub_menu_options);	
+		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('quotes'					,$top_sub_sub_menu_options);			
+	}
+
+
 	$top_sub_menu_options = add_top_sub_menu_option('profit_and_loss'						,$top_sub_menu_options);
 	if(check_secondary_folder('profit_and_loss')){	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('gross_profit'				,$top_sub_sub_menu_options);
@@ -362,12 +380,7 @@ if(check_primary_folder('financials')){
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'					,$top_sub_sub_menu_options);	
 		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'					,$top_sub_sub_menu_options);	
 	}
-	$top_sub_menu_options = add_top_sub_menu_option('balance_sheet'							,$top_sub_menu_options);
-	if(check_secondary_folder('balance_sheet')){	
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('budgets'					,$top_sub_sub_menu_options);
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('actuals'					,$top_sub_sub_menu_options);	
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('forecasts'					,$top_sub_sub_menu_options);	
-	}
+
 
 	$top_sub_menu_options = add_top_sub_menu_option('revenue'								,$top_sub_menu_options);
 	if(check_secondary_folder('revenue')){	
@@ -392,11 +405,7 @@ if(check_primary_folder('financials')){
 
 	}
 
-	$top_sub_menu_options = add_top_sub_menu_option('cash'									,$top_sub_menu_options);
-	if(check_secondary_folder('cash')){	
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('owner_drawings'			,$top_sub_sub_menu_options);	
-		$top_sub_sub_menu_options = add_top_sub_sub_menu_option('at_bank'					,$top_sub_sub_menu_options);			
-	}
+
 
 
 	$top_sub_menu_options = add_top_sub_menu_option('worksheets'							,$top_sub_menu_options);
