@@ -4,6 +4,8 @@ if(!isset($_SESSION)){session_start();}
 
 if(!isset($_SESSION['home_page'])){						$_SESSION['home_page'] 					= 'display_no_menu';}
 
+if(!isset($_SESSION['diagnostics_page'])){				$_SESSION['diagnostics_page'] 	= 'central';}	
+
 if(!isset($_SESSION['plan_page'])){						$_SESSION['plan_page'] 					= 'display_no_menu';}
 if(!isset($_SESSION['problem_page'])){					$_SESSION['problem_page'] 				= 'display_no_menu';}
 if(!isset($_SESSION['solution_page'])){					$_SESSION['solution_page'] 				= 'institutional';}
