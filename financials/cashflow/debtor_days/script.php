@@ -30,7 +30,7 @@ else{
 
 
 
-
+/*
 if( $_SESSION['viewing_client_id'] == 4231 OR 
     $_SESSION['viewing_client_id'] == 4383 OR 
     $_SESSION['viewing_client_id'] == 4387 OR 
@@ -201,6 +201,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
 }
 else{
+  */
   echo "
   ['Month',     'Debtor Days', { role: 'annotation' },'Target'],
   ['Dec 21',   95, '95',  45],          
@@ -221,8 +222,9 @@ else{
 
 
 
-
+/*
 }
+*/
 
 ?>
 
@@ -234,14 +236,14 @@ else{
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>
-          vAxis: {title: '$'},
+          vAxis: {title: 'days'},
           //hAxis: {title: 'Month'},
           legend: { position: 'top'},
           seriesType: 'bars',
 
           <?php
 
-          if(
+          /*if(
               $_SESSION['viewing_client_id'] == 4231 OR     
               $_SESSION['viewing_client_id'] == 4383 OR 
               $_SESSION['viewing_client_id'] == 4387 OR 
@@ -251,15 +253,15 @@ else{
               $_SESSION['viewing_client_id'] == 4391 OR 
               $_SESSION['viewing_client_id'] == 4392 OR 
               $_SESSION['viewing_client_id'] == 1){
-
+                */
                 echo "
                 series: {
-                    0: {                              color: '#281e96'}  ,
-                    1: {                              color: '#3c78d8'}  ,                          
+                    0: {  type: 'line',  lineWidth: 10,                             color: '#281e96'}  ,
+                    1: {   type: 'line',  lineWidth: 10,                            color: 'red'}  ,                          
                     2: {type: 'line',  lineWidth: 10, color: '#cecece'}
                   }
                 ";
-              }
+            /* }
               else{
                 echo "
                 series: {       
@@ -267,7 +269,7 @@ else{
                   }
                 ";
 
-              }
+              }*/
 
           ?>
 
