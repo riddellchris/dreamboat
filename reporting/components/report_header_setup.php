@@ -31,6 +31,22 @@ echo "<tr>";
                             if($_SESSION['viewing_client_id'] == '4402'){   echo "<img src='/components/whitelabeling/actioncoach_steve_rouget/Allways_logo-removebg-preview-1-1.png' ' height='100' style='margin-bottom: 0px;'>";
                                 $go_to_dummy['logo'] = 'no';
                             }
+
+                            //Emily Cubbins clients
+                            if($_SESSION['viewing_client_id'] == '4390'){   echo "<img src='/components/whitelabeling/maestrobd/SuttonIT.png' ' height='100' style='margin-bottom: 0px;'>";
+                                $go_to_dummy['logo'] = 'no';
+                            }
+                            if($_SESSION['viewing_client_id'] == '4391'){   echo "<img src='/components/whitelabeling/maestrobd/EclipsePropertyAdvisory.jpg' ' height='100' style='margin-bottom: 0px;'>";
+                                $go_to_dummy['logo'] = 'no';
+                            }
+                            if($_SESSION['viewing_client_id'] == '4392' OR
+                                $_SESSION['viewing_client_id'] == '4388'){   echo "<img src='/components/whitelabeling/maestrobd/MatthiesLawyers.gif' ' height='100' style='margin-bottom: 0px;'>";
+                                $go_to_dummy['logo'] = 'no';
+                            }
+
+
+
+
                             if($go_to_dummy['logo'] == 'yes'){                 echo "<div style='margin-left: 25px;'>Your Logo</div>";}
 
                         echo "</td>";
