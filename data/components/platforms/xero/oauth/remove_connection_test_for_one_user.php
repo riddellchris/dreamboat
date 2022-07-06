@@ -8,7 +8,7 @@ if(!isset($_SESSION)){session_start();}
 
 
 
-$_SESSION['viewing_client_id'] = 4388; //4392
+$_SESSION['viewing_client_id'] = 4392;//4388; //4392
 
 
 
