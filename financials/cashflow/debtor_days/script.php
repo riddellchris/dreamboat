@@ -232,7 +232,7 @@ else{
 
         var options = {
           <?php
-                echo "title: 'Revenue Tracker";
+                echo "title: 'Debtor days";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>
