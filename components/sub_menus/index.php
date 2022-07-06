@@ -419,7 +419,10 @@ if(check_primary_folder('financials')){
 			//per product
 	}
 }
+if(check_primary_folder('diagnostics')){
+	$top_sub_menu_options = add_top_sub_menu_option('central'							,$top_sub_menu_options);
 
+}
 
 if(check_primary_folder('reporting')){
 	$top_sub_menu_options = add_top_sub_menu_option('6_chart_A4'							,$top_sub_menu_options);

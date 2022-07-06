@@ -67,10 +67,16 @@ if(	$_SESSION['logged_in'] == 'yes'	AND
 			}
 		}
 
+		if(isset($_SESSION['user_id'])){    		
+			if($_SESSION['user_id'] == 'yes'){
+				require_file("/components/navigation/mobile/components/diagnostics.php");		
+			}
+		}
+
 		if(isset($_SESSION['multi_user'])){    		
 			if($_SESSION['multi_user'] == 'yes'){
 				require_file("/components/navigation/mobile/components/users.php");		
-		}
+			}
 		}
 
 

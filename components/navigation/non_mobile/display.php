@@ -169,7 +169,11 @@ if(isset($_SESSION['multi_user'])){
 	}
 }
 
-
+if(isset($_SESSION['user_id'])){
+	if($_SESSION['user_id'] == '1'){  		
+			require_file('/components/navigation/non_mobile/components/diagnostics.php');					
+	}
+}
 	
 	
 	/*	
