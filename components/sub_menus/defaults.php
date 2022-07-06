@@ -67,7 +67,7 @@ if(!isset($_SESSION['financials_page'])){					$_SESSION['financials_page'] 				=
 	if(!isset($_SESSION['financials_cash_page'])){			$_SESSION['financials_cash_page'] 		= 'at_bank';}
 	if(!isset($_SESSION['financials_revenue_page'])){		$_SESSION['financials_revenue_page'] 	= 'tracker';}
 	if(!isset($_SESSION['financials_expenses_page'])){		$_SESSION['financials_expenses_page'] 	= 'total';}
-	if(!isset($_SESSION['financials_billing_page'])){		$_SESSION['financials_expenses_page'] 	= 'invoices';}	
+	if(!isset($_SESSION['financials_billing_page'])){		$_SESSION['financials_billing_page'] 	= 'invoices';}	
 
 if(!isset($_SESSION['reporting_page'])){					$_SESSION['reporting_page'] 				= '6_chart_A4';}
 
