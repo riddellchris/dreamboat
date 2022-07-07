@@ -42,10 +42,10 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
 
     //Steve Rouget's Clients
-    $_SESSION['viewing_client_id'] == '4402' OR
-        $_SESSION['viewing_client_id'] == '4400' OR
-        $_SESSION['viewing_client_id'] == '4401' OR
-        $_SESSION['viewing_client_id'] == '4399' OR
+    $_SESSION['viewing_client_id'] == 4402 OR
+        $_SESSION['viewing_client_id'] == 4400 OR
+        $_SESSION['viewing_client_id'] == 4401 OR
+        $_SESSION['viewing_client_id'] == 4399 OR
         
     $_SESSION['viewing_client_id'] == 1){
 
@@ -227,10 +227,10 @@ else{
 
 
     //Steve Rouget's Clients
-    $_SESSION['viewing_client_id'] == '4402' OR
-        $_SESSION['viewing_client_id'] == '4400' OR
-        $_SESSION['viewing_client_id'] == '4401' OR
-        $_SESSION['viewing_client_id'] == '4399' OR
+    $_SESSION['viewing_client_id'] == 4402 OR
+        $_SESSION['viewing_client_id'] == 4400 OR
+        $_SESSION['viewing_client_id'] == 4401 OR
+        $_SESSION['viewing_client_id'] == 4399 OR
 
               $_SESSION['viewing_client_id'] == 1){
 
