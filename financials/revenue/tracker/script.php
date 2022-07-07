@@ -138,7 +138,17 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
   } 
 
   
+$display_default_months = 'yes';
+if($_SESSION['viewing_client_id'] == '4231'){
+  $months_to_display = 12;
+  $display_default_months = 'no'; 
+}
+if($display_default_months == 'yes'){
   $months_to_display = 6;
+}
+unset($display_default_months);
+
+
   //therefore
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
