@@ -45,8 +45,10 @@ echo "<tr>";
                                 $_SESSION['viewing_client_id'] == '4388'){   echo "<img src='/components/whitelabeling/maestrobd/MatthiesLawyers.gif' ' height='95px; margin-left:5px;margin-bottom: 0px;'>";
                                 $go_to_dummy['logo'] = 'no';
                             }
-
-
+                            if($_SESSION['viewing_client_id'] == '4387'){   echo "<img src='/components/whitelabeling/maestrobd/LakeyLaw.jpg' ' height='95px; margin-left:5px;margin-bottom: 0px;'>";
+                                $go_to_dummy['logo'] = 'no';
+                            }
+                            
 
 
                             if($go_to_dummy['logo'] == 'yes'){                 echo "<div style='margin-left: 25px;'>Your Logo</div>";}
