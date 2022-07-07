@@ -116,7 +116,10 @@ echo "<style>
 
 
 	echo "<div style='display: table-row;'>";
-
+	echo "<div class='list_cell'></div>";
+	if($_SESSION['user_id'] == 1){
+		echo "<div class='list_cell'>&nbsp;&nbsp;&nbsp;&nbsp;USER ID</div>";
+	}
 		echo "<div class='list_cell'></div>";
 		echo "<div class='list_cell'></div>";
 		echo "<div class='list_cell'></div>";
@@ -153,6 +156,16 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 	
 
 		echo "<div class='list_cell'><a href='/users/alterations/mark_dead.php?id=".$row['user_id']."' style='color:red;' title='Mark this user dead'>x</a></div>";
+
+		if($_SESSION['user_id'] == 1){
+			echo "<div class='list_cell'  style='padding-left:30px;'>";
+			echo $row['user_id'];
+		echo "</div>";
+
+		}
+
+
+
 		echo "<div class='list_cell' title='To change this users name - select them and go to /profile/details/' style='padding-left:30px;";
 			if(in_array($row['user_id'], $users_with_notifications)){echo "color:orange;";}
 			else{echo "color:#707070;";}
