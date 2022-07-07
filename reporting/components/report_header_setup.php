@@ -131,7 +131,11 @@ echo "<tr>";
                             $_SESSION['viewing_client_id'] == '4391' OR
                             $_SESSION['viewing_client_id'] == '4392'
                             ){
-                            echo "<img src='/components/whitelabeling/maestrobd/Maestro_RGB.png'style='max-height:100;'>";
+
+                                if($_SESSION['viewing_client_id'] == '4387'){   echo "<img src='/components/whitelabeling/maestrobd/Maestro_RGB.png'style='    max-height: 75px;margin-right: 25px;'>";}
+                                else{                                           echo "<img src='/components/whitelabeling/maestrobd/Maestro_RGB.png'style='max-height:100;'>";}
+
+                            
                         }
 
 
