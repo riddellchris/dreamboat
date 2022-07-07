@@ -12,7 +12,8 @@ if( isset($_SESSION['viewing_client_id'])){     $user_id_for_request = $_SESSION
 
             ORDER BY entry_id
             DESC LIMIT 1";
-
+            $sql_for_logging = $sql;
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
     //echo $sql;exit();
 
     $result = mysqli_query($conn, $sql);     

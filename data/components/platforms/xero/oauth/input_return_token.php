@@ -22,7 +22,8 @@ $sql = "INSERT INTO api_xero_return_keys (  user_id,
                                             '".mysqli_real_escape_string($conn, $return_token['refresh_token'])."',    
                                             '".mysqli_real_escape_string($conn, $return_token['scope'])."'                                                   
                                                 )";
-
+$sql_for_logging = $sql;
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
 
                                                 mysqli_query($conn, $sql);
 
@@ -36,6 +37,9 @@ if(     $return_token['refresh_token'] <> ''    AND
                 VALUES (    '".mysqli_real_escape_string($conn, $user_id_for_request)."', 
                             '".mysqli_real_escape_string($conn, $return_token['refresh_token'])."')";
             //                echo $sql; exit();
+
+        $sql_for_logging = $sql;
+        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";           
         mysqli_query($conn, $sql);
 
     }

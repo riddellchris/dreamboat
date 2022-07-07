@@ -17,7 +17,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 $sql = "SELECT * FROM api_xero_return_keys
         WHERE  user_id = '".$_SESSION['viewing_client_id']."'
         ORDER BY id DESC LIMIT 1";
-
+      $sql_for_logging = $sql;
+      require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
     //    echo $sql."<br>";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -35,7 +36,8 @@ $sql = "SELECT * FROM api_xero_tenant_details
         AND id IS NOT NULL
         AND id <> 0
         ORDER BY entry_id DESC LIMIT 1"; 
-
+$sql_for_logging = $sql;
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
     //    echo "<br>".$sql."<br>";exit();
 $result = mysqli_query($conn, $sql);
 
@@ -66,6 +68,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
   //  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
      $server_output = curl_exec($ch);
     $info = curl_getinfo($ch);
+    $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close ($ch);
     $response = json_decode($server_output, true);
    // echo $server_output;

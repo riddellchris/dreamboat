@@ -27,4 +27,5 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $server_output = curl_exec($ch);
 $info = curl_getinfo($ch);
+$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close ($ch);

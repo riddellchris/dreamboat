@@ -11,7 +11,10 @@ if(!isset($_SESSION)){session_start();}
 //I suspect the easiest way to achieve that is through 
 
 $sql  = "SELECT DISTINCT user_id FROM api_xero_refresh_tokens";
+
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+$sql_for_logging = $sql;
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
 $result = mysqli_query($conn, $sql);
 
 //echo $sql;exit();

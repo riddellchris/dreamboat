@@ -25,7 +25,8 @@ $sql = "SELECT * FROM api_xero_return_keys
 //echo $sql."<br>";
 //exit();
 
-
+$sql_for_logging = $sql;
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
 
 $result = mysqli_query($conn, $sql);     
 

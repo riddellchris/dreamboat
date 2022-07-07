@@ -25,15 +25,21 @@ if($access_denied == 'no'){
     //echo $sql;
     //exit();
 
-    $result = mysqli_query($conn, $sql);
+    $sql_for_logging = $sql;
+    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
+    $result = mysqli_query($conn, $sql);     
+
+    //require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_results.php"; //THIS ONLY APPLIES FOR GOING THROUGH RESULTS
 
     //$_GET['state'] //check this against the database
     if(mysqli_num_rows($result) === 1){
         $sql = "UPDATE api_xero_oauth_keys 
-                SET used = 'yes'
+                SET     used = 'yes'
                 WHERE   user_id                 = '".mysqli_real_escape_string($conn, $state_schrapnel['1'])."'
                 AND     application_entry_id    = '".mysqli_real_escape_string($conn, $state_schrapnel['2'])."'
                 AND     string                  = '".mysqli_real_escape_string($conn, $state_schrapnel['3'])."'";
+        $sql_for_logging = $sql;
+        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
         mysqli_query($conn, $sql);
 
         //This pulls in the Xero specific:
@@ -45,6 +51,30 @@ if($access_denied == 'no'){
         require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/apis/xero/application_details/secret.php";
         require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/redirect_uri.php";
 
+
+        
+        $curl_headers       = array(    'Content-Type: application/x-www-form-urlencoded',
+                                        'Authorization: Basic '.base64_encode($client_id.":".$client_secret)        );
+        $curl_url           =            "https://identity.xero.com/connect/token";
+        $curl_postfields    =           "grant_type=authorization_code&code=".$_GET['code']."&redirect_uri=".$redirect_uri;//this needs to NOT have whitespace in it
+
+        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/curl_queries.php";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,        $curl_url);
+        curl_setopt($ch, CURLOPT_POST,       1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $curl_postfields);//this needs to NOT have whitespace in it
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $curl_headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);     // receive server response ...
+        $server_output  = curl_exec($ch);
+        $info           = curl_getinfo($ch);
+        $response_code  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close ($ch);
+        $return_token = json_decode($server_output, true);
+
+
+
+/*
+        
         $headers = array(   'Content-Type: application/x-www-form-urlencoded',
                             'Authorization: Basic '.base64_encode($client_id.":".$client_secret)        );
 
@@ -61,10 +91,11 @@ if($access_denied == 'no'){
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $server_output = curl_exec($ch);
         $info = curl_getinfo($ch);
+        
         curl_close ($ch);
 
         $return_token = json_decode($server_output, true);
-
+*/
         $debug = 'off';
         if($debug == 'on'){
             echo "RETURN TOKEN";
@@ -134,6 +165,9 @@ if($access_denied == 'no'){
                                                     '".mysqli_real_escape_string($conn, $access_token['jti'])."',
                                                     '".mysqli_real_escape_string($conn, $access_token['authentication_event_id'])."'
                                                         )";
+        $sql_for_logging = $sql;
+        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
+
         $result = mysqli_query($conn, $sql);
         if($result)
         {
@@ -142,6 +176,9 @@ if($access_denied == 'no'){
                         WHERE user_id = '".$_SESSION['viewing_client_id']."'
                         AND platform_name = 'xero'                    
                         ";
+
+            $sql_for_logging = $sql;
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
             mysqli_query($conn, $sql);
             if($debug == 'on'){
                 echo $sql;

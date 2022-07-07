@@ -17,10 +17,10 @@ else{
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $sql = "SELECT * FROM api_xero_refresh_tokens
         WHERE user_id = '".mysqli_real_escape_string($conn, $user_id_for_request)."'
-
         ORDER BY entry_id
         DESC LIMIT 1";
-
+$sql_for_logging = $sql;
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
 //echo $sql;exit();
 
 $result = mysqli_query($conn, $sql);     
@@ -40,26 +40,29 @@ if($debug == 'on'){
 
     //in our case as of the end of 2021 though we are going to get a new token every time we need it just because frankly
     //I can add in the rest later
-    $headers = array(   'Authorization: Basic '.base64_encode($client_id.":".$client_secret),       
-                        'Content-Type: application/x-www-form-urlencoded' );
-
     //this section is the entire POST and Return process
     //taking headers and the redirect code from aboce
     //the original example that this was taken from is:
     //https://stackoverflow.com/questions/18913345/curl-posting-with-header-application-x-www-form-urlencoded
+    $curl_headers = array(   'Authorization: Basic '.base64_encode($client_id.":".$client_secret),       
+                             'Content-Type: application/x-www-form-urlencoded' );
+    $curl_url       = "https://identity.xero.com/connect/token";
+    $curl_postfields = "grant_type=refresh_token&refresh_token=".$refresh_token; 
+ 
+    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/curl_queries.php";
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,"https://identity.xero.com/connect/token");
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "grant_type=refresh_token&refresh_token=".$refresh_token);//this needs to NOT have whitespace in it
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    // receive server response ...
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $server_output = curl_exec($ch);
-    $info = curl_getinfo($ch);
+    curl_setopt($ch, CURLOPT_URL,        $curl_url);
+    curl_setopt($ch, CURLOPT_POST,       1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $curl_postfields);//this needs to NOT have whitespace in it
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $curl_headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);     // receive server response ...
+    $server_output  = curl_exec($ch);
+    $info           = curl_getinfo($ch);
+    $response_code  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close ($ch);
-
-
     $return_token = json_decode($server_output, true);
+
+
 
 
     $debug = 'off';
