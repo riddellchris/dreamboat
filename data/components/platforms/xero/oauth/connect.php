@@ -70,7 +70,7 @@ if($access_denied == 'no'){
         $response_code  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close ($ch);
         $return_token = json_decode($server_output, true);
-
+        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/curl_responses.php";
 
 
 /*

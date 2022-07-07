@@ -34,10 +34,10 @@ $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close ($ch);
 */
 
-$curl_headers = array(   'Authorization: Basic '.base64_encode($client_id.":".$client_secret),       
+$curl_headers       = array(   'Authorization: Basic '.base64_encode($client_id.":".$client_secret),       
                          'Content-Type: application/x-www-form-urlencoded' );
-$curl_url       = "https://identity.xero.com/connect/revocation";
-$curl_postfields = "token=".$refresh_token; 
+$curl_url           = "https://identity.xero.com/connect/revocation";
+$curl_postfields    = "token=".$refresh_token; 
 
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/curl_queries.php";
 $ch = curl_init();

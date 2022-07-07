@@ -62,7 +62,11 @@ if($debug == 'on'){
     curl_close ($ch);
     $return_token = json_decode($server_output, true);
 
-
+    //if response is 200 then this can continue on - otherwise
+    //cancel out here and do something else
+    //retry in 10 minutes or just fail for now
+        //this would require another cron job honestly on a 10 minute trigger for now
+        //lets see ho
 
 
     $debug = 'off';
