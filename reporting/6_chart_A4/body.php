@@ -41,6 +41,22 @@ echo "<table>";
         $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_wages_div';
     }
 
+
+    //Steve Rouget client ids
+    if( $_SESSION['viewing_client_id'] == '4402' OR
+        $_SESSION['viewing_client_id'] == '4400' OR
+        $_SESSION['viewing_client_id'] == '4401' OR
+        $_SESSION['viewing_client_id'] == '4399' 
+        ){
+        $default_setup = 'no';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_cashflow_debtor_days_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][3] = 'financials_expenses_operating_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_profit_and_loss_gross_profit_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_profit_and_loss_net_profit_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_wages_div';
+    }
+
     //Leigh Kefford
     if( $_SESSION['viewing_client_id'] == '4231'
         ){
