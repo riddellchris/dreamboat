@@ -168,12 +168,25 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
    // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
 
 
+function gcharts_null_out_values($value){
+  if($value == ''){
+    return "NULL";
+  }
+  else{
+    return $value;
+  }
+
+}
+
+
+
+
     echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
-               ".$display_chart['Total Income'][$last_year_index].",      
-              '".$display_chart['Total Income'][$last_year_index]."',               
-              ".$display_chart['Total Income'][$date_index].",      
-              '".$display_chart['Total Income'][$date_index]."', 
-              ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
+               ".gcharts_null_out_values($display_chart['Total Income'][$last_year_index]).",      
+              '".gcharts_null_out_values($display_chart['Total Income'][$last_year_index])."',               
+              ".gcharts_null_out_values($display_chart['Total Income'][$date_index]).",      
+              '".gcharts_null_out_values($display_chart['Total Income'][$date_index])."', 
+              ".gcharts_null_out_values($revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value'])."]      ";
 
 
     if($date_index <> -1){echo ",";}
