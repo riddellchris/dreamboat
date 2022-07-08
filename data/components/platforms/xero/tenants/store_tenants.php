@@ -24,6 +24,7 @@ VALUES (
             '".mysqli_real_escape_string($conn, $response[0]['createdDateUtc'])."',                                                
             '".mysqli_real_escape_string($conn, $response[0]['updatedDateUtc'])."'                                              
     )";
-
+$sql_for_logging = $sql;
+require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
 //echo $sql;exit();    
 $result = mysqli_query($conn, $sql);

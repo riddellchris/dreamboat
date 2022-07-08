@@ -23,9 +23,10 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
     //here we need to get out the Tenant ID for the viewing client ID too don't we
     $sql = "SELECT * FROM api_xero_tenant_details 
-            WHERE user_id = '".$_SESSION['user_id']."'
+            WHERE user_id = '".$_SESSION['viewing_client_id']."'
             ORDER BY entry_id DESC LIMIT 1"; //this does make the assumption that there is only one tenant - as per "check_tenants.php" this is a TODO item and needs adjustment in time for sure
-
+    $sql_for_logging = $sql;
+    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $tenant_id = $row['tenantId'];
