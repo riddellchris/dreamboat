@@ -1,6 +1,20 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+
+
+function gcharts_null_out_values($value){
+  if($value == ''){
+    return "NULL";
+  }
+  else{
+    return $value;
+  }
+
+}
+
+
+
 if($_GET['primary_folder'] != 'reporting'){
   $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
 }
@@ -168,15 +182,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
    // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
 
 
-function gcharts_null_out_values($value){
-  if($value == ''){
-    return "NULL";
-  }
-  else{
-    return $value;
-  }
 
-}
 
 
 
