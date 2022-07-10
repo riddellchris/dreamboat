@@ -37,7 +37,7 @@ paragraph_detailed('yes',10,8,8,"Our principle objectives are as follows:");
 		point_detailed_start('no',8,8,8, "Enable some propotionality of wage and productivity growth across our users.");point_end_only();
 			
 		//economic/Objective
-		include_knowledgebase_image('/solutions/economic_normalisation/diagrams/productivity_and_wage_growth.svg', 'default', '65vh');		
+		include_knowledgebase_image('/knowledgebase/components/diagrams/productivity_and_wage_growth.svg', 'default', '65vh');		
 			
 		point_detailed_start('no',8,8,8, "Create real wage growth above the CPI.");point_end_only();		
 		include_knowledgebase_image('/knowledgebase/components/diagrams/wages_above_cpi.svg', 'default', '65vh');	
