@@ -17,10 +17,16 @@ paragraph_start('no', 7,8,8, "<a href='https://go.xero.com/Settings/Organisation
 
 paragraph_start('no', 7,8,8, "Or click on the organisation’s name in the top left hand corner then settings");
 include_knowledgebase_image('/knowledgebase/components/diagrams/xero/xero_organisation_selection.png', '85%', '65vh');
+echo "<br><br><br>";
+
 paragraph_start('no', 7,8,8, "Then click on connected apps in the left hand column:");
 include_knowledgebase_image('/knowledgebase/components/diagrams/xero/xero_connected_applications.png', '85%', '65vh');
+echo "<br><br><br>";
+
 paragraph_start('no', 7,8,8, "Then click disconnect next to Dreamboat.");
 include_knowledgebase_image('/knowledgebase/components/diagrams/xero/xero_apps_disconnection.png', '85%', '65vh');
+echo "<br><br><br>";
+
 paragraph_start('no', 7,8,8, "At this point the system will be disconnected and your data will be deleted within 28 days.");
 
 echo "<br><br><br>";
