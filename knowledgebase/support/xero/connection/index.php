@@ -57,17 +57,12 @@ paragraph_start('no', 7,8,8, "Then click  'Allow Access' and relax.");
 echo "<br><br><br>";
 
 
-
-/*
-
 paragraph_start('yes', 10, 9, 9, "Step 5a.");
-paragraph_start('no', 7,8,8, "Upon successful completion you will return to the Dreamboat platform you may need to confirm the tenant you connected.");
-paragraph_start('no', 7,8,8, "<a href='https://dreamboat.com.au/account/security/'>https://dreamboat.com.au/account/security/</a>");
-paragraph_start('no', 7,8,8, "Set up a brief connection meeting on Zoom at any point.");
+paragraph_start('no', 7,8,8, "If you have connected multiple Xero accounts to Dreamboat you will need to confirm WHICH company you are connecting to this user.");
 echo "<br><br><br>";
-include_knowledgebase_image('/knowledgebase/components/diagrams/xero/account_security_image.png', 'default', '65vh');
+include_knowledgebase_image('/knowledgebase/components/diagrams/xero/xero_tenant_matching.png', 'default', '65vh');
 echo "<br><br><br>";
-*/
+
 
 
 echo "<br><br><br>";
