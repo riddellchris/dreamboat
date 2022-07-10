@@ -27,7 +27,8 @@ paragraph_start('no', 7,8,8, "Then click disconnect next to Dreamboat.");
 include_knowledgebase_image('/knowledgebase/components/diagrams/xero/xero_apps_disconnection.png', '85%', '65vh');
 echo "<br><br><br>";
 
-paragraph_start('no', 7,8,8, "At this point the system will be disconnected and your data will be deleted within 28 days.");
+paragraph_start('no', 7,8,8, "At this point the system will be disconnected.");
+paragraph_start('no', 7,8,8, "If you wish to have your data deleted, simply let us or your advisor know and it will also be removed from our systems within 28 days.");
 
 echo "<br><br><br>";
 paragraph_start('yes', 10, 9, 9, "Support:");
