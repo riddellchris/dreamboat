@@ -34,7 +34,16 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
      //   exit();
 
         if(strcasecmp(trim($row['platform_name']), 'xero') == 0){
-                require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/remove_connection.php";
+                require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/remove_connection.php"; //this deals with the xero element obviously but other than that it doesn't fix our data problems
+                //so we need to alter some critical tables:
+                //1. we need to adjust all the tenant tables 
+                $sql = "UPDATE api_xero_tenant_details 
+                        SET actively_disconnected = 'yes'
+                        WHERE user_id = '".mysqli_real_escape_string($conn, $_SESSION['viewing_client_id'])."'";
+                       // echo $sql; exit();
+                $sql_for_logging = $sql;
+                require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
+                $result = mysqli_query($conn, $sql);   
 
         }
         if(strcasecmp(trim($row['platform_name']), 'timeular') == 0){

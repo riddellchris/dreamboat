@@ -35,8 +35,21 @@ $debug = 'off';
 if($debug == 'on'){
     echo "TENANTS AVAILABLE FOR ACCESS";
     echo '<pre>' , var_dump($response) , '</pre>';
+    echo "<br><BR>";
+    echo count($response);
+  //  echo json_encode($response);
+
+    exit();
 }
 
+if(isset($_SESSION['tenants_for_matching'])){unset($_SESSION['tenants_for_matching']);}
+$_SESSION['tenants_for_matching'] = $response;
+
+if(count($_SESSION['tenants_for_matching']) > 1){
+
+    header("Location: /data/components/platforms/xero/tenants/matching/index.php");
+    exit();
+}
 
 //typically followed by
 //../check_tenants.php

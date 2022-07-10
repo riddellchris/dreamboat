@@ -169,12 +169,12 @@ if($access_denied == 'no'){
         require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
 
         $result = mysqli_query($conn, $sql);
-        if($result)
-        {
+    //    if($result)
+    //    {
             $sql = "    UPDATE api_connections 
                         SET originally_connected_successfully = 'yes'
                         WHERE user_id = '".$_SESSION['viewing_client_id']."'
-                        AND platform_name = 'xero'                    
+                        AND platform_name  LIKE '%xero%'                     
                         ";
 
             $sql_for_logging = $sql;
@@ -185,7 +185,7 @@ if($access_denied == 'no'){
                     exit();
             }
 
-        }
+      //  }
 
 
     //   echo $sql; exit();
@@ -212,7 +212,29 @@ if($access_denied == 'no'){
 
 
         require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenants.php";
-        require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/store_tenants.php";   
+    /*    if(count($response) > 1){
+
+            header("Location: /data/apis/xero/tenants/matching/index.php");
+            exit();
+        }
+        else{*/
+            //$tenant_response_key = 0;
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/store_tenants.php";  
+       // }
+
+
+
+
+
+//////this is where the problem is!!!!!
+//////AMAZING
+
+
+
+
+
+
+ 
 
 
         //This is where we extract all critical data
