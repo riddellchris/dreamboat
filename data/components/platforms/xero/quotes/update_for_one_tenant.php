@@ -27,13 +27,24 @@ echo date('Y-m-d', strtotime(date('Y-m')."last day of -6 ".$period_name));
 //so that makes querying any report really simple then as all we need to do is focus on building these little bits and pieces out
 //as the from date becomes:
 
-//STRING CREATION
-$from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of -36 ".$period_name));
-$from_date_string   = date('M j',   strtotime(date('Y-m')."first day of -36 ".$period_name));
+if($period_name = 'months'){
+    //STRING CREATION
+    $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of -36 ".$period_name));
+    $from_date_string   = date('M j',   strtotime(date('Y-m')."first day of -36 ".$period_name));
 
-//and the to_date becomes:
-$to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of -1 ".$period_name));
-$to_date_string     = date('M j',   strtotime(date('Y-m')."last day of -1 ".$period_name));
+    //and the to_date becomes:
+    $to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of -1 ".$period_name));
+    $to_date_string     = date('M j',   strtotime(date('Y-m')."last day of -1 ".$period_name));
+}
+if($period_name = 'weeks'){
+    //STRING CREATION
+    $from_date          = date('Y-m-d', strtotime(date('Y-m')." -37 ".$period_name." monday"));
+    $from_date_string   = date('M j',   strtotime(date('Y-m')." -37 ".$period_name." monday"));
+
+    //and the to_date becomes:
+    $to_date            = date('Y-m-d', strtotime(date('Y-m')." -1 ".$period_name." sunday"));
+    $to_date_string     = date('M j',   strtotime(date('Y-m')." -1 ".$period_name." sunday"));
+}
 
 $updated_last_string = date('Y-m-d', strtotime(date('Y-m')));
 
@@ -50,16 +61,33 @@ unset($sql_for_insert_of_12_month_data);
         //echo "hi";
         for($date_index = -1; $date_index > -36; $date_index --){
         //echo "hi";
-            //ACTUAL REQUEST DATE CREATION
-            $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." ".$period_name));
-            $date_index_start   = $from_date;
 
-            //and the to_date becomes:
-            $to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of ".$date_index." ".$period_name));
-            $date_index_end     = $to_date;
+            if($period_name = 'months'){
+                //ACTUAL REQUEST DATE CREATION
+                $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." ".$period_name));
+                $date_index_start   = $from_date;
 
-            $period_for_chart_display   = date('M y', strtotime(date('Y-m')."last day of ".$date_index." ".$period_name));
-                
+                //and the to_date becomes:
+                $to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of ".$date_index." ".$period_name));
+                $date_index_end     = $to_date;
+
+                $period_for_chart_display   = date('M y', strtotime(date('Y-m')."last day of ".$date_index." ".$period_name));
+            }
+            if($period_name = 'weeks'){
+                $date_index_for_mondays = $date_index - 1;
+                //ACTUAL REQUEST DATE CREATION
+                $from_date          = date('Y-m-d', strtotime(date('Y-m')." ".$date_index_for_mondays." weeks monday"));
+                $date_index_start   = $from_date;
+
+                //and the to_date becomes:
+                $to_date            = date('Y-m-d', strtotime(date('Y-m')." ".$date_index." weeks sunday"));
+                $date_index_end     = $to_date;
+
+                $period_for_chart_display   = date('M y', strtotime(date('Y-m')." ".$date_index." weeks sunday"));
+            }
+
+
+
             $url_for_api_request =   "https://api.xero.com/api.xro/2.0/Quotes?DateFrom=".$from_date."&DateTo=".$to_date;
              //   echo $url_for_api_request."<br>";
            // $url_for_api_request =   "https://api.xero.com/api.xro/2.0/Quotes";
