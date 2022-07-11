@@ -155,7 +155,12 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
 
-  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Wages', { role: 'annotation' }, 'Target'],";
+  echo " ['Month', ";
+  if($_SESSION['viewing_client_id'] != 4400){ 
+    echo "
+    'LAST YEAR', { role: 'annotation' }, ";
+  }
+  echo "'Wages', { role: 'annotation' }, 'Target'],";
 
   for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
@@ -169,9 +174,15 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
    // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
 
 
-    echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
+    echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',     ";
+    
+    if($_SESSION['viewing_client_id'] != 4400){
+      echo "
                ".$display_chart['Total Income'][$last_year_index].",      
-              '".$display_chart['Total Income'][$last_year_index]."',               
+              '".$display_chart['Total Income'][$last_year_index]."',      ";
+    }
+    
+    echo "
               ".$display_chart['Total Income'][$date_index].",      
               '".$display_chart['Total Income'][$date_index]."', 
               ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";

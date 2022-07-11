@@ -55,8 +55,31 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
 
       if($_SESSION['viewing_client_id'] == 4383){
-        $revenue_target['Aug 22']['value'] = 70000;
-        $revenue_target['Jul 22']['value'] = 60000;
+
+
+
+
+
+
+
+        $revenue_target['Dec 23']['value'] = 96667;
+        $revenue_target['Nov 23']['value'] = 96667;
+        $revenue_target['Oct 23']['value'] = 96667;
+        $revenue_target['Sep 23']['value'] = 96667;        
+        $revenue_target['Aug 23']['value'] = 96667;
+        $revenue_target['Jul 23']['value'] = 96667;
+        $revenue_target['Jun 23']['value'] = 96667;
+        $revenue_target['May 23']['value'] = 97667;
+        $revenue_target['Apr 23']['value'] = 92067;
+        $revenue_target['Mar 23']['value'] = 77367;
+        $revenue_target['Feb 23']['value'] = 78167;
+        $revenue_target['Jan 23']['value'] = 52667;
+        $revenue_target['Dec 22']['value'] = 87867;
+        $revenue_target['Nov 22']['value'] = 716667;
+        $revenue_target['Oct 22']['value'] = 216667;
+        $revenue_target['Sep 22']['value'] = 226667;        
+        $revenue_target['Aug 22']['value'] = 126667;
+        $revenue_target['Jul 22']['value'] = 86667;
         $revenue_target['Jun 22']['value'] = 50000;
         $revenue_target['May 22']['value'] = 50000;
         $revenue_target['Apr 22']['value'] = 50000;
