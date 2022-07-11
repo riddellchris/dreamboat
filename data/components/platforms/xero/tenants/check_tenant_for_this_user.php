@@ -25,7 +25,7 @@ $sql = "SELECT * FROM api_xero_tenant_details
         echo "<br>";      
 echo $sql;
 echo "<br>";
-exit();
+//exit();
 //$sql_for_logging = $sql;
 //require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
 
