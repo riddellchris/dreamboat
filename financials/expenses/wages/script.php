@@ -261,7 +261,7 @@ else{
                     else{//no last year
                       echo "
                       0: {                              color: '#3c78d8'}  ,                          
-                      2: {type: 'line',  lineWidth: 10, color: '#cecece'}";
+                      1: {type: 'line',  lineWidth: 10, color: '#cecece'}";
 
                     }
 
