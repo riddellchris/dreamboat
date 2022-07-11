@@ -83,7 +83,7 @@ unset($sql_for_insert_of_12_month_data);
                 $to_date            = date('Y-m-d', strtotime(date('Y-m')." ".$date_index." weeks sunday"));
                 $date_index_end     = $to_date;
 
-                $period_for_chart_display   = date('M y', strtotime(date('Y-m')." ".$date_index." weeks sunday"));
+                $period_for_chart_display   = date('d/m', strtotime(date('Y-m')." ".$date_index." weeks sunday"));
             }
 
 
