@@ -27,7 +27,7 @@ echo date('Y-m-d', strtotime(date('Y-m')."last day of -6 ".$period_name));
 //so that makes querying any report really simple then as all we need to do is focus on building these little bits and pieces out
 //as the from date becomes:
 
-if($period_name = 'months'){
+if($period_name == 'months'){
     //STRING CREATION
     $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of -36 ".$period_name));
     $from_date_string   = date('M j',   strtotime(date('Y-m')."first day of -36 ".$period_name));
@@ -36,7 +36,7 @@ if($period_name = 'months'){
     $to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of -1 ".$period_name));
     $to_date_string     = date('M j',   strtotime(date('Y-m')."last day of -1 ".$period_name));
 }
-if($period_name = 'weeks'){
+if($period_name == 'weeks'){
     //STRING CREATION
     $from_date          = date('Y-m-d', strtotime(date('Y-m')." -37 ".$period_name." monday"));
     $from_date_string   = date('M j',   strtotime(date('Y-m')." -37 ".$period_name." monday"));
@@ -62,7 +62,7 @@ unset($sql_for_insert_of_12_month_data);
         for($date_index = -1; $date_index > -36; $date_index --){
         //echo "hi";
 
-            if($period_name = 'months'){
+            if($period_name == 'months'){
                 //ACTUAL REQUEST DATE CREATION
                 $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." ".$period_name));
                 $date_index_start   = $from_date;
@@ -73,7 +73,7 @@ unset($sql_for_insert_of_12_month_data);
 
                 $period_for_chart_display   = date('M y', strtotime(date('Y-m')."last day of ".$date_index." ".$period_name));
             }
-            if($period_name = 'weeks'){
+            if($period_name == 'weeks'){
                 $date_index_for_mondays = $date_index - 1;
                 //ACTUAL REQUEST DATE CREATION
                 $from_date          = date('Y-m-d', strtotime(date('Y-m')." ".$date_index_for_mondays." weeks monday"));
