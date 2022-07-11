@@ -20,7 +20,12 @@ $sql = "SELECT * FROM api_xero_tenant_details
         WHERE user_id = '".$user_id_for_request."'
         AND id IS NOT NULL
         AND actively_disconnected = 'no'";
-//echo $sql;exit();
+
+        echo "<br>";
+        echo "<br>";      
+echo $sql;
+echo "<br>";
+exit();
 //$sql_for_logging = $sql;
 //require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
 
