@@ -29,7 +29,7 @@ if($proper_reponse == 'yes'){
     $sql_string = "UPDATE ".$table_name."
                     SET latest_version_for_this_user = 'no'
                     WHERE user_id = ".$user_id_for_request;
-                   echo $sql_string;exit();
+                 //  echo $sql_string;exit();
     mysqli_query($conn, $sql_string);
 
 
