@@ -39,7 +39,11 @@ $updated_last_string = date('Y-m-d', strtotime(date('Y-m')));
 
 $accurate_as_at_string = " complete to ".$to_date_string;
 
-
+$sql_string = "UPDATE ".$table_name."
+SET latest_version_for_this_user = 'no'
+WHERE user_id = ".$user_id_for_request;
+//  echo $sql_string;exit();
+mysqli_query($conn, $sql_string);
 
 unset($sql_for_insert_of_12_month_data);
 
