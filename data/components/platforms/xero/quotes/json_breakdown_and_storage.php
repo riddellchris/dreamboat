@@ -24,6 +24,15 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
 
 if($proper_reponse == 'yes'){
   //  $response = $response['Quotes'];
+
+
+    $sql_string = "UPDATE ".$table_name."
+                    SET latest_version_for_this_user = 'no'
+                    WHERE user_id = ".$user_id_for_this_request;
+                 //   echo $sql_string;exit()
+    mysqli_query($conn, $sql_string);
+
+
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){      
             try{
