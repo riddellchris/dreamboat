@@ -242,17 +242,30 @@ else{
         $_SESSION['viewing_client_id'] == 4400 OR
         $_SESSION['viewing_client_id'] == 4401 OR
         $_SESSION['viewing_client_id'] == 4399 OR
+        $_SESSION['viewing_client_id'] == 1){
+
+                    if($_SESSION['viewing_client_id'] != 4400){
 
 
-              $_SESSION['viewing_client_id'] == 1){
 
-                echo "
-                series: {
-                    0: {                              color: '#281e96'}  ,
-                    1: {                              color: '#3c78d8'}  ,                          
-                    2: {type: 'line',  lineWidth: 10, color: '#cecece'}
-                  }
-                ";
+
+
+                              echo "
+                              series: {
+                                  0: {                              color: '#281e96'}  ,
+                                  1: {                              color: '#3c78d8'}  ,                          
+                                  2: {type: 'line',  lineWidth: 10, color: '#cecece'}
+                                }
+                              ";
+                    }
+                    else{//no last year
+                      echo "
+                      0: {                              color: '#3c78d8'}  ,                          
+                      1: {type: 'line',  lineWidth: 10, color: '#cecece'}";
+
+                    }
+
+
               }
               else{
                 echo "
@@ -262,6 +275,9 @@ else{
                 ";
 
               }
+
+
+
 
           ?>
 
