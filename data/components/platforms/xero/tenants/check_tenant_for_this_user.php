@@ -28,6 +28,7 @@ $tenants_to_check_for_this_user = mysqli_query($conn, $sql);
 
 $i = 0;
 $tenant_user_id_count = 0;
+$tenants_for_this_user = array();
 while($row = mysqli_fetch_array($tenants_to_check_for_this_user, MYSQLI_ASSOC)){
     $tenants_for_this_user[$i] = $row['tenantId'];    //this does make the assumption that there is only one tenant - as per "check_tenants.php" this is a TODO item and needs adjustment in time for sure
     $tenant_user_id_count ++;
