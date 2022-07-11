@@ -13,10 +13,17 @@
 
 //     }
 
+
+$proper_reponse = 'yes';
+if(isset($response['Quotes'])){
+    $response = $response['Quotes'];
+}
+else{$proper_reponse = 'no';}
+
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/set_error_handler.php";
 
-
-    $response = $response['Quotes'];
+if($proper_reponse == 'yes'){
+  //  $response = $response['Quotes'];
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){      
             try{
@@ -63,7 +70,8 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
                     '".mysqli_real_escape_string($conn, $period_for_chart_display)."'                         
                     )
                 ";
-                //echo $sql_string;
+                echo $sql_string;
+                echo "<br>";
                 mysqli_query($conn, $sql_string);
                 //exit();}
                 }
@@ -85,5 +93,4 @@ require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/se
                 }
 
    }
-
-        
+}

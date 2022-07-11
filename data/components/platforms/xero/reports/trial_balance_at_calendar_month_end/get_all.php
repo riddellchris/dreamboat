@@ -49,7 +49,7 @@ for($main_counter = 0; $main_counter < count($tenant_user_id); $main_counter++){
 
 
     //$getting_all = 'yes';
-    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/trial_balance_by_calendar_month_past_36_months/update_for_one_tenant.php";
+    require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/trial_balance_at_calendar_month_end/update_for_one_tenant.php";
    // unset($getting_all);
  
 }

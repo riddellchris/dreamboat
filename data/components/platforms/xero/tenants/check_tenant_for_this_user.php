@@ -23,6 +23,8 @@ $sql = "SELECT * FROM api_xero_tenant_details
 //echo $sql;exit();
 $sql_for_logging = $sql;
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/oauth/logging/sql_queries.php";
+
+
 $tenants_to_check_for_this_user = mysqli_query($conn, $sql);
 
 $i = 0;

@@ -4,9 +4,9 @@
 
 //Cleaned json 
  //  $response = $response['Reports'][0]['Rows'];
-   $proper_reponse = 'yes';
+$proper_reponse = 'yes';
 if(isset($response['Reports'][0]['Rows'])){
-$response = $response['Reports'][0]['Rows'];
+    $response = $response['Reports'][0]['Rows'];
 }
 else{$proper_reponse = 'no';}
    //Test 1

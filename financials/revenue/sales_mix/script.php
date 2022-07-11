@@ -59,7 +59,7 @@ else{
 
             }
             if($_SESSION['viewing_client_id'] == 4383){
-
+              $sub_title = "over the past 6 complete months";
               $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
                       WHERE user_id = '".$_SESSION['viewing_client_id']."'
                       AND   latest_version_for_this_user = 'yes'";
@@ -76,7 +76,7 @@ else{
 
 
               while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                if($row['date_index'] > -4){ // summing over the past 3 months
+                if($row['date_index'] > -7){ // summing over the past 6 months
 
                   if($row['account_name'] == 'LAM _Shopify'){               $shopify['value']       += $row['value'];}
                   if($row['account_name'] == 'LAM_Distributors'){           $distributors['value']  += $row['value'];}
@@ -90,9 +90,7 @@ else{
 
                   //RAW_Contract Manufacturing not included as not a sales item
                 }
-                if($row['date_inded'] == -1){
-                  $sub_title = $row['accurate_as_at_string'];
-                }
+
               }
 
 

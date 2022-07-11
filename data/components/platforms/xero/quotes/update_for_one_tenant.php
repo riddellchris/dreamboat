@@ -56,15 +56,17 @@ unset($sql_for_insert_of_12_month_data);
 
             $period_for_chart_display   = date('M y', strtotime(date('Y-m')."last day of ".$date_index." ".$period_name));
                 
-          //  $url_for_api_request =   "https://api.xero.com/api.xro/2.0/Quotes?DateFrom=".$from_date."&DateTo=".$to_date;
+            $url_for_api_request =   "https://api.xero.com/api.xro/2.0/Quotes?DateFrom=".$from_date."&DateTo=".$to_date;
              //   echo $url_for_api_request."<br>";
-            $url_for_api_request =   "https://api.xero.com/api.xro/2.0/Quotes";
+           // $url_for_api_request =   "https://api.xero.com/api.xro/2.0/Quotes";
 
+
+               // echo "h4llo";exit();
             require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/quotes/api_request.php";
                         
                         $debug = 'off';
                         if($debug == 'on'){
-                            echo '<pre>' , json_encode($response['Quotes']) , '</pre>';
+                            echo '<pre>' , json_encode($response) , '</pre>';
                             exit();
                         }
 
