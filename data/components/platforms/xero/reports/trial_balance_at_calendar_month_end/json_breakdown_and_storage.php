@@ -49,7 +49,7 @@ if($proper_reponse == 'yes'){
                 if($ytd_credit  == ''){$ytd_credit = '0.00';}
                 
                 $sql_string = "
-                INSERT INTO api_xero_reports_trial_balance_past_12_separate_calendar_months
+                INSERT INTO api_xero_reports_trial_balance_at_calendar_month_end
                 (
                     user_id,
                     tenant_id,

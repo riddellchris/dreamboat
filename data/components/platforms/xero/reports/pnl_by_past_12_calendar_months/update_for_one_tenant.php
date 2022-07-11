@@ -1,12 +1,10 @@
 <?php
 
-//not trial balance not balance sheet to extract all the critical elements here that we actually need.
-
 
 //simply for construction
 //ONLY COMMENT OUT SO THAT WE CAN SAVE FOR MORE CONSTRCUTION
-$user_id_for_request = 1;
-require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
+//$user_id_for_request = 4383;
+//require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/tenants/check_tenant_for_this_user.php";
 
 /*
 //first we need to get todays date.
@@ -38,6 +36,7 @@ $to_date_string     = date('M j',   strtotime(date('Y-m')."last day of -1 months
 
 $updated_last_string = date('Y-m-d', strtotime(date('Y-m')));
 
+//redundant string
 $accurate_as_at_string = " complete to ".$to_date_string;
 
 
@@ -53,8 +52,8 @@ unset($sql_for_insert_of_12_month_data);
         for($date_index = -1; $date_index > -36; $date_index --){
         //echo "hi";
             //ACTUAL REQUEST DATE CREATION
-            //$from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." months"));
-           // $date_index_start   = $from_date;
+            $from_date          = date('Y-m-d', strtotime(date('Y-m')."first day of ".$date_index." months"));
+            $date_index_start   = $from_date;
 
             //and the to_date becomes:
             $to_date            = date('Y-m-d', strtotime(date('Y-m')."last day of ".$date_index." months"));
@@ -65,7 +64,7 @@ unset($sql_for_insert_of_12_month_data);
 
 
 
-                    $url_for_api_request =  "https://api.xero.com/api.xro/2.0/Reports/TrialBalance?date=".$to_date;
+                    $url_for_api_request =  "https://api.xero.com/api.xro/2.0/Reports/ProfitAndLoss?fromDate=".$from_date."&toDate=".$to_date;
                     echo $url_for_api_request;
 
                     //$user_id_for_request = 1;
@@ -99,7 +98,7 @@ unset($sql_for_insert_of_12_month_data);
                     curl_close($ch);
                     $response = json_decode($content, true);
 
-                    $debug = 'on';
+                    $debug = 'off';
                     if($debug == 'on'){
                         echo '<pre>' , var_dump($response) , '</pre>';
                         exit();
@@ -224,19 +223,18 @@ unset($sql_for_insert_of_12_month_data);
 
 
                             if($account_name != '' && $value != ''){
-                                $sql = "    UPDATE api_xero_reports_pnl_by_calendar_month
+                                $sql = "    UPDATE api_xero_reports_pnl_by_past_12_calendar_months
                                             SET latest_version_for_this_user = 'no'
                                             WHERE   user_id         = '".mysqli_real_escape_string($conn, $user_id_for_request)."'
                                             AND     tenant_id       = '".mysqli_real_escape_string($conn, $tenant_id)."'
                                             AND     account_name    = '".mysqli_real_escape_string($conn, $account_name)."'";
                                 mysqli_query($conn, $sql);            
-
                             }
 
                             if(!isset($sql_for_insert_of_12_month_data)){$sql_for_insert_of_12_month_data = array();}
 
                             $sql_for_insert_of_12_month_data[count($sql_for_insert_of_12_month_data)] = "
-                                INSERT INTO Table: api_xero_reports_trial_balance_past_12_separate_calendar_months (
+                                INSERT INTO api_xero_reports_pnl_by_past_12_calendar_months (
                                     user_id,
                                     tenant_id,
                                     account_id,
@@ -267,7 +265,7 @@ unset($sql_for_insert_of_12_month_data);
                                     '".mysqli_real_escape_string($conn, $period_for_chart_display)."'                         
                                     )
                             ";
-                         echo $sql."<br><br><br>";
+                        // echo $sql."<br><br><br>";
 
                         // mysqli_query($conn, $sql);
                         }

@@ -69,7 +69,7 @@ unset($sql_for_insert_of_12_month_data);
                         }
 
 
-            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/trial_balance_by_calendar_month_past_36_months/json_breakdown_and_storage.php";
+            require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/trial_balance_at_calendar_month_end/json_breakdown_and_storage.php";
 
 
         }

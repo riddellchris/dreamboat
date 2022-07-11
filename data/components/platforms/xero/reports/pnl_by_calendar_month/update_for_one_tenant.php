@@ -223,7 +223,7 @@ unset($sql_for_insert_of_12_month_data);
 
 
                             if($account_name != '' && $value != ''){
-                                $sql = "    UPDATE api_xero_reports_pnl_account_past_12_separate_calendar_months
+                                $sql = "    UPDATE api_xero_reports_pnl_by_calendar_month
                                             SET latest_version_for_this_user = 'no'
                                             WHERE   user_id         = '".mysqli_real_escape_string($conn, $user_id_for_request)."'
                                             AND     tenant_id       = '".mysqli_real_escape_string($conn, $tenant_id)."'
@@ -234,7 +234,7 @@ unset($sql_for_insert_of_12_month_data);
                             if(!isset($sql_for_insert_of_12_month_data)){$sql_for_insert_of_12_month_data = array();}
 
                             $sql_for_insert_of_12_month_data[count($sql_for_insert_of_12_month_data)] = "
-                                INSERT INTO api_xero_reports_pnl_account_past_12_separate_calendar_months (
+                                INSERT INTO api_xero_reports_pnl_by_calendar_month (
                                     user_id,
                                     tenant_id,
                                     account_id,

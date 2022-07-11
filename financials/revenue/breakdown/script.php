@@ -55,7 +55,7 @@ else{
                     $max_extract_to_for_sql = $months_to_display * -1 - 1;
                     $extraction_counter_start = $months_to_display * -1; 
 
-                    $sql = "SELECT * FROM api_xero_reports_pnl_account_past_12_separate_calendar_months
+                    $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
                             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
                             AND           latest_version_for_this_user = 'yes'
                             AND           date_index > ".$max_extract_to_for_sql."

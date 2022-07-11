@@ -60,7 +60,7 @@ else{
             }
             if($_SESSION['viewing_client_id'] == 4383){
 
-              $sql = "SELECT * FROM api_xero_reports_pnl_account_past_6_complete_months
+              $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
                       WHERE user_id = '".$_SESSION['viewing_client_id']."'
                       AND   latest_version_for_this_user = 'yes'";
               $result = mysqli_query($conn, $sql);
@@ -76,19 +76,23 @@ else{
 
 
               while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                if($row['account_name'] == 'LAM _Shopify'){               $shopify['value']       += $row['value'];}
-                if($row['account_name'] == 'LAM_Distributors'){           $distributors['value']  += $row['value'];}
-                if($row['account_name'] == 'RAW_Distributors'){           $distributors['value']  += $row['value'];}                
-                if($row['account_name'] == 'LAM_Wholesale'){              $wholesale['value']     += $row['value'];}
-                if($row['account_name'] == 'Sale from wholesale'){        $wholesale['value']     += $row['value'];}
-                
-                if($row['account_name'] == 'RAW_Other'){                  $other['value']         += $row['value'];}
-                if($row['account_name'] == 'Sales from Market Stalls'){   $other['value']         += $row['value'];}
+                if($row['date_index'] > -4){ // summing over the past 3 months
 
-                $sub_title = $row['accurate_as_at_string'];
+                  if($row['account_name'] == 'LAM _Shopify'){               $shopify['value']       += $row['value'];}
+                  if($row['account_name'] == 'LAM_Distributors'){           $distributors['value']  += $row['value'];}
+                  if($row['account_name'] == 'RAW_Distributors'){           $distributors['value']  += $row['value'];}                
+                  if($row['account_name'] == 'LAM_Wholesale'){              $wholesale['value']     += $row['value'];}
+                  if($row['account_name'] == 'Sale from wholesale'){        $wholesale['value']     += $row['value'];}
+                  
+                  if($row['account_name'] == 'RAW_Other'){                  $other['value']         += $row['value'];}
+                  if($row['account_name'] == 'Sales from Market Stalls'){   $other['value']         += $row['value'];}
 
-                //RAW_Contract Manufacturing not included as not a sales item
 
+                  //RAW_Contract Manufacturing not included as not a sales item
+                }
+                if($row['date_inded'] == -1){
+                  $sub_title = $row['accurate_as_at_string'];
+                }
               }
 
 
