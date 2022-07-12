@@ -354,7 +354,7 @@ if(!isset($_GET['tertiary_folder'])){$_GET['tertiary_folder'] = '';}
 		//CR 3.8.20
 		//off for now until we actually want to send them emails through this...
 		//AND until the bottom section doesn't kill the whole thing by popping up
-		require $_SERVER['DOCUMENT_ROOT']."/components/notifications_and_alerts/pilot_created_notification_management.php";  
+		//require $_SERVER['DOCUMENT_ROOT']."/components/notifications_and_alerts/pilot_created_notification_management.php";  
 		
 		
 		
