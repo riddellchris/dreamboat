@@ -33,7 +33,9 @@ echo " ['Month',         'Revenue',                   { role: 'annotation' }],";
 
 
 if( $_SESSION['viewing_client_id'] == 4231 OR
-    $_SESSION['viewing_client_id'] == 4383 OR 
+           //Tricia Ong's Clients
+           $_SESSION['viewing_client_id'] == 4383 OR 
+           $_SESSION['viewing_client_id'] == 4398 OR 
     $_SESSION['viewing_client_id'] == 1){
 
     $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
