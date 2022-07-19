@@ -89,8 +89,8 @@ else{
                     for($extraction_counter = $extraction_counter_start; $extraction_counter < 0; $extraction_counter ++){
                       echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',       
                                 ".$extracted['website'][$extraction_counter].",                     '".$extracted['website'][$extraction_counter]."',    
-                                ".$extracted['distribution'][$extraction_counter].",                '".$extracted['distribution'][$extraction_counter]."', 
-                                ".$extracted['wholesale'][$extraction_counter].",                   '".$extracted['wholesale'][$extraction_counter]."',    
+                                ".$extracted['wholesale'][$extraction_counter].",                   '".$extracted['wholesale'][$extraction_counter]."', 
+                                ".$extracted['distribution'][$extraction_counter].",                '".$extracted['distribution'][$extraction_counter]."',  
                                 ".$extracted['manufacturing'][$extraction_counter].",               '".$extracted['manufacturing'][$extraction_counter]."',
                                 ".$extracted['other'][$extraction_counter].",                       '".$extracted['other'][$extraction_counter]."'    
 
