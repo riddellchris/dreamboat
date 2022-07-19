@@ -86,7 +86,7 @@ else{
                   if($row['account_name'] == 'RAW_Distributors'){           $distributors['value']  += $row['value'];}                
                   if($row['account_name'] == 'LAM_Wholesale'){              $wholesale['value']     += $row['value'];}
                   if($row['account_name'] == 'Sale from wholesale'){        $wholesale['value']     += $row['value'];}
-                  if($row['account_name'] == 'RAW_Contract Manufacturing'){ $wholesale['value']     += $row['value'];}                  
+                  if($row['account_name'] == 'RAW_Contract Manufacturing'){ $manufacturing['value'] += $row['value'];}                  
                   if($row['account_name'] == 'RAW_Other'){                  $other['value']         += $row['value'];}
                   if($row['account_name'] == 'Sales from Market Stalls'){   $other['value']         += $row['value'];}
 
