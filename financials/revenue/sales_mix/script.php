@@ -42,7 +42,7 @@ else{
 
                 $sub_title = "Dummy data only";
 
-
+                $legend = "colors: ['#f6b26b', '#3c78d8', 'green', 'red']";
               }
           else{
 
@@ -57,6 +57,8 @@ else{
 
               $sub_title = "Dummy data for Chris only";
 
+              $legend = "colors: ['#f6b26b', '#3c78d8', 'green', 'red']";
+
             }
             if($_SESSION['viewing_client_id'] == 4383){
               $sub_title = "over the past 6 complete months";
@@ -69,10 +71,11 @@ else{
               $to_present['label'] = array();
               $to_present['value'] = array();
 
-              $shopify['value']       = 0;
-              $distributors['value']  = 0;
-              $wholesale['value']     = 0;
-              $other['value']         = 0;
+              $shopify['value']         = 0;
+              $distributors['value']    = 0;
+              $wholesale['value']       = 0;
+              $manufacturing['value']   = 0;
+              $other['value']           = 0;
 
 
               while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -83,7 +86,7 @@ else{
                   if($row['account_name'] == 'RAW_Distributors'){           $distributors['value']  += $row['value'];}                
                   if($row['account_name'] == 'LAM_Wholesale'){              $wholesale['value']     += $row['value'];}
                   if($row['account_name'] == 'Sale from wholesale'){        $wholesale['value']     += $row['value'];}
-                  
+                  if($row['account_name'] == 'RAW_Contract Manufacturing'){ $wholesale['value']     += $row['value'];}                  
                   if($row['account_name'] == 'RAW_Other'){                  $other['value']         += $row['value'];}
                   if($row['account_name'] == 'Sales from Market Stalls'){   $other['value']         += $row['value'];}
 
@@ -92,17 +95,18 @@ else{
                 }
 
               }
-
-
+              
               //this is because pie charts cannot have negative values
 //                if($shopify['value'] < 0){
                                           echo " ['Month',         'Dollars',                   { role: 'annotation' }],";
               if($shopify['value']      > 0){  echo " ['Website',       ".$shopify['value'].",      '".$shopify['value']."'],      ";}
               if($wholesale['value']    > 0){  echo " ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],    ";}
               if($distributors['value'] > 0){  echo " ['Distributors',  ".$distributors['value'].", '".$distributors['value']."'],  ";}
+              if($manufacturing['value'] > 0){  echo " ['Distributors',  ".$manufacturing['value'].", '".$manufacturing['value']."'],  ";}              
               if($other['value']        > 0){  echo " ['Other',         ".$other['value'].",        '".$other['value']."']        ";}
               
             }
+            $legend = "colors: ['#f6b26b', '#3c78d8', 'green', 'black', 'red']";
           }
 
 ?>
@@ -126,6 +130,8 @@ else{
                 echo "title: 'Sales Mix";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
+
+                echo $legend.",";
                 ?>
 
 
