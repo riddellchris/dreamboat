@@ -102,11 +102,11 @@ else{
               if($shopify['value']      > 0){  echo " ['Website',       ".$shopify['value'].",      '".$shopify['value']."'],      ";}
               if($wholesale['value']    > 0){  echo " ['Wholesale',     ".$wholesale['value'].",    '".$wholesale['value']."'],    ";}
               if($distributors['value'] > 0){  echo " ['Distributors',  ".$distributors['value'].", '".$distributors['value']."'],  ";}
-              if($manufacturing['value'] > 0){  echo " ['Distributors',  ".$manufacturing['value'].", '".$manufacturing['value']."'],  ";}              
+              if($manufacturing['value'] > 0){  echo " ['Manufacturing',  ".$manufacturing['value'].", '".$manufacturing['value']."'],  ";}              
               if($other['value']        > 0){  echo " ['Other',         ".$other['value'].",        '".$other['value']."']        ";}
-              
+              $legend = "colors: ['#f6b26b', '#3c78d8', 'green', 'black', 'red']";
             }
-            $legend = "colors: ['#f6b26b', '#3c78d8', 'green', 'black', 'red']";
+            
           }
 
 ?>
