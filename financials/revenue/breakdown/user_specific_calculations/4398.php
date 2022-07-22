@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-$months_to_display = 3;
+$months_to_display = 6;
 //therefore
 $max_extract_to_for_sql = $months_to_display * -1 - 1;
 $extraction_counter_start = $months_to_display * -1; 
