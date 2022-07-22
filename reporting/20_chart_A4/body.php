@@ -62,6 +62,33 @@ require $_SERVER['DOCUMENT_ROOT']."/reporting/components/report_header_setup.php
 
     }
 
+    //Leigh Kefford
+    if( $_SESSION['viewing_client_id'] == '1'
+        ){
+        $default_setup = 'no';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_cashflow_debtor_days_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][3] = 'financials_expenses_operating_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_profit_and_loss_gross_profit_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_profit_and_loss_net_profit_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_cashflow_debtor_days_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][7] = 'financials_revenue_tracker_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][8] = 'financials_revenue_sales_mix_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][9] = 'financials_revenue_shopify_comparison_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][10] = 'financials_revenue_breakdown_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][11] = 'financials_expenses_total_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][12] = 'financials_expenses_adspend_vs_return_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][13] = 'financials_revenue_tracker_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][14] = 'financials_revenue_sales_mix_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][15] = 'financials_revenue_shopify_comparison_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][16] = 'financials_revenue_breakdown_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][17] = 'financials_expenses_total_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][18] = 'financials_expenses_adspend_vs_return_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][19] = 'financials_expenses_total_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][20] = 'financials_expenses_adspend_vs_return_div';
+
+    }
+
     if($default_setup == 'yes'){
         $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_revenue_sales_mix_div';
@@ -92,8 +119,22 @@ require $_SERVER['DOCUMENT_ROOT']."/reporting/components/report_header_setup.php
     $n = 4; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
     $n = 5; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
     $n = 6; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 7; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 8; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 9; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 10; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 11; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 12; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 13; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 14; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 15; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 16; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 17; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 18; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 19; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 20; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
 
-    $n = 1;
+    $n = 0;
     echo "<tr class='chart_row'>";
         $n ++;  echo "<td><div id='".$chart[$n]."' class='google_charts_print'></div></td>";
         $n ++;  echo "<td><div id='".$chart[$n]."' class='google_charts_print'></div></td>";
