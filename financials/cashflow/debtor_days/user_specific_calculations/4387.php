@@ -117,12 +117,15 @@ for($i = -12; $i < 0; $i ++){
 
 
 
-                    for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
+                    for($extraction_counter = -12; $extraction_counter < 0; $extraction_counter ++){
 
 
 
                       if(!isset($extracted['period_for_chart_display'][$extraction_counter])){$extracted['period_for_chart_display'][$extraction_counter] = '';}
-                      echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',       
+                      echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',   
+                      
+                      ".$total_sales[$i].",      '".$total_sales[$i]."',
+                      ".$extracted['Accounts Receivable (610)'][$i].",      '".$extracted['Accounts Receivable (610)'][$i]."',
                                 ".$debtor_days[$extraction_counter].",      '".$debtor_days[$extraction_counter]."',  45  ],     ";
 
                     //  $sub_title = $row['accurate_as_at_string'];
