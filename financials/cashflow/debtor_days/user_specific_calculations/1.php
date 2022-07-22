@@ -18,7 +18,7 @@ $sql = "SELECT * FROM api_xero_reports_trial_balance_at_calendar_month_end
                     //then calculate totals for each of them for the date index
                     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                         $date_index = $row['date_index'];
-                        if($row['account_name'] == 'Accounts Receivable (610)'){ $extracted['Accounts Receivable (610)'][$date_index] = $row['debit'];}
+                        if($row['account_name'] == 'Accounts Receivable (610)'){ $extracted['Accounts Receivable (610)'][$date_index] = $row['YTD_debit'];}
                                                                                     $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_display'];                                    
                       }
 
