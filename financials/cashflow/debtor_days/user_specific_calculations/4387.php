@@ -79,7 +79,7 @@ for($i = -12; $i < 0; $i ++){
     if( isset($extracted['Accounts Receivable (610)'][$i]) && 
         isset($total_sales[$i])){
 
-            $debtor_days[$i] = $extracted['Accounts Receivable (610)'][$i] / $total_sales[$i] * 365;
+            $debtor_days[$i] = round($extracted['Accounts Receivable (610)'][$i] / $total_sales[$i] * 365, 1);
 
     }
     else{$debtor_days[$i] = 0;}
@@ -111,7 +111,9 @@ for($i = -12; $i < 0; $i ++){
 
 
 
-    echo "['Month',    'Sales ', { role: 'annotation' }, 'Accounts Receivable', { role: 'annotation' }, 'Debtor Days', { role: 'annotation' }, 'Target'], ";
+    echo "['Month',    ";
+    //echo "'Sales ', { role: 'annotation' }, 'Accounts Receivable', { role: 'annotation' }, 
+    echo "'Debtor Days', { role: 'annotation' }, 'Target'], ";
 
 
 
@@ -122,11 +124,11 @@ for($i = -12; $i < 0; $i ++){
 
 
                       if(!isset($extracted['period_for_chart_display'][$extraction_counter])){$extracted['period_for_chart_display'][$extraction_counter] = '';}
-                      echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',   
+                      echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',   ";
                       
-                      ".$total_sales[$extraction_counter].",      '".$total_sales[$extraction_counter]."',
-                      ".$extracted['Accounts Receivable (610)'][$extraction_counter].",      '".$extracted['Accounts Receivable (610)'][$extraction_counter]."',
-                                ".$debtor_days[$extraction_counter].",      '".$debtor_days[$extraction_counter]."',  45  ],     ";
+      //                ".$total_sales[$extraction_counter].",      '".$total_sales[$extraction_counter]."',
+      //                ".$extracted['Accounts Receivable (610)'][$extraction_counter].",      '".$extracted['Accounts Receivable (610)'][$extraction_counter]."',
+        echo "                        ".$debtor_days[$extraction_counter].",      '".$debtor_days[$extraction_counter]."',  45  ],     ";
 
                     //  $sub_title = $row['accurate_as_at_string'];
 
