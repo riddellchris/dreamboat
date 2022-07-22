@@ -29,12 +29,13 @@ else{
 
 
           <?php
-
+/*
             $setup_completed = 'no';
             if($_SESSION['viewing_client_id'] == 4383){ require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/adspend_vs_return/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
             if($_SESSION['viewing_client_id'] == 4398){ require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/adspend_vs_return/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
             if($setup_completed == 'no'){               require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/adspend_vs_return/dummy_data.php";}
             unset($setup_completed);
+            */
             ?>
 
 

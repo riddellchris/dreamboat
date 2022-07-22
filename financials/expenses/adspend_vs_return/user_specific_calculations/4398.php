@@ -17,8 +17,8 @@ $extracted['adspend']       = array();
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 $date_index = $row['date_index'];
-if($row['account_name'] == 'Sales'){                       if(!isset($extracted['website'][$date_index])){ $extracted['website'][$date_index]  = 0;} $extracted['website'][$date_index]  += $row['value'];}
-if($row['account_name'] == 'Advertising'){    if(!isset($extracted['adspend'][$date_index])){ $extracted['adspend'][$date_index]  = 0;} $extracted['adspend'][$date_index]  += $row['value'];}                      
+if($row['account_name'] == 'Sales'){         if(!isset($extracted['website'][$date_index])){ $extracted['website'][$date_index]  = 0;} $extracted['website'][$date_index]  += $row['value'];}
+if($row['account_name'] == 'Advertising'){   if(!isset($extracted['adspend'][$date_index])){ $extracted['adspend'][$date_index]  = 0;} $extracted['adspend'][$date_index]  += $row['value'];}                      
 $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
 }
 
