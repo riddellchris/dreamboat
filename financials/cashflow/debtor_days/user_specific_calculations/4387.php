@@ -111,7 +111,7 @@ for($i = -12; $i < 0; $i ++){
 
 
 
-    echo "['Month',     'Debtor Days', { role: 'annotation' },'Target'], ";
+    echo "['Month',     'Debtor Days', { role: 'annotation' }, 'Sales ', { role: 'annotation' }, 'Accounts Receivable', { role: 'annotation' },'Target'], ";
 
 
 
