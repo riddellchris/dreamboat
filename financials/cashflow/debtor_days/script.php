@@ -206,6 +206,8 @@ else{
 
   $setup_completed = 'no';
   if($_SESSION['viewing_client_id'] == 1){ require $_SERVER['DOCUMENT_ROOT']."/financials/cashflow/debtor_days/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+
+  if($_SESSION['viewing_client_id'] == 4387){ require $_SERVER['DOCUMENT_ROOT']."/financials/cashflow/debtor_days/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
   //if($_SESSION['viewing_client_id'] == 4398){ require $_SERVER['DOCUMENT_ROOT']."/financials/cashflow/debtor_days/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
   if($setup_completed == 'no'){               require $_SERVER['DOCUMENT_ROOT']."/financials/cashflow/debtor_days/dummy_data.php";}
   unset($setup_completed);
