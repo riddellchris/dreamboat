@@ -95,7 +95,8 @@ echo "<table>";
     $n = 4; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
     $n = 5; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
     $n = 6; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
-
+    $n = 7; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 8; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
 
     echo "<tr class='chart_row'>";
         $n = 1;
