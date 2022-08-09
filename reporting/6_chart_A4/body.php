@@ -61,7 +61,7 @@ echo "<table>";
         $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_cashflow_debtor_days_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_profit_and_loss_gross_profit_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_wages_div';
-        $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_wages_as_percent_of_revenue_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][8] = 'financials_expenses_wages_as_percent_of_revenue_div';
 
     }
 
@@ -127,7 +127,16 @@ echo "<table>";
                 echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
             echo "</td>";
     echo "</tr>";
-
+    echo "<tr class='chart_row'>";
+        $n = 7;
+            echo "<td>";
+                echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
+            echo "</td>";
+        $n = 8;
+            echo "<td>";
+                echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
+            echo "</td>";
+    echo "</tr>";
     require $_SERVER['DOCUMENT_ROOT']."/reporting/components/notes_textarea.php";
 
 echo "</table>";
