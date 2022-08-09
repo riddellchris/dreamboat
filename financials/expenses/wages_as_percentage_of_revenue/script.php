@@ -57,6 +57,7 @@ else{
                     1: {title: '$'},
                     },
          // hAxis: {title: 'Month'},
+         legend: { position: 'top'},
           seriesType: 'bars',
           colors: ['#3c78d8', '#f6b26b'],
           series: { 0: {targetAxisIndex:0, color: '#f6b26b', type: 'line',  lineWidth: 10},
