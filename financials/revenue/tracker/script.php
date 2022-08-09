@@ -148,6 +148,29 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
       }
 
 
+      //first we want to create a backup period for chart display file
+      //so do to this we simply want to 
+      $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
+              WHERE         latest_version_for_this_user = 'yes'
+              AND           date_index > -24 ";
+      //then really we just want to scan all these results to pull out and appropriate array
+      $result = mysqli_query($conn, $sql);
+      while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){     
+          $date_index = $row['date_index'];
+
+        if(!isset($display_chart['backup_period_for_chart_display'][$date_index])){
+          $display_chart['backup_period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
+
+        }
+
+
+      }
+
+
+
+
+
+
 
 
     //EXTRACT
@@ -197,13 +220,26 @@ unset($display_default_months);
    // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
 
 
-    echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
-               ".$display_chart['Total Income'][$last_year_index].",      
-              '".$display_chart['Total Income'][$last_year_index]."',               
-              ".$display_chart['Total Income'][$date_index].",      
-              '".$display_chart['Total Income'][$date_index]."', 
-              ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
+    //so the solution here is that if none of these are set we need to produce another line of code and adjust accordingly:
+      if(!isset($display_chart['period_for_chart_display'][$date_index])){
+        echo " [  '".$display_chart['backup_period_for_chart_display'][$date_index]."',       
+                  NULL,      
+                  '',               
+                  NULL,      
+                  '', 
+                  ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
 
+      }
+      else{
+
+
+          echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
+                    ".$display_chart['Total Income'][$last_year_index].",      
+                    '".$display_chart['Total Income'][$last_year_index]."',               
+                    ".$display_chart['Total Income'][$date_index].",      
+                    '".$display_chart['Total Income'][$date_index]."', 
+                    ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
+      }
 
     if($date_index <> -1){echo ",";}
   }
