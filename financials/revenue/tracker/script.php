@@ -170,10 +170,12 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
       }
 
+      /*
       if($_SESSION['viewing_client_id'] == '4402'){
         echo '<pre>' , var_dump($display_chart['backup_period_for_chart_display']) , '</pre>';
         
       }
+      */
 
 
 
@@ -231,7 +233,7 @@ unset($display_default_months);
 
     //so the solution here is that if none of these are set we need to produce another line of code and adjust accordingly:
       if(!isset($display_chart['period_for_chart_display'][$date_index])){
-        echo " [  '".$display_chart['backup_period_for_chart_display'][$date_index]."',       
+        echo " [  '".$display_chart['backup_period_for_chart_display'][$date_index+1]."',       
                   null,      
                   '0.00',               
                   null,      
