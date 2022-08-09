@@ -51,7 +51,7 @@ echo "<table>";
         $default_setup = 'no';
 
 
-        $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_profit_and_loss_revenue_div';   
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';   
         $_SESSION['reporting']['6_chart_A4']['chart_position'][3] = 'financials_profit_and_loss_gross_profit_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_expenses_operating_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][7] = 'financials_profit_and_loss_net_profit_div';
