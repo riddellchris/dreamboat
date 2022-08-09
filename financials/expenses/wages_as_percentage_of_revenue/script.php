@@ -59,7 +59,7 @@ else{
          // hAxis: {title: 'Month'},
           seriesType: 'bars',
           colors: ['#3c78d8', '#f6b26b'],
-          series: { 0: {targetAxisIndex:0, color: '#cecece'},
+          series: { 0: {targetAxisIndex:0, color: '#f6b26b', type: 'line',  lineWidth: 10},
                     1: {targetAxisIndex:1, color: '#f6b26b', type: 'line',  lineWidth: 10},
                     2: {targetAxisIndex:1, color: '#3c78d8', type: 'line',  lineWidth: 10}
         }
