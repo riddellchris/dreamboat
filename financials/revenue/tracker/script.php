@@ -155,6 +155,10 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
               AND           date_index > -24 ";
       //then really we just want to scan all these results to pull out and appropriate array
       $result = mysqli_query($conn, $sql);
+
+      if(isset($display_chart['backup_period_for_chart_display'])){
+          unset($display_chart['backup_period_for_chart_display']);
+      }
       while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){     
           $date_index = $row['date_index'];
 
@@ -223,9 +227,9 @@ unset($display_default_months);
     //so the solution here is that if none of these are set we need to produce another line of code and adjust accordingly:
       if(!isset($display_chart['period_for_chart_display'][$date_index])){
         echo " [  '".$display_chart['backup_period_for_chart_display'][$date_index]."',       
-                  NULL,      
+                  null,      
                   '',               
-                  NULL,      
+                  null,      
                   '', 
                   ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
 
