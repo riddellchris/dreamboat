@@ -250,7 +250,7 @@ unset($display_default_months);
           echo " [  '".$display_chart['period_for_chart_display'][$date_index]."', ";
 
             if(!isset($display_chart['Total Income'][$last_year_index])){
-                echo "null, '0.00', ";
+                echo "0.00, '0.00', ";
             }
             else{
                 echo     $display_chart['Total Income'][$last_year_index].",      
