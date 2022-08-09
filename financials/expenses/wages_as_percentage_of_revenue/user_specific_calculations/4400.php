@@ -29,23 +29,29 @@ $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_dis
 
 
 
-echo "['Month',   'Wages Percentage', { role: 'annotation' }, 'Total Income', { role: 'annotation' }, 'Wages', { role: 'annotation' }],";
+echo "['Month',   'Wages Percentage', { role: 'annotation' } ";
+/*
+    , 'Total Income', { role: 'annotation' }, 'Wages', { role: 'annotation' }
+*/
+echo "],";
 for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
 
 $correct_elements = 0;
 if(isset($extracted['wages'][$extraction_counter] )){$wages = $extracted['wages'][$extraction_counter]; $correct_elements ++;}
 if(isset($extracted['total_income'][$extraction_counter] )){$total_income = $extracted['total_income'][$extraction_counter]; $correct_elements ++;}
 if($correct_elements == 2){
-$computed['wages_percentage'][$extraction_counter] = round($extracted['wages'][$extraction_counter] / $extracted['total_income'][$extraction_counter], 1);
+$computed['wages_percentage'][$extraction_counter] = round($extracted['wages'][$extraction_counter] / $extracted['total_income'][$extraction_counter] * 100, 1);
 
 }
 
 
 echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',      
-    ".$computed['wages_percentage'][$extraction_counter].",  '".$computed['wages_percentage'][$extraction_counter]."',                       
+    ".$computed['wages_percentage'][$extraction_counter].",  '".$computed['wages_percentage'][$extraction_counter]."'";
+    /*
+    ,                       
     ".$extracted['total_income'][$extraction_counter].",           '".$extracted['total_income'][$extraction_counter]."',    
     ".$extracted['wages'][$extraction_counter].",           '".$extracted['wages'][$extraction_counter]."' ]      ";
-
+    */
 if($extraction_counter <> 0){echo ",";}
 
 $sub_title = $row['accurate_as_at_string'];
