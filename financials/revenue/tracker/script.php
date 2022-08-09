@@ -241,15 +241,31 @@ unset($display_default_months);
                   ".$revenue_target[$display_chart['backup_period_for_chart_display'][$date_index]]['value']."]      ";
                   //this needs 
 
+                  
+
       }
       else{
 
 
-          echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',       
-                    ".$display_chart['Total Income'][$last_year_index].",      
-                    '".$display_chart['Total Income'][$last_year_index]."',               
-                    ".$display_chart['Total Income'][$date_index].",      
-                    '".$display_chart['Total Income'][$date_index]."', 
+          echo " [  '".$display_chart['period_for_chart_display'][$date_index]."', ";
+
+            if(!isset($display_chart['Total Income'][$last_year_index])){
+                echo "null, '0.00', ";
+            }
+            else{
+                echo     $display_chart['Total Income'][$last_year_index].",      
+                      '".$display_chart['Total Income'][$last_year_index]."', ";
+            }
+
+          if(!isset($display_chart['Total Income'][$date_index])){
+              echo "null, '0.00', ";
+          }
+          else{
+              echo     $display_chart['Total Income'][$date_index].",      
+                    '".$display_chart['Total Income'][$date_index]."', ";
+          }
+
+          echo "
                     ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
       }
 
