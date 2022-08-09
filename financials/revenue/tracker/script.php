@@ -237,7 +237,7 @@ unset($display_default_months);
                   null,      
                   '0.00',               
                   null,      
-                  '0.00', 
+                  '0.00', 100000
                   ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
 
       }
