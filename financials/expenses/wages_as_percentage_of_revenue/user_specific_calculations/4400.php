@@ -12,13 +12,13 @@ $result = mysqli_query($conn, $sql);
 
 unset($extracted);
 
-$extracted['website']       = array();
-$extracted['adspend']       = array();
+$extracted['wages']                     = array();
+$extracted['percent_of_revenue']        = array();
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 $date_index = $row['date_index'];
-if($row['account_name'] == 'LAM _Shopify'){                       if(!isset($extracted['website'][$date_index])){ $extracted['website'][$date_index]  = 0;} $extracted['website'][$date_index]  += $row['value'];}
-if($row['account_name'] == 'Advertising and Marketing - LAM'){    if(!isset($extracted['adspend'][$date_index])){ $extracted['adspend'][$date_index]  = 0;} $extracted['adspend'][$date_index]  += $row['value'];}                      
+if($row['account_name'] == 'Total Income'){          if(!isset($extracted['website'][$date_index])){ $extracted['website'][$date_index]  = 0;} $extracted['website'][$date_index]  += $row['value'];}
+if($row['account_name'] == 'Wages and Salaries'){    if(!isset($extracted['adspend'][$date_index])){ $extracted['adspend'][$date_index]  = 0;} $extracted['adspend'][$date_index]  += $row['value'];}                      
 $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
 }
 
