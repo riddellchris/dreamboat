@@ -5,7 +5,7 @@ if($_GET['primary_folder'] != 'reporting'){
   $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
 }
 else{
-  $location_string = 'financials_expenses_wages_as_percentage_of_revenue';
+  $location_string = 'financials_expenses_wages_as_percentage_of_revenue_3';
 
 }
 
