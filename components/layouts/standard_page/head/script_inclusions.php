@@ -116,7 +116,7 @@ if(!isset($_SESSION)){session_start();}
 		}
 		if(check_secondary_folder('expenses')){
 			if(check_tertiary_folder('adspend_vs_return')){		require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/adspend_vs_return/script.php";}
-			if(check_tertiary_folder('adspend_vs_return')){		require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/script.php";}
+			if(check_tertiary_folder('wages_as_percentage_of_revenue')){		require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/script.php";}
 
 
 			if(check_tertiary_folder('total')){					require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/total/script.php";}
