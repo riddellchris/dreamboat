@@ -47,6 +47,15 @@ else{
         var options = {
 
           <?php
+                if($_SESSION['viewing_client_id'] == 4402){
+                  echo "title: 'Wages & contractors as % of revenue";
+                }
+                else{
+                  echo "title: 'Wages as % of revenue";
+
+                }
+
+
                 echo "title: 'Wages as % of revenue";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";

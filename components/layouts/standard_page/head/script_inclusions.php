@@ -117,6 +117,8 @@ if(!isset($_SESSION)){session_start();}
 		if(check_secondary_folder('expenses')){
 			if(check_tertiary_folder('adspend_vs_return')){		require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/adspend_vs_return/script.php";}
 			if(check_tertiary_folder('adspend_vs_return')){		require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/script.php";}
+
+
 			if(check_tertiary_folder('total')){					require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/total/script.php";}
 			if(check_tertiary_folder('operating')){				require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/operating/script.php";}
 			if(check_tertiary_folder('wages')){					require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages/script.php";}		
@@ -137,7 +139,9 @@ if(!isset($_SESSION)){session_start();}
 			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/breakdown/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/sales_mix/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/shopify_comparison/script.php";
-			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/script.php";			
+			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/script.php";		
+			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_2/script.php";					
+			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/script.php";					
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/adspend_vs_return/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/total/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/operating/script.php";	

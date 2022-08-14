@@ -31,9 +31,9 @@ else{
           <?php
 
             $setup_completed = 'no';
-            if($_SESSION['viewing_client_id'] == 4402){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
-            if($_SESSION['viewing_client_id'] == 4400){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
-            if($setup_completed == 'no'){               require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/dummy_data.php";}
+            if($_SESSION['viewing_client_id'] == 4402){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_2/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+            if($_SESSION['viewing_client_id'] == 4400){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_2/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+            if($setup_completed == 'no'){               require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_2/dummy_data.php";}
             unset($setup_completed);
 
             ?>
@@ -47,7 +47,7 @@ else{
         var options = {
 
           <?php
-                echo "title: 'Wages as % of revenue";
+                echo "title: 'Wages (only) as % of revenue";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>
