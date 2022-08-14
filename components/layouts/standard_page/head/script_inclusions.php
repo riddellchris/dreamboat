@@ -140,8 +140,8 @@ if(!isset($_SESSION)){session_start();}
 			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/sales_mix/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/shopify_comparison/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/script.php";		
-			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_2/script.php";					
-			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/script.php";					
+			//require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_2/script.php";					
+		//	require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/script.php";					
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/adspend_vs_return/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/total/script.php";
 			require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/operating/script.php";	
