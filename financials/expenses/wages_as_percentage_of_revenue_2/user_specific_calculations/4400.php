@@ -19,7 +19,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 $date_index = $row['date_index'];
 if($row['account_name'] == 'Total Income'){          if(!isset($extracted['total_income'][$date_index])){ $extracted['total_income'][$date_index]  = 0;} $extracted['total_income'][$date_index]  += $row['value'];}
 if($row['account_name'] == 'Wages and Salaries'){    if(!isset($extracted['wages'][$date_index])){ $extracted['wages'][$date_index]  = 0;} $extracted['wages'][$date_index]  += $row['value'];}    
-if($row['account_name'] == 'Contractors'){           if(!isset($extracted['wages'][$date_index])){ $extracted['wages'][$date_index]  = 0;} $extracted['wages'][$date_index]  += $row['value'];}    
+//if($row['account_name'] == 'Contractors'){           if(!isset($extracted['wages'][$date_index])){ $extracted['wages'][$date_index]  = 0;} $extracted['wages'][$date_index]  += $row['value'];}    
 
                   
 $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
