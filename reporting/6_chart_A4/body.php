@@ -4,6 +4,9 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/reporting/components/styling.php";
 require $_SERVER['DOCUMENT_ROOT']."/reporting/components/print_me_link.php";
 
+
+unset($_SESSION['reporting']['6_chart_A4']['chart_position']);
+
 //this is just hard coding a 6 up table.
 echo "<table>";
 
