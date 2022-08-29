@@ -60,6 +60,10 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
         $_SESSION['viewing_client_id'] == 4400 OR
         $_SESSION['viewing_client_id'] == 4401 OR
         $_SESSION['viewing_client_id'] == 4399 OR
+
+
+     //Garreth's Clients
+     $_SESSION['viewing_client_id'] == 4393 OR       
         
     $_SESSION['viewing_client_id'] == 1){
 
@@ -260,6 +264,10 @@ else{
         $_SESSION['viewing_client_id'] != 4400 OR
         $_SESSION['viewing_client_id'] == 4401 OR
         $_SESSION['viewing_client_id'] == 4399 OR
+
+    //Garreth's Clients
+    $_SESSION['viewing_client_id'] == 4393 OR
+
         $_SESSION['viewing_client_id'] == 1){
 
 
