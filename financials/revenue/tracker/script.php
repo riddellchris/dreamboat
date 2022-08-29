@@ -50,6 +50,8 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $_SESSION['viewing_client_id'] == 4383 OR 
     $_SESSION['viewing_client_id'] == 4398 OR
 
+    //Garreth's clients
+    $_SESSION['viewing_client_id'] == 4393 OR
 
     $_SESSION['viewing_client_id'] == 1){
 
