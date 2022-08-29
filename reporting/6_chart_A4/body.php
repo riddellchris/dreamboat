@@ -71,6 +71,31 @@ echo "<table>";
         }
     }
 
+    //Garreth's client ids
+    if( $_SESSION['viewing_client_id'] == '4393' 
+        ){
+        $default_setup = 'no';
+
+
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';   
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][3] = 'financials_profit_and_loss_gross_profit_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_expenses_operating_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][7] = 'financials_profit_and_loss_net_profit_div';
+
+
+
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_cashflow_debtor_days_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_expenses_wages_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_wages_as_percentage_of_revenue_div';
+
+        if($_SESSION['viewing_client_id'] == '4400'){
+            $_SESSION['reporting']['6_chart_A4']['chart_position'][8] = 'financials_expenses_wages_as_percentage_of_revenue_2_div';
+            $_SESSION['reporting']['6_chart_A4']['chart_position'][10] = 'financials_expenses_wages_as_percentage_of_revenue_3_div';
+        }
+    }
+
+
+
     //Leigh Kefford
     if( $_SESSION['viewing_client_id'] == '4231'
         ){

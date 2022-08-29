@@ -50,6 +50,14 @@ echo "<tr>";
                             }
                             
 
+                        //Garreth Bohannes clients
+                        if( $_SESSION['viewing_client_id'] == '4393'
+                            ){
+                                echo "<img src='/components/whitelabeling/bbsc/noble_amour.png' ' height='95px; margin-left:5px;margin-bottom: 0px;'>";
+                                $go_to_dummy['logo'] = 'no';
+                        }
+
+
 
                             if($go_to_dummy['logo'] == 'yes'){                 echo "<div style='margin-left: 25px;'>Your Logo</div>";}
 
@@ -137,7 +145,11 @@ echo "<tr>";
 
                             
                         }
-
+                        //Garreth Bohannes clients
+                        if( $_SESSION['viewing_client_id'] == '4393'
+                            ){
+                            echo "<img src='/components/whitelabeling/bbsc/BBSC Logo 2.png' style='max-height:100;'>";
+                        }
 
                         echo "</td>";
                         
