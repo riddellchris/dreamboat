@@ -54,7 +54,7 @@ echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',
     */
     echo "]      ";
     
-if($extraction_counter < -1){echo ",";}
+if($extraction_counter <> 0){echo ",";}
 
 $sub_title = $row['accurate_as_at_string'];
 
