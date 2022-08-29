@@ -331,6 +331,9 @@ else{
         $_SESSION['viewing_client_id'] == 4383 OR 
         $_SESSION['viewing_client_id'] == 4398 OR 
 
+    //Garreth's Clients
+    $_SESSION['viewing_client_id'] == 4393 OR
+
               $_SESSION['viewing_client_id'] == 1){
 
                 echo "
