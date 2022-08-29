@@ -46,6 +46,48 @@ if($_SESSION['user_id'] == 1){
 			";
 }
 else{
+
+	//To make possible to add in multiple users we can easily address this by pulling out information for this $_SESSION['user_id']
+	//from say user_pilot_relationships
+	//then we simply have a combined SQL query for this query below and that should do it.
+
+	$sql = "SELECT * FROM user_pilot_relationships
+			WHERE pilots_user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'			
+			";
+	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+	$result = mysqli_query($conn, $sql);	
+
+	//now we just need to build out that sql query for which looks something like:
+		/*
+			Where pilots_id = '".mysqli_real_escape_string($conn, 1)."'
+
+
+			pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
+		*/
+
+		$pilot_user_match_string = ''; //not unset so that we can just use .= the whole time
+		unset($count_of_pilot_user_matches);
+		$pilot_user_match_string .= " ( "; // required to build an or statement
+
+		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			$pilot_user_match_string .= " user_id = '".mysqli_real_escape_string($conn, $row['user_id'])."' ";
+			$count_of_pilot_user_matches ++;
+			if($count_of_pilot_user_matches > 1){
+				$pilot_user_match_string .= " OR ";
+			}
+		}
+		$pilot_user_match_string .= " ) "; // required to build an or statement
+
+		
+// test this first
+
+		/*
+			Then this :     WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
+			will simply become: 	WHERE ".$pilot_user_match_string."
+		*/
+
+
+
 	$sql = "SELECT * FROM user_account_details 
 			WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' 
 			AND client_status = 'active'

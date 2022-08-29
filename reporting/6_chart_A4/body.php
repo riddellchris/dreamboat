@@ -87,7 +87,7 @@ echo "<table>";
         $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_cashflow_debtor_days_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_expenses_wages_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_subcontractors_div';
-        $_SESSION['reporting']['6_chart_A4']['chart_position'][8] = 'financials_expenses_wages_as_percentage_of_revenue_3';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][8] = 'financials_expenses_wages_as_percentage_of_revenue_3_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][10] = 'financials_cash_at_bank_div';
 
         /*
