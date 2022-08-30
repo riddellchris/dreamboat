@@ -68,9 +68,9 @@ else{
          // hAxis: {title: 'Month'},
          legend: { position: 'top'},
           seriesType: 'bars',
-          colors: ['#3c78d8', '#f6b26b'],
-          series: { 0: {targetAxisIndex:0, color: '#f6b26b', type: 'line',  lineWidth: 10},
-                    1: {targetAxisIndex:1, color: '#f6b26b', type: 'line',  lineWidth: 10},
+          colors: ['#3c78d8', '#3c78d8'],
+          series: { 0: {targetAxisIndex:0, color: '#3c78d8', type: 'line',  lineWidth: 10},
+                    1: {targetAxisIndex:1, color: '#3c78d8', type: 'line',  lineWidth: 10},
                     2: {targetAxisIndex:1, color: '#3c78d8', type: 'line',  lineWidth: 10}
         }
         };
