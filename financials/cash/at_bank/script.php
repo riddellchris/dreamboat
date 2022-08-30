@@ -200,12 +200,12 @@ $sql .= "
             ORDER BY date_index ASC          
             ";
 
-            echo $sql; exit();
+         //   echo $sql; exit();
     $result = mysqli_query($conn, $sql);
 
   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
       $display_chart['period_for_chart_display'][$row['date_index']]  = $row['period_for_chart_display'];
-      $display_chart['Total Income'][$row['date_index']]              = $row['value'];
+      $display_chart['Total Income'][$row['date_index']]              = $row['YTD_credit'];
       $sub_title = $row['accurate_as_at_string'];
  
   } 
