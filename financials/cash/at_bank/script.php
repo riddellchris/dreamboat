@@ -199,13 +199,15 @@ $sql .= "
             AND           date_index > -24
             ORDER BY date_index ASC          
             ";
+
+            echo $sql; exit();
     $result = mysqli_query($conn, $sql);
 
   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
       $display_chart['period_for_chart_display'][$row['date_index']]  = $row['period_for_chart_display'];
       $display_chart['Total Income'][$row['date_index']]              = $row['value'];
       $sub_title = $row['accurate_as_at_string'];
-    //RAW_Contract Manufacturing not included as not a sales item    
+ 
   } 
 
   
@@ -224,7 +226,7 @@ unset($display_default_months);
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
 
-  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Revenue', { role: 'annotation' }, 'Target'],";
+  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Cash at bank', { role: 'annotation' }, 'Target'],";
 
   for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
