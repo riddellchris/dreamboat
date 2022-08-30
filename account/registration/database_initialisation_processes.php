@@ -23,6 +23,10 @@ mysqli_query($conn, $sql);
 //this is not actually needed
 //require $_SERVER['DOCUMENT_ROOT']."/components/controls/defaults_to_apply_for_every_user.php";
 
+$sql = "INSERT INTO 		user_pilot_relationships (user_id, pilots_user_id) VALUES ('".$user_id."', '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' )";
+mysqli_query($conn, $sql);
+
+
 $creating_new_user = 'yes';
 require $_SERVER['DOCUMENT_ROOT']."/components/navigation/pieces/main_nav_initialisation.php";
 unset($creating_new_user);
