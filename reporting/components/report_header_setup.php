@@ -148,7 +148,7 @@ echo "<tr>";
                         //Garreth Bohannes clients
                         if( $_SESSION['viewing_client_id'] == '4393'
                             ){
-                            echo "<img src='/components/whitelabeling/bbsc/BBSC Logo 2.png' style='max-height:100;'>";
+                            echo "<img src='/components/whitelabeling/bbsc/BBSC Logo 2.png' style='max-height: 200;'>";
                         }
 
                         echo "</td>";
