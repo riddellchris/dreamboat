@@ -47,6 +47,9 @@ if($_SESSION['user_id'] == 1){
 }
 else{
 
+
+	/*
+
 	//To make possible to add in multiple users we can easily address this by pulling out information for this $_SESSION['user_id']
 	//from say user_pilot_relationships
 	//then we simply have a combined SQL query for this query below and that should do it.
@@ -64,7 +67,7 @@ else{
 
 			pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
 		*/
-
+/*
 		$pilot_user_match_string = ''; //not unset so that we can just use .= the whole time
 		unset($count_of_pilot_user_matches);
 		$pilot_user_match_string .= " ( "; // required to build an or statement
@@ -78,7 +81,7 @@ else{
 		}
 		$pilot_user_match_string .= " ) "; // required to build an or statement
 
-		
+		*/
 // test this first
 
 		/*
