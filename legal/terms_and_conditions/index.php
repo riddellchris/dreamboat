@@ -11,7 +11,7 @@ b{color:red;}
 </style>
 <h2 style='margin-top:0px;'>Terms & Conditions</h2>
 
-<span>Effective date: January 05, 2019<br><br></span>
+<span>Effective date: September 01, 2022<br><br></span>
 
 <span>This website (Site) is operated by Dreamboat Enterprises PTD LTD (we, our
 or us). It is available at: dreamboat.com.au and may be available through other addresses or channels.<br><br></span>
