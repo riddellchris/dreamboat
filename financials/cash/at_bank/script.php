@@ -152,7 +152,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
       //first we want to create a backup period for chart display file
       //so do to this we simply want to 
-      $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
+      $sql = "SELECT * FROM api_xero_reports_trial_balance_at_calendar_month_end
               WHERE         latest_version_for_this_user = 'yes'
               AND           date_index > -24 ";
       //then really we just want to scan all these results to pull out and appropriate array
@@ -192,7 +192,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
             AND           latest_version_for_this_user = 'yes' ";
     //Garreth's clients
     if(    $_SESSION['viewing_client_id'] == 4393 ){ $sql .= " AND account_name = 'Noble Amor' ";}
-      else{ echo " AND           account_name = 'Total Income'";}
+      else{ echo " AND           account_name = 'Cash_at_bank'";}
             
 
 $sql .= "
@@ -205,7 +205,7 @@ $sql .= "
 
   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
       $display_chart['period_for_chart_display'][$row['date_index']]  = $row['period_for_chart_display'];
-      $display_chart['Total Income'][$row['date_index']]              = $row['YTD_credit'];
+      $display_chart['Cash_at_bank'][$row['date_index']]              = $row['YTD_credit'];
       $sub_title = $row['accurate_as_at_string'];
  
   } 
@@ -258,20 +258,20 @@ unset($display_default_months);
 
           echo " [  '".$display_chart['period_for_chart_display'][$date_index]."', ";
 
-            if(!isset($display_chart['Total Income'][$last_year_index])){
+            if(!isset($display_chart['Cash_at_bank'][$last_year_index])){
                 echo "0.00, '0.00', ";
             }
             else{
-                echo     $display_chart['Total Income'][$last_year_index].",      
-                      '".$display_chart['Total Income'][$last_year_index]."', ";
+                echo     $display_chart['Cash_at_bank'][$last_year_index].",      
+                      '".$display_chart['Cash_at_bank'][$last_year_index]."', ";
             }
 
-          if(!isset($display_chart['Total Income'][$date_index])){
+          if(!isset($display_chart['Cash_at_bank'][$date_index])){
               echo "null, '0.00', ";
           }
           else{
-              echo     $display_chart['Total Income'][$date_index].",      
-                    '".$display_chart['Total Income'][$date_index]."', ";
+              echo     $display_chart['Cash_at_bank'][$date_index].",      
+                    '".$display_chart['Cash_at_bank'][$date_index]."', ";
           }
 
           echo "
