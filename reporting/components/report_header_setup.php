@@ -109,7 +109,7 @@ echo "<tr>";
                                     echo "Accurate as at:<br>".date("F j, Y");
 
                             echo "<br>";
-                            echo "";
+                            echo "<i>Powered by dreamboat.com.au</i>";
 
                         echo "</td>";
                         echo "<td class='title_blocks' style='text-align:right;'>";
