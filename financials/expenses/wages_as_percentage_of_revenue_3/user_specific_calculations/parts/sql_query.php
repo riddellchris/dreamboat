@@ -7,5 +7,5 @@ AND           latest_version_for_this_user = 'yes'
 AND           date_index > -7
 ORDER BY date_index ASC          
 ";
-//echo $sql; exit();
+echo $sql; exit();
 $result = mysqli_query($conn, $sql);
