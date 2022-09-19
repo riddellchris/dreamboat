@@ -18,7 +18,7 @@ $numerator_names[1]     = 'Subcontractor - GST';
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 $date_index = $row['date_index'];
-if($row['account_name'] == $denominator_name){     if(!isset($extracted['denominator'][$date_index])){  $extracted['denominator'][$date_index]  = 0;} $extracted['denominator'][$date_index]  += $row['value'];} 
+if($row['account_name'] == $denominator_names[0]){     if(!isset($extracted['denominator'][$date_index])){  $extracted['denominator'][$date_index]  = 0;} $extracted['denominator'][$date_index]  += $row['value'];} 
 
 //obviously this can be turned into some sort of array simplification.
 if($row['account_name'] == $numerator_names[0]){   if(!isset($extracted['numerator'] [$date_index])){        $extracted['numerator'] [$date_index]  = 0;} $extracted['numerator'] [$date_index]  += $row['value'];}    
