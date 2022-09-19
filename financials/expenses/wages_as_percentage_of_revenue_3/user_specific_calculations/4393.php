@@ -38,7 +38,7 @@ $correct_elements = 0;
 if(isset($extracted['numerator'][$extraction_counter]   )){$wages           = $extracted['numerator'][$extraction_counter];     $correct_elements ++;}
 if(isset($extracted['denominator'][$extraction_counter] )){$total_income    = $extracted['denominator'][$extraction_counter];   $correct_elements ++;}
 if($correct_elements == 2){
-$computed['wages_percentage'][$extraction_counter] = round($extracted['numerator'] [$extraction_counter] / $extracted['denominator'][$extraction_counter] * 100, 1);
+$computed['wages_percentage'][$extraction_counter] = round($extracted['numerator'][$extraction_counter] / $extracted['denominator'][$extraction_counter] * 100, 1);
 }
 
 
