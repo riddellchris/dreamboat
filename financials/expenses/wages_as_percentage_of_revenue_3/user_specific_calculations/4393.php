@@ -11,9 +11,15 @@ $extracted['numerator']                 = array(); //originally wages
 $denominator_names = array();
 $numerator_names   = array();
 
+
+//these are obviously user specific names for each account but equally far from impossible.
+//these can easily be turned into something really really really useful.
 $denominator_names[0]   = 'Total Income';
 $numerator_names[0]     = 'Subcontractor - no GST';
 $numerator_names[1]     = 'Subcontractor - GST';
+$title_for_chart[0]     = 'Percentage';
+
+
 
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -22,14 +28,12 @@ if(in_array($row['account_name'], $denominator_names)){     if(!isset($extracted
 
 //obviously this can be turned into some sort of array simplification.
 if(in_array($row['account_name'], $numerator_names)){   if(!isset($extracted['numerator'] [$date_index])){        $extracted['numerator'] [$date_index]  = 0;} $extracted['numerator'] [$date_index]  += $row['value'];}    
-
-
 //if($row['account_name'] == $numerator_names[1]){   if(!isset($extracted['numerator'] [$date_index])){        $extracted['numerator'] [$date_index]  = 0;} $extracted['numerator'] [$date_index]  += $row['value'];}  
                   
 $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
 }
 
-echo "['Month',   'Percentage', { role: 'annotation' } ";
+echo "['Month',   '".$title_for_chart[0]."', { role: 'annotation' } ";
 /*
     , 'Total Income', { role: 'annotation' }, 'Wages', { role: 'annotation' }
 */
@@ -49,7 +53,7 @@ for($extraction_counter = -6; $extraction_counter < 0; $extraction_counter ++){
         /*
         ,                       
         ".$extracted['denominator'][$extraction_counter].",           '".$extracted['denominator'][$extraction_counter]."',    
-        ".$extracted['numerator'] [$extraction_counter].",           '".$extracted['numerator'] [$extraction_counter]."' 
+        ".$extracted['numerator'][$extraction_counter].",           '".$extracted['numerator'][$extraction_counter]."' 
         */
         echo "]      ";
         
