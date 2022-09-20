@@ -27,8 +27,8 @@ $setup_completed = 'no';
 
     if($_SESSION['viewing_client_id'] == 4400){ 
         $denominator_names[0]   = 'Total Income';
-        $numerator_names[0]     = 'Subcontractor - no GST';
-        $numerator_names[1]     = 'Subcontractor - GST';
+        $numerator_names[0]     = 'Contractors';
+       // $numerator_names[1]     = 'Subcontractor - GST';
         $series_title[0]        = 'Contractors';
         $setup_completed = 'yes';
     }
