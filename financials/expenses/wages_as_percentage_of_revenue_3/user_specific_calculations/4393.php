@@ -2,23 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 
 require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/user_specific_calculations/parts/sql_query.php";
-
-unset($extracted);
-
-$extracted['denominator']               = array(); //originally total_income
-$extracted['numerator']                 = array(); //originally wages
-
-$denominator_names = array();
-$numerator_names   = array();
-
-
-//these are obviously user specific names for each account but equally far from impossible.
-//these can easily be turned into something really really really useful.
-$denominator_names[0]   = 'Total Income';
-$numerator_names[0]     = 'Subcontractor - no GST';
-$numerator_names[1]     = 'Subcontractor - GST';
-$title_for_chart[0]     = 'Percentage';
-
+require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/user_specific_calculations/parts/actual_user_specific.php";
 
 
 

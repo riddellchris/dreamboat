@@ -22,7 +22,7 @@ $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_dis
 
 
 
-echo "['Month',   'Wages Percentage', { role: 'annotation' } ";
+echo "['Month',   'Contractors Percentage', { role: 'annotation' } ";
 /*
     , 'Total Income', { role: 'annotation' }, 'Wages', { role: 'annotation' }
 */
