@@ -18,7 +18,7 @@ if($setup_completed == 'yes'){ // this is defined in the actual user settings
     $extracted['period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
     }
 
-    echo "['Month',   '".$title_for_chart[0]."', { role: 'annotation' } ";
+    echo "['Month',   '".$series_title[0]."', { role: 'annotation' } ";
     /*
         , 'Total Income', { role: 'annotation' }, 'Wages', { role: 'annotation' }
     */
