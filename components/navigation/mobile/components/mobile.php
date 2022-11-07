@@ -16,8 +16,14 @@ echo "	<style>
 		
 		#mobile_menu{
 			padding-top:73px;
-			
-			height:120vh;
+			padding-top:20px;
+			height:100%;
+			width: 100%;
+			position: fixed;
+			left: 0;
+			top: 53px;
+			z-index: 2000;
+
 		}
 
 		.about_us > a:first-child {padding-top:4vh;}

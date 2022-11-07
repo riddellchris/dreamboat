@@ -19,19 +19,26 @@ function myFunction() {
     x.style.display = <?php echo $change_to_display;?>;
     y.classList.remove('mobile_menu_white');
     y.classList.add('mobile_menu_red');
-    
+    Object.assign(x.style,{
+        height:'100%',
+        width:'100%',
+        position:'fixed',
+        left:0,
+        top:'40px', // use the setting for header in mobile view
+        "z-index":1000000
+    })
+// HACK: comment out unnecessary  code which has caused error in the console
+// <?php
+// if(isset($_SESSION['dreamboat_crew'])){    
+//     if($_SESSION['dreamboat_crew']== 'yes'){    
+//         //this line of code pushes all the accordians down if you open up the mobile menu
+//     echo "
+//         hide_all_accordian_details();
+//     ";
+//         }
+//     }
 
-<?php
-if(isset($_SESSION['dreamboat_crew'])){    
-    if($_SESSION['dreamboat_crew']== 'yes'){    
-        //this line of code pushes all the accordians down if you open up the mobile menu
-    echo "
-        hide_all_accordian_details();
-    ";
-        }
-    }
-
-?>
+// ?>
     
    // x.scrollTop = 0; // For Safari
 //x.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
