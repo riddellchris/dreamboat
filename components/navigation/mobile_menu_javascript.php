@@ -19,13 +19,13 @@ function myFunction() {
     x.style.display = <?php echo $change_to_display;?>;
     y.classList.remove('mobile_menu_white');
     y.classList.add('mobile_menu_red');
+    let menuHeight = window.height - 32 + 'px';
     Object.assign(x.style,{
-        height:'100%',
+        height:menuHeight,
         width:'100%',
-        position:'fixed',
-        left:0,
-        top:'40px', // use the setting for header in mobile view
-        "z-index":1000000
+        position:'absolute',
+        left:0, 
+        "z-index":1950
     })
 // HACK: comment out unnecessary  code which has caused error in the console
 // <?php
