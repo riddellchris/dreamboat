@@ -23,7 +23,7 @@ function myFunction() {
     Object.assign(x.style,{
         height:menuHeight,
         width:'100%',
-        position:'absolute',
+        position:'fixed',
         left:0, 
         "z-index":1950
     })
