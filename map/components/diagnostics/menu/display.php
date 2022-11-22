@@ -48,7 +48,7 @@ echo "
 
 
 
-    echo "<div name='diagnostics_menu' style='width: 100%; margin-bottom: 6px; z-index:300000000;'>";
+    echo "<div name='diagnostics_menu' style='width: 100%; margin-bottom: 6px;'>";
 		//echo $_SESSION['display_map_diagnostics'] ;
         echo "<a class='diagnostics_switch diagnostics_off' "; 
 			if($_SESSION['display_map_diagnostics'] == 'on'){    echo " href='/map/components/diagnostics/menu/change.php?to=off&from=".$_GET['secondary_folder']."' ";} 
