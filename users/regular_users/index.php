@@ -38,7 +38,7 @@ if($_GET['secondary_folder'] == 'regular_users'){$client_gained_sql = " AND (cli
 
 //This allows Chris to see everything / all users frankly
 //probably this needs to show the pilots for those end users in time.
-if($_SESSION['user_id'] == 1 || 4404){
+if($_SESSION['user_id'] == 1 || 4404 || 4405){
 	$sql = "SELECT * FROM user_account_details 
 			WHERE client_status = 'active'
 			AND dead = 'no'
