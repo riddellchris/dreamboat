@@ -468,7 +468,7 @@ if(check_primary_folder('users')){
 	//$top_sub_menu_options = add_top_sub_menu_option('sales'				,$top_sub_menu_options);
 //	$top_sub_menu_options = add_top_sub_menu_option('owners'					,$top_sub_menu_options);
 	$top_sub_menu_options = add_top_sub_menu_option('regular_users'				,$top_sub_menu_options);
-	if($_SESSION['user_id'] == '1'){
+	if($_SESSION['user_id'] == '1' || '4404' || '4405'){
 		$top_sub_menu_options = add_top_sub_menu_option('display_controls'		,$top_sub_menu_options);
 		$top_sub_menu_options = add_top_sub_menu_option('referral_tests'		,$top_sub_menu_options);		
 	}
