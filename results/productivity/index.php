@@ -5,6 +5,7 @@
 if(!isset($_SESSION)){session_start();}
 if(!isset($_SESSION['viewing_client_id'])){header("Location: /users/"); exit();}
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/navigation/customiser/index.php";
 
 
 	echo "<div style='width:100%;text-align:center;color:red;' class='prompt-font blink_me'>target 5-10% improvement every 6 months</div>";
