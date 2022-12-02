@@ -6,24 +6,24 @@ if (!isset($_SESSION)) {
 ?>
 
 <div class="date-setter-container">
-  <i class="date-setter-toggle date-setter-toggle-open"></i>
+  <i class="date-setter-toggle date-setter-toggle-open fa fa-cog"></i>
   <form class="date-setter close">
-    <span class="date-setter-toggle date-setter-toggle-close"></span>
+    <i class="date-setter-toggle date-setter-toggle-close fa fa-arrow-left"></i>
+    <!-- <span class="date-setter-toggle date-setter-toggle-close"></span> -->
     <div class="wrapper">
       <span class="date-setter_hint">Default start date is 6 month backward from today</span>
       <div class="date-setter_input">
         <label for="date-setter_start">Start Month</label>
-        <input type="month" name="customiser_start_date" class="date-setter_start-month">
+        <input type="month" name="customiser_start_date" class="date-setter_start-month" value="">
       </div>
       <div class="date-setter_input">
         <label for="date-setter_end">End Month</label>
-        <input type="month" name="customiser_end_date" class="date-setter_end-month" value="<?$_SESSION ['customiser_end_date']?>">
+        <input type="month" name="customiser_end_date" class="date-setter_end-month">
       </div>
       <span class="date-setter_hint error"></span>
     </div>
   </form>
 </div>
-
 
 
 <!-- Style -->
@@ -80,13 +80,13 @@ if (!isset($_SESSION)) {
   }
 
   .date-setter-toggle-open{
-    /* FIXME: the url is redirectd, so the image won't be loaded. Currently add an asset folder in results/productivity */
-    background-image: url('./assets/setting-icon.png');
-    background-size: 40%;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
     background-color: #e3eeff;
     border-radius: 0px 4px 4px 0px;
+    font-size: 32px;
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     left:0px;
     text-align: center;
     transition: all .1s ease-in-out;
@@ -95,10 +95,10 @@ if (!isset($_SESSION)) {
     left:-70px;
   }
   .date-setter-toggle-close{
-    background-image: url('./assets/arrow-left-short.svg');
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+    font-size:24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     right:0px;
   }
 
@@ -137,21 +137,8 @@ let currentYear = now.getFullYear();
 let endMonth = currentMonth.toString().padStart(2,'0');
 let endYear = currentYear;
 
-  // Set end month to current month
-  dateEnd.value = `${endYear}-${endMonth}`;
-  
-  // Set default start month as 6 month backwards
-  let startMonth, startYear;
-  if(currentMonth>=6){
-    startMonth = (currentMonth - 6).toString().padStart(2,'0');
-    startYear = currentYear;
-  }else{
-    startMonth = (currentMonth - 6 + 13).toString().padStart(2,'0');
-    startYear = currentYear - 1;
-  }
-  
-  dateStart.value = `${startYear}-${startMonth}`;
-  setDateRange(); // Set date range to 6 month default when open it (every time)
+getDate()
+setDateRange(); // Set date range to 6 month default when open it (every time)
 
 
 
@@ -186,7 +173,26 @@ function changedDate(val){
 
 
 // Functions
+  function getDate(){
+    // Set end month to current month
+  console.log(dateEnd.value)
+  dateEnd.value = `${endYear}-${endMonth}`;
+  console.log(dateEnd.value)
   
+  
+  // Set default start month as 6 month backwards
+  let startMonth, startYear;
+  if(currentMonth>=6){
+    startMonth = (currentMonth - 6).toString().padStart(2,'0');
+    startYear = currentYear;
+  }else{
+    startMonth = (currentMonth - 6 + 13).toString().padStart(2,'0');
+    startYear = currentYear - 1;
+  }
+  
+  dateStart.value = `${startYear}-${startMonth}`;
+  }  
+
   function setDateRange(){
     let maxDate = `${endYear + 5}-${currentMonth}`;
     let minDate = `${endYear - 5}-${currentMonth}`;
@@ -203,7 +209,6 @@ function changedDate(val){
     
     let errorMessage = '';
     if(tempEnd <= tempStart){
-      console.error('error' ,errorHint);
       // Hint to show on screen if that is not valid
       errorMessage = 'Please set End Date at least 1 month later than Start Date.';
     }else{
