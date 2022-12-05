@@ -1,10 +1,3 @@
-<?php
-if (!isset($_SESSION)) {
-  session_start();
-}
-// require $_SERVER['DOCUMENT_ROOT']."/components/navigation/customiser/customiser_date.php";
-?>
-
 <div class="date-setter-container">
   <i class="date-setter-toggle date-setter-toggle-open fa fa-cog"></i>
   <form class="date-setter close">
@@ -164,16 +157,22 @@ if (!isset($_SESSION)) {
   dateStart.addEventListener('change', changedDate);
   dateEnd.addEventListener('change', changedDate);
 
-  function changedDate(val) {
-    // Check if the date is valid
-    checkDateRange();
-    //   if (val == "") return;
-    //   let xmlhttp = new XMLHttpRequest();
-    //   if (xmlhttp.onreadyState == 4 && this.status == 200) {
-    //     console.log('ready')
-    //   }
-    //   xmlhttp.open("POST", "customiser_date.php?q=" + val, true);
-    //   xmlhttp.send();
+  function changedDate() {
+    // Check input date validation
+    let dateInputValidation = checkDateRange();
+    if (!dateInputValidation) return;
+
+    let data = {
+      startMonth: dateStart.value.split('-')[1],
+      startYear: dateStart.value.split('-')[0],
+      endMonth: dateEnd.value.split('-')[1],
+      endYear: dateEnd.value.split('-')[0],
+    };
+    let xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "/components/navigation/customiser/customiser_date.php", true);
+    xmlhttp.send(JSON.stringify(data)); // send request to server
+
   };
 
 
