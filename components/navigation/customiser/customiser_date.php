@@ -1,45 +1,35 @@
-<!-- connect to database: user_customiser_control -->
 <?php
+//connect to database: user_customiser_control
+if (!isset($_SESSION)) {
+  session_start();
+  require $_SERVER['DOCUMENT_ROOT'] . "/account/security/logged_in_check.php";
+  require $_SERVER['DOCUMENT_ROOT'] . "/components/back_of_house/database/connection.php";
+}
 $user_to_display = $_SESSION['viewing_client_id'];
 
-
-$sql = "SELECT * FROM user_customiser_control WHERE user_id = $user_to_display";
-$result = mysqli_query($conn, $sql);
+// $sql = "SELECT * FROM user_customiser_control WHERE user_id = $user_to_display";
+// $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC); // to get the matching row
 
-// TODO:link data from front-end to the back-end
+$request = 2;
+if (isset($_GET['request'])) $request = $_GET['request'];
+if ($request == 2) {
 
-//get data from database
-var_dump($_SESSION['customiser_start_date']);
-$customiser_start_date = $_POST['customiser_start_date'];
-$customiser_end_date = $_POST['customiser_start_date'];
+  // Read POST data
+  $data = json_decode(file_get_contents("php://input"));
+  $startMonth = $data->startMonth;
+  $startYear = $data->startYear;
+  $endMonth = $data->endMonth;
+  $endYear = $data->endYear;
 
+  // Insert record
+  $sql = "UPDATE user_customiser_control SET start_date_month = $startMonth, start_date_year = $startYear, end_date_month = $endMonth, end_date_year = $endYear WHERE user_id = $user_to_display";
 
-
-
-// get the q parameter from URL
-$q = $_REQUEST["q"];
-$row[$q];
-
-$hint = "";
-
-// lookup all hints from array if $q is different from ""
-if ($q !== "") {
-  $q = strtolower($q);
-  $len=strlen($q);
-  foreach($a as $name) {
-    if (stristr($q, substr($name, 0, $len))) {
-      if ($hint === "") {
-        $hint = $name;
-      } else {
-        $hint .= ", $name";
-      }
-    }
+  if (mysqli_query($conn, $sql)) {
+    echo "Record updated successfully";
+  } else {
+    echo "Error updating record: " . mysqli_error($conn);
   }
+
+  exit;
 }
-
-// Output "no suggestion" if no hint was found or output correct values
-echo $hint === "" ? "no suggestion" : $hint;
-
-
-?>
