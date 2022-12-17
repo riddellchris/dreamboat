@@ -38,6 +38,9 @@ $_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];
 if($test1 != 0 OR $test2 != 0){
 	require $_SERVER['DOCUMENT_ROOT']."/results/productivity/chart.php";
 }	
+
+require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/curve_chart_div.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/end_of_page_requires.php";
 ?>
 
 
@@ -61,10 +64,4 @@ if($test1 != 0 OR $test2 != 0){
 			}	
 	*/
 //echo "	</div> ";
- 
-
-	
-
-require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/curve_chart_div.php";
-require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/end_of_page_requires.php";
 ?>
