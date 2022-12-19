@@ -6,7 +6,7 @@
  //   left: 6;
  padding-left: 6px;
  padding-right: 6px;
-   z-index: 2000;
+   z-index: 1000;
        font-weight: 600; 
      background: #ebf7ff; 
 //    border: solid 4px #737373;
