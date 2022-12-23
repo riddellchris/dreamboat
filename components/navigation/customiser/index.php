@@ -218,3 +218,7 @@
 
   }
 </script>
+
+<?php
+    $_SESSION['is_date_customised'] = true;
+?>

@@ -90,7 +90,6 @@ $results_colors['productivity_target'] 	= '#281e96';
 }
 .div-table-row {
   display: table-row;
-  //display: inline-block;
   width: auto;
   clear: both;
 }
@@ -101,11 +100,14 @@ $results_colors['productivity_target'] 	= '#281e96';
 .div-table-cell {
   float: center; /* fi for  buggy browsers */
   display: table-cell;         
-  width: 71px;         
+  width: 71px;
+  text-align:center;
 }
-.title{
+
+.div-table-cell.title{
   width: 160px; 
   text-align:right; 
+  border: 0px solid;
 }
 .si_digits_wide{
 width:70px;
@@ -115,6 +117,9 @@ font-size:12px;
 margin:0px;
 height:20px;
 text-align:right;
+}
+.si_digits_wide.target{
+  border-style: dashed;
 }
 	
 </style>

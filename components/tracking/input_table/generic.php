@@ -1,10 +1,6 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
-
-
-
-
 $adjust_variable_name = 'yes';
 
 
@@ -33,18 +29,12 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 
 ?>
 	
-
-
-
-
 	<div class='div-table-row'>
 		<div class='div-table-col-1'>		
-
 			<?php
 
 			echo "
-				<div class='div-table-cell title ".$variable_name."_target' style='border: 0px solid;'>
-			";
+				<div class='div-table-cell title ".$variable_name."_target'>";
 			
 			echo $display_variable_name." Target";
 			
@@ -71,25 +61,12 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 			
 			
 			<?php
-			//for loop of 6 empty cells
-			/*
-			for($i = 1; $i < 7; $i++){
-				echo "<div class='div-table-cell'></div>";
-				}
 
-				*/
-
-//echo '<pre>' , var_dump($row) , '</pre>';
-
-
-			//for loop of remaining 6 target cells
-			for($i = 0; $i < 13; $i++){
-
-
+			for($i = 0; $i <= $month_to_loop; $i++){
 				echo "
 					<div class='div-table-cell'>	
-						<input class='si_digits_wide ".$variable_name."_target' name='".$variable_name."_target_".$month_combo[$i]."' 
-						value ='".$row[$month_combo[$i]]."' style='border-style: dashed'>
+						<input class='si_digits_wide target ".$variable_name."_target' name='".$variable_name."_target_".$month_combo[$i]."' 
+						value ='".$row[$month_combo[$i]]."'>
 					</div>";
 				}
 			?>

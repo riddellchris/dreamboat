@@ -61,8 +61,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/curre
 				<div class='div-table-cell title'>
 				</div>
 				<?php
-				for($i = 0;$i < 13; $i++){
-					echo "	<div class='div-table-cell' style='text-align:center;'>".
+				for($i = 0;$i <= $month_to_loop; $i++){
+					echo "<div class='div-table-cell'>".
 						$month_name[$i]."
 						</div>";
 						}
