@@ -1,38 +1,32 @@
-<div class="date-setter-container">
-  <i class="date-setter-toggle date-setter-toggle-open fa fa-cog"></i>
-  <form class="date-setter close">
-    <i class="date-setter-toggle date-setter-toggle-close fa fa-arrow-left"></i>
-    <div class="wrapper">
-      <div class="date-setter_input">
-        <label for="date-setter_start">Start Month</label>
-        <input type="month" name="customiser_start_date" class="date-setter_start-month" value="">
-      </div>
-      <div class="date-setter_input">
-        <label for="date-setter_end">End Month</label>
-        <input type="month" name="customiser_end_date" class="date-setter_end-month">
-      </div>
-      <span class="date-setter_hint error"></span>
+<i class="date-setter-toggle date-setter-toggle-open fa fa-cog"></i>
+<form class="date-setter close">
+  <i class="date-setter-toggle date-setter-toggle-close fa fa-arrow-left"></i>
+  <div class="wrapper">
+    <div class="date-setter_input">
+      <label for="date-setter_start">Start Month</label>
+      <input type="month" name="customiser_start_date" class="date-setter_start-month" value="">
     </div>
-  </form>
-</div>
+    <div class="date-setter_input">
+      <label for="date-setter_end">End Month</label>
+      <input type="month" name="customiser_end_date" class="date-setter_end-month">
+    </div>
+    <span class="date-setter_hint error"></span>
+  </div>
+</form>
+
 
 
 <!-- Style -->
 <!-- TODO: find the variables for colors -->
 <style>
-  .date-setter-container {
+  .date-setter {
     position: fixed;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    z-index: 10;
     max-width: 400px;
     width: 100%;
-  }
-
-  .date-setter {
     box-sizing: border-box;
-    position: relative;
     display: flex;
     left: 0px;
     min-height: 200px;
@@ -43,6 +37,7 @@
     backdrop-filter: blur(3px);
     overflow: hidden;
     transition: all .2s .05s ease-in-out;
+    z-index: 10;
   }
 
   .date-setter .wrapper {
@@ -53,6 +48,7 @@
 
   .date-setter.close {
     left: -120%;
+    z-index: 0;
   }
 
   .date-setter:hover {
@@ -61,10 +57,10 @@
 
   /* Toggles */
   .date-setter-toggle {
-    display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    display: block;
     width: 60px;
     height: 60px;
     cursor: pointer;
@@ -73,6 +69,8 @@
   }
 
   .date-setter-toggle-open {
+    position: fixed;
+    left: 0;
     background-color: #e3eeff;
     border-radius: 0px 4px 4px 0px;
     font-size: 32px;
@@ -139,19 +137,21 @@
 
 
   // Event Listener
-  const dateSetterContainer = document.querySelector(".date-setter-container");
   const dateSetterToggleOpen = document.querySelector(".date-setter-toggle-open");
   const dateSetterToggleClose = document.querySelector(".date-setter-toggle-close");
   const dateSetter = document.querySelector(".date-setter");
   const errorHint = document.querySelector(".date-setter_hint.error");
 
   // Toggle the date setter
-  dateSetterContainer.addEventListener('click', function(e) {
-    if (e.target.classList.contains("date-setter-toggle")) {
-      dateSetter.classList.toggle("close");
-      dateSetterToggleOpen.classList.toggle('hide');
-    }
+  dateSetterToggleOpen.addEventListener('click',function(e){
+    dateSetterToggleOpen.classList.toggle('hide');
+    dateSetter.classList.toggle('close');
   });
+
+  dateSetterToggleClose.addEventListener('click',function(e){
+    dateSetter.classList.toggle('close');
+    dateSetterToggleOpen.classList.toggle('hide');
+  })
 
   // Date onChange event listener
   dateStart.addEventListener('change', changedDate);
