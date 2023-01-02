@@ -38,7 +38,7 @@ if($_GET['secondary_folder'] == 'regular_users'){$client_gained_sql = " AND (cli
 
 //This allows Chris to see everything / all users frankly
 //probably this needs to show the pilots for those end users in time.
-if($_SESSION['user_id'] == 1){
+if($_SESSION['user_id'] == 1 || 4404 || 4405){
 	$sql = "SELECT * FROM user_account_details 
 			WHERE client_status = 'active'
 			AND dead = 'no'
@@ -46,14 +46,61 @@ if($_SESSION['user_id'] == 1){
 			";
 }
 else{
+
+
+
+	
+	//To make possible to add in multiple users we can easily address this by pulling out information for this $_SESSION['user_id']
+	//from say user_pilot_relationships
+	//then we simply have a combined SQL query for this query below and that should do it.
+
+	$sql = "SELECT * FROM user_pilot_relationships
+			WHERE pilots_user_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'			
+			";
+
+			//echo $sql; exit();
+	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+	$result = mysqli_query($conn, $sql);	
+
+	//now we just need to build out that sql query for which looks something like:
+		/*
+			Where pilots_id = '".mysqli_real_escape_string($conn, 1)."'
+
+
+			pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
+		*/
+
+		$pilot_user_match_string = ''; //not unset so that we can just use .= the whole time
+		$count_of_pilot_user_matches = 0; //not unset so that we can use ++ at the end of it
+		$pilot_user_match_string .= " ( "; // required to build an or statement
+
+		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			$pilot_user_match_string .= " user_id = '".mysqli_real_escape_string($conn, $row['user_id'])."' ";
+			$count_of_pilot_user_matches ++;
+			if($count_of_pilot_user_matches > 0 AND $count_of_pilot_user_matches < mysqli_num_rows(($result))){
+				$pilot_user_match_string .= " OR ";
+			}
+		}
+		$pilot_user_match_string .= " ) "; // required to build an or statement
+
+	
+// test this first
+		//echo $pilot_user_match_string;exit();
+		/*
+			Then this :     WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
+			will simply become: 	WHERE ".$pilot_user_match_string."
+		*/
+
+
+
 	$sql = "SELECT * FROM user_account_details 
-			WHERE pilots_id = '".mysqli_real_escape_string($conn, $_SESSION['user_id'])."' 
+			WHERE ".$pilot_user_match_string." 
 			AND client_status = 'active'
 			AND dead = 'no'
 			ORDER BY first_name, second_name	
 			";
 }
-		//		echo $sql; exit();
+			//	echo $sql; exit();
 //this gives us all the user_ids
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 $result = mysqli_query($conn, $sql);

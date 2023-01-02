@@ -5,7 +5,7 @@ if($_GET['primary_folder'] != 'reporting'){
   $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
 }
 else{
-  $location_string = 'financials_expenses_wages';
+  $location_string = 'financials_expenses_subcontractors';
 
 }
 
@@ -130,7 +130,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
             AND           latest_version_for_this_user = 'yes'
-            AND           account_name like '%wages%'
+            AND           account_name like '%subcontractor%'
             AND           date_index > -24
             ORDER BY date_index ASC          
             ";
@@ -164,7 +164,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     echo "
     'LAST YEAR', { role: 'annotation' }, ";
   }
-  echo "'Wages', { role: 'annotation' }, 'Target'],";
+  echo "'Subcontractors', { role: 'annotation' }, 'Target'],";
 
   for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
@@ -198,7 +198,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 }
 else{
   echo "
-  ['Month',     'Wages', { role: 'annotation' },'Target'],
+  ['Month',     'Subcontractors', { role: 'annotation' },'Target'],
   ['Dec 21',   450, '450',  614.6],          
   ['Jan 22',   450, '450',  614.6],
   ['Feb 22',   288, '288',  682],
@@ -220,7 +220,7 @@ else{
 
         var options = {
           <?php
-                echo "title: 'Wages";
+                echo "title: 'Subcontractors";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>

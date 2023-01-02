@@ -5,7 +5,7 @@ if($_GET['primary_folder'] != 'reporting'){
   $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
 }
 else{
-  $location_string = 'financials_expenses_wages';
+  $location_string = 'financials_cash_at_bank';
 
 }
 
@@ -32,7 +32,7 @@ else{
 
 
 if( $_SESSION['viewing_client_id'] == 4231 OR 
-    $_SESSION['viewing_client_id'] == 4383 OR 
+
     $_SESSION['viewing_client_id'] == 4387 OR 
     $_SESSION['viewing_client_id'] == 4388 OR 
     $_SESSION['viewing_client_id'] == 4389 OR 
@@ -42,13 +42,16 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
     //Steve Rouget's Clients
     $_SESSION['viewing_client_id'] == 4402 OR
-        $_SESSION['viewing_client_id'] == 4400 OR
-        $_SESSION['viewing_client_id'] == 4401 OR
-        $_SESSION['viewing_client_id'] == 4399 OR
+    $_SESSION['viewing_client_id'] == 4400 OR
+    $_SESSION['viewing_client_id'] == 4401 OR
+    $_SESSION['viewing_client_id'] == 4399 OR
 
-     //Garreth's Clients
-     $_SESSION['viewing_client_id'] == 4393 OR
+    //Tricia Ong's Clients
+    $_SESSION['viewing_client_id'] == 4383 OR 
+    $_SESSION['viewing_client_id'] == 4398 OR
 
+    //Garreth's clients
+    $_SESSION['viewing_client_id'] == 4393 OR
 
     $_SESSION['viewing_client_id'] == 1){
 
@@ -57,8 +60,31 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 
 
       if($_SESSION['viewing_client_id'] == 4383){
-        $revenue_target['Aug 22']['value'] = 70000;
-        $revenue_target['Jul 22']['value'] = 60000;
+
+
+
+
+
+
+
+        $revenue_target['Dec 23']['value'] = 96667;
+        $revenue_target['Nov 23']['value'] = 96667;
+        $revenue_target['Oct 23']['value'] = 96667;
+        $revenue_target['Sep 23']['value'] = 96667;        
+        $revenue_target['Aug 23']['value'] = 96667;
+        $revenue_target['Jul 23']['value'] = 96667;
+        $revenue_target['Jun 23']['value'] = 96667;
+        $revenue_target['May 23']['value'] = 97667;
+        $revenue_target['Apr 23']['value'] = 92067;
+        $revenue_target['Mar 23']['value'] = 77367;
+        $revenue_target['Feb 23']['value'] = 78167;
+        $revenue_target['Jan 23']['value'] = 52667;
+        $revenue_target['Dec 22']['value'] = 87867;
+        $revenue_target['Nov 22']['value'] = 716667;
+        $revenue_target['Oct 22']['value'] = 216667;
+        $revenue_target['Sep 22']['value'] = 226667;        
+        $revenue_target['Aug 22']['value'] = 126667;
+        $revenue_target['Jul 22']['value'] = 86667;
         $revenue_target['Jun 22']['value'] = 50000;
         $revenue_target['May 22']['value'] = 50000;
         $revenue_target['Apr 22']['value'] = 50000;
@@ -124,73 +150,133 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
       }
 
 
+      //first we want to create a backup period for chart display file
+      //so do to this we simply want to 
+      $sql = "SELECT * FROM api_xero_reports_trial_balance_at_calendar_month_end
+              WHERE         latest_version_for_this_user = 'yes'
+              AND           date_index > -24 ";
+      //then really we just want to scan all these results to pull out and appropriate array
+      $result = mysqli_query($conn, $sql);
+
+      if(isset($display_chart['backup_period_for_chart_display'])){
+          unset($display_chart['backup_period_for_chart_display']);
+      }
+      while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){     
+          $date_index = $row['date_index'];
+
+        if(!isset($display_chart['backup_period_for_chart_display'][$date_index])){
+          $display_chart['backup_period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
+
+        }
+
+
+      }
+
+      /*
+      if($_SESSION['viewing_client_id'] == '4402'){
+        echo '<pre>' , var_dump($display_chart['backup_period_for_chart_display']) , '</pre>';
+        
+      }
+      */
+
+
+
+
+
+
 
 
     //EXTRACT
-    $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
+    $sql = "SELECT * FROM api_xero_reports_trial_balance_at_calendar_month_end
             WHERE         user_id = '".$_SESSION['viewing_client_id']."'
-            AND           latest_version_for_this_user = 'yes'
-            AND           account_name like '%wages%'
+            AND           latest_version_for_this_user = 'yes' ";
+    //Garreth's clients
+    if(    $_SESSION['viewing_client_id'] == 4393 ){ $sql .= " AND account_name = 'Noble Amor' ";}
+      else{ echo " AND           account_name = 'Cash_at_bank'";}
+            
+
+$sql .= "
             AND           date_index > -24
             ORDER BY date_index ASC          
             ";
+
+         //   echo $sql; exit();
     $result = mysqli_query($conn, $sql);
 
   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
       $display_chart['period_for_chart_display'][$row['date_index']]  = $row['period_for_chart_display'];
-      $display_chart['Total Income'][$row['date_index']]              = $row['value'];
+      $display_chart['Cash_at_bank'][$row['date_index']]              = $row['YTD_credit'];
       $sub_title = $row['accurate_as_at_string'];
-    //RAW_Contract Manufacturing not included as not a sales item    
+ 
   } 
 
   
-  $display_default_months = 'yes';
-  if($_SESSION['viewing_client_id'] == '4231'){
-    $months_to_display = 12;
-    $display_default_months = 'no'; 
-  }
-  if($display_default_months == 'yes'){
-    $months_to_display = 6;
-  }
-  unset($display_default_months);
+$display_default_months = 'yes';
+if($_SESSION['viewing_client_id'] == '4231'){
+  $months_to_display = 12;
+  $display_default_months = 'no'; 
+}
+if($display_default_months == 'yes'){
+  $months_to_display = 6;
+}
+unset($display_default_months);
 
-  
+
   //therefore
   $max_extract_to_for_sql = $months_to_display * -1 - 1;
   $extraction_counter_start = $months_to_display * -1; 
 
-  echo " ['Month', ";
-  if($_SESSION['viewing_client_id'] != 4400){ 
-    echo "
-    'LAST YEAR', { role: 'annotation' }, ";
-  }
-  echo "'Wages', { role: 'annotation' }, 'Target'],";
+  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Cash at bank', { role: 'annotation' }, 'Target'],";
 
   for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
 
     $last_year_index = $date_index-12;
 
     //NULL CHECKS PER COLUMN
-    if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = '0.00';}
+ //   if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = '0.00';}
  //   if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
   //  if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
    // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
    // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
 
 
-    echo " [  '".$display_chart['period_for_chart_display'][$date_index]."',     ";
-    
-    if($_SESSION['viewing_client_id'] != 4400){
-      echo "
-               ".$display_chart['Total Income'][$last_year_index].",      
-              '".$display_chart['Total Income'][$last_year_index]."',      ";
-    }
-    
-    echo "
-              ".$display_chart['Total Income'][$date_index].",      
-              '".$display_chart['Total Income'][$date_index]."', 
-              ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
+    //so the solution here is that if none of these are set we need to produce another line of code and adjust accordingly:
+      if(!isset($display_chart['period_for_chart_display'][$date_index])){
+        echo " [  '".$display_chart['backup_period_for_chart_display'][$date_index+1]."',       
+                  null,      
+                  '0.00',               
+                  null,      
+                  '0.00', 
+                  ".$revenue_target[$display_chart['backup_period_for_chart_display'][$date_index]]['value']."]      ";
+                  //this needs 
 
+                  
+
+      }
+      else{
+
+
+          echo " [  '".$display_chart['period_for_chart_display'][$date_index]."', ";
+
+            if(!isset($display_chart['Cash_at_bank'][$last_year_index])){
+                echo "0.00, '0.00', ";
+            }
+            else{
+                echo     $display_chart['Cash_at_bank'][$last_year_index].",      
+                      '".$display_chart['Cash_at_bank'][$last_year_index]."', ";
+            }
+
+          if(!isset($display_chart['Cash_at_bank'][$date_index])){
+              echo "null, '0.00', ";
+          }
+          else{
+              echo     $display_chart['Cash_at_bank'][$date_index].",      
+                    '".$display_chart['Cash_at_bank'][$date_index]."', ";
+          }
+
+          echo "
+                    ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
+      }
 
     if($date_index <> -1){echo ",";}
   }
@@ -198,7 +284,7 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
 }
 else{
   echo "
-  ['Month',     'Wages', { role: 'annotation' },'Target'],
+  ['Month',     'Cash at bank', { role: 'annotation' },'Target'],
   ['Dec 21',   450, '450',  614.6],          
   ['Jan 22',   450, '450',  614.6],
   ['Feb 22',   288, '288',  682],
@@ -220,7 +306,7 @@ else{
 
         var options = {
           <?php
-                echo "title: 'Wages";
+                echo "title: 'Cash at bank";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>
@@ -233,7 +319,7 @@ else{
 
           if(
               $_SESSION['viewing_client_id'] == 4231 OR     
-              $_SESSION['viewing_client_id'] == 4383 OR 
+
               $_SESSION['viewing_client_id'] == 4387 OR 
               $_SESSION['viewing_client_id'] == 4388 OR 
               $_SESSION['viewing_client_id'] == 4389 OR 
@@ -241,40 +327,29 @@ else{
               $_SESSION['viewing_client_id'] == 4391 OR 
               $_SESSION['viewing_client_id'] == 4392 OR 
 
+
     //Steve Rouget's Clients
     $_SESSION['viewing_client_id'] == 4402 OR
-        $_SESSION['viewing_client_id'] != 4400 OR
+        $_SESSION['viewing_client_id'] == 4400 OR
         $_SESSION['viewing_client_id'] == 4401 OR
         $_SESSION['viewing_client_id'] == 4399 OR
 
-     //Garreth's Clients
-     $_SESSION['viewing_client_id'] == 4393 OR
-     
-     
-        $_SESSION['viewing_client_id'] == 1){
+        //Tricia Ong's Clients
+        $_SESSION['viewing_client_id'] == 4383 OR 
+        $_SESSION['viewing_client_id'] == 4398 OR 
 
-                    if($_SESSION['viewing_client_id'] != 4400){
+    //Garreth's Clients
+    $_SESSION['viewing_client_id'] == 4393 OR
 
+              $_SESSION['viewing_client_id'] == 1){
 
-
-
-
-                              echo "
-                              series: {
-                                  0: {                              color: '#281e96'}  ,
-                                  1: {                              color: '#3c78d8'}  ,                          
-                                  2: {type: 'line',  lineWidth: 10, color: '#cecece'}
-                                }
-                              ";
-                    }
-                    else{//no last year
-                      echo "
-                      0: {                              color: '#3c78d8'}  ,                          
-                      1: {type: 'line',  lineWidth: 10, color: '#cecece'}";
-
-                    }
-
-
+                echo "
+                series: {
+                    0: {                              color: '#281e96'}  ,
+                    1: {                              color: '#3c78d8'}  ,                          
+                    2: {type: 'line',  lineWidth: 10, color: '#cecece'}
+                  }
+                ";
               }
               else{
                 echo "
@@ -284,9 +359,6 @@ else{
                 ";
 
               }
-
-
-
 
           ?>
 

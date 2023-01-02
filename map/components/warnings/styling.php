@@ -9,7 +9,7 @@
     text-align:center; 
     text-transform:uppercase;
     font-family: helvetica;
-    z-index: 3000000;
+    /* z-index: 3000000; */
 }
 
 

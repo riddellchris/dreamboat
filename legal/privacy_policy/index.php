@@ -13,7 +13,7 @@ b{color:red;}
 </style>
 <h2 style='margin-top:0px;'>Privacy Policy</h2>
 
-<span>Effective date: January 05, 2019<br><br></span>
+<span>Effective date: September 01, 2022<br><br></span>
 
 
 <span>Dreamboat Enterprises PTY LTD ("us", "we", or "our") operates the https://www.dreamboat.com.au website (the "Service").<br><br></span>

@@ -11,7 +11,7 @@
 	right: 13;
 	top: 150;
 	font-size: larger;
-	z-index: 2000;
+	z-index: 1000;
 }
 #body:fullscreen 		.fullscreen_icons  {  		top: 10; right: 30;}
 

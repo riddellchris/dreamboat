@@ -4,6 +4,9 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/reporting/components/styling.php";
 require $_SERVER['DOCUMENT_ROOT']."/reporting/components/print_me_link.php";
 
+
+unset($_SESSION['reporting']['6_chart_A4']['chart_position']);
+
 //this is just hard coding a 6 up table.
 echo "<table>";
 
@@ -61,9 +64,41 @@ echo "<table>";
         $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_cashflow_debtor_days_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_expenses_wages_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_wages_as_percentage_of_revenue_div';
-        $_SESSION['reporting']['6_chart_A4']['chart_position'][8] = '';
 
+        if($_SESSION['viewing_client_id'] == '4400'){
+            $_SESSION['reporting']['6_chart_A4']['chart_position'][8] = 'financials_expenses_wages_as_percentage_of_revenue_2_div';
+            $_SESSION['reporting']['6_chart_A4']['chart_position'][10] = 'financials_expenses_wages_as_percentage_of_revenue_3_div';
+        }
     }
+
+    //Garreth's client ids
+    if( $_SESSION['viewing_client_id'] == '4393' 
+        ){
+        $default_setup = 'no';
+
+
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][1] = 'financials_revenue_tracker_div';   
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][3] = 'financials_profit_and_loss_gross_profit_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_expenses_operating_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][7] = 'financials_profit_and_loss_net_profit_div';
+
+
+
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][2] = 'financials_cashflow_debtor_days_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_expenses_wages_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_subcontractors_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][8] = 'financials_expenses_wages_as_percentage_of_revenue_3_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][10] = 'financials_cash_at_bank_div';
+
+        /*
+        if($_SESSION['viewing_client_id'] == '4400'){
+            $_SESSION['reporting']['6_chart_A4']['chart_position'][8] = 'financials_expenses_wages_as_percentage_of_revenue_2_div';
+            $_SESSION['reporting']['6_chart_A4']['chart_position'][10] = 'financials_expenses_wages_as_percentage_of_revenue_3_div';
+        }
+        */
+    }
+
+
 
     //Leigh Kefford
     if( $_SESSION['viewing_client_id'] == '4231'
@@ -75,6 +110,7 @@ echo "<table>";
         $_SESSION['reporting']['6_chart_A4']['chart_position'][4] = 'financials_profit_and_loss_gross_profit_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][5] = 'financials_profit_and_loss_net_profit_div';
         $_SESSION['reporting']['6_chart_A4']['chart_position'][6] = 'financials_expenses_wages_div';
+        $_SESSION['reporting']['6_chart_A4']['chart_position'][7] = 'financials_cash_at_bank_div';
     }
 
 
@@ -97,6 +133,8 @@ echo "<table>";
     $n = 6; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
     $n = 7; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
     $n = 8; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 9; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
+    $n = 10; $chart[$n] = $_SESSION['reporting']['6_chart_A4']['chart_position'][$n];
 
     echo "<tr class='chart_row'>";
         $n = 1;
@@ -138,6 +176,16 @@ echo "<table>";
                 echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
             echo "</td>";
     echo "</tr>";
+    echo "<tr class='chart_row'>";
+    $n = 9;
+        echo "<td>";
+            echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
+        echo "</td>";
+    $n = 10;
+        echo "<td>";
+            echo "<div id='$chart[$n]'  class='google_charts_print'></div>";
+        echo "</td>";
+echo "</tr>";
     require $_SERVER['DOCUMENT_ROOT']."/reporting/components/notes_textarea.php";
 
 echo "</table>";

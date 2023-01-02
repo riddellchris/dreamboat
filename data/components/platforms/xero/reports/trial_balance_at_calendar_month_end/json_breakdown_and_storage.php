@@ -22,6 +22,11 @@ else{$proper_reponse = 'no';}
 require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/components/set_error_handler.php";
 
 if($proper_reponse == 'yes'){
+
+
+
+
+
    //Revenues
    for($j = 0; $j < count($response); $j ++ ){
   

@@ -50,6 +50,14 @@ echo "<tr>";
                             }
                             
 
+                        //Garreth Bohannes clients
+                        if( $_SESSION['viewing_client_id'] == '4393'
+                            ){
+                                echo "<img src='/components/whitelabeling/bbsc/noble_amour.png' ' height='95px; margin-left:5px;margin-bottom: 0px;'>";
+                                $go_to_dummy['logo'] = 'no';
+                        }
+
+
 
                             if($go_to_dummy['logo'] == 'yes'){                 echo "<div style='margin-left: 25px;'>Your Logo</div>";}
 
@@ -101,7 +109,7 @@ echo "<tr>";
                                     echo "Accurate as at:<br>".date("F j, Y");
 
                             echo "<br>";
-                            echo "";
+                            echo "Powered by <a href='https://dreamboat.com.au/' target='_blank'><span style='color:#4332ff;'>DREAMBOAT</span>.com.au</a>";
 
                         echo "</td>";
                         echo "<td class='title_blocks' style='text-align:right;'>";
@@ -137,7 +145,11 @@ echo "<tr>";
 
                             
                         }
-
+                        //Garreth Bohannes clients
+                        if( $_SESSION['viewing_client_id'] == '4393'
+                            ){
+                            echo "<img src='/components/whitelabeling/bbsc/BBSC Logo 2.png' style='max-height: 200; margin-right: 70;'>";
+                        }
 
                         echo "</td>";
                         

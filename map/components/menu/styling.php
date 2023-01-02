@@ -7,7 +7,8 @@
 	text-transform:uppercase;
 	font-family:helvetica;
 	text-align: left;
-	z-index: 4000000;
+	/* z-index: 4000000; //old */
+	z-index:1000; 
 	top:130;
 }
 #body:fullscreen 		#map_menu_container       {  		top:  -5;}

@@ -5,7 +5,7 @@ if($_GET['primary_folder'] != 'reporting'){
   $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
 }
 else{
-  $location_string = 'financials_expenses_wages_as_percentage_of_revenue';
+  $location_string = 'financials_expenses_wages_as_percentage_of_revenue_2';
 
 }
 
@@ -31,9 +31,9 @@ else{
           <?php
 
             $setup_completed = 'no';
-            if($_SESSION['viewing_client_id'] == 4402){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
-            if($_SESSION['viewing_client_id'] == 4400){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
-            if($setup_completed == 'no'){               require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/dummy_data.php";}
+            if($_SESSION['viewing_client_id'] == 4402){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_2/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+            if($_SESSION['viewing_client_id'] == 4400){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_2/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+            if($setup_completed == 'no'){               require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_2/dummy_data.php";}
             unset($setup_completed);
 
             ?>
@@ -47,7 +47,7 @@ else{
         var options = {
 
           <?php
-                echo "title: 'Wages as % of revenue";
+                echo "title: 'Wages (only) as % of revenue";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>
@@ -59,9 +59,9 @@ else{
          // hAxis: {title: 'Month'},
          legend: { position: 'top'},
           seriesType: 'bars',
-          colors: ['#3c78d8', '#f6b26b'],
-          series: { 0: {targetAxisIndex:0, color: '#f6b26b', type: 'line',  lineWidth: 10},
-                    1: {targetAxisIndex:1, color: '#f6b26b', type: 'line',  lineWidth: 10},
+          colors: ['#3c78d8', '#3c78d8'],
+          series: { 0: {targetAxisIndex:0, color: '#3c78d8', type: 'line',  lineWidth: 10},
+                    1: {targetAxisIndex:1, color: '#3c78d8', type: 'line',  lineWidth: 10},
                     2: {targetAxisIndex:1, color: '#3c78d8', type: 'line',  lineWidth: 10}
         }
         };

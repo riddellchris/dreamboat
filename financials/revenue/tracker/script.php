@@ -50,6 +50,8 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     $_SESSION['viewing_client_id'] == 4383 OR 
     $_SESSION['viewing_client_id'] == 4398 OR
 
+    //Garreth's clients
+    $_SESSION['viewing_client_id'] == 4393 OR
 
     $_SESSION['viewing_client_id'] == 1){
 
@@ -115,6 +117,30 @@ if( $_SESSION['viewing_client_id'] == 4231 OR
     
       }
       else{
+
+
+
+
+
+
+
+
+
+
+
+        $revenue_target['Aug 23']['value'] = 50000;
+        $revenue_target['Jul 23']['value'] = 50000;
+        $revenue_target['Jun 23']['value'] = 50000;
+        $revenue_target['May 23']['value'] = 50000;
+        $revenue_target['Apr 23']['value'] = 50000;
+        $revenue_target['Mar 23']['value'] = 50000;
+        $revenue_target['May 23']['value'] = 50000;
+        $revenue_target['Feb 23']['value'] = 50000;
+        $revenue_target['Jan 23']['value'] = 50000;
+        $revenue_target['Dec 22']['value'] = 50000;
+        $revenue_target['Nov 22']['value'] = 50000;
+        $revenue_target['Oct 22']['value'] = 50000;
+        $revenue_target['Sep 22']['value'] = 50000;
         $revenue_target['Aug 22']['value'] = 50000;
         $revenue_target['Jul 22']['value'] = 50000;
         $revenue_target['Jun 22']['value'] = 50000;
@@ -328,6 +354,9 @@ else{
         //Tricia Ong's Clients
         $_SESSION['viewing_client_id'] == 4383 OR 
         $_SESSION['viewing_client_id'] == 4398 OR 
+
+    //Garreth's Clients
+    $_SESSION['viewing_client_id'] == 4393 OR
 
               $_SESSION['viewing_client_id'] == 1){
 

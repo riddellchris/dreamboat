@@ -5,7 +5,7 @@ if($_GET['primary_folder'] != 'reporting'){
   $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
 }
 else{
-  $location_string = 'financials_expenses_wages_as_percentage_of_revenue';
+  $location_string = 'financials_expenses_wages_as_percentage_of_revenue_3';
 
 }
 
@@ -31,9 +31,13 @@ else{
           <?php
 
             $setup_completed = 'no';
-            if($_SESSION['viewing_client_id'] == 4402){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
-            if($_SESSION['viewing_client_id'] == 4400){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
-            if($setup_completed == 'no'){               require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue/dummy_data.php";}
+            require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/user_specific_calculations/parts/actual_user_specific.php";
+            require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/user_specific_calculations/parts/generalised_calculations.php";
+
+          //  if($_SESSION['viewing_client_id'] == 4393){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+          //  if($_SESSION['viewing_client_id'] == 4402){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+          //  if($_SESSION['viewing_client_id'] == 4400){ require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+            if($setup_completed == 'no'){               require $_SERVER['DOCUMENT_ROOT']."/financials/expenses/wages_as_percentage_of_revenue_3/dummy_data.php";}
             unset($setup_completed);
 
             ?>
@@ -47,16 +51,7 @@ else{
         var options = {
 
           <?php
-                if($_SESSION['viewing_client_id'] == 4400){
-                  echo "title: 'Wages & contractors as % of revenue";
-                }
-                else{
-                  echo "title: 'Wages as % of revenue";
-
-                }
-
-
-                //echo "title: 'Wages as % of revenue";
+                echo "title: 'Contractors as % of revenue";
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>

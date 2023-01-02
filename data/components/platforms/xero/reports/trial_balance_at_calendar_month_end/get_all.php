@@ -47,6 +47,13 @@ for($main_counter = 0; $main_counter < count($tenant_user_id); $main_counter++){
 
 
 
+    $sql = "UPDATE api_xero_reports_trial_balance_at_calendar_month_end
+            SET latest_version_for_this_user = 'no'
+            WHERE user_id = '".$user_id_for_request."'
+            ";
+    mysqli_query($conn, $sql);  
+
+
 
     //$getting_all = 'yes';
     require $_SERVER['DOCUMENT_ROOT']."/data/components/platforms/xero/reports/trial_balance_at_calendar_month_end/update_for_one_tenant.php";
