@@ -10,7 +10,12 @@
         data.addColumn('number',   'Critical_date_1');
         data.addRows([
 
-
+[new Date(2022,  12	,7),	3.10,		null], 
+[new Date(2022,  11	,2),	2.85,		null], 
+[new Date(2022,  10	,5),	2.60,		null], 
+[new Date(2022,  9	,7),	2.35,		null], 
+[new Date(2022,  8	,3),	1.85,		null], 
+[new Date(2022,  7	,6),	1.35,		null], 
 [new Date(2022,  6	,8),	0.85,		null], 
 [new Date(2022,  5	,4),	0.35,		null], 
 [new Date(2022,  4	,6),	0.1,		null], 
@@ -393,6 +398,9 @@
       format: 'yy', 
 		            gridlines: {color: 'none'}, 
             			 ticks: [	
+
+                    new Date(2023,1,1),       
+                    new Date(2022,1,1),    
                     new Date(2021,1,1),       
                     new Date(2020,1,1), 
                     new Date(2019,1,1),
