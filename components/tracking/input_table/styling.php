@@ -109,7 +109,7 @@ $results_colors['productivity_target'] 	= '#281e96';
   text-align:right; 
   border: 0px solid;
 }
-.si_digits_wide{
+.div-table-cell .si_digits_wide{
 width:70px;
 background-color:#ffffff;
 padding:1px;
@@ -122,4 +122,60 @@ text-align:right;
   border-style: dashed;
 }
 	
+/*REVIEW: Using flexbox to apply input table */
+.tracking-date-form{
+  width:100vw;
+  overflow:hidden;
+  padding: .5rem;
+  box-sizing:border-box;
+}
+.table-rows{
+  display: flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  gap:0.5rem;
+  overflow:scroll;
+}
+.row {
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:.25rem;
+}
+.table-cell{
+  min-width:70px;
+  text-align:center;
+}
+.table-cell .table-cell_input{
+  font-size:.8rem;
+  width:100%;
+  height: 24px;
+  padding: .25rem;
+  text-align:right;
+}
+
+.table-cell.title{
+  min-width:100px;
+  width:120px;
+  border:none;
+  text-align:right;
+  padding: .25rem;
+}
+.table-cell_input.target{
+  border-style: dashed;
+}
+
+.tracking-date-form .login-submit, .tracking-date-form select{
+  max-width:1200px;
+  width: 100%;
+  display: block;
+  margin:1rem auto;
+}
+
+.tracking-date-form select{
+  background-color:gold;
+  color:#4332ff;
+  height:55px;
+  font-size:2em;
+}
 </style>

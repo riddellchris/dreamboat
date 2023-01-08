@@ -1,14 +1,11 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT']."/components/tracking/input_table/styling.php";
+	include_once $_SERVER['DOCUMENT_ROOT']."/components/tracking/input_table/styling.php";
 ?>
 
 
-<form method='post' action='/components/tracking/data_update/submit.php'>
-
-
-
-
-
+<form method='post' action='/components/tracking/data_update/submit.php'
+	class="tracking-date-form"
+>
 
 <?php
 
@@ -21,18 +18,24 @@ if(isset($go_to)){
 
 
 
-echo "<div class='div-table' style='margin:auto;";
-if($_GET['secondary_folder'] == 'inputs'){ echo "margin-top:4vh;margin-bottom:8vh;";}
-echo "'>";
+// echo "<div class='div-table' style='margin:auto;";
+if($_GET['secondary_folder'] == 'inputs'){ 
+	echo "<div class='div-table' style='margin:auto;margin-top:4vh;margin-bottom:8vh;'>";
+	// echo "margin-top:4vh;margin-bottom:8vh;";
+}
+// echo "'>";
 
 if(	$_GET['secondary_folder'] == 'inputs' OR
 $_GET['secondary_folder'] == 'productivity' 
 ){
+	echo "<div style='margin:auto;'>";
 require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/what_is_productivity.php';
 }
 //kpi settings / names for each KPI go above the monthly inputs
 if(	$_GET['secondary_folder'] == 'inputs' OR
-	$_SESSION['results_page'] == 'kpis'){require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/input_table/kpi_settings.php';}
+	$_SESSION['results_page'] == 'kpis'){
+		echo "<div class='div-table' style='margin:auto;'>";
+		require $_SERVER['DOCUMENT_ROOT'].'/components/tracking/input_table/kpi_settings.php';}
 
 if($_GET['secondary_folder'] == 'links'){
 
@@ -55,33 +58,26 @@ require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/curre
 
 
 <!-- THE TITLE BLOCK -->
-
-		<div class='div-table-row'>
-			<div class='div-table-col-1'>		
-				<div class='div-table-cell title'>
+		<div class='table-rows'>
+			<div class='row'>		
+				<div class='table-cell title'>
 				</div>
 				<?php
 				for($i = 0;$i <= $month_to_loop; $i++){
-					echo "<div class='div-table-cell'>".
+					echo "<div class='table-cell'>".
 						$month_name[$i]."
 						</div>";
 						}
 				?>
 			</div>
+			<?php require $_SERVER['DOCUMENT_ROOT']."/components/tracking/input_table/controls.php";?>
 		</div>
-	
-
-
-	<?php require $_SERVER['DOCUMENT_ROOT']."/components/tracking/input_table/controls.php";?>
-		<div>
 		<?php
 			//if($_SESSION['dreamboat_crew'] =='yes'){
-			echo "<input type='submit' class='login-submit' style='max-width:1200px; width: 100%; ' value='update'>";
+			echo "<input type='submit' class='login-submit' value='update'>";
 			//}
 		?>
-		</div>
-		
-</div>	
+	</div>	
 </form>
 
 

@@ -1,3 +1,8 @@
+<?php
+  if(!isset($_SESSION)){session_start();}
+  include $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/current_month_and_year_combo.php";
+?>
+
 <i class="date-setter-toggle date-setter-toggle-open fa fa-cog"></i>
 <form class="date-setter close">
   <i class="date-setter-toggle date-setter-toggle-close fa fa-arrow-left"></i>
@@ -125,14 +130,14 @@
 <script>
   const dateEnd = document.querySelector(".date-setter_end-month");
   const dateStart = document.querySelector(".date-setter_start-month");
-  let now = new Date();
-  let currentMonth = now.getMonth() + 1;
-  let currentYear = now.getFullYear();
-  let endMonth = currentMonth.toString().padStart(2, '0');
-  let endYear = currentYear;
+  let startMonth, startYear, endMonth,endYear;
+//  FIXME: needs to load session var right
+  // let isDateCustomised =<?php
+  // if(!isset($_SESSION)){session_start();}
+  // echo($_SESSION['is_date_customised']);
 
-  getDate()
-  setDateRange(); // Set date range to 6 month default when open it (every time)
+  // ?>;
+  getDate();
 
 
 
@@ -157,10 +162,9 @@
   dateStart.addEventListener('change', changedDate);
   dateEnd.addEventListener('change', changedDate);
 
-  function changedDate() {
+  async function changedDate() {
     // Check input date validation
-    let dateInputValidation = checkDateRange();
-    if (!dateInputValidation) return;
+    if (!checkDateRange()) return;
 
     let data = {
       startMonth: dateStart.value.split('-')[1],
@@ -172,35 +176,45 @@
 
     xmlhttp.open("POST", "/components/navigation/customiser/customiser_date.php", true);
     xmlhttp.send(JSON.stringify(data)); // send request to server
-
+    await location.reload();
   };
 
 
   // Functions
-  function getDate() {
+  async function getDate() {
+    endYear = <?=$endYear?>;
+    endMonth = <?=$endMonth?>;
+    startMonth = <?=$startMonth?>;
+    startYear = <?=$startYear?>;
+    
+    endMonth = endMonth.toString().padStart(2,'0');
+    startMonth = startMonth.toString().padStart(2,'0');
+    
     // Set end month to current month
     dateEnd.value = `${endYear}-${endMonth}`;
 
     // Set default start month as 6 month backwards
-    let startMonth, startYear;
-    if (currentMonth >= 6) {
-      startMonth = (currentMonth - 6).toString().padStart(2, '0');
-      startYear = currentYear;
-    } else {
-      startMonth = (currentMonth - 6 + 13).toString().padStart(2, '0');
-      startYear = currentYear - 1;
-    }
+    // if (currentMonth >= 6) {
+    //   startMonth = (currentMonth - 6).toString().padStart(2, '0');
+    //   startYear = currentYear;
+    // } else {
+    //   startMonth = (currentMonth - 6 + 13).toString().padStart(2, '0');
+    //   startYear = currentYear - 1;
+    // }
 
     dateStart.value = `${startYear}-${startMonth}`;
+    await setDateRange(endYear,endMonth)
   }
 
-  function setDateRange() {
-    let maxDate = `${endYear + 5}-${currentMonth}`;
-    let minDate = `${endYear - 5}-${currentMonth}`;
-    dateEnd.max = maxDate;
-    dateEnd.min = `${endYear - 5}-${currentMonth + 1}`;
-    dateStart.max = `${endYear + 5}-${currentMonth - 1}`
-    dateStart.min = minDate;
+  function setDateRange(endYear,endMonth) {
+    let now = new Date();
+    let currentMonth = now.getMonth() + 1;
+    let currentYear = now.getFullYear();
+    let maxYear,maxMonth,minYear,minMonth,maxYearStart;
+    maxYear = currentYear + 5;
+    minYear = currentYear - 5;
+    dateEnd.max =  dateStart.max = `${maxYear}-${currentMonth.toString().padStart(2,'0')}`;
+    dateEnd.min = dateStart.min  = `${minYear}-${(currentMonth).toString().padStart(2,'0')}`;
   }
 
   function checkDateRange() {
@@ -218,7 +232,3 @@
 
   }
 </script>
-
-<?php
-    $_SESSION['is_date_customised'] = true;
-?>

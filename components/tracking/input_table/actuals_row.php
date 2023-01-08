@@ -23,18 +23,18 @@ $sql = "SELECT * FROM tracking_inputs WHERE data_type = '".$variable_name."'
 if($_GET['primary_folder'] == 'financials'):
     echo"<div class='div-table-row' style='display:none;'>";
 else:
-    echo"<div class='div-table-row'>";
+    echo"<div class='row'>";
 endif;
 ?>
-    <div class='div-table-col-1'>
-        <div class='div-table-cell title <?=$variable_name?>'>    
-        <?=$display_variable_name?>
+    
+    <div class='table-cell title <?=$variable_name?>'>    
+    <?=$display_variable_name?>
     </div>
     <?php
         for($i = 0; $i <= $month_to_loop; $i++){
-            echo "<div class='div-table-cell'>	
+            echo "<div class='table-cell'>	
                 <input ";
-                    echo "class	='si_digits_wide ".$variable_name."'"; 
+                    echo "class	='table-cell_input ".$variable_name."'"; 
                     echo "name ='".$variable_name."_".$month_combo[$i]."'"; 
                     echo "value ='".$row[$month_combo[$i]]."'";
             echo ">
@@ -42,5 +42,5 @@ endif;
             </div>";
         }
         ?>
-        </div>
+        
     </div>

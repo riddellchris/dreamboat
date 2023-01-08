@@ -10,8 +10,9 @@ $endMonth = date('m');
 $endYear =  date('Y');
 
 // Set the starting month and year
-$startMonth = date("m", strtotime("-6 months"));
-$startYear = $endYear;
+$startDate = date("m Y", strtotime("-6 months"));
+$startMonth = substr($startDate,0,2);
+$startYear = substr($startDate,3,4);
 
 
 // Set the current month and year to the starting month and year
@@ -43,7 +44,7 @@ if($_SESSION['is_date_customised']){
 while ($currentYear < $endYear || ($currentYear == $endYear && $currentMonth <= $endMonth)) {
 	// Do something with the current month and year
 	
-	$new_combo = str_pad($currentMonth,'2','0',STR_PAD_LEFT)."_".substr($currentYear,-2);
+	$new_combo = substr($currentYear,-2)."_".str_pad($currentMonth,'2','0',STR_PAD_LEFT);
 	array_push($month_combo,$new_combo);
 
 	// Increment the current month and year
@@ -54,11 +55,9 @@ while ($currentYear < $endYear || ($currentYear == $endYear && $currentMonth <= 
 	}
 }
 for($i = 0; $i <=$month_to_loop; $i++){
-	$monthNum  = intval(substr($month_combo[$i],0,2));
+	$monthNum  = intval(substr($month_combo[$i],3,5));
 	$dateObj   = DateTime::createFromFormat('!m', $monthNum);
 	$monthName = $dateObj->format('M'); 
 	array_push($month_name,$monthName);
-}
-
-
+};
 ?>

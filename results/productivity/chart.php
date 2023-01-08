@@ -33,10 +33,9 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 	//add connection for sql
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 	
-	// $number_of_month = 6;
 	$number_of_month = count($month_combo);
 
-	// Get data of $what_is_productivity ($display_variable_name)
+	//FIXME:this seems not connect to database Get data of $what_is_productivity ($display_variable_name)
 	if(!isset($_SESSION)){session_start();}
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='".$_SESSION['viewing_client_what_is_productivity']."' ORDER BY entry_id DESC LIMIT 1"; // select column
 
@@ -55,7 +54,7 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 		};
 		if($all_null == 'yes'){
 			$what_is_productivity[$month_combo[6]] = 1;
-		} //REVIEW:Why does this need to be set to 1. Maybe it is to avoice nothing shown on the screen. If that's the case. $month_combo[middle_point]
+		} //REVIEW:Why does this need to be set to 1. Maybe it is to avoid nothing shown on the screen. If that's the case. $month_combo[middle_point]
 	}
 
 	// Get data of $what_is_productivity_target ($display_variable_name_target)

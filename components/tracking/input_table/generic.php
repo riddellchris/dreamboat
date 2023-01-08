@@ -29,12 +29,11 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 
 ?>
 	
-	<div class='div-table-row'>
-		<div class='div-table-col-1'>		
+	<div class='row'>
 			<?php
 
 			echo "
-				<div class='div-table-cell title ".$variable_name."_target'>";
+				<div class='table-cell title ".$variable_name."_target'>";
 			
 			echo $display_variable_name." Target";
 			
@@ -45,14 +44,14 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 			$result = mysqli_query($conn, $sql);
 			if(mysqli_num_rows($result) == 0){
 				$sql = "INSERT INTO tracking_inputs (data_type, user_id, latest_version_of_this_data_type) VALUES ('".$variable_name."_target', '".$user_to_display."', 'yes')";
-				//echo $sql;exit();
+				//var_dump($sql);exit();
 				mysqli_query($conn, $sql);
 
 				$sql = "SELECT * FROM tracking_inputs 
 				WHERE data_type = '".$variable_name."_target' 
 				AND user_id = '".$user_to_display."' 
 				AND latest_version_of_this_data_type = 'yes' ORDER BY entry_id DESC LIMIT 1"; // select column
-				//echo $sql;exit();
+				// echo var_dump($sql);exit();
 			}
 			$result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -64,11 +63,11 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 
 			for($i = 0; $i <= $month_to_loop; $i++){
 				echo "
-					<div class='div-table-cell'>	
-						<input class='si_digits_wide target ".$variable_name."_target' name='".$variable_name."_target_".$month_combo[$i]."' 
+					<div class='table-cell'>	
+						<input class='table-cell_input target ".$variable_name."_target' name='".$variable_name."_target_".$month_combo[$i]."' 
 						value ='".$row[$month_combo[$i]]."'>
 					</div>";
 				}
 			?>
-		</div>
+		
 	</div>

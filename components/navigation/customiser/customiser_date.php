@@ -1,4 +1,4 @@
-<?php
+<?php  
 //connect to database: user_customiser_control
 if (!isset($_SESSION)) {
   session_start();
@@ -7,8 +7,6 @@ if (!isset($_SESSION)) {
 }
 $user_to_display = $_SESSION['viewing_client_id'];
 
-// $sql = "SELECT * FROM user_customiser_control WHERE user_id = $user_to_display";
-// $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC); // to get the matching row
 
 $request = 2;
@@ -26,7 +24,8 @@ if ($request == 2) {
   $sql = "UPDATE user_customiser_control SET start_date_month = $startMonth, start_date_year = $startYear, end_date_month = $endMonth, end_date_year = $endYear WHERE user_id = $user_to_display";
 
   if (mysqli_query($conn, $sql)) {
-    echo "Record updated successfully";
+    $_SESSION['is_date_customised'] = true;
+    // echo "Record updated successfully";
   } else {
     echo "Error updating record: " . mysqli_error($conn);
   }
