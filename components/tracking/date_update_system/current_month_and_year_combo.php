@@ -1,4 +1,5 @@
 <?php
+$user_to_display = $_SESSION['viewing_client_id'];
 
 $month_combo = array();
 $month_to_loop = 6;

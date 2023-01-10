@@ -13,10 +13,12 @@ $sql = "SELECT * FROM tracking_inputs WHERE data_type = '".$variable_name."'
             $sql = "SELECT * FROM tracking_inputs WHERE data_type = '".$variable_name."' 
             AND user_id = '".$user_to_display."' 
             AND latest_version_of_this_data_type = 'yes' ORDER BY entry_id DESC LIMIT 1"; // select column
-            //echo $sql;exit();
         }
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        // echo '<pre>', var_dump($row), '</pre>';
+        // var_dump($row);
+        // exit();
 ?>
 
 <?php

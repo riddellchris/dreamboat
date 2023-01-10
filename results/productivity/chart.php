@@ -160,17 +160,17 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 		$display_month_combo[$i]  = str_replace('_', '/', $month_combo[$i]);
 	}
 	
-	// Create array to combine array from different categories
+	// Create array to combine array from different categories, and data have to be number
 	$chartDataArray = array(); 
 		for($i=0;$i<$number_of_month;$i++){
 			$newChartData = [
 				$display_month_combo[$i],
-				$what_is_productivity[$month_combo[$i]], 
-				$what_is_productivity_target[$month_combo[$i]],
-				$hours[$month_combo[$i]],
-				$hours_target[$month_combo[$i]],
-				$productivity[$month_combo[$i]],
-				$productivity_target[$month_combo[$i]]
+				floatval($what_is_productivity[$month_combo[$i]]), 
+				floatval($what_is_productivity_target[$month_combo[$i]]),
+				floatval($hours[$month_combo[$i]]),
+				floatval($hours_target[$month_combo[$i]]),
+				floatval($productivity[$month_combo[$i]]),
+				floatval($productivity_target[$month_combo[$i]])
 			];
 			array_push($chartDataArray,$newChartData);
 		}
@@ -180,7 +180,7 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 <script type="text/javascript">
 	// convert php array to js array	
 	let arrOfTitle = <?=
-			"['Date', '".$display_variable_name."', '".$display_variable_name." Target','Hours','Hours Target','Productivity', 'Productivity Target']"; ?>;
+			"['Date','".$display_variable_name."', '".$display_variable_name." Target','Hours','Hours Target','Productivity', 'Productivity Target']"; ?>;
 	
 	let arrOfInputs = <?=json_encode($chartDataArray); ?>;
 	console.log(arrOfInputs);

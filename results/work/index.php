@@ -4,7 +4,11 @@ if(!isset($_SESSION['viewing_client_id'])){header("Location: /users/"); exit();}
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 $user_to_display = $_SESSION['viewing_client_id'];
 $_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];
+
+$_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];
+require $_SERVER['DOCUMENT_ROOT']."/components/navigation/customiser/index.php"; // sub-menu
 ?>
+
 
 
     <script name='results_work' type="text/javascript">

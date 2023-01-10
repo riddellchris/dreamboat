@@ -6,27 +6,26 @@ require $_SERVER['DOCUMENT_ROOT']."/components/functions/sql/compile_insert_quer
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/current_month_and_year_combo.php";
 
 
-
-//echo '<pre>' , var_dump($_POST) , '</pre>';
-//exit();
+// echo '<pre>' , var_dump($_POST) , '</pre>';
+// exit();
 
 //month combo comes from the file /components/tracking/date_update_system/current_month_and_year_combo.php
 function dates_combo($target_or_not, $month_combo){
 
 	$sql = "";
 	
-	if($target_or_not == 'no'){
-	$sql .= $month_combo[0].",".$month_combo[1].",".$month_combo[2].",".$month_combo[3].",".$month_combo[4].",".$month_combo[5].",";
-	}
+	// if($target_or_not == 'no'){
+	// $sql .= $month_combo[0].",".$month_combo[1].",".$month_combo[2].",".$month_combo[3].",".$month_combo[4].",".$month_combo[5].",";
+	// }
 	
-	$sql .= $month_combo[6].",".$month_combo[7].",".$month_combo[8].",".$month_combo[9].",".$month_combo[10].",".$month_combo[11].",".$month_combo[12]; 
+	// $sql .= $month_combo[6].",".$month_combo[7].",".$month_combo[8].",".$month_combo[9].",".$month_combo[10].",".$month_combo[11].",".$month_combo[12]; 
 	
+	foreach($month_combo as $value){
+		$sql .= $value.",";
+	};
+	$sql = substr($sql, 0, -1);
 	return $sql;
 }
-
-$first_six_date_combos_for_sql 	= 
-$second_six_date_combos_for_sql = $month_combo[6].",".$month_combo[7].",".$month_combo[8].",".$month_combo[9].",".$month_combo[10].",".$month_combo[11].",".$month_combo[12]; 
-$all_the_dates = $first_six_date_combos_for_sql.$second_six_date_combos_for_sql;
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/data_update/escaping.php";
@@ -47,59 +46,65 @@ function make_not_last_version_of_tracking_data($data_type, $target_or_not, $dat
 }
 
 function start_of_input_query($data_type, $target_or_not, $escaped_variables, $month_combo, $database_connection){
-
-	$sql = "INSERT INTO 	 tracking_inputs 
-				(user_id, data_type, target_yes_no, ";
+	$sql = "INSERT INTO tracking_inputs (user_id, data_type, target_yes_no, ";
 	
-	if($target_or_not == 'yes'){	$sql .= dates_combo('yes', 	$month_combo);}
-	else{				$sql .= dates_combo('no', $month_combo, $escaped_variables);}
+	if($target_or_not == 'yes'){
+		$sql .= dates_combo('yes', 	$month_combo);
+	}else{
+		$sql .= dates_combo('no', $month_combo, $escaped_variables);
+	}
 	
-	$sql .= ") VALUES  	('".mysqli_real_escape_string($database_connection, $_SESSION['viewing_client_id'])."',    '".$data_type;
+	$sql .= ") VALUES('".mysqli_real_escape_string($database_connection, $_SESSION['viewing_client_id'])."','".$data_type;
 	if($target_or_not == 'yes'){	$sql .= "_target";}	
 	$sql .= "', '".$target_or_not."',";
-	
+
 	return $sql;
 }
 
 function end_of_input_query($data_type, $target_or_not, $escaped_variables){
-
-	if($target_or_not == 'yes'){$for_start = 6;}
-	else{$for_start = 0;}
+	// echo '<pre>', var_dump($escaped_variables), '<pre>' ;
+	// exit();
+	// if($target_or_not == 'yes'){$for_start = 6;}
+	// else{$for_start = 0;}
 	
-	if($target_or_not == 'yes'){$target = 'yes';}
-	else{$target = 'no';}
-	
+	// if($target_or_not == 'yes'){$target = 'yes';}
+	// else{$target = 'no';}
+		if($target_or_not == 'yes'){
+			$for_start = 6;
+			$target = 'yes';
+		}else{
+			$for_start = 0;
+			$target = 'no';
+		}
 	$root_name = $data_type;
-	
+	// FIXME:code beneath looks not quite right
 	$sql = '';
 	for($i = $for_start; $i <= 12; $i++){
 		$sql .= "'".$escaped_variables[$root_name][$target][$i]."'";
 		if($i <> 12){$sql .= ",";}
 		else{$sql .= ")";}
 	}
-	//echo $sql; exit();		
 	return $sql;
 }
 
 function update_and_submit($data_type, $database_connection, $month_combo, $escaped_variables){
-
+	
+	// echo '<pre> esc variable <br>', var_dump($escaped_variables), '</pre>';
 	//run both the following queries twice:
 		//once for the target data
 		//once for the non-target data
 
 		$target = 'yes';
 		for($i = 1; $i <= 2; $i ++){
-			make_not_last_version_of_tracking_data(		$data_type, $target, $database_connection);		
-			$sql =  start_of_input_query(				$data_type, $target, $escaped_variables, $month_combo, $database_connection);
-			$sql .= end_of_input_query(					$data_type, $target, $escaped_variables);	
-	//		echo $sql;
-	//		echo "<br>";
+			make_not_last_version_of_tracking_data($data_type, $target, $database_connection);		
+			$sql =  start_of_input_query($data_type, $target, $escaped_variables, $month_combo, $database_connection);
+			$sql .= end_of_input_query($data_type, $target, $escaped_variables);	
 			mysqli_query($database_connection, $sql);		
 			
 			$target = 'no';
 		}
 
-
+		// exit();
 }
 
 function check_array_keys($data_type, $array_keys_array){
@@ -125,13 +130,15 @@ function check_array_keys($data_type, $array_keys_array){
 
 $array_keys = array_keys($_POST);
 
-//echo '<pre>' , var_dump($array_keys) , '</pre>';
-//exit();
+// echo '<pre>' , var_dump($array_keys) , '</pre>';
 
 
 //if there is any post variables starting with the root name then run the function to do it all
 //if not then don't touch anything
-$data_type = 'commission';			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
+$data_type = 'commission';
+if(check_array_keys($data_type, $array_keys) == 'true'){
+	update_and_submit($data_type, $conn , $month_combo, $escaped_variables);
+}
 $data_type = 'sales'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
 $data_type = 'expenses'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
 $data_type = 'revenue'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
