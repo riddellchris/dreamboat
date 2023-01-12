@@ -131,12 +131,7 @@
   const dateEnd = document.querySelector(".date-setter_end-month");
   const dateStart = document.querySelector(".date-setter_start-month");
   let startMonth, startYear, endMonth,endYear;
-//  FIXME: needs to load session var right
-  // let isDateCustomised =<?php
-  // if(!isset($_SESSION)){session_start();}
-  // echo($_SESSION['is_date_customised']);
 
-  // ?>;
   getDate();
 
 
@@ -190,18 +185,8 @@
     endMonth = endMonth.toString().padStart(2,'0');
     startMonth = startMonth.toString().padStart(2,'0');
     
-    // Set end month to current month
+    // Set end and start month
     dateEnd.value = `${endYear}-${endMonth}`;
-
-    // Set default start month as 6 month backwards
-    // if (currentMonth >= 6) {
-    //   startMonth = (currentMonth - 6).toString().padStart(2, '0');
-    //   startYear = currentYear;
-    // } else {
-    //   startMonth = (currentMonth - 6 + 13).toString().padStart(2, '0');
-    //   startYear = currentYear - 1;
-    // }
-
     dateStart.value = `${startYear}-${startMonth}`;
     await setDateRange(endYear,endMonth)
   }

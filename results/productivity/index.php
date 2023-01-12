@@ -41,26 +41,3 @@ if($test1 != 0 OR $test2 != 0){
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/curve_chart_div.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/end_of_page_requires.php";
 ?>
-
-
- 
- 
-
-
-<?php
-
-/*
-		if($test1 == 0 AND $test2 == 0){
-			echo "text-align:center;padding-top:240px;";
-		}
-//	echo "'>";
-
-			if($test1 == 0 AND $test2 == 0){
-				echo "
-					<span class = 'prompt-font' style=''>Enter some data to start<br>
-					Measuring, tracking & improving<br> <span style='color:red;'>your productivity </span></span>
-				";
-			}	
-	*/
-//echo "	</div> ";
-?>

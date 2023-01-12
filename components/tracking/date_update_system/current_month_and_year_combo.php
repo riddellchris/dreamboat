@@ -2,6 +2,7 @@
 $user_to_display = $_SESSION['viewing_client_id'];
 
 $month_combo = array();
+$month_combo_reverse = array();
 $month_to_loop = 6;
 $month_name = array();
 
@@ -43,10 +44,14 @@ if($_SESSION['is_date_customised']){
 }
 // Loop through the months and years
 while ($currentYear < $endYear || ($currentYear == $endYear && $currentMonth <= $endMonth)) {
-	// Do something with the current month and year
+	// Create current month and year combo
 	
-	$new_combo = substr($currentYear,-2)."_".str_pad($currentMonth,'2','0',STR_PAD_LEFT);
+	$new_combo = str_pad($currentMonth,'2','0',STR_PAD_LEFT)."_".substr($currentYear,-2);
 	array_push($month_combo,$new_combo);
+
+	// Create a reverse combo to match up backend to extract data
+	$new_combo_reverse = substr($currentYear,-2)."_".str_pad($currentMonth,'2','0',STR_PAD_LEFT);
+	array_push($month_combo_reverse,$new_combo_reverse);
 
 	// Increment the current month and year
 	$currentMonth++;
@@ -56,7 +61,7 @@ while ($currentYear < $endYear || ($currentYear == $endYear && $currentMonth <= 
 	}
 }
 for($i = 0; $i <=$month_to_loop; $i++){
-	$monthNum  = intval(substr($month_combo[$i],3,5));
+	$monthNum  = intval(substr($month_combo[$i],0,2));
 	$dateObj   = DateTime::createFromFormat('!m', $monthNum);
 	$monthName = $dateObj->format('M'); 
 	array_push($month_name,$monthName);

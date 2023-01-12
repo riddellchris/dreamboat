@@ -64,8 +64,8 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 			for($i = 0; $i <= $month_to_loop; $i++){
 				echo "
 					<div class='table-cell'>	
-						<input class='table-cell_input target ".$variable_name."_target' name='".$variable_name."_target_".$month_combo[$i]."' 
-						value ='".$row[$month_combo[$i]]."'>
+						<input class='table-cell_input target ".$variable_name."_target' name='".$variable_name."_target_".$month_combo_reverse[$i]."' 
+						value ='".$row[$month_combo_reverse[$i]]."'>
 					</div>";
 				}
 			?>

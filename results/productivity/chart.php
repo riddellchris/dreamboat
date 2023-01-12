@@ -32,8 +32,6 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 	require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/current_month_and_year_combo.php";
 	//add connection for sql
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-	
-	$number_of_month = count($month_combo);
 
 	//FIXME:this seems not connect to database Get data of $what_is_productivity ($display_variable_name)
 	if(!isset($_SESSION)){session_start();}
@@ -44,16 +42,16 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		for($i = 0;$i<$number_of_month;$i++){
-			if($row[$month_combo[$i]] != 0){
-				$what_is_productivity[$month_combo[$i]] = $row[$month_combo[$i]];
+		for($i = 0;$i<$month_to_loop;$i++){
+			if($row[$month_combo_reverse[$i]] != 0){
+				$what_is_productivity[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];
 				$all_null = 'no';
 			}	else{
-				$what_is_productivity[$month_combo[$i]] = 0;
+				$what_is_productivity[$month_combo_reverse[$i]] = 0;
 			}
 		};
 		if($all_null == 'yes'){
-			$what_is_productivity[$month_combo[6]] = 1;
+			$what_is_productivity[$month_combo_reverse[6]] = 1;
 		} //REVIEW:Why does this need to be set to 1. Maybe it is to avoid nothing shown on the screen. If that's the case. $month_combo[middle_point]
 	}
 
@@ -63,12 +61,12 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 	unset($what_is_productivity_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		for($i=0;$i<$number_of_month;$i++){
-			if($row[$month_combo[$i]] != 0){
-				$what_is_productivity_target[$month_combo[$i]] = $row[$month_combo[$i]];
+		for($i=0;$i<$month_to_loop;$i++){
+			if($row[$month_combo_reverse[$i]] != 0){
+				$what_is_productivity_target[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];
 				$all_null = 'no';
 			}else{
-				$what_is_productivity_target[$month_combo[$i]] = 0;
+				$what_is_productivity_target[$month_combo_reverse[$i]] = 0;
 			}
 		};
 		// if($all_null == 'yes'){
@@ -83,11 +81,11 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 	unset($hours);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		for($i=0; $i<$number_of_month; $i++){
-			if($row[$month_combo[$i]] != 0){
-				$hours[$month_combo[$i]] = $row[$month_combo[$i]];$all_null = 'no';
+		for($i=0; $i<$month_to_loop; $i++){
+			if($row[$month_combo_reverse[$i]] != 0){
+				$hours[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];$all_null = 'no';
 			}else{
-				$hours[$month_combo[$i]] = 0;
+				$hours[$month_combo_reverse[$i]] = 0;
 			}
 			// if($all_null == 'yes'){
 			// 	$hours[$month_combo[6]] = 1;
@@ -103,11 +101,11 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 	unset($hours_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		for($i=0; $i<$number_of_month; $i++){
-			if($row[$month_combo[$i]] != 0){
-				$hours_target[$month_combo[$i]] = $row[$month_combo[$i]];$all_null = 'no';
+		for($i=0; $i<$month_to_loop; $i++){
+			if($row[$month_combo_reverse[$i]] != 0){
+				$hours_target[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];$all_null = 'no';
 			}else{
-				$hours_target[$month_combo[$i]] = 0;
+				$hours_target[$month_combo_reverse[$i]] = 0;
 			}
 			// if($all_null == 'yes'){
 			// 	$hours_target[$month_combo[6]] = 1;
@@ -122,11 +120,11 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 	unset($productivity);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		for($i=0; $i<$number_of_month; $i++){
-			if($row[$month_combo[$i]] != 0){
-				$productivity[$month_combo[$i]] = $row[$month_combo[$i]];$all_null = 'no';
+		for($i=0; $i<$month_to_loop; $i++){
+			if($row[$month_combo_reverse[$i]] != 0){
+				$productivity[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];$all_null = 'no';
 			}else{
-				$productivity[$month_combo[$i]] = 0;
+				$productivity[$month_combo_reverse[$i]] = 0;
 			}
 			// if($all_null == 'yes'){
 			// 	$productivity[$month_combo[6]] = 1;
@@ -142,11 +140,11 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 	unset($productivity_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		for($i=0; $i<$number_of_month; $i++){
-			if($row[$month_combo[$i]] != 0){
-				$productivity_target[$month_combo[$i]] = $row[$month_combo[$i]];$all_null = 'no';
+		for($i=0; $i<$month_to_loop; $i++){
+			if($row[$month_combo_reverse[$i]] != 0){
+				$productivity_target[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];$all_null = 'no';
 			}else{
-				$productivity_target[$month_combo[$i]] = 0;
+				$productivity_target[$month_combo_reverse[$i]] = 0;
 			}
 			// if($all_null == 'yes'){
 			// 	$productivity_target[$month_combo[6]] = 1;
@@ -156,21 +154,21 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 
 
 	// convert date display format
-	for($i = 0; $i<$number_of_month; $i++){
-		$display_month_combo[$i]  = str_replace('_', '/', $month_combo[$i]);
+	for($i = 0; $i<$month_to_loop; $i++){
+		$display_month_combo[$i]  = str_replace('_', '/', $month_combo_reverse[$i]);
 	}
 	
 	// Create array to combine array from different categories, and data have to be number
 	$chartDataArray = array(); 
-		for($i=0;$i<$number_of_month;$i++){
+		for($i=0;$i<$month_to_loop;$i++){
 			$newChartData = [
 				$display_month_combo[$i],
-				floatval($what_is_productivity[$month_combo[$i]]), 
-				floatval($what_is_productivity_target[$month_combo[$i]]),
-				floatval($hours[$month_combo[$i]]),
-				floatval($hours_target[$month_combo[$i]]),
-				floatval($productivity[$month_combo[$i]]),
-				floatval($productivity_target[$month_combo[$i]])
+				floatval($what_is_productivity[$month_combo_reverse[$i]]), 
+				floatval($what_is_productivity_target[$month_combo_reverse[$i]]),
+				floatval($hours[$month_combo_reverse[$i]]),
+				floatval($hours_target[$month_combo_reverse[$i]]),
+				floatval($productivity[$month_combo_reverse[$i]]),
+				floatval($productivity_target[$month_combo_reverse[$i]])
 			];
 			array_push($chartDataArray,$newChartData);
 		}

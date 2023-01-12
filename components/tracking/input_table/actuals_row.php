@@ -16,9 +16,6 @@ $sql = "SELECT * FROM tracking_inputs WHERE data_type = '".$variable_name."'
         }
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        // echo '<pre>', var_dump($row), '</pre>';
-        // var_dump($row);
-        // exit();
 ?>
 
 <?php
@@ -37,8 +34,8 @@ endif;
             echo "<div class='table-cell'>	
                 <input ";
                     echo "class	='table-cell_input ".$variable_name."'"; 
-                    echo "name ='".$variable_name."_".$month_combo[$i]."'"; 
-                    echo "value ='".$row[$month_combo[$i]]."'";
+                    echo "name ='".$variable_name."_".$month_combo_reverse[$i]."'"; 
+                    echo "value ='".$row[$month_combo_reverse[$i]]."'";
             echo ">
                 </input>
             </div>";
