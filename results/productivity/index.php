@@ -23,7 +23,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/navigation/customiser/index.php";
 
 
 //test to see if there is an actual input yet
-
+// REVIEW: do we need this?
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='productivity' ORDER BY entry_id DESC LIMIT 1";
 //echo $sql; exit();
 	$result = mysqli_query($conn, $sql);
