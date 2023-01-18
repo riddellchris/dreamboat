@@ -47,7 +47,6 @@ if($_GET['secondary_folder'] == 'links'){
 //this is the auto update section of the tracking system to ensure we are always within 6 months of the current month
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/current_month_and_year_combo.php";
 
-$year_for_table = str_pad(substr($month_combo[$i],3,5),'4','20',STR_PAD_LEFT);
 ?>
 
 
@@ -57,17 +56,17 @@ $year_for_table = str_pad(substr($month_combo[$i],3,5),'4','20',STR_PAD_LEFT);
 				<div class='table-cell title'>
 				</div>
 				<?php
-				for($i = 0;$i <= $month_to_loop; $i++){
-					echo "<div class='table-cell'>".$year_for_table."
-						</div>";
-						}
+				for($i = 0;$i < $month_to_loop; $i++){
+					echo "<div class='table-cell'>".str_pad(substr($month_combo[$i],3,5),'4','20',STR_PAD_LEFT)."
+					</div>";
+				}
 				?>
 			</div>
 			<div class='row'>	
 				<div class='table-cell title'>
 				</div>
 				<?php
-				for($i = 0;$i <= $month_to_loop; $i++){
+				for($i = 0;$i < $month_to_loop; $i++){
 					echo "<div class='table-cell'>".
 						$month_name[$i]."
 						</div>";

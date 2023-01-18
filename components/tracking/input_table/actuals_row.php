@@ -30,7 +30,7 @@ endif;
     <?=$display_variable_name?>
     </div>
     <?php
-        for($i = 0; $i <= $month_to_loop; $i++){
+        for($i = 0; $i < $month_to_loop; $i++){
             echo "<div class='table-cell'>	
                 <input ";
                     echo "class	='table-cell_input ".$variable_name."'"; 
