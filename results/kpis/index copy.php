@@ -220,5 +220,5 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 
 <?php
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/curve_chart_div.php";
-require $_SERVER['DOCUMENT_ROOT']."/components/tracking/display_elements/end_of_page_requires.php";
+require $_SERVER['DOCUMENT_ROOT']."/tracking/display_elements/end_of_page_requires.php";
 ?>

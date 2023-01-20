@@ -65,6 +65,4 @@ for($i = 0; $i <$month_to_loop; $i++){
 	$monthName = $dateObj->format('M'); 
 	array_push($month_name,$monthName);
 };
-// var_dump($month_combo);
-// exit();
 ?>

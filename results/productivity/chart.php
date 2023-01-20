@@ -155,7 +155,7 @@ if(substr($display_variable_name, 0, 3) != 'kpi'){
 
 	// convert date display format
 	for($i = 0; $i<$month_to_loop; $i++){
-		$display_month_combo[$i]  = str_replace('_', '/', $month_combo_reverse[$i]);
+		$display_month_combo[$i]  = str_replace('_', '/', $month_combo[$i]);
 	}
 	
 	// Create array to combine array from different categories, and data have to be number

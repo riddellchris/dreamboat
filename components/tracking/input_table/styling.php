@@ -84,8 +84,8 @@ $results_colors['productivity_target'] 	= '#281e96';
 
 
 .div-table {
-  display: table;         
-  width: auto;         
+  /* display: table;          */
+  /* width: auto;          */
   border-spacing: 5px; /* cellspacing:poor IE support for  this */
 }
 .div-table-row {
@@ -121,10 +121,19 @@ text-align:right;
 .si_digits_wide.target{
   border-style: dashed;
 }
-	
+
 /*REVIEW: Using flexbox to apply input table */
+.input-list{
+  margin:1rem auto;
+  display: flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
 .tracking-date-form{
   width:100vw;
+  /* max-width:1200px; */
+  margin:0 auto;
   overflow:hidden;
   padding: .5rem;
   box-sizing:border-box;
