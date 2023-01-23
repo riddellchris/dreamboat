@@ -1,6 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/functions/sql/compile_insert_query_values.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/current_month_and_year_combo.php";
@@ -53,6 +54,7 @@ function end_of_input_query($data_type, $target_or_not, $escaped_variables,$mont
 			$target = 'no';
 		}
 	$root_name = $data_type;
+	
 	
 	$sql = '';
 	for($i = 0; $i < count($month_combo); $i++){
