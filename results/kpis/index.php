@@ -23,7 +23,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	unset($kpi_1);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$kpi_1[$item] = $row[$item];
 				$all_null = 'no';
@@ -31,7 +31,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$kpi_1[$item] = 'null';
 			}	
 		}
-			if($all_null == 'yes'){$kpi_1[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$kpi_1[$month_combo_reverse[6]] = 0;}
 	}
 // Get kpi_1_target data     
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='kpi_1_target' ORDER BY entry_id DESC LIMIT 1"; // select column
@@ -39,7 +39,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	unset($kpi_1_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$kpi_1_target[$item] = $row[$item];
 				$all_null = 'no';
@@ -47,7 +47,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$kpi_1_target[$item] = 'null';
 			}	
 		}
-			if($all_null == 'yes'){$kpi_1_target[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$kpi_1_target[$month_combo_reverse[6]] = 0;}
 	}
 	// Get kpi_2 data    
 		$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='kpi_2' ORDER BY entry_id DESC LIMIT 1"; // select column
@@ -55,7 +55,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 		unset($kpi_2);
 		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 			$all_null = 'yes';
-			foreach($month_combo as $item){
+			foreach($month_combo_reverse as $item){
 				if($row[$item] != 0){
 					$kpi_2[$item] = $row[$item];
 					$all_null = 'no';
@@ -63,7 +63,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 					$kpi_2[$item] = 'null';
 				}	
 			}
-				if($all_null == 'yes'){$kpi_2[$month_combo[6]] = 1;}
+				if($all_null == 'yes'){$kpi_2[$month_combo_reverse[6]] = 0;}
 		}
 
 	// Get kpi_2_target data    
@@ -73,7 +73,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	unset($kpi_2_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$kpi_2_target[$item] = $row[$item];
 				$all_null = 'no';
@@ -81,7 +81,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$kpi_2_target[$item] = 'null';
 			}	
 		}
-			if($all_null == 'yes'){$kpi_2_target[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$kpi_2_target[$month_combo_reverse[6]] = 0;}
 	}
 
 	// Get kpi_3 data    
@@ -91,7 +91,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	unset($kpi_3);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$kpi_3[$item] = $row[$item];
 				$all_null = 'no';
@@ -99,7 +99,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$kpi_3[$item] = 'null';
 			}	
 		}
-			if($all_null == 'yes'){$kpi_3[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$kpi_3[$month_combo_reverse[6]] = 0;}
 	}
 
 	// Get kpi_3_target data    
@@ -109,7 +109,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	unset($kpi_3_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$kpi_3_target[$item] = $row[$item];
 				$all_null = 'no';
@@ -117,7 +117,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$kpi_3_target[$item] = 'null';
 			}	
 		}
-			if($all_null == 'yes'){$kpi_3_target[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$kpi_3_target[$month_combo_reverse[6]] = 0;}
 	}
 	// Get kpi_4 data    
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
@@ -126,7 +126,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	unset($kpi_4);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$kpi_4[$item] = $row[$item];
 				$all_null = 'no';
@@ -134,7 +134,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$kpi_4[$item] = 'null';
 			}	
 		}
-			if($all_null == 'yes'){$kpi_4[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$kpi_4[$month_combo_reverse[6]] = 0;}
 	}
 
 	// Get kpi_4_target data    
@@ -144,7 +144,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	unset($kpi_4_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$kpi_4_target[$item] = $row[$item];
 				$all_null = 'no';
@@ -152,7 +152,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$kpi_4_target[$item] = 'null';
 			}	
 		}
-			if($all_null == 'yes'){$kpi_4_target[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$kpi_4_target[$month_combo_reverse[6]] = 0;}
 	}
 
 // convert date display format

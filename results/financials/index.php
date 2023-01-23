@@ -6,8 +6,6 @@ if($_GET['primary_folder'] != 'content'){
 	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 	$_SESSION['last_productivity_chart'] = $_SERVER['REQUEST_URI'];
 
-	echo "<div style='width:100%;text-align:center;' class='prompt-font'>To address various budgets <a style='color:red;' href='/financials/budgets/'>click here></a></div>";
-
 
 	$user_to_display = $_SESSION['viewing_client_id'];
 	require $_SERVER['DOCUMENT_ROOT']."/components/navigation/customiser/index.php"; // sub-menu
@@ -34,22 +32,22 @@ else{
 	unset($revenue);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$revenue[$item] = $row[$item];$all_null = 'no';
 			}else{
 				$revenue[$item] = 'null';
 			}}
-			// if($all_null == 'yes'){$revenue[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$revenue[$month_combo_reverse[6]] = 0;}
 	}     
-	// SELECT * FROM tracking_inputs WHERE user_id = '4404' AND latest_version_of_this_data_type = 'yes' AND data_type='revenue_target' ORDER BY entry_id DESC LIMIT 1
+
 	// Get Revenue Target data
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='revenue_target' ORDER BY entry_id DESC LIMIT 1"; // select column
 	$result = mysqli_query($conn, $sql);
 	unset($revenue_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$revenue_target[$item] = $row[$item];
 				$all_null = 'no';
@@ -57,7 +55,7 @@ else{
 				$revenue_target[$item] = 'null';
 			}
 		}
-		// if($all_null == 'yes'){$revenue_target[$month_combo[6]] = 1;}
+		if($all_null == 'yes'){$revenue_target[$month_combo_reverse[6]] = 0;}
 	} 
 
 	// Get Expenses data
@@ -66,7 +64,7 @@ else{
 	unset($expenses);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$expenses[$item] = $row[$item];
 				$all_null = 'no';
@@ -74,14 +72,14 @@ else{
 				$expenses[$item] = 'null';
 			}
 		}
-		// if($all_null == 'yes'){$expenses[$month_combo[6]] = 1;}
+		if($all_null == 'yes'){$expenses[$month_combo_reverse[6]] = 0;}
 	} 
 	// Get Expenses Target data
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='expenses_target' ORDER BY entry_id DESC LIMIT 1"; // select column
 	unset($expenses_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$expenses_target[$item] = $row[$item];
 				$all_null = 'no';
@@ -89,14 +87,14 @@ else{
 				$expenses_target[$item] = 'null';
 			}
 		}
-		// if($all_null == 'yes'){$expenses[$month_combo[6]] = 1;}
+		if($all_null == 'yes'){$expenses_target[$month_combo_reverse[6]] = 0;}
 	} 
 	// Get Profit  data
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='profit' ORDER BY entry_id DESC LIMIT 1"; // select column
 	unset($profit);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$profit[$item] = $row[$item];
 				$all_null = 'no';
@@ -104,7 +102,7 @@ else{
 				$profit[$item] = 'null';
 			}
 		}
-		// if($all_null == 'yes'){$expenses[$month_combo[6]] = 1;}
+		if($all_null == 'yes'){$profit[$month_combo_reverse[6]] = 0;}
 	}
 	// Get Profit Target data
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='profit_target' ORDER BY entry_id DESC LIMIT 1"; // select column
@@ -112,7 +110,7 @@ else{
 	unset($profit_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$profit_target[$item] = $row[$item];
 				$all_null = 'no';
@@ -120,7 +118,7 @@ else{
 				$profit_target[$item] = 'null';
 			}
 		}
-		// if($all_null == 'yes'){$expenses[$month_combo[6]] = 1;}
+		if($all_null == 'yes'){$profit_target[$month_combo_reverse[6]] = 0;}
 	}
 
 	// convert date display format
@@ -133,12 +131,12 @@ else{
 		for($i=0;$i<$month_to_loop;$i++){
 			$newChartData = [
 				$display_month_combo[$i],
-				floatval($revenue[$month_combo[$i]]), 
-				floatval($revenue_target[$month_combo[$i]]),
-				floatval($expenses[$month_combo[$i]]),
-				floatval($expenses_target[$month_combo[$i]]),
-				floatval($profit[$month_combo[$i]]),
-				floatval($profit_target[$month_combo[$i]]),
+				floatval($revenue[$month_combo_reverse[$i]]), 
+				floatval($revenue_target[$month_combo_reverse[$i]]),
+				floatval($expenses[$month_combo_reverse[$i]]),
+				floatval($expenses_target[$month_combo_reverse[$i]]),
+				floatval($profit[$month_combo_reverse[$i]]),
+				floatval($profit_target[$month_combo_reverse[$i]]),
 			];
 			array_push($chartDataArray,$newChartData);
 		}

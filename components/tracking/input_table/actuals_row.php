@@ -7,7 +7,7 @@ $sql = "SELECT * FROM tracking_inputs WHERE data_type = '".$variable_name."'
 
         if(mysqli_num_rows($result) == 0){
             $sql = "INSERT INTO tracking_inputs (data_type, user_id, latest_version_of_this_data_type) VALUES ('".$variable_name."', '".$user_to_display."', 'yes')";
-            //echo $sql;exit();
+            var_dump($sql);exit();
             mysqli_query($conn, $sql);
 
             $sql = "SELECT * FROM tracking_inputs WHERE data_type = '".$variable_name."' 
@@ -31,15 +31,15 @@ endif;
     </div>
     <?php
         for($i = 0; $i < $month_to_loop; $i++){
-            echo "<div class='table-cell'>	
-                <input ";
-                    echo "class	='table-cell_input ".$variable_name."'"; 
-                    echo "name ='".$variable_name."_".$month_combo_reverse[$i]."'"; 
-                    echo "value ='".$row[$month_combo_reverse[$i]]."'";
-            echo ">
-                </input>
-            </div>";
+            echo "
+                <div class='table-cell'>	
+                    <input
+                        class='table-cell_input {$variable_name}'
+                        name ='{$variable_name}_{$month_combo_reverse[$i]}' 
+                        value ='{$row[$month_combo_reverse[$i]]}'>
+                    </input>
+                </div>";
         }
-        ?>
+    ?>
         
     </div>
