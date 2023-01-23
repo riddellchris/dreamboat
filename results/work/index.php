@@ -27,11 +27,11 @@ unset($income);
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 	$all_null = 'yes';
 	for($i=0;$i<$month_to_loop;$i++){
-		if($row[$month_combo[$i]] != 0){
-			$income[$month_combo[$i]] = $row[$month_combo[$i]];
+		if($row[$month_combo_reverse[$i]] != 0){
+			$income[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];
 			$all_null = 'no';
 		}else{
-			$income[$month_combo[$i]] = 0;
+			$income[$month_combo_reverse[$i]] = 0;
 		}
 	}
 }
@@ -39,47 +39,48 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='income_target' ORDER BY entry_id DESC LIMIT 1"; // select column
 	$result = mysqli_query($conn, $sql);
 	unset($income_target);
+	//var_dump($sql);//TEST
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
 		for($i=0;$i<$month_to_loop;$i++){
-			if($row[$month_combo[$i]] != 0){
-				$income_target[$month_combo[$i]] = $row[$month_combo[$i]];
+			if($row[$month_combo_reverse[$i]] != 0){
+				$income_target[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];
 				$all_null = 'no';
 			}else{
-				$income_target[$month_combo[$i]] = 0;
+				$income_target[$month_combo_reverse[$i]] = 0;
 			}
 		}
 	}
 	// Get Hours data
-	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='hours_worked' ORDER BY entry_id DESC LIMIT 1"; // select column
+	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='hours' ORDER BY entry_id DESC LIMIT 1";// select column
 
 	$result = mysqli_query($conn, $sql);
-	unset($hours_worked);
+	unset($hours);
 
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
 		for($i=0;$i<$month_to_loop;$i++){
-			if($row[$month_combo[$i]] != 0){
-				$hours_worked[$month_combo[$i]] = $row[$month_combo[$i]];
+			if($row[$month_combo_reverse[$i]] != 0){
+				$hours[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];
 				$all_null = 'no';
 			}else{
-				$hours_worked[$month_combo[$i]] = 0;
+				$hours[$month_combo_reverse[$i]] = 0;
 			}
 		}
 	}
 
 	// Get Hours target_data
-	$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='hours_worked_target' ORDER BY entry_id DESC LIMIT 1"; // select column
+		$sql = "SELECT * FROM tracking_inputs WHERE user_id = '".$user_to_display."' AND latest_version_of_this_data_type = 'yes' AND data_type='hours_target' ORDER BY entry_id DESC LIMIT 1"; // select column
 	$result = mysqli_query($conn, $sql);
-	unset($hours_worked_target);
+	unset($hours_target);
 	
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
 		for($i=0;$i<$month_to_loop;$i++){
-			if($row[$month_combo[$i]] != 0){
-				$hours_worked_target[$month_combo[$i]] = $row[$month_combo[$i]];$all_null = 'no';
+			if($row[$month_combo_reverse[$i]] != 0){
+				$hours_target[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];$all_null = 'no';
 			}else{
-				$hours_worked_target[$month_combo[$i]] = 0;
+				$hours_target[$month_combo_reverse[$i]] = 0;
 			}
 			
 		}
@@ -95,20 +96,21 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		for($i=0;$i<$month_to_loop;$i++){
 			$newChartData = [
 				$display_month_combo[$i],
-				floatval($income[$month_combo[$i]]), 
-				floatval($income_target[$month_combo[$i]]),
-				floatval($hours_worked[$month_combo[$i]]),
-				floatval($hours_worked_target[$month_combo[$i]]),
+				floatval($income[$month_combo_reverse[$i]]), 
+				floatval($income_target[$month_combo_reverse[$i]]),
+				floatval($hours[$month_combo_reverse[$i]]),
+				floatval($hours_target[$month_combo_reverse[$i]]),
 			];
 			array_push($chartDataArray,$newChartData);
 		}
+		// echo"<pre>",var_dump($chartDataArray),"</pre>";
 ?>
 <!-- Draw google chart -->
     <script name='results_work' type="text/javascript">
 			let arrOfTitle = ['Year', 'Income', 'Income Target', 'Hours Worked', 'Hours Worked Target'];
 			// convert php array to js array
 			let arrOfInputs = <?=json_encode($chartDataArray); ?>;
-			console.log(arrOfInputs);
+			console.log(arrOfInputs);//TEST 
 
 			google.charts.load('current', {'packages':['corechart']});
 			google.charts.setOnLoadCallback(drawChart);

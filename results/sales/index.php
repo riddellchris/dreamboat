@@ -20,7 +20,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	unset($sales);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$sales[$item] = $row[$item];
 				$all_null = 'no';
@@ -28,7 +28,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$sales[$item] = 'null';
 			}	
 		}
-			// if($all_null == 'yes'){$sales[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$sales[$month_combo_reverse[6]] = 1;}
 	} 
 
 	//Get Sales_target data
@@ -37,7 +37,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 	unset($sales_target);
 	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 		$all_null = 'yes';
-		foreach($month_combo as $item){
+		foreach($month_combo_reverse as $item){
 			if($row[$item] != 0){
 				$sales_target[$item] = $row[$item];
 				$all_null = 'no';
@@ -45,7 +45,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$sales_target[$item] = 'null';
 			}	
 		}
-			// if($all_null == 'yes'){$sales[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$sales[$month_combo_reverse[6]] = 1;}
 	}
 	// Get Income data -- follow the original code to query income, although it might not be needed 
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
@@ -62,7 +62,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$income[$item] = 'null';
 			}	
 		}
-			// if($all_null == 'yes'){$income[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$income[$month_combo[6]] = 1;}
 	}
 	
 	// Get Income_target data
@@ -79,7 +79,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 				$income_target[$item] = 'null';
 			}	
 		}
-			// if($all_null == 'yes'){$income_target[$month_combo[6]] = 1;}
+			if($all_null == 'yes'){$income_target[$month_combo[6]] = 1;}
 	}
 
 

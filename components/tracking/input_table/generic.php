@@ -21,23 +21,12 @@ if($adjust_variable_name == 'yes'){
 if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_a'){$display_variable_name = "Related KPI 'A'";}
 if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$display_variable_name = "Related KPI 'B'";}
 
-?>
 
-<?php
-
-	require $_SERVER['DOCUMENT_ROOT']."/components/tracking/input_table/actuals_row.php";
-
+require $_SERVER['DOCUMENT_ROOT']."/components/tracking/input_table/actuals_row.php";
 ?>
 	
-	<div class='row'>
-			<?php
-
-			echo "
-				<div class='table-cell title ".$variable_name."_target'>";
-			
-			echo $display_variable_name." Target";
-			
-			$sql = "SELECT * FROM tracking_inputs 
+<?php
+$sql = "SELECT * FROM tracking_inputs 
 				WHERE data_type = '".$variable_name."_target' 
 				AND user_id = '".$user_to_display."' 
 				AND latest_version_of_this_data_type = 'yes' ORDER BY entry_id DESC LIMIT 1"; // select column
@@ -51,23 +40,24 @@ if(	$_GET['secondary_folder'] == 'links' && $variable_name == 'related_kpi_b'){$
 				WHERE data_type = '".$variable_name."_target' 
 				AND user_id = '".$user_to_display."' 
 				AND latest_version_of_this_data_type = 'yes' ORDER BY entry_id DESC LIMIT 1"; // select column
-				// echo var_dump($sql);exit();
 			}
 			$result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-			?>
-			</div>
-			
-			
-			<?php
+?>
 
+	<div class='row'>
+			<?= 
+			"<div class='table-cell title {$variable_name}_target'> {$display_variable_name} Target </div>"
+			?>
+			<?php
 			for($i = 0; $i < $month_to_loop; $i++){
 				echo "
 					<div class='table-cell'>	
-						<input class='table-cell_input target ".$variable_name."_target' name='".$variable_name."_target_".$month_combo_reverse[$i]."' 
-						value ='".$row[$month_combo_reverse[$i]]."'>
+						<input class='table-cell_input target {$variable_name}_target' name='{$variable_name}_target_{$month_combo_reverse[$i]}' 
+						value ='{$row[$month_combo_reverse[$i]]}'>
 					</div>";
 				}
 			?>
 		
 	</div>
+
