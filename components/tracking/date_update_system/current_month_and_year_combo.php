@@ -36,7 +36,8 @@ if($_SESSION['is_date_customised']){
 	$endYear = $row['end_date_year'];
 	
 	$month_to_loop = $endMonth - $startMonth + ($endYear-$startYear) *12;
-	if($endMonth<$startMonth){$month_to_loop+=1;}
+	$month_to_loop+=1;
+	// if($endMonth<$startMonth){$month_to_loop+=1;}
 	// Set the current month and year to the starting month and year
 	$currentMonth = $startMonth;
 	$currentYear = $startYear;
