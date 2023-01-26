@@ -21,11 +21,21 @@ $currentMonth = $startMonth;
 $currentYear = $startYear;
 
 if($_SESSION['is_date_customised']){
-	// Get data from database 
 	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+	// Get data from database 
+
 	$sql = "SELECT * FROM user_customiser_control WHERE user_id = '".$user_to_display."'"; // select column
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	
+	// check if the data has existed
+	if(!$row){
+		// Insert record
+    $sql = "INSERT INTO `user_customiser_control`(`user_id`, `start_date_year`, `start_date_month`, `end_date_year`, `end_date_month`) VALUES ($user_to_display,$startYear,$startMonth,$endYear,$endMonth)
+    ";
+		$result = mysqli_query($conn, $sql);
+		return;
+	}
 
 	// Set the starting month and year
 	$startMonth = $row['start_date_month'];
