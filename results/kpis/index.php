@@ -180,9 +180,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection
 
 <!-- Draw google chart -->
 <script type="text/javascript" name="results_kpi">
-	console.log('are you here')
 	// convert php array to js array	
-	let arrOfTitle = ['Year', 'HELLO', 'kpi_1 Target','kpi_2','kpi_2 Target','kpi_3','kpi_3 Target','kpi_4','kpi_4 Target'];
+	let arrOfTitle = ['Year', 'kpi_1', 'kpi_1 Target','kpi_2','kpi_2 Target','kpi_3','kpi_3 Target','kpi_4','kpi_4 Target'];
 	
 	let arrOfInputs = <?=json_encode($chartDataArray); ?>;
 	console.log(arrOfInputs);
