@@ -6,388 +6,211 @@ if($_GET['primary_folder'] != 'reporting'){
 }
 else{
   $location_string = 'financials_revenue_tracker';
-
 }
-
 ?>
 
-
-
 <?php
-    echo "<script name='".$location_string."' type='text/javascript'>";
-    echo "
-
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(".$location_string.");";?>
-
-      function <?php echo $location_string; ?>()            
-                    {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-
-
-          <?php
-
-
-
-
-if( $_SESSION['viewing_client_id'] == 4231 OR 
-
-    $_SESSION['viewing_client_id'] == 4387 OR 
-    $_SESSION['viewing_client_id'] == 4388 OR 
-    $_SESSION['viewing_client_id'] == 4389 OR 
-    $_SESSION['viewing_client_id'] == 4390 OR 
-    $_SESSION['viewing_client_id'] == 4391 OR 
-    $_SESSION['viewing_client_id'] == 4392 OR 
-
-    //Steve Rouget's Clients
-    $_SESSION['viewing_client_id'] == 4402 OR
-    $_SESSION['viewing_client_id'] == 4400 OR
-    $_SESSION['viewing_client_id'] == 4401 OR
-    $_SESSION['viewing_client_id'] == 4399 OR
-
-    //Tricia Ong's Clients
-    $_SESSION['viewing_client_id'] == 4383 OR 
-    $_SESSION['viewing_client_id'] == 4398 OR
-
-    //Garreth's clients
-    $_SESSION['viewing_client_id'] == 4393 OR
-
-    $_SESSION['viewing_client_id'] == 1){
-
-
-
-
-
-      if($_SESSION['viewing_client_id'] == 4383){
-
-
-
-
-
-
-
-        $revenue_target['Dec 23']['value'] = 96667;
-        $revenue_target['Nov 23']['value'] = 96667;
-        $revenue_target['Oct 23']['value'] = 96667;
-        $revenue_target['Sep 23']['value'] = 96667;        
-        $revenue_target['Aug 23']['value'] = 96667;
-        $revenue_target['Jul 23']['value'] = 96667;
-        $revenue_target['Jun 23']['value'] = 96667;
-        $revenue_target['May 23']['value'] = 97667;
-        $revenue_target['Apr 23']['value'] = 92067;
-        $revenue_target['Mar 23']['value'] = 77367;
-        $revenue_target['Feb 23']['value'] = 78167;
-        $revenue_target['Jan 23']['value'] = 52667;
-        $revenue_target['Dec 22']['value'] = 87867;
-        $revenue_target['Nov 22']['value'] = 716667;
-        $revenue_target['Oct 22']['value'] = 216667;
-        $revenue_target['Sep 22']['value'] = 226667;        
-        $revenue_target['Aug 22']['value'] = 126667;
-        $revenue_target['Jul 22']['value'] = 86667;
-        $revenue_target['Jun 22']['value'] = 50000;
-        $revenue_target['May 22']['value'] = 50000;
-        $revenue_target['Apr 22']['value'] = 50000;
-        $revenue_target['Mar 22']['value'] = 50000;
-        $revenue_target['Feb 22']['value'] = 50000;
-        $revenue_target['Jan 22']['value'] = 50000;
-        $revenue_target['Dec 21']['value'] = 50000;
-        $revenue_target['Nov 21']['value'] = 50000;
-        $revenue_target['Oct 21']['value'] = 50000;
-        $revenue_target['Sep 21']['value'] = 50000;
-        $revenue_target['Aug 21']['value'] = 70000;
-        $revenue_target['Jul 21']['value'] = 60000;
-        $revenue_target['Jun 21']['value'] = 50000;
-        $revenue_target['May 21']['value'] = 50000;
-        $revenue_target['Apr 21']['value'] = 50000;
-        $revenue_target['Mar 21']['value'] = 50000;
-        $revenue_target['Feb 22']['value'] = 50000;
-        $revenue_target['Jan 22']['value'] = 50000;
-        $revenue_target['Dec 20']['value'] = 50000;
-        $revenue_target['Nov 20']['value'] = 50000;
-        $revenue_target['Oct 20']['value'] = 50000;
-        $revenue_target['Sep 20']['value'] = 50000;
-
-
-
-
-
-
-    
-    
-      }
-      else{
-
-
-
-
-
-
-
-
-
-
-
-        $revenue_target['Aug 23']['value'] = 50000;
-        $revenue_target['Jul 23']['value'] = 50000;
-        $revenue_target['Jun 23']['value'] = 50000;
-        $revenue_target['May 23']['value'] = 50000;
-        $revenue_target['Apr 23']['value'] = 50000;
-        $revenue_target['Mar 23']['value'] = 50000;
-        $revenue_target['May 23']['value'] = 50000;
-        $revenue_target['Feb 23']['value'] = 50000;
-        $revenue_target['Jan 23']['value'] = 50000;
-        $revenue_target['Dec 22']['value'] = 50000;
-        $revenue_target['Nov 22']['value'] = 50000;
-        $revenue_target['Oct 22']['value'] = 50000;
-        $revenue_target['Sep 22']['value'] = 50000;
-        $revenue_target['Aug 22']['value'] = 50000;
-        $revenue_target['Jul 22']['value'] = 50000;
-        $revenue_target['Jun 22']['value'] = 50000;
-        $revenue_target['May 22']['value'] = 50000;
-        $revenue_target['Apr 22']['value'] = 50000;
-        $revenue_target['Mar 22']['value'] = 50000;
-        $revenue_target['May 22']['value'] = 50000;
-        $revenue_target['Feb 22']['value'] = 50000;
-        $revenue_target['Jan 22']['value'] = 50000;
-        $revenue_target['Dec 21']['value'] = 50000;
-        $revenue_target['Nov 21']['value'] = 50000;
-        $revenue_target['Oct 21']['value'] = 50000;
-        $revenue_target['Sep 21']['value'] = 50000;
-        $revenue_target['Aug 21']['value'] = 70000;
-        $revenue_target['Jul 21']['value'] = 60000;
-        $revenue_target['Jun 21']['value'] = 50000;
-        $revenue_target['May 21']['value'] = 50000;
-        $revenue_target['Apr 21']['value'] = 50000;
-        $revenue_target['Mar 21']['value'] = 50000;
-        $revenue_target['Feb 22']['value'] = 50000;
-        $revenue_target['Jan 22']['value'] = 50000;
-        $revenue_target['Dec 20']['value'] = 50000;
-        $revenue_target['Nov 20']['value'] = 50000;
-        $revenue_target['Oct 20']['value'] = 50000;
-        $revenue_target['Sep 20']['value'] = 50000;
-
-
-
-
-
-      }
-
-
-      //first we want to create a backup period for chart display file
-      //so do to this we simply want to 
-      $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
-              WHERE         latest_version_for_this_user = 'yes'
-              AND           date_index > -24 ";
-      //then really we just want to scan all these results to pull out and appropriate array
-      $result = mysqli_query($conn, $sql);
-
-      if(isset($display_chart['backup_period_for_chart_display'])){
-          unset($display_chart['backup_period_for_chart_display']);
-      }
-      while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){     
-          $date_index = $row['date_index'];
-
-        if(!isset($display_chart['backup_period_for_chart_display'][$date_index])){
-          $display_chart['backup_period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
-
-        }
-
-
-      }
-
-      /*
-      if($_SESSION['viewing_client_id'] == '4402'){
-        echo '<pre>' , var_dump($display_chart['backup_period_for_chart_display']) , '</pre>';
-        
-      }
-      */
-
-
-
-
-
-
-
-
-    //EXTRACT
-    $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
-            WHERE         user_id = '".$_SESSION['viewing_client_id']."'
-            AND           latest_version_for_this_user = 'yes'
-            AND           account_name = 'Total Income'
-            AND           date_index > -24
-            ORDER BY date_index ASC          
-            ";
-    $result = mysqli_query($conn, $sql);
-
-  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-      $display_chart['period_for_chart_display'][$row['date_index']]  = $row['period_for_chart_display'];
-      $display_chart['Total Income'][$row['date_index']]              = $row['value'];
-      $sub_title = $row['accurate_as_at_string'];
-    //RAW_Contract Manufacturing not included as not a sales item    
-  } 
-
-  
-$display_default_months = 'yes';
-if($_SESSION['viewing_client_id'] == '4231'){
-  $months_to_display = 12;
-  $display_default_months = 'no'; 
-}
-if($display_default_months == 'yes'){
-  $months_to_display = 6;
-}
-unset($display_default_months);
-
-
-  //therefore
-  $max_extract_to_for_sql = $months_to_display * -1 - 1;
-  $extraction_counter_start = $months_to_display * -1; 
-
-  echo " ['Month', 'LAST YEAR', { role: 'annotation' }, 'Revenue', { role: 'annotation' }, 'Target'],";
-
-  for($date_index = $extraction_counter_start; $date_index <= -1; $date_index ++){
-
-    $last_year_index = $date_index-12;
-
-    //NULL CHECKS PER COLUMN
- //   if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = '0.00';}
- //   if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
-  //  if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
-   // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
-   // if(!isset($display_chart['period_for_chart_display'][$date_index])){$display_chart['period_for_chart_display'][$date_index] = 'NULL';}
-
-
-    //so the solution here is that if none of these are set we need to produce another line of code and adjust accordingly:
-      if(!isset($display_chart['period_for_chart_display'][$date_index])){
-        echo " [  '".$display_chart['backup_period_for_chart_display'][$date_index+1]."',       
-                  null,      
-                  '0.00',               
-                  null,      
-                  '0.00', 
-                  ".$revenue_target[$display_chart['backup_period_for_chart_display'][$date_index]]['value']."]      ";
-                  //this needs 
-
-                  
-
-      }
-      else{
-
-
-          echo " [  '".$display_chart['period_for_chart_display'][$date_index]."', ";
-
-            if(!isset($display_chart['Total Income'][$last_year_index])){
-                echo "0.00, '0.00', ";
-            }
-            else{
-                echo     $display_chart['Total Income'][$last_year_index].",      
-                      '".$display_chart['Total Income'][$last_year_index]."', ";
-            }
-
-          if(!isset($display_chart['Total Income'][$date_index])){
-              echo "null, '0.00', ";
-          }
-          else{
-              echo     $display_chart['Total Income'][$date_index].",      
-                    '".$display_chart['Total Income'][$date_index]."', ";
-          }
-
-          echo "
-                    ".$revenue_target[$display_chart['period_for_chart_display'][$date_index]]['value']."]      ";
-      }
-
-    if($date_index <> -1){echo ",";}
-  }
-
-}
-else{
-  echo "
-  ['Month',     'Revenue', { role: 'annotation' },'Target'],
-  ['Dec 21',   450, '450',  614.6],          
-  ['Jan 22',   450, '450',  614.6],
-  ['Feb 22',   288, '288',  682],
-  ['Mar 22',   397, '397',  623],
-  ['Apr 22',   215, '215',  609.4],
-  ['May 22',   366, '366',  569.6]
-  ";
-
+require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/current_month_and_year_combo.php";
+require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/functions.php";
+
+  // Prepare data
+  $user_to_display = $_SESSION['viewing_client_id'];
+
+  // Dummy data
+  $dummy_data = [
+    ['Month', 'LAST YEAR',['role'=> 'annotation' ],'Revenue', ['role'=> 'annotation' ],'Target'],
+    ['Dec 21',0,'0',450, '450', 614.6],          
+    ['Jan 22',120,'120',450, '450', 614.6],
+    ['Feb 22',150,'150',288, '288', 682],
+    ['Mar 22',250, '250',397, '397', 623],
+    ['Apr 22',180,'180',215, '215', 609.4],
+    ['May 22',280,'280',366, '366', 569.6]
+  ];
   $sub_title = "Dummy data only";
 
 
+// REVIEW:why do we need to backup?
+// $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
+// WHERE         latest_version_for_this_user = 'yes'
+// AND           date_index > -$month_to_loop "; 
+
+// $result = mysqli_query($conn, $sql);
+// if(isset($display_chart['backup_period_for_chart_display'])){
+//   unset($display_chart['backup_period_for_chart_display']);
+// }
 
 
+// while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){     
+//   $date_index = $row['date_index'];
+//   if(!isset($display_chart['backup_period_for_chart_display'][$date_index])){
+//     // period_for_chart_display will display like MMM YY
+//     $display_chart['backup_period_for_chart_display'][$date_index] = $row['period_for_chart_display'];
+//   }
+// }
+
+  // convert date display format - current year
+  for($i = 0; $i<$month_to_loop; $i++){
+    $year = substr($month_combo[$i],3);
+    $display_month_combo[$i]  = $month_name[$i]." ". $year;
+  }
+
+  // Get data from current searching date range from current_month_and_year_combo.php
+  $sql_date_end = "{$endYear}-{$endMonth}-01";
+  $sql_date_start = $startYear."-".str_pad($startMonth,'2','0',STR_PAD_LEFT)."-01";
+
+    
+  $sql = "SELECT * FROM `api_xero_reports_pnl_by_calendar_month`
+  WHERE `user_id` = $user_to_display
+  AND `latest_version_for_this_user` = 'yes' 
+  AND `account_name` = 'Total Income' 
+  AND `date_index_start` >= '{$sql_date_start}'
+  AND `date_index_start` <= '{$sql_date_end}'
+  ORDER BY `date_index_start` ASC
+  ";
+
+  // Use `$month_name YY` to ensure the data is matched
+  // if it's not match, check the date, and neither is matched, give applied the number to zero/null
+  $result = mysqli_query($conn, $sql);
+  
+  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+    $display_chart['Total period_for_chart_display'][] = $row['period_for_chart_display'];
+    $display_chart['Total Income'][] = $row['value'];
+    
+    $sub_title = $row['accurate_as_at_string'];
+  }
+
+  $date_gap_range = count_date_gap_range($display_chart['Total period_for_chart_display'][0],$sql_date_start);
+  
+  $income_backup = $display_chart['Total Income'];
+  $display_chart['Total period_for_chart_display']= $display_month_combo;
+
+  for($i = 0; $i<$month_to_loop;$i++){
+    if($i<$date_gap_range){
+      $display_chart['Total Income'][$i] = 0;
+    }else{
+      $display_chart['Total Income'][$i] = $income_backup[$i-$date_gap_range];
+    }
+  }
+?>
+<?php
+// Get same month range of last year to compare the number side by side
+require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/prev_month_and_year_combo.php";
+
+  $sql = "SELECT * FROM `api_xero_reports_pnl_by_calendar_month`
+  WHERE `user_id` = $user_to_display
+  AND `latest_version_for_this_user` = 'yes' 
+  AND `account_name` = 'Total Income' 
+  AND `date_index_start` >= '{$sql_last_year_date_start}'
+  AND `date_index_start` <= '{$sql_last_year_date_end}'
+  ORDER BY `date_index_start` ASC
+  ";
+  $result = mysqli_query($conn, $sql);
+  $last_year_chart_data = array();
+  
+  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+    $last_year_chart_data['Total period_for_chart_display'][] = $row['period_for_chart_display'];
+    $last_year_chart_data['Total Income'][] = $row['value'];    
+  }
+  $date_gap_range = count_date_gap_range($last_year_chart_data['Total period_for_chart_display'][0],$sql_last_year_date_start);
+
+
+  // convert date display format - last year
+  for($i = 0; $i<$month_to_loop; $i++){
+    $year = substr($month_combo[$i],3);
+    $year -= 1;
+    $display_month_combo_last_year[$i]  = $month_name[$i]." ". $year;
+  }
+  $last_year_income_backup = $last_year_chart_data['Total Income'];
+  $last_year_chart_data['Total period_for_chart_display'] = $display_month_combo_last_year;
+
+  for($i = 0; $i<$month_to_loop;$i++){
+    if($i<$date_gap_range){
+      $last_year_chart_data['Total Income'][$i] = 0;
+    }else{
+      $last_year_chart_data['Total Income'][$i] = $last_year_income_backup[$i-$date_gap_range];
+    }
+  }
+
+  //Get Revenue Target
+  $revenue_target = array();
+  $sql = "SELECT * FROM tracking_inputs 
+  WHERE user_id = $user_to_display
+  AND latest_version_of_this_data_type = 'yes' 
+  AND data_type='revenue_target' 
+  ORDER BY entry_id DESC LIMIT 1
+  ";
+  $result = mysqli_query($conn, $sql);
+  unset($revenue_target);
+  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+		$all_null = 'yes';
+		for($i=0;$i<$month_to_loop;$i++){
+			if($row[$month_combo_reverse[$i]] != 0){
+				$revenue_target[$month_combo_reverse[$i]] = $row[$month_combo_reverse[$i]];
+				$all_null = 'no';
+			}else{
+				$revenue_target[$month_combo_reverse[$i]] = 0;
+			}
+		}
+	}
+  
+  // Create array for chart to use
+$chart_data_array = array();
+for($i=0;$i<$month_to_loop;$i++){
+  $new_chart_data = [
+    $display_month_combo[$i],
+    floatval($last_year_chart_data['Total Income'][$i]),
+    $last_year_chart_data['Total Income'][$i],
+    floatval($display_chart['Total Income'][$i]),
+    $display_chart['Total Income'][$i],
+    floatval($revenue_target[$month_combo_reverse[$i]])
+  ];
+  array_push($chart_data_array,$new_chart_data);
 }
-
 ?>
 
-        ]);
+<!-- Draw google chart -->
+<script type="text/javascript" name=<?=$location_string?>>
+  let arrOfInput = <?=json_encode($chart_data_array)?>;
+  let subtitle = <?=json_encode($sub_title)?>;
+  let dataArray = [];
+  let isShownDefault = false;
+  let arrOfTitle = ['Month', 'LAST YEAR', { role: 'annotation' }, 'Revenue', { role: 'annotation' }, 'Target'];
+  
+  if(!arrOfInput[0][0]) isShownDefault = true;
 
-        var options = {
-          <?php
-                echo "title: 'Revenue Tracker";
-                if(isset($sub_title)){echo " - ".$sub_title;}
-                echo "',";
-                ?>
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawVisualization);
+  
+      function drawVisualization() {
+        let options = {
+          title: `Revenue Tracker`,
           vAxis: {title: '$'},
-          //hAxis: {title: 'Month'},
           legend: { position: 'top'},
-          seriesType: 'bars',
-
-          <?php
-
-          if(
-              $_SESSION['viewing_client_id'] == 4231 OR     
-
-              $_SESSION['viewing_client_id'] == 4387 OR 
-              $_SESSION['viewing_client_id'] == 4388 OR 
-              $_SESSION['viewing_client_id'] == 4389 OR 
-              $_SESSION['viewing_client_id'] == 4390 OR 
-              $_SESSION['viewing_client_id'] == 4391 OR 
-              $_SESSION['viewing_client_id'] == 4392 OR 
-
-
-    //Steve Rouget's Clients
-    $_SESSION['viewing_client_id'] == 4402 OR
-        $_SESSION['viewing_client_id'] == 4400 OR
-        $_SESSION['viewing_client_id'] == 4401 OR
-        $_SESSION['viewing_client_id'] == 4399 OR
-
-        //Tricia Ong's Clients
-        $_SESSION['viewing_client_id'] == 4383 OR 
-        $_SESSION['viewing_client_id'] == 4398 OR 
-
-    //Garreth's Clients
-    $_SESSION['viewing_client_id'] == 4393 OR
-
-              $_SESSION['viewing_client_id'] == 1){
-
-                echo "
-                series: {
-                    0: {                              color: '#281e96'}  ,
-                    1: {                              color: '#3c78d8'}  ,                          
-                    2: {type: 'line',  lineWidth: 10, color: '#cecece'}
-                  }
-                ";
-              }
-              else{
-                echo "
-                series: {       
-                    1: {type: 'line',  lineWidth: 10, color: '#cecece'}
-                  }
-                ";
-
-              }
-
-          ?>
-
+          seriesType: 'bars',  
         };
 
-        <?php
-          $chart_type = "ComboChart";
-          echo "var chart = new google.visualization.".$chart_type."(document.getElementById('".$location_string."_div'));";
-        ?>
+        if(isShownDefault){
+          options.title = `Revenue Tracker - ${subtitle}`,
+          arrOfInput = <?=json_encode($dummy_data)?>;
+          dataArray = [...arrOfInput];
+          options['series'] = {       
+            1: {type: 'line',  lineWidth: 10, color: '#cecece'}
+          };
+        }else{
+          dataArray = [arrOfTitle,...arrOfInput];
+          options['series'] = {       
+              0: {color: '#281e96'},
+              1: {color: '#3c78d8'},                          
+              2: {type: 'line',  lineWidth: 10, color: '#cecece'}  
+          };
+        }
+
+        let data = google.visualization.arrayToDataTable(dataArray);
+
+        let locationString = <?=json_encode($location_string)?>;
+
+        var chart = new google.visualization.ComboChart(document.getElementById(`${locationString}_div`));
+        
         chart.draw(data, options);
       }
-
-
-      $(window).resize(function(){<?php echo $location_string; ?>();});	
-    </script>
+</script>
