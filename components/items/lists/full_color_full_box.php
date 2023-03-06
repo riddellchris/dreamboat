@@ -1,8 +1,8 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/account/security/logged_in_check.php";
-
-echo "<div style='height:22px;'>&nbsp;</div>";
+//REVIEW use margin rather than this method
+// echo "<div style='height:22px;'>&nbsp;</div>";
 
 require $_SERVER['DOCUMENT_ROOT']."/components/items/lists/pre_list_warnings.php";
 
@@ -39,7 +39,7 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 
 	$_SESSION['ai_number_of_'.$_GET['secondary_folder']] = $number_of_results_to_display;
 
-	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/pieces/box/box.php";	
+	require $_SERVER['DOCUMENT_ROOT']."/components/layouts/pieces/box/box.php";	// stylesheets
 	if($_GET['primary_folder'] != 'notifications' && $_GET['primary_folder'] != 'content'){ 
 
 		echo "<div style='width:100%;max-width:1100px;padding:20px 0px;text-align:center;margin-left:auto;margin-right:auto;margin-bottom:6vh;'>";
@@ -58,7 +58,6 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 		      </style>";
 		$clients_called = $_SESSION['viewing_client_what_clients_are_called'];	
 		
-		
 		//how it used to be before we made 'items_central_index'
 		/*if(check_folders_two_deep('profile','progress')){$adding_new = 'progress';	$achieved_name = 'very old';	$button_copy = "add your progress";} */
 
@@ -67,9 +66,7 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 			FROM items_central_index 
 			WHERE primary_folder = '".mysqli_real_escape_string($conn, $_GET['primary_folder'])."'
 			AND secondary_folder = '".mysqli_real_escape_string($conn, $_GET['secondary_folder'])."'";
-
-	//echo $sql;exit();
-	//	exit();
+	// var_dump($sql);exit();
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		
@@ -79,7 +76,7 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 			$button_copy 	= $row['add_new_copy'];
 			if($_GET['secondary_folder'] == 'clients'){$button_copy = str_replace('clients', $_SESSION['viewing_client_what_clients_are_called'], $button_copy);}	
 
-
+// REVIEW: this section is to set bg color for viewing dropdown selection
 	/* HOMEWORK ONLY FOR /upgrades/all/ */
 		//for the list selection here		
 		if(	$_SESSION['list_view_'.$_GET['primary_folder'].'_'.$_GET['secondary_folder']] != 'deleted' &&
@@ -89,17 +86,17 @@ echo "<div style='width:100%; text-align:center;font-family:Comfortaa;'>";
 		if(	$_SESSION['list_view_'.$_GET['primary_folder'].'_'.$_GET['secondary_folder']] == 'inactive'){ 	$inactive_selected 	= " selected ";	$inactive_ing = 'ing';	$background_color='#a5d2ff';		$color='';}
 		//if(	$_SESSION['list_view_'.$_GET['primary_folder'].'_'.$_GET['secondary_folder']] == 'homework'){ 	$homework_selected 	= " selected ";	$homework_ing = 'ing';	$background_color='red';		$color='color:white;';}			
 		echo "<div style='width:33.3%;float:left;'>";
-			echo "<form method='post' action='/components/items/lists/view.php?primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."'>";
+		echo "<form method='post' action='/components/items/lists/view.php?primary_folder=".$_GET['primary_folder']."&secondary_folder=".$_GET['secondary_folder']."'>";
 			echo "<select name='list_to_view' class='login-submit'  style='float:left;width:100%;text-align-last: center;background-color:".$background_color.";".$color."'  onchange='this.form.submit()'>";
-			//this is where if(
-		//if(check_folders_two_deep('upgrades','all')){		
-		//		echo "<option value='homework' 	".$homework_selected."	>view".$homework_ing." active homework</option>";
-		//		}
-				echo "<option value='active' 	".$active_selected."	>view".$active_ing." active</option>";
-				echo "<option value='deleted'	".$deleted_selected."	>view".$deleted_ing."  deleted</option>";					
-				echo "<option value='inactive'	".$inactive_selected."	>view".$inactive_ing."  ".$achieved_name."</option>";	
+				//this is where if(
+			//if(check_folders_two_deep('upgrades','all')){		
+			//		echo "<option value='homework' 	".$homework_selected."	>view".$homework_ing." active homework</option>";
+			//		}
+			echo "<option value='active' 	".$active_selected."	>view".$active_ing." active</option>";
+			echo "<option value='deleted'	".$deleted_selected."	>view".$deleted_ing."  deleted</option>";					
+			echo "<option value='inactive'	".$inactive_selected."	>view".$inactive_ing."  ".$achieved_name."</option>";	
 			echo "</select>";
-			echo "</form>";				
+		echo "</form>";				
 		echo "</div>";	
 		echo "<div style='width:33.3%;float:left;'>";								
 			echo "<a class='login-submit' href='/components/items/add_new.php?";

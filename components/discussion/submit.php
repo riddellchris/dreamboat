@@ -48,55 +48,57 @@ if(
 	if($_POST['quarternary_folder'] == 'item'){$quarternary_folder = 'item';}
 	else{$quarternary_folder = '';}
 
-//var_dump($_POST);
+$primary_folder_value = mysqli_real_escape_string($conn, $_POST['primary_folder']);
+$secondary_folder_value = mysqli_real_escape_string($conn, $_POST['secondary_folder']);
+$tertiary_folder_value = mysqli_real_escape_string($conn, $_POST['tertiary_folder']);
+$quarternary_folder_value = mysqli_real_escape_string($conn, $_POST['quarternary_folder']);
+$item_id = mysqli_real_escape_string($conn, $_POST['item_id']);
 
 	
 	$sql = "INSERT INTO discussion (
-											primary_folder, 		     
-											secondary_folder ";
-	if(isset($_GET['tertiary_folder'])){		$sql .= ",tertiary_folder 		";}	
-	if(isset($_GET['quarternary_folder'])){		$sql .= ",quarternary_folder	";}							
-	if(isset($_GET['item_id'])){	$sql .= ",related_id 	";}			
-	$sql .= "
-										   
-					,to_user_id 			 
-					,user_id 			     
-					,comment ";
-		if(isset($_SESSION['selected_prompt_text'])){
-				$sql .= "responding_to_prepared_prompt  
-					 ,prompt_answered
-					 ,prompt_answered_id";
-		}
-		if(isset($_POST['advice_textarea'])){
-				$sql .= "	,private_pilot_advice
-					 		,private_pilot_advice_category
-				";
-		}
-		if(isset($_POST['pilot_reasoning'])){		$sql .=  "	,reason_for_asking";}
-		if(isset($_SESSION['prompt_1_string'])){	$sql .= "	,prompt_1	";} 
-		if(isset($_SESSION['prompt_2_string'])){	$sql .= "	,prompt_2	";} 
-		if(isset($_SESSION['prompt_3_string'])){	$sql .= "	,prompt_3	";} 
-		if(isset($_SESSION['prompt_4_string'])){	$sql .= "	,prompt_4	";} 
-		if(isset($_SESSION['prompt_5_string'])){	$sql .= "	,prompt_5	";} 
-		if(isset($_SESSION['prompt_6_string'])){	$sql .= "	,prompt_6	";} 
+											primary_folder
+											,secondary_folder";
+	if(isset($tertiary_folder_value)){
+											$sql .= ",tertiary_folder";}	
+	if(isset($quarternary_folder_value)){	
+											$sql .= ",quarternary_folder";}							
+	if(isset($item_id)){
+											$sql .= ",related_id";}			
+											$sql .= "
+											,to_user_id
+											,user_id
+											,comment";
+	if(isset($_SESSION['selected_prompt_text'])){
+											$sql .= "
+											,responding_to_prepared_prompt,prompt_answered
+											,prompt_answered_id";}
+	if(isset($_POST['advice_textarea'])){
+											$sql .= "	
+											,private_pilot_advice
+											,private_pilot_advice_category";}
+	if(isset($_POST['pilot_reasoning'])){		$sql .=  "	,reason_for_asking";}
+	if(isset($_SESSION['prompt_1_string'])){	$sql .= "	,prompt_1	";} 
+	if(isset($_SESSION['prompt_2_string'])){	$sql .= "	,prompt_2	";} 
+	if(isset($_SESSION['prompt_3_string'])){	$sql .= "	,prompt_3	";} 
+	if(isset($_SESSION['prompt_4_string'])){	$sql .= "	,prompt_4	";} 
+	if(isset($_SESSION['prompt_5_string'])){	$sql .= "	,prompt_5	";} 
+	if(isset($_SESSION['prompt_6_string'])){	$sql .= "	,prompt_6	";} 
 
-		$sql .= "
-					) 
-		VALUES(			
-					'".mysqli_real_escape_string($conn, $_POST['primary_folder'])."',
-					'".mysqli_real_escape_string($conn, $_POST['secondary_folder'])."'";
+											$sql .= ") VALUES(			
+											'{$primary_folder_value}'
+											,'{$secondary_folder_value}'";
 
 
-		if(isset($_GET['tertiary_folder'])){		$sql .= ",'".mysqli_real_escape_string($conn, $_POST['tertiary_folder'])."'	";}
-		if(isset($_GET['quarternary_folder'])){		$sql .= ",'".mysqli_real_escape_string($conn, $quarternary_folder)."'		";}
-		if(isset($_GET['item_id'])){				$sql .= ",'".mysqli_real_escape_string($conn, $_POST['item_id'])."'		";}
+		if(isset($tertiary_folder_value)){$sql .= ",'{$tertiary_folder_value}'";}
+		if(isset($quarternary_folder_value)){$sql .= ",'{$quarternary_folder_value}'";}
+		if($item_id){$sql .= ",'{$item_id}'";}
 		$sql .= "					
 					,'".mysqli_real_escape_string($conn, $other_parties_id)."'
 					,'".mysqli_real_escape_string($conn, $_SESSION['user_id'])."'
 					,'".mysqli_real_escape_string($conn, $_SESSION['users_latest_discussion_input'])."'";
 		if(isset($_SESSION['selected_prompt_text'])){
-								$sql .= "'yes', 
-									 ,'".$_SESSION['selected_prompt_text']."'
+								$sql .= ",'yes' 
+									,'".$_SESSION['selected_prompt_text']." '
 									, '".$_SESSION['selected_prompt_id']."'";
 								}
 		if(isset($_POST['advice_textarea'])){
