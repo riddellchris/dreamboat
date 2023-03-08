@@ -53,7 +53,6 @@ $secondary_folder_value = mysqli_real_escape_string($conn, $_POST['secondary_fol
 $tertiary_folder_value = mysqli_real_escape_string($conn, $_POST['tertiary_folder']);
 $quarternary_folder_value = mysqli_real_escape_string($conn, $_POST['quarternary_folder']);
 $item_id = mysqli_real_escape_string($conn, $_POST['item_id']);
-
 	
 	$sql = "INSERT INTO discussion (
 											primary_folder
@@ -62,7 +61,7 @@ $item_id = mysqli_real_escape_string($conn, $_POST['item_id']);
 											$sql .= ",tertiary_folder";}	
 	if(isset($quarternary_folder_value)){	
 											$sql .= ",quarternary_folder";}							
-	if(isset($item_id)){
+	if($item_id != ''){
 											$sql .= ",related_id";}			
 											$sql .= "
 											,to_user_id
@@ -116,7 +115,7 @@ $item_id = mysqli_real_escape_string($conn, $_POST['item_id']);
 		if(isset($_SESSION['prompt_6_string'])){	$sql .= ",'".mysqli_real_escape_string($conn, $prompt_6)."'";} 
 					
 		$sql .= ")";
-//echo $sql;exit();
+// echo $sql;exit();
 
 				
 	$result = mysqli_query($conn, $sql);
