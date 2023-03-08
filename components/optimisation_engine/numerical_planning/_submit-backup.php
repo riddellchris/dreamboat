@@ -40,12 +40,12 @@ while($row = mysqli_fetch_array($result)){
 	$column_string .= $row['Field'];
 	$column_count ++; 
 }
-// Get the sql from current row && Copied this directly to _update table
 
-$sql = "	INSERT INTO	".$db."_updates (".$column_string.")
+ $sql = "	INSERT 	".$db."_updates (".$column_string.")
 		SELECT 	".$column_string." 
 		FROM 	".$db."
 		WHERE 	item_id 	= '".$_POST['item_id']."'";
+
 mysqli_query($conn,$sql);
 
 

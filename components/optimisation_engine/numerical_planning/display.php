@@ -131,3 +131,97 @@ echo "<div name ='keeping_the_left_inbounds' style='width:100%;text-align:center
 	//}
 	echo "</div>";	
 echo "</div>";
+?>
+
+
+<!-- History records -->
+<?php
+
+	$sql = "SELECT * FROM {$db}_updates
+	WHERE item_id = {$_GET['item_id']}
+	ORDER BY `update_timestamp` DESC";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$number_of_results = mysqli_num_rows($result);
+?>
+<div class="record-info">
+<?php if($number_of_results == 0): ?>
+		<h3>There is no record yet.</h3>
+<?php else: ?>
+		<button class='btn-record'>Hide Records</button>
+<?php endif ?>
+</div>
+
+
+<div class='record-wrapper <?php if($number_of_results == 0) echo"hidden"?>'>
+<?php while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)):?>
+	<div class="record-item">
+		<div class="record-item__data">
+			<h4><span>Average hours spent on each week: </span><?=number_format($row['numerical_datapoint'],2)?> Hours</h4>
+			<?php if($row['numerical_zone'] != '...' || ''):?>
+				<h4 class="value-zone"><span>Value Zone: </span><?=$row['numerical_zone']?></h4>
+			<?php endif;?>
+		</div>
+		<p class="timestamp"><span>Set at </span><?=$row['update_timestamp']?></p>
+	</div>
+	<?php endwhile;?>
+</div>
+<style>
+	.record-wrapper,.record-info{
+		max-width:1050px;
+		margin:0 auto;
+		font-family: Comfortaa;
+	}
+	/* Record Info */
+	.record-info{
+		text-align:left;
+	}
+	.record-info .btn-record{
+		padding: 1rem;
+		cursor:pointer;
+	}
+
+	.record-wrapper{
+  padding:1rem 0; 
+  max-height:200px;
+  overflow-y:scroll;
+}
+.record-wrapper.hidden{
+	display:hidden;
+}
+.record-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background-color:#f5f5f5;
+  margin-bottom:.5rem;
+  padding:.625rem;
+}
+.record-item__data > *{
+	text-align:left;
+}
+.record-item__data h4 span{
+	opacity: .5;
+}
+.timestamp{
+  opacity:.5;
+}
+</style>
+
+<script>
+	const RecordToggleBtn = document.querySelector(".record-info .btn-record");
+	const RecordWrapper = document.querySelector(".record-wrapper");
+
+	let status = false;
+	RecordToggleBtn.addEventListener('click',function(e){
+		e.preventDefault();
+		status = !status ;
+		if(status){
+			RecordToggleBtn.textContent = 'Show Records';
+			RecordWrapper.classList.add("hidden");
+		}else{
+			RecordToggleBtn.textContent = 'Hide Records';
+			RecordWrapper.classList.remove("hidden");
+		}
+	})
+</script>
