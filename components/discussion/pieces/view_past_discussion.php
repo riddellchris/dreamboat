@@ -43,7 +43,9 @@ if (isset($_GET['quarternary_folder'])) {	if ($_GET['quarternary_folder'] == 'it
 if($_GET['primary_folder'] == 'map' && $_GET['secondary_folder'] == 'edges'){$test_count++;}
 
 
-
+if ($test_count == 0) {
+	$sql .= "discussion.related_id IS NULL AND ";
+}
 
 
 //this should only be if we are in an item.
@@ -135,7 +137,7 @@ $sql .= "   (
 		  
 		  ORDER BY discussion.comment_id DESC";
 
-//echo $sql;exit();
+// echo $sql;exit();
 echo "<div style='display:block;padding-bottom:150px;'>";
 $result = mysqli_query($conn, $sql);
 
