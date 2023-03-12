@@ -1,73 +1,87 @@
 <?php
 if(!isset($_SESSION)){session_start();}
-
-
+//var_dump($_POST);exit();
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/functions/sql/compile_insert_query_values.php";
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/current_month_and_year_combo.php";
 
+
+
+//echo '<pre>' , var_dump($_POST) , '</pre>';
+//exit();
+
 //month combo comes from the file /components/tracking/date_update_system/current_month_and_year_combo.php
 function dates_combo($target_or_not, $month_combo){
+
 	$sql = "";
-	foreach($month_combo as $value){
-		$sql .= $value.",";
-	};
-	$sql = substr($sql, 0, -1);
+	
+	if($target_or_not == 'no'){
+	$sql .= $month_combo[0].",".$month_combo[1].",".$month_combo[2].",".$month_combo[3].",".$month_combo[4].",".$month_combo[5].",";
+	}
+	
+	$sql .= $month_combo[6].",".$month_combo[7].",".$month_combo[8].",".$month_combo[9].",".$month_combo[10].",".$month_combo[11].",".$month_combo[12]; 
+	
 	return $sql;
 }
 
+$first_six_date_combos_for_sql 	= 
+$second_six_date_combos_for_sql = $month_combo[6].",".$month_combo[7].",".$month_combo[8].",".$month_combo[9].",".$month_combo[10].",".$month_combo[11].",".$month_combo[12]; 
+$all_the_dates = $first_six_date_combos_for_sql.$second_six_date_combos_for_sql;
+
+
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/data_update/escaping.php";
 
+
+
+//CR Commentary 21.01.22
+//I mean this is actually insane, no question about that
+//The steps to fixing that are going to be that we must first 
 
 function make_not_last_version_of_tracking_data($data_type, $target_or_not, $database_connection){
 	$sql = "UPDATE tracking_inputs 
 		SET latest_version_of_this_data_type = 'no' 
 		WHERE user_id = '".mysqli_real_escape_string($database_connection, $_SESSION['viewing_client_id'])."' 
-		AND data_type='".$data_type;		
-	if($target_or_not == 'yes'){$sql .="_target' AND target_yes_no = 'yes'";}else{
-		$sql .="' AND target_yes_no = 'no'";
-	}	
+		AND data_type='".$data_type."'";		
+	if($target_or_not == 'yes'){$sql .= " AND target_yes_no = 'yes'";}	
 	mysqli_query($database_connection, $sql);
 }
 
 function start_of_input_query($data_type, $target_or_not, $escaped_variables, $month_combo, $database_connection){
-	$sql = "INSERT INTO tracking_inputs (user_id, data_type, target_yes_no, ";
-	
-	if($target_or_not == 'yes'){
-		$sql .= dates_combo('yes', 	$month_combo);
-	}else{
-		$sql .= dates_combo('no', $month_combo);
-	}
 
-	$sql .= ") VALUES('".mysqli_real_escape_string($database_connection, $_SESSION['viewing_client_id'])."','".$data_type;
+	$sql = "INSERT INTO 	 tracking_inputs 
+				(user_id, data_type, target_yes_no, ";
+	
+	if($target_or_not == 'yes'){	$sql .= dates_combo('yes', 	$month_combo);}
+	else{				$sql .= dates_combo('no', $month_combo, $escaped_variables);}
+	
+	$sql .= ") VALUES  	('".mysqli_real_escape_string($database_connection, $_SESSION['viewing_client_id'])."',    '".$data_type;
 	if($target_or_not == 'yes'){	$sql .= "_target";}	
 	$sql .= "', '".$target_or_not."',";
-
+	
 	return $sql;
 }
 
-function end_of_input_query($data_type, $target_or_not, $escaped_variables,$month_combo){
+function end_of_input_query($data_type, $target_or_not, $escaped_variables){
 
-		if($target_or_not == 'yes'){
-			$target = 'yes';
-		}else{
-			$target = 'no';
-		}
+	if($target_or_not == 'yes'){$for_start = 6;}
+	else{$for_start = 0;}
+	
+	if($target_or_not == 'yes'){$target = 'yes';}
+	else{$target = 'no';}
+	
 	$root_name = $data_type;
 	
-	
 	$sql = '';
-	for($i = 0; $i < count($month_combo); $i++){
+	for($i = $for_start; $i <= 12; $i++){
 		$sql .= "'".$escaped_variables[$root_name][$target][$i]."'";
-		if($i < count($month_combo)-1){$sql .= ",";}
+		if($i <> 12){$sql .= ",";}
 		else{$sql .= ")";}
 	}
-	
+	//echo $sql; exit();		
 	return $sql;
 }
 
 function update_and_submit($data_type, $database_connection, $month_combo, $escaped_variables){
-	require $_SERVER['DOCUMENT_ROOT']."/components/tracking/date_update_system/current_month_and_year_combo.php";
 
 	//run both the following queries twice:
 		//once for the target data
@@ -75,16 +89,17 @@ function update_and_submit($data_type, $database_connection, $month_combo, $esca
 
 		$target = 'yes';
 		for($i = 1; $i <= 2; $i ++){
-			make_not_last_version_of_tracking_data($data_type, $target, $database_connection);		
-			$sql =  start_of_input_query($data_type, $target, $escaped_variables, $month_combo_reverse, $database_connection);
-			$sql .= end_of_input_query($data_type, $target, $escaped_variables,$month_combo);	
-			
+			make_not_last_version_of_tracking_data(		$data_type, $target, $database_connection);		
+			$sql =  start_of_input_query(				$data_type, $target, $escaped_variables, $month_combo, $database_connection);
+			$sql .= end_of_input_query(					$data_type, $target, $escaped_variables);	
+	//		echo $sql;
+	//		echo "<br>";
 			mysqli_query($database_connection, $sql);		
 			
 			$target = 'no';
 		}
 
-		
+
 }
 
 function check_array_keys($data_type, $array_keys_array){
@@ -107,15 +122,16 @@ function check_array_keys($data_type, $array_keys_array){
 	return $return_value; 
 }
 
+
 $array_keys = array_keys($_POST);
+
+//echo '<pre>' , var_dump($array_keys) , '</pre>';
+//exit();
+
 
 //if there is any post variables starting with the root name then run the function to do it all
 //if not then don't touch anything
-
-$data_type = 'commission';
-if(check_array_keys($data_type, $array_keys) == 'true'){
-	update_and_submit($data_type, $conn , $month_combo, $escaped_variables);
-}
+$data_type = 'commission';			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
 $data_type = 'sales'; 				if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
 $data_type = 'expenses'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
 $data_type = 'revenue'; 			if(check_array_keys($data_type, $array_keys) == 'true'){update_and_submit($data_type, $conn , $month_combo, $escaped_variables);}
@@ -244,5 +260,5 @@ else{
 }
 		
 //echo "go to now";
-// exit();
+exit();
 ?>

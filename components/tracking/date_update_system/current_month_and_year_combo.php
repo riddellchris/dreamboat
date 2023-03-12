@@ -1,116 +1,79 @@
 <?php
+$user_to_display = $_SESSION['viewing_client_id'];
 
-//this doesn't have to be "timezone" exact
-/*
-echo date("y");
-echo "<br>";
-echo date("m");
-echo "<br>";
-echo date("d");
-*/
+$month_combo = array();
+$month_combo_reverse = array();
+$month_to_loop = 6;
+$month_name = array();
 
 
-//if(date('d') < 26){
-	$current_month  = date('m');
-	$current_year	= date('y');
-//}
-/*
-else{
-	if(date('m') != 12){
-		$current_month  = date('m') + 1;
-		$current_year	= date('y');	
+// Set the ending month and year
+$endMonth = date('m');
+$endYear =  date('Y');
+
+// Set the starting month and year
+$startDate = date("m Y", strtotime("-5 months"));
+$startMonth = substr($startDate,0,2);
+$startYear = substr($startDate,3,4);
+
+// Set the current month and year to the starting month and year
+$currentMonth = $startMonth;
+$currentYear = $startYear;
+
+if($_SESSION['is_date_customised']){
+	require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
+	// Get data from database 
+
+	$sql = "SELECT * FROM user_customiser_control WHERE user_id = '".$user_to_display."'"; // select column
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	
+	// check if the data has existed
+	if(!$row){
+		// Insert record
+    $sql = "INSERT INTO `user_customiser_control`(`user_id`, `start_date_year`, `start_date_month`, `end_date_year`, `end_date_month`) VALUES ($user_to_display,$startYear,$startMonth,$endYear,$endMonth)
+    ";
+		$result = mysqli_query($conn, $sql);
+		return;
 	}
-	else{
-		$current_month  = 1;
-		$current_year	= date('y') + 1;		
+
+	// Set the starting month and year
+	$startMonth = $row['start_date_month'];
+	$startYear = $row['start_date_year'];
+	
+	// Set the ending month and year
+	$endMonth = $row['end_date_month'];
+	$endYear = $row['end_date_year'];
+	
+	$month_to_loop = $endMonth - $startMonth + ($endYear-$startYear) *12;
+	$month_to_loop+=1;
+	// if($endMonth<$startMonth){$month_to_loop+=1;}
+	// Set the current month and year to the starting month and year
+	$currentMonth = $startMonth;
+	$currentYear = $startYear;
+}
+// Loop through the months and years
+while ($currentYear < $endYear || ($currentYear == $endYear && $currentMonth <= $endMonth)) {
+	// Create current month and year combo
+	
+	$new_combo = str_pad($currentMonth,'2','0',STR_PAD_LEFT)."_".substr($currentYear,-2);
+	array_push($month_combo,$new_combo);
+
+	// Create a reverse combo to match up backend to extract data
+	$new_combo_reverse = substr($currentYear,-2)."_".str_pad($currentMonth,'2','0',STR_PAD_LEFT);
+	array_push($month_combo_reverse,$new_combo_reverse);
+
+	// Increment the current month and year
+	$currentMonth++;
+	if ($currentMonth > 12) {
+			$currentMonth = 1;
+			$currentYear++;
 	}
 }
-*/
-/*
-echo "<br>"."Current month = ".$current_month."<br>";
-echo "Current year = ".$current_year;
-*/
-
-
-
-
-
-
-
-///therefore find 
-if(($current_month - 6) > 0 ){	$month_combo[0] =  $current_year."_".(	$current_month-6);}
-else{				$month_combo[0] = ($current_year-1)."_".($current_month-6+12);}
-
-if(($current_month - 5) > 0 ){	$month_combo[1] =  $current_year."_".(	$current_month-5);}
-else{				$month_combo[1] = ($current_year-1)."_".($current_month-5+12);}
-
-if(($current_month - 4) > 0 ){	$month_combo[2] =  $current_year."_".(	$current_month-4);}
-else{				$month_combo[2] = ($current_year-1)."_".($current_month-4+12);}
-
-if(($current_month - 3) > 0 ){	$month_combo[3] =  $current_year."_".(	$current_month-3);}
-else{				$month_combo[3] = ($current_year-1)."_".($current_month-3+12);}
-
-if(($current_month - 2) > 0 ){	$month_combo[4] =  $current_year."_".(	$current_month-2);}
-else{				$month_combo[4] = ($current_year-1)."_".($current_month-2+12);}
-
-if(($current_month - 1) > 0 ){	$month_combo[5] =  $current_year."_".(	$current_month-1);}
-else{				$month_combo[5] = ($current_year-1)."_".($current_month-1+12);}
-
-
-//the actual month
-if(($current_month - 0) > 0 ){	$month_combo[6] =  $current_year."_".(	$current_month-0);}
-else{				$month_combo[6] = ($current_year-1)."_".($current_month-0+12);}
-
-
-
-if(($current_month + 1) < 13 ){	$month_combo[7] =  $current_year."_".(	$current_month+1);}
-else{				$month_combo[7] = ($current_year+1)."_".($current_month+1-12);}
-
-if(($current_month + 2) < 13 ){	$month_combo[8] =  $current_year."_".(	$current_month+2);}
-else{				$month_combo[8] = ($current_year+1)."_".($current_month+2-12);}
-
-if(($current_month + 3) < 13 ){	$month_combo[9] =  $current_year."_".(	$current_month+3);}
-else{				$month_combo[9] = ($current_year+1)."_".($current_month+3-12);}
-
-if(($current_month + 4) < 13 ){	$month_combo[10] =  $current_year."_".(	$current_month+4);}
-else{				$month_combo[10] = ($current_year+1)."_".($current_month+4-12);}
-
-if(($current_month + 5) < 13 ){	$month_combo[11] =  $current_year."_".(	$current_month+5);}
-else{				$month_combo[11] = ($current_year+1)."_".($current_month+5-12);}
-
-if(($current_month + 6) < 13 ){	$month_combo[12] =  $current_year."_".(	$current_month+6);}
-else{				$month_combo[12] = ($current_year+1)."_".($current_month+6-12);}
-
-
-
-//make any single digits - double digits with a leading 0
-for($i = 0; $i <13; $i++){
-	if(substr($month_combo[$i], -2, 1) == '_'){$month_combo[$i] = substr($month_combo[$i], -4, 3).'0'.substr($month_combo[$i], -1, 1);}
-
-}
-
-
-/*
-echo "<br>";
-echo $month_1_combo."<br>";
-echo $month_2_combo."<br>";
-echo $month_3_combo."<br>";
-echo $month_4_combo."<br>";
-echo $month_5_combo."<br>";
-echo $month_6_combo."<br>";
-echo $month_7_combo."<br>";
-echo $month_8_combo."<br>";
-echo $month_9_combo."<br>";
-echo $month_10_combo."<br>";
-echo $month_11_combo."<br>";
-echo $month_12_combo."<br>";
-*/
-
-
-for($i = 0; $i <13; $i++){	$month_name[$i] = jdmonthname(gregoriantojd(substr($month_combo[$i], strrpos($month_combo[$i], '_') + 1),13,1998),1);}
-
-
-
-
-
+for($i = 0; $i <$month_to_loop; $i++){
+	$monthNum  = intval(substr($month_combo[$i],0,2));
+	$dateObj   = DateTime::createFromFormat('!m', $monthNum);
+	$monthName = $dateObj->format('M'); 
+	array_push($month_name,$monthName);
+};
 ?>
