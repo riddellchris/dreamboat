@@ -33,7 +33,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/inputs/standard_inp
 hidden_form_inputs_for_folders_and_items();
 echo "<input type = 'hidden' name='adding_new' value=".$_GET['adding_new']."></input>";
 
-require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/submits/standard.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/inputs/pieces/submits/standard.php";//submit button
 echo "</form>";
 
 if($_GET['primary_folder'] != 'admin'){

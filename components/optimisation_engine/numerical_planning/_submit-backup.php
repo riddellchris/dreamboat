@@ -6,15 +6,15 @@ require $_SERVER['DOCUMENT_ROOT']."/components/functions/url_and_folder_function
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 	
 if($_POST['primary_folder'] == 'activities'){	$db = 'activities';}
-if($_POST['primary_folder'] == 'issues'){		$db = 'issues';}	//cost
-if($_POST['primary_folder'] == 'upgrades'){		$db = 'upgrades';}
+if($_POST['primary_folder'] == 'issues'){	$db = 'issues';}	//cost
+if($_POST['primary_folder'] == 'upgrades'){	$db = 'upgrades';}
 if($_POST['primary_folder'] == 'opportunities'){$db = 'opportunities';}
 
 
 $sql = "UPDATE ".$db."
-		SET 	numerical_zone 		= '".$_POST['value_zone']."',
+	SET 	numerical_zone 		= '".$_POST['value_zone']."',
 		numerical_datapoint	= '".$_POST['numerical_datapoint']."'
-		WHERE 	item_id 		= '".$_POST['item_id']."'";
+	WHERE 	item_id 		= '".$_POST['item_id']."'";
 	
 //	echo $sql;
 //	exit();
@@ -40,12 +40,12 @@ while($row = mysqli_fetch_array($result)){
 	$column_string .= $row['Field'];
 	$column_count ++; 
 }
-// Get the sql from current row && Copied this directly to _update table
 
-$sql = "	INSERT INTO	".$db."_updates (".$column_string.")
+ $sql = "	INSERT 	".$db."_updates (".$column_string.")
 		SELECT 	".$column_string." 
 		FROM 	".$db."
 		WHERE 	item_id 	= '".$_POST['item_id']."'";
+
 mysqli_query($conn,$sql);
 
 

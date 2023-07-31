@@ -84,13 +84,12 @@ $results_colors['productivity_target'] 	= '#281e96';
 
 
 .div-table {
-  display: table;         
-  width: auto;         
+  /* display: table;          */
+  /* width: auto;          */
   border-spacing: 5px; /* cellspacing:poor IE support for  this */
 }
 .div-table-row {
   display: table-row;
-  //display: inline-block;
   width: auto;
   clear: both;
 }
@@ -101,13 +100,16 @@ $results_colors['productivity_target'] 	= '#281e96';
 .div-table-cell {
   float: center; /* fi for  buggy browsers */
   display: table-cell;         
-  width: 71px;         
+  width: 71px;
+  text-align:center;
 }
-.title{
+
+.div-table-cell.title{
   width: 160px; 
   text-align:right; 
+  border: 0px solid;
 }
-.si_digits_wide{
+.div-table-cell .si_digits_wide{
 width:70px;
 background-color:#ffffff;
 padding:1px;
@@ -116,5 +118,73 @@ margin:0px;
 height:20px;
 text-align:right;
 }
-	
+.si_digits_wide.target{
+  border-style: dashed;
+}
+
+/*REVIEW: Using flexbox to apply input table */
+.input-list{
+  margin:1rem auto;
+  display: flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.tracking-date-form{
+  width:100vw;
+  /* max-width:1200px; */
+  margin:0 auto;
+  overflow:hidden;
+  padding: .5rem;
+  box-sizing:border-box;
+}
+.table-rows{
+  display: flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  gap:0.5rem;
+  overflow:scroll;
+}
+.row {
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:.25rem;
+}
+.table-cell{
+  min-width:70px;
+  text-align:center;
+}
+.table-cell .table-cell_input{
+  font-size:.8rem;
+  width:100%;
+  height: 24px;
+  padding: .25rem;
+  text-align:right;
+}
+
+.table-cell.title{
+  min-width:100px;
+  width:120px;
+  border:none;
+  text-align:right;
+  padding: .25rem;
+}
+.table-cell_input.target{
+  border-style: dashed;
+}
+
+.tracking-date-form .login-submit, .tracking-date-form select{
+  max-width:1200px;
+  width: 100%;
+  display: block;
+  margin:1rem auto;
+}
+
+.tracking-date-form select{
+  background-color:gold;
+  color:#4332ff;
+  height:55px;
+  font-size:2em;
+}
 </style>

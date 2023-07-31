@@ -1,550 +1,146 @@
 <?php
 if(!isset($_SESSION)){session_start();}
+?>
 
-
-
-
+<?php
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/navigation/pieces/what_to_display_query.php";
+require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
 
+$result = mysqli_query($conn, $sql);
 
-//on off switch for all of these thing frankly
-/*
-$options_to_extract = [
-    'data',
-    'map',
-    'highlights',   
-    'insights',
-    'overview',
-    'profile',
-    'business',
-    'network',
-    'biz_dev',
-    'management',
-    'sales',
-    'marketing',
-    'wheelhouse',
-    'activities',
-    'issues',
-    'upgrades',
-    'results',
-    'financials',
-    'messages',
-    'notifications'];
-*/
-
-if(isset($_GET['adjusting'])){$adjusting = $_GET['adjusting'];}else{$adjusting = '';}
-
-    require $_SERVER['DOCUMENT_ROOT']."/components/navigation/pieces/what_to_display_query.php";
-    require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-
+?>
+<?php
+    $pages_data_options = ['financials','results','reporting','time','map','data'];
+    $pages_settings_options = ['profile','notifications','business'];
+    $pages_notebooks_options = ['activities','notes','upgrades','biz_dev'];
+    $pages_uncategorised_options = ['highlights','insights','overview','network','management','sales','marketing','wheelhouse','issues'];
+    
     $result = mysqli_query($conn, $sql);
-
-    echo"<style>
-        td{padding:2px 0px;}
-        .wide-button{
-                padding: 5px 2px;
-                margin-bottom: 0px;
-            }
-        </style>";
-
-    echo "<div style='width:100%;text-align:center;'>";
-    echo "<table style='display:inline-block;margin-top:25px;'>";
-
-    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-
-    echo "<tr>";
-
-        echo "<td>";
-        $var = "walkthroughs";
-
-        echo "<a class='";
-        if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-        echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-        //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-        echo "</a>";
-    echo "</td>";
-
-        echo "<td>";
-            $var = "data";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-        echo "</td>";
-        echo "<td>";
-            $var = "map";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-        echo "</td>";
-        echo "<td>";
-            $var = "highlights";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-        echo "</td>";
-
-
-
-        echo "<td>";
-            $var = "insights";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-        echo "</td>";
-
-        echo "<td>";
-            $var = "overview";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-        echo "</td>";
-
-        echo "<td>";
-            $var = "profile";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "business";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "network";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "biz_dev";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "sales";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "marketing";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "management";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-//            if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "wheelhouse";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-//            if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "activities";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-//            if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "time";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-//            if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "issues";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-//            if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "upgrades";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-//            if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "results";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "financials";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "reporting";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "messages";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-            echo "</td>";
-            echo "<td>";
-            $var = "notifications";
-
-            echo "<a class='";
-            if($row[$var] == 'yes'){echo 'green-button';}else{echo 'red-button';}
-            echo " wide-button' href='change_settings.php?type=".$var."'>".$var."";
-            //if($row[$var] == 'yes'){echo ' - on';}else{echo ' - off';}
-            echo "</a>";
-        echo "</td>";
-    echo "</tr>";
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-echo "<style>
-        .adjust_cell{
-            text-align:center;
-            font-family: Barlow Semi Condensed;
-        }
-        .close_cell{color: red; font-weight: 700; font-size: 20px;}
-        .adjust_cell{color:blue; }
-     </style>";
-
-
-    echo "<tr>";
-        $var = "data";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-
-        echo "</td>";
-
-        $var = "map";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";
-
-        $var = "highlights";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";
-
-
-        $var = "insights";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";
-
-        $var = "overview";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";       
-
-        $var = "profile";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";       
-
-        $var = "business";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";    
-
-        $var = "network";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";  
-
-        $var = "biz_dev";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-
-        $var = "sales";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-
-        $var = "marketing";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-
-        $var = "management";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-
-        $var = "wheelhouse";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";        
-
-        $var = "activities";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";  
-
-        $var = "time";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>";  
-
-        $var = "issues";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-
-        $var = "upgrades";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-
-        $var = "results";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-
-        $var = "financials";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-
-        $var = "messages";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-
-        $var = "notifications";
-        echo "<td class='adjust_cell'>";
-            if($adjusting != $var){
-                echo "<a class='adjust_cell' href='adjust.php?type=".$var."'>Adjust</a>";
-            }
-            else{
-                echo "<a class='close_cell' href='close.php?type=".$var."'>Close</a>";
-            }
-        echo "</td>"; 
-    echo "</tr>";
-    }
-
-echo "</table>";
-
-if(isset($_GET['adjusting'])){
-
-    echo "<div style='width: 100%; text-align:left;'>";
-    echo "<table style='display:inline-block;margin-top:125px;margin-left: calc((100% - 1600px) / 2);font-family: Barlow Semi Condensed;'>";
-            echo "<tr>";
-                echo "<th></th>";
-                echo "<th></th>";
-                echo "<th></th>";
-
-            echo "</tr>";
-
-
-            //probably prior to this all we need to do 
-
-
-
-
-            require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
-            $sql = "SELECT * FROM admin_all_menu_options
-                    WHERE primary_folder = '".mysqli_real_escape_string($conn, $_GET['adjusting'])."'";
-            $result = mysqli_query($conn, $sql);
-            while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                if($row['tertiary_folder'] == ''){
-                    echo "<tr>";
-                        echo "<td >".ucfirst($row['secondary_folder'])."</td>";
-                        echo "<td><input type='radio'></input></td>";
-                        echo "<td><input type='radio'></input</td>";
-                    echo "</tr>";
+    
+?>
+<div class="display-control-wrapper container mt-5">
+    <div class='accordion' id='accordionDisplayControl'>
+        <div class='accordion-item'>
+            <h2 class='accordion-header' id='headingUncategorised'>
+            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapseUncategorised' aria-expanded='false' aria-controls='collapseUncategorised'>
+                Uncategorised
+            </button>
+            </h2>
+            <div id="collapseUncategorised" class="accordion-collapse collapse" aria-labelledby="headingUncategorised">
+                <?php
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                    foreach ($pages_uncategorised_options as $option){
+                        $value = $row[$option] == 'yes' ? 'On' : 'Off';
+                        $isActive = $row[$option] == 'yes' ? 'active' : '';
+                        $isActiveClass = $row[$option] == 'yes' ? 'bg-primary' : 'bg-secondary';
+                        echo "<div class='accordion-body d-flex justify-content-between'";
+                        echo "<h6>$option</h6>";
+                        echo "<a class='page-toggle rounded p-2 text-white $isActiveClass' id='page-link__$option' href='change_settings.php?type=$option' aria-pressed='$value'
+                        >$value</a>";
+                        echo "</div>";
+                    }
                 }
-            }
+                ?>
+            </div>
+        </div>
+        <div class='accordion-item'>
+            <h2 class='accordion-header' id='headingData'>
+            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapseData' aria-expanded='false' aria-controls='collapseData'>
+                Data
+            </button>
+            </h2>
+            <div id="collapseData" class="accordion-collapse collapse" aria-labelledby="headingData">
+                <?php
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                    foreach ($pages_data_options as $option){
+                        $value = $row[$option] == 'yes' ? 'On' : 'Off';
+                        $isActive = $row[$option] == 'yes' ? 'active' : '';
+                        $isActiveClass = $row[$option] == 'yes' ? 'bg-primary' : 'bg-secondary';
+                        echo "<div class='accordion-body d-flex justify-content-between'";
+                        echo "<h6>$option</h6>";
+                        echo "<a class='page-toggle rounded p-2 text-white $isActiveClass' id='page-link__$option' href='change_settings.php?type=$option' aria-pressed='$value'
+                        >$value</a>";
+                        echo "</div>";
+                    }
+                }
+                ?>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSettings">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings">
+                Settings
+            </button>
+            </h2>
+            <div id="collapseSettings" class="accordion-collapse collapse" aria-labelledby="headingSettings" >        
+                <?php
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                    foreach ($pages_settings_options as $option){
+                        $value = $row[$option] == 'yes' ? 'On' : 'Off';
+                        $isActive = $row[$option] == 'yes' ? 'active' : '';
+                        $isActiveClass = $row[$option] == 'yes' ? 'bg-primary' : 'bg-secondary';
+                        echo "<div class='accordion-body d-flex justify-content-between'";
+                        echo "<h6>$option</h6>";
+                        echo "<a class='page-toggle rounded p-2 text-white $isActiveClass' id='page-link__$option' href='change_settings.php?type=$option' aria-pressed='$value'
+                        >$value</a>";
+                        echo "</div>";
+                    }
+                }
+                ?>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNotebooks">
+                <button button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNotebooks" aria-expanded="false" aria-controls="collapseNotebooks">
+                NoteBooks
+                </button>
+            </h2>
+            <div id="collapseNotebooks" class="accordion-collapse collapse" aria-labelledby="headingNotebooks" >
+            <?php
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                    foreach ($pages_notebooks_options as $option){
+                        $value = $row[$option] == 'yes' ? 'On' : 'Off';
+                        $isActive = $row[$option] == 'yes' ? 'active' : '';
+                        $isActiveClass = $row[$option] == 'yes' ? 'bg-primary' : 'bg-secondary';
+                        echo "<div class='accordion-body d-flex justify-content-between'";
+                        echo "<h6>$option</h6>";
+                        echo "<a class='page-toggle rounded p-2 text-white $isActiveClass' id='page-link__$option' href='change_settings.php?type=$option' aria-pressed='$value'
+                        >$value</a>";
+                        echo "</div>";
+                    }
+                }
+                ?>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
 
-        echo "</table>";
-    echo "</div>";
-
-
-
-
-
-
-}
-
-
-
-
-echo "</div>";
-
+<?php
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";
+?>
+
+<script>
+
+
+</script>
+
+<style type="text/css">
+    .accordion-button{
+        font-weight:700;
+    }
+    
+    .page-toggle{
+        width:80px;
+        display: block;
+        text-align:center;
+        text-decoration:none;
+    }
+    
+</style>

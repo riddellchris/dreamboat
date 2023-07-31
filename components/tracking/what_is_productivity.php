@@ -5,7 +5,7 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/tracking/productivity_title_creation.php";
 ?>
 
-<select name = 'what_is_productivity' style='max-width:1200px; width: 100%; background-color:gold;color:#4332ff;height:55px;font-size:2em' >
+<select name = 'what_is_productivity' >
 
 <?php
   if(isset($kpi_1_title)){

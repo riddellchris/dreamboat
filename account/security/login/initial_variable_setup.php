@@ -28,3 +28,6 @@ else{							$_SESSION['display_map_diagnostics'] = 'off';	}
 
 $_SESSION['display_map_diagnostics'] = 'off';
 require $_SERVER['DOCUMENT_ROOT'] . "/account/variables/run_critical_variable_update.php";
+
+// To ensure customiser menu has default 6 month 
+$_SESSION['is_date_customised'] = false;

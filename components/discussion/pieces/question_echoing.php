@@ -1,12 +1,11 @@
 <?php
 if(!isset($_SESSION)){session_start();}
-
-
-$sql = "										SELECT * FROM auto_coach_string_response_and_folder_suggestions 
-												WHERE 	found_in_primary_folder 	= '".$_GET['primary_folder']."'
-												AND	found_in_secondary_folder 		= '".$_GET['secondary_folder']."' ";
-if(isset($_GET['tertiary_folder'])){$sql .= "	AND	found_in_tertiary_folder 		= '".$_GET['tertiary_folder']."' "; }
-$sql .= " ORDER BY string_length DESC";
+// FIXME: this sql has no results found
+// $sql = "SELECT * FROM auto_coach_string_response_and_folder_suggestions 
+// 	WHERE found_in_primary_folder 	= '".$_GET['primary_folder']."'
+// 	AND	found_in_secondary_folder 		= '".$_GET['secondary_folder']."' ";
+// if(isset($_GET['tertiary_folder'])){$sql .= "	AND	found_in_tertiary_folder 		= '".$_GET['tertiary_folder']."' "; }
+// $sql .= " ORDER BY string_length DESC";
 
 
 	
@@ -160,7 +159,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 	//echo $_SESSION['prompt_1'];
 	$number_of_prompts_to_display = 0;
 	if(isset($_SESSION['prompt_1_string'])){$_SESSION['prompt_1_string'] = safely_remove_apostrophies($_SESSION['prompt_1_string']);	$number_of_prompts_to_display = 1;}
-	//echo $_SESSION['prompt_1'];
+	// var_dump($_SESSION['prompt_1_string']);
 	//exit();
 	if(isset($_SESSION['prompt_2_string'])){$_SESSION['prompt_2_string'] = safely_remove_apostrophies($_SESSION['prompt_2_string']);	$number_of_prompts_to_display = 2;}
 	if(isset($_SESSION['prompt_3_string'])){$_SESSION['prompt_3_string'] = safely_remove_apostrophies($_SESSION['prompt_3_string']);	$number_of_prompts_to_display = 3;}
@@ -172,6 +171,9 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 	if(isset($_SESSION['prompt_9_string'])){$_SESSION['prompt_9_string'] = safely_remove_apostrophies($_SESSION['prompt_9_string']);	$number_of_prompts_to_display = 9;}
 	if(isset($_SESSION['prompt_10_string'])){$_SESSION['prompt_10_string'] = safely_remove_apostrophies($_SESSION['prompt_10_string']);	$number_of_prompts_to_display = 10;}
 
+
+// section for prompt questions on the top
+// TODO: remove inline style and use style sheets instead
 echo "
 <div style='width:100%;text-align: left; padding:8px 2px;max-width: 1100px;margin-left:auto;margin-right:auto;margin-top: 15px;'>
 	<div style='display:inline-block;'>";
@@ -184,7 +186,6 @@ for($i = 1; $i <= $number_of_prompts_to_display; $i++){
 		WHERE prompt_id = '".mysqli_real_escape_string($conn, $_SESSION['prompt_'.$i.'_id'])."'";
 	
 	mysqli_query($conn, $sql);
-
 }
 
 
@@ -211,19 +212,19 @@ echo "
 </style>";
 $classes = " class = 'standard_prompt_links' ";
 
-
+// REVIEW:DO we need this?
 function ask_client_for_response($prompt_id){
 echo "</a>&nbsp;&nbsp;&nbsp; <a href='/components/discussion/ask_for_response.php?prompt_id=".$prompt_id."' class='ask_client_for_response'>>>>Ask your client to respond to this question</a>";
 
 }
-
+// Looping through the questions, and create <a/> link for each question to link through the answer input box 
 	if(isset($_SESSION['prompt_1_string'])){if($_SESSION['prompt_1_string'] != ''){
 	
 		//this line here is a big different 
-		//echo "<span style='color:#281e96;font-family:helvetica;text-transform:uppercase;'>SELECT A QUESTION TO PROGRESS ASAP</span><br>";
+		// echo "<span style='color:#281e96;font-family:helvetica;text-transform:uppercase;'>SELECT A QUESTION TO PROGRESS ASAP</span><br>";
 		echo "<a ".$classes." href='/components/discussion/prompts/select.php?prompt_id=".$_SESSION['prompt_1_id']."&".url_folder_get_string_creation()."' ".$title.">";
 		echo $_SESSION['prompt_1_string'];
-		//if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_1_id']);}
+		// if($_SESSION['dreamboat_crew'] == 'yes'){ask_client_for_response($_SESSION['prompt_1_id']);}
 		echo "</a><br>";
 		}
 	}
@@ -248,7 +249,8 @@ echo "</a>&nbsp;&nbsp;&nbsp; <a href='/components/discussion/ask_for_response.ph
 		echo "</a><br>";
 		}
 	}
-
+	
+	// run the code below if $_GET['tertiary_folder'] == 'item'
 if(	$is_item == 'yes'){
 	
 	
@@ -263,7 +265,6 @@ if(	$is_item == 'yes'){
 
 	//if there is one then echo the whole lot otherwise print nothing	
 	if($results > 0){
-	
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);	
 
 		
@@ -290,7 +291,8 @@ if(	$is_item == 'yes'){
 			echo "</a><br>";
 			
 if(	$_GET['primary_folder'] != 'management' &&
-	$_GET['primary_folder'] != 'marketing'){			
+	$_GET['primary_folder'] != 'marketing'){
+		// REVIEW: what is this for when it's setup initailly $_SESSION['viewing_client_work_solo_yes_no']
 	if($_SESSION['viewing_client_work_solo_yes_no'] == 'yes'){			
 			echo "<a ".$classes." ".$requirement_style." href='/components/discussion/prompts/select.php?prompt_id=45848&".url_folder_get_string_creation()."' ".$title.">";
 			echo "How much can you earn from completing and/or achieving this?";
