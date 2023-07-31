@@ -6,7 +6,15 @@ require $_SERVER['DOCUMENT_ROOT']."/map/components/menu/styling.php";
 
 <div id ='map_menu_container'>
 
+
+
+
+
     <?php
+
+        if(!isset($_SESSION['viewing_date_index_start'])){$_SESSION[''] }/// defautls -6 
+
+
         if($_SESSION['dreamboat_crew'] == 'yes'){
             echo "<div style='width:100%;'>";
             if($_GET['secondary_folder'] == 'economy'){echo "<span class='pilots_eyes_only_font blink_me'>this page is for dreamboat crew only</span>";}
@@ -41,6 +49,9 @@ require $_SERVER['DOCUMENT_ROOT']."/map/components/menu/styling.php";
 
         require $_SERVER['DOCUMENT_ROOT']."/map/components/menu/components/edge_color.php";
         require $_SERVER['DOCUMENT_ROOT']."/map/components/menu/components/edge_thickness.php";
+
+
+            
 
         //ideally in the future some settings about:
         //		$top_sub_menu_options = add_top_sub_menu_option('2D'	,$top_sub_menu_options);

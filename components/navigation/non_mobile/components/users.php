@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 			
-echo "<a class='about_us nav-links hide_for_mobile' style='float:right;";	
+echo "<a class='about_us nav-links ' style='float:right;";	
 	if(check_url('/users/') == 1 OR $_GET['primary_folder'] == 'users'){echo "color: ".$_SESSION['masked_domain_highlight_colour'] .";";}
 				 else{echo "color: red;";}
 	if(isset($_SESSION['viewing_client_id'])){echo "font-weight:800;font-size:40px;padding-top:7px;font-family: Arvo;";}
