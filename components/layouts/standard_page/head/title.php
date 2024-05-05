@@ -4,13 +4,10 @@ if(!isset($_SESSION)){session_start();}
 
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 if (strpos($url,'agedcareforeveryone') !== false) {
-    echo 'Aged Care for Everyone.';
+    echo "	<title>Aged Care for Everyone</title> ";
+    echo "	<meta name='description' content='Aged Care for Everyone - Solving the agency problem.'>";
 } else {
-    echo 'No cars.';
-}
-
-
-echo "	<title>".$_SESSION['masked_domain_html_title'];	
+    echo "	<title>".$_SESSION['masked_domain_html_title'];	
 /* 
 The next and let's be honest only change to this tagline will be "Building the future." 
 However this will not occur until the economy is "under control" or at the very least we have done all we can in that direction.
@@ -22,3 +19,7 @@ echo "</title>";
 //This shouldn't really change at all within a viewing
 
 echo "	<meta name='description' content='DREAMBOAT - Transforming the Australian economy.'>";
+}
+
+
+
