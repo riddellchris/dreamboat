@@ -38,3 +38,9 @@ Therefore reflecting and rewarding use of these services with capital growth as 
 Pricing:
 As a result of this unique shareholder
 It is understood that thanks pricing may vary --- more work needs to be done here
+
+
+Funding:
+
+
+Other conditions are legally binding and found in another contract:
