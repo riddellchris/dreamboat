@@ -2,6 +2,14 @@
 if(!isset($_SESSION)){session_start();}
 
 
+$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+if (strpos($url,'agedcareforeveryone') !== false) {
+    echo 'Aged Care for Everyone.';
+} else {
+    echo 'No cars.';
+}
+
+
 echo "	<title>".$_SESSION['masked_domain_html_title'];	
 /* 
 The next and let's be honest only change to this tagline will be "Building the future." 
