@@ -22,7 +22,7 @@ if(!isset($_SESSION['dreamboat_developer'])){	$_SESSION['dreamboat_developer'] =
 
 
 $url_string = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-if (strpos($url,'agedcareforeveryone') !== false) {
+if (strpos($url_string,'agedcareforeveryone') !== false) {
 	$_SESSION['masked_domain'] = 'agedcareforeveryone';
 }
 
