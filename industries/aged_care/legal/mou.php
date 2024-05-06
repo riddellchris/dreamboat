@@ -48,5 +48,6 @@ Other conditions are legally binding and found in another contract:
 
 Cash requirements
 2 months of your expected agency costs up front as "buffer"
+probable resolutions / payments back on the initial capital
 
 Terms of trade
