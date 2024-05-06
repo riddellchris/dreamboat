@@ -21,7 +21,10 @@ if(!isset($_SESSION['dreamboat_crew'])){	$_SESSION['dreamboat_crew'] = 'no';}
 if(!isset($_SESSION['dreamboat_developer'])){	$_SESSION['dreamboat_developer'] = 'no';}
 
 
-
+$url_string = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+if (strpos($url,'agedcareforeveryone') !== false) {
+	$_SESSION['masked_domain'] = 'agedcareforeveryone';
+}
 
 
 
