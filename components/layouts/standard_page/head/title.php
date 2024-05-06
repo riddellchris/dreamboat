@@ -4,7 +4,7 @@ if(!isset($_SESSION)){session_start();}
 
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 if (strpos($url,'agedcareforeveryone') !== false) {
-    echo "	<title>Aged Care for Everyone</title> ";
+    echo "	<title>Aged Care for Everyone - Solving the agency problem.'></title> ";
     echo "	<meta name='description' content='Aged Care for Everyone - Solving the agency problem.'>";
 } else {
     echo "	<title>".$_SESSION['masked_domain_html_title'];	
