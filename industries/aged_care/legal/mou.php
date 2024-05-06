@@ -44,3 +44,9 @@ Funding:
 
 
 Other conditions are legally binding and found in another contract:
+
+
+Cash requirements
+2 months of your expected agency costs up front as "buffer"
+
+Terms of trade
