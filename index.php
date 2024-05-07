@@ -15,7 +15,16 @@ else{
 	if($_GET['to'] == 'login'){header("Location: /account/security/"); exit();}
 	else{
 		$_SESSION['reset_sub_menu_defaults'] = 'yes';
-		header ("Location: /slideshows/");exit();}
+
+		if($_SESSION['masked_domain'] == 'agedcareforeveryone'){
+			header ("Location: /industries/aged_care/display_website/index.php");exit();
+		}
+		else{
+			header ("Location: /slideshows/");exit();
+		}
+	
+	
+	}
 }
 
 ?>
