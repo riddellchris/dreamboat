@@ -58,7 +58,7 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_menu_tone_one']            = " #004751 ";
                                                                 $_SESSION['masked_domain_menu_tone_two']            = " #004751 ";                                                                
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #FFA500 ";
-                                                                $_SESSION['masked_domain_focus_colour']             = " #51585f ";
+                                                                $_SESSION['masked_domain_focus_colour']             = " #ffd500 ";
                                                                 $_SESSION['masked_domain_logo_image']               = "no";
                                                                     $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg"; 
                                                                 $_SESSION['masked_domain_logo_name']                = "Aged Care for Everyone";
