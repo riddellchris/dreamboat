@@ -12,7 +12,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
      // position: absolute;
       top: -50%;
       left: -50%;
-      width: 200vh
+      width: 200vh;
       height: 200%;
       object-fit: cover;
      // transform: translate(-50%, -50%);
