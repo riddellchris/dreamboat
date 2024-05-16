@@ -13,6 +13,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
       left: 50%;
       transform: translate(-50%, -50%);
       ' 
+
+    source='https://www.flickr.com/photos/kevinmgill/32907950425'
     height='200px'>
 
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";
