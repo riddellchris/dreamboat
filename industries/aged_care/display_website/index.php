@@ -3,7 +3,7 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 ?>
 
 <img 
-    src="industries/aged_care/display_website/Mars.jpg" 
+    src="/industries/aged_care/display_website/Mars.jpg" 
     alt="Mars image" 
     style='
       display: block;
