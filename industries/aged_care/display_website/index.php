@@ -1,5 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
+?>
 
 <img 
     src="industries/aged_care/display_website/Mars.jpg" 
@@ -17,4 +18,5 @@ require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
     source='https://www.flickr.com/photos/kevinmgill/32907950425'
     height='200px'>
 
+<?php
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/end.php";
