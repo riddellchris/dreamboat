@@ -32,10 +32,10 @@ if($setup_completed == 'yes'){ // this is defined in the actual user settings
         if($correct_elements == 2){
             $computed['wages_percentage'][$extraction_counter] = round($extracted['numerator'][$extraction_counter] / $extracted['denominator'][$extraction_counter] * 100, 1);
         }
-      //  else{
-      //      $computed['wages_percentage'][$extraction_counter] = 'NULL';
+        else{
+            $computed['wages_percentage'][$extraction_counter] = 'NULL';
 
-       // }
+       }
 
         echo " ['".$extracted['period_for_chart_display'][$extraction_counter]."',      
                 ".$computed['wages_percentage'][$extraction_counter].",  '".$computed['wages_percentage'][$extraction_counter]."'";

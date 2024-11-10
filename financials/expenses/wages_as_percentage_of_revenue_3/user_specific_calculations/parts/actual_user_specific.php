@@ -22,6 +22,7 @@ $setup_completed = 'no';
         $numerator_names[0]     = 'Subcontractor - no GST';
         $numerator_names[1]     = 'Subcontractor - GST';
         $series_title[0]        = 'Percentage';
+        $chart_title            = 'Contractors as % of revenue';
         $setup_completed = 'yes';
     }
 
@@ -30,6 +31,7 @@ $setup_completed = 'no';
         $numerator_names[0]     = 'Contractors';
        // $numerator_names[1]     = 'Subcontractor - GST';
         $series_title[0]        = 'Contractors';
+        $chart_title            = 'Contractors as % of revenue';
         $setup_completed = 'yes';
     }
 
@@ -37,6 +39,7 @@ $setup_completed = 'no';
         $denominator_names[0]   = 'Total Income';
         $numerator_names[0]     = 'Contractors';
         $series_title[0]        = 'Contractors Percentage';
+        $chart_title            = 'Contractors as % of revenue';
         $setup_completed = 'yes';
     }
 

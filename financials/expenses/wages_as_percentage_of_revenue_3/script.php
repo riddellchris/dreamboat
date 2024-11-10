@@ -51,7 +51,7 @@ else{
         var options = {
 
           <?php
-                echo "title: 'Contractors as % of revenue";
+                echo "title: '".$chart_title;
                 if(isset($sub_title)){echo " - ".$sub_title;}
                 echo "',";
                 ?>
