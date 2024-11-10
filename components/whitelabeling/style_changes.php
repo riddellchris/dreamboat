@@ -52,7 +52,23 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_logo_text_transform']      = "none";
                                                                 $_SESSION['masked_domain_html_title']               = "Orizon Analytics";
 	}
-
+	if($_SESSION['masked_domain'] == 'agedcareforeveryone'){	
+								$_SESSION['masked_domain_primary_colour']           = " #6F7C80 ";
+                                                                $_SESSION['masked_domain_primary_colour_darker']    = " #004751 ";
+                                                                $_SESSION['masked_domain_menu_tone_one']            = " #004751 ";
+                                                                $_SESSION['masked_domain_menu_tone_two']            = " #004751 ";                                                                
+                                                                $_SESSION['masked_domain_highlight_colour']         = " #FFA500 ";
+                                                                $_SESSION['masked_domain_focus_colour']             = " #ffd500 ";
+                                                                $_SESSION['masked_domain_logo_image']               = "no";
+                                                                    $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg"; 
+                                                                $_SESSION['masked_domain_logo_name']                = "Aged Care for Everyone";
+                                                                $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
+                                                                $_SESSION['masked_domain_logo_color']               = "#FFA500";
+                                                                $_SESSION['masked_domain_logo_font_weight']         = "700";  
+                                                                $_SESSION['masked_domain_logo_font_family']         = "Libre Baskerville";
+                                                                $_SESSION['masked_domain_logo_text_transform']      = "none";
+                                                                $_SESSION['masked_domain_html_title']               = "Aged Care for Everyone";
+	}
     $_SESSION['masked_domain_html_title'] = $_SESSION['masked_domain_html_title']." by Dreamboat";
 
 }

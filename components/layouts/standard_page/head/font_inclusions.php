@@ -27,6 +27,7 @@
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Quicksand'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Philosopher'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT Sans'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Libre Baskerville'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Teko'>		
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Righteous'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kalam'>

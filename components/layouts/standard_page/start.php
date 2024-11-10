@@ -11,15 +11,20 @@ else{
 	ini_set('display_errors', 0);
 	ini_set('display_startup_errors', 0);
 	error_reporting(0);
-
 }
 
 if(!isset($_SESSION)){session_start();}
 
 
-if(!isset($_SESSION['logged_in'])){				$_SESSION['logged_in'] = 'no';}
-if(!isset($_SESSION['dreamboat_crew'])){		$_SESSION['dreamboat_crew'] = 'no';}
+if(!isset($_SESSION['logged_in'])){		$_SESSION['logged_in'] = 'no';}
+if(!isset($_SESSION['dreamboat_crew'])){	$_SESSION['dreamboat_crew'] = 'no';}
 if(!isset($_SESSION['dreamboat_developer'])){	$_SESSION['dreamboat_developer'] = 'no';}
+
+
+$url_string = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+if (strpos($url_string,'agedcareforeveryone') !== false) {
+	$_SESSION['masked_domain'] = 'agedcareforeveryone';
+}
 
 
 
