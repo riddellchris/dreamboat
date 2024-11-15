@@ -5,21 +5,21 @@ if(isset($_SESSION['masked_domain'])){
 
 
 	if($_SESSION['masked_domain'] == 'irrth'){					
-        $_SESSION['masked_domain_primary_colour']           = " forestgreen ";
-        $_SESSION['masked_domain_primary_colour_darker']    = " #004751 ";
-        $_SESSION['masked_domain_menu_tone_one']            = " #005e6b ";
-        $_SESSION['masked_domain_menu_tone_two']            = " #00899c ";
-        $_SESSION['masked_domain_highlight_colour']         = " #d6fc49 ";
-        $_SESSION['masked_domain_focus_colour']             = " #ff7549 ";
-        $_SESSION['masked_domain_logo_image']               = "yes";
-            $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg";                                                 
-        $_SESSION['masked_domain_logo_name']                = "otto";
-        $_SESSION['masked_domain_logo_font_family']         = "PTSansRegular, Arial, Helvetica, sans-serif";
-        $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
-        $_SESSION['masked_domain_logo_color']               = "#d6fc49";
-        $_SESSION['masked_domain_logo_font_weight']         = "700";  
-        $_SESSION['masked_domain_logo_text_transform']      = "none";
-        $_SESSION['masked_domain_html_title']               = "Otto Analytics";
+                                                                $_SESSION['masked_domain_primary_colour']           = " forestgreen ";
+                                                                $_SESSION['masked_domain_primary_colour_darker']    = " #004751 ";
+                                                                $_SESSION['masked_domain_menu_tone_one']            = " #005e6b ";
+                                                                $_SESSION['masked_domain_menu_tone_two']            = " #00899c ";
+                                                                $_SESSION['masked_domain_highlight_colour']         = " #d6fc49 ";
+                                                                $_SESSION['masked_domain_focus_colour']             = " #6149ff ";
+                                                                $_SESSION['masked_domain_logo_image']               = "yes";
+                                                                    $_SESSION['masked_domain_logo_file_name']       = "";                                                 
+                                                                $_SESSION['masked_domain_logo_name']                = "irrth";
+                                                                $_SESSION['masked_domain_logo_font_family']         = "PTSansRegular, Arial, Helvetica, sans-serif";
+                                                                $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
+                                                                $_SESSION['masked_domain_logo_color']               = "#d6fc49";
+                                                                $_SESSION['masked_domain_logo_font_weight']         = "700";  
+                                                                $_SESSION['masked_domain_logo_text_transform']      = "none";
+                                                                $_SESSION['masked_domain_html_title']               = "irrth Solutions";
 }
 
 
