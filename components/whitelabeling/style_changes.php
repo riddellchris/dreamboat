@@ -6,7 +6,7 @@ if(isset($_SESSION['masked_domain'])){
 
 	if($_SESSION['masked_domain'] == 'irrth'){					
                                                                 $_SESSION['masked_domain_primary_colour']           = " forestgreen ";
-                                                                $_SESSION['masked_domain_primary_colour_darker']    = " #004751 ";
+                                                                $_SESSION['masked_domain_primary_colour_darker']    = " #1f731f ";
                                                                 $_SESSION['masked_domain_menu_tone_one']            = " #005e6b ";
                                                                 $_SESSION['masked_domain_menu_tone_two']            = " #00899c ";
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #d6fc49 ";
