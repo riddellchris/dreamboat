@@ -20,7 +20,7 @@ else{
 			header ("Location: /industries/aged_care/display_website/index.php");exit();
 		}
 		else{
-			header ("Location: /slideshows/");exit();
+			header ("Location: /knowledgebase/");exit();
 		}
 	
 	
