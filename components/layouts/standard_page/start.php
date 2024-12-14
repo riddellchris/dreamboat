@@ -12,7 +12,7 @@ else{
 	ini_set('display_startup_errors', 0);
 	error_reporting(0);
 }
-
+echo "hello"; exit();
 if(!isset($_SESSION)){session_start();}
 
 
