@@ -8,6 +8,8 @@ $_SESSION[$_GET['primary_folder']."_".$_GET['secondary_folder']] = $_GET['tertia
 $_SESSION[$_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder']] = $_GET['quarternary_folder'];
 }
 
+
+echo "hello"; exit();
 //knowledgebase specific requirements
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/styling/main_css.php";
