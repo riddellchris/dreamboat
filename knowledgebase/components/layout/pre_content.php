@@ -1,12 +1,17 @@
 <?php 
 if(!isset($_SESSION)){session_start();}
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 //manages the menu settings
 if(isset($_GET['tertiary_folder']) && !isset($_GET['quarternary_folder'])){
 $_SESSION[$_GET['primary_folder']."_".$_GET['secondary_folder']] = $_GET['tertiary_folder'];
 
 $_SESSION[$_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder']] = $_GET['quarternary_folder'];
 }
+
 
 
 echo "hello"; exit();
