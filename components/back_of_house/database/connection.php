@@ -22,7 +22,7 @@ if($_SERVER['SERVER_PORT'] != 8888){
   if($_SERVER['HTTP_HOST'] == "irrth.com"){
         $servername = "localhost";
         $username = "unhc0sighkxqe";
-        $password = "#b2#@b5vq1}^";
+        $password = "22[4)@2244f%";
         $database = "dbppeyn4jlqygm";
     }
 
