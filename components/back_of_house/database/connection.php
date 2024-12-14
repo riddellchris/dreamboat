@@ -20,9 +20,9 @@ if($_SERVER['SERVER_PORT'] != 8888
     }
   if($_SERVER['HTTP_HOST'] == "irrth.com"){
         $servername = "localhost";
-        $username = "staff808_access";
-        $password = "1Kyfx=u({]V&gI}1[s";
-        $database = "staff808_dreamboatv1point1";
+        $username = "unhc0sighkxqe";
+        $password = "#b2#@b5vq1}^";
+        $database = "dbppeyn4jlqygm";
     }
 
 
