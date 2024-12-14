@@ -13,6 +13,7 @@ if($_SERVER['SERVER_PORT'] != 8888
         $database = "staff808_dreamboatv1point1";
     }
   if($_SERVER['HTTP_HOST'] == "nashnewton.com.au"){
+    echo $_SERVER['HTTP_HOST']; 
         $servername = "localhost";
         $username = "unq46arsgvw8j";
         $password = "~d31112~13l$";
