@@ -5,7 +5,7 @@ if(!isset($_SESSION)){session_start();}
 //echo __FILE__;
 //exit();
 
-if($_SERVER['SERVER_PORT'] != 8888
+if($_SERVER['SERVER_PORT'] != 8888){
   if($_SERVER['HTTP_HOST'] == "dreamboat.com.au"){
         $servername = "localhost";
         $username = "staff808_access";
