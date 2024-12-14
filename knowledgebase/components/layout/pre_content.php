@@ -14,7 +14,7 @@ $_SESSION[$_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['terti
 
 
 
-echo "hello"; exit();
+
 //knowledgebase specific requirements
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
 
