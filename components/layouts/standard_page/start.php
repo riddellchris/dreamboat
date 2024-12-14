@@ -8,10 +8,12 @@ if($_SERVER['SERVER_PORT'] == 8888){
 	header("Pragma: no-cache");
 }
 else{
-	//turn off all errors for live
-	ini_set('display_errors', 0);
-	ini_set('display_startup_errors', 0);
-	error_reporting(0);
+	if($_SERVER['HTTP_HOST'] == "dreamboat.com.au"){
+		//turn off all errors for live
+		ini_set('display_errors', 0);
+		ini_set('display_startup_errors', 0);
+		error_reporting(0);
+	}
 }
 
 if(!isset($_SESSION)){session_start();}
