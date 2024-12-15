@@ -36,8 +36,8 @@ if(substr_count($_SERVER['REQUEST_URI'], '?') > 1){
 
 
 
-echo url_folder_get_string_creation();
-if($_SERVER['HTTP_HOST']!= "dreamboat.com.au"){echo "url to redirect to:".$url_to_redirect_to; exit();}
+//echo url_folder_get_string_creation();
+//if($_SERVER['HTTP_HOST']!= "dreamboat.com.au"){echo "url to redirect to:".$url_to_redirect_to; exit();}
 
 /*
 if(array_key_exists("primary_folder",$_GET) && array_key_exists("secondary_folder",$_GET)){
