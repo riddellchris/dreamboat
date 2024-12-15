@@ -23,7 +23,7 @@ function check_primary_folder($folder_name){
 	//both tests are required because some may come straight from the URL (first test) OR just a $_GET pass (second test obviously)
 	
 //	if(primary_folders_name() == $folder_name OR $_GET['primary_folder'] == $folder_name){return '1';}
-	if (tertiary_folders_name() == $folder_name || (isset($_GET['tertiary_folder']) && $_GET['tertiary_folder'] == $folder_name)) {
+	if (primary_folders_name() == $folder_name || (isset($_GET['primary_folder']) && $_GET['primary_folder'] == $folder_name)) {
 		return '1';
 	}
 	else{return '0';}
