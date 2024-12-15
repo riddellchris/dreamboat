@@ -39,7 +39,7 @@ if(substr_count($_SERVER['REQUEST_URI'], '?') > 1){
 //echo url_folder_get_string_creation();
 //if($_SERVER['HTTP_HOST']!= "dreamboat.com.au"){echo "url to redirect to:".$url_to_redirect_to; exit();}
 
- toggled off because it may be largely unecceary right now
+/* toggled off because it may be largely unecceary right now */
 if(array_key_exists("primary_folder",$_GET) && array_key_exists("secondary_folder",$_GET)){
 	if(	$_GET['primary_folder'] == '' 		OR 
 		($_GET['primary_folder'] != 'messages' AND $_GET['secondary_folder'] == '') 
