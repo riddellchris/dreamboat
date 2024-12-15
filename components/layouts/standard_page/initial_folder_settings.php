@@ -21,7 +21,7 @@ if(substr_count($_SERVER['REQUEST_URI'], '?') > 1){
 }
 
 
-if($_SERVER['HTTP_HOST']!== "dreamboat.com.au"){echo "hello - in intial folder settings"; exit();}
+
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/functions/required.php";
@@ -40,6 +40,8 @@ require $_SERVER['DOCUMENT_ROOT']."/components/functions/required.php";
 			
 			$url_to_redirect_to .= url_folder_get_string_creation();
 			
+			if($_SERVER['HTTP_HOST']!= "dreamboat.com.au"){echo "url to redirect to:".$url_to_redirect_to; exit();}
+
 			header("Location: ".$url_to_redirect_to);
 			exit();
 			}
