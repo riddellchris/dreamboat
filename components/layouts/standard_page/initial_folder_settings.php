@@ -21,31 +21,29 @@ if(substr_count($_SERVER['REQUEST_URI'], '?') > 1){
 }
 
 
-echo url_folder_get_string_creation();
-if($_SERVER['HTTP_HOST']!= "dreamboat.com.au"){echo "url to redirect to:".$url_to_redirect_to; exit();}
+url_folder_get_string_creation();
 
 
-	if(array_key_exists("primary_folder",$_GET) && array_key_exists("secondary_folder",$_GET)){
-		if(	$_GET['primary_folder'] == '' 		OR 
-			($_GET['primary_folder'] != 'messages' AND $_GET['secondary_folder'] == '') 
-			){
+if(array_key_exists("primary_folder",$_GET) && array_key_exists("secondary_folder",$_GET)){
+	if(	$_GET['primary_folder'] == '' 		OR 
+		($_GET['primary_folder'] != 'messages' AND $_GET['secondary_folder'] == '') 
+		){
+	
+		//CR 20.07.20
+		//This is to keep in any other "non-folder data"
+		$url_to_redirect_to = 	$_SERVER['REQUEST_URI'];
+		if(substr_count($_SERVER['REQUEST_URI'], '?') != 1){
+			$url_to_redirect_to .= "?";
+		}
+		else{$url_to_redirect_to .= "&";}
 		
-			//CR 20.07.20
-			//This is to keep in any other "non-folder data"
-			$url_to_redirect_to = 	$_SERVER['REQUEST_URI'];
-			if(substr_count($_SERVER['REQUEST_URI'], '?') != 1){
-				$url_to_redirect_to .= "?";
-			}
-			else{$url_to_redirect_to .= "&";}
-			
-			$url_to_redirect_to .= url_folder_get_string_creation();
-			
+		$url_to_redirect_to .= url_folder_get_string_creation();
+		if($_SERVER['HTTP_HOST']!= "dreamboat.com.au"){echo "url to redirect to:".$url_to_redirect_to; exit();}
 
-
-			header("Location: ".$url_to_redirect_to);
-			exit();
-			}
-	}
+		header("Location: ".$url_to_redirect_to);
+		exit();
+		}
+}
 
 
 if(isset($_SESSION['this_page'])){
