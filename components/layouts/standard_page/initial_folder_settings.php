@@ -4,7 +4,7 @@ if(!isset($_SESSION)){session_start();}
 
 if($_SERVER['HTTP_HOST']!== "dreamboat.com.au"){
 
-echo "hello - in intial folder settings";
+echo "hello - in intial folder settings"; exit();
 }
 
 //if two question marks found in the URL then chop out one and the text between them.
