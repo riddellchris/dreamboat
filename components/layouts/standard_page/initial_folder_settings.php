@@ -61,6 +61,14 @@ if(array_key_exists("primary_folder",$_GET) && array_key_exists("secondary_folde
 
 		}
 }
+else{
+	$url_to_redirect_to = 	$_SERVER['REQUEST_URI'];
+ $url_to_redirect_to .= url_folder_get_string_creation();
+
+
+		header("Location: ".$url_to_redirect_to);
+		exit();
+}
 
 
 
