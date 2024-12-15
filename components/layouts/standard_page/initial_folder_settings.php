@@ -4,13 +4,13 @@ if(!isset($_SESSION)){session_start();}
 require $_SERVER['DOCUMENT_ROOT']."/components/functions/required.php";
 
 
-if(isset($_SESSION['this_page'])){
+//if(isset($_SESSION['this_page'])){
 	if($_SESSION['this_page'] != $_SERVER['REQUEST_URI']){
 		//the order here is really important
 		$_SESSION['last_page_used'] = $_SESSION['this_page'];
 		$_SESSION['this_page'] = $_SERVER['REQUEST_URI'];
 		}
-}
+//}
 else{
 	$_SESSION['this_page'] = $_SERVER['REQUEST_URI'];
 
