@@ -38,8 +38,8 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_logo_font_family']         = "Playwrite FR Moderne";
                                                                 $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
                                                                 $_SESSION['masked_domain_logo_color']               = "#d6fc49";
-                                                                $_SESSION['masked_domain_logo_font_weight']         = "700";  
-                                                                $_SESSION['masked_domain_logo_text_transform']      = "none";
+                                                                $_SESSION['masked_domain_logo_font_weight']         = "400";  
+                                                                $_SESSION['masked_domain_logo_text_transform']      = "smaller";
                                                                 $_SESSION['masked_domain_html_title']               = "irrth.com";
 }
 
