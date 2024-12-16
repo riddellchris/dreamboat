@@ -15,7 +15,7 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_menu_tone_two']            = " #1edb04 ";
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #d6fc49 ";
                                                                 $_SESSION['masked_domain_focus_colour']             = " #DAF7A6 ";
-                                                                $_SESSION['masked_domain_logo_image']               = "yes";
+                                                                $_SESSION['masked_domain_logo_image']               = "no";
                                                                     $_SESSION['masked_domain_logo_file_name']       = "";                                                 
                                                                 $_SESSION['masked_domain_logo_name']                = "Nash Newton";
                                                                 $_SESSION['masked_domain_logo_font_family']         = "PTSansRegular, Arial, Helvetica, sans-serif";
@@ -32,7 +32,7 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_menu_tone_two']            = " #1edb04 ";
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #d6fc49 ";
                                                                 $_SESSION['masked_domain_focus_colour']             = " #2b0def ";
-                                                                $_SESSION['masked_domain_logo_image']               = "yes";
+                                                                $_SESSION['masked_domain_logo_image']               = "no";
                                                                     $_SESSION['masked_domain_logo_file_name']       = "";                                                 
                                                                 $_SESSION['masked_domain_logo_name']                = "irrth";
                                                                 $_SESSION['masked_domain_logo_font_family']         = "PTSansRegular, Arial, Helvetica, sans-serif";
