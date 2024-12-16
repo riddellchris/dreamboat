@@ -12,7 +12,7 @@ if(isset($_SESSION['masked_domain'])){
                                                                 $_SESSION['masked_domain_focus_colour']             = " #2b0def ";
                                                                 $_SESSION['masked_domain_logo_image']               = "yes";
                                                                     $_SESSION['masked_domain_logo_file_name']       = "";                                                 
-                                                                $_SESSION['masked_domain_logo_name']                = "irrth";
+                                                                $_SESSION['masked_domain_logo_name']                = "nash newton";
                                                                 $_SESSION['masked_domain_logo_font_family']         = "PTSansRegular, Arial, Helvetica, sans-serif";
                                                                 $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
                                                                 $_SESSION['masked_domain_logo_color']               = "#d6fc49";
