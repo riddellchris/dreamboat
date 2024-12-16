@@ -9,15 +9,15 @@ if($_SERVER['SERVER_PORT'] != 8888){
 
 if(isset($_SESSION['masked_domain'])){
 	if($_SESSION['masked_domain'] == 'nashnewton'){					
-                                                                $_SESSION['masked_domain_primary_colour']           = " #1B1212 ";
-                                                                $_SESSION['masked_domain_primary_colour_darker']    = " black ";
+                                                                $_SESSION['masked_domain_primary_colour']           = " #303030 ";
+                                                                $_SESSION['masked_domain_primary_colour_darker']    = " #1c1c1c ";
                                                                 $_SESSION['masked_domain_menu_tone_one']            = " #28b215 ";
                                                                 $_SESSION['masked_domain_menu_tone_two']            = " #1edb04 ";
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #d6fc49 ";
                                                                 $_SESSION['masked_domain_focus_colour']             = " #DAF7A6 ";
                                                                 $_SESSION['masked_domain_logo_image']               = "yes";
                                                                     $_SESSION['masked_domain_logo_file_name']       = "";                                                 
-                                                                $_SESSION['masked_domain_logo_name']                = "nash newton";
+                                                                $_SESSION['masked_domain_logo_name']                = "Nash Newton";
                                                                 $_SESSION['masked_domain_logo_font_family']         = "PTSansRegular, Arial, Helvetica, sans-serif";
                                                                 $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
                                                                 $_SESSION['masked_domain_logo_color']               = "#ffffff";
