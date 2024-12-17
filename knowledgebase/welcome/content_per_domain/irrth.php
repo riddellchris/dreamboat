@@ -1,7 +1,5 @@
-paragraph_start('yes', 10, 9, 9, "Welcome to Dreamboat's knowledgebase.");
-
-
-paragraph_start('no', 9,8,8, "Here you'll find all publicly available information on how we are stabilitising Australia's economy by optimising the individual <a href='/knowledgebase/productivity/network_productivity/' target='_blank'>productivity networks</a> that the economy is built of.");
+paragraph_start('no', 9,8,8, "Hi & welcome to irrth.com.")
+paragraph_start('no', 9,8,8, "Here you'll find all publicly available information on how we plan on working towards solving the climate crisis through a combination unique thinking, engineering and most importantly community engagement.");
 paragraph_start('no', 7,8,8, "A visual representation of that elemental network, is seen below: ");
 
 echo "<br><br><br>";
