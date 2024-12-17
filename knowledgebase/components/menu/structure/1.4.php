@@ -7,7 +7,7 @@ primary_knowledgebase_menu_item('executive_summary','no');
 if($_SERVER['HTTP_HOST'] == "dreamboat.com.au"){
     require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/economy.php";
 }
-if($_SERVER['HTTP_HOST'] == "irrth.com.au"){
+if($_SERVER['HTTP_HOST'] == "irrth.com"){
     require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/the_planet.php";
 }
 
