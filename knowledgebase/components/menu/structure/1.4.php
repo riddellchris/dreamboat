@@ -3,8 +3,13 @@ if(!isset($_SESSION)){session_start();}
 
 primary_knowledgebase_menu_item('welcome','no');
 primary_knowledgebase_menu_item('executive_summary','no');
-require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/economy.php";
 
+if($_SERVER['HTTP_HOST'] == "dreamboat.com.au"){
+    require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/economy.php";
+}
+if($_SERVER['HTTP_HOST'] == "irrth.com.au"){
+    require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/the_planet.php";
+}
 
 //not shown unless directed to
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/critical_groups.php";
