@@ -46,7 +46,7 @@ else{
 }
 
 if($_SERVER['HTTP_HOST'] == "irrth.com"){
-	.dreamboat-logo{font-size: 24px;}
+	echo ".dreamboat-logo{font-size: 24px;}";
 }
 else{
 	echo "	
