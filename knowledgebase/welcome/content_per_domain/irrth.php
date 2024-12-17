@@ -1,6 +1,6 @@
 <?php
 
-paragraph_start('no', 9,8,8, "Hi & welcome to irrth.com.")
+paragraph_start('no', 9,8,8, "Hi & welcome to irrth.com.");
 paragraph_start('no', 9,8,8, "Here you'll find all publicly available information on how we plan on working towards solving the climate crisis through a combination unique thinking, engineering and most importantly community engagement.");
 paragraph_start('no', 7,8,8, "A visual representation of that elemental network, is seen below: ");
 
