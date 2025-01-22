@@ -21,7 +21,7 @@ start_style_tag();
 		text-transform:uppercase;
 	}
 
-	p{font-family: Helvetica;}
+	p{font-family: font-family:  Barlow Semi Condensed, sans-serif;}
 
 	@media print {
 		.left{display:none;}	

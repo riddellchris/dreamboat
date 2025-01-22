@@ -36,6 +36,7 @@ else{
         'time',        
         'issues',
         'upgrades',
+        'quality',
         'results',
         'financials',  
         'reporting',               

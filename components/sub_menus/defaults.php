@@ -73,6 +73,8 @@ if(!isset($_SESSION['financials_page'])){					$_SESSION['financials_page'] 				=
 
 if(!isset($_SESSION['reporting_page'])){					$_SESSION['reporting_page'] 				= '6_chart_A4';}
 
+if(!isset($_SESSION['quality_page'])){					$_SESSION['quality_page'] 				= 'summary';}
+
 if(!isset($_SESSION['messages_page'])){					$_SESSION['messages_page'] 				= 'all';}
 if(!isset($_SESSION['notifications_page'])){			$_SESSION['notifications_page'] 		= 'alerts';}
 if(!isset($_SESSION['account_page'])){					$_SESSION['account_page'] 				= 'settings';}

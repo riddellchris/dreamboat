@@ -101,6 +101,8 @@ if(isset($_SESSION['logged_in'])){
 	//	require_file('/components/navigation/non_mobile/components/wheelhouse.php');
 	//	require_file('/components/navigation/non_mobile/components/management.php');
 
+		$nav_name = "quality"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
+
 		$nav_name = "upgrades"; 	if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}
 		$nav_name = "issues"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}	
 		$nav_name = "time"; 		if($_SESSION['main_nav_control'][$nav_name] == 'yes'){require_file("/components/navigation/non_mobile/components/".$nav_name.".php");}			

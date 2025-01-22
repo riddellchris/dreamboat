@@ -117,6 +117,8 @@ $_SESSION['user_alerts_notifications'] 				= 'off';
 $_SESSION['user_alerts_users'] 						= 'off';
 $_SESSION['user_alerts_account'] 					= 'off';
 $_SESSION['user_alerts_call'] 						= 'off';
+$_SESSION['user_alerts_quality'] 						= 'off';
+
 
 
 require $_SERVER['DOCUMENT_ROOT']."/components/back_of_house/database/connection.php";
