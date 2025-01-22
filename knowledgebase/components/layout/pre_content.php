@@ -46,7 +46,7 @@ require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/structure.php"
 			echo "<br>";
 			echo "<a class='breadcrumb_links 3' href='javascript:void(0);' onclick='myFunction();topFunction();'>>".strip_underscores($_GET['tertiary_folder'])."</a>";			
 		}
-		if($_GET['quarternary_folder'] != 'unknown'){
+		if($_GET['quarternary_folder'] != 'unknown' && $_GET['primary_folder'] != 'welcome'){
 			echo "<br>";
 			echo "<a class='breadcrumb_links 4' href='javascript:void(0);' onclick='myFunction();topFunction();'>>".strip_underscores($_GET['quarternary_folder'])."</a>";			
 		}
