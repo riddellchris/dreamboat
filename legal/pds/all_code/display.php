@@ -54,7 +54,7 @@ echo "
 .accuracy_class_1{opacity: 0.1;}
 .accuracy_class_0{opacity: 0.0;}
 
-.red_highlight_font{color: red;}
+.red_highlight_font{//color: red;}
 </style>
 ";
 
