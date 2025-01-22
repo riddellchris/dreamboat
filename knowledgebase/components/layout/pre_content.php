@@ -1,6 +1,10 @@
 <?php 
 if(!isset($_SESSION)){session_start();}
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 //manages the menu settings
 if(isset($_GET['tertiary_folder']) && !isset($_GET['quarternary_folder'])){
 $_SESSION[$_GET['primary_folder']."_".$_GET['secondary_folder']] = $_GET['tertiary_folder'];
@@ -8,8 +12,12 @@ $_SESSION[$_GET['primary_folder']."_".$_GET['secondary_folder']] = $_GET['tertia
 $_SESSION[$_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder']] = $_GET['quarternary_folder'];
 }
 
+
+
+
 //knowledgebase specific requirements
 require $_SERVER['DOCUMENT_ROOT']."/components/layouts/standard_page/start.php";
+
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/styling/main_css.php";
 require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/functions/include_images.php";
 

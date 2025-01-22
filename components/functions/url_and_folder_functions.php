@@ -8,11 +8,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/components/sub_menus/defaults.php";
 function url_folder_get_string_creation(){
 	admin_functions_in_pages_usage(__FUNCTION__,__FILE__);
 	
-	if(primary_folders_name() 		!= ''){$string = "primary_folder=".primary_folders_name();}
+	if(primary_folders_name() 	!= ''){$string  = "primary_folder=".primary_folders_name();}
 	if(secondary_folders_name() 	!= ''){$string .= "&secondary_folder=".secondary_folders_name();}
-	if(tertiary_folders_name() 		!= ''){$string .= "&tertiary_folder=".tertiary_folders_name();}
+	if(tertiary_folders_name() 	!= ''){$string .= "&tertiary_folder=".tertiary_folders_name();}
 	if(quarternary_folders_name() 	!= ''){$string .= "&quarternary_folder=".quarternary_folders_name();}	
-	if(item_id_from_url() 			!= ''){$string .= "&item_id=".item_id_from_url();}
+	if(item_id_from_url() 		!= ''){$string .= "&item_id=".item_id_from_url();}
 	return $string;
 }
 
@@ -22,7 +22,10 @@ function check_primary_folder($folder_name){
 	admin_functions_in_pages_usage(__FUNCTION__,__FILE__); //just checking and storing the use of the fucntion for future development tracking
 	//both tests are required because some may come straight from the URL (first test) OR just a $_GET pass (second test obviously)
 	
-	if(primary_folders_name() == $folder_name OR $_GET['primary_folder'] == $folder_name){return '1';}
+//	if(primary_folders_name() == $folder_name OR $_GET['primary_folder'] == $folder_name){return '1';}
+	if (primary_folders_name() == $folder_name || (isset($_GET['primary_folder']) && $_GET['primary_folder'] == $folder_name)) {
+		return '1';
+	}
 	else{return '0';}
 
 }

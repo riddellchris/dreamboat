@@ -33,3 +33,4 @@
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kalam'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Inter'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Gloria Hallelujah'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne" >

@@ -1,16 +1,19 @@
 <?php 
 //session start code is just few rows down on this page only
 
+
 if($_SERVER['SERVER_PORT'] == 8888){
 	header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 	header("Cache-Control: post-check=0, pre-check=0", false);
 	header("Pragma: no-cache");
 }
 else{
-	//turn off all errors for live
-	ini_set('display_errors', 0);
-	ini_set('display_startup_errors', 0);
-	error_reporting(0);
+	if($_SERVER['HTTP_HOST'] == "dreamboat.com.au"){
+		//turn off all errors for live
+		ini_set('display_errors', 0);
+		ini_set('display_startup_errors', 0);
+		error_reporting(0);
+	}
 }
 
 if(!isset($_SESSION)){session_start();}
