@@ -42,11 +42,11 @@ require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/structure.php"
 <div id='knowledgebase_breadcrumbs'>
 	<?php
 		echo "<a class='breadcrumb_links' href='javascript:void(0);' onclick='myFunction();topFunction();'>>".strip_underscores($_GET['secondary_folder'])."</a>";
-		if(isset($_GET['tertiary_folder'])){
+		if(isset($_GET['tertiary_folder'])  && $_GET['primary_folder'] != 'welcome'){
 			echo "<br>";
 			echo "<a class='breadcrumb_links 3' href='javascript:void(0);' onclick='myFunction();topFunction();'>>".strip_underscores($_GET['tertiary_folder'])."</a>";			
 		}
-		if($_GET['quarternary_folder'] != 'unknown' && $_GET['primary_folder'] != 'welcome'){
+		if($_GET['quarternary_folder'] != 'unknown'){
 			echo "<br>";
 			echo "<a class='breadcrumb_links 4' href='javascript:void(0);' onclick='myFunction();topFunction();'>>".strip_underscores($_GET['quarternary_folder'])."</a>";			
 		}
