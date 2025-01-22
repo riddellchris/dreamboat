@@ -10,8 +10,8 @@ start_style_tag();
 	//.left{	background-color: #C9DAF8;	}	
 	.left{	background-color: #ffe0e0;	}
 	.right{	
-		//font-family: Barlow Semi Condensed;
-		font-family: Helvetica;		
+		font-family: Barlow Semi Condensed;
+		//font-family: Helvetica;		
 		padding-top:12px;
 		padding-left: 1vw;
 		padding-right: 1vw;

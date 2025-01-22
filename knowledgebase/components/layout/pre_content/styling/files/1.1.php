@@ -9,10 +9,13 @@ start_style_tag();
 	//old color theme
 	//.left{	background-color: #C9DAF8;	}	
 	.left{	background-color: #C9DAF8;
-					font-family: Helvetica;		}
+			//font-family: Helvetica;		
+			font-family: Barlow Semi Condensed;
+				
+				}
 	.right{	
-		//font-family: Barlow Semi Condensed;
-		font-family: Helvetica;		
+		font-family: Barlow Semi Condensed;
+		//font-family: Helvetica;		
 		padding-top:12px;
 		padding-left: 1vw;
 		padding-right: 1vw;
@@ -21,7 +24,7 @@ start_style_tag();
 		text-transform:uppercase;
 	}
 
-	p{font-family: font-family:  Barlow Semi Condensed, sans-serif;}
+	p{font-family: Barlow Semi Condensed, sans-serif;}
 
 	@media print {
 		.left{display:none;}	
