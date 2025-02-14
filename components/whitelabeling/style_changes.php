@@ -1,13 +1,15 @@
 <?php
 if(!isset($_SESSION)){session_start();}
 
+$_SESSION['masked_domain'] = 'dreamboat';
+
 if($_SERVER['SERVER_PORT'] != 8888){
   if($_SERVER['HTTP_HOST'] == "nashnewton.com.au"){	$_SESSION['masked_domain'] = 'nashnewton';}
-  if($_SERVER['HTTP_HOST'] == "irrth.com"){		$_SESSION['masked_domain'] = 'irrth';}	
+  if($_SERVER['HTTP_HOST'] == "irrth.com"){		    $_SESSION['masked_domain'] = 'irrth';}	
 }
 
 
-if(isset($_SESSION['masked_domain'])){
+if($_SESSION['masked_domain'] != 'dreamboat'){
 	if($_SESSION['masked_domain'] == 'nashnewton'){					
                                                                 $_SESSION['masked_domain_primary_colour']           = " #303030 ";
                                                                 $_SESSION['masked_domain_primary_colour_darker']    = " #1c1c1c ";

@@ -7,12 +7,52 @@ require $_SERVER['DOCUMENT_ROOT']."/support/styling.php";
 ?>
 
 <style>
-.secure_input{max-width: unset; text-align:unset;background-color:#ffb0b0;box-shadow:unset;}
-.secure_input:focus{background-color:red;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
-.textarea_input{max-width: unset;box-shadow: unset;background-color: #9696ff;}
+
+<?php
+
+if($_SESSION['masked_domain'] == 'dreamboat'){
+ echo "
+	.secure_input{background-color:#ffb0b0;}
+	.secure_input:focus{background-color:red;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
+	.textarea_input{background-color: #9696ff;}
+	.textarea_input:focus{background-color: darkblue;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
+	.login-submit{background-color: forestgreen;}
+	.login-submit:focus{background-color:forestgreen;}
+	";
+}
+
+if($_SESSION['masked_domain'] == 'nashnewton'){
+echo "
+	.secure_input{background-color:#ffb0b0;}
+	.secure_input:focus{background-color:red;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
+	.textarea_input{background-color: #303030;color: white;}
+	.textarea_input:focus{background-color: #1c1c1c;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
+	.login-submit{background-color: #1edb04; color: #28b215;}
+	.login-submit:focus{background-color: #1edb04; color: #28b215;}
+";
+}
+
+if($_SERVER['HTTP_HOST'] == "irrth.com"){		    
+echo "
+	.secure_input{background-color:#ffb0b0;}
+	.secure_input:focus{background-color:red;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
+	.textarea_input{background-color: #9696ff;}
+	.textarea_input:focus{background-color: darkblue;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
+	.login-submit{background-color: forestgreen;}
+	.login-submit:focus{background-color:forestgreen;}
+";
+}
+
+
+?>
+echo "
+.secure_input{max-width: unset; text-align:unset;box-shadow:unset;}
+.secure_input:focus{}
+.textarea_input{max-width: unset;box-shadow: unset;}
 .textarea_input:focus{background-color: darkblue;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
-.login-submit{max-width: unset;background-color: forestgreen;} <!--#61ff61-->
+.login-submit{background-color: forestgreen;} <!--#61ff61-->
 .login-submit:focus{background-color:forestgreen;}
+";
 </style>
 
 <?php
