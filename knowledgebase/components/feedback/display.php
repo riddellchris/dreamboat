@@ -27,8 +27,8 @@ echo "
 	.secure_input:focus{background-color: #303030;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
 	.textarea_input{background-color: #303030;color: white;}
 	.textarea_input:focus{background-color: #1c1c1c;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
-	.login-submit{background-color: #DAF7A6; color: #d6fc49;}
-	.login-submit:focus{background-color: #1edb04; color: #d6fc49;}
+	.login-submit{background-color: #1edb04; color: #d6fc49;}
+	.login-submit:focus{background-color: #DAF7A6; color: #d6fc49;}
 ";
 }
 
