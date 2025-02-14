@@ -191,7 +191,7 @@ echo "
 ";
 
 
-if($_SESSION['masked_domain'] == 'nashnewton'){echo "a{color:#1edb04;}";}
+if($_SESSION['masked_domain'] == 'nashnewton'){echo "a{color:#1edb04;} a:hover{color: #DAF7A6;";}
 else{echo "a{color:red;}";}
 
 
