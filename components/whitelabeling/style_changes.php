@@ -97,14 +97,14 @@ if($_SESSION['masked_domain'] != 'dreamboat'){
                                                                 $_SESSION['masked_domain_html_title']               = "Orizon Analytics";
 	}
 	if($_SESSION['masked_domain'] == 'agedcareforeveryone'){	
-								$_SESSION['masked_domain_primary_colour']           = " #6F7C80 ";
+								                                $_SESSION['masked_domain_primary_colour']           = " #6F7C80 ";
                                                                 $_SESSION['masked_domain_primary_colour_darker']    = " #004751 ";
                                                                 $_SESSION['masked_domain_menu_tone_one']            = " #004751 ";
                                                                 $_SESSION['masked_domain_menu_tone_two']            = " #004751 ";                                                                
                                                                 $_SESSION['masked_domain_highlight_colour']         = " #FFA500 ";
                                                                 $_SESSION['masked_domain_focus_colour']             = " #ffd500 ";
                                                                 $_SESSION['masked_domain_logo_image']               = "no";
-                                                                    $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg"; 
+                                                                $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg"; 
                                                                 $_SESSION['masked_domain_logo_name']                = "Aged Care for Everyone";
                                                                 $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
                                                                 $_SESSION['masked_domain_logo_color']               = "#FFA500";
@@ -124,7 +124,7 @@ else{
     $_SESSION['masked_domain_highlight_colour']         = " #00ff00 ";
     $_SESSION['masked_domain_focus_colour']             = " #ff2424 ";
     $_SESSION['masked_domain_logo_image']               = "no";
-        $_SESSION['masked_domain_logo_file_name']       = "OTTO-Logo-Teal-min.svg"; 
+    $_SESSION['masked_domain_logo_file_name']           = "OTTO-Logo-Teal-min.svg"; 
     $_SESSION['masked_domain_logo_name']                = "Dreamboat";
     $_SESSION['masked_domain_logo_font_family']         = "Helvetica";
     $_SESSION['masked_domain_logo_letter_spacing']      = "0.1em";
