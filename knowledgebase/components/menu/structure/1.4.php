@@ -57,6 +57,7 @@ if($_SERVER['HTTP_HOST'] == "dreamboat.com.au"){
     if(isset($_SESSION['dreamboat_crew'])){
         if($_SESSION['dreamboat_crew'] == 'yes'){    
             require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/news.php";
+            require $_SERVER['DOCUMENT_ROOT']."/knowledgebase/components/menu/processes.php";            
         }
     }
     
