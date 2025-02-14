@@ -23,8 +23,8 @@ if($_SESSION['masked_domain'] == 'dreamboat'){
 
 if($_SESSION['masked_domain'] == 'nashnewton'){
 echo "
-	.secure_input{background-color:#ffb0b0;}
-	.secure_input:focus{background-color:red;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
+	.secure_input{background-color: #303030;}
+	.secure_input:focus{background-color: #303030;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
 	.textarea_input{background-color: #303030;color: white;}
 	.textarea_input:focus{background-color: #1c1c1c;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
 	.login-submit{background-color: #1edb04; color: #28b215;}
@@ -49,9 +49,9 @@ echo "
 .secure_input{max-width: unset; text-align:unset;box-shadow:unset;}
 .secure_input:focus{}
 .textarea_input{max-width: unset;box-shadow: unset;}
-.textarea_input:focus{background-color: darkblue;box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
-.login-submit{background-color: forestgreen;} <!--#61ff61-->
-.login-submit:focus{background-color:forestgreen;}
+.textarea_input:focus{box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);}
+.login-submit{} 
+.login-submit:focus{}
 ";
 </style>
 
