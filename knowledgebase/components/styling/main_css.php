@@ -188,11 +188,14 @@ echo "
 
 @media screen  and (min-width: 768px){	.content_containter{padding: 2vmin;}}
 @media screen  and (max-width: 768px){	.content_containter{padding: 2vmin; padding-top: 0px;}}
+";
 
 
+if($_SESSION['masked_domain'] == 'nashnewton'){echo "a{color:#1edb04;}";}
+else{echo "a{color:red;}";}
 
-a{color:red;}
 
+echo "
 /* print styles */
 .print_only{display:none;}
 
