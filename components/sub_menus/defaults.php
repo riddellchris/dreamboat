@@ -59,6 +59,11 @@ if(!isset($_SESSION['issues_page'])){					$_SESSION['issues_page'] 				= 'all';}
 if(!isset($_SESSION['opportunities_page'])){			$_SESSION['opportunities_page'] 		= 'all';}
 if(!isset($_SESSION['improvements_page'])){				$_SESSION['improvements_page'] 			= 'all';}
 if(!isset($_SESSION['upgrades_page'])){					$_SESSION['upgrades_page'] 				= 'underway';}
+
+
+if(!isset($_SESSION['thresholds_page'])){					$_SESSION['thresholds_page'] 				= 'list';}
+
+
 if(!isset($_SESSION['results_page'])){					$_SESSION['results_page'] 				= 'productivity';}
 if(!isset($_SESSION['financials_page'])){					$_SESSION['financials_page'] 				= 'cashflow';}
 
