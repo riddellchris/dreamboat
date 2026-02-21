@@ -1,0 +1,106 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+
+if($_GET['primary_folder'] != 'reporting'){
+  $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
+}
+else{
+  $location_string = 'financials_expenses_total';
+
+}
+
+?>
+
+
+
+<?php
+    echo "<script name='".$location_string."' type='text/javascript'>";
+    echo "
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(".$location_string.");";?>
+
+      function <?php echo $location_string; ?>()            
+                    {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+
+          <?php
+
+echo " ['Month',         'Revenue',                   { role: 'annotation' }],";
+
+
+
+
+if( $_SESSION['viewing_client_id'] == 4231 OR
+           //Tricia Ong's Clients
+           $_SESSION['viewing_client_id'] == 4383 OR 
+           $_SESSION['viewing_client_id'] == 4398 OR 
+    $_SESSION['viewing_client_id'] == 1){
+
+    $sql = "SELECT * FROM api_xero_reports_pnl_by_calendar_month
+            WHERE         user_id = '".$_SESSION['viewing_client_id']."'
+            AND           latest_version_for_this_user = 'yes'
+            AND           account_name = 'Total Operating Expenses'
+            AND           date_index > -7
+            ORDER BY date_index ASC          
+            ";
+           // echo $sql; exit();
+    $result = mysqli_query($conn, $sql);
+
+
+
+
+  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+      echo " ['".$row['period_for_chart_display']."',       ".$row['value'].",      '".$row['value']."'],      ";
+
+      $sub_title = $row['accurate_as_at_string'];
+
+      //RAW_Contract Manufacturing not included as not a sales item
+  }   
+}
+else{
+  echo "
+  ['Dec 21',   397, '397'],          
+  ['Jan 22',   397, '397'],
+  ['Feb 22',   288, '288'],
+  ['Mar 22',   215, '215'],
+  ['Apr 22',   262, '262'],
+  ['May 22',   282, '282']
+  ";
+
+  $sub_title = "Dummy data only";
+}
+
+
+
+?>
+        ]);
+
+
+
+                       
+        var options = {
+          <?php
+                echo "title: 'Total Expenses";
+                if(isset($sub_title)){echo " - ".$sub_title;}
+                echo "',";
+                ?>
+          vAxis: {title: '$'},
+         // hAxis: {title: 'Month'},
+          seriesType: 'bars',
+          colors: ['#3c78d8', '#f6b26b'],
+         legend: {position: 'none'},
+        isStacked: true
+        };
+
+        <?php
+          $chart_type = "ColumnChart";
+          echo "var chart = new google.visualization.".$chart_type."(document.getElementById('".$location_string."_div'));";
+        ?>
+        chart.draw(data, options);
+      }
+
+      $(window).resize(function(){<?php echo $location_string; ?>();});	
+
+    </script>

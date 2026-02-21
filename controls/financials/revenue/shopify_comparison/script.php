@@ -1,0 +1,72 @@
+<?php
+if(!isset($_SESSION)){session_start();}
+
+if($_GET['primary_folder'] != 'reporting'){
+  $location_string = $_GET['primary_folder']."_".$_GET['secondary_folder']."_".$_GET['tertiary_folder'];
+}
+else{
+  $location_string = 'financials_revenue_shopify_comparison';
+
+}
+
+?>
+
+
+
+<?php
+    echo "<script name='".$location_string."' type='text/javascript'>";
+    echo "
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(".$location_string.");";?>
+
+      function <?php echo $location_string; ?>()            
+                    {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+
+          <?php
+                echo " ['Month', 'Revenue', { role: 'annotation' }, 'Shopify Revenue', { role: 'annotation' }],";
+
+                  $setup_completed = 'no';
+                  if($_SESSION['viewing_client_id'] == 4383){ require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/shopify_comparison/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+                  if($_SESSION['viewing_client_id'] == 4398){ require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/shopify_comparison/user_specific_calculations/".$_SESSION['viewing_client_id'].".php";  $setup_completed = 'yes';}
+                  if($setup_completed == 'no'){               require $_SERVER['DOCUMENT_ROOT']."/financials/revenue/shopify_comparison/dummy_data.php";}
+
+                  unset($setup_completed);
+
+
+             
+            ?>
+        ]);
+
+
+
+                       
+        var options = {
+
+          <?php
+                echo "title: 'Shopify Comparison";
+                if(isset($sub_title)){echo " - ".$sub_title;}
+                echo "',";
+                ?>
+
+
+
+          vAxis: {title: '$'},
+          legend: { position: 'top' },
+         // hAxis: {title: 'Month'},
+          seriesType: 'bars',
+          colors: ['#3c78d8', '#f6b26b']
+        };
+
+        <?php
+          $chart_type = "ColumnChart";
+          echo "var chart = new google.visualization.".$chart_type."(document.getElementById('".$location_string."_div'));";
+        ?>
+        chart.draw(data, options);
+      }
+
+
+      $(window).resize(function(){<?php echo $location_string; ?>();});	
+    </script>
